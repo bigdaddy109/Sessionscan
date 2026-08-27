@@ -65,6 +65,17 @@ NEW_FLAT_LIMIT = 150
 TWEET_CAP = 80
 JOB_CAP = 8
 FORUM_CAP = 10
+SHORTS_OTHER_CAP = 8
+OWNED_CHANNEL_URL = "https://www.youtube.com/@sessionscan"
+OWNED_SHORTS_URL = "https://www.youtube.com/@sessionscan/shorts"
+NOT_A_SHORT_IDS = {"EACOWE6cHCI"}
+SHORTS_ID_RE = re.compile(r"/shorts/([A-Za-z0-9_-]{11})")
+YT_SHORTS_SOURCES = (
+    "https://www.youtube.com/hashtag/gtaonline/shorts",
+    "https://www.youtube.com/hashtag/gta6/shorts",
+    "https://www.youtube.com/results?search_query=%23shorts+GTA+Online",
+    "https://www.youtube.com/results?search_query=%23shorts+Red+Dead+Online",
+)
 
 X_SEARCH_QUERIES = {
     "zh": ('"GTA 6" OR "GTA線上" OR "俠盜獵車手6" site:x.com', "tw-zh"),
@@ -765,17 +776,7 @@ def update_videos():
     save_json("video_dates.json", cache)
 
 
-def write_sessionscan_slot():
-    """Owned channel stays a placeholder. Never invent SessionScan video URLs."""
-    slot = {
-        "status": "offline",
-        "title_zh": "SessionScan 頻道",
-        "title_en": "SessionScan channel",
-        "note_zh": "自有頻道目前可能離線。此格為預留位置，不會偽造 SessionScan 影片連結。",
-        "note_en": "Owned channel may be offline. Placeholder only — no fabricated SessionScan video URLs.",
-    }
-    save_json("sessionscan_slot.json", slot)
-    set_meta("sessionscan_slot")
+def write_ja_video_note():
     save_json(
         "ja_video_note.json",
         {
@@ -792,6 +793,144 @@ def write_sessionscan_slot():
             ],
         },
     )
+
+
+def shorts_ids_from_html(html):
+    """Allowlist: IDs that actually appear as /shorts/… on the page. Never invent."""
+    return list(dict.fromkeys(SHORTS_ID_RE.findall(html or "")))
+
+
+def is_sessionscan_author(meta):
+    name = (meta.get("author_name") or "").lower()
+    url = (meta.get("author_url") or "").lower()
+    return "sessionscan" in name or "sessionscan" in url
+
+
+def yt_oembed(vid):
+    try:
+        r = http_get(
+            f"https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v={vid}&format=json",
+            timeout=12,
+        )
+        return r.json()
+    except Exception as exc:
+        log.warning("oembed %s: %s", vid, exc)
+        return None
+
+
+def yt_page_html(url):
+    return http_get(url, timeout=20).text
+
+
+def short_item(vid, title, channel, lang="en", game=None):
+    return {
+        "id": vid,
+        "video_id": vid,
+        "title": title,
+        "channel": channel,
+        "url": f"https://www.youtube.com/shorts/{vid}",
+        "views": None,
+        "date": None,
+        "lang": lang,
+        "game": game or detect_game(title) or "GTA Online",
+        "kind": "short",
+    }
+
+
+def empty_owned_slot():
+    return {
+        "status": "online",
+        "channel_url": OWNED_CHANNEL_URL,
+        "channel_handle": "@sessionscan",
+        "title_zh": "SessionScan Short",
+        "title_en": "SessionScan Short",
+        "note_zh": "本週尚無 Short。頻道仍在。",
+        "note_en": "No Short this week. Channel is still up.",
+        "short": None,
+    }
+
+
+def scrape_owned_short(html=None):
+    """Latest Short listed on @sessionscan/shorts. Never mint an ID."""
+    fetched_ok = True
+    if html is None:
+        try:
+            html = yt_page_html(OWNED_SHORTS_URL)
+        except Exception as exc:
+            log.error("owned shorts page: %s", exc)
+            return None, False
+    ids = [vid for vid in shorts_ids_from_html(html) if vid not in NOT_A_SHORT_IDS]
+    if not ids:
+        return empty_owned_slot(), fetched_ok
+    for vid in ids:
+        meta = yt_oembed(vid)
+        if not meta:
+            continue
+        if not is_sessionscan_author(meta):
+            log.warning("skip %s: oEmbed author is not SessionScan", vid)
+            continue
+        title = (meta.get("title") or "").strip()
+        if not title:
+            continue
+        item = short_item(vid, title, "SessionScan", "en", detect_game(title) or "GTA Online")
+        slot = empty_owned_slot()
+        slot["note_zh"] = "自有每週 Short。其餘為他人當紅 Short。"
+        slot["note_en"] = "Owned weekly Short. Other cells are other creators’ trending Shorts."
+        slot["short"] = item
+        return slot, True
+    return empty_owned_slot(), fetched_ok
+
+
+def scrape_other_shorts(html_by_url=None, exclude_ids=None):
+    """Trending in-scope YouTube Shorts. /shorts/ IDs only — not landscape watch?v=."""
+    exclude = set(exclude_ids or ()) | NOT_A_SHORT_IDS
+    pages = html_by_url if html_by_url is not None else {}
+    if html_by_url is None:
+        for url in YT_SHORTS_SOURCES:
+            try:
+                pages[url] = yt_page_html(url)
+            except Exception as exc:
+                log.warning("shorts source %s: %s", url, exc)
+    ids = []
+    for url in (html_by_url or YT_SHORTS_SOURCES):
+        html = pages.get(url) or ""
+        for vid in shorts_ids_from_html(html):
+            if vid in exclude or vid in ids:
+                continue
+            ids.append(vid)
+    items = []
+    for vid in ids:
+        if len(items) >= SHORTS_OTHER_CAP:
+            break
+        meta = yt_oembed(vid)
+        if not meta:
+            continue
+        if is_sessionscan_author(meta):
+            continue
+        title = (meta.get("title") or "").strip()
+        channel = (meta.get("author_name") or "").strip()
+        blob = f"{title} {channel}"
+        if not title or is_gta4(blob) or is_old_gta(blob) or not is_in_scope(blob):
+            continue
+        items.append(short_item(vid, title, channel or "YouTube", detect_lang(title), detect_game(blob)))
+    return items
+
+
+def update_shorts():
+    prev = load_json("sessionscan_slot.json", {})
+    slot, fetched_ok = scrape_owned_short()
+    if not fetched_ok:
+        log.warning("owned shorts fetch failed, keeping previous slot")
+        if not prev:
+            save_json("sessionscan_slot.json", empty_owned_slot())
+            set_meta("sessionscan_slot")
+    else:
+        save_json("sessionscan_slot.json", slot)
+        set_meta("sessionscan_slot")
+    owned_id = ((slot or prev or {}).get("short") or {}).get("video_id")
+    others = scrape_other_shorts(exclude_ids={owned_id} if owned_id else set())
+    save_or_keep("videos_shorts", others, "videos shorts")
+    write_ja_video_note()
 
 
 # ---------------------------------------------------------------- Bahamut + Reddit
@@ -1192,7 +1331,7 @@ def finalize_meta(failures):
     for alias, keys in (
         ("jobs", ["jobs_gtabase", "jobs_ign", "jobs_wiki"]),
         ("hot", ["videos_hot_zh", "videos_hot_en", "videos_hot_ja"]),
-        ("new", ["videos_new_zh", "videos_new_en", "videos_new_ja"]),
+        ("new", ["videos_shorts", "sessionscan_slot"]),
         ("forum", ["forum_bahamut", "forum_reddit"]),
         ("tweets", ["tweets_zh", "tweets_en"]),
     ):
@@ -1205,10 +1344,11 @@ def finalize_meta(failures):
 def main():
     started = time.time()
     log.info("=" * 50)
-    write_sessionscan_slot()
+    write_ja_video_note()
     steps = [
         ("jobs", update_jobs),
         ("videos", update_videos),
+        ("shorts", update_shorts),
         ("forum", update_forum),
         ("tweets", update_tweets),
     ]

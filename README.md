@@ -49,8 +49,8 @@ npm run dev
 | 區塊 | 作法 |
 |------|------|
 | 本週賺錢與工作 | GTABase／IGN／GTA Wiki 公開列表：**只外連標題、連結、日期**，不轉載攻略全文 |
-| 熱門／最新影片 | yt-dlp（不需 API key），分 中文／English／日本語；縮圖直連 `i.ytimg.com`，不存檔 |
-| SessionScan 頻道格 | 頻道離線時維持預留，**不偽造** SessionScan 影片網址 |
+| 熱門攻略影片（CH-02） | yt-dlp（不需 API key），分 中文／English／日本語；縮圖直連 `i.ytimg.com`，不存檔 |
+| 當紅 Short（CH-03） | 第一格：`@sessionscan/shorts` 最新自有 Short（oEmbed 確認作者）。其餘：YouTube 當紅 GTA Shorts。失敗保留昨日檔。**不偽造** SessionScan 影片網址 |
 | 巴哈姆特 | HTML 解析 `bsn=4737` |
 | Reddit | `r/gtaonline`、`r/GTA6` RSS 外連卡 |
 | X / Twitter | ddgs `site:x.com` + syndication（免 key），Rockstar／GTA 6 相關 |

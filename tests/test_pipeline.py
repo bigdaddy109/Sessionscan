@@ -13,15 +13,20 @@ sys.path.insert(0, str(ROOT))
 from scraper import (  # noqa: E402
     baha_outbound_url,
     clean_heading,
+    empty_owned_slot,
     is_gta4,
     is_in_scope,
     is_old_gta,
+    is_sessionscan_author,
     parse_baha_rows,
     parse_gtabase_listing,
     parse_ign_game_page,
     parse_ign_rss,
     parse_reddit_atom,
     save_or_keep,
+    scrape_other_shorts,
+    scrape_owned_short,
+    shorts_ids_from_html,
 )
 import scraper as scraper_mod  # noqa: E402
 
@@ -178,6 +183,77 @@ class ParserTests(unittest.TestCase):
         self.assertEqual(len(items), 1)
         self.assertIn("Weekly Bonuses", items[0]["title"])
         self.assertEqual(items[0]["time"], "2026-08-26")
+
+
+class ShortsTests(unittest.TestCase):
+    def setUp(self):
+        self._oembed = scraper_mod.yt_oembed
+
+    def tearDown(self):
+        scraper_mod.yt_oembed = self._oembed
+
+    def test_ids_only_from_shorts_path(self):
+        html = (ROOT / "tests/fixtures/shorts_owned.html").read_text(encoding="utf-8")
+        self.assertEqual(shorts_ids_from_html(html), ["5ZNYHSFIBRc", "3-EhyHtd5Aw"])
+        self.assertNotIn("EACOWE6cHCI", shorts_ids_from_html(html))
+
+    def test_sessionscan_author_check(self):
+        self.assertTrue(is_sessionscan_author({
+            "author_name": "SessionScan",
+            "author_url": "https://www.youtube.com/@sessionscan",
+        }))
+        self.assertFalse(is_sessionscan_author({
+            "author_name": "Some Other Channel",
+            "author_url": "https://www.youtube.com/@other",
+        }))
+
+    def test_owned_short_uses_page_ids_and_oembed(self):
+        html = (ROOT / "tests/fixtures/shorts_owned.html").read_text(encoding="utf-8")
+
+        def fake_oembed(vid):
+            return {
+                "title": f"title-{vid}",
+                "author_name": "SessionScan",
+                "author_url": "https://www.youtube.com/@sessionscan",
+            }
+
+        scraper_mod.yt_oembed = fake_oembed
+        slot, ok = scrape_owned_short(html)
+        self.assertTrue(ok)
+        self.assertEqual(slot["status"], "online")
+        self.assertEqual(slot["short"]["video_id"], "5ZNYHSFIBRc")
+        self.assertEqual(slot["short"]["url"], "https://www.youtube.com/shorts/5ZNYHSFIBRc")
+        self.assertNotEqual(slot["status"], "offline")
+        self.assertIsNone(empty_owned_slot()["short"])
+
+    def test_other_shorts_exclude_owned_gta4_and_longform(self):
+        html = (ROOT / "tests/fixtures/shorts_trend.html").read_text(encoding="utf-8")
+
+        def fake_oembed(vid):
+            titles = {
+                "aaaaaaaaaaa": ("GTA Online weekly Short", "OtherChan"),
+                "bbbbbbbbbbb": ("GTA 4 remaster clip", "OldChan"),
+                "5ZNYHSFIBRc": ("owned", "SessionScan"),
+                "ddddddddddd": ("Red Dead Online bounty", "RdoChan"),
+            }
+            title, author = titles.get(vid, ("Nope", "X"))
+            return {
+                "title": title,
+                "author_name": author,
+                "author_url": f"https://www.youtube.com/@{author}",
+            }
+
+        scraper_mod.yt_oembed = fake_oembed
+        items = scrape_other_shorts(
+            {"https://example.test/trend": html},
+            exclude_ids={"5ZNYHSFIBRc"},
+        )
+        ids = [it["video_id"] for it in items]
+        self.assertEqual(ids, ["aaaaaaaaaaa", "ddddddddddd"])
+        self.assertTrue(all(it["url"].startswith("https://www.youtube.com/shorts/") for it in items))
+        self.assertNotIn("bbbbbbbbbbb", ids)
+        self.assertNotIn("ccccccccccc", ids)
+        self.assertNotIn("EACOWE6cHCI", ids)
 
 
 class BuildSiteTests(unittest.TestCase):
