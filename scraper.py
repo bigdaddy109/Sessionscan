@@ -25,12 +25,16 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
-from urllib.parse import quote_plus, urljoin, urlparse
+from urllib.parse import parse_qs, quote_plus, urljoin, urlparse
 
 import requests
-import yt_dlp
 from bs4 import BeautifulSoup
 from ddgs import DDGS
+
+try:
+    import yt_dlp
+except ImportError:  # pragma: no cover - video scrape only
+    yt_dlp = None
 
 BASE = Path(__file__).resolve().parent
 DATA = Path(os.environ.get("SCAN_DATA_DIR", BASE / "data"))
@@ -232,11 +236,25 @@ def parse_http_date(value):
         return None
 
 
+REL_TIME_RE = re.compile(
+    r"(?:just\s+now|\d+\s*(?:seconds?|minutes?|hours?|days?|weeks?|months?|years?|[smhdwy])\s+ago)",
+    re.I,
+)
+
+
 def clean_heading(title):
     t = html_lib.unescape(re.sub(r"\s+", " ", title or "")).strip()
     t = re.sub(r"^(?:[A-Z][a-z]{2} \d{1,2}, \d{4}\s*)+", "", t)
+    t = re.sub(rf"^(?:{REL_TIME_RE.pattern}\s*)+", "", t, flags=re.I)
     t = re.split(r"\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2},\s+\d{4}\b", t)[0]
+    t = REL_TIME_RE.split(t, maxsplit=1)[0]
     t = re.sub(r"\s+[-–]\s+(?:Rejected|Updated|Posted).*$", "", t, flags=re.I)
+    t = re.sub(
+        r"\s+[-–]\s+(?:Pulling|As |Ball |Vice |Rejected|Updated|Posted).*$",
+        "",
+        t,
+        flags=re.I,
+    )
     return t.strip(" -–")[:180]
 
 
@@ -349,12 +367,22 @@ def parse_ign_rss(xml_text):
     return out
 
 
+def ign_link_title(anchor):
+    for sel in ("h3", "h2", "h1"):
+        el = anchor.select_one(sel)
+        if el:
+            text = el.get_text(" ", strip=True)
+            if len(text) >= 12:
+                return text
+    return anchor.get_text(" ", strip=True)
+
+
 def parse_ign_game_page(html, page_url):
     soup = BeautifulSoup(html, "html.parser")
     out, seen = [], set()
     for a in soup.select('a[href*="/articles/"]'):
         href = a.get("href") or ""
-        title = clean_heading(a.get_text(" ", strip=True))
+        title = clean_heading(ign_link_title(a))
         if len(title) < 12:
             continue
         url = urljoin("https://www.ign.com", href)
@@ -479,6 +507,8 @@ def update_jobs():
 # ---------------------------------------------------------------- YouTube (yt-dlp, no API key)
 
 def yt_flat_search(query, n, sort_by_date=False, flat_limit=None):
+    if yt_dlp is None:
+        raise RuntimeError("yt_dlp is required for YouTube scrapes")
     if sort_by_date:
         url = f"https://www.youtube.com/results?search_query={quote_plus(query)}&sp=CAI%3D"
     else:
@@ -542,6 +572,8 @@ def yt_rss_latest(channel_id):
 
 
 def yt_full_info(vid):
+    if yt_dlp is None:
+        return None, None
     try:
         with yt_dlp.YoutubeDL(YDL_FULL) as ydl:
             info = ydl.extract_info(f"https://www.youtube.com/watch?v={vid}", download=False)
@@ -768,6 +800,38 @@ BAHA_URL = "https://forum.gamer.com.tw/B.php?bsn=4737"
 BAHA_BASE = "https://forum.gamer.com.tw/"
 
 
+def baha_outbound_url(href):
+    """Keep real C.php?bsn=&snA= threads; never emit a parameterless C.php."""
+    raw = urljoin(BAHA_BASE, (href or "").strip())
+    parsed = urlparse(raw)
+    host = (parsed.netloc or "").lower()
+    if host.startswith("www."):
+        host = host[4:]
+    if host and "forum.gamer.com.tw" not in host:
+        return BAHA_URL
+    qs = parse_qs(parsed.query)
+    bsn = (qs.get("bsn") or [""])[0]
+    sna = (qs.get("snA") or qs.get("sna") or [""])[0]
+    path = parsed.path or ""
+    if path.endswith("C.php"):
+        if bsn and sna:
+            return f"https://forum.gamer.com.tw/C.php?bsn={bsn}&snA={sna}"
+        return BAHA_URL
+    if path.endswith("B.php") and bsn:
+        return f"https://forum.gamer.com.tw/B.php?bsn={bsn}"
+    return BAHA_URL
+
+
+def baha_dedup_key(url):
+    parsed = urlparse(url or "")
+    qs = parse_qs(parsed.query)
+    bsn = (qs.get("bsn") or ["4737"])[0]
+    sna = (qs.get("snA") or qs.get("sna") or [""])[0]
+    if sna:
+        return f"c:{bsn}:{sna}"
+    return f"b:{bsn}"
+
+
 def parse_baha_rows(html):
     soup = BeautifulSoup(html, "html.parser")
     items = []
@@ -787,7 +851,7 @@ def parse_baha_rows(html):
             continue
         items.append({
             "title": title,
-            "url": urljoin(BAHA_BASE, main_link.get("href", "")),
+            "url": baha_outbound_url(main_link.get("href", "")),
             "author": author_el.get_text(strip=True) if author_el else "",
             "replies": num_el.get_text(strip=True) if num_el else "",
             "time": time_el.get_text(strip=True) if time_el else "",
@@ -829,11 +893,14 @@ def scrape_bahamut_ddgs():
             for r in results:
                 href = r.get("href") or ""
                 title = clean_heading(r.get("title") or "")
-                if "forum.gamer.com.tw" not in href or "C.php" not in href:
+                if "forum.gamer.com.tw" not in href:
+                    continue
+                if "C.php" not in href and "B.php" not in href:
                     continue
                 if is_gta4(title) or is_old_gta(title):
                     continue
-                k = norm_url(href)
+                url = baha_outbound_url(href)
+                k = baha_dedup_key(url)
                 if k in seen or len(title) < 6:
                     continue
                 seen.add(k)
@@ -846,7 +913,7 @@ def scrape_bahamut_ddgs():
                     "replies": None,
                     "source": "Bahamut",
                     "game": detect_game(title) or "GTA Online",
-                    "url": href,
+                    "url": url,
                     "blurb": "外連巴哈討論串。不轉載全文。",
                 })
                 if len(items) >= FORUM_CAP:
@@ -863,7 +930,8 @@ def scrape_bahamut():
         rows = []
     items, seen = [], set()
     for it in rows:
-        k = norm_url(it["url"])
+        url = baha_outbound_url(it["url"])
+        k = baha_dedup_key(url)
         if k in seen:
             continue
         seen.add(k)
@@ -876,7 +944,7 @@ def scrape_bahamut():
             "replies": it["replies"] or None,
             "source": "Bahamut",
             "game": detect_game(it["title"]) or "GTA Online",
-            "url": it["url"],
+            "url": url,
             "blurb": "外連巴哈討論串。不轉載全文。",
         })
         if len(items) >= FORUM_CAP:
