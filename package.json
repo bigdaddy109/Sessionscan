@@ -5,6 +5,7 @@
   "type": "module",
   "description": "SessionScan — static GTA hub (first-pass sample data)",
   "scripts": {
+    "prebuild": "cp LICENSE NOTICE public/",
     "dev": "vite --host 127.0.0.1 --port 43173 --strictPort",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1 --port 43173 --strictPort"
