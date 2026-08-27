@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scraper import (  # noqa: E402
+    clean_heading,
     is_gta4,
     is_in_scope,
     is_old_gta,
@@ -62,6 +63,13 @@ class KeepYesterdayTests(unittest.TestCase):
 
 
 class ParserTests(unittest.TestCase):
+    def test_clean_heading_strips_ign_chrome(self):
+        raw = "Aug 5, 2026 GTA 5 Actor Auditioned for 60 Roles in GTA 6, But Heard Nothing from Rockstar Aug 5, 2026 - Rejected. GTA 5 Cade Onder 18"
+        self.assertEqual(
+            clean_heading(raw),
+            "GTA 5 Actor Auditioned for 60 Roles in GTA 6, But Heard Nothing from Rockstar",
+        )
+
     def test_bahamut_skips_pin_and_gta4(self):
         html = (ROOT / "tests/fixtures/baha_sample.html").read_text(encoding="utf-8")
         rows = parse_baha_rows(html)

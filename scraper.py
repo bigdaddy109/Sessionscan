@@ -232,6 +232,14 @@ def parse_http_date(value):
         return None
 
 
+def clean_heading(title):
+    t = html_lib.unescape(re.sub(r"\s+", " ", title or "")).strip()
+    t = re.sub(r"^(?:[A-Z][a-z]{2} \d{1,2}, \d{4}\s*)+", "", t)
+    t = re.split(r"\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2},\s+\d{4}\b", t)[0]
+    t = re.sub(r"\s+[-–]\s+(?:Rejected|Updated|Posted).*$", "", t, flags=re.I)
+    return t.strip(" -–")[:180]
+
+
 def date_from_title(title):
     m = re.search(
         r"(20\d{2})[-/.](\d{1,2})[-/.](\d{1,2})"
@@ -265,7 +273,7 @@ def job_item(title, url, source, game=None, updated=None, rank=1):
     return {
         "id": md5_id(norm_url(url)),
         "rank": rank,
-        "title": html_lib.unescape(title).strip(),
+        "title": clean_heading(title),
         "title_en": "",
         "source": source,
         "game": game,
@@ -346,7 +354,7 @@ def parse_ign_game_page(html, page_url):
     out, seen = [], set()
     for a in soup.select('a[href*="/articles/"]'):
         href = a.get("href") or ""
-        title = a.get_text(" ", strip=True)
+        title = clean_heading(a.get_text(" ", strip=True))
         if len(title) < 12:
             continue
         url = urljoin("https://www.ign.com", href)
@@ -805,9 +813,54 @@ def fetch_bahamut_html():
         raise
 
 
+def scrape_bahamut_ddgs():
+    items, seen = [], set()
+    queries = (
+        "GTA Online site:forum.gamer.com.tw/C.php",
+        "GTA 6 site:forum.gamer.com.tw/C.php",
+    )
+    with DDGS() as d:
+        for q in queries:
+            try:
+                results = list(d.text(q, region="tw-zh", max_results=10))
+            except Exception as exc:
+                log.warning("bahamut ddgs %s: %s", q, exc)
+                continue
+            for r in results:
+                href = r.get("href") or ""
+                title = clean_heading(r.get("title") or "")
+                if "forum.gamer.com.tw" not in href or "C.php" not in href:
+                    continue
+                if is_gta4(title) or is_old_gta(title):
+                    continue
+                k = norm_url(href)
+                if k in seen or len(title) < 6:
+                    continue
+                seen.add(k)
+                items.append({
+                    "id": md5_id(k),
+                    "rank": len(items) + 1,
+                    "title": title,
+                    "author": "巴哈姆特",
+                    "time": now_str()[:10],
+                    "replies": None,
+                    "source": "Bahamut",
+                    "game": detect_game(title) or "GTA Online",
+                    "url": href,
+                    "blurb": "外連巴哈討論串。不轉載全文。",
+                })
+                if len(items) >= FORUM_CAP:
+                    return items
+    return items
+
+
 def scrape_bahamut():
-    html = fetch_bahamut_html()
-    rows = parse_baha_rows(html)
+    try:
+        html = fetch_bahamut_html()
+        rows = parse_baha_rows(html)
+    except Exception as exc:
+        log.error("bahamut html: %s", exc)
+        rows = []
     items, seen = [], set()
     for it in rows:
         k = norm_url(it["url"])
@@ -828,7 +881,10 @@ def scrape_bahamut():
         })
         if len(items) >= FORUM_CAP:
             break
-    return items
+    if items:
+        return items
+    log.warning("bahamut html empty, trying ddgs outbound cards")
+    return scrape_bahamut_ddgs()
 
 
 def parse_reddit_atom(xml_text, source_name, game):
@@ -873,6 +929,7 @@ def scrape_reddit():
     items, seen = [], set()
     for url, name, game in feeds:
         try:
+            time.sleep(1.2)
             xml = http_get(url, headers=REDDIT_UA, timeout=20).text
             for it in parse_reddit_atom(xml, name, game):
                 k = norm_url(it["url"])
