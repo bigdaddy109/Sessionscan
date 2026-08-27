@@ -27,6 +27,7 @@ LIST_SECTIONS = [
     "videos_new_zh",
     "videos_new_en",
     "videos_new_ja",
+    "videos_shorts",
     "forum_bahamut",
     "forum_reddit",
     "tweets_zh",

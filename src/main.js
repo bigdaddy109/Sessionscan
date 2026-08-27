@@ -57,12 +57,16 @@ function jobCard(item) {
     </article>`;
 }
 
-function videoCard(v, rank) {
+function videoCard(v, rank, extraClass) {
   const id = v.video_id;
   const thumb = `https://i.ytimg.com/vi/${encodeURIComponent(id)}/mqdefault.jpg`;
   const lang = v.lang === "zh" ? "中文" : v.lang === "ja" ? "日文" : "EN";
+  const cls = extraClass ? `video-card ${extraClass}` : "video-card";
+  const channelLink = v.owned
+    ? `<p class="blurb"><a href="${esc(v.channel_url || "https://www.youtube.com/@sessionscan")}" target="_blank" rel="noopener noreferrer">SessionScan 頻道 @sessionscan ↗</a></p>`
+    : "";
   return `
-    <article class="video-card" data-card>
+    <article class="${cls}" data-card>
       <a class="thumb-link" href="${esc(v.url)}" target="_blank" rel="noopener noreferrer">
         ${rank != null ? `<div class="rank">${rank}</div>` : ""}
         <img class="thumb" src="${thumb}" alt="" loading="lazy" />
@@ -72,24 +76,41 @@ function videoCard(v, rank) {
         <h3><a href="${esc(v.url)}" target="_blank" rel="noopener noreferrer">${esc(v.title)}</a></h3>
         <div class="card-meta">
           ${sampleBadge()}
+          ${v.owned ? `<span class="tag">SessionScan</span>` : ""}
           <span class="tag">${lang}</span>
           <span>${esc(v.channel)}</span>
           ${v.views != null ? `<span>👁 ${esc(fmtViews(v.views))}</span>` : ""}
           ${v.date ? `<span>${esc(v.date)}</span>` : ""}
         </div>
+        ${channelLink}
       </div>
     </article>`;
 }
 
 function sessionScanSlot(slot) {
+  const channel = slot?.channel_url || "https://www.youtube.com/@sessionscan";
+  const short = slot?.short;
+  if (short?.video_id) {
+    return videoCard(
+      {
+        ...short,
+        channel: "SessionScan",
+        lang: short.lang || "en",
+        owned: true,
+        channel_url: channel,
+      },
+      1,
+      "owned-short",
+    );
+  }
   return `
-    <article class="slot-card" data-card>
-      <strong>SESSIONSCAN SLOT</strong>
-      <p>${esc(slot.note_zh)}</p>
-      <p>${esc(slot.note_en)}</p>
+    <article class="slot-card owned-short empty" data-card>
+      <strong>SESSIONSCAN</strong>
+      <p>本週尚無 Short</p>
+      <p class="blurb"><a href="${esc(channel)}" target="_blank" rel="noopener noreferrer">SessionScan 頻道 @sessionscan ↗</a></p>
       <div class="card-meta" style="justify-content:center;margin-top:10px">
         ${sampleBadge()}
-        <span class="tag">頻道可能離線</span>
+        <span class="tag">自有 Short</span>
         <span class="tag">無偽造連結</span>
       </div>
     </article>`;
@@ -160,14 +181,13 @@ function renderHot() {
 }
 
 function renderNew() {
-  const list = state.data[`videos_new_${state.newLang}`] || [];
   const slot = sessionScanSlot(state.data.sessionscan_slot);
-  if (state.newLang === "ja" && !list.length) {
-    $("#newGrid").innerHTML = slot + jaNote(state.data.ja_video_note);
-    return;
-  }
-  const cards = list.length ? list.map((v) => videoCard(v)).join("") : "";
-  $("#newGrid").innerHTML = slot + (cards || `<p class="empty-msg">${isLiveData(state.data) ? "此語言尚無影片，等待下次掃描。" : "此語言尚無範例影片。"}</p>`);
+  const others = (state.data.videos_shorts || []).filter((v) => {
+    const owned = state.data.sessionscan_slot?.short?.video_id;
+    return v.video_id && v.video_id !== owned && v.video_id !== "EACOWE6cHCI";
+  });
+  const cards = others.map((v, i) => videoCard(v, i + 2)).join("");
+  $("#newGrid").innerHTML = slot + (cards || `<p class="empty-msg">${isLiveData(state.data) ? "尚無他人當紅 Short，等待下次掃描。" : "尚無範例 Short。"}</p>`);
 }
 
 function renderForum() {
@@ -265,13 +285,19 @@ function localSearch(raw) {
     .filter((b) => matches(b, ["title", "title_en", "source", "game", "tags", "blurb"], words));
   const hot = [...(d.videos_hot_zh || []), ...(d.videos_hot_en || []), ...(d.videos_hot_ja || [])]
     .filter((v) => matches(v, ["title", "channel", "game", "lang"], words));
-  const fresh = [...(d.videos_new_zh || []), ...(d.videos_new_en || []), ...(d.videos_new_ja || [])]
+  const fresh = [...(d.videos_shorts || [])]
     .filter((v) => matches(v, ["title", "channel", "game", "lang"], words));
   const forum = [...(d.forum_bahamut || []), ...(d.forum_reddit || [])]
     .filter((b) => matches(b, ["title", "author", "source", "game", "blurb"], words));
   const tweets = [...(d.tweets_zh || []), ...(d.tweets_en || [])]
     .filter((t) => matches(t, ["text", "author", "author_name", "game"], words));
-  const slotHit = matches(d.sessionscan_slot, ["title_zh", "title_en", "note_zh", "note_en", "status"], words);
+  const slot = d.sessionscan_slot || {};
+  const slotHay = {
+    ...slot,
+    short_title: slot.short?.title || "",
+    short_channel: slot.short?.channel || "",
+  };
+  const slotHit = matches(slotHay, ["title_zh", "title_en", "note_zh", "note_en", "status", "short_title", "short_channel", "channel_handle"], words);
   return {
     jobs, hot, fresh, forum, tweets, slot: slotHit,
     total: jobs.length + hot.length + fresh.length + forum.length + tweets.length + (slotHit ? 1 : 0),
@@ -288,8 +314,8 @@ function doSearch(raw) {
   let html = "";
   if (r.jobs.length) html += `<h3 class="group-title">賺錢與工作（${r.jobs.length}）</h3>${r.jobs.map(jobCard).join("")}`;
   if (r.hot.length) html += `<h3 class="group-title">熱門影片（${r.hot.length}）</h3><div class="video-grid">${r.hot.map((v) => videoCard(v)).join("")}</div>`;
-  if (r.fresh.length) html += `<h3 class="group-title">最新影片（${r.fresh.length}）</h3><div class="video-grid">${r.fresh.map((v) => videoCard(v)).join("")}</div>`;
-  if (r.slot) html += `<h3 class="group-title">SessionScan 預留</h3>${sessionScanSlot(state.data.sessionscan_slot)}`;
+  if (r.fresh.length) html += `<h3 class="group-title">當紅 Short（${r.fresh.length}）</h3><div class="video-grid">${r.fresh.map((v) => videoCard(v)).join("")}</div>`;
+  if (r.slot) html += `<h3 class="group-title">SessionScan Short</h3>${sessionScanSlot(state.data.sessionscan_slot)}`;
   if (r.forum.length) html += `<h3 class="group-title">論壇（${r.forum.length}）</h3>${r.forum.map(threadCard).join("")}`;
   if (r.tweets.length) html += `<h3 class="group-title">X / Twitter（${r.tweets.length}）</h3>${r.tweets.map(tweetCard).join("")}`;
   $("#searchResults").innerHTML = html || `<p class="no-result">掃描不到符合「${esc(q)}」的卡片。</p>`;

@@ -92,6 +92,22 @@ class SearchAliasTests(unittest.TestCase):
         self.assertTrue(any("RPG Mechanics" in t for t in titles))
         self.assertTrue(any("Leaks" in t or "Leaker" in t for t in titles))
 
+    def test_owned_short_is_searchable_and_not_offline(self):
+        site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
+        slot = site["sessionscan_slot"]
+        self.assertEqual(slot.get("status"), "online")
+        self.assertNotEqual(slot.get("status"), "offline")
+        short = slot.get("short") or {}
+        self.assertEqual(short.get("video_id"), "5ZNYHSFIBRc")
+        self.assertTrue(str(short.get("url", "")).startswith("https://www.youtube.com/shorts/"))
+        self.assertNotEqual(short.get("video_id"), "EACOWE6cHCI")
+        others = site.get("videos_shorts") or []
+        self.assertGreaterEqual(len(others), 1)
+        self.assertNotIn("5ZNYHSFIBRc", [v.get("video_id") for v in others])
+        self.assertNotIn("EACOWE6cHCI", [v.get("video_id") for v in others])
+        hay = f"{slot.get('title_zh','')} {short.get('title','')} {short.get('channel','')}".lower()
+        self.assertIn("hotring", hay)
+
     def test_live_bahamut_never_uses_bare_cphp(self):
         site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
         for it in site.get("forum_bahamut") or []:

@@ -1037,6 +1037,104 @@
    "game": "GTA 5"
   }
  ],
+ "videos_shorts": [
+  {
+   "id": "wFHBjJOn6FI",
+   "video_id": "wFHBjJOn6FI",
+   "title": "I Become A Fake Fuel Pump And Trolled A GTA 5 Cops 🚔💥😂 #gta5",
+   "channel": "XP Playz",
+   "url": "https://www.youtube.com/shorts/wFHBjJOn6FI",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short"
+  },
+  {
+   "id": "7gxiWyQTuNw",
+   "video_id": "7gxiWyQTuNw",
+   "title": "🤭 #gta5 #game #gaming #gtaonline #gta5online For true fans of the GTA game, a lamp of the GTA game.",
+   "channel": "CustomLevitate",
+   "url": "https://www.youtube.com/shorts/7gxiWyQTuNw",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short"
+  },
+  {
+   "id": "j0UrPbwIciU",
+   "video_id": "j0UrPbwIciU",
+   "title": "Truck didn’t move 💀 #gta5 #gtaonline",
+   "channel": "CertifiedMuppet",
+   "url": "https://www.youtube.com/shorts/j0UrPbwIciU",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short"
+  },
+  {
+   "id": "JUV9BE4WV8s",
+   "video_id": "JUV9BE4WV8s",
+   "title": "GTA 5 - CJ RETURNS 💀",
+   "channel": "Vinewood Gamerz",
+   "url": "https://www.youtube.com/shorts/JUV9BE4WV8s",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short"
+  },
+  {
+   "id": "2qphTgh7JAQ",
+   "video_id": "2qphTgh7JAQ",
+   "title": "Bro’s Game Ended Way Too Fast 😂💀 #gtaviral #gta5 #gtaonline #gta5online #fail",
+   "channel": "SJx Playz",
+   "url": "https://www.youtube.com/shorts/2qphTgh7JAQ",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short"
+  },
+  {
+   "id": "F9RnRw7TsRk",
+   "video_id": "F9RnRw7TsRk",
+   "title": "Not the hot dogs 🌭💀 #gta5 #gtaonline",
+   "channel": "CertifiedMuppet",
+   "url": "https://www.youtube.com/shorts/F9RnRw7TsRk",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short"
+  },
+  {
+   "id": "2c1ifi4UfBY",
+   "video_id": "2c1ifi4UfBY",
+   "title": "GTA Online (Then vs Now) Part 1 #shorts #gaming #gta #gtaonline",
+   "channel": "flonk_gaming",
+   "url": "https://www.youtube.com/shorts/2c1ifi4UfBY",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short"
+  },
+  {
+   "id": "pCDkWOszILo",
+   "video_id": "pCDkWOszILo",
+   "title": "GTA V gulli bulli #cartoon #gta5 #gtaonline #shorts #gta",
+   "channel": "𝐅𝐀𝐈𝐒𝐀𝐋_𝐓𝐘𝐏𝐈𝐒𝐓🎀",
+   "url": "https://www.youtube.com/shorts/pCDkWOszILo",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short"
+  }
+ ],
  "forum_bahamut": [
   {
    "id": "8d01ee9d704dd053508b4bd39686f281",
@@ -1465,7 +1563,7 @@
   }
  ],
  "meta": {
-  "sessionscan_slot": "2026-08-27 08:07",
+  "sessionscan_slot": "2026-08-27 15:52",
   "jobs_gtabase": "2026-08-27 08:12",
   "jobs_ign": "2026-08-27 08:12",
   "jobs_wiki": "2026-08-27 08:12",
@@ -1499,14 +1597,29 @@
   "hot": "2026-08-27 08:10",
   "new": "2026-08-27 08:10",
   "forum": "2026-08-27 08:12",
-  "forum_bahamut": "2026-08-27 08:12"
+  "forum_bahamut": "2026-08-27 08:12",
+  "videos_shorts": "2026-08-27 15:52"
  },
  "sessionscan_slot": {
-  "status": "offline",
-  "title_zh": "SessionScan 頻道",
-  "title_en": "SessionScan channel",
-  "note_zh": "自有頻道目前可能離線。此格為預留位置，不會偽造 SessionScan 影片連結。",
-  "note_en": "Owned channel may be offline. Placeholder only — no fabricated SessionScan video URLs."
+  "status": "online",
+  "channel_url": "https://www.youtube.com/@sessionscan",
+  "channel_handle": "@sessionscan",
+  "title_zh": "SessionScan Short",
+  "title_en": "SessionScan Short",
+  "note_zh": "自有每週 Short。其餘為他人當紅 Short。",
+  "note_en": "Owned weekly Short. Other cells are other creators’ trending Shorts.",
+  "short": {
+   "id": "5ZNYHSFIBRc",
+   "video_id": "5ZNYHSFIBRc",
+   "title": "4X Hotring Circuit This Week | GTA Online One take",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/5ZNYHSFIBRc",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short"
+  }
  },
  "ja_video_note": {
   "title_zh": "日本語區尚無掃描結果時的索引",

@@ -303,12 +303,16 @@
   ],
   "videos_new_ja": [],
   "sessionscan_slot": {
-    "status": "offline",
-    "title_zh": "SessionScan 頻道",
-    "title_en": "SessionScan channel",
-    "note_zh": "自有頻道目前可能離線。此格為預留位置，不會偽造 SessionScan 影片連結。",
-    "note_en": "Owned channel may be offline. Placeholder only — no fabricated SessionScan video URLs."
+    "status": "online",
+    "channel_url": "https://www.youtube.com/@sessionscan",
+    "channel_handle": "@sessionscan",
+    "title_zh": "SessionScan Short",
+    "title_en": "SessionScan Short",
+    "note_zh": "本週尚無 Short。頻道仍在。",
+    "note_en": "No Short this week. Channel is still up.",
+    "short": null
   },
+  "videos_shorts": [],
   "forum_bahamut": [
     {
       "id": "baha-board",

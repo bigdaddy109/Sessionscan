@@ -1,7 +1,21 @@
 {
- "status": "offline",
- "title_zh": "SessionScan 頻道",
- "title_en": "SessionScan channel",
- "note_zh": "自有頻道目前可能離線。此格為預留位置，不會偽造 SessionScan 影片連結。",
- "note_en": "Owned channel may be offline. Placeholder only — no fabricated SessionScan video URLs."
+ "status": "online",
+ "channel_url": "https://www.youtube.com/@sessionscan",
+ "channel_handle": "@sessionscan",
+ "title_zh": "SessionScan Short",
+ "title_en": "SessionScan Short",
+ "note_zh": "自有每週 Short。其餘為他人當紅 Short。",
+ "note_en": "Owned weekly Short. Other cells are other creators’ trending Shorts.",
+ "short": {
+  "id": "5ZNYHSFIBRc",
+  "video_id": "5ZNYHSFIBRc",
+  "title": "4X Hotring Circuit This Week | GTA Online One take",
+  "channel": "SessionScan",
+  "url": "https://www.youtube.com/shorts/5ZNYHSFIBRc",
+  "views": null,
+  "date": null,
+  "lang": "en",
+  "game": "GTA Online",
+  "kind": "short"
+ }
 }
