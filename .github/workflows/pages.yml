@@ -1,4 +1,5 @@
 name: pages
+# Retrigger Pages deploy after Actions source was enabled.
 on:
   push:
     branches: [main]
