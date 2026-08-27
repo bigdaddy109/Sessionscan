@@ -205,6 +205,7 @@ img { max-width: 100%; display: block; }
   color: var(--pink);
   margin-right: 6px;
 }
+.tab .tab-name { display: inline; }
 .tab:hover { color: var(--text); }
 .tab.active {
   color: var(--text);
@@ -794,12 +795,46 @@ main {
   .word-sub { letter-spacing: 0.2em; }
 }
 
+@media (max-width: 720px) {
+  .tabs {
+    overflow-x: visible;
+    flex-wrap: wrap;
+    row-gap: 0;
+  }
+  .tab {
+    flex: 1 1 calc(33.33% - 2px);
+    min-width: calc(33.33% - 2px);
+    padding: 8px 6px 9px;
+    font-size: 13px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 @media (max-width: 640px) {
   .header-inner { padding: 10px 12px 6px; }
   .search-box { width: 100%; min-width: 0; }
   main, .site-footer, .tabs { padding-left: 12px; padding-right: 12px; }
   .job-card, .thread-item { padding-left: 58px; }
   .brand-text strong { font-size: 18px; letter-spacing: 0.1em; }
+}
+
+@media (max-width: 420px) {
+  .tabs {
+    overflow-x: visible;
+    flex-wrap: wrap;
+  }
+  .tab {
+    flex: 1 1 18%;
+    min-width: 18%;
+    padding: 8px 4px 9px;
+  }
+  .tab .tab-name { display: none; }
+  .tab .ch {
+    margin-right: 0;
+    font-size: 13px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

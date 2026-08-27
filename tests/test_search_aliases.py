@@ -82,6 +82,23 @@ class SearchAliasTests(unittest.TestCase):
         self.assertGreater((ROOT / "public" / "LICENSE").stat().st_size, 100)
         self.assertGreater((ROOT / "public" / "NOTICE").stat().st_size, 50)
 
+    def test_live_ign_titles_have_no_recency_crumbs(self):
+        site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
+        titles = [it.get("title", "") for it in (site.get("jobs_ign") or [])]
+        self.assertGreaterEqual(len(titles), 6)
+        for title in titles:
+            self.assertNotRegex(title, r"\b\d+\s*[smhdwy]\s+ago\b", msg=title)
+            self.assertNotIn("Cade Onder", title)
+        self.assertTrue(any("RPG Mechanics" in t for t in titles))
+        self.assertTrue(any("Leaks" in t or "Leaker" in t for t in titles))
+
+    def test_live_bahamut_never_uses_bare_cphp(self):
+        site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
+        for it in site.get("forum_bahamut") or []:
+            url = it.get("url") or ""
+            self.assertNotEqual(url.rstrip("/"), "https://forum.gamer.com.tw/C.php")
+            self.assertTrue("bsn=" in url, url)
+
 
 if __name__ == "__main__":
     unittest.main()
