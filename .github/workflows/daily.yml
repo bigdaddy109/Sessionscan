@@ -1,0 +1,68 @@
+name: daily scrape and deploy
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # UTC 00:00 = Taipei 08:00
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  scrape-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install scraper
+        run: pip install -r requirements.txt
+
+      - name: Run scraper
+        run: python scraper.py
+
+      - name: Merge JSON for the static hub
+        run: python build_site.py
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data public/data/site.json
+          if git diff --cached --quiet; then
+            echo "No data changes to commit"
+          else
+            git commit -m "daily data update $(date -u +%F)"
+            git push
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm install
+      - run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: scrape-and-build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

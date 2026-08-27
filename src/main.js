@@ -1,8 +1,14 @@
 const SOURCE_HINTS = {
-  gtabase: "GTABase 公開每週更新與資料庫。卡片只外連，不轉載全文。數字為範例。",
+  gtabase: "GTABase 公開每週更新與資料庫。卡片只外連，不轉載全文。",
   ign: "IGN 維基／遊戲頁入口。GTA Online、RDO、GTA 6。不含 GTA 4。",
   wiki: "GTA Wiki / Red Dead Wiki 公開條目。本站不重寫攻略正文。",
 };
+
+function isLiveData(data) {
+  const meta = data?.meta || {};
+  if (meta.sample === true || meta.scraper_status === "disabled") return false;
+  return Boolean(meta._last_run);
+}
 
 const state = {
   data: null,
@@ -25,12 +31,14 @@ function esc(value) {
 
 function fmtViews(n) {
   if (typeof n !== "number") return "";
-  if (n >= 10000) return `${(n / 10000).toFixed(1).replace(/\.0$/, "")} 萬（範例）`;
-  if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, "")}K（範例）`;
-  return `${n}（範例）`;
+  const suffix = isLiveData(state.data) ? "" : "（範例）";
+  if (n >= 10000) return `${(n / 10000).toFixed(1).replace(/\.0$/, "")} 萬${suffix}`;
+  if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, "")}K${suffix}`;
+  return `${n}${suffix}`;
 }
 
 function sampleBadge() {
+  if (isLiveData(state.data)) return "";
   return `<span class="tag sample">範例 EXAMPLE</span>`;
 }
 
@@ -110,7 +118,7 @@ function threadCard(item) {
         <span class="tag">${esc(item.game)}</span>
         <span>${esc(item.author)}</span>
         <span>${esc(item.time)}</span>
-        ${item.replies != null ? `<span class="reply">回 ${esc(item.replies)}（範例）</span>` : ""}
+        ${item.replies != null ? `<span class="reply">回 ${esc(item.replies)}${isLiveData(state.data) ? "" : "（範例）"}</span>` : ""}
       </div>
       ${item.blurb ? `<p class="blurb">${esc(item.blurb)}</p>` : ""}
     </article>`;
@@ -137,7 +145,7 @@ function renderJobs() {
   $("#jobHint").textContent = SOURCE_HINTS[state.jobsSource] || "";
   $("#jobList").innerHTML = list.length
     ? list.map(jobCard).join("")
-    : `<p class="empty-msg">此來源尚無範例卡片。</p>`;
+    : `<p class="empty-msg">${isLiveData(state.data) ? "此來源尚無卡片，等待下次掃描。" : "此來源尚無範例卡片。"}</p>`;
 }
 
 function renderHot() {
@@ -148,7 +156,7 @@ function renderHot() {
   }
   $("#hotGrid").innerHTML = list.length
     ? list.map((v, i) => videoCard(v, i + 1)).join("")
-    : `<p class="empty-msg">此語言尚無範例影片。</p>`;
+    : `<p class="empty-msg">${isLiveData(state.data) ? "此語言尚無影片，等待下次掃描。" : "此語言尚無範例影片。"}</p>`;
 }
 
 function renderNew() {
@@ -159,7 +167,7 @@ function renderNew() {
     return;
   }
   const cards = list.length ? list.map((v) => videoCard(v)).join("") : "";
-  $("#newGrid").innerHTML = slot + (cards || `<p class="empty-msg">此語言尚無範例影片。</p>`);
+  $("#newGrid").innerHTML = slot + (cards || `<p class="empty-msg">${isLiveData(state.data) ? "此語言尚無影片，等待下次掃描。" : "此語言尚無範例影片。"}</p>`);
 }
 
 function renderForum() {
@@ -167,14 +175,14 @@ function renderForum() {
   const list = state.data[key] || [];
   $("#forumList").innerHTML = list.length
     ? list.map(threadCard).join("")
-    : `<p class="empty-msg">尚無範例討論。</p>`;
+    : `<p class="empty-msg">${isLiveData(state.data) ? "尚無討論，等待下次掃描。" : "尚無範例討論。"}</p>`;
 }
 
 function renderTweets() {
   const list = state.data[`tweets_${state.tweetsLang}`] || [];
   $("#tweetList").innerHTML = list.length
     ? list.map(tweetCard).join("")
-    : `<p class="empty-msg">尚無範例訊號。</p>`;
+    : `<p class="empty-msg">${isLiveData(state.data) ? "尚無訊號，等待下次掃描。" : "尚無範例訊號。"}</p>`;
 }
 
 function renderAll() {
@@ -184,9 +192,22 @@ function renderAll() {
   renderForum();
   renderTweets();
   const meta = state.data.meta || {};
-  $("#lastRun").textContent = meta.scraper_status === "disabled"
-    ? `爬蟲狀態：未啟用 · 範例快照 ${meta.snapshot_date || ""}`
-    : `上次完整掃描：${meta._last_run || "—"}`;
+  const live = isLiveData(state.data);
+  const banner = $("#dataBanner");
+  if (banner) {
+    if (live) {
+      banner.innerHTML = `<strong>上次掃描 / LAST SCAN</strong><span>${esc(meta._last_run || "—")} · 來源失敗時保留昨日檔，不覆寫成空。</span>`;
+    } else {
+      banner.innerHTML = `<strong>範例資料 / EXAMPLE DATA</strong><span>第一版靜態殼。數字、時間、討論標題皆為樣本，不是即時爬蟲。</span>`;
+    }
+  }
+  $$("[data-meta]").forEach((el) => {
+    const stamp = meta[el.dataset.meta] || meta._last_run || meta.snapshot_date || "";
+    el.textContent = live ? `上次掃描：${stamp || "—"}` : `範例快照：${meta.snapshot_date || stamp || ""}`;
+  });
+  $("#lastRun").textContent = live
+    ? `上次完整掃描：${meta._last_run || "—"}`
+    : `爬蟲狀態：未啟用 · 範例快照 ${meta.snapshot_date || ""}`;
 }
 
 function switchView(name) {
@@ -231,7 +252,9 @@ function doSearch(raw) {
   const q = raw.trim();
   if (!q) return;
   const r = localSearch(q);
-  $("#searchTitle").textContent = `「${q}」掃描結果：${r.total} 筆（僅範例資料）`;
+  $("#searchTitle").textContent = isLiveData(state.data)
+    ? `「${q}」掃描結果：${r.total} 筆`
+    : `「${q}」掃描結果：${r.total} 筆（僅範例資料）`;
   let html = "";
   if (r.jobs.length) html += `<h3 class="group-title">賺錢與工作（${r.jobs.length}）</h3>${r.jobs.map(jobCard).join("")}`;
   if (r.hot.length) html += `<h3 class="group-title">熱門影片（${r.hot.length}）</h3><div class="video-grid">${r.hot.map((v) => videoCard(v)).join("")}</div>`;
@@ -266,11 +289,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   tickClock();
   setInterval(tickClock, 1000);
   try {
-    state.data = await (await fetch("./data/sample.json")).json();
+    let live = null;
+    try {
+      const res = await fetch("./data/site.json");
+      if (res.ok) live = await res.json();
+    } catch {
+      live = null;
+    }
+    state.data = isLiveData(live) ? live : await (await fetch("./data/sample.json")).json();
   } catch {
     $("#main").insertAdjacentHTML(
       "afterbegin",
-      `<p class="empty-msg">無法載入範例 JSON。請用本機靜態伺服器開啟，不要直接雙擊檔案。</p>`,
+      `<p class="empty-msg">無法載入 JSON。請用本機靜態伺服器開啟，不要直接雙擊檔案。</p>`,
     );
     return;
   }

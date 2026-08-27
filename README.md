@@ -1,16 +1,62 @@
 # SessionScan
 
-Static GTA hub. First-pass sample data. Vite base is `./`.
+GTA 5／GTA Online／RDO／GTA 6 靜態情報站。繁體中文為主。不含 GTA 4。
 
-## Preview
+線上版：https://bigdaddy109.github.io/Sessionscan/
+
+## 每日掃描
+
+Frank 同款資料管線（不是 PoE 皮膚）：
+
+1. GitHub Actions 每天 **UTC 00:00（台北 08:00）** 跑 `scraper.py`
+2. 各來源寫入 `data/*.json`，再由 `build_site.py` 彙整成 `public/data/site.json`
+3. `npm run build` 後部署 GitHub Pages
+4. 成功的 JSON 會 commit 回 repo，方便隔天對照
+
+也可手動刷新：
 
 ```bash
+gh workflow run daily.yml --ref main
+```
+
+本機：
+
+```bash
+python3 -m venv .venv
+./.venv/bin/pip install -r requirements.txt
+python scraper.py
+python build_site.py
 npm install
 npm run dev
 ```
 
-Local: http://127.0.0.1:43173/
+本機預覽：http://127.0.0.1:43173/
 
-## Pages
+## 來源失敗：保留昨日檔
 
-https://bigdaddy109.github.io/sessionscan/
+任一來源抓不到或解析為空時：
+
+- 記錄錯誤到 `logs/scraper.log`
+- **不覆寫**該來源的 JSON
+- 昨天的卡片繼續上線
+
+空檔不會取代舊檔。全來源都失敗時，前端繼續使用 `public/data/sample.json` 範例橫幅。
+
+有真實掃描結果後，橫幅改為「上次掃描」時間。
+
+## 來源
+
+| 區塊 | 作法 |
+|------|------|
+| 本週賺錢與工作 | GTABase／IGN／GTA Wiki 公開列表：**只外連標題、連結、日期**，不轉載攻略全文 |
+| 熱門／最新影片 | yt-dlp（不需 API key），分 中文／English／日本語；縮圖直連 `i.ytimg.com`，不存檔 |
+| SessionScan 頻道格 | 頻道離線時維持預留，**不偽造** SessionScan 影片網址 |
+| 巴哈姆特 | HTML 解析 `bsn=4737` |
+| Reddit | `r/gtaonline`、`r/GTA6` RSS 外連卡 |
+| X / Twitter | ddgs `site:x.com` + syndication（免 key），Rockstar／GTA 6 相關 |
+
+範圍：GTA 5、GTA Online、RDO、GTA 6。標題或網址碰到 GTA 4／舊世代會丟棄。
+
+## 授權
+
+Apache License 2.0。資料管線改寫自 [franky5440-afk/poe2](https://github.com/franky5440-afk/poe2)；視覺與文案為 SessionScan 的修改。見 [NOTICE](./NOTICE) 與 [LICENSE](./LICENSE)。

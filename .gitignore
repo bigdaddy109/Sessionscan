@@ -5,3 +5,8 @@ dist/
 .vite/
 agent-tools/
 gta-site-ref/
+.venv/
+venv/
+__pycache__/
+logs/
+*.pyc
