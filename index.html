@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="SessionScan — GTA 5 / Online / RDO / GTA 6 靜態情報殼。範例資料，非即時掃描。" />
+    <title>SessionScan｜GTA HUB</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Oswald:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <a class="skip" href="#main">跳至內容 Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#hero" aria-label="SessionScan 回頂端">
+          <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="1.6" class="teal" />
+            <circle cx="32" cy="32" r="14" fill="none" stroke="currentColor" stroke-width="1.4" class="pink" />
+            <path d="M32 32 L50 22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" class="mint" />
+            <circle cx="32" cy="32" r="3" fill="currentColor" class="pink" />
+            <path d="M22 40c0-4 4-7 10-7s10 3 10 7" fill="none" stroke="currentColor" stroke-width="1.6" />
+            <path d="M20 36c-2 0-3 2-3 4v3c0 1 1 2 2 2h2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            <path d="M44 36c2 0 3 2 3 4v3c0 1-1 2-2 2h-2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+          <span class="brand-text">
+            <strong>SESSIONSCAN</strong>
+            <em>GTA HUB · 夜掃描</em>
+          </span>
+        </a>
+        <form id="searchForm" class="search-box" role="search">
+          <label class="sr-only" for="searchInput">掃描頁面範例卡片</label>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8" />
+            <path d="M16 16 L21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          <input id="searchInput" type="search" name="q" placeholder="掃描關鍵字 — Cayo、GTA 6、RDO、巴哈…" autocomplete="off" />
+          <button type="submit" class="btn-scan">掃描 SCAN</button>
+        </form>
+      </div>
+      <nav class="tabs" aria-label="頻道">
+        <button class="tab active" data-tab="jobs" type="button"><span class="ch">01</span> 本週賺錢與工作</button>
+        <button class="tab" data-tab="hot" type="button"><span class="ch">02</span> 近 30 天熱門影片</button>
+        <button class="tab" data-tab="new" type="button"><span class="ch">03</span> 最新攻略影片</button>
+        <button class="tab" data-tab="forum" type="button"><span class="ch">04</span> 論壇</button>
+        <button class="tab" data-tab="x" type="button"><span class="ch">05</span> X / Twitter</button>
+      </nav>
+    </header>
+    <section class="hero" id="hero">
+      <div class="hero-sky" aria-hidden="true"></div>
+      <div class="hero-horizon" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-city" aria-hidden="true">
+        <i style="--h: 28%; --w: 7%; --x: 6%"></i>
+        <i style="--h: 42%; --w: 5%; --x: 14%"></i>
+        <i style="--h: 22%; --w: 9%; --x: 20%"></i>
+        <i style="--h: 56%; --w: 6%; --x: 31%"></i>
+        <i style="--h: 34%; --w: 8%; --x: 38%"></i>
+        <i style="--h: 48%; --w: 5%; --x: 48%"></i>
+        <i style="--h: 26%; --w: 10%; --x: 54%"></i>
+        <i style="--h: 62%; --w: 7%; --x: 66%"></i>
+        <i style="--h: 36%; --w: 6%; --x: 74%"></i>
+        <i style="--h: 44%; --w: 8%; --x: 82%"></i>
+        <i style="--h: 24%; --w: 7%; --x: 91%"></i>
+      </div>
+      <svg class="hero-palms" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M70 400 C80 260 40 200 90 140 C20 170 10 250 30 400 Z" />
+        <path d="M90 400 C140 280 220 210 160 120 C180 200 120 260 110 400 Z" />
+        <path d="M1080 400 C1120 250 1180 190 1110 110 C1200 160 1190 270 1160 400 Z" />
+        <path d="M1130 400 C1080 270 1000 200 1060 120 C1040 210 1100 280 1145 400 Z" />
+      </svg>
+      <div class="hero-wet" aria-hidden="true"></div>
+      <div class="hero-beam" aria-hidden="true"></div>
+      <div class="hero-hud" aria-hidden="true">
+        <span class="rec"><i></i> REC</span>
+        <span>CH-07 · NIGHT SCAN · VICE DUSK</span>
+        <span id="hudClock">00:00:00</span>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">NIGHT SCAN // WET ASPHALT</p>
+        <h1>SESSIONSCAN</h1>
+        <p class="word-sub">GTA HUB</p>
+        <p class="lede">掃描本週工作、賺錢路線、攻略影片與社群訊號。<br /><span>Focus：GTA 5 · GTA 6 · RDO。線上模式算 GTA 5。不含 GTA 4。</span></p>
+      </div>
+      <div class="cta-grid" id="ctaGrid">
+        <button class="cta-card" data-tab="jobs" type="button"><span class="cta-ch">CH-01</span><span class="cta-title">本週賺錢與工作</span><span class="cta-en">MONEY &amp; JOBS</span><span class="cta-go">切入 ↗</span></button>
+        <button class="cta-card" data-tab="hot" type="button"><span class="cta-ch">CH-02</span><span class="cta-title">近 30 天熱門影片</span><span class="cta-en">HOT GUIDES</span><span class="cta-go">切入 ↗</span></button>
+        <button class="cta-card" data-tab="new" type="button"><span class="cta-ch">CH-03</span><span class="cta-title">最新攻略影片</span><span class="cta-en">LATEST + SLOT</span><span class="cta-go">切入 ↗</span></button>
+        <button class="cta-card" data-tab="forum" type="button"><span class="cta-ch">CH-04</span><span class="cta-title">論壇訊號</span><span class="cta-en">BAHAMUT / REDDIT</span><span class="cta-go">切入 ↗</span></button>
+        <button class="cta-card" data-tab="x" type="button"><span class="cta-ch">CH-05</span><span class="cta-title">X / Twitter</span><span class="cta-en">ROCKSTAR / GTA 6</span><span class="cta-go">切入 ↗</span></button>
+      </div>
+    </section>
+    <div class="sample-banner" role="status"><strong>範例資料 / EXAMPLE DATA</strong><span>第一版靜態殼。數字、時間、討論標題皆為樣本，不是即時爬蟲。</span></div>
+    <main id="main">
+      <section class="view" id="view-jobs">
+        <div class="view-head"><h2><span>01</span> 本週賺錢與工作 <em>This week / money &amp; jobs</em></h2><p class="meta-time" data-meta="jobs">範例快照：2026-08-27</p></div>
+        <p class="source-hint" id="jobHint"></p>
+        <div class="controls"><div class="pill-group" role="tablist" aria-label="指南來源"><button class="pill active" data-source="gtabase" type="button">GTABase</button><button class="pill" data-source="ign" type="button">IGN</button><button class="pill" data-source="wiki" type="button">GTA Wiki</button></div></div>
+        <div class="job-list" id="jobList"></div>
+      </section>
+      <section class="view hidden" id="view-hot">
+        <div class="view-head"><h2><span>02</span> 近 30 天熱門攻略影片 <em>Hot guides</em></h2><p class="meta-time" data-meta="hot">範例快照：2026-08-27</p></div>
+        <div class="controls"><div class="pill-group" data-lang-for="hot" role="tablist" aria-label="語言"><button class="pill active" data-lang="zh" type="button">中文</button><button class="pill" data-lang="en" type="button">English</button><button class="pill" data-lang="ja" type="button">日本語</button></div></div>
+        <div class="video-grid" id="hotGrid"></div>
+      </section>
+      <section class="view hidden" id="view-new">
+        <div class="view-head"><h2><span>03</span> 最新攻略影片 <em>Latest guides</em></h2><p class="meta-time" data-meta="new">範例快照：2026-08-27</p></div>
+        <div class="controls"><div class="pill-group" data-lang-for="new" role="tablist" aria-label="語言"><button class="pill active" data-lang="zh" type="button">中文</button><button class="pill" data-lang="en" type="button">English</button><button class="pill" data-lang="ja" type="button">日本語</button></div></div>
+        <div class="video-grid" id="newGrid"></div>
+      </section>
+      <section class="view hidden" id="view-forum">
+        <div class="view-head"><h2><span>04</span> 論壇 <em>Bahamut / Reddit</em></h2><p class="meta-time" data-meta="forum">範例快照：2026-08-27</p></div>
+        <div class="controls"><div class="pill-group" role="tablist" aria-label="論壇來源"><button class="pill active" data-forum="bahamut" type="button">巴哈姆特</button><button class="pill" data-forum="reddit" type="button">Reddit</button></div></div>
+        <div class="thread-list" id="forumList"></div>
+      </section>
+      <section class="view hidden" id="view-x">
+        <div class="view-head"><h2><span>05</span> X / Twitter <em>Rockstar / GTA 6</em></h2><p class="meta-time" data-meta="tweets">範例快照：2026-08-27</p></div>
+        <div class="controls"><div class="pill-group" data-lang-for="tweets" role="tablist" aria-label="語言"><button class="pill active" data-lang="zh" type="button">中文</button><button class="pill" data-lang="en" type="button">English</button></div></div>
+        <div class="tweet-list" id="tweetList"></div>
+      </section>
+      <section class="view hidden" id="view-search">
+        <div class="view-head"><h2 id="searchTitle">掃描結果</h2><button type="button" class="btn-clear" id="clearSearch">✕ 清除掃描</button></div>
+        <div id="searchResults"></div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p><strong>SessionScan</strong> — working title · <strong>domain TBD</strong> · 無廣告 v1</p>
+      <p>範圍：GTA 5、GTA 6、RDO（GTA Online 歸在 GTA 5）。不含 GTA 4。卡片只外連，不轉載攻略全文。</p>
+      <p>Information architecture adapted from <a href="https://github.com/franky5440-afk/poe2" rel="noopener noreferrer">franky5440-afk/poe2</a> (Apache 2.0). Visual design, copy, and sample data are original modifications. See <a href="./NOTICE">NOTICE</a> and <a href="./LICENSE">LICENSE</a>.</p>
+      <p class="footer-meta" id="lastRun">爬蟲狀態：未啟用（靜態範例 JSON）</p>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

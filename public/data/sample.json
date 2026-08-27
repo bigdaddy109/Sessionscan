@@ -1,0 +1,490 @@
+{
+  "meta": {
+    "sample": true,
+    "label_zh": "範例資料",
+    "label_en": "EXAMPLE DATA",
+    "note_zh": "第一版靜態殼。卡片、數字、時間皆為範例，並非即時掃描。",
+    "note_en": "First-pass static shell. Cards, counts, and timestamps are examples — not a live scrape.",
+    "snapshot_date": "2026-08-27",
+    "generated_at": "2026-08-27T00:00:00Z",
+    "_last_run": null,
+    "scraper_status": "disabled",
+    "scope": ["GTA 5", "GTA 6", "RDO"],
+    "excluded": ["GTA 4"]
+  },
+  "jobs_gtabase": [
+    {
+      "id": "gb-week",
+      "rank": 1,
+      "title": "GTA Online 每週更新（8/20–26）：品牌大戰延續、獎勵與折扣",
+      "title_en": "GTA Online Weekly Update (Aug 20–26): Brand Wars continues",
+      "source": "GTABase",
+      "game": "GTA Online",
+      "author": "GTABase",
+      "updated": "2026-08-20",
+      "tags": ["每週獎勵", "品牌大戰", "折扣", "範例"],
+      "url": "https://www.gtabase.com/articles/grand-theft-auto-v/news/gta-online-weekly-update-august-20-26-brand-wars-event-continues-bonuses-discounts",
+      "blurb": "外連至公開新聞稿。本站不轉載全文。"
+    },
+    {
+      "id": "gb-online",
+      "rank": 2,
+      "title": "GTA 線上模式資料庫：載具、財產、活動索引",
+      "title_en": "GTA Online database: vehicles, properties, events",
+      "source": "GTABase",
+      "game": "GTA Online",
+      "author": "GTABase",
+      "updated": "2026-08-01",
+      "tags": ["資料庫", "載具", "範例"],
+      "url": "https://www.gtabase.com/grand-theft-auto-v/gta-online",
+      "blurb": "查本週折扣與財產時的公開索引。"
+    },
+    {
+      "id": "gb-vi",
+      "rank": 3,
+      "title": "GTA 6 公開情報彙整（預告、設定、時間表）",
+      "title_en": "GTA 6 public intel index",
+      "source": "GTABase",
+      "game": "GTA 6",
+      "author": "GTABase",
+      "updated": "2026-05-06",
+      "tags": ["GTA 6", "情報", "範例"],
+      "url": "https://www.gtabase.com/grand-theft-auto-vi",
+      "blurb": "僅連到公開彙整頁，不含劇透全文。"
+    }
+  ],
+  "jobs_ign": [
+    {
+      "id": "ign-gtao",
+      "rank": 1,
+      "title": "IGN GTA 5 維基：線上模式工作與系統",
+      "title_en": "IGN GTA 5 wiki — GTA Online",
+      "source": "IGN",
+      "game": "GTA Online",
+      "author": "IGN",
+      "updated": "2026-07-16",
+      "tags": ["維基", "工作", "範例"],
+      "url": "https://www.ign.com/wikis/g-t-a-5",
+      "blurb": "外連 IGN 維基，不轉貼攻略正文。"
+    },
+    {
+      "id": "ign-rdo",
+      "rank": 2,
+      "title": "Red Dead Online 角色、賞金與營生（IGN 維基）",
+      "title_en": "Red Dead Online roles and money (IGN wiki)",
+      "source": "IGN",
+      "game": "RDO",
+      "author": "IGN",
+      "updated": "2026-03-12",
+      "tags": ["RDO", "賞金", "範例"],
+      "url": "https://www.ign.com/wikis/red-dead-redemption-2",
+      "blurb": "RDO 公開指南入口。"
+    },
+    {
+      "id": "ign-gta6",
+      "rank": 3,
+      "title": "Grand Theft Auto VI — IGN 遊戲頁",
+      "title_en": "Grand Theft Auto VI — IGN game hub",
+      "source": "IGN",
+      "game": "GTA 6",
+      "author": "IGN",
+      "updated": "2026-05-06",
+      "tags": ["GTA 6", "新聞", "範例"],
+      "url": "https://www.ign.com/games/grand-theft-auto-vi",
+      "blurb": "官方預告與公開新聞的 IGN 入口。"
+    }
+  ],
+  "jobs_wiki": [
+    {
+      "id": "wiki-cayo",
+      "rank": 1,
+      "title": "佩里克島搶劫：公開流程與目標（GTA Wiki）",
+      "title_en": "The Cayo Perico Heist — GTA Wiki",
+      "source": "GTA Wiki",
+      "game": "GTA Online",
+      "author": "Fandom",
+      "updated": "2026-06-01",
+      "tags": ["佩里克島", "單人", "賺錢", "範例"],
+      "url": "https://gta.fandom.com/wiki/The_Cayo_Perico_Heist",
+      "blurb": "外連維基條目，本站不重寫攻略。"
+    },
+    {
+      "id": "wiki-online",
+      "rank": 2,
+      "title": "Grand Theft Auto Online 總覽",
+      "title_en": "Grand Theft Auto Online overview",
+      "source": "GTA Wiki",
+      "game": "GTA Online",
+      "author": "Fandom",
+      "updated": "2026-07-16",
+      "tags": ["線上模式", "GTA 5", "範例"],
+      "url": "https://gta.fandom.com/wiki/Grand_Theft_Auto_Online",
+      "blurb": "財產、差事與活動的公開索引。"
+    },
+    {
+      "id": "wiki-rdo",
+      "rank": 3,
+      "title": "Red Dead Online 總覽（Red Dead Wiki）",
+      "title_en": "Red Dead Online overview",
+      "source": "Red Dead Wiki",
+      "game": "RDO",
+      "author": "Fandom",
+      "updated": "2026-02-18",
+      "tags": ["RDO", "西部", "範例"],
+      "url": "https://reddead.fandom.com/wiki/Red_Dead_Online",
+      "blurb": "賞金獵人、收藏家與營生入口。"
+    },
+    {
+      "id": "wiki-vi",
+      "rank": 4,
+      "title": "Grand Theft Auto VI 公開條目",
+      "title_en": "Grand Theft Auto VI — GTA Wiki",
+      "source": "GTA Wiki",
+      "game": "GTA 6",
+      "author": "Fandom",
+      "updated": "2026-05-06",
+      "tags": ["GTA 6", "維基", "範例"],
+      "url": "https://gta.fandom.com/wiki/Grand_Theft_Auto_VI",
+      "blurb": "僅列已公開資訊。"
+    }
+  ],
+  "videos_hot_zh": [
+    {
+      "id": "5XBMNYmFmTs",
+      "video_id": "5XBMNYmFmTs",
+      "title": "2026 最佳賺錢系列！佩里克島最高效率攻略",
+      "channel": "Yu",
+      "lang": "zh",
+      "date": "2026-05-08",
+      "views": 13500,
+      "views_note": "範例觀看數",
+      "url": "https://www.youtube.com/watch?v=5XBMNYmFmTs",
+      "game": "GTA Online"
+    },
+    {
+      "id": "kIomnva1jGU",
+      "video_id": "kIomnva1jGU",
+      "title": "2026 年最強差事瞬移！GTA Online",
+      "channel": "Yu",
+      "lang": "zh",
+      "date": "2026-05-21",
+      "views": 4200,
+      "views_note": "範例觀看數",
+      "url": "https://www.youtube.com/watch?v=kIomnva1jGU",
+      "game": "GTA Online"
+    }
+  ],
+  "videos_hot_en": [
+    {
+      "id": "eKXmxGp3Q54",
+      "video_id": "eKXmxGp3Q54",
+      "title": "How To Make $10 MILLION A DAY As A New Player In GTA Online (2026 Beginner Guide)",
+      "channel": "Public YouTube",
+      "lang": "en",
+      "date": "2026-06-01",
+      "views": 89000,
+      "views_note": "example views",
+      "url": "https://www.youtube.com/watch?v=eKXmxGp3Q54",
+      "game": "GTA Online"
+    },
+    {
+      "id": "wEyiMABOLug",
+      "video_id": "wEyiMABOLug",
+      "title": "The 5 BEST Businesses You NEED in GTA Online 2026",
+      "channel": "Public YouTube",
+      "lang": "en",
+      "date": "2026-06-12",
+      "views": 64000,
+      "views_note": "example views",
+      "url": "https://www.youtube.com/watch?v=wEyiMABOLug",
+      "game": "GTA Online"
+    },
+    {
+      "id": "xCbpAX6gXpw",
+      "video_id": "xCbpAX6gXpw",
+      "title": "TOP 5 BEST Ways to Make MILLIONS NOW in GTA 5 Online! (2026)",
+      "channel": "Public YouTube",
+      "lang": "en",
+      "date": "2026-05-30",
+      "views": 51000,
+      "views_note": "example views",
+      "url": "https://www.youtube.com/watch?v=xCbpAX6gXpw",
+      "game": "GTA 5"
+    },
+    {
+      "id": "KxFBm2aiC0I",
+      "video_id": "KxFBm2aiC0I",
+      "title": "Updated Money Making Guide For NEW PLAYERS In GTA Online! (2026)",
+      "channel": "Public YouTube",
+      "lang": "en",
+      "date": "2026-07-02",
+      "views": 42000,
+      "views_note": "example views",
+      "url": "https://www.youtube.com/watch?v=KxFBm2aiC0I",
+      "game": "GTA Online"
+    },
+    {
+      "id": "wAn0XCDDkjA",
+      "video_id": "wAn0XCDDkjA",
+      "title": "From $0 To Rich In GTA Online Ultimate Solo Money Guide",
+      "channel": "LSG",
+      "lang": "en",
+      "date": "2026-05-28",
+      "views": 1700,
+      "views_note": "example views",
+      "url": "https://www.youtube.com/watch?v=wAn0XCDDkjA",
+      "game": "GTA Online"
+    }
+  ],
+  "videos_hot_ja": [],
+  "videos_new_zh": [
+    {
+      "id": "kIomnva1jGU-new",
+      "video_id": "kIomnva1jGU",
+      "title": "2026 年最強差事瞬移！GTA Online",
+      "channel": "Yu",
+      "lang": "zh",
+      "date": "2026-05-21",
+      "views": 4200,
+      "views_note": "範例觀看數",
+      "url": "https://www.youtube.com/watch?v=kIomnva1jGU",
+      "game": "GTA Online"
+    },
+    {
+      "id": "5XBMNYmFmTs-new",
+      "video_id": "5XBMNYmFmTs",
+      "title": "2026 最佳賺錢系列！佩里克島最高效率攻略",
+      "channel": "Yu",
+      "lang": "zh",
+      "date": "2026-05-08",
+      "views": 13500,
+      "views_note": "範例觀看數",
+      "url": "https://www.youtube.com/watch?v=5XBMNYmFmTs",
+      "game": "GTA Online"
+    }
+  ],
+  "videos_new_en": [
+    {
+      "id": "gta6-trailer1",
+      "video_id": "QdBZY2fkU-0",
+      "title": "Grand Theft Auto VI — Trailer 1 (official)",
+      "channel": "Rockstar Games",
+      "lang": "en",
+      "date": "2023-12-04",
+      "views": null,
+      "views_note": "official public trailer — views not sampled",
+      "url": "https://www.youtube.com/watch?v=QdBZY2fkU-0",
+      "game": "GTA 6"
+    },
+    {
+      "id": "KxFBm2aiC0I-new",
+      "video_id": "KxFBm2aiC0I",
+      "title": "Updated Money Making Guide For NEW PLAYERS In GTA Online! (2026)",
+      "channel": "Public YouTube",
+      "lang": "en",
+      "date": "2026-07-02",
+      "views": 42000,
+      "views_note": "example views",
+      "url": "https://www.youtube.com/watch?v=KxFBm2aiC0I",
+      "game": "GTA Online"
+    },
+    {
+      "id": "wEyiMABOLug-new",
+      "video_id": "wEyiMABOLug",
+      "title": "The 5 BEST Businesses You NEED in GTA Online 2026",
+      "channel": "Public YouTube",
+      "lang": "en",
+      "date": "2026-06-12",
+      "views": 64000,
+      "views_note": "example views",
+      "url": "https://www.youtube.com/watch?v=wEyiMABOLug",
+      "game": "GTA Online"
+    }
+  ],
+  "videos_new_ja": [],
+  "sessionscan_slot": {
+    "status": "offline",
+    "title_zh": "SessionScan 頻道",
+    "title_en": "SessionScan channel",
+    "note_zh": "自有頻道目前可能離線。此格為預留位置，不會偽造 SessionScan 影片連結。",
+    "note_en": "Owned channel may be offline. Placeholder only — no fabricated SessionScan video URLs."
+  },
+  "forum_bahamut": [
+    {
+      "id": "baha-board",
+      "rank": 1,
+      "title": "巴哈姆特「俠盜獵車手 系列」哈啦板",
+      "author": "看板入口",
+      "time": "看板",
+      "replies": null,
+      "source": "Bahamut",
+      "game": "GTA Online",
+      "url": "https://forum.gamer.com.tw/B.php?bsn=4737",
+      "blurb": "外連看板。範例卡片不轉載全文。"
+    },
+    {
+      "id": "baha-week",
+      "rank": 2,
+      "title": "【範例】本週 GTA Online 獎勵與品牌大戰討論",
+      "author": "範例作者",
+      "time": "2026-08-21",
+      "replies": 36,
+      "source": "Bahamut",
+      "game": "GTA Online",
+      "url": "https://forum.gamer.com.tw/B.php?bsn=4737",
+      "blurb": "標題為範例，連回看板列表。"
+    },
+    {
+      "id": "baha-cayo",
+      "rank": 3,
+      "title": "【範例】單人佩里克島路線與冷卻時間",
+      "author": "範例作者",
+      "time": "2026-08-18",
+      "replies": 14,
+      "source": "Bahamut",
+      "game": "GTA Online",
+      "url": "https://forum.gamer.com.tw/B.php?bsn=4737",
+      "blurb": "標題為範例，連回看板列表。"
+    },
+    {
+      "id": "baha-gta6",
+      "rank": 4,
+      "title": "【範例】GTA 6 第二支預告後的公開情報整理",
+      "author": "範例作者",
+      "time": "2026-05-07",
+      "replies": 88,
+      "source": "Bahamut",
+      "game": "GTA 6",
+      "url": "https://forum.gamer.com.tw/B.php?bsn=4737",
+      "blurb": "標題為範例，連回看板列表。"
+    }
+  ],
+  "forum_reddit": [
+    {
+      "id": "r-gtao",
+      "rank": 1,
+      "title": "r/gtaonline — weekly bonuses megathread (example card)",
+      "author": "r/gtaonline",
+      "time": "2026-08-20",
+      "replies": 210,
+      "source": "Reddit",
+      "game": "GTA Online",
+      "url": "https://www.reddit.com/r/gtaonline/",
+      "blurb": "Outbound to the subreddit. Example title only."
+    },
+    {
+      "id": "r-gta6",
+      "rank": 2,
+      "title": "r/GTA6 — public trailer and news discussion",
+      "author": "r/GTA6",
+      "time": "2026-05-06",
+      "replies": 540,
+      "source": "Reddit",
+      "game": "GTA 6",
+      "url": "https://www.reddit.com/r/GTA6/",
+      "blurb": "Outbound to the subreddit. No leaked material."
+    },
+    {
+      "id": "r-rdo",
+      "rank": 3,
+      "title": "r/RedDeadOnline — role bonuses and camp money",
+      "author": "r/RedDeadOnline",
+      "time": "2026-08-12",
+      "replies": 47,
+      "source": "Reddit",
+      "game": "RDO",
+      "url": "https://www.reddit.com/r/RedDeadOnline/",
+      "blurb": "Outbound to the subreddit."
+    }
+  ],
+  "tweets_zh": [
+    {
+      "id": "tw-rs-zh",
+      "author": "RockstarGames",
+      "author_name": "Rockstar Games",
+      "date": "2026-08-20",
+      "text": "【範例摘要】官方每週活動與獎勵請以 Newswire / Social Club 為準。此卡不是即時抓推。",
+      "url": "https://x.com/RockstarGames",
+      "lang": "zh",
+      "game": "GTA Online"
+    },
+    {
+      "id": "tw-gtao-zh",
+      "author": "GTAonline",
+      "author_name": "Grand Theft Auto",
+      "date": "2026-08-20",
+      "text": "【範例摘要】本週 GTA 線上模式活動入口。連至官方帳號，無轉載圖片。",
+      "url": "https://x.com/GTAonline",
+      "lang": "zh",
+      "game": "GTA Online"
+    },
+    {
+      "id": "tw-vi-zh",
+      "author": "RockstarGames",
+      "author_name": "Rockstar Games",
+      "date": "2026-05-06",
+      "text": "【範例摘要】GTA 6 公開預告與官方頁面。本站不轉貼受版權保護的劇照。",
+      "url": "https://www.rockstargames.com/VI",
+      "lang": "zh",
+      "game": "GTA 6"
+    }
+  ],
+  "tweets_en": [
+    {
+      "id": "tw-rs-en",
+      "author": "RockstarGames",
+      "author_name": "Rockstar Games",
+      "date": "2026-08-20",
+      "text": "[EXAMPLE] Check the official Newswire / Social Club events calendar for this week's GTA Online bonuses. This card is not a live scrape.",
+      "url": "https://www.rockstargames.com/newswire",
+      "lang": "en",
+      "game": "GTA Online"
+    },
+    {
+      "id": "tw-gtao-en",
+      "author": "GTAonline",
+      "author_name": "Grand Theft Auto",
+      "date": "2026-08-20",
+      "text": "[EXAMPLE] Official GTA Online account. Text + profile link only — no scraped images.",
+      "url": "https://x.com/GTAonline",
+      "lang": "en",
+      "game": "GTA Online"
+    },
+    {
+      "id": "tw-rdo-en",
+      "author": "RockstarGames",
+      "author_name": "Rockstar Games",
+      "date": "2026-08-12",
+      "text": "[EXAMPLE] Red Dead Online events live on Social Club. Outbound only.",
+      "url": "https://socialclub.rockstargames.com/events",
+      "lang": "en",
+      "game": "RDO"
+    },
+    {
+      "id": "tw-vi-en",
+      "author": "RockstarGames",
+      "author_name": "Rockstar Games",
+      "date": "2026-05-06",
+      "text": "[EXAMPLE] Grand Theft Auto VI official page. No leaked footage, no box-art logo reuse.",
+      "url": "https://www.rockstargames.com/VI",
+      "lang": "en",
+      "game": "GTA 6"
+    }
+  ],
+  "ja_video_note": {
+    "title_zh": "日本語區為可選分頁",
+    "title_en": "Japanese tab is optional",
+    "body_zh": "此版未放入未核對的 YouTube 連結。可改連公開日文攻略索引。",
+    "body_en": "No unverified YouTube IDs in this pass. Public Japanese guide index linked instead.",
+    "links": [
+      {
+        "title": "GTAオンライン 稼ぎ（atwiki）",
+        "url": "https://w.atwiki.jp/gtav/pages/187.html"
+      },
+      {
+        "title": "YouTube 搜尋：GTAオンライン 金策",
+        "url": "https://www.youtube.com/results?search_query=GTA%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%20%E9%87%91%E7%AD%96"
+      }
+    ]
+  }
+}
