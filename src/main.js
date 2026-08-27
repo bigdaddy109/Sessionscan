@@ -196,17 +196,18 @@ function renderAll() {
   const banner = $("#dataBanner");
   if (banner) {
     if (live) {
-      banner.innerHTML = `<strong>上次掃描 / LAST SCAN</strong><span>${esc(meta._last_run || "—")} · 來源失敗時保留昨日檔，不覆寫成空。</span>`;
+      const stamp = meta._last_run || meta.snapshot_date || "—";
+      banner.innerHTML = `<strong>資料快照 / SNAPSHOT</strong><span>公開來源標題彙整，不是即時爬蟲。快照 ${esc(stamp)}。來源失敗時保留既有檔。</span>`;
     } else {
       banner.innerHTML = `<strong>範例資料 / EXAMPLE DATA</strong><span>第一版靜態殼。數字、時間、討論標題皆為樣本，不是即時爬蟲。</span>`;
     }
   }
   $$("[data-meta]").forEach((el) => {
     const stamp = meta[el.dataset.meta] || meta._last_run || meta.snapshot_date || "";
-    el.textContent = live ? `上次掃描：${stamp || "—"}` : `範例快照：${meta.snapshot_date || stamp || ""}`;
+    el.textContent = live ? `資料快照：${stamp || "—"} · 非即時掃描` : `範例快照：${meta.snapshot_date || stamp || ""}`;
   });
   $("#lastRun").textContent = live
-    ? `上次完整掃描：${meta._last_run || "—"}`
+    ? `資料快照：${meta._last_run || "—"} · 非即時爬蟲`
     : `爬蟲狀態：未啟用 · 範例快照 ${meta.snapshot_date || ""}`;
 }
 
@@ -218,12 +219,41 @@ function switchView(name) {
   $$(".tab").forEach((t) => t.classList.toggle("active", t.dataset.tab === name));
 }
 
-function matches(item, keys, words) {
-  const hay = keys
+const SEARCH_ALIAS_GROUPS = [
+  [
+    "cayo perico",
+    "cayo",
+    "perico",
+    "佩里克島",
+    "佩里克",
+    "佩裏科島",
+    "佩裏科",
+    "佩裡科島",
+    "佩裡科",
+  ],
+];
+
+function searchHay(item, keys) {
+  return keys
     .map((k) => (Array.isArray(item[k]) ? item[k].join(" ") : String(item[k] ?? "")))
     .join(" ")
     .toLowerCase();
-  return words.every((w) => hay.includes(w));
+}
+
+function aliasTermsFor(word) {
+  const w = String(word || "").toLowerCase();
+  if (!w) return [];
+  for (const group of SEARCH_ALIAS_GROUPS) {
+    const lower = group.map((t) => t.toLowerCase());
+    const hit = lower.some((t) => t === w || (w.length >= 2 && (t.includes(w) || w.includes(t))));
+    if (hit) return lower;
+  }
+  return [w];
+}
+
+function matches(item, keys, words) {
+  const hay = searchHay(item, keys);
+  return words.every((w) => aliasTermsFor(w).some((term) => hay.includes(term)));
 }
 
 function localSearch(raw) {
@@ -262,9 +292,17 @@ function doSearch(raw) {
   if (r.slot) html += `<h3 class="group-title">SessionScan 預留</h3>${sessionScanSlot(state.data.sessionscan_slot)}`;
   if (r.forum.length) html += `<h3 class="group-title">論壇（${r.forum.length}）</h3>${r.forum.map(threadCard).join("")}`;
   if (r.tweets.length) html += `<h3 class="group-title">X / Twitter（${r.tweets.length}）</h3>${r.tweets.map(tweetCard).join("")}`;
-  $("#searchResults").innerHTML = html || `<p class="no-result">掃描不到符合「${esc(q)}」的範例卡片。</p>`;
+  $("#searchResults").innerHTML = html || `<p class="no-result">掃描不到符合「${esc(q)}」的卡片。</p>`;
   switchView("search");
   $("#main").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function leaveSearchIfEmpty() {
+  if ($("#searchInput").value.trim()) return;
+  const searchView = $("#view-search");
+  if (searchView && !searchView.classList.contains("hidden")) {
+    switchView(state.activeTab);
+  }
 }
 
 function tickClock() {
@@ -340,8 +378,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     e.preventDefault();
     doSearch($("#searchInput").value);
   });
-  $("#clearSearch").addEventListener("click", () => {
-    $("#searchInput").value = "";
+  const searchInput = $("#searchInput");
+  const clearToLastTab = () => {
+    searchInput.value = "";
     switchView(state.activeTab);
-  });
+  };
+  $("#clearSearch").addEventListener("click", clearToLastTab);
+  searchInput.addEventListener("search", leaveSearchIfEmpty);
+  searchInput.addEventListener("input", leaveSearchIfEmpty);
 });

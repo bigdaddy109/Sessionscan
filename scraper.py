@@ -1115,10 +1115,10 @@ def finalize_meta(failures):
     meta["generated_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     meta["sample"] = False
     meta["scraper_status"] = "partial" if failures else "ok"
-    meta["label_zh"] = "上次掃描"
-    meta["label_en"] = "LAST SCAN"
-    meta["note_zh"] = "每日排程（台北 08:00 / UTC 00:00）。來源失敗時保留昨日檔，不覆寫成空。"
-    meta["note_en"] = "Daily cron Taipei 08:00 / UTC 00:00. On source failure, keep yesterday — never overwrite with empty."
+    meta["label_zh"] = "資料快照"
+    meta["label_en"] = "SNAPSHOT"
+    meta["note_zh"] = "公開來源標題彙整，不是即時爬蟲。來源失敗時保留既有檔，不覆寫成空。"
+    meta["note_en"] = "Public outbound titles only — not a live scrape. On source failure, keep yesterday — never overwrite with empty."
     meta["scope"] = ["GTA 5", "GTA Online", "RDO", "GTA 6"]
     meta["excluded"] = ["GTA 4"]
     for alias, keys in (
