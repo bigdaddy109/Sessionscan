@@ -1,0 +1,7 @@
+{
+ "status": "offline",
+ "title_zh": "SessionScan 頻道",
+ "title_en": "SessionScan channel",
+ "note_zh": "自有頻道目前可能離線。此格為預留位置，不會偽造 SessionScan 影片連結。",
+ "note_en": "Owned channel may be offline. Placeholder only — no fabricated SessionScan video URLs."
+}

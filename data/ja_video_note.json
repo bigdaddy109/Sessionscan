@@ -1,0 +1,16 @@
+{
+ "title_zh": "日本語區尚無掃描結果時的索引",
+ "title_en": "Japanese index when the scan is empty",
+ "body_zh": "此語言若當日沒有通過範圍檢查的影片，改連公開日文攻略索引。不偽造連結。",
+ "body_en": "If the Japanese tab has no in-scope videos, link a public index instead.",
+ "links": [
+  {
+   "title": "GTAオンライン 稼ぎ（atwiki）",
+   "url": "https://w.atwiki.jp/gtav/pages/187.html"
+  },
+  {
+   "title": "YouTube 搜尋：GTAオンライン 金策",
+   "url": "https://www.youtube.com/results?search_query=GTA%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%20%E9%87%91%E7%AD%96"
+  }
+ ]
+}

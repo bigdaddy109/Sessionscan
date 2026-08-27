@@ -1,5 +1,19 @@
 SessionScan
 
-This project adapts information architecture (channel tabs, search-over-cards, job/video/forum lists) from https://github.com/franky5440-afk/poe2 (Apache License 2.0).
-Visual design (vice-dusk skin), copy, and sample data are original modifications and are not from that project.
+This project adapts information architecture (channel tabs, search-over-cards,
+job/video/forum lists) and the daily scrape / keep-yesterday / yt-dlp / Bahamut
+/ X syndication pipeline from https://github.com/franky5440-afk/poe2
+(Apache License 2.0).
+
+Modifications:
+- Visual design (vice-dusk skin), Traditional Chinese copy, and sample data
+  are original SessionScan work and are not from that project.
+- scraper.py / build_site.py / .github/workflows/daily.yml retarget Frank's
+  PoE 2 data pipeline to GTA 5, GTA Online, RDO, and GTA 6 (no GTA 4).
+- Money/jobs cards are outbound titles, links, and dates from GTABase, IGN,
+  and GTA Wiki only — full guides are never reprinted.
+- SessionScan's own YouTube slot stays a placeholder when the channel is
+  offline; no SessionScan video URLs are fabricated.
+- Thumbnails are not stored; the site hotlinks YouTube i.ytimg.com.
+
 See LICENSE.

@@ -1,0 +1,37 @@
+{
+ "sessionscan_slot": "2026-08-27 08:07",
+ "jobs_gtabase": "2026-08-27 08:12",
+ "jobs_ign": "2026-08-27 08:12",
+ "jobs_wiki": "2026-08-27 08:12",
+ "videos_hot_zh": "2026-08-27 08:08",
+ "videos_new_zh": "2026-08-27 08:08",
+ "videos_hot_en": "2026-08-27 08:10",
+ "videos_new_en": "2026-08-27 08:10",
+ "videos_hot_ja": "2026-08-27 08:10",
+ "videos_new_ja": "2026-08-27 08:10",
+ "forum_reddit": "2026-08-27 08:12",
+ "tweets_en": "2026-08-27 08:10",
+ "tweets": "2026-08-27 08:10",
+ "_last_run": "2026-08-27 08:12",
+ "generated_at": "2026-08-27T08:12:57Z",
+ "sample": false,
+ "scraper_status": "ok",
+ "label_zh": "上次掃描",
+ "label_en": "LAST SCAN",
+ "note_zh": "每日排程（台北 08:00 / UTC 00:00）。來源失敗時保留昨日檔，不覆寫成空。",
+ "note_en": "Daily cron Taipei 08:00 / UTC 00:00. On source failure, keep yesterday — never overwrite with empty.",
+ "scope": [
+  "GTA 5",
+  "GTA Online",
+  "RDO",
+  "GTA 6"
+ ],
+ "excluded": [
+  "GTA 4"
+ ],
+ "jobs": "2026-08-27 08:12",
+ "hot": "2026-08-27 08:10",
+ "new": "2026-08-27 08:10",
+ "forum": "2026-08-27 08:12",
+ "forum_bahamut": "2026-08-27 08:12"
+}
