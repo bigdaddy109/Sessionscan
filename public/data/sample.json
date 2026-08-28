@@ -40,17 +40,17 @@
       "blurb": "查本週折扣與財產時的公開索引。"
     },
     {
-      "id": "gb-vi",
+      "id": "gb-kortz",
       "rank": 3,
-      "title": "GTA 6 公開情報彙整（預告、設定、時間表）",
-      "title_en": "GTA 6 public intel index",
+      "title": "GTA Online：Kortz Center Heist 更新與賺錢重點",
+      "title_en": "GTA Online: The Kortz Center Heist Update",
       "source": "GTABase",
-      "game": "GTA 6",
+      "game": "GTA Online",
       "author": "GTABase",
-      "updated": "2026-05-06",
-      "tags": ["GTA 6", "情報", "範例"],
-      "url": "https://www.gtabase.com/grand-theft-auto-vi",
-      "blurb": "僅連到公開彙整頁，不含劇透全文。"
+      "updated": "2026-08-01",
+      "tags": ["搶劫", "賺錢", "範例"],
+      "url": "https://www.gtabase.com/articles/grand-theft-auto-v/title-updates/gta-online-summer-2026-dlc-update-1-73-patch-notes-features",
+      "blurb": "外連公開更新頁。本站不轉載全文。"
     }
   ],
   "jobs_ign": [
@@ -68,17 +68,17 @@
       "blurb": "外連 IGN 維基，不轉貼攻略正文。"
     },
     {
-      "id": "ign-gta6",
+      "id": "ign-week",
       "rank": 2,
-      "title": "Grand Theft Auto VI — IGN 遊戲頁",
-      "title_en": "Grand Theft Auto VI — IGN game hub",
+      "title": "GTA Online Weekly Bonuses and Discounts（IGN 維基）",
+      "title_en": "GTA Online weekly bonuses — IGN wiki",
       "source": "IGN",
-      "game": "GTA 6",
+      "game": "GTA Online",
       "author": "IGN",
-      "updated": "2026-05-06",
-      "tags": ["GTA 6", "新聞", "範例"],
-      "url": "https://www.ign.com/games/grand-theft-auto-vi",
-      "blurb": "官方預告與公開新聞的 IGN 入口。"
+      "updated": "2026-08-20",
+      "tags": ["每週獎勵", "賺錢", "範例"],
+      "url": "https://www.ign.com/wikis/gta-online",
+      "blurb": "外連 IGN 線上維基，不轉貼攻略正文。"
     }
   ],
   "jobs_wiki": [
@@ -109,17 +109,17 @@
       "blurb": "財產、差事與活動的公開索引。"
     },
     {
-      "id": "wiki-vi",
+      "id": "wiki-week",
       "rank": 3,
-      "title": "Grand Theft Auto VI 公開條目",
-      "title_en": "Grand Theft Auto VI — GTA Wiki",
+      "title": "GTA Online 每週獎勵與折扣（GTA Wiki）",
+      "title_en": "GTA Online weekly bonuses — GTA Wiki",
       "source": "GTA Wiki",
-      "game": "GTA 6",
+      "game": "GTA Online",
       "author": "Fandom",
-      "updated": "2026-05-06",
-      "tags": ["GTA 6", "維基", "範例"],
-      "url": "https://gta.fandom.com/wiki/Grand_Theft_Auto_VI",
-      "blurb": "僅列已公開資訊。"
+      "updated": "2026-08-20",
+      "tags": ["每週獎勵", "賺錢", "範例"],
+      "url": "https://gta.wiki/w/GTA_Online",
+      "blurb": "外連維基條目，本站不重寫攻略。"
     }
   ],
   "videos_hot_zh": [

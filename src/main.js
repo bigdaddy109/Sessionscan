@@ -1,7 +1,7 @@
 const SOURCE_HINTS = {
-  gtabase: "GTABase 公開每週更新與資料庫。卡片只外連，不轉載全文。",
-  ign: "IGN 維基／遊戲頁入口。GTA Online、GTA 6。不含 GTA 4。不含 RDO。",
-  wiki: "GTA Wiki 公開條目。不含 Red Dead Wiki。本站不重寫攻略正文。",
+  gtabase: "GTABase 本週賺錢與工作：每週更新、獎勵、折扣。卡片只外連，不轉載全文。",
+  ign: "IGN 只收 GTA Online 每週獎勵／賺錢。不含 GTA 6 新聞回顧。不含 GTA 4。不含 RDO。",
+  wiki: "GTA Wiki 本週活動與賺錢條目。不含 Red Dead Wiki。本站不重寫攻略正文。",
 };
 
 function isLiveData(data) {
@@ -200,9 +200,15 @@ function renderForum() {
 
 function renderTweets() {
   const list = state.data[`tweets_${state.tweetsLang}`] || [];
-  $("#tweetList").innerHTML = list.length
-    ? list.map(tweetCard).join("")
-    : `<p class="empty-msg">${isLiveData(state.data) ? "尚無訊號，等待下次掃描。" : "尚無範例訊號。"}</p>`;
+  if (list.length) {
+    $("#tweetList").innerHTML = list.map(tweetCard).join("");
+    return;
+  }
+  if (state.tweetsLang === "zh") {
+    $("#tweetList").innerHTML = `<p class="empty-msg">今日無中文訊號</p>`;
+    return;
+  }
+  $("#tweetList").innerHTML = `<p class="empty-msg">${isLiveData(state.data) ? "尚無訊號，等待下次掃描。" : "尚無範例訊號。"}</p>`;
 }
 
 function renderAll() {
