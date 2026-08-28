@@ -9,8 +9,8 @@
     "generated_at": "2026-08-27T00:00:00Z",
     "_last_run": null,
     "scraper_status": "disabled",
-    "scope": ["GTA 5", "GTA 6", "RDO"],
-    "excluded": ["GTA 4"]
+    "scope": ["GTA 5", "GTA Online", "GTA 6"],
+    "excluded": ["GTA 4", "RDO"]
   },
   "jobs_gtabase": [
     {
@@ -68,21 +68,8 @@
       "blurb": "外連 IGN 維基，不轉貼攻略正文。"
     },
     {
-      "id": "ign-rdo",
-      "rank": 2,
-      "title": "Red Dead Online 角色、賞金與營生（IGN 維基）",
-      "title_en": "Red Dead Online roles and money (IGN wiki)",
-      "source": "IGN",
-      "game": "RDO",
-      "author": "IGN",
-      "updated": "2026-03-12",
-      "tags": ["RDO", "賞金", "範例"],
-      "url": "https://www.ign.com/wikis/red-dead-redemption-2",
-      "blurb": "RDO 公開指南入口。"
-    },
-    {
       "id": "ign-gta6",
-      "rank": 3,
+      "rank": 2,
       "title": "Grand Theft Auto VI — IGN 遊戲頁",
       "title_en": "Grand Theft Auto VI — IGN game hub",
       "source": "IGN",
@@ -122,21 +109,8 @@
       "blurb": "財產、差事與活動的公開索引。"
     },
     {
-      "id": "wiki-rdo",
-      "rank": 3,
-      "title": "Red Dead Online 總覽（Red Dead Wiki）",
-      "title_en": "Red Dead Online overview",
-      "source": "Red Dead Wiki",
-      "game": "RDO",
-      "author": "Fandom",
-      "updated": "2026-02-18",
-      "tags": ["RDO", "西部", "範例"],
-      "url": "https://reddead.fandom.com/wiki/Red_Dead_Online",
-      "blurb": "賞金獵人、收藏家與營生入口。"
-    },
-    {
       "id": "wiki-vi",
-      "rank": 4,
+      "rank": 3,
       "title": "Grand Theft Auto VI 公開條目",
       "title_en": "Grand Theft Auto VI — GTA Wiki",
       "source": "GTA Wiki",
@@ -387,18 +361,6 @@
       "game": "GTA 6",
       "url": "https://www.reddit.com/r/GTA6/",
       "blurb": "Outbound to the subreddit. No leaked material."
-    },
-    {
-      "id": "r-rdo",
-      "rank": 3,
-      "title": "r/RedDeadOnline — role bonuses and camp money",
-      "author": "r/RedDeadOnline",
-      "time": "2026-08-12",
-      "replies": 47,
-      "source": "Reddit",
-      "game": "RDO",
-      "url": "https://www.reddit.com/r/RedDeadOnline/",
-      "blurb": "Outbound to the subreddit."
     }
   ],
   "tweets_zh": [
@@ -453,16 +415,6 @@
       "url": "https://x.com/GTAonline",
       "lang": "en",
       "game": "GTA Online"
-    },
-    {
-      "id": "tw-rdo-en",
-      "author": "RockstarGames",
-      "author_name": "Rockstar Games",
-      "date": "2026-08-12",
-      "text": "[EXAMPLE] Red Dead Online events live on Social Club. Outbound only.",
-      "url": "https://socialclub.rockstargames.com/events",
-      "lang": "en",
-      "game": "RDO"
     },
     {
       "id": "tw-vi-en",

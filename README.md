@@ -1,6 +1,6 @@
 # SessionScan
 
-GTA 5／GTA Online／RDO／GTA 6 靜態情報站。繁體中文為主。不含 GTA 4。
+GTA 5／GTA Online／GTA 6 靜態情報站。繁體中文為主。不含 GTA 4。不含 RDO。
 
 線上版：https://bigdaddy109.github.io/Sessionscan/
 
@@ -55,7 +55,7 @@ npm run dev
 | Reddit | `r/gtaonline`、`r/GTA6` RSS 外連卡 |
 | X / Twitter | ddgs `site:x.com` + syndication（免 key），Rockstar／GTA 6 相關 |
 
-範圍：GTA 5、GTA Online、RDO、GTA 6。標題或網址碰到 GTA 4／舊世代會丟棄。
+範圍：GTA 5、GTA Online、GTA 6。標題或網址碰到 GTA 4、RDO／Red Dead、或舊世代會丟棄。
 
 ## 授權
 

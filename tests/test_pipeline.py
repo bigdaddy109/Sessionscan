@@ -17,6 +17,7 @@ from scraper import (  # noqa: E402
     is_gta4,
     is_in_scope,
     is_old_gta,
+    is_rdo,
     is_sessionscan_author,
     parse_baha_rows,
     parse_gtabase_listing,
@@ -35,7 +36,7 @@ class ScopeTests(unittest.TestCase):
     def test_keeps_in_scope_titles(self):
         self.assertTrue(is_in_scope("GTA Online Weekly Update (August 20-26)"))
         self.assertTrue(is_in_scope("Grand Theft Auto VI Extended Look"))
-        self.assertTrue(is_in_scope("Red Dead Online monthly bonuses"))
+        self.assertFalse(is_in_scope("Red Dead Online monthly bonuses"))
         self.assertTrue(is_in_scope("俠盜獵車手6 第二支預告"))
 
     def test_drops_gta4_and_old_titles(self):
@@ -44,6 +45,18 @@ class ScopeTests(unittest.TestCase):
         self.assertFalse(is_in_scope("GTA 4 重製版傳聞"))
         self.assertTrue(is_old_gta("GTA San Andreas 100% guide"))
         self.assertFalse(is_in_scope("https://www.gtabase.com/grand-theft-auto-iv/"))
+
+    def test_drops_rdo_and_red_dead(self):
+        self.assertTrue(is_rdo("Red Dead Online monthly bonuses"))
+        self.assertTrue(is_rdo("RDO weekly bonuses"))
+        self.assertTrue(is_rdo("https://reddead.fandom.com/wiki/Red_Dead_Online"))
+        self.assertTrue(is_rdo("https://www.ign.com/wikis/red-dead-redemption-2"))
+        self.assertTrue(is_rdo("r/RedDeadOnline camp money"))
+        self.assertTrue(is_rdo("碧血狂怒線上賞金"))
+        self.assertFalse(is_in_scope("Red Dead Online roles and money"))
+        self.assertFalse(is_in_scope("RDR2 online bounty hunter week"))
+        self.assertTrue(is_in_scope("GTA Online Weekly Update"))
+        self.assertFalse(is_rdo("GTA 6 trailer before Chess 2"))
 
 
 class KeepYesterdayTests(unittest.TestCase):
@@ -234,7 +247,7 @@ class ShortsTests(unittest.TestCase):
                 "aaaaaaaaaaa": ("GTA Online weekly Short", "OtherChan"),
                 "bbbbbbbbbbb": ("GTA 4 remaster clip", "OldChan"),
                 "5ZNYHSFIBRc": ("owned", "SessionScan"),
-                "ddddddddddd": ("Red Dead Online bounty", "RdoChan"),
+                "ddddddddddd": ("GTA 6 leak clip Short", "GtaChan"),
             }
             title, author = titles.get(vid, ("Nope", "X"))
             return {
@@ -282,6 +295,26 @@ class BuildSiteTests(unittest.TestCase):
         build_site.sanitize_merged(merged)
         self.assertEqual(merged["jobs_ign"][0]["title"], "Grand Theft Auto 6 Will Have RPG Mechanics")
         self.assertEqual(merged["forum_bahamut"][0]["url"], "https://forum.gamer.com.tw/B.php?bsn=4737")
+
+    def test_sanitize_drops_rdo_cards(self):
+        sys.path.insert(0, str(ROOT))
+        import build_site
+
+        merged = {
+            "jobs_ign": [
+                {"title": "GTA 6 Extended Look", "game": "GTA 6"},
+                {"title": "Red Dead Online roles", "game": "RDO", "url": "https://reddead.fandom.com/wiki/Red_Dead_Online"},
+            ],
+            "forum_reddit": [{"title": "r/RedDeadOnline camp", "game": "RDO"}],
+            "videos_shorts": [{"title": "GTA Online Short", "game": "GTA Online"}],
+            "meta": {"scope": ["GTA 5", "RDO", "GTA 6"], "excluded": ["GTA 4"]},
+        }
+        build_site.sanitize_merged(merged)
+        self.assertEqual(len(merged["jobs_ign"]), 1)
+        self.assertEqual(merged["jobs_ign"][0]["game"], "GTA 6")
+        self.assertEqual(merged["forum_reddit"], [])
+        self.assertEqual(merged["meta"]["scope"], ["GTA 5", "GTA Online", "GTA 6"])
+        self.assertIn("RDO", merged["meta"]["excluded"])
 
 
 if __name__ == "__main__":

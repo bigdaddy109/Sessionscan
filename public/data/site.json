@@ -1587,11 +1587,11 @@
   "scope": [
    "GTA 5",
    "GTA Online",
-   "RDO",
    "GTA 6"
   ],
   "excluded": [
-   "GTA 4"
+   "GTA 4",
+   "RDO"
   ],
   "jobs": "2026-08-27 08:12",
   "hot": "2026-08-27 08:10",

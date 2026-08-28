@@ -92,6 +92,20 @@ class SearchAliasTests(unittest.TestCase):
         self.assertTrue(any("RPG Mechanics" in t for t in titles))
         self.assertTrue(any("Leaks" in t or "Leaker" in t for t in titles))
 
+    def test_live_scope_has_no_rdo(self):
+        site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
+        self.assertNotIn("RDO", site["meta"].get("scope") or [])
+        self.assertIn("RDO", site["meta"].get("excluded") or [])
+        for key, rows in site.items():
+            if not isinstance(rows, list):
+                continue
+            for it in rows:
+                if not isinstance(it, dict):
+                    continue
+                self.assertNotEqual(it.get("game"), "RDO", key)
+                tags = [str(t).upper() for t in (it.get("tags") or [])]
+                self.assertNotIn("RDO", tags, key)
+
     def test_owned_short_is_searchable_and_not_offline(self):
         site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
         slot = site["sessionscan_slot"]
