@@ -914,7 +914,7 @@ def scrape_other_shorts(html_by_url=None, exclude_ids=None):
         title = (meta.get("title") or "").strip()
         channel = (meta.get("author_name") or "").strip()
         blob = f"{title} {channel}"
-        if not title or is_gta4(blob) or is_old_gta(blob) or not is_in_scope(blob):
+        if not title or is_gta4(blob) or is_rdo(blob) or is_old_gta(blob) or not is_in_scope(blob):
             continue
         items.append(short_item(vid, title, channel or "YouTube", detect_lang(title), detect_game(blob)))
     return items
