@@ -3,7 +3,7 @@
 
 Adapted from franky5440-afk/poe2 scraper.py (Apache License 2.0).
 Modifications (2026 SessionScan):
-- Retargeted from Path of Exile 2 to GTA 5 / GTA Online / RDO / GTA 6
+- Retargeted from Path of Exile 2 to GTA 5 / GTA Online / GTA 6
 - Replaced build-guide scrapers with GTABase / IGN / GTA Wiki outbound cards
   (titles, links, dates only — never reprint full guides)
 - Added Reddit r/gtaonline and r/GTA6 outbound cards
@@ -74,7 +74,6 @@ YT_SHORTS_SOURCES = (
     "https://www.youtube.com/hashtag/gtaonline/shorts",
     "https://www.youtube.com/hashtag/gta6/shorts",
     "https://www.youtube.com/results?search_query=%23shorts+GTA+Online",
-    "https://www.youtube.com/results?search_query=%23shorts+Red+Dead+Online",
 )
 
 X_SEARCH_QUERIES = {
@@ -112,8 +111,14 @@ OLD_GTA_RE = re.compile(
 )
 SCOPE_RE = re.compile(
     r"gta\s*(?:5|v|6|vi|online|o\b)|gtao|grand theft auto\s*(?:5|v|6|vi|online)"
-    r"|俠盜獵車手\s*(?:5|6|線上)|侠盗猎车手\s*(?:5|6|线上)"
-    r"|red dead online|\brdo\b|碧血.*線上|red dead redemption\s*2.*online",
+    r"|俠盜獵車手\s*(?:5|6|線上)|侠盗猎车手\s*(?:5|6|线上)",
+    re.I,
+)
+RDO_RE = re.compile(
+    r"red\s*dead\s*online|\brdo\b|rdr2"
+    r"|red\s*dead\s*redemption"
+    r"|碧血(?:狂怒)?(?:.*線上)?"
+    r"|reddead\.fandom|/wikis/red-dead|/r/reddead|red\s*dead\s*wiki",
     re.I,
 )
 
@@ -187,25 +192,27 @@ def is_gta4(text):
     return bool(GTA4_RE.search(text or ""))
 
 
+def is_rdo(text):
+    return bool(RDO_RE.search(text or ""))
+
+
 def is_old_gta(text):
     return bool(OLD_GTA_RE.search(text or "")) and not SCOPE_RE.search(text or "")
 
 
 def is_in_scope(text):
     blob = text or ""
-    if is_gta4(blob) or is_old_gta(blob):
+    if is_gta4(blob) or is_rdo(blob) or is_old_gta(blob):
         return False
     return bool(SCOPE_RE.search(blob))
 
 
 def detect_game(text):
     t = text or ""
-    if is_gta4(t):
+    if is_gta4(t) or is_rdo(t):
         return None
     if re.search(r"gta\s*(?:6|vi)\b|grand theft auto\s*(?:6|vi)|俠盜獵車手\s*6|侠盗猎车手\s*6", t, re.I):
         return "GTA 6"
-    if re.search(r"red dead online|\brdo\b|碧血.*線上", t, re.I):
-        return "RDO"
     if re.search(r"gta\s*online|gtao|grand theft auto online|俠盜獵車手\s*線上|线上模式", t, re.I):
         return "GTA Online"
     if re.search(r"gta\s*(?:5|v)\b|grand theft auto\s*(?:5|v)|俠盜獵車手\s*5", t, re.I):
@@ -430,7 +437,6 @@ def scrape_ign():
     for url in (
         "https://www.ign.com/games/grand-theft-auto-v",
         "https://www.ign.com/games/grand-theft-auto-vi",
-        "https://www.ign.com/wikis/red-dead-redemption-2",
     ):
         try:
             add(parse_ign_game_page(http_get(url).text, url))
@@ -448,19 +454,18 @@ def parse_wiki_search(payload, source, base):
         if not title:
             continue
         blob = f"{title} {base}"
-        if is_gta4(blob) or is_old_gta(blob):
+        if is_gta4(blob) or is_rdo(blob) or is_old_gta(blob):
             continue
-        if not (is_in_scope(blob) or source.startswith("GTA Wiki") or source.startswith("Red Dead")):
+        if source.startswith("Red Dead"):
             continue
-        if source.startswith("Red Dead") and not re.search(r"online|rdo|multiplayer", title, re.I):
-            if title.lower() not in {"red dead online"}:
-                continue
+        if not (is_in_scope(blob) or source.startswith("GTA Wiki")):
+            continue
         slug = title.replace(" ", "_")
         url = f"{base}/wiki/{slug}" if "/wiki" in base or "fandom.com" in base else f"{base}/w/{slug}"
         if "gta.wiki" in base:
             url = f"https://gta.wiki/w/{slug}"
         ts = parse_http_date(hit.get("timestamp") or "")
-        game = detect_game(blob) or ("RDO" if "red dead" in source.lower() else "GTA Online")
+        game = detect_game(blob) or "GTA Online"
         out.append(job_item(title, url, source.split(" /")[0], game, ts, len(out) + 1))
         if len(out) >= JOB_CAP:
             break
@@ -489,7 +494,6 @@ def scrape_wiki():
         ("https://gta.wiki/api.php", "https://gta.wiki", "GTA Wiki", "Cayo Perico Heist"),
         ("https://gta.wiki/api.php", "https://gta.wiki", "GTA Wiki", "Grand Theft Auto VI"),
         ("https://gta.fandom.com/api.php", "https://gta.fandom.com", "GTA Wiki", "GTA Online"),
-        ("https://reddead.fandom.com/api.php", "https://reddead.fandom.com", "Red Dead Wiki", "Red Dead Online"),
     ]
     for api, base, source, q in queries:
         try:
@@ -618,7 +622,7 @@ def collect_videos(lang):
         def keep(title):
             return bool(KANA_RE.search(title)) and game_in_title(title)
     else:
-        hot_queries = ["GTA Online money guide", "GTA 6 trailer", "Red Dead Online"]
+        hot_queries = ["GTA Online money guide", "GTA 6 trailer"]
         new_queries = ["GTA Online guide", "GTA 6"]
 
         def keep(title):
@@ -986,7 +990,7 @@ def parse_baha_rows(html):
         author_el = row.select_one(".b-list__count__user a")
         time_el = row.select_one(".b-list__time__edittime a")
         title = title_el.get_text(" ", strip=True) if title_el else ""
-        if is_gta4(title) or is_old_gta(title):
+        if is_gta4(title) or is_rdo(title) or is_old_gta(title):
             continue
         items.append({
             "title": title,
@@ -1036,7 +1040,7 @@ def scrape_bahamut_ddgs():
                     continue
                 if "C.php" not in href and "B.php" not in href:
                     continue
-                if is_gta4(title) or is_old_gta(title):
+                if is_gta4(title) or is_rdo(title) or is_old_gta(title):
                     continue
                 url = baha_outbound_url(href)
                 k = baha_dedup_key(url)
@@ -1108,7 +1112,7 @@ def parse_reddit_atom(xml_text, source_name, game):
             continue
         if title.lower() in {"community hub"}:
             continue
-        if is_gta4(title) or is_old_gta(title):
+        if is_gta4(title) or is_rdo(title) or is_old_gta(title):
             continue
         items.append({
             "id": md5_id(norm_url(url)),
@@ -1158,7 +1162,7 @@ def scrape_reddit():
                 if "reddit.com/r/" not in href or not title:
                     continue
                 k = norm_url(href)
-                if k in seen or is_gta4(title):
+                if k in seen or is_gta4(title) or is_rdo(title):
                     continue
                 seen.add(k)
                 items.append({
@@ -1254,7 +1258,7 @@ def update_tweets():
     def merge(t):
         nonlocal added
         blob = f"{t.get('text', '')} {t.get('author', '')}"
-        if is_gta4(blob) or is_old_gta(blob):
+        if is_gta4(blob) or is_rdo(blob) or is_old_gta(blob):
             return
         if not (game_in_title(blob) or t.get("author", "").lower() in {"rockstargames", "gtaonline"}):
             return
@@ -1326,8 +1330,8 @@ def finalize_meta(failures):
     meta["label_en"] = "SNAPSHOT"
     meta["note_zh"] = "公開來源標題彙整，不是即時爬蟲。來源失敗時保留既有檔，不覆寫成空。"
     meta["note_en"] = "Public outbound titles only — not a live scrape. On source failure, keep yesterday — never overwrite with empty."
-    meta["scope"] = ["GTA 5", "GTA Online", "RDO", "GTA 6"]
-    meta["excluded"] = ["GTA 4"]
+    meta["scope"] = ["GTA 5", "GTA Online", "GTA 6"]
+    meta["excluded"] = ["GTA 4", "RDO"]
     for alias, keys in (
         ("jobs", ["jobs_gtabase", "jobs_ign", "jobs_wiki"]),
         ("hot", ["videos_hot_zh", "videos_hot_en", "videos_hot_ja"]),

@@ -1,7 +1,7 @@
 const SOURCE_HINTS = {
   gtabase: "GTABase 公開每週更新與資料庫。卡片只外連，不轉載全文。",
-  ign: "IGN 維基／遊戲頁入口。GTA Online、RDO、GTA 6。不含 GTA 4。",
-  wiki: "GTA Wiki / Red Dead Wiki 公開條目。本站不重寫攻略正文。",
+  ign: "IGN 維基／遊戲頁入口。GTA Online、GTA 6。不含 GTA 4。不含 RDO。",
+  wiki: "GTA Wiki 公開條目。不含 Red Dead Wiki。本站不重寫攻略正文。",
 };
 
 function isLiveData(data) {

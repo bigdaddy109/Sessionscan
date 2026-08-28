@@ -66,14 +66,53 @@ def baha_outbound_url(href):
     return raw if raw else BAHA_BOARD
 
 
+RDO_ITEM_RE = re.compile(
+    r"red\s*dead\s*online|\brdo\b|rdr2|red\s*dead\s*redemption"
+    r"|碧血|reddead\.fandom|/wikis/red-dead|/r/reddead|red\s*dead\s*wiki",
+    re.I,
+)
+
+
+def is_rdo_item(item):
+    if not isinstance(item, dict):
+        return False
+    if item.get("game") == "RDO":
+        return True
+    blob = " ".join(
+        str(item.get(k) or "")
+        for k in ("title", "title_en", "source", "url", "text", "blurb", "channel")
+    )
+    tags = item.get("tags") or []
+    if any(str(t).upper() == "RDO" for t in tags):
+        return True
+    return bool(RDO_ITEM_RE.search(blob))
+
+
 def sanitize_merged(merged):
-    for key in ("jobs_gtabase", "jobs_ign", "jobs_wiki"):
-        for item in merged.get(key) or []:
-            if isinstance(item, dict) and item.get("title"):
+    for key in LIST_SECTIONS:
+        rows = merged.get(key) or []
+        if not isinstance(rows, list):
+            continue
+        kept = []
+        for item in rows:
+            if is_rdo_item(item):
+                continue
+            if isinstance(item, dict) and item.get("title") and key.startswith("jobs_"):
                 item["title"] = clean_job_title(item["title"])
+            kept.append(item)
+        merged[key] = kept
     for item in merged.get("forum_bahamut") or []:
         if isinstance(item, dict):
             item["url"] = baha_outbound_url(item.get("url") or "")
+    meta = merged.get("meta")
+    if isinstance(meta, dict):
+        meta["scope"] = ["GTA 5", "GTA Online", "GTA 6"]
+        excl = [x for x in (meta.get("excluded") or []) if x != "RDO"]
+        if "GTA 4" not in excl:
+            excl.append("GTA 4")
+        if "RDO" not in excl:
+            excl.append("RDO")
+        meta["excluded"] = excl
     return merged
 
 
