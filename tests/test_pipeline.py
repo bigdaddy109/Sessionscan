@@ -15,10 +15,13 @@ from scraper import (  # noqa: E402
     clean_heading,
     empty_owned_slot,
     is_gta4,
+    is_gta6_news_not_jobs,
     is_in_scope,
+    is_jobs_item,
     is_old_gta,
     is_rdo,
     is_sessionscan_author,
+    keep_tweet,
     parse_baha_rows,
     parse_gtabase_listing,
     parse_ign_game_page,
@@ -28,6 +31,7 @@ from scraper import (  # noqa: E402
     scrape_other_shorts,
     scrape_owned_short,
     shorts_ids_from_html,
+    tweet_lang,
 )
 import scraper as scraper_mod  # noqa: E402
 
@@ -57,6 +61,57 @@ class ScopeTests(unittest.TestCase):
         self.assertFalse(is_in_scope("RDR2 online bounty hunter week"))
         self.assertTrue(is_in_scope("GTA Online Weekly Update"))
         self.assertFalse(is_rdo("GTA 6 trailer before Chess 2"))
+
+    def test_jobs_prefer_online_money_not_gta6_news(self):
+        self.assertTrue(is_jobs_item("GTA Online Weekly Update (August 27-2): Bonuses & Discounts", "GTABase"))
+        self.assertTrue(is_jobs_item("GTA Online: The Kortz Center Heist Update patch notes", "GTABase"))
+        self.assertTrue(is_jobs_item("GTA Online weekly bonuses and discounts", "IGN"))
+        self.assertFalse(is_jobs_item("The Grand Theft Auto 6 Gameplay Just Makes Me Want a PC Version", "IGN"))
+        self.assertFalse(is_jobs_item("GTA 6 Extended Look Coming August 27", "GTABase"))
+        self.assertFalse(is_jobs_item("'Mind-Blowingly Good': The Internet Reacts to Rockstar's GTA 6", "IGN"))
+        self.assertTrue(is_gta6_news_not_jobs("GTA 6 trailer recap and extended look"))
+        self.assertFalse(is_gta6_news_not_jobs("GTA Online Weekly Update bonuses"))
+        self.assertFalse(is_jobs_item("GTA Online Bonuses (November 2018 Part 1)", "GTA Wiki"))
+
+    def test_tweet_lang_and_cleanliness(self):
+        self.assertEqual(tweet_lang("俠盜獵車手6 第二支預告出來了"), "zh")
+        self.assertEqual(tweet_lang("GTA 6 trailer is out"), "en")
+        self.assertEqual(tweet_lang("『GTA 6』パッケージ版にディスクなし"), "ja")
+        dirty = {
+            "tid": "1730587560726892883",
+            "author": "rockstargames",
+            "text": "December 1, 2023 - Rockstar Games · @RockstarGames · 2:00 PM · Dec 1, 2023248.3MViews · 61K",
+            "date": "2023-12-01",
+        }
+        self.assertFalse(keep_tweet(dirty))
+        old_official = {
+            "tid": "1919746311382851812",
+            "author": "rockstargames",
+            "text": "Watch Grand Theft Auto VI Trailer 2 Now",
+            "date": "2025-05-06",
+        }
+        self.assertFalse(keep_tweet(old_official))
+        fresh = {
+            "tid": "2093145954320843050",
+            "author": "gtavi_countdown",
+            "text": "The 4K uncompressed version of GTA 6’s Extended Look is 14.2GB.",
+            "date": "2026-08-28",
+        }
+        self.assertTrue(keep_tweet(fresh))
+        long_one = {
+            "tid": "2090804906936435002",
+            "author": "gtasix_",
+            "text": "New GTA 6 leaked gameplay: " + ("police " * 80),
+            "date": "2026-08-21",
+        }
+        self.assertFalse(keep_tweet(long_one))
+        concat = {
+            "tid": "2085335127287030232",
+            "author": "rockstargames",
+            "text": 'Grand Theft Auto VI: An Extended Look ...Rockstar Games on X / X - TwitterGTA News on X: "Pre-orders"',
+            "date": "2026-08-06",
+        }
+        self.assertFalse(keep_tweet(concat))
 
 
 class KeepYesterdayTests(unittest.TestCase):
@@ -146,34 +201,36 @@ class ParserTests(unittest.TestCase):
         items = parse_gtabase_listing(html)
         titles = [i["title"] for i in items]
         self.assertTrue(any("Weekly Update" in t for t in titles))
-        self.assertTrue(any("GTA 6" in t for t in titles))
+        self.assertFalse(any("Extended Look" in t for t in titles))
         self.assertFalse(any("IV" in t or "GTA 4" in t for t in titles))
 
     def test_ign_game_page_strips_card_chrome(self):
         html = """
-        <a href="/articles/grand-theft-auto-6-will-have-rpg-mechanics-like-eating-exercising-and-more">
+        <a href="/articles/gta-online-weekly-bonuses-and-discounts-august-27">
           15h ago
-          <h3>Grand Theft Auto 6 Will Have RPG Mechanics Like Eating, Exercising, and More</h3>
-          15h ago - Pulling back the layers. GTA 6 Cade Onder 52
+          <h3>GTA Online Weekly Bonuses and Discounts (August 27)</h3>
+          15h ago - Pulling back the layers. GTA Online Cade Onder 52
+        </a>
+        <a href="/articles/gta-6-just-blew-me-away">
+          <h3>GTA 6 Just Blew Me Away; I'm So Glad I Avoided the Leaks</h3>
         </a>
         """
-        items = parse_ign_game_page(html, "https://www.ign.com/games/grand-theft-auto-vi")
+        items = parse_ign_game_page(html, "https://www.ign.com/wikis/gta-online")
         self.assertEqual(len(items), 1)
-        self.assertEqual(
-            items[0]["title"],
-            "Grand Theft Auto 6 Will Have RPG Mechanics Like Eating, Exercising, and More",
-        )
+        self.assertEqual(items[0]["title"], "GTA Online Weekly Bonuses and Discounts (August 27)")
         self.assertNotIn("ago", items[0]["title"])
+        self.assertEqual(items[0]["updated"], "2026-08-27")
 
     def test_ign_rss_filters_scope(self):
         xml = """<?xml version="1.0"?>
         <rss><channel>
           <item><title>Xbox news</title><link>https://www.ign.com/articles/xbox</link><pubDate>Thu, 27 Aug 2026 00:00:00 +0000</pubDate></item>
           <item><title>GTA 6 Extended Look date</title><link>https://www.ign.com/articles/gta-6-look</link><pubDate>Thu, 27 Aug 2026 00:00:00 +0000</pubDate></item>
+          <item><title>GTA Online Weekly Update bonuses</title><link>https://www.ign.com/articles/gta-online-weekly</link><pubDate>Thu, 27 Aug 2026 00:00:00 +0000</pubDate></item>
         </channel></rss>"""
         items = parse_ign_rss(xml)
         self.assertEqual(len(items), 1)
-        self.assertEqual(items[0]["game"], "GTA 6")
+        self.assertEqual(items[0]["game"], "GTA Online")
         self.assertEqual(items[0]["updated"], "2026-08-27")
 
     def test_reddit_atom_skips_hub_and_sorts(self):
@@ -288,12 +345,12 @@ class BuildSiteTests(unittest.TestCase):
 
         merged = {
             "jobs_ign": [{
-                "title": "15h ago Grand Theft Auto 6 Will Have RPG Mechanics 15h ago - Pulling back the layers. GTA 6 Cade Onder 52",
+                "title": "15h ago GTA Online Weekly Bonuses and Discounts 15h ago - Pulling back the layers. GTA Online Cade Onder 52",
             }],
             "forum_bahamut": [{"url": "https://forum.gamer.com.tw/C.php"}],
         }
         build_site.sanitize_merged(merged)
-        self.assertEqual(merged["jobs_ign"][0]["title"], "Grand Theft Auto 6 Will Have RPG Mechanics")
+        self.assertEqual(merged["jobs_ign"][0]["title"], "GTA Online Weekly Bonuses and Discounts")
         self.assertEqual(merged["forum_bahamut"][0]["url"], "https://forum.gamer.com.tw/B.php?bsn=4737")
 
     def test_sanitize_drops_rdo_cards(self):
@@ -302,7 +359,7 @@ class BuildSiteTests(unittest.TestCase):
 
         merged = {
             "jobs_ign": [
-                {"title": "GTA 6 Extended Look", "game": "GTA 6"},
+                {"title": "GTA Online Weekly Update bonuses", "game": "GTA Online", "url": "https://www.ign.com/articles/gta-online-weekly"},
                 {"title": "Red Dead Online roles", "game": "RDO", "url": "https://reddead.fandom.com/wiki/Red_Dead_Online"},
             ],
             "forum_reddit": [{"title": "r/RedDeadOnline camp", "game": "RDO"}],
@@ -311,7 +368,7 @@ class BuildSiteTests(unittest.TestCase):
         }
         build_site.sanitize_merged(merged)
         self.assertEqual(len(merged["jobs_ign"]), 1)
-        self.assertEqual(merged["jobs_ign"][0]["game"], "GTA 6")
+        self.assertEqual(merged["jobs_ign"][0]["game"], "GTA Online")
         self.assertEqual(merged["forum_reddit"], [])
         self.assertEqual(merged["meta"]["scope"], ["GTA 5", "GTA Online", "GTA 6"])
         self.assertIn("RDO", merged["meta"]["excluded"])

@@ -77,10 +77,24 @@ YT_SHORTS_SOURCES = (
 )
 
 X_SEARCH_QUERIES = {
-    "zh": ('"GTA 6" OR "GTA線上" OR "俠盜獵車手6" site:x.com', "tw-zh"),
-    "en": ('"GTA 6" OR "GTA Online" OR "Rockstar Games" site:x.com', "us-en"),
+    "zh": [
+        ('"GTA 6" site:x.com', "tw-zh"),
+        ('"俠盜獵車手6" site:x.com', "tw-zh"),
+        ('"GTA線上" site:x.com', "tw-zh"),
+        ('"GTA Online" site:x.com', "tw-zh"),
+        ("俠盜獵車手6 site:x.com", "wt-wt"),
+        ("GTA線上 每週 site:x.com", "tw-zh"),
+        ("GTA 6 中文 site:x.com", "hk-tzh"),
+    ],
+    "en": [
+        ('"GTA 6" site:x.com', "us-en"),
+        ('"GTA Online" site:x.com', "us-en"),
+        ('"Rockstar Games" GTA site:x.com', "us-en"),
+    ],
 }
 X_OFFICIAL_ACCOUNTS = ("RockstarGames", "GTAonline")
+TWEET_MAX_AGE_DAYS = 28
+TWEET_MAX_LEN = 400
 SYND_URL = "https://syndication.twitter.com/srv/timeline-profile/screen-name/{}?showReplies=false"
 SYND_MARKER = '<script id="__NEXT_DATA__" type="application/json">'
 STATUS_RE = re.compile(r"\b(?:x|twitter)\.com/([A-Za-z0-9_]{1,15})/status(?:es)?/(\d{10,})")
@@ -94,10 +108,41 @@ JUNK_RES = (
     re.compile(r"sensitive\s+content"),
     re.compile(r"this\s+post\s+is\s+(?:only\s+available|unavailable)"),
     re.compile(r"\(\@[A-Za-z0-9_]+\)\.\s*\d+\s+(?:replies|retweets|likes)\b"),
+    re.compile(r"\d+(?:\.\d+)?[KM]?Views"),
+    re.compile(r"·\s*@\w+"),
+    re.compile(r"@\w{2,15}(?:Dec|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov)\s+\d"),
+    re.compile(r"on x\s*/\s*x"),
+    re.compile(r"on x:\s*\""),
+    re.compile(r"twittergta", re.I),
 )
 
 CJK_RE = re.compile(r"[\u4e00-\u9fff\u3040-\u30ff\uac00-\ud7af]")
+HAN_RE = re.compile(r"[\u4e00-\u9fff]")
 KANA_RE = re.compile(r"[\u3040-\u30ff]")
+JOB_MONEY_RE = re.compile(
+    r"weekly(?:\s+update)?|this\s*week|bonuses?|discounts?|rewards?|"
+    r"money[- ]?making|double\s+(?:money|rp)|[23]x\b|title\s+update|"
+    r"heist|cayo|kortz|gun\s*van|street\s*dealers?|g'?s\s*cache|"
+    r"patch\s*notes|dlc\s+update|transform\s+races|"
+    r"賺錢|金策|本週|每週|獎勵|折扣|每週更新",
+    re.I,
+)
+GTA6_NEWS_RE = re.compile(
+    r"trailer|extended\s+look|gameplay\s+just|devs?\s+at\s+rockstar|"
+    r"reacts?\s+to|internet\s+reacts|leaks?|romance|pc\s+version|"
+    r"playthroughs?|delayed|delay(?:ed)?\s+yet|preview\s+reveals|"
+    r"wanted\s+level\s+explained|car\s+stealing\s+guide|"
+    r"blew\s+me\s+away|mind-blowingly|san\s+andreas.?\s*ambition|"
+    r"addresses\s+recent|official\s+gta\s*6\s+preview|"
+    r"預告|加長版|預覽|洩漏",
+    re.I,
+)
+ONLINE_JOB_RE = re.compile(
+    r"gta\s*online|gtao|grand theft auto online|俠盜獵車手\s*線上|线上模式|"
+    r"gta\s*(?:5|v)\b|grand theft auto\s*(?:5|v)",
+    re.I,
+)
+OLD_JOB_YEAR_RE = re.compile(r"\b(20(?:1\d|2[0-4]))\b")
 
 GTA4_RE = re.compile(
     r"gta\s*(?:4|iv)\b|grand theft auto\s*(?:4|iv)\b|俠盜獵車手\s*4|侠盗猎车手\s*4"
@@ -175,6 +220,132 @@ def detect_lang(text, url=""):
     return "en"
 
 
+def tweet_lang(text):
+    """zh = Han and not Japanese. ja stays out of both tweet buckets."""
+    t = text or ""
+    if KANA_RE.search(t):
+        return "ja"
+    if HAN_RE.search(t):
+        return "zh"
+    return "en"
+
+
+def is_gta6_news_not_jobs(text):
+    blob = text or ""
+    if JOB_MONEY_RE.search(blob) and ONLINE_JOB_RE.search(blob):
+        return False
+    game = detect_game(blob)
+    if game != "GTA 6":
+        return False
+    return bool(GTA6_NEWS_RE.search(blob)) or not JOB_MONEY_RE.search(blob)
+
+
+def is_jobs_item(text, source=""):
+    blob = text or ""
+    if is_gta4(blob) or is_rdo(blob) or is_old_gta(blob):
+        return False
+    if not is_in_scope(blob):
+        return False
+    if is_gta6_news_not_jobs(blob):
+        return False
+    if OLD_JOB_YEAR_RE.search(blob):
+        return False
+    src = (source or "").lower()
+    if src == "ign":
+        return bool(JOB_MONEY_RE.search(blob) and ONLINE_JOB_RE.search(blob))
+    return bool(JOB_MONEY_RE.search(blob))
+
+
+def job_rank_score(item):
+    blob = f"{item.get('title', '')} {item.get('url', '')}"
+    score = 0
+    if re.search(r"weekly\s+update|每週更新|本週", blob, re.I):
+        score += 20
+    if JOB_MONEY_RE.search(blob):
+        score += 10
+    if ONLINE_JOB_RE.search(blob):
+        score += 8
+    if is_gta6_news_not_jobs(blob):
+        score -= 50
+    updated = item.get("updated") or ""
+    if updated:
+        try:
+            age = (datetime.now(timezone.utc).date() - datetime.strptime(updated[:10], "%Y-%m-%d").date()).days
+            if 0 <= age <= 14:
+                score += 6
+            elif 0 <= age <= 45:
+                score += 2
+        except ValueError:
+            pass
+    return score
+
+
+def rank_job_items(items, cap=JOB_CAP):
+    kept = [it for it in items if is_jobs_item(f"{it.get('title', '')} {it.get('url', '')}", it.get("source") or "")]
+    kept.sort(key=job_rank_score, reverse=True)
+    out = []
+    seen = set()
+    for it in kept:
+        k = norm_url(it.get("url") or "") or f"noid:{it.get('id') or it.get('title')}"
+        if k in seen:
+            continue
+        seen.add(k)
+        it["rank"] = len(out) + 1
+        out.append(it)
+        if len(out) >= cap:
+            break
+    return out
+
+
+def tweet_date_ok(date_str, now=None):
+    if not date_str:
+        return False
+    now = now or datetime.now(timezone.utc).date()
+    try:
+        d = datetime.strptime(str(date_str)[:10], "%Y-%m-%d").date()
+    except ValueError:
+        return False
+    age = (now - d).days
+    return 0 <= age <= TWEET_MAX_AGE_DAYS
+
+
+def is_tweet_chrome(text):
+    t = text or ""
+    if t.count("·") >= 3:
+        return True
+    if t.lower().count(" on x") >= 2:
+        return True
+    low = t.lower()
+    return any(p.search(low) for p in JUNK_RES)
+
+
+def keep_tweet(item, now=None):
+    if not isinstance(item, dict):
+        return False
+    text = item.get("text") or ""
+    blob = f"{text} {item.get('author', '')} {item.get('url', '')}"
+    if is_gta4(blob) or is_rdo(blob) or is_old_gta(blob):
+        return False
+    if tweet_lang(text) == "ja":
+        return False
+    if len(text) > TWEET_MAX_LEN or len(text) < 8:
+        return False
+    if is_tweet_chrome(text):
+        return False
+    date = item.get("date") or ""
+    if not date and item.get("tid"):
+        try:
+            date = snowflake_date(item["tid"])
+        except (TypeError, ValueError):
+            date = ""
+    if not tweet_date_ok(date, now=now):
+        return False
+    official = str(item.get("author") or "").lower() in {"rockstargames", "gtaonline"}
+    if not (game_in_title(blob) or official):
+        return False
+    return True
+
+
 def norm_url(u):
     return (u or "").split("#")[0].split("?")[0].rstrip("/").lower()
 
@@ -230,8 +401,9 @@ def clean_tweet_text(text):
     t = TIME_PREFIX_RE.sub("", text or "").strip()
     if not t:
         return None
-    low = t.lower()
-    if any(p.search(low) for p in JUNK_RES):
+    if is_tweet_chrome(t):
+        return None
+    if len(t) > TWEET_MAX_LEN:
         return None
     return t
 
@@ -276,26 +448,38 @@ def clean_heading(title):
     return t.strip(" -–")[:180]
 
 
-def date_from_title(title):
+def date_from_title(title, url=""):
+    blob = f"{title or ''} {url or ''}"
     m = re.search(
-        r"(20\d{2})[-/.](\d{1,2})[-/.](\d{1,2})"
-        r"|(?:january|february|march|april|may|june|july|august|september|october|november|december)"
-        r"\s+(\d{1,2})(?:\s*[–-]\s*\d{1,2})?,?\s*(20\d{2})",
-        title or "",
-        re.I,
+        r"(20\d{2})[-/.](\d{1,2})[-/.](\d{1,2})",
+        blob,
     )
-    if not m:
-        return None
-    if m.group(1):
+    if m:
         return f"{m.group(1)}-{int(m.group(2)):02d}-{int(m.group(3)):02d}"
     months = {
         "january": "01", "february": "02", "march": "03", "april": "04",
         "may": "05", "june": "06", "july": "07", "august": "08",
         "september": "09", "october": "10", "november": "11", "december": "12",
     }
-    mon = months.get((re.match(r"[A-Za-z]+", m.group(0)).group(0).lower()))
-    if mon:
-        return f"{m.group(5)}-{mon}-{int(m.group(4)):02d}"
+    m = re.search(
+        r"(january|february|march|april|may|june|july|august|september|october|november|december)"
+        r"\s+(\d{1,2})(?:\s*[–-]\s*(?:[a-z]+\s+)?\d{1,2})?,?\s*(20\d{2})?",
+        blob,
+        re.I,
+    )
+    if m:
+        mon = months[m.group(1).lower()]
+        year = m.group(3) or str(datetime.now(timezone.utc).year)
+        return f"{year}-{mon}-{int(m.group(2)):02d}"
+    m = re.search(
+        r"(january|february|march|april|may|june|july|august|september|october|november|december)"
+        r"-(\d{1,2})",
+        blob,
+        re.I,
+    )
+    if m:
+        year = str(datetime.now(timezone.utc).year)
+        return f"{year}-{months[m.group(1).lower()]}-{int(m.group(2)):02d}"
     return None
 
 
@@ -314,7 +498,7 @@ def job_item(title, url, source, game=None, updated=None, rank=1):
         "source": source,
         "game": game,
         "author": source,
-        "updated": updated or date_from_title(title),
+        "updated": updated or date_from_title(title, url),
         "tags": [game],
         "url": url,
         "blurb": JOB_BLURB,
@@ -334,14 +518,14 @@ def parse_gtabase_listing(html, base="https://www.gtabase.com"):
             continue
         url = urljoin(base, href)
         blob = f"{title} {url}"
-        if not is_in_scope(blob):
+        if not is_jobs_item(blob, "GTABase"):
             continue
         k = norm_url(url)
         if k in seen:
             continue
         seen.add(k)
-        out.append(job_item(title, url, "GTABase", updated=date_from_title(title), rank=len(out) + 1))
-        if len(out) >= JOB_CAP:
+        out.append(job_item(title, url, "GTABase", updated=date_from_title(title, url), rank=len(out) + 1))
+        if len(out) >= JOB_CAP * 3:
             break
     return out
 
@@ -351,6 +535,7 @@ def scrape_gtabase():
         "https://www.gtabase.com/",
         "https://www.gtabase.com/articles/",
         "https://www.gtabase.com/news/",
+        "https://www.gtabase.com/articles/grand-theft-auto-v/news/",
     ]
     merged, seen = [], set()
     for url in pages:
@@ -361,11 +546,10 @@ def scrape_gtabase():
                 if k in seen:
                     continue
                 seen.add(k)
-                it["rank"] = len(merged) + 1
                 merged.append(it)
         except Exception as exc:
             log.error("gtabase %s: %s", url, exc)
-    return merged[:JOB_CAP]
+    return rank_job_items(merged)
 
 
 def parse_ign_rss(xml_text):
@@ -377,7 +561,7 @@ def parse_ign_rss(xml_text):
         date = parse_http_date(item.findtext("pubDate") or "")
         if not title or not link:
             continue
-        if not is_in_scope(f"{title} {link}"):
+        if not is_jobs_item(f"{title} {link}", "IGN"):
             continue
         out.append(job_item(title, link, "IGN", updated=date, rank=len(out) + 1))
         if len(out) >= JOB_CAP:
@@ -405,14 +589,14 @@ def parse_ign_game_page(html, page_url):
             continue
         url = urljoin("https://www.ign.com", href)
         blob = f"{title} {url} {page_url}"
-        if not is_in_scope(blob):
+        if not is_jobs_item(blob, "IGN"):
             continue
         k = norm_url(url)
         if k in seen:
             continue
         seen.add(k)
-        out.append(job_item(title, url, "IGN", detect_game(blob), date_from_title(title), len(out) + 1))
-        if len(out) >= JOB_CAP:
+        out.append(job_item(title, url, "IGN", detect_game(blob), date_from_title(title, url) or date_from_title(title), len(out) + 1))
+        if len(out) >= JOB_CAP * 3:
             break
     return out
 
@@ -426,7 +610,6 @@ def scrape_ign():
             if k in seen:
                 continue
             seen.add(k)
-            it["rank"] = len(items) + 1
             items.append(it)
 
     try:
@@ -436,15 +619,12 @@ def scrape_ign():
 
     for url in (
         "https://www.ign.com/games/grand-theft-auto-v",
-        "https://www.ign.com/games/grand-theft-auto-vi",
     ):
         try:
             add(parse_ign_game_page(http_get(url).text, url))
         except Exception as exc:
             log.error("ign page %s: %s", url, exc)
-        if len(items) >= JOB_CAP:
-            break
-    return items[:JOB_CAP]
+    return rank_job_items(items)
 
 
 def parse_wiki_search(payload, source, base):
@@ -458,7 +638,7 @@ def parse_wiki_search(payload, source, base):
             continue
         if source.startswith("Red Dead"):
             continue
-        if not (is_in_scope(blob) or source.startswith("GTA Wiki")):
+        if not is_jobs_item(f"{blob} {source}", "GTA Wiki"):
             continue
         slug = title.replace(" ", "_")
         url = f"{base}/wiki/{slug}" if "/wiki" in base or "fandom.com" in base else f"{base}/w/{slug}"
@@ -490,19 +670,20 @@ def scrape_wiki():
             items.append(it)
 
     queries = [
-        ("https://gta.wiki/api.php", "https://gta.wiki", "GTA Wiki", "GTA Online weekly"),
+        ("https://gta.wiki/api.php", "https://gta.wiki", "GTA Wiki", "GTA Online weekly update"),
+        ("https://gta.wiki/api.php", "https://gta.wiki", "GTA Wiki", "GTA Online bonuses"),
         ("https://gta.wiki/api.php", "https://gta.wiki", "GTA Wiki", "Cayo Perico Heist"),
-        ("https://gta.wiki/api.php", "https://gta.wiki", "GTA Wiki", "Grand Theft Auto VI"),
-        ("https://gta.fandom.com/api.php", "https://gta.fandom.com", "GTA Wiki", "GTA Online"),
+        ("https://gta.wiki/api.php", "https://gta.wiki", "GTA Wiki", "GTA Online money"),
+        ("https://gta.fandom.com/api.php", "https://gta.fandom.com", "GTA Wiki", "GTA Online weekly"),
     ]
     for api, base, source, q in queries:
         try:
             add(parse_wiki_search(wiki_search(api, q), source, base))
         except Exception as exc:
             log.error("wiki %s %s: %s", source, q, exc)
-        if len(items) >= JOB_CAP:
+        if len(items) >= JOB_CAP * 2:
             break
-    return items[:JOB_CAP]
+    return rank_job_items(items)
 
 
 def update_jobs():
@@ -1241,7 +1422,7 @@ def tweet_item(t):
         "text": text,
         "date": t.get("date") or snowflake_date(t["tid"]),
         "likes": t.get("likes"),
-        "lang": detect_lang(text),
+        "lang": tweet_lang(text),
         "game": detect_game(text) or "GTA 6",
     }
 
@@ -1250,53 +1431,53 @@ def update_tweets():
     pool = {}
     for lang in ("zh", "en"):
         for it in load_json(f"tweets_{lang}.json", []):
-            if isinstance(it.get("tid"), str) and it["tid"].isdigit():
+            if isinstance(it.get("tid"), str) and it["tid"].isdigit() and keep_tweet(it):
+                it["lang"] = tweet_lang(it.get("text") or "")
                 pool[it["tid"]] = it
 
     added = 0
 
     def merge(t):
         nonlocal added
-        blob = f"{t.get('text', '')} {t.get('author', '')}"
-        if is_gta4(blob) or is_rdo(blob) or is_old_gta(blob):
+        item = tweet_item(t)
+        if not keep_tweet(item):
             return
-        if not (game_in_title(blob) or t.get("author", "").lower() in {"rockstargames", "gtaonline"}):
-            return
-        if t["tid"] not in pool:
+        if item["tid"] not in pool:
             added += 1
-        pool[t["tid"]] = tweet_item(t)
+        pool[item["tid"]] = item
 
     with DDGS() as d:
-        for qkey, (q, region) in X_SEARCH_QUERIES.items():
-            try:
-                results = list(d.text(q, region=region, max_results=20))
-            except Exception as exc:
-                log.warning("ddgs x %s %s: %s", qkey, q, exc)
-                continue
-            for r in results:
-                m = STATUS_RE.search(r.get("href") or "")
-                if not m:
+        for qkey, queries in X_SEARCH_QUERIES.items():
+            for q, region in queries:
+                try:
+                    results = list(d.text(q, region=region, max_results=15))
+                except Exception as exc:
+                    log.warning("ddgs x %s %s: %s", qkey, q, exc)
                     continue
-                title = html_lib.unescape((r.get("title") or "").strip())
-                body = html_lib.unescape((r.get("body") or "").strip())
-                disp, _, rest = title.partition(" on X:")
-                text = rest.strip()
-                if text.endswith("/ X"):
-                    text = text[:-3].strip()
-                if len(text) >= 2 and text.startswith('"') and text.endswith('"'):
-                    text = text[1:-1].strip()
-                if not text:
-                    text = body
-                text = clean_tweet_text(text)
-                if not text:
-                    continue
-                merge({
-                    "tid": m.group(2),
-                    "author": m.group(1).lower(),
-                    "author_name": disp.strip(),
-                    "text": text,
-                })
-            time.sleep(1.5)
+                for r in results:
+                    m = STATUS_RE.search(r.get("href") or "")
+                    if not m:
+                        continue
+                    title = html_lib.unescape((r.get("title") or "").strip())
+                    body = html_lib.unescape((r.get("body") or "").strip())
+                    disp, _, rest = title.partition(" on X:")
+                    text = rest.strip()
+                    if text.endswith("/ X"):
+                        text = text[:-3].strip()
+                    if len(text) >= 2 and text.startswith('"') and text.endswith('"'):
+                        text = text[1:-1].strip()
+                    if not text:
+                        text = body
+                    text = clean_tweet_text(text)
+                    if not text:
+                        continue
+                    merge({
+                        "tid": m.group(2),
+                        "author": m.group(1).lower(),
+                        "author_name": disp.strip(),
+                        "text": text,
+                    })
+                time.sleep(1.2)
 
     for sn in X_OFFICIAL_ACCOUNTS:
         for t in x_timeline(sn):
@@ -1304,9 +1485,12 @@ def update_tweets():
 
     buckets = {"zh": [], "en": []}
     for it in pool.values():
-        lang = it.get("lang") if it.get("lang") in buckets else detect_lang(it.get("text") or "")
+        if not keep_tweet(it):
+            continue
+        lang = tweet_lang(it.get("text") or "")
         if lang not in buckets:
-            lang = "en"
+            continue
+        it["lang"] = lang
         buckets[lang].append(it)
 
     wrote = False

@@ -89,6 +89,8 @@ def is_rdo_item(item):
 
 
 def sanitize_merged(merged):
+    from scraper import is_jobs_item, keep_tweet, rank_job_items
+
     for key in LIST_SECTIONS:
         rows = merged.get(key) or []
         if not isinstance(rows, list):
@@ -97,9 +99,17 @@ def sanitize_merged(merged):
         for item in rows:
             if is_rdo_item(item):
                 continue
-            if isinstance(item, dict) and item.get("title") and key.startswith("jobs_"):
-                item["title"] = clean_job_title(item["title"])
+            if key.startswith("jobs_"):
+                blob = f"{item.get('title', '')} {item.get('url', '')}"
+                if not is_jobs_item(blob, item.get("source") or key.replace("jobs_", "")):
+                    continue
+                if isinstance(item, dict) and item.get("title"):
+                    item["title"] = clean_job_title(item["title"])
+            if key.startswith("tweets_") and not keep_tweet(item):
+                continue
             kept.append(item)
+        if key.startswith("jobs_"):
+            kept = rank_job_items(kept)
         merged[key] = kept
     for item in merged.get("forum_bahamut") or []:
         if isinstance(item, dict):

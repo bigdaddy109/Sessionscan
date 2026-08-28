@@ -1,59 +1,14 @@
 {
  "jobs_gtabase": [
   {
-   "id": "d8d19e53074176ae908e0ec669326eb2",
-   "rank": 1,
-   "title": "GTA Online: The Kortz Center Heist Update",
-   "title_en": "",
-   "source": "GTABase",
-   "game": "GTA Online",
-   "author": "GTABase",
-   "updated": null,
-   "tags": [
-    "GTA Online"
-   ],
-   "url": "https://www.gtabase.com/articles/grand-theft-auto-v/title-updates/gta-online-summer-2026-dlc-update-1-73-patch-notes-features",
-   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
-  },
-  {
-   "id": "29691344eb8de9468d4a67fd04d11ca8",
-   "rank": 2,
-   "title": "GTA 6 Wanted Level Explained & Police System Guide",
-   "title_en": "",
-   "source": "GTABase",
-   "game": "GTA 6",
-   "author": "GTABase",
-   "updated": null,
-   "tags": [
-    "GTA 6"
-   ],
-   "url": "https://www.gtabase.com/articles/gta-6/gta-6-wanted-level-explained-police-system-guide",
-   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
-  },
-  {
-   "id": "d355fc3ae986e751c9331f83c17549ae",
-   "rank": 3,
-   "title": "GTA 6 Car Stealing Guide: How to Steal, Sell & Keep Vehicles",
-   "title_en": "",
-   "source": "GTABase",
-   "game": "GTA 6",
-   "author": "GTABase",
-   "updated": null,
-   "tags": [
-    "GTA 6"
-   ],
-   "url": "https://www.gtabase.com/articles/gta-6/gta-6-car-stealing-guide-how-to-steal-sell-keep-vehicles",
-   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
-  },
-  {
    "id": "903bd4090e7c07684e53370d3e5a31e0",
-   "rank": 4,
+   "rank": 1,
    "title": "GTA Online Weekly Update (August 27 - September 2): Five New Random Transform Races, Bonuses & Discounts",
    "title_en": "",
    "source": "GTABase",
    "game": "GTA Online",
    "author": "GTABase",
-   "updated": null,
+   "updated": "2026-08-27",
    "tags": [
     "GTA Online"
    ],
@@ -61,223 +16,132 @@
    "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
   },
   {
-   "id": "1a0a2527478c7aedab7d35621c5be35d",
-   "rank": 5,
-   "title": "First Official GTA 6 Preview Reveals New Gameplay Details",
-   "title_en": "",
-   "source": "GTABase",
-   "game": "GTA 6",
-   "author": "GTABase",
-   "updated": null,
-   "tags": [
-    "GTA 6"
-   ],
-   "url": "https://www.gtabase.com/articles/gta-6/first-official-gta-6-preview-reveals-new-gameplay-details",
-   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
-  },
-  {
-   "id": "2a2470dcc6a91bd6405259fb34832976",
-   "rank": 6,
-   "title": "Rockstar Games Officially Addresses Recent GTA 6 Leaks",
-   "title_en": "",
-   "source": "GTABase",
-   "game": "GTA 6",
-   "author": "GTABase",
-   "updated": null,
-   "tags": [
-    "GTA 6"
-   ],
-   "url": "https://www.gtabase.com/articles/gta-6/rockstar-games-officially-addresses-recent-gta-6-leaks",
-   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
-  },
-  {
-   "id": "96f3b8dc9e0a89456129216842329c7c",
-   "rank": 7,
-   "title": "Is Grand Theft Auto VI Going to Be Delayed Yet Again?",
-   "title_en": "",
-   "source": "GTABase",
-   "game": "GTA 6",
-   "author": "GTABase",
-   "updated": null,
-   "tags": [
-    "GTA 6"
-   ],
-   "url": "https://www.gtabase.com/articles/gta-6/is-grand-theft-auto-vi-going-to-be-delayed-yet-again",
-   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
-  },
-  {
-   "id": "0494c4abbabb5fd74370fe86937ebd31",
-   "rank": 8,
-   "title": "GTA 6 Leaks Continue: Everything Spotted In The New Clips",
-   "title_en": "",
-   "source": "GTABase",
-   "game": "GTA 6",
-   "author": "GTABase",
-   "updated": null,
-   "tags": [
-    "GTA 6"
-   ],
-   "url": "https://www.gtabase.com/articles/gta-6/gta-6-leaks-continue-everything-spotted-in-the-new-clips",
-   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
-  }
- ],
- "jobs_ign": [
-  {
-   "id": "04ed65eae87a7e8bf83ae98fe1c46c55",
-   "rank": 1,
-   "title": "The Grand Theft Auto 6 Gameplay Just Makes Me Want a PC Version Even More",
-   "title_en": "",
-   "source": "IGN",
-   "game": "GTA 6",
-   "author": "IGN",
-   "updated": "2026-08-27",
-   "tags": [
-    "GTA 6"
-   ],
-   "url": "https://www.ign.com/articles/the-grand-theft-auto-6-gameplay-just-makes-me-want-a-pc-version-even-more",
-   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
-  },
-  {
-   "id": "151c63aa1ca2976da32bbd32aac214aa",
+   "id": "a605bc5fa991c108dfc6ac822fdcf16a",
    "rank": 2,
-   "title": "GTA 6 Devs at Rockstar Celebrate as Extended Look Finally Reveals Gameplay After Years of Development",
+   "title": "GTA Online Weekly Update (August 20-26): Brand Wars Event Continues, Bonuses & Discounts",
    "title_en": "",
-   "source": "IGN",
-   "game": "GTA 6",
-   "author": "IGN",
-   "updated": "2026-08-27",
+   "source": "GTABase",
+   "game": "GTA Online",
+   "author": "GTABase",
+   "updated": "2026-08-20",
    "tags": [
-    "GTA 6"
+    "GTA Online"
    ],
-   "url": "https://www.ign.com/articles/gta-6-devs-at-rockstar-celebrate-as-extended-look-finally-reveals-gameplay-after-years-of-development",
+   "url": "https://www.gtabase.com/articles/grand-theft-auto-v/news/gta-online-weekly-update-august-20-26-brand-wars-event-continues-bonuses-discounts",
    "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
   },
   {
-   "id": "283a380d39e2cfaa367028c0f7874ae4",
+   "id": "e24dfe4309487d6e9093bd08248f5b80",
    "rank": 3,
-   "title": "Star Citizen Spinoff Squadron 42 Delayed to 2027, Dev Insists It's Because of GTA 6",
+   "title": "GTA Online Weekly Update (August 13-19): Brand Wars Event, Bonuses & Discounts",
    "title_en": "",
-   "source": "IGN",
-   "game": "GTA 6",
-   "author": "IGN",
-   "updated": "2026-08-27",
+   "source": "GTABase",
+   "game": "GTA Online",
+   "author": "GTABase",
+   "updated": "2026-08-13",
    "tags": [
-    "GTA 6"
+    "GTA Online"
    ],
-   "url": "https://www.ign.com/articles/star-citizen-spinoff-squadron-42-delayed-to-2027-dev-insists-its-because-of-gta-6",
+   "url": "https://www.gtabase.com/articles/grand-theft-auto-v/news/gta-online-weekly-update-august-13-19-brand-wars-event-bonuses-discounts",
    "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
   },
   {
-   "id": "f9c5b29f0b9cbc4de4862808e10d2eb8",
+   "id": "3e86e351b76cb887a2c529ecc13c1ce4",
    "rank": 4,
-   "title": "GTA 6 Just Blew Me Away; I'm So Glad I Avoided the Leaks",
+   "title": "GTA Online Weekly Update (August 6-August 12): The Panther Statue Returns, Bonuses & Discounts",
    "title_en": "",
-   "source": "IGN",
-   "game": "GTA 6",
-   "author": "IGN",
-   "updated": "2026-08-27",
+   "source": "GTABase",
+   "game": "GTA Online",
+   "author": "GTABase",
+   "updated": "2026-08-06",
    "tags": [
-    "GTA 6"
+    "GTA Online"
    ],
-   "url": "https://www.ign.com/articles/gta-6-just-blew-me-away-im-so-glad-i-avoided-the-leaks",
+   "url": "https://www.gtabase.com/articles/grand-theft-auto-v/news/gta-online-weekly-update-august-6-august-12-the-panther-statue-returns-bonuses-discounts",
    "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
   },
   {
-   "id": "779da1bceea0bb8f021026c7d6391914",
+   "id": "ebc5d26e2b2ecfdb00806156480e8f24",
    "rank": 5,
-   "title": "GTA 6 May Be Set in Vice City, but It Has San Andreas’ Ambition",
+   "title": "GTA Online Weekly Update (July 30-August 5): Rewards on Original Heists, Bonuses & Discounts",
    "title_en": "",
-   "source": "IGN",
-   "game": "GTA 6",
-   "author": "IGN",
-   "updated": "2026-08-27",
+   "source": "GTABase",
+   "game": "GTA Online",
+   "author": "GTABase",
+   "updated": "2026-07-30",
    "tags": [
-    "GTA 6"
+    "GTA Online"
    ],
-   "url": "https://www.ign.com/articles/gta-6-rpg-stats-weight-fat-muscle-explained",
+   "url": "https://www.gtabase.com/articles/grand-theft-auto-v/news/gta-online-weekly-update-july-30-august-5-rewards-on-original-heists-bonuses-discounts",
    "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
   },
   {
-   "id": "c46ecff8b7d7611fd2a6f1da6c078262",
+   "id": "b2d6b323486b57ef446f22a87147a82d",
    "rank": 6,
-   "title": "With GTA 6, Rockstar Is Ready to Prove It Can Do Romance",
+   "title": "GTA Online Weekly Update (July 23-29): Kortz Center Heist Primary Target, Bonuses & Discounts",
    "title_en": "",
-   "source": "IGN",
-   "game": "GTA 6",
-   "author": "IGN",
-   "updated": "2026-08-27",
+   "source": "GTABase",
+   "game": "GTA Online",
+   "author": "GTABase",
+   "updated": "2026-07-23",
    "tags": [
-    "GTA 6"
+    "GTA Online"
    ],
-   "url": "https://www.ign.com/articles/gta-6-romance-couple-system-explained",
+   "url": "https://www.gtabase.com/articles/grand-theft-auto-v/news/gta-online-weekly-update-july-23-29-kortz-center-heist-primary-target-bonuses-discounts",
    "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
   },
   {
-   "id": "c20a2275412647458077bfb74f758f29",
+   "id": "d8d19e53074176ae908e0ec669326eb2",
    "rank": 7,
-   "title": "'Mind-Blowingly Good': The Internet Reacts to Rockstar's Grand Theft Auto 6: Extended Look Reveal",
+   "title": "GTA Online: The Kortz Center Heist Update",
    "title_en": "",
-   "source": "IGN",
-   "game": "GTA 6",
-   "author": "IGN",
-   "updated": "2026-08-27",
+   "source": "GTABase",
+   "game": "GTA Online",
+   "author": "GTABase",
+   "updated": "2026-07-23",
    "tags": [
-    "GTA 6"
+    "GTA Online"
    ],
-   "url": "https://www.ign.com/articles/mind-blowingly-good-the-internet-reacts-to-rockstars-grand-theft-auto-6-extended-look-reveal",
-   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
-  },
-  {
-   "id": "88399037044f8e38916a1ac2054d521b",
-   "rank": 8,
-   "title": "Grand Theft Auto 6 Playthroughs Can Last 80 Hours",
-   "title_en": "",
-   "source": "IGN",
-   "game": "GTA 6",
-   "author": "IGN",
-   "updated": "2026-08-27",
-   "tags": [
-    "GTA 6"
-   ],
-   "url": "https://www.ign.com/articles/grand-theft-auto-6-playthroughs-can-last-80-hours",
+   "url": "https://www.gtabase.com/articles/grand-theft-auto-v/title-updates/gta-online-summer-2026-dlc-update-1-73-patch-notes-features",
    "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
   }
  ],
+ "jobs_ign": [],
  "jobs_wiki": [
   {
-   "id": "da67d249e7c6052c9bf561d6e598d45e",
+   "id": "f493a280a6fa1eb5a36c59e998073da6",
    "rank": 1,
-   "title": "Events",
+   "title": "GTA Online: The Diamond Casino Heist",
    "title_en": "",
    "source": "GTA Wiki",
    "game": "GTA Online",
    "author": "GTA Wiki",
-   "updated": "2026-08-27",
+   "updated": "2026-07-22",
    "tags": [
     "GTA Online"
    ],
-   "url": "https://gta.wiki/w/Events",
+   "url": "https://gta.wiki/w/GTA_Online:_The_Diamond_Casino_Heist",
    "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
   },
   {
-   "id": "ac64c55a3973cc07625f88801954d7ca",
+   "id": "c02a153a0aacf88eee34b118f6cea844",
    "rank": 2,
-   "title": "GTA Online: Gunrunning/Event",
+   "title": "GTA Online: The Cayo Perico Heist",
    "title_en": "",
    "source": "GTA Wiki",
    "game": "GTA Online",
    "author": "GTA Wiki",
-   "updated": "2026-05-24",
+   "updated": "2026-07-25",
    "tags": [
     "GTA Online"
    ],
-   "url": "https://gta.wiki/w/GTA_Online:_Gunrunning/Event",
+   "url": "https://gta.wiki/w/GTA_Online:_The_Cayo_Perico_Heist",
    "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
   },
   {
-   "id": "f3f79d55eeca991be2894a68ee5807f1",
+   "id": "88fc10c8ac6e586cb3cb72f87c454670",
    "rank": 3,
-   "title": "Esskey Week",
+   "title": "GTA Online: The Diamond Casino Heist/Event",
    "title_en": "",
    "source": "GTA Wiki",
    "game": "GTA Online",
@@ -286,82 +150,7 @@
    "tags": [
     "GTA Online"
    ],
-   "url": "https://gta.wiki/w/Esskey_Week",
-   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
-  },
-  {
-   "id": "ae7b79e48ac91f44b75d9918ed015efe",
-   "rank": 4,
-   "title": "GTA Online: Smuggler's Run/Event",
-   "title_en": "",
-   "source": "GTA Wiki",
-   "game": "GTA Online",
-   "author": "GTA Wiki",
-   "updated": "2026-05-24",
-   "tags": [
-    "GTA Online"
-   ],
-   "url": "https://gta.wiki/w/GTA_Online:_Smuggler's_Run/Event",
-   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
-  },
-  {
-   "id": "4b5cc21a3f489992e5279b62600f162f",
-   "rank": 5,
-   "title": "GTA Online: Bottom Dollar Bounties/Event",
-   "title_en": "",
-   "source": "GTA Wiki",
-   "game": "GTA Online",
-   "author": "GTA Wiki",
-   "updated": "2026-07-12",
-   "tags": [
-    "GTA Online"
-   ],
-   "url": "https://gta.wiki/w/GTA_Online:_Bottom_Dollar_Bounties/Event",
-   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
-  },
-  {
-   "id": "3ad7f6ac120a1e2a4a6553939b0dfeb2",
-   "rank": 6,
-   "title": "GTA Online: Arena War/Event",
-   "title_en": "",
-   "source": "GTA Wiki",
-   "game": "GTA Online",
-   "author": "GTA Wiki",
-   "updated": "2026-05-24",
-   "tags": [
-    "GTA Online"
-   ],
-   "url": "https://gta.wiki/w/GTA_Online:_Arena_War/Event",
-   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
-  },
-  {
-   "id": "d3449c7f6c6d099afa9454fda7f394c8",
-   "rank": 7,
-   "title": "The Titan Job Week",
-   "title_en": "",
-   "source": "GTA Wiki",
-   "game": "GTA Online",
-   "author": "GTA Wiki",
-   "updated": "2026-07-12",
-   "tags": [
-    "GTA Online"
-   ],
-   "url": "https://gta.wiki/w/The_Titan_Job_Week",
-   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
-  },
-  {
-   "id": "d73f528642bc1618944a8afab809ecef",
-   "rank": 8,
-   "title": "Festive Surprise 2015/Event",
-   "title_en": "",
-   "source": "GTA Wiki",
-   "game": "GTA Online",
-   "author": "GTA Wiki",
-   "updated": "2026-05-24",
-   "tags": [
-    "GTA Online"
-   ],
-   "url": "https://gta.wiki/w/Festive_Surprise_2015/Event",
+   "url": "https://gta.wiki/w/GTA_Online:_The_Diamond_Casino_Heist/Event",
    "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
   }
  ],
@@ -1379,7 +1168,44 @@
    "blurb": "Outbound to Reddit. Title and date only."
   }
  ],
- "tweets_zh": [],
+ "tweets_zh": [
+  {
+   "id": "88a1ff2c222e6d7407c3d01d6d94b088",
+   "tid": "2093312101368623293",
+   "url": "https://x.com/pirrer/status/2093312101368623293",
+   "author": "pirrer",
+   "author_name": "GTA 6 的官方發表會辦了，但內容已經在網路上流了9 天。 8 月 ...",
+   "text": "8 月18 日起，《俠盜獵車手6》的實機畫面開始外流，前後大約15 段。一個自稱CyberLeek 的個人或團體宣稱，他們手上有一份可以玩的版本。目前能確認的只有 ...",
+   "date": "2026-08-28",
+   "likes": null,
+   "lang": "zh",
+   "game": "GTA 6"
+  },
+  {
+   "id": "bedda58726500bfbc5f13083bb65bbb8",
+   "tid": "2092447164517757418",
+   "url": "https://x.com/kyd1031578/status/2092447164517757418",
+   "author": "kyd1031578",
+   "author_name": "KYD 玩 ai",
+   "text": "\"我们为 GTA 6 做了一条“数据更新日志”： • 每次更新...",
+   "date": "2026-08-26",
+   "likes": null,
+   "lang": "zh",
+   "game": "GTA 6"
+  },
+  {
+   "id": "0e3d43d58a65d19fae42396fbfe84d39",
+   "tid": "2088164760953266331",
+   "url": "https://x.com/akira77218/status/2088164760953266331",
+   "author": "akira77218",
+   "author_name": "R星合作Netflix搶先看GTA 6預告引起玩家不滿？Take Two CEO ...",
+   "text": "R星合作Netflix搶先看GTA 6預告引起玩家不滿？Take Two CEO大贊遊戲預購取得前所未有的成績？遊戲圈有史以來最備受期待的遊戲【...",
+   "date": "2026-08-14",
+   "likes": null,
+   "lang": "zh",
+   "game": "GTA Online"
+  }
+ ],
  "tweets_en": [
   {
    "id": "065d14da2cdc3e096a8ce78fd0826592",
@@ -1388,6 +1214,30 @@
    "author": "gtavi_countdown",
    "author_name": "GTA 6 Countdown ⏳ (@GTAVI_Countdown) on X",
    "text": "The 4K uncompressed version of GTA 6’s Extended Look is 14.2GB, and you can now download it from Rockstar’s website.",
+   "date": "2026-08-28",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "7dc8321c96d817fd88df45cc98480ae2",
+   "tid": "2093307616567202263",
+   "url": "https://x.com/gta6tracker/status/2093307616567202263",
+   "author": "gta6tracker",
+   "author_name": "GTA 6 News",
+   "text": "\"GTA 6’s Extended Look didn’t just show off ...",
+   "date": "2026-08-28",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "d43b07a408c8dd8231950e829dcfc7f6",
+   "tid": "2093142029085671595",
+   "url": "https://x.com/rockstargames/status/2093142029085671595",
+   "author": "rockstargames",
+   "author_name": "Watch Grand Theft Auto VI: An Extended Look. Now available ...",
+   "text": "Rockstar Games (@RockstarGames). Watch Grand Theft Auto VI: An Extended Look. Now available on YouTube and the Grand Theft Auto VI official ...",
    "date": "2026-08-28",
    "likes": null,
    "lang": "en",
@@ -1454,6 +1304,102 @@
    "game": "GTA Online"
   },
   {
+   "id": "d2c00af353acb57e739b97721e23f7c3",
+   "tid": "2093098948965859749",
+   "url": "https://x.com/gta6_report/status/2093098948965859749",
+   "author": "gta6_report",
+   "author_name": "GTA 6 Report",
+   "text": "\"The Wanted System in GTA 6 has a TON of new ...",
+   "date": "2026-08-27",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "3b8b256e24040c13e07fc3ac9402bc4b",
+   "tid": "2093055138332123297",
+   "url": "https://x.com/ign_es/status/2093055138332123297",
+   "author": "ign_es",
+   "author_name": "IGN España",
+   "text": "GTA 6 al descubierto: aquí tienes 69 nuevos detalles de la jugabilidad https://t.co/WYKlNT8BQL",
+   "date": "2026-08-27",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "3d6727bedfef9e63c366934a7023cc1c",
+   "tid": "2093077386807964041",
+   "url": "https://x.com/gtawikiofficial/status/2093077386807964041",
+   "author": "gtawikiofficial",
+   "author_name": "GTA Wiki",
+   "text": "\"Valentina is the first GTA Online character ...",
+   "date": "2026-08-27",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA Online"
+  },
+  {
+   "id": "764212d9a473b5f34212599e1c96740a",
+   "tid": "2092945241305239720",
+   "url": "https://x.com/rockstargames/status/2092945241305239720",
+   "author": "rockstargames",
+   "author_name": "Rockstar Games",
+   "text": "Earn Triple Rewards in Random Transform Races this week in GTA Online. Plus, get a special 6X Weekend Bonus on select Races and add Drift Tuning Upgrades to three more vehicles: https://t.co/WPvpCwOvM2",
+   "date": "2026-08-27",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA Online"
+  },
+  {
+   "id": "b5be10aecc662f4bac7c9ab813e6de9b",
+   "tid": "2093058895069450375",
+   "url": "https://x.com/synthpotato/status/2093058895069450375",
+   "author": "synthpotato",
+   "author_name": "Thoughts on the gameplay: GTA 6 is going to be the greatest ...",
+   "text": "Thoughts on the gameplay: GTA 6 is going to be the greatest game of all time. This is the most detailed, gorgeous open world ever created ...",
+   "date": "2026-08-27",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "96cc203fea3873352d4f41eab1b9b282",
+   "tid": "2093051168603750805",
+   "url": "https://x.com/tggonyt/status/2093051168603750805",
+   "author": "tggonyt",
+   "author_name": "TGG",
+   "text": "\"It's my pleasure to reveal a new GTA 6 screenshot ...",
+   "date": "2026-08-27",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "7523b50807523ac183b29be836a5c642",
+   "tid": "2093067129851388153",
+   "url": "https://x.com/synthpotato/status/2093067129851388153",
+   "author": "synthpotato",
+   "author_name": "Synth Potato on X",
+   "text": "GTA 6 is 80 hours long if you focus solely on the main story and some side goals according to Rockstar, just confirmed.",
+   "date": "2026-08-27",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "d60cb07bd31f132c8a67ed3cc06762bb",
+   "tid": "2092801512963506481",
+   "url": "https://x.com/rockstargames/status/2092801512963506481",
+   "author": "rockstargames",
+   "author_name": "Rockstar Games",
+   "text": "\"Quick clarification: you are free to ...",
+   "date": "2026-08-27",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
    "id": "89281c2aeb91acbd708336de006c856b",
    "tid": "2092636078427484219",
    "url": "https://x.com/portalviciados/status/2092636078427484219",
@@ -1478,6 +1424,66 @@
    "game": "GTA 6"
   },
   {
+   "id": "f9fc92d4f458d0e78653f1637f085eb9",
+   "tid": "2092653733867851833",
+   "url": "https://x.com/gtasix_/status/2092653733867851833",
+   "author": "gtasix_",
+   "author_name": "GTA 6 Updates",
+   "text": "\"NEW GTA 6 details revealed by Rockstar Games ...",
+   "date": "2026-08-26",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "8192822ef3a7357eb53ca0c58253c4fc",
+   "tid": "2092646929423560709",
+   "url": "https://x.com/gtasixinfo/status/2092646929423560709",
+   "author": "gtasixinfo",
+   "author_name": "GTA 6 Info",
+   "text": "\"New official GTA 6 screenshots have been released ...",
+   "date": "2026-08-26",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "380844ac4ca65080e155b1a583fabfa4",
+   "tid": "2092634940420542801",
+   "url": "https://x.com/modernwarzone/status/2092634940420542801",
+   "author": "modernwarzone",
+   "author_name": "ModernWarzone on X",
+   "text": "The GTA 6 leaker, Cyberleek, has released footage of the Grand Theft Auto 6 story prologue, spoiling it for any who watch.",
+   "date": "2026-08-26",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "7e74ad62c133da8637d12a89fae09758",
+   "tid": "2092614450234925485",
+   "url": "https://x.com/shacknews/status/2092614450234925485",
+   "author": "shacknews",
+   "author_name": "Rockstar Games addresses Grand Theft Auto 6 leaks",
+   "text": "Rockstar Games addresses Grand Theft Auto 6 leaks. Rockstar Games addresses Grand Theft Auto 6 leaks. www.shacknews.com.",
+   "date": "2026-08-26",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "809259eacc9cb16df66aad7759bc62e8",
+   "tid": "2092579535376056416",
+   "url": "https://x.com/gtaonlinenews/status/2092579535376056416",
+   "author": "gtaonlinenews",
+   "author_name": "Rockstar Games Respond To GTA 6 Leaks With New Statement",
+   "text": "NEWS: Rockstar Games Respond To GTA 6 Leaks With New Statement \"It would be an understatement to say that having videos of Grand Theft Auto ...",
+   "date": "2026-08-26",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
    "id": "65846c2f1c3b00a9c8405132dbd22391",
    "tid": "2091875579582648734",
    "url": "https://x.com/gtasix_/status/2091875579582648734",
@@ -1485,18 +1491,6 @@
    "author_name": "ANOTHER GTA 6 gameplay video just dropped. The new ...",
    "text": "ANOTHER GTA 6 gameplay video just dropped. The new footage shows the “NUDIST TOWN” location.",
    "date": "2026-08-24",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "c387cd8700f90663db68087d515336c2",
-   "tid": "2090804906936435002",
-   "url": "https://x.com/gtasix_/status/2090804906936435002",
-   "author": "gtasix_",
-   "author_name": "GTA 6 Updates (@gtasix_) on X",
-   "text": "New GTA 6 leaked gameplay: - Police now flash their lights at you if you’re caught breaking traffic rules - Carjacking now gives you a 2-star wanted level -Stealing a vehicle from a resisting NPC triggers a quick-time event, with Jason’s stamina slowly depleting - Civilian vehicles appear to have trackers on them - A large red area on the map immediately gives Jason a 2-star wanted level when entered, possibly a restricted area or police search zone -Cops appear much more frequently in regular traffic compared to GTA 5 - Working road reflectors react to vehicle headlights - FOV effects give a greater sense of speed while driving - Electric scooters and the Metrorail can be seen in the background - A pawn shop icon appears on the mini-map - Jason steals a Truffade Thrax hypercar",
-   "date": "2026-08-21",
    "likes": null,
    "lang": "en",
    "game": "GTA 6"
@@ -1562,6 +1556,30 @@
    "game": "GTA 6"
   },
   {
+   "id": "217f002a7de0ad5da12c46fcd414e0bc",
+   "tid": "2085757860768584081",
+   "url": "https://x.com/rockstargames/status/2085757860768584081",
+   "author": "rockstargames",
+   "author_name": "Play GTA Online now through August 12 to get a GTA ...",
+   "text": "Play GTA Online now through August 12 to get a GTA$1,000,000 bonus, delivered within 72 hours of logging in: rsg.ms/69d6520.",
+   "date": "2026-08-07",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA Online"
+  },
+  {
+   "id": "bd8762fa75193a2c1df77100dd008288",
+   "tid": "2085711832983994649",
+   "url": "https://x.com/gtaonlinenews/status/2085711832983994649",
+   "author": "gtaonlinenews",
+   "author_name": "Rockstar are continuing to give GTA V's GTA Online a lot of ...",
+   "text": "Rockstar are continuing to give GTA V's GTA Online a lot of resources and will continue to do so well into the future says Take-Two CEO ...",
+   "date": "2026-08-07",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA Online"
+  },
+  {
    "id": "8dc840b2d48a016409916bbcf1f11c74",
    "tid": "2085342956681134252",
    "url": "https://x.com/gtavi_countdown/status/2085342956681134252",
@@ -1572,193 +1590,13 @@
    "likes": null,
    "lang": "en",
    "game": "GTA 6"
-  },
-  {
-   "id": "cf14fb79409ec319d4c1d1d7a7966eb6",
-   "tid": "2077033399663894750",
-   "url": "https://x.com/gtavi_countdown/status/2077033399663894750",
-   "author": "gtavi_countdown",
-   "author_name": "GTA 6 Countdown ⏳",
-   "text": "Rockstar confirms GTA Online is free to play until July 20 on PS5 and Xbox Series X|S, no PS Plus or Game Pass Essential required.",
-   "date": "2026-07-14",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA Online"
-  },
-  {
-   "id": "3386b2f5189804c811c2c43eae583f79",
-   "tid": "2070175198867804183",
-   "url": "https://x.com/rockstargames/status/2070175198867804183",
-   "author": "rockstargames",
-   "author_name": "Rockstar Games",
-   "text": "The Grand Theft Auto VI: Ultimate Edition amplifies the deepest and most immersive GTA experience yet with an exclusive collection of premium vehicles, weapons, apparel, and action threaded across all aspects of Jason and Lucia’s story. Pre-order now: https://t.co/7gUj6s6uhi",
-   "date": "2026-06-25",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "ae60c0b41494d9f575358a930692d207",
-   "tid": "2069979457251844542",
-   "url": "https://x.com/gamenohanashi/status/2069979457251844542",
-   "author": "gamenohanashi",
-   "author_name": "ゲームのはなし",
-   "text": "『GTA 6』パッケージ版にディスクなし。Rockstar公式サイトでは、同作のパッケージ版はダウンロードコード封入形式になると説明。 北米小売Video Games Plusは「コードのみの物理商品は扱わない」として販売しない方針を表明。Loot Box",
-   "date": "2026-06-25",
-   "likes": null,
-   "lang": "ja",
-   "game": "GTA 6"
-  },
-  {
-   "id": "7adabca95edac442c38c758d667b2be7",
-   "tid": "2069783442452042157",
-   "url": "https://x.com/extas1stv/status/2069783442452042157",
-   "author": "extas1stv",
-   "author_name": "eXtas1s 🎮 Noticias & Rumores",
-   "text": "CUIDADO CON ESTO 🚨 ¿GTA 6 NO TENDRÁ ONLINE y SE VENDERÁ APARTE? La sección de preguntas y respuestas de GTA 6 de PlayStation podría implicar que la próxima versión de GTA Online se venda por separado o, al menos, no venga incluida con GTA 6. En la página del juego una sección https://t.co/WIHJKLx2GB",
-   "date": "2026-06-24",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "f1bfbec53112ffbcdbb6a26c1b55c931",
-   "tid": "2069747363598725398",
-   "url": "https://x.com/rockstar_mag/status/2069747363598725398",
-   "author": "rockstar_mag",
-   "author_name": "Rockstar Mag’ (@Rockstar_Mag) on X",
-   "text": "June 24, 2026 - Rockstar Games et le PlayStation Store confirment que GTA 6 est un jeu/une expérience solo. Il faudra s'attendre à un lancement bien plus tard de GTA Online V.2. Voir qu'une vente à part.",
-   "date": "2026-06-24",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "8fc625cfb05e2be942fec391f19678d0",
-   "tid": "2069750660598276244",
-   "url": "https://x.com/kotaku/status/2069750660598276244",
-   "author": "kotaku",
-   "author_name": "Rockstar saying Grand Theft Auto 6 'Features a single ...",
-   "text": "June 24, 2026 - Rockstar saying Grand Theft Auto 6 'Features a single-player experience' has fans wondering about the new GTA Online",
-   "date": "2026-06-24",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "3f320f6bec2d694aa1408327acd42df8",
-   "tid": "2067594067030979053",
-   "url": "https://x.com/rockstargames/status/2067594067030979053",
-   "author": "rockstargames",
-   "author_name": "Rockstar Games",
-   "text": "Pre-orders for Grand Theft Auto VI will officially begin on June 25 on digital storefronts and at other select retailers. Check out the official cover art, also available as downloadable artwork at https://t.co/XPwC8URCQ4",
-   "date": "2026-06-18",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "4560ec559f8c6a9982f42f87e0d4f434",
-   "tid": "2067249652739526868",
-   "url": "https://x.com/gtavi_countdown/status/2067249652739526868",
-   "author": "gtavi_countdown",
-   "author_name": "GTA 6 Countdown ⏳ (@GTAVI_Countdown) on X",
-   "text": "June 17, 2026 - Rockstar Games confirms the new GTA Online DLC coming in July is the next “Big Score” (Kortz Center Heist). A really fitting name for a final update before GTA 6 👀 (Source: https://t.co/ks9lG7SGyo) https://t.co/dYs4txzOwZ",
-   "date": "2026-06-17",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "0dffec15357bb4a26a3fed9df8a3c98d",
-   "tid": "2059928294963794028",
-   "url": "https://x.com/rockstar_actu/status/2059928294963794028",
-   "author": "rockstar_actu",
-   "author_name": "Rockstar Actu - Infos GTA 6 et GTA Online",
-   "text": "L'événement hebdomadaire de GTA Online met à l'honneur la mise à jour estivale de l'an dernier, avant de laisser place au prochain DLC d'ici quelques semaines. https://t.co/5K5XszcXsM",
-   "date": "2026-05-28",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA Online"
-  },
-  {
-   "id": "357a61dd50bba01bd7e907ca7c2dbd37",
-   "tid": "2052411023534014924",
-   "url": "https://x.com/gtavi_countdown/status/2052411023534014924",
-   "author": "gtavi_countdown",
-   "author_name": "GTA 6 Countdown ⏳",
-   "text": "Rockstar Games confirms GTA Online will have an exciting new update this summer with a variety of special events and celebrations. This could finally be the last major update before GTA 6 👀 https://t.co/77XFiJ5f37",
-   "date": "2026-05-07",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "f719bee932270008c9ee19533c9aa045",
-   "tid": "1986540361011880167",
-   "url": "https://x.com/rockstargames/status/1986540361011880167",
-   "author": "rockstargames",
-   "author_name": "Rockstar Games",
-   "text": "Hi everyone, Grand Theft Auto VI will now release on Thursday, November 19, 2026. We are sorry for adding additional time to what we realize has been a long wait, but these extra months will allow us to finish the game with the level of polish you have come to expect and https://t.co/yLX9KIiDzX",
-   "date": "2025-11-06",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "5c792164ee7e9212fa16f80e67679428",
-   "tid": "1919746311382851812",
-   "url": "https://x.com/rockstargames/status/1919746311382851812",
-   "author": "rockstargames",
-   "author_name": "Rockstar Games",
-   "text": "Watch Grand Theft Auto VI Trailer 2 Now Explore Vice City and beyond at https://t.co/XPwC8URCQ4",
-   "date": "2025-05-06",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "e1fd4ebdf8fcc45ec8ceeaf8e0f14e2c",
-   "tid": "1918265468076605706",
-   "url": "https://x.com/rockstargames/status/1918265468076605706",
-   "author": "rockstargames",
-   "author_name": "Rockstar Games",
-   "text": "Grand Theft Auto VI is now set to release on May 26, 2026. https://t.co/YgaIn1cYc8",
-   "date": "2025-05-02",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "f1523fcb086b7967f500979bae50a9bf",
-   "tid": "1805601985258828039",
-   "url": "https://x.com/rockstargames/status/1805601985258828039",
-   "author": "rockstargames",
-   "author_name": "Rockstar Games - GTA Online: Bottom Dollar Bounties Out Now",
-   "text": "June 25, 2024 - GTA Online: Bottom Dollar Bounties Out Now Take down some of Southern San Andreas’ most wanted and become just the type of agent of justice the state needs. Now available on PS5, PS4, Xbox Series X|S, Xbox One, and PC: rsg.ms/e0a1b3d ... TWO MORE UPDATES LEFT TIL WE ARE DONE WITH GTA 5 AND PLAYING GTA 6!!",
-   "date": "2024-06-25",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "089929c3a6c2cb126920f69a011018c2",
-   "tid": "1730587560726892883",
-   "url": "https://x.com/rockstargames/status/1730587560726892883",
-   "author": "rockstargames",
-   "author_name": "Rockstar Games (@RockstarGames) on X",
-   "text": "December 1, 2023 - Rockstar Games · @RockstarGames · 2:00 PM · Dec 1, 2023248.3MViews · 61K · 338K · 1.9M · 48K · Chess.com · @chesscomDec 1, 2023 · we really got GTA 6 before Chess 2 · 161 · 1.1K · 40K · 2.1M · Opera GX · @operagxofficialDec 1, 2023 · They didn't say for which game this could be Red Dead 3 ·",
-   "date": "2023-12-01",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
   }
  ],
  "meta": {
   "sessionscan_slot": "2026-08-28 08:24",
-  "jobs_gtabase": "2026-08-28 08:22",
+  "jobs_gtabase": "2026-08-28 14:10",
   "jobs_ign": "2026-08-28 08:22",
-  "jobs_wiki": "2026-08-28 08:22",
+  "jobs_wiki": "2026-08-28 14:10",
   "videos_hot_zh": "2026-08-28 08:23",
   "videos_new_zh": "2026-08-28 08:23",
   "videos_hot_en": "2026-08-28 08:24",
@@ -1766,8 +1604,8 @@
   "videos_hot_ja": "2026-08-28 08:24",
   "videos_new_ja": "2026-08-28 08:24",
   "forum_reddit": "2026-08-28 08:24",
-  "tweets_en": "2026-08-28 08:25",
-  "tweets": "2026-08-28 08:25",
+  "tweets_en": "2026-08-28 14:10",
+  "tweets": "2026-08-28 14:10",
   "_last_run": "2026-08-28 08:25",
   "generated_at": "2026-08-28T08:25:02Z",
   "sample": false,
@@ -1790,7 +1628,8 @@
   "new": "2026-08-28 08:24",
   "forum": "2026-08-28 08:24",
   "forum_bahamut": "2026-08-28 08:24",
-  "videos_shorts": "2026-08-28 08:24"
+  "videos_shorts": "2026-08-28 08:24",
+  "tweets_zh": "2026-08-28 14:10"
  },
  "sessionscan_slot": {
   "status": "online",
