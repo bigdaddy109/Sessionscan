@@ -7,7 +7,7 @@
   "source": "GTA Wiki",
   "game": "GTA Online",
   "author": "GTA Wiki",
-  "updated": "2026-08-15",
+  "updated": "2026-08-27",
   "tags": [
    "GTA Online"
   ],
@@ -60,23 +60,8 @@
   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
  },
  {
-  "id": "d3449c7f6c6d099afa9454fda7f394c8",
-  "rank": 5,
-  "title": "The Titan Job Week",
-  "title_en": "",
-  "source": "GTA Wiki",
-  "game": "GTA Online",
-  "author": "GTA Wiki",
-  "updated": "2026-07-12",
-  "tags": [
-   "GTA Online"
-  ],
-  "url": "https://gta.wiki/w/The_Titan_Job_Week",
-  "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
- },
- {
   "id": "4b5cc21a3f489992e5279b62600f162f",
-  "rank": 6,
+  "rank": 5,
   "title": "GTA Online: Bottom Dollar Bounties/Event",
   "title_en": "",
   "source": "GTA Wiki",
@@ -91,7 +76,7 @@
  },
  {
   "id": "3ad7f6ac120a1e2a4a6553939b0dfeb2",
-  "rank": 7,
+  "rank": 6,
   "title": "GTA Online: Arena War/Event",
   "title_en": "",
   "source": "GTA Wiki",
@@ -102,6 +87,21 @@
    "GTA Online"
   ],
   "url": "https://gta.wiki/w/GTA_Online:_Arena_War/Event",
+  "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
+ },
+ {
+  "id": "d3449c7f6c6d099afa9454fda7f394c8",
+  "rank": 7,
+  "title": "The Titan Job Week",
+  "title_en": "",
+  "source": "GTA Wiki",
+  "game": "GTA Online",
+  "author": "GTA Wiki",
+  "updated": "2026-07-12",
+  "tags": [
+   "GTA Online"
+  ],
+  "url": "https://gta.wiki/w/The_Titan_Job_Week",
   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
  },
  {
