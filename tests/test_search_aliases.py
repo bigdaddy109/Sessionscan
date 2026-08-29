@@ -98,6 +98,10 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("彙整本週賺錢、攻略影片、論壇與 X 訊號", html)
         self.assertNotIn("範例資料，非即時掃描", html)
         self.assertNotIn("domain TBD", html.split("<body", 1)[0])
+        self.assertIn(
+            '<meta name="google-site-verification" content="1vNfyIHQDXh7CFm1hJ4vwXn8XhPCf_FTmqVBcM579vo" />',
+            html,
+        )
         self.assertIn('rel="canonical" href="https://bigdaddy109.github.io/Sessionscan/"', html)
         self.assertIn('property="og:url" content="https://bigdaddy109.github.io/Sessionscan/"', html)
         self.assertNotIn("og:image", html)
