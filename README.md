@@ -4,6 +4,8 @@ GTA 5／GTA Online／GTA 6 靜態情報站。繁體中文為主。不含 GTA 4�
 
 線上版：https://bigdaddy109.github.io/Sessionscan/
 
+換自訂網域時，一併改 `index.html` 的 canonical／og:url、`public/robots.txt` 的 Sitemap、以及 `public/sitemap.xml` 的 `<loc>`。
+
 ## 每日掃描
 
 Frank 同款資料管線（不是 PoE 皮膚）：
