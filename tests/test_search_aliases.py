@@ -90,6 +90,26 @@ class SearchAliasTests(unittest.TestCase):
         self.assertTrue((ROOT / "public" / "LICENSE").is_file())
         self.assertTrue((ROOT / "public" / "NOTICE").is_file())
         self.assertGreater((ROOT / "public" / "LICENSE").stat().st_size, 100)
+
+    def test_basic_seo_meta_and_public_files(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn('lang="zh-Hant"', html)
+        self.assertIn("SessionScan｜GTA 5／Online／GTA 6 情報站", html)
+        self.assertIn("彙整本週賺錢、攻略影片、論壇與 X 訊號", html)
+        self.assertNotIn("範例資料，非即時掃描", html)
+        self.assertNotIn("domain TBD", html.split("<body", 1)[0])
+        self.assertIn(
+            '<meta name="google-site-verification" content="1vNfyIHQDXh7CFm1hJ4vwXn8XhPCf_FTmqVBcM579vo" />',
+            html,
+        )
+        self.assertIn('rel="canonical" href="https://bigdaddy109.github.io/Sessionscan/"', html)
+        self.assertIn('property="og:url" content="https://bigdaddy109.github.io/Sessionscan/"', html)
+        self.assertNotIn("og:image", html)
+        robots = (ROOT / "public" / "robots.txt").read_text(encoding="utf-8")
+        self.assertIn("Allow: /", robots)
+        self.assertIn("https://bigdaddy109.github.io/Sessionscan/sitemap.xml", robots)
+        sitemap = (ROOT / "public" / "sitemap.xml").read_text(encoding="utf-8")
+        self.assertIn("<loc>https://bigdaddy109.github.io/Sessionscan/</loc>", sitemap)
         self.assertGreater((ROOT / "public" / "NOTICE").stat().st_size, 50)
 
     def test_live_ign_titles_have_no_recency_crumbs(self):

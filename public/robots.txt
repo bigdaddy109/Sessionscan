@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bigdaddy109.github.io/Sessionscan/sitemap.xml
