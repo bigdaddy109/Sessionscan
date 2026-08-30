@@ -15,10 +15,9 @@ function escHtml(value) {
 
 function loadHubJobs() {
   const sitePath = resolve("public/data/site.json");
-  const samplePath = resolve("public/data/sample.json");
-  const path = existsSync(sitePath) ? sitePath : samplePath;
+  if (!existsSync(sitePath)) return {};
   try {
-    return JSON.parse(readFileSync(path, "utf8"));
+    return JSON.parse(readFileSync(sitePath, "utf8"));
   } catch {
     return {};
   }

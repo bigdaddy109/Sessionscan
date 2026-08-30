@@ -7,7 +7,7 @@
   "scripts": {
     "prebuild": "cp LICENSE NOTICE public/",
     "dev": "vite --host 127.0.0.1 --port 43173 --strictPort",
-    "build": "vite build",
+    "build": "vite build && node scripts/inject_static_jobs.mjs",
     "preview": "vite preview --host 127.0.0.1 --port 43173 --strictPort"
   },
   "devDependencies": {
