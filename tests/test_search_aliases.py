@@ -117,7 +117,11 @@ class SearchAliasTests(unittest.TestCase):
     def test_basic_seo_meta_and_public_files(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn('lang="zh-Hant"', html)
-        self.assertIn("SessionScan｜GTA 5／Online／GTA 6 情報站", html)
+        self.assertIn("<title>SessionScan GTA｜夜掃描</title>", html)
+        self.assertIn('property="og:title" content="SessionScan GTA｜夜掃描"', html)
+        self.assertIn('name="twitter:title" content="SessionScan GTA｜夜掃描"', html)
+        self.assertIn("GTA HUB · 夜掃描", html)
+        self.assertIn("GTA 5／Online／GTA 6 情報站，與其他同名 App 無關", html)
         self.assertIn("彙整本週賺錢、攻略影片、論壇與 X 訊號", html)
         self.assertNotIn("範例資料，非即時掃描", html)
         self.assertNotIn("domain TBD", html)
