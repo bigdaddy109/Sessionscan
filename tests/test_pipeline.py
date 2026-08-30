@@ -5,6 +5,7 @@ import os
 import sys
 import tempfile
 import unittest
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,6 +23,7 @@ from scraper import (  # noqa: E402
     is_rdo,
     is_sessionscan_author,
     keep_tweet,
+    parse_ddgs_x_hit,
     parse_baha_rows,
     parse_gtabase_listing,
     parse_ign_game_page,
@@ -112,6 +114,33 @@ class ScopeTests(unittest.TestCase):
             "date": "2026-08-06",
         }
         self.assertFalse(keep_tweet(concat))
+        weekend = {
+            "tid": "2093700196811059569",
+            "author": "rockstargames",
+            "text": "GTA Online Weekend Bonus\n\nTake advantage of a special 6X GTA$ and RP on select Drift and Transform Races through August 30",
+            "date": "2026-08-29",
+        }
+        self.assertTrue(keep_tweet(weekend, now=date(2026, 8, 30)))
+        self.assertEqual(scraper_mod.snowflake_date("2093700196811059569"), "2026-08-29")
+        self.assertTrue(scraper_mod.tweet_date_ok("2026-08-29", now=date(2026, 8, 30)))
+        self.assertTrue(scraper_mod.tweet_date_ok("2026-08-30", now=date(2026, 8, 30)))
+
+    def test_x_search_asks_for_recent(self):
+        self.assertEqual(scraper_mod.X_SEARCH_TIMELIMITS, ("d", "w"))
+        self.assertIn("duckduckgo", scraper_mod.X_SEARCH_BACKEND)
+        self.assertNotIn("wikipedia", scraper_mod.X_SEARCH_BACKEND)
+        src = (ROOT / "scraper.py").read_text(encoding="utf-8")
+        self.assertIn("timelimit=timelimit", src)
+        self.assertIn("backend=X_SEARCH_BACKEND", src)
+        self.assertIn("GTA site:x.com/RockstarGames/status", src)
+        hit = parse_ddgs_x_hit({
+            "href": "https://x.com/RockstarGames/status/2093700196811059569",
+            "title": 'Rockstar Games on X: "GTA Online Weekend Bonus"',
+            "body": "Take advantage of a special 6X GTA$ and RP",
+        })
+        self.assertEqual(hit["tid"], "2093700196811059569")
+        self.assertEqual(hit["author"], "rockstargames")
+        self.assertIn("GTA Online Weekend Bonus", hit["text"])
 
 
 class KeepYesterdayTests(unittest.TestCase):

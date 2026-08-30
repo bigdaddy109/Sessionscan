@@ -90,9 +90,16 @@ X_SEARCH_QUERIES = {
         ('"GTA 6" site:x.com', "us-en"),
         ('"GTA Online" site:x.com', "us-en"),
         ('"Rockstar Games" GTA site:x.com', "us-en"),
+        ("GTA site:x.com/RockstarGames/status", "us-en"),
+        ("GTA site:x.com/GTAonline/status", "us-en"),
     ],
 }
+# DDG relevance without a window keeps returning the same week-old hits.
+X_SEARCH_TIMELIMITS = ("d", "w")
+# Skip wikipedia: regional codes like wt-wt / hk-tzh DNS-fail the whole query.
+X_SEARCH_BACKEND = "duckduckgo,brave,yahoo,google,startpage"
 X_OFFICIAL_ACCOUNTS = ("RockstarGames", "GTAonline")
+X_TIMELINE_ATTEMPTS = 3
 TWEET_MAX_AGE_DAYS = 28
 TWEET_MAX_LEN = 400
 SYND_URL = "https://syndication.twitter.com/srv/timeline-profile/screen-name/{}?showReplies=false"
@@ -1383,31 +1390,62 @@ def snowflake_date(tid):
     return datetime.fromtimestamp(ts / 1000, tz=timezone.utc).strftime("%Y-%m-%d")
 
 
-def x_timeline(screen_name):
-    try:
-        r = http_get(SYND_URL.format(screen_name), timeout=20)
-        data = json.loads(r.text.split(SYND_MARKER, 1)[1].split("</script>", 1)[0])
-        entries = data["props"]["pageProps"]["timeline"]["entries"]
-        out = []
-        for e in entries:
-            tw = e.get("content", {}).get("tweet", {})
-            tid = tw.get("id_str") or ""
-            text = (tw.get("full_text") or "").strip()
-            likes = tw.get("favorite_count")
-            if not tid or not text:
-                continue
-            out.append({
-                "tid": tid,
-                "author": screen_name,
-                "author_name": (tw.get("user", {}) or {}).get("name") or "",
-                "text": text,
-                "likes": likes if isinstance(likes, int) else None,
-                "date": snowflake_date(tid),
-            })
-        return out
-    except Exception as exc:
-        log.warning("x timeline %s: %s", screen_name, exc)
-        return []
+def x_timeline(screen_name, attempts=X_TIMELINE_ATTEMPTS):
+    last_exc = None
+    for attempt in range(max(1, attempts)):
+        try:
+            r = http_get(SYND_URL.format(screen_name), timeout=20)
+            data = json.loads(r.text.split(SYND_MARKER, 1)[1].split("</script>", 1)[0])
+            entries = data["props"]["pageProps"]["timeline"]["entries"]
+            out = []
+            for e in entries:
+                tw = e.get("content", {}).get("tweet", {})
+                tid = tw.get("id_str") or ""
+                text = (tw.get("full_text") or "").strip()
+                likes = tw.get("favorite_count")
+                if not tid or not text:
+                    continue
+                out.append({
+                    "tid": tid,
+                    "author": screen_name,
+                    "author_name": (tw.get("user", {}) or {}).get("name") or "",
+                    "text": text,
+                    "likes": likes if isinstance(likes, int) else None,
+                    "date": snowflake_date(tid),
+                })
+            return out
+        except Exception as exc:
+            last_exc = exc
+            if attempt + 1 < attempts:
+                time.sleep(2.5 * (attempt + 1))
+    log.warning("x timeline %s: %s", screen_name, last_exc)
+    return []
+
+
+def parse_ddgs_x_hit(row):
+    """Turn a DDG text hit into a status dict, or None if it is not a tweet."""
+    m = STATUS_RE.search((row or {}).get("href") or "")
+    if not m:
+        return None
+    title = html_lib.unescape((row.get("title") or "").strip())
+    body = html_lib.unescape((row.get("body") or "").strip())
+    disp, _, rest = title.partition(" on X:")
+    text = rest.strip()
+    if text.endswith("/ X"):
+        text = text[:-3].strip()
+    if len(text) >= 2 and text.startswith('"') and text.endswith('"'):
+        text = text[1:-1].strip()
+    if not text:
+        text = body
+    text = clean_tweet_text(text)
+    if not text:
+        return None
+    return {
+        "tid": m.group(2),
+        "author": m.group(1).lower(),
+        "author_name": disp.strip(),
+        "text": text,
+    }
 
 
 def tweet_item(t):
@@ -1447,37 +1485,25 @@ def update_tweets():
         pool[item["tid"]] = item
 
     with DDGS() as d:
-        for qkey, queries in X_SEARCH_QUERIES.items():
-            for q, region in queries:
-                try:
-                    results = list(d.text(q, region=region, max_results=15))
-                except Exception as exc:
-                    log.warning("ddgs x %s %s: %s", qkey, q, exc)
-                    continue
-                for r in results:
-                    m = STATUS_RE.search(r.get("href") or "")
-                    if not m:
+        for timelimit in X_SEARCH_TIMELIMITS:
+            for qkey, queries in X_SEARCH_QUERIES.items():
+                for q, region in queries:
+                    try:
+                        results = list(d.text(
+                            q,
+                            region=region,
+                            max_results=15,
+                            timelimit=timelimit,
+                            backend=X_SEARCH_BACKEND,
+                        ))
+                    except Exception as exc:
+                        log.warning("ddgs x %s %s t=%s: %s", qkey, q, timelimit, exc)
                         continue
-                    title = html_lib.unescape((r.get("title") or "").strip())
-                    body = html_lib.unescape((r.get("body") or "").strip())
-                    disp, _, rest = title.partition(" on X:")
-                    text = rest.strip()
-                    if text.endswith("/ X"):
-                        text = text[:-3].strip()
-                    if len(text) >= 2 and text.startswith('"') and text.endswith('"'):
-                        text = text[1:-1].strip()
-                    if not text:
-                        text = body
-                    text = clean_tweet_text(text)
-                    if not text:
-                        continue
-                    merge({
-                        "tid": m.group(2),
-                        "author": m.group(1).lower(),
-                        "author_name": disp.strip(),
-                        "text": text,
-                    })
-                time.sleep(1.2)
+                    for r in results:
+                        hit = parse_ddgs_x_hit(r)
+                        if hit:
+                            merge(hit)
+                    time.sleep(1.2)
 
     for sn in X_OFFICIAL_ACCOUNTS:
         for t in x_timeline(sn):
