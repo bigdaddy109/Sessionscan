@@ -18,6 +18,11 @@ SEARCH_ALIAS_GROUPS = [
         "佩裡科島",
         "佩裡科",
     ],
+    ["gta 6", "gta6", "vi", "俠盜獵車手6"],
+    ["weekly", "本週獎勵", "每週"],
+    ["ceo", "總裁", "辦公室"],
+    ["autoshop", "改車廠"],
+    ["diamond", "賭場", "賭場豪劫"],
 ]
 
 
@@ -97,7 +102,15 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("SessionScan｜GTA 5／Online／GTA 6 情報站", html)
         self.assertIn("彙整本週賺錢、攻略影片、論壇與 X 訊號", html)
         self.assertNotIn("範例資料，非即時掃描", html)
-        self.assertNotIn("domain TBD", html.split("<body", 1)[0])
+        self.assertNotIn("domain TBD", html)
+        self.assertNotIn("working title", html)
+        self.assertNotIn("EXAMPLE DATA", html)
+        self.assertNotIn("爬蟲狀態：未啟用", html)
+        self.assertNotIn("第一版靜態殼", html)
+        self.assertNotIn("範例快照：2026-08-27", html)
+        self.assertIn("載入中 / LOADING", html)
+        self.assertIn("快照載入中", html)
+        self.assertIn("https://www.youtube.com/@sessionscan", html.split("<main", 1)[0])
         self.assertIn(
             '<meta name="google-site-verification" content="1vNfyIHQDXh7CFm1hJ4vwXn8XhPCf_FTmqVBcM579vo" />',
             html,
@@ -143,13 +156,48 @@ class SearchAliasTests(unittest.TestCase):
         vid = short.get("video_id") or ""
         self.assertEqual(len(vid), 11)
         self.assertTrue(str(short.get("url", "")).startswith("https://www.youtube.com/shorts/"))
-        self.assertNotEqual(vid, "EACOWE6cHCI")
         others = site.get("videos_shorts") or []
         self.assertGreaterEqual(len(others), 1)
         self.assertNotIn(vid, [v.get("video_id") for v in others])
-        self.assertNotIn("EACOWE6cHCI", [v.get("video_id") for v in others])
         hay = f"{short.get('channel','')} {short.get('title','')}".lower()
         self.assertIn("sessionscan", hay)
+
+    def test_new_search_alias_groups(self):
+        pairs = (
+            ("gta6", "俠盜獵車手6"),
+            ("vi", "gta 6"),
+            ("weekly", "本週獎勵"),
+            ("每週", "weekly"),
+            ("ceo", "總裁"),
+            ("辦公室", "ceo"),
+            ("autoshop", "改車廠"),
+            ("diamond", "賭場豪劫"),
+            ("賭場", "diamond"),
+        )
+        for a, b in pairs:
+            self.assertEqual(
+                set(alias_terms_for(a)),
+                set(alias_terms_for(b)),
+                f"{a!r} and {b!r} should share an alias group",
+            )
+        site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
+        jobs = (site.get("jobs_gtabase") or []) + (site.get("jobs_wiki") or [])
+        videos = (site.get("videos_hot_zh") or []) + (site.get("videos_hot_en") or [])
+        tweets = (site.get("tweets_zh") or []) + (site.get("tweets_en") or [])
+        self.assertTrue(any(matches(it, ["title", "title_en"], ["weekly"]) for it in jobs))
+        self.assertTrue(any(matches(it, ["title", "channel"], ["gta6"]) for it in videos + tweets + jobs))
+
+    def test_p0p1_chrome_and_no_magic_short_id(self):
+        js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        magic = "EACO" + "WE6cHCI"
+        self.assertNotIn(magic, js)
+        self.assertNotIn(magic, html)
+        self.assertIn("TAB_TO_HASH", js)
+        self.assertIn('shorts: "new"', js)
+        self.assertIn("location.hash", js)
+        self.assertIn("此來源暫停", js)
+        self.assertNotIn(magic, (ROOT / "scraper.py").read_text(encoding="utf-8"))
 
     def test_live_bahamut_never_uses_bare_cphp(self):
         site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
