@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Local search aliases and live-data honesty checks (no network)."""
 import json
+import re
 import unittest
 from pathlib import Path
 
@@ -18,7 +19,7 @@ SEARCH_ALIAS_GROUPS = [
         "佩裡科島",
         "佩裡科",
     ],
-    ["gta 6", "gta6", "vi", "俠盜獵車手6"],
+    ["gta 6", "gta6", "gta vi", "gta vi.", "俠盜獵車手6", "俠盜獵車手 vi"],
     ["weekly", "本週獎勵", "每週"],
     ["ceo", "總裁", "辦公室"],
     ["autoshop", "改車廠"],
@@ -26,16 +27,33 @@ SEARCH_ALIAS_GROUPS = [
 ]
 
 
+def query_words(raw: str) -> list[str]:
+    q = str(raw or "").strip().lower()
+    if not q:
+        return []
+    for group in SEARCH_ALIAS_GROUPS:
+        if any(t.lower() == q for t in group):
+            return [q]
+    return [w for w in q.split() if w]
+
+
 def alias_terms_for(word: str) -> list[str]:
     w = str(word or "").lower()
     if not w:
         return []
+    tiny = len(w) < 3 or bool(re.fullmatch(r"vi\.?", w))
     for group in SEARCH_ALIAS_GROUPS:
         lower = [t.lower() for t in group]
-        hit = any(t == w or (len(w) >= 2 and (t in w or w in t)) for t in lower)
+        hit = any(t == w or (not tiny and (t in w or w in t)) for t in lower)
         if hit:
             return lower
     return [w]
+
+
+def term_in_hay(term: str, hay: str) -> bool:
+    if len(term) < 3:
+        return bool(re.search(rf"(?<![a-z0-9]){re.escape(term)}(?![a-z0-9])", hay))
+    return term in hay
 
 
 def matches(item: dict, keys: list[str], words: list[str]) -> bool:
@@ -47,7 +65,7 @@ def matches(item: dict, keys: list[str], words: list[str]) -> bool:
         else:
             parts.append("" if v is None else str(v))
     hay = " ".join(parts).lower()
-    return all(any(term in hay for term in alias_terms_for(w)) for w in words)
+    return all(any(term_in_hay(term, hay) for term in alias_terms_for(w)) for w in words)
 
 
 class SearchAliasTests(unittest.TestCase):
@@ -165,7 +183,9 @@ class SearchAliasTests(unittest.TestCase):
     def test_new_search_alias_groups(self):
         pairs = (
             ("gta6", "俠盜獵車手6"),
-            ("vi", "gta 6"),
+            ("gta vi", "gta6"),
+            ("gta vi.", "gta 6"),
+            ("俠盜獵車手 vi", "gta6"),
             ("weekly", "本週獎勵"),
             ("每週", "weekly"),
             ("ceo", "總裁"),
@@ -180,12 +200,35 @@ class SearchAliasTests(unittest.TestCase):
                 set(alias_terms_for(b)),
                 f"{a!r} and {b!r} should share an alias group",
             )
+        self.assertEqual(alias_terms_for("vi"), ["vi"])
+        self.assertNotEqual(set(alias_terms_for("vi")), set(alias_terms_for("gta 6")))
+        video_card = {"title": "Weekly GTA 6 trailer video"}
+        self.assertTrue(matches(video_card, ["title"], query_words("gta6")))
+        self.assertTrue(matches(video_card, ["title"], query_words("gta vi")))
+        self.assertTrue(matches(video_card, ["title"], query_words("俠盜獵車手6")))
+        self.assertFalse(matches(video_card, ["title"], query_words("vi")))
         site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
         jobs = (site.get("jobs_gtabase") or []) + (site.get("jobs_wiki") or [])
         videos = (site.get("videos_hot_zh") or []) + (site.get("videos_hot_en") or [])
         tweets = (site.get("tweets_zh") or []) + (site.get("tweets_en") or [])
         self.assertTrue(any(matches(it, ["title", "title_en"], ["weekly"]) for it in jobs))
         self.assertTrue(any(matches(it, ["title", "channel"], ["gta6"]) for it in videos + tweets + jobs))
+        self.assertTrue(any(matches(it, ["title", "title_en", "text"], query_words("俠盜獵車手6")) for it in videos + tweets + jobs))
+
+    def test_placeholder_handle_forbidden_in_shipped_data(self):
+        needle = "userHandle"
+        shipped = [
+            ROOT / "data" / "tweets_zh.json",
+            ROOT / "data" / "tweets_en.json",
+            ROOT / "public" / "data" / "site.json",
+            ROOT / "scraper.py",
+            ROOT / "src" / "main.js",
+        ]
+        for path in shipped:
+            self.assertNotIn(needle, path.read_text(encoding="utf-8"), str(path))
+        js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
+        self.assertIn("帳號未解析", js)
+        self.assertIn("usableZhTweet", js)
 
     def test_p0p1_chrome_and_no_magic_short_id(self):
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")

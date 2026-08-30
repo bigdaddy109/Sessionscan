@@ -146,18 +146,40 @@ function threadCard(item) {
     </article>`;
 }
 
+const X_PLACEHOLDER_HANDLE = "user" + "Handle";
+
+function isPlaceholderXTweet(tw) {
+  const ph = X_PLACEHOLDER_HANDLE.toLowerCase();
+  const author = String(tw?.author || "").toLowerCase().replace(/^@/, "");
+  const url = String(tw?.url || "").toLowerCase();
+  return author === ph || url.includes(`/${ph}/`);
+}
+
 function tweetCard(tw) {
+  const display = tw.author_name || tw.author || "";
+  const fake = isPlaceholderXTweet(tw);
+  const url = fake ? "" : String(tw.url || "");
+  const live = Boolean(url);
+  const nameEl = live
+    ? `<a class="author" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(display)}</a>`
+    : `<span class="author">${esc(display)}</span>`;
+  const handleEl = live
+    ? `<span>@${esc(tw.author)}</span>`
+    : `<span>帳號未解析</span>`;
+  const outbound = live
+    ? `<p class="blurb"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">外連原文 / 帳號 ↗</a></p>`
+    : `<p class="blurb">帳號未解析</p>`;
   return `
     <article class="tweet-item" data-card>
       <div class="tweet-head">
-        <a class="author" href="${esc(tw.url)}" target="_blank" rel="noopener noreferrer">${esc(tw.author_name || tw.author)}</a>
-        <span>@${esc(tw.author)}</span>
+        ${nameEl}
+        ${handleEl}
         ${tw.date ? `<span>${esc(tw.date)}</span>` : ""}
         ${sampleBadge()}
         ${tw.game ? `<span class="tag">${esc(tw.game)}</span>` : ""}
       </div>
       <p class="tweet-text">${esc(tw.text)}</p>
-      <p class="blurb"><a href="${esc(tw.url)}" target="_blank" rel="noopener noreferrer">外連原文 / 帳號 ↗</a></p>
+      ${outbound}
     </article>`;
 }
 
@@ -225,6 +247,7 @@ function renderForum() {
 }
 
 function usableZhTweet(tw) {
+  if (isPlaceholderXTweet(tw)) return false;
   const t = tw?.text || "";
   if (t.length < 12) return false;
   if (/\.\.\.\s*$|…\s*$|【\.\.\.|【…/.test(t)) return false;
@@ -234,7 +257,7 @@ function usableZhTweet(tw) {
 }
 
 function renderTweets() {
-  let list = state.data[`tweets_${state.tweetsLang}`] || [];
+  let list = (state.data[`tweets_${state.tweetsLang}`] || []).filter((tw) => !isPlaceholderXTweet(tw));
   if (state.tweetsLang === "zh") list = list.filter(usableZhTweet);
   if (list.length) {
     $("#tweetList").innerHTML = list.map(tweetCard).join("");
@@ -336,7 +359,7 @@ const SEARCH_ALIAS_GROUPS = [
     "佩裡科島",
     "佩裡科",
   ],
-  ["gta 6", "gta6", "vi", "俠盜獵車手6"],
+  ["gta 6", "gta6", "gta vi", "gta vi.", "俠盜獵車手6", "俠盜獵車手 vi"],
   ["weekly", "本週獎勵", "每週"],
   ["ceo", "總裁", "辦公室"],
   ["autoshop", "改車廠"],
@@ -350,26 +373,44 @@ function searchHay(item, keys) {
     .toLowerCase();
 }
 
+function queryWords(raw) {
+  const q = String(raw || "").trim().toLowerCase();
+  if (!q) return [];
+  for (const group of SEARCH_ALIAS_GROUPS) {
+    if (group.some((t) => t.toLowerCase() === q)) return [q];
+  }
+  return q.split(/\s+/).filter(Boolean);
+}
+
 function aliasTermsFor(word) {
   const w = String(word || "").toLowerCase();
   if (!w) return [];
+  const tiny = w.length < 3 || /^vi\.?$/.test(w);
   for (const group of SEARCH_ALIAS_GROUPS) {
     const lower = group.map((t) => t.toLowerCase());
-    const hit = lower.some((t) => t === w || (w.length >= 2 && (t.includes(w) || w.includes(t))));
+    const hit = lower.some((t) => t === w || (!tiny && (t.includes(w) || w.includes(t))));
     if (hit) return lower;
   }
   return [w];
 }
 
+function termInHay(term, hay) {
+  if (term.length < 3) {
+    const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    return new RegExp(`(?:^|[^a-z0-9])${escaped}(?:[^a-z0-9]|$)`).test(hay);
+  }
+  return hay.includes(term);
+}
+
 function matches(item, keys, words) {
   const hay = searchHay(item, keys);
-  return words.every((w) => aliasTermsFor(w).some((term) => hay.includes(term)));
+  return words.every((w) => aliasTermsFor(w).some((term) => termInHay(term, hay)));
 }
 
 function localSearch(raw) {
   const q = raw.trim().toLowerCase();
   if (!q) return null;
-  const words = q.split(/\s+/);
+  const words = queryWords(q);
   const d = state.data;
   const jobs = [...(d.jobs_gtabase || []), ...(d.jobs_ign || []), ...(d.jobs_wiki || [])]
     .filter((b) => matches(b, ["title", "title_en", "source", "game", "tags", "blurb"], words));
@@ -380,6 +421,7 @@ function localSearch(raw) {
   const forum = [...(d.forum_bahamut || []), ...(d.forum_reddit || [])]
     .filter((b) => matches(b, ["title", "author", "source", "game", "blurb"], words));
   const tweets = [...(d.tweets_zh || []), ...(d.tweets_en || [])]
+    .filter((t) => !isPlaceholderXTweet(t))
     .filter((t) => matches(t, ["text", "author", "author_name", "game"], words));
   const slot = d.sessionscan_slot || {};
   const slotHay = {
