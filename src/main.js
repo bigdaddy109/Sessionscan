@@ -18,6 +18,7 @@ const state = {
   newLang: "zh",
   tweetsLang: "zh",
   activeTab: "jobs",
+  hashLock: false,
 };
 
 const $ = (s, root = document) => root.querySelector(s);
@@ -160,7 +161,32 @@ function tweetCard(tw) {
     </article>`;
 }
 
+function isIgnPaused() {
+  return isLiveData(state.data) && !(state.data.jobs_ign || []).length;
+}
+
+function syncIgnPill() {
+  const pill = document.querySelector('.pill[data-source="ign"]');
+  if (!pill) return;
+  const paused = isIgnPaused();
+  pill.disabled = paused;
+  pill.setAttribute("aria-disabled", paused ? "true" : "false");
+  pill.title = paused ? "此來源暫停" : "";
+  if (paused && state.jobsSource === "ign") {
+    state.jobsSource = "gtabase";
+    pill.closest(".pill-group")?.querySelectorAll(".pill").forEach((p) => {
+      p.classList.toggle("active", p.dataset.source === "gtabase");
+    });
+  }
+}
+
 function renderJobs() {
+  syncIgnPill();
+  if (state.jobsSource === "ign" && isIgnPaused()) {
+    $("#jobHint").textContent = "此來源暫停。IGN 目前沒有本週 GTA Online 獎勵外連卡。";
+    $("#jobList").innerHTML = `<p class="empty-msg">此來源暫停</p>`;
+    return;
+  }
   const key = `jobs_${state.jobsSource}`;
   const list = state.data[key] || [];
   $("#jobHint").textContent = SOURCE_HINTS[state.jobsSource] || "";
@@ -184,7 +210,7 @@ function renderNew() {
   const slot = sessionScanSlot(state.data.sessionscan_slot);
   const others = (state.data.videos_shorts || []).filter((v) => {
     const owned = state.data.sessionscan_slot?.short?.video_id;
-    return v.video_id && v.video_id !== owned && v.video_id !== "EACOWE6cHCI";
+    return v.video_id && v.video_id !== owned;
   });
   const cards = others.map((v, i) => videoCard(v, i + 2)).join("");
   $("#newGrid").innerHTML = slot + (cards || `<p class="empty-msg">${isLiveData(state.data) ? "尚無他人當紅 Short，等待下次掃描。" : "尚無範例 Short。"}</p>`);
@@ -198,8 +224,18 @@ function renderForum() {
     : `<p class="empty-msg">${isLiveData(state.data) ? "尚無討論，等待下次掃描。" : "尚無範例討論。"}</p>`;
 }
 
+function usableZhTweet(tw) {
+  const t = tw?.text || "";
+  if (t.length < 12) return false;
+  if (/\.\.\.\s*$|…\s*$|【\.\.\.|【…/.test(t)) return false;
+  if (!/[\u4e00-\u9fff]/.test(t)) return false;
+  if (/[们这为发会时对说]/.test(t) && !/[們這為發會時對說彙]/.test(t)) return false;
+  return true;
+}
+
 function renderTweets() {
-  const list = state.data[`tweets_${state.tweetsLang}`] || [];
+  let list = state.data[`tweets_${state.tweetsLang}`] || [];
+  if (state.tweetsLang === "zh") list = list.filter(usableZhTweet);
   if (list.length) {
     $("#tweetList").innerHTML = list.map(tweetCard).join("");
     return;
@@ -237,12 +273,55 @@ function renderAll() {
     : `爬蟲狀態：未啟用 · 範例快照 ${meta.snapshot_date || ""}`;
 }
 
-function switchView(name) {
+const TAB_TO_HASH = { jobs: "jobs", hot: "hot", new: "shorts", forum: "forum", x: "x" };
+const HASH_TO_TAB = { jobs: "jobs", hot: "hot", shorts: "new", new: "new", forum: "forum", x: "x" };
+
+function desiredHash() {
+  const q = $("#searchInput")?.value.trim() || "";
+  const searchView = $("#view-search");
+  if (q && searchView && !searchView.classList.contains("hidden")) {
+    return `q=${encodeURIComponent(q)}`;
+  }
+  return TAB_TO_HASH[state.activeTab] || "jobs";
+}
+
+function writeHash() {
+  const next = desiredHash();
+  const cur = (location.hash || "").replace(/^#/, "");
+  if (cur === next) return;
+  state.hashLock = true;
+  location.hash = next;
+  queueMicrotask(() => {
+    state.hashLock = false;
+  });
+}
+
+function applyHash({ scroll = false } = {}) {
+  const raw = (location.hash || "").replace(/^#/, "");
+  let tab = null;
+  let q = "";
+  for (const part of raw.split("&").filter(Boolean)) {
+    if (part.startsWith("q=")) q = decodeURIComponent(part.slice(2).replace(/\+/g, " "));
+    else if (HASH_TO_TAB[part]) tab = HASH_TO_TAB[part];
+  }
+  if (!tab && !q && raw.startsWith("q=")) q = decodeURIComponent(raw.slice(2).replace(/\+/g, " "));
+  if (q) {
+    const input = $("#searchInput");
+    if (input) input.value = q;
+    doSearch(q);
+    return;
+  }
+  switchView(tab || state.activeTab || "jobs", { write: false });
+  if (scroll) $("#main")?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function switchView(name, { write = true } = {}) {
   if (name !== "search") state.activeTab = name;
   $$(".view").forEach((el) => el.classList.add("hidden"));
   const view = $(`#view-${name}`);
   if (view) view.classList.remove("hidden");
   $$(".tab").forEach((t) => t.classList.toggle("active", t.dataset.tab === name));
+  if (write) writeHash();
 }
 
 const SEARCH_ALIAS_GROUPS = [
@@ -257,6 +336,11 @@ const SEARCH_ALIAS_GROUPS = [
     "佩裡科島",
     "佩裡科",
   ],
+  ["gta 6", "gta6", "vi", "俠盜獵車手6"],
+  ["weekly", "本週獎勵", "每週"],
+  ["ceo", "總裁", "辦公室"],
+  ["autoshop", "改車廠"],
+  ["diamond", "賭場", "賭場豪劫"],
 ];
 
 function searchHay(item, keys) {
@@ -375,6 +459,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
   renderAll();
+  applyHash();
+  window.addEventListener("hashchange", () => {
+    if (state.hashLock) return;
+    applyHash({ scroll: true });
+  });
   $$(".tab").forEach((t) => {
     t.addEventListener("click", () => {
       switchView(t.dataset.tab);
@@ -389,7 +478,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
   document.addEventListener("click", (e) => {
     const pill = e.target.closest(".pill");
-    if (!pill) return;
+    if (!pill || pill.disabled) return;
     pill.closest(".pill-group").querySelectorAll(".pill").forEach((p) => p.classList.remove("active"));
     pill.classList.add("active");
     if (pill.dataset.source) {

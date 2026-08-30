@@ -68,7 +68,6 @@ FORUM_CAP = 10
 SHORTS_OTHER_CAP = 8
 OWNED_CHANNEL_URL = "https://www.youtube.com/@sessionscan"
 OWNED_SHORTS_URL = "https://www.youtube.com/@sessionscan/shorts"
-NOT_A_SHORT_IDS = {"EACOWE6cHCI"}
 SHORTS_ID_RE = re.compile(r"/shorts/([A-Za-z0-9_-]{11})")
 YT_SHORTS_SOURCES = (
     "https://www.youtube.com/hashtag/gtaonline/shorts",
@@ -78,13 +77,14 @@ YT_SHORTS_SOURCES = (
 
 X_SEARCH_QUERIES = {
     "zh": [
-        ('"GTA 6" site:x.com', "tw-zh"),
         ('"俠盜獵車手6" site:x.com', "tw-zh"),
-        ('"GTA線上" site:x.com', "tw-zh"),
-        ('"GTA Online" site:x.com', "tw-zh"),
-        ("俠盜獵車手6 site:x.com", "wt-wt"),
-        ("GTA線上 每週 site:x.com", "tw-zh"),
-        ("GTA 6 中文 site:x.com", "hk-tzh"),
+        ("俠盜獵車手6 site:x.com", "tw-zh"),
+        ("俠盜獵車手VI site:x.com", "tw-zh"),
+        ('"GTA 6" site:x.com', "tw-zh"),
+        ("本週 GTA線上 site:x.com", "tw-zh"),
+        ("GTA線上 每週獎勵 site:x.com", "tw-zh"),
+        ("GTA 6 繁中 site:x.com", "tw-zh"),
+        ("GTA 6 台北 site:x.com", "tw-zh"),
     ],
     "en": [
         ('"GTA 6" site:x.com', "us-en"),
@@ -101,7 +101,11 @@ X_SEARCH_BACKEND = "duckduckgo,brave,yahoo,google,startpage"
 X_OFFICIAL_ACCOUNTS = ("RockstarGames", "GTAonline")
 X_TIMELINE_ATTEMPTS = 3
 TWEET_MAX_AGE_DAYS = 28
-TWEET_MAX_LEN = 400
+TWEET_MAX_LEN = 600
+FX_TWEET_URL = "https://api.fxtwitter.com/{}/status/{}"
+SIMP_HINT_RE = re.compile(r"[们这为发会时对说东车无与个里汇线奖经网预国门头过]")
+TRAD_HINT_RE = re.compile(r"[們這為發會時對說東車無與個裡彙線獎經網預國門頭過]")
+TWEET_ELLIPSIS_RE = re.compile(r"(?:\.{3}|…|【\.\.\.)\s*$")
 SYND_URL = "https://syndication.twitter.com/srv/timeline-profile/screen-name/{}?showReplies=false"
 SYND_MARKER = '<script id="__NEXT_DATA__" type="application/json">'
 STATUS_RE = re.compile(r"\b(?:x|twitter)\.com/([A-Za-z0-9_]{1,15})/status(?:es)?/(\d{10,})")
@@ -227,13 +231,34 @@ def detect_lang(text, url=""):
     return "en"
 
 
+def is_truncated_tweet(text):
+    t = (text or "").strip()
+    if not t:
+        return True
+    if TWEET_ELLIPSIS_RE.search(t):
+        return True
+    return "【..." in t or "【…" in t
+
+
+def zh_script(text):
+    """zh = traditional-leaning Han; zh-hans = simplified-only."""
+    t = text or ""
+    if not HAN_RE.search(t):
+        return None
+    simp = bool(SIMP_HINT_RE.search(t))
+    trad = bool(TRAD_HINT_RE.search(t))
+    if simp and not trad:
+        return "zh-hans"
+    return "zh"
+
+
 def tweet_lang(text):
-    """zh = Han and not Japanese. ja stays out of both tweet buckets."""
+    """zh = traditional-leaning Han. ja and simplified-only stay out of both buckets."""
     t = text or ""
     if KANA_RE.search(t):
         return "ja"
     if HAN_RE.search(t):
-        return "zh"
+        return zh_script(t) or "zh"
     return "en"
 
 
@@ -333,7 +358,9 @@ def keep_tweet(item, now=None):
     blob = f"{text} {item.get('author', '')} {item.get('url', '')}"
     if is_gta4(blob) or is_rdo(blob) or is_old_gta(blob):
         return False
-    if tweet_lang(text) == "ja":
+    if tweet_lang(text) not in {"zh", "en"}:
+        return False
+    if is_truncated_tweet(text):
         return False
     if len(text) > TWEET_MAX_LEN or len(text) < 8:
         return False
@@ -608,6 +635,51 @@ def parse_ign_game_page(html, page_url):
     return out
 
 
+IGN_WEEKLY_H2_RE = re.compile(
+    r"^(January|February|March|April|May|June|July|August|September|October|November|December)"
+    r"\s+(\d{1,2}),\s*(20\d{2}):\s+(.+)$",
+    re.I,
+)
+
+
+def parse_ign_weekly_wiki(html, page_url):
+    """This-week GTA Online bonus headings on IGN's weekly-updates wiki. Titles + dates only."""
+    soup = BeautifulSoup(html, "html.parser")
+    out, seen = [], set()
+    today = datetime.now(timezone.utc).date()
+    for h2 in soup.select("h2"):
+        raw = clean_heading(h2.get_text(" ", strip=True))
+        m = IGN_WEEKLY_H2_RE.match(raw)
+        if not m:
+            continue
+        title = f"GTA Online Weekly Updates ({m.group(1)} {m.group(2)}, {m.group(3)}): {m.group(4)}"
+        blob = f"{title} {page_url} GTA Online weekly bonuses money"
+        if not is_jobs_item(blob, "IGN"):
+            continue
+        updated = date_from_title(title, page_url)
+        if updated:
+            try:
+                age = (today - datetime.strptime(updated, "%Y-%m-%d").date()).days
+                if age < 0 or age > 28:
+                    continue
+            except ValueError:
+                continue
+        hid = (h2.get("id") or "").strip()
+        url = f"{page_url}#{hid}" if hid else page_url
+        k = f"{updated or title}|{norm_url(url)}"
+        if k in seen:
+            continue
+        seen.add(k)
+        out.append(job_item(title, url, "IGN", "GTA Online", updated, len(out) + 1))
+        if len(out) >= JOB_CAP:
+            break
+    if not out:
+        hub = "GTA Online Weekly Updates"
+        if is_jobs_item(f"{hub} {page_url} GTA Online weekly bonuses", "IGN"):
+            out.append(job_item(hub, page_url, "IGN", "GTA Online", None, 1))
+    return out
+
+
 def scrape_ign():
     items, seen = [], set()
 
@@ -626,9 +698,14 @@ def scrape_ign():
 
     for url in (
         "https://www.ign.com/games/grand-theft-auto-v",
+        "https://www.ign.com/wikis/gta-5/GTA_Online",
+        "https://www.ign.com/wikis/gta-5/GTA_Online_Weekly_Updates",
     ):
         try:
-            add(parse_ign_game_page(http_get(url).text, url))
+            html = http_get(url).text
+            add(parse_ign_game_page(html, url))
+            if "Weekly_Updates" in url:
+                add(parse_ign_weekly_wiki(html, url))
         except Exception as exc:
             log.error("ign page %s: %s", url, exc)
     return rank_job_items(items)
@@ -1051,7 +1128,7 @@ def scrape_owned_short(html=None):
         except Exception as exc:
             log.error("owned shorts page: %s", exc)
             return None, False
-    ids = [vid for vid in shorts_ids_from_html(html) if vid not in NOT_A_SHORT_IDS]
+    ids = shorts_ids_from_html(html)
     if not ids:
         return empty_owned_slot(), fetched_ok
     for vid in ids:
@@ -1075,7 +1152,7 @@ def scrape_owned_short(html=None):
 
 def scrape_other_shorts(html_by_url=None, exclude_ids=None):
     """Trending in-scope YouTube Shorts. /shorts/ IDs only — not landscape watch?v=."""
-    exclude = set(exclude_ids or ()) | NOT_A_SHORT_IDS
+    exclude = set(exclude_ids or ())
     pages = html_by_url if html_by_url is not None else {}
     if html_by_url is None:
         for url in YT_SHORTS_SOURCES:
@@ -1448,6 +1525,30 @@ def parse_ddgs_x_hit(row):
     }
 
 
+def fetch_fx_tweet_text(author, tid):
+    if not author or not tid:
+        return ""
+    try:
+        r = http_get(FX_TWEET_URL.format(author, tid), timeout=12)
+        data = r.json()
+        return ((data.get("tweet") or {}).get("text") or "").strip()
+    except Exception as exc:
+        log.debug("fx tweet %s: %s", tid, exc)
+        return ""
+
+
+def enrich_tweet(t):
+    """Replace DDG-truncated snippets with the public full text when we can."""
+    text = t.get("text") or ""
+    if not (is_truncated_tweet(text) or (HAN_RE.search(text) and len(text) < 80)):
+        return t
+    full = fetch_fx_tweet_text(t.get("author"), t.get("tid"))
+    if full and len(full) > len(text):
+        t = dict(t)
+        t["text"] = full
+    return t
+
+
 def tweet_item(t):
     url = f"https://x.com/{t['author']}/status/{t['tid']}"
     text = t.get("text") or ""
@@ -1469,7 +1570,18 @@ def update_tweets():
     pool = {}
     for lang in ("zh", "en"):
         for it in load_json(f"tweets_{lang}.json", []):
-            if isinstance(it.get("tid"), str) and it["tid"].isdigit() and keep_tweet(it):
+            if not (isinstance(it.get("tid"), str) and it["tid"].isdigit()):
+                continue
+            if is_truncated_tweet(it.get("text") or ""):
+                it = tweet_item(enrich_tweet({
+                    "tid": it["tid"],
+                    "author": it.get("author"),
+                    "author_name": it.get("author_name"),
+                    "text": it.get("text"),
+                    "date": it.get("date"),
+                    "likes": it.get("likes"),
+                }))
+            if keep_tweet(it):
                 it["lang"] = tweet_lang(it.get("text") or "")
                 pool[it["tid"]] = it
 
@@ -1477,7 +1589,7 @@ def update_tweets():
 
     def merge(t):
         nonlocal added
-        item = tweet_item(t)
+        item = tweet_item(enrich_tweet(t))
         if not keep_tweet(item):
             return
         if item["tid"] not in pool:

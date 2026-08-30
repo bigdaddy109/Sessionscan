@@ -24,7 +24,9 @@ from scraper import (  # noqa: E402
     is_sessionscan_author,
     keep_tweet,
     parse_ddgs_x_hit,
+    parse_ign_weekly_wiki,
     parse_baha_rows,
+    is_truncated_tweet,
     parse_gtabase_listing,
     parse_ign_game_page,
     parse_ign_rss,
@@ -79,6 +81,15 @@ class ScopeTests(unittest.TestCase):
         self.assertEqual(tweet_lang("俠盜獵車手6 第二支預告出來了"), "zh")
         self.assertEqual(tweet_lang("GTA 6 trailer is out"), "en")
         self.assertEqual(tweet_lang("『GTA 6』パッケージ版にディスクなし"), "ja")
+        self.assertEqual(tweet_lang("我们为 GTA 6 做了一条数据更新日志"), "zh-hans")
+        self.assertTrue(is_truncated_tweet('"GTA 6 的官方發表會辦了，但內容已經在網路上 ...'))
+        self.assertFalse(is_truncated_tweet("《俠盜獵車手6》雙主角可望即時切換，開車射擊免載入"))
+        self.assertFalse(keep_tweet({
+            "tid": "2092447164517757418",
+            "author": "kyd1031578",
+            "text": "\"我们为 GTA 6 做了一条“数据更新日志”： • 每次更新...",
+            "date": "2026-08-26",
+        }))
         dirty = {
             "tid": "1730587560726892883",
             "author": "rockstargames",
@@ -103,7 +114,7 @@ class ScopeTests(unittest.TestCase):
         long_one = {
             "tid": "2090804906936435002",
             "author": "gtasix_",
-            "text": "New GTA 6 leaked gameplay: " + ("police " * 80),
+            "text": "New GTA 6 leaked gameplay: " + ("police " * 120),
             "date": "2026-08-21",
         }
         self.assertFalse(keep_tweet(long_one))
@@ -262,6 +273,19 @@ class ParserTests(unittest.TestCase):
         self.assertEqual(items[0]["game"], "GTA Online")
         self.assertEqual(items[0]["updated"], "2026-08-27")
 
+    def test_ign_weekly_wiki_headings_become_outbound_cards(self):
+        html = """
+        <h2 id="aug27">August 27, 2026: Known/Unknown Races, Drift and Transform Race Bonuses, and More</h2>
+        <h2>August 20, 2026: Brand Wars Event Continues, VIP Work Bonuses, and More</h2>
+        <h2>July 2, 2024: Old archive week</h2>
+        """
+        items = parse_ign_weekly_wiki(html, "https://www.ign.com/wikis/gta-5/GTA_Online_Weekly_Updates")
+        self.assertGreaterEqual(len(items), 1)
+        self.assertTrue(all(it["source"] == "IGN" for it in items))
+        self.assertTrue(all("ign.com/wikis/" in it["url"] for it in items))
+        self.assertTrue(any("August 27" in it["title"] and "Weekly" in it["title"] for it in items))
+        self.assertFalse(any("2024" in it["title"] for it in items))
+
     def test_reddit_atom_skips_hub_and_sorts(self):
         xml = """<?xml version="1.0"?>
         <feed xmlns="http://www.w3.org/2005/Atom">
@@ -294,7 +318,7 @@ class ShortsTests(unittest.TestCase):
     def test_ids_only_from_shorts_path(self):
         html = (ROOT / "tests/fixtures/shorts_owned.html").read_text(encoding="utf-8")
         self.assertEqual(shorts_ids_from_html(html), ["5ZNYHSFIBRc", "3-EhyHtd5Aw"])
-        self.assertNotIn("EACOWE6cHCI", shorts_ids_from_html(html))
+        self.assertNotIn("WatchLong001", shorts_ids_from_html(html))
 
     def test_sessionscan_author_check(self):
         self.assertTrue(is_sessionscan_author({
@@ -352,7 +376,7 @@ class ShortsTests(unittest.TestCase):
         self.assertTrue(all(it["url"].startswith("https://www.youtube.com/shorts/") for it in items))
         self.assertNotIn("bbbbbbbbbbb", ids)
         self.assertNotIn("ccccccccccc", ids)
-        self.assertNotIn("EACOWE6cHCI", ids)
+        self.assertNotIn("WatchLong001", ids)
 
 
 class BuildSiteTests(unittest.TestCase):
