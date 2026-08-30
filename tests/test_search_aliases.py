@@ -117,7 +117,11 @@ class SearchAliasTests(unittest.TestCase):
     def test_basic_seo_meta_and_public_files(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn('lang="zh-Hant"', html)
-        self.assertIn("SessionScan｜GTA 5／Online／GTA 6 情報站", html)
+        self.assertIn("<title>SessionScan GTA｜夜掃描</title>", html)
+        self.assertIn('property="og:title" content="SessionScan GTA｜夜掃描"', html)
+        self.assertIn('name="twitter:title" content="SessionScan GTA｜夜掃描"', html)
+        self.assertIn("GTA HUB · 夜掃描", html)
+        self.assertIn("GTA 5／Online／GTA 6 情報站，與其他同名 App 無關", html)
         self.assertIn("彙整本週賺錢、攻略影片、論壇與 X 訊號", html)
         self.assertNotIn("範例資料，非即時掃描", html)
         self.assertNotIn("domain TBD", html)
@@ -267,6 +271,23 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn('content="https://bigdaddy109.github.io/Sessionscan/og.jpg"', html)
         self.assertTrue((ROOT / "public" / "og.jpg").is_file())
         self.assertLessEqual((ROOT / "public" / "og.jpg").stat().st_size, 300 * 1024)
+
+    def test_data_branch_workflows_do_not_commit_json_to_main(self):
+        daily = (ROOT / ".github" / "workflows" / "daily.yml").read_text(encoding="utf-8")
+        pages = (ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn('cron: "0 0,7,13 * * *"', daily)
+        self.assertIn("ref: main", daily)
+        self.assertIn("ref: data", daily)
+        self.assertIn("git push origin HEAD:data", daily)
+        self.assertEqual(daily.count("git push"), 1)
+        self.assertNotIn("upload-pages-artifact", daily)
+        self.assertIn("branches: [main, data]", pages)
+        self.assertIn("ref: main", pages)
+        self.assertIn("ref: data", pages)
+        self.assertIn("path: app/dist", pages)
+        self.assertIn("不要手動在 `main` 塞 scrape JSON", readme)
+        self.assertIn("public/data/site.json", readme)
 
     def test_live_bahamut_never_uses_bare_cphp(self):
         site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))

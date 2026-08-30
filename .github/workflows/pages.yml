@@ -1,8 +1,7 @@
 name: pages
-# Retrigger Pages deploy after Actions source was enabled.
 on:
   push:
-    branches: [main]
+    branches: [main, data]
   workflow_dispatch:
 permissions:
   contents: read
@@ -15,16 +14,43 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout main (code)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: app
+
+      - name: Checkout data (JSON)
+        uses: actions/checkout@v4
+        with:
+          ref: data
+          path: payload
+
+      - name: Overlay scrape JSON
+        run: |
+          mkdir -p app/data app/public/data
+          if [ -d payload/data ]; then
+            cp -a payload/data/. app/data/
+          fi
+          if [ -f payload/public/data/site.json ]; then
+            cp -a payload/public/data/site.json app/public/data/site.json
+          fi
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-      - run: npm install
-      - run: npm run build
+          cache-dependency-path: app/package-lock.json
+
+      - working-directory: app
+        run: npm install
+
+      - working-directory: app
+        run: npm run build
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: app/dist
   deploy:
     needs: build
     runs-on: ubuntu-latest

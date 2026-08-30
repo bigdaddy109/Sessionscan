@@ -1,4 +1,4 @@
-name: daily scrape and deploy
+name: daily scrape
 
 on:
   schedule:
@@ -7,34 +7,59 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: daily-scrape
   cancel-in-progress: false
 
 jobs:
-  scrape-and-build:
+  scrape:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout main (code)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: app
+
+      - name: Checkout data (JSON)
+        uses: actions/checkout@v4
+        with:
+          ref: data
+          path: payload
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
+      - name: Overlay JSON onto the code tree
+        run: |
+          mkdir -p app/data app/public/data
+          if [ -d payload/data ]; then
+            cp -a payload/data/. app/data/
+          fi
+          if [ -f payload/public/data/site.json ]; then
+            cp -a payload/public/data/site.json app/public/data/site.json
+          fi
+
       - name: Install scraper
+        working-directory: app
         run: pip install -r requirements.txt
 
       - name: Run scraper
+        working-directory: app
         run: python scraper.py
 
       - name: Merge JSON for the static hub
+        working-directory: app
         run: python build_site.py
 
-      - name: Commit refreshed data
+      - name: Commit refreshed data to data branch only
         run: |
+          mkdir -p payload/data payload/public/data
+          cp -a app/data/. payload/data/
+          cp -a app/public/data/site.json payload/public/data/site.json
+          cd payload
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data public/data/site.json
@@ -42,27 +67,5 @@ jobs:
             echo "No data changes to commit"
           else
             git commit -m "daily data update $(date -u +%F)"
-            git push
+            git push origin HEAD:data
           fi
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - run: npm install
-      - run: npm run build
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
-  deploy:
-    needs: scrape-and-build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
