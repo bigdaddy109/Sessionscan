@@ -6,6 +6,14 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+# Live scrape JSON lives on the `data` branch. Tests use this fixture (or sample.json).
+HUB_JSON = ROOT / "tests" / "fixtures" / "hub.json"
+SAMPLE_JSON = ROOT / "public" / "data" / "sample.json"
+
+
+def load_hub() -> dict:
+    path = HUB_JSON if HUB_JSON.is_file() else SAMPLE_JSON
+    return json.loads(path.read_text(encoding="utf-8"))
 
 SEARCH_ALIAS_GROUPS = [
     [
@@ -70,13 +78,13 @@ def matches(item: dict, keys: list[str], words: list[str]) -> bool:
 
 class SearchAliasTests(unittest.TestCase):
     def test_cayo_spellings_match_live_card(self):
-        site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
+        site = load_hub()
         videos = (site.get("videos_hot_zh") or []) + (site.get("videos_new_zh") or [])
         jobs = (site.get("jobs_wiki") or []) + (site.get("jobs_gtabase") or [])
         pool = videos + jobs
         keys = ["title", "channel", "game", "lang", "title_en", "url"]
-        cayo = [v for v in pool if "Cayo" in str(v.get("title", "")) or "佩裏科" in str(v.get("title", ""))]
-        self.assertTrue(cayo, "live site.json must keep a Cayo money card")
+        cayo = [v for v in pool if "Cayo" in str(v.get("title", "")) or "佩里" in str(v.get("title", ""))]
+        self.assertTrue(cayo, "hub fixture must keep a Cayo money card")
         for query in ("佩里克島", "佩里克", "佩裏科", "佩裡科", "Cayo", "Cayo Perico"):
             words = query.lower().split()
             self.assertTrue(
@@ -84,14 +92,15 @@ class SearchAliasTests(unittest.TestCase):
                 f"{query!r} should hit the Cayo card",
             )
 
-    def test_live_jobs_are_not_the_old_three_card_sample(self):
-        site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
+    def test_hub_jobs_have_outbound_schema(self):
+        site = load_hub()
         jobs = site.get("jobs_gtabase") or []
         self.assertGreaterEqual(len(jobs), 1)
-        ja = site.get("videos_hot_ja") or []
-        self.assertGreater(len(ja), 0)
         for key in ("jobs_gtabase", "jobs_ign", "jobs_wiki"):
             for it in site.get(key) or []:
+                self.assertTrue(it.get("title"))
+                self.assertTrue(str(it.get("url") or "").startswith("http"))
+                self.assertIn(it.get("game"), {"GTA 5", "GTA Online", "GTA 6"})
                 blob = f"{it.get('title', '')} {it.get('url', '')}"
                 self.assertNotRegex(blob, r"extended look|internet reacts|pc version", msg=blob)
 
@@ -100,7 +109,7 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("今日無中文訊號", chrome)
 
     def test_snapshot_copy_is_not_last_scan(self):
-        site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
+        site = load_hub()
         meta = site["meta"]
         self.assertEqual(meta["label_zh"], "資料快照")
         self.assertEqual(meta["label_en"], "SNAPSHOT")
@@ -154,7 +163,7 @@ class SearchAliasTests(unittest.TestCase):
         self.assertGreater((ROOT / "public" / "NOTICE").stat().st_size, 50)
 
     def test_live_ign_titles_have_no_recency_crumbs(self):
-        site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
+        site = load_hub()
         titles = [it.get("title", "") for it in (site.get("jobs_ign") or [])]
         for title in titles:
             self.assertNotRegex(title, r"\b\d+\s*[smhdwy]\s+ago\b", msg=title)
@@ -162,7 +171,7 @@ class SearchAliasTests(unittest.TestCase):
             self.assertRegex(title, r"Online|weekly|bonus|money|獎勵|賺錢|每週", msg=title)
 
     def test_live_scope_has_no_rdo(self):
-        site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
+        site = load_hub()
         self.assertNotIn("RDO", site["meta"].get("scope") or [])
         self.assertIn("RDO", site["meta"].get("excluded") or [])
         for key, rows in site.items():
@@ -176,7 +185,7 @@ class SearchAliasTests(unittest.TestCase):
                 self.assertNotIn("RDO", tags, key)
 
     def test_owned_short_is_searchable_and_not_offline(self):
-        site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
+        site = load_hub()
         slot = site["sessionscan_slot"]
         self.assertEqual(slot.get("status"), "online")
         self.assertNotEqual(slot.get("status"), "offline")
@@ -217,7 +226,7 @@ class SearchAliasTests(unittest.TestCase):
         self.assertTrue(matches(video_card, ["title"], query_words("gta vi")))
         self.assertTrue(matches(video_card, ["title"], query_words("俠盜獵車手6")))
         self.assertFalse(matches(video_card, ["title"], query_words("vi")))
-        site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
+        site = load_hub()
         jobs = (site.get("jobs_gtabase") or []) + (site.get("jobs_wiki") or [])
         videos = (site.get("videos_hot_zh") or []) + (site.get("videos_hot_en") or [])
         tweets = (site.get("tweets_zh") or []) + (site.get("tweets_en") or [])
@@ -228,9 +237,8 @@ class SearchAliasTests(unittest.TestCase):
     def test_placeholder_handle_forbidden_in_shipped_data(self):
         needle = "userHandle"
         shipped = [
-            ROOT / "data" / "tweets_zh.json",
-            ROOT / "data" / "tweets_en.json",
-            ROOT / "public" / "data" / "site.json",
+            HUB_JSON,
+            SAMPLE_JSON,
             ROOT / "scraper.py",
             ROOT / "src" / "main.js",
         ]
@@ -283,14 +291,45 @@ class SearchAliasTests(unittest.TestCase):
         self.assertEqual(daily.count("git push"), 1)
         self.assertNotIn("upload-pages-artifact", daily)
         self.assertIn("branches: [main, data]", pages)
-        self.assertIn("ref: main", pages)
+        self.assertIn("github.sha", pages)
         self.assertIn("ref: data", pages)
         self.assertIn("path: app/dist", pages)
         self.assertIn("不要手動在 `main` 塞 scrape JSON", readme)
         self.assertIn("public/data/site.json", readme)
 
+    def test_built_html_has_static_job_and_new_title(self):
+        import subprocess
+        subprocess.check_call(["npm", "run", "build"], cwd=ROOT, stdout=subprocess.DEVNULL)
+        built = (ROOT / "dist" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("<title>SessionScan GTA｜夜掃描</title>", built)
+        self.assertIn("載入中 / LOADING", built)
+        self.assertNotIn("EXAMPLE DATA", built)
+        self.assertIn("data-static-job", built)
+        self.assertIn('id="jobList"', built)
+        self.assertIn('href="https://', built)
+        self.assertIn("GTA Online Weekly Update", built)
+        js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
+        self.assertIn('$("#jobList").innerHTML', js)
+
+    def test_opt5_fonts_hero_and_static_jobs(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        css = (ROOT / "src" / "style.css").read_text(encoding="utf-8")
+        vite = (ROOT / "vite.config.js").read_text(encoding="utf-8")
+        fonts = [m.group(0) for m in re.finditer(r"family=([A-Za-z0-9+]+)", html)]
+        self.assertLessEqual(len(set(fonts)), 2)
+        self.assertIn("family=Noto+Sans+TC", html)
+        self.assertIn("family=Oswald", html)
+        self.assertNotIn("Barlow", html)
+        self.assertNotIn("IBM+Plex", html)
+        self.assertIn("display=swap", html)
+        self.assertIn("ui-monospace", css)
+        self.assertIn("min-height: min(52vh, 420px)", css)
+        self.assertIn("inject-static-jobs", vite)
+        self.assertIn("data-static-job", vite)
+        self.assertIn('id="jobList"', html)
+
     def test_live_bahamut_never_uses_bare_cphp(self):
-        site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
+        site = load_hub()
         for it in site.get("forum_bahamut") or []:
             url = it.get("url") or ""
             self.assertNotEqual(url.rstrip("/"), "https://forum.gamer.com.tw/C.php")

@@ -26,7 +26,7 @@ npm run dev
 
 本機預覽：http://127.0.0.1:43173/
 
-單元測試讀 `main` 上的 `public/data/site.json` 或 `public/data/sample.json`（靜態殼／snapshot），不依賴 checkout `data` branch。
+單元測試讀 `tests/fixtures/hub.json` 或 `public/data/sample.json`（schema／靜態殼），不依賴 checkout `data` branch，也不把 scrape JSON 推回 `main`。
 
 ## 每日掃描
 
