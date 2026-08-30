@@ -91,18 +91,28 @@ function videoCard(v, rank, extraClass) {
 function sessionScanSlot(slot) {
   const channel = slot?.channel_url || "https://www.youtube.com/@sessionscan";
   const short = slot?.short;
-  if (short?.video_id) {
-    return videoCard(
-      {
-        ...short,
-        channel: "SessionScan",
-        lang: short.lang || "en",
-        owned: true,
-        channel_url: channel,
-      },
-      1,
-      "owned-short",
-    );
+  const id = short?.video_id || "";
+  if (/^[A-Za-z0-9_-]{11}$/.test(id)) {
+    const embed = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`;
+    const lang = short.lang === "zh" ? "中文" : short.lang === "ja" ? "日文" : "EN";
+    return `
+    <article class="video-card owned-short" data-card>
+      <div class="thumb-link embed-wrap">
+        <div class="rank">1</div>
+        <iframe src="${esc(embed)}" title="${esc(short.title || "SessionScan Short")}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-info">
+        <h3>${esc(short.title || "SessionScan Short")}</h3>
+        <div class="card-meta">
+          ${sampleBadge()}
+          <span class="tag">SessionScan</span>
+          <span class="tag">${lang}</span>
+          <span>SessionScan</span>
+          ${short.date ? `<span>${esc(short.date)}</span>` : ""}
+        </div>
+        <p class="blurb"><a href="${esc(channel)}" target="_blank" rel="noopener noreferrer">SessionScan 頻道 @sessionscan ↗</a></p>
+      </div>
+    </article>`;
   }
   return `
     <article class="slot-card owned-short empty" data-card>
@@ -270,12 +280,61 @@ function renderTweets() {
   $("#tweetList").innerHTML = `<p class="empty-msg">${isLiveData(state.data) ? "尚無訊號，等待下次掃描。" : "尚無範例訊號。"}</p>`;
 }
 
+function isWeeklyJobCard(item) {
+  const blob = `${item?.title || ""} ${item?.title_en || ""} ${item?.tags || ""}`.toLowerCase();
+  return /weekly|本週|本周|每週|每周|獎勵|折扣|bonus|discount/.test(blob);
+}
+
+function pickOfficialWeekly(data) {
+  const pools = [
+    ...(data?.jobs_gtabase || []),
+    ...(data?.jobs_ign || []),
+    ...(data?.jobs_wiki || []),
+  ].filter((it) => it && it.url && it.title && isWeeklyJobCard(it));
+  pools.sort((a, b) => {
+    const da = String(a.updated || "");
+    const db = String(b.updated || "");
+    if (da !== db) return db.localeCompare(da);
+    return (a.rank || 99) - (b.rank || 99);
+  });
+  return pools[0] || null;
+}
+
+function gta6ScheduleLine(data) {
+  const blobs = [];
+  for (const key of ["jobs_gtabase", "jobs_ign", "jobs_wiki", "videos_hot_zh", "videos_hot_en", "tweets_zh", "tweets_en"]) {
+    for (const it of data?.[key] || []) {
+      blobs.push(`${it.title || ""} ${it.title_en || ""} ${it.text || ""} ${it.blurb || ""}`);
+    }
+  }
+  const hay = blobs.join("\n");
+  if (!/gta\s*6|gta\s*vi|俠盜獵車手\s*6|grand theft auto\s*(?:6|vi)/i.test(hay)) return "";
+  if (/11\s*月\s*19\s*日/.test(hay) || /november\s*19/i.test(hay)) {
+    return "GTA 6 已公開時程：11 月 19 日";
+  }
+  return "";
+}
+
+function renderOfficialBanner() {
+  const el = $("#officialBannerBody");
+  if (!el) return;
+  const weekly = pickOfficialWeekly(state.data || {});
+  const schedule = gta6ScheduleLine(state.data || {});
+  if (!weekly) {
+    el.innerHTML = `<span>本週官方訊號待下次掃描</span>${schedule ? `<span class="official-sub">${esc(schedule)}</span>` : ""}`;
+    return;
+  }
+  const extra = schedule ? `<span class="official-sub">${esc(schedule)}</span>` : "";
+  el.innerHTML = `<a href="${esc(weekly.url)}" target="_blank" rel="noopener noreferrer">${esc(weekly.title)}</a><span class="official-sub">來源 ${esc(weekly.source || "")}${weekly.updated ? ` · ${esc(weekly.updated)}` : ""}</span>${extra}`;
+}
+
 function renderAll() {
   renderJobs();
   renderHot();
   renderNew();
   renderForum();
   renderTweets();
+  renderOfficialBanner();
   const meta = state.data.meta || {};
   const live = isLiveData(state.data);
   const banner = $("#dataBanner");
