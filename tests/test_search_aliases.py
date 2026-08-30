@@ -272,6 +272,23 @@ class SearchAliasTests(unittest.TestCase):
         self.assertTrue((ROOT / "public" / "og.jpg").is_file())
         self.assertLessEqual((ROOT / "public" / "og.jpg").stat().st_size, 300 * 1024)
 
+    def test_data_branch_workflows_do_not_commit_json_to_main(self):
+        daily = (ROOT / ".github" / "workflows" / "daily.yml").read_text(encoding="utf-8")
+        pages = (ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn('cron: "0 0,7,13 * * *"', daily)
+        self.assertIn("ref: main", daily)
+        self.assertIn("ref: data", daily)
+        self.assertIn("git push origin HEAD:data", daily)
+        self.assertEqual(daily.count("git push"), 1)
+        self.assertNotIn("upload-pages-artifact", daily)
+        self.assertIn("branches: [main, data]", pages)
+        self.assertIn("ref: main", pages)
+        self.assertIn("ref: data", pages)
+        self.assertIn("path: app/dist", pages)
+        self.assertIn("不要手動在 `main` 塞 scrape JSON", readme)
+        self.assertIn("public/data/site.json", readme)
+
     def test_live_bahamut_never_uses_bare_cphp(self):
         site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
         for it in site.get("forum_bahamut") or []:

@@ -1,27 +1,19 @@
 # SessionScan
 
-GTA 5／GTA Online／GTA 6 靜態情報站。繁體中文為主。不含 GTA 4。不含 RDO。
+GTA 5／GTA Online／GTA 6 靜態情報站。繁體中文為主。不含 GTA 4。不含 RDO。與其他同名 App 無關。
 
 線上版：https://bigdaddy109.github.io/Sessionscan/
 
 換自訂網域時，一併改 `index.html` 的 canonical／og:url、`public/robots.txt` 的 Sitemap、以及 `public/sitemap.xml` 的 `<loc>`。
 
-## 每日掃描
+## 程式與資料分開
 
-Frank 同款資料管線（不是 PoE 皮膚）：
+- **改站邏輯看 `main`**：程式、測試、workflow、靜態殼。
+- **掃出來的 JSON 在 `data` branch**：至少 `data/*.json` 與 `public/data/site.json`。
+- **不要手動在 `main` 塞 scrape JSON。** 日常掃描有內容 hash 變化才 commit 到 `data`；無新資料兩支 branch 都不 bump。
+- GitHub Pages 建置時用 `main` 的程式 + `data` 的 JSON，仍部署現有 GitHub Pages 網址。
 
-1. GitHub Actions 每天三次 **台北 08:00／15:00／21:00**（UTC `0 0,7,13 * * *`，含週末）跑 `scraper.py`
-2. 各來源寫入 `data/*.json`，再由 `build_site.py` 彙整成 `public/data/site.json`
-3. `npm run build` 後部署 GitHub Pages
-4. 成功的 JSON 會 commit 回 repo，方便隔天對照
-
-也可手動刷新：
-
-```bash
-gh workflow run daily.yml --ref main
-```
-
-本機：
+本機仍可直接跑，不必 push：
 
 ```bash
 python3 -m venv .venv
@@ -33,6 +25,23 @@ npm run dev
 ```
 
 本機預覽：http://127.0.0.1:43173/
+
+單元測試讀 `main` 上的 `public/data/site.json` 或 `public/data/sample.json`（靜態殼／snapshot），不依賴 checkout `data` branch。
+
+## 每日掃描
+
+Frank 同款資料管線（不是 PoE 皮膚）：
+
+1. GitHub Actions 每天三次 **台北 08:00／15:00／21:00**（UTC `0 0,7,13 * * *`，含週末）在 `main` 跑 `scraper.py`
+2. 先套上 `data` branch 的昨日 JSON，各來源寫入工作樹 `data/*.json`，再由 `build_site.py` 彙整成 `public/data/site.json`
+3. 有檔案變化才由 `github-actions[bot]` commit 到 **`data`**（訊息 `daily data update`），**不會**為此在 `main` 開 commit
+4. `data` 或 `main` 有 push 時，Pages workflow 再 `npm run build` 並部署
+
+也可手動刷新（仍寫入 `data`，不寫 `main`）：
+
+```bash
+gh workflow run daily.yml --ref main
+```
 
 ## 來源失敗：保留昨日檔
 
