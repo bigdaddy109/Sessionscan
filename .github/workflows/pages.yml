@@ -17,7 +17,8 @@ jobs:
       - name: Checkout main (code)
         uses: actions/checkout@v4
         with:
-          ref: main
+          # Push to data → latest main. Push to main → this SHA so the shell cannot lag.
+          ref: ${{ github.ref == 'refs/heads/data' && 'main' || github.sha }}
           path: app
 
       - name: Checkout data (JSON)

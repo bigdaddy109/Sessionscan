@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "sample": false,
+    "label_zh": "資料快照",
+    "label_en": "SNAPSHOT",
+    "note_zh": "公開來源標題彙整，不是即時爬蟲。",
+    "note_en": "Public outbound titles only — not a live scrape.",
+    "_last_run": "2026-08-20 00:00",
+    "scope": ["GTA 5", "GTA Online", "GTA 6"],
+    "excluded": ["GTA 4", "RDO"]
+  },
+  "jobs_gtabase": [
+    {
+      "rank": 1,
+      "title": "GTA Online Weekly Update (fixture): Bonuses & Discounts",
+      "title_en": "GTA Online Weekly Update",
+      "source": "GTABase",
+      "game": "GTA Online",
+      "updated": "2026-08-20",
+      "url": "https://www.gtabase.com/articles/grand-theft-auto-v/news/gta-online-weekly-update"
+    }
+  ],
+  "jobs_ign": [
+    {
+      "rank": 1,
+      "title": "GTA Online Weekly Bonuses and Discounts",
+      "source": "IGN",
+      "game": "GTA Online",
+      "updated": "2026-08-20",
+      "url": "https://www.ign.com/wikis/gta-5/GTA_Online_Weekly_Updates"
+    }
+  ],
+  "jobs_wiki": [
+    {
+      "rank": 1,
+      "title": "The Cayo Perico Heist — 佩里克島",
+      "title_en": "The Cayo Perico Heist",
+      "source": "GTA Wiki",
+      "game": "GTA Online",
+      "updated": "2026-06-01",
+      "url": "https://gta.fandom.com/wiki/The_Cayo_Perico_Heist"
+    }
+  ],
+  "videos_hot_zh": [
+    {
+      "title": "佩里克島最高效率攻略",
+      "channel": "Yu",
+      "lang": "zh",
+      "url": "https://www.youtube.com/watch?v=5XBMNYmFmTs",
+      "game": "GTA Online"
+    }
+  ],
+  "videos_hot_en": [
+    {
+      "title": "GTA 6 trailer recap",
+      "channel": "Public YouTube",
+      "lang": "en",
+      "url": "https://www.youtube.com/watch?v=gta6fixture1",
+      "game": "GTA 6"
+    }
+  ],
+  "videos_shorts": [
+    {
+      "video_id": "OtherShort01",
+      "title": "Other trending Short",
+      "url": "https://www.youtube.com/shorts/OtherShort01"
+    }
+  ],
+  "sessionscan_slot": {
+    "status": "online",
+    "channel_url": "https://www.youtube.com/@sessionscan",
+    "channel_handle": "@sessionscan",
+    "short": {
+      "video_id": "SsFixture01",
+      "title": "SessionScan fixture Short",
+      "channel": "SessionScan",
+      "url": "https://www.youtube.com/shorts/SsFixture01"
+    }
+  },
+  "forum_bahamut": [
+    {
+      "title": "哈啦板討論",
+      "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=1",
+      "game": "GTA Online"
+    }
+  ],
+  "tweets_zh": [
+    {
+      "author": "fixture_zh",
+      "text": "俠盜獵車手6 公開時程整理",
+      "url": "https://x.com/fixture_zh/status/1",
+      "game": "GTA 6"
+    }
+  ],
+  "tweets_en": []
+}
