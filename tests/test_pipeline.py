@@ -135,6 +135,30 @@ class ScopeTests(unittest.TestCase):
         self.assertEqual(scraper_mod.snowflake_date("2093700196811059569"), "2026-08-29")
         self.assertTrue(scraper_mod.tweet_date_ok("2026-08-29", now=date(2026, 8, 30)))
         self.assertTrue(scraper_mod.tweet_date_ok("2026-08-30", now=date(2026, 8, 30)))
+        ph = "userHandle"
+        self.assertFalse(keep_tweet({
+            "tid": "2093983614119891242",
+            "author": ph,
+            "author_name": "Techintosh",
+            "text": "《俠盜獵車手6》雙主角可望即時切換，開車射擊免載入，這段夠長可通過長度檢查",
+            "date": "2026-08-30",
+            "url": f"https://x.com/{ph}/status/2093983614119891242",
+        }))
+        self.assertIsNone(parse_ddgs_x_hit({
+            "href": f"https://x.com/{ph}/status/2093983614119891242",
+            "title": 'Techintosh on X: "《俠盜獵車手6》雙主角可望即時切換"',
+            "body": "GTA 6",
+        }))
+        degraded = scraper_mod.tweet_item({
+            "tid": "2093983614119891242",
+            "author": ph,
+            "author_name": "Techintosh",
+            "text": "《俠盜獵車手6》雙主角可望即時切換",
+            "date": "2026-08-30",
+        })
+        self.assertNotIn(ph, degraded.get("url") or "")
+        self.assertNotEqual(degraded.get("author"), ph)
+        self.assertFalse(keep_tweet(degraded))
 
     def test_x_search_asks_for_recent(self):
         self.assertEqual(scraper_mod.X_SEARCH_TIMELIMITS, ("d", "w"))

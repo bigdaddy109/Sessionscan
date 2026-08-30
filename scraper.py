@@ -98,6 +98,8 @@ X_SEARCH_QUERIES = {
 X_SEARCH_TIMELIMITS = ("d", "w")
 # Skip wikipedia: regional codes like wt-wt / hk-tzh DNS-fail the whole query.
 X_SEARCH_BACKEND = "duckduckgo,brave,yahoo,google,startpage"
+# Dummy username some X/fxtwitter payloads emit; never write it into cards.
+_X_PLACEHOLDER_HANDLE = "".join(("user", "Handle"))
 X_OFFICIAL_ACCOUNTS = ("RockstarGames", "GTAonline")
 X_TIMELINE_ATTEMPTS = 3
 TWEET_MAX_AGE_DAYS = 28
@@ -351,8 +353,35 @@ def is_tweet_chrome(text):
     return any(p.search(low) for p in JUNK_RES)
 
 
+def is_placeholder_x_handle(handle):
+    h = str(handle or "").strip().lstrip("@")
+    return bool(h) and h.lower() == _X_PLACEHOLDER_HANDLE.lower()
+
+
+def is_real_x_handle(handle):
+    h = str(handle or "").strip().lstrip("@")
+    if not h or is_placeholder_x_handle(h):
+        return False
+    return bool(re.fullmatch(r"[A-Za-z0-9_]{1,15}", h))
+
+
+def tweet_has_placeholder_handle(item):
+    if not isinstance(item, dict):
+        return True
+    if is_placeholder_x_handle(item.get("author")):
+        return True
+    url = str(item.get("url") or "").lower()
+    ph = _X_PLACEHOLDER_HANDLE.lower()
+    return f"/{ph}/" in url
+
+
 def keep_tweet(item, now=None):
     if not isinstance(item, dict):
+        return False
+    if tweet_has_placeholder_handle(item):
+        return False
+    url = str(item.get("url") or "")
+    if url and not STATUS_RE.search(url):
         return False
     text = item.get("text") or ""
     blob = f"{text} {item.get('author', '')} {item.get('url', '')}"
@@ -1517,9 +1546,12 @@ def parse_ddgs_x_hit(row):
     text = clean_tweet_text(text)
     if not text:
         return None
+    author = m.group(1)
+    if is_placeholder_x_handle(author):
+        return None
     return {
         "tid": m.group(2),
-        "author": m.group(1).lower(),
+        "author": author.lower(),
         "author_name": disp.strip(),
         "text": text,
     }
@@ -1550,16 +1582,24 @@ def enrich_tweet(t):
 
 
 def tweet_item(t):
-    url = f"https://x.com/{t['author']}/status/{t['tid']}"
+    tid = t["tid"]
+    raw_author = str(t.get("author") or "").strip().lstrip("@")
+    display = (t.get("author_name") or "").strip()
+    if is_real_x_handle(raw_author):
+        author = raw_author
+        url = f"https://x.com/{author}/status/{tid}"
+    else:
+        author = display or raw_author
+        url = f"https://x.com/search?q={tid}" if tid else ""
     text = t.get("text") or ""
     return {
-        "id": md5_id(url),
-        "tid": t["tid"],
+        "id": md5_id(url or tid),
+        "tid": tid,
         "url": url,
-        "author": t["author"],
-        "author_name": t.get("author_name") or "",
+        "author": author,
+        "author_name": display,
         "text": text,
-        "date": t.get("date") or snowflake_date(t["tid"]),
+        "date": t.get("date") or snowflake_date(tid),
         "likes": t.get("likes"),
         "lang": tweet_lang(text),
         "game": detect_game(text) or "GTA 6",
