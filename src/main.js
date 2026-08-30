@@ -222,9 +222,12 @@ function renderJobs() {
   const key = `jobs_${state.jobsSource}`;
   const list = state.data[key] || [];
   $("#jobHint").textContent = SOURCE_HINTS[state.jobsSource] || "";
-  $("#jobList").innerHTML = list.length
-    ? list.map(jobCard).join("")
-    : `<p class="empty-msg">${isLiveData(state.data) ? "此來源尚無卡片，等待下次掃描。" : "此來源尚無範例卡片。"}</p>`;
+  if (list.length) {
+    $("#jobList").innerHTML = list.map(jobCard).join("");
+    return;
+  }
+  if ($("#jobList")?.querySelector("[data-static-job]")) return;
+  $("#jobList").innerHTML = `<p class="empty-msg">${isLiveData(state.data) ? "此來源尚無卡片，等待下次掃描。" : "此來源尚無範例卡片。"}</p>`;
 }
 
 function renderHot() {

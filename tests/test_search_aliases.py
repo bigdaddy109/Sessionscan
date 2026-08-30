@@ -306,10 +306,13 @@ class SearchAliasTests(unittest.TestCase):
         self.assertNotIn("EXAMPLE DATA", built)
         self.assertIn("data-static-job", built)
         self.assertIn('id="jobList"', built)
-        self.assertIn('href="https://', built)
+        self.assertIn('id="crawlJobs"', built)
+        self.assertIn("gtabase.com", built)
         self.assertIn("GTA Online Weekly Update", built)
+        self.assertIn("youtube.com/shorts/", built)
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
-        self.assertIn('$("#jobList").innerHTML', js)
+        self.assertIn('querySelector("[data-static-job]")', js)
+        self.assertIn("inject_static_jobs.mjs", (ROOT / "package.json").read_text(encoding="utf-8"))
 
     def test_opt5_fonts_hero_and_static_jobs(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
@@ -327,6 +330,12 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("inject-static-jobs", vite)
         self.assertIn("data-static-job", vite)
         self.assertIn('id="jobList"', html)
+        self.assertIn('id="crawlJobs"', html)
+        script = (ROOT / "scripts" / "inject_static_jobs.mjs").read_text(encoding="utf-8")
+        self.assertIn("public/data/site.json", script)
+        self.assertIn("dist/data/site.json", script)
+        self.assertNotIn("public/data/sample.json", script)
+        self.assertIn("Require crawler-visible weekly title", (ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8"))
 
     def test_live_bahamut_never_uses_bare_cphp(self):
         site = load_hub()

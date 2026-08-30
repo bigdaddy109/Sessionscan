@@ -49,6 +49,12 @@ jobs:
       - working-directory: app
         run: npm run build
 
+      - name: Require crawler-visible weekly title
+        working-directory: app
+        run: |
+          grep -E 'gtabase.com|GTA Online Weekly' dist/index.html
+          grep 'id="crawlJobs"' dist/index.html
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: app/dist
