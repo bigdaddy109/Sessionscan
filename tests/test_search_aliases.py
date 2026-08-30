@@ -135,7 +135,11 @@ class SearchAliasTests(unittest.TestCase):
         )
         self.assertIn('rel="canonical" href="https://bigdaddy109.github.io/Sessionscan/"', html)
         self.assertIn('property="og:url" content="https://bigdaddy109.github.io/Sessionscan/"', html)
-        self.assertNotIn("og:image", html)
+        self.assertIn('property="og:image" content="https://bigdaddy109.github.io/Sessionscan/og.png"', html)
+        self.assertIn('name="twitter:image" content="https://bigdaddy109.github.io/Sessionscan/og.png"', html)
+        self.assertIn('name="twitter:card" content="summary_large_image"', html)
+        self.assertTrue((ROOT / "public" / "og.png").is_file())
+        self.assertGreater((ROOT / "public" / "og.png").stat().st_size, 10000)
         robots = (ROOT / "public" / "robots.txt").read_text(encoding="utf-8")
         self.assertIn("Allow: /", robots)
         self.assertIn("https://bigdaddy109.github.io/Sessionscan/sitemap.xml", robots)
@@ -241,6 +245,25 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("location.hash", js)
         self.assertIn("此來源暫停", js)
         self.assertNotIn(magic, (ROOT / "scraper.py").read_text(encoding="utf-8"))
+
+    def test_p2_official_banner_owned_embed_and_og(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
+        self.assertIn('id="officialBanner"', html)
+        self.assertIn("本週官方訊號待下次掃描", html)
+        self.assertIn("快照、非即時", html)
+        self.assertIn("pickOfficialWeekly", js)
+        self.assertIn("renderOfficialBanner", js)
+        self.assertIn("youtube-nocookie.com/embed/", js)
+        self.assertIn("本週尚無 Short", js)
+        self.assertIn("i.ytimg.com/vi/", js)
+        owned = js.split("function sessionScanSlot", 1)[1].split("function jaNote", 1)[0]
+        others = js.split("function videoCard", 1)[1].split("function sessionScanSlot", 1)[0]
+        self.assertIn("youtube-nocookie.com/embed/", owned)
+        self.assertNotIn("youtube-nocookie.com/embed/", others)
+        self.assertIn("i.ytimg.com/vi/", others)
+        self.assertIn('content="https://bigdaddy109.github.io/Sessionscan/og.png"', html)
+        self.assertTrue((ROOT / "public" / "og.png").is_file())
 
     def test_live_bahamut_never_uses_bare_cphp(self):
         site = json.loads((ROOT / "public" / "data" / "site.json").read_text(encoding="utf-8"))
