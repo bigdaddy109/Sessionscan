@@ -10,7 +10,7 @@ GTA 5／GTA Online／GTA 6 靜態情報站。繁體中文為主。不含 GTA 4�
 
 Frank 同款資料管線（不是 PoE 皮膚）：
 
-1. GitHub Actions 每天 **UTC 00:00（台北 08:00）** 跑 `scraper.py`
+1. GitHub Actions 每天三次 **台北 08:00／15:00／21:00**（UTC `0 0,7,13 * * *`，含週末）跑 `scraper.py`
 2. 各來源寫入 `data/*.json`，再由 `build_site.py` 彙整成 `public/data/site.json`
 3. `npm run build` 後部署 GitHub Pages
 4. 成功的 JSON 會 commit 回 repo，方便隔天對照
