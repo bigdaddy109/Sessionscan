@@ -1,0 +1,39 @@
+{
+ "sessionscan_slot": "2026-08-30 02:56",
+ "jobs_gtabase": "2026-08-30 02:53",
+ "jobs_ign": "2026-08-30 09:50",
+ "jobs_wiki": "2026-08-30 02:53",
+ "videos_hot_zh": "2026-08-30 02:55",
+ "videos_new_zh": "2026-08-30 02:55",
+ "videos_hot_en": "2026-08-30 02:56",
+ "videos_new_en": "2026-08-30 02:56",
+ "videos_hot_ja": "2026-08-30 02:56",
+ "videos_new_ja": "2026-08-30 02:56",
+ "forum_reddit": "2026-08-30 02:56",
+ "tweets_en": "2026-08-30 09:52",
+ "tweets": "2026-08-30 09:52",
+ "_last_run": "2026-08-30 09:52",
+ "generated_at": "2026-08-30T09:52:03Z",
+ "sample": false,
+ "scraper_status": "ok",
+ "label_zh": "資料快照",
+ "label_en": "SNAPSHOT",
+ "note_zh": "公開來源標題彙整，不是即時爬蟲。來源失敗時保留既有檔，不覆寫成空。",
+ "note_en": "Public outbound titles only — not a live scrape. On source failure, keep yesterday — never overwrite with empty.",
+ "scope": [
+  "GTA 5",
+  "GTA Online",
+  "GTA 6"
+ ],
+ "excluded": [
+  "GTA 4",
+  "RDO"
+ ],
+ "jobs": "2026-08-30 09:50",
+ "hot": "2026-08-30 02:56",
+ "new": "2026-08-30 02:56",
+ "forum": "2026-08-30 02:56",
+ "forum_bahamut": "2026-08-30 02:56",
+ "videos_shorts": "2026-08-30 02:56",
+ "tweets_zh": "2026-08-30 09:52"
+}

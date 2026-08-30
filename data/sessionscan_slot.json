@@ -1,0 +1,21 @@
+{
+ "status": "online",
+ "channel_url": "https://www.youtube.com/@sessionscan",
+ "channel_handle": "@sessionscan",
+ "title_zh": "SessionScan Short",
+ "title_en": "SessionScan Short",
+ "note_zh": "自有每週 Short。其餘為他人當紅 Short。",
+ "note_en": "Owned weekly Short. Other cells are other creators’ trending Shorts.",
+ "short": {
+  "id": "J0XqcPVN7Yg",
+  "video_id": "J0XqcPVN7Yg",
+  "title": "6X Drift + Transform This Weekend | GTA Online",
+  "channel": "SessionScan",
+  "url": "https://www.youtube.com/shorts/J0XqcPVN7Yg",
+  "views": null,
+  "date": null,
+  "lang": "en",
+  "game": "GTA Online",
+  "kind": "short"
+ }
+}
