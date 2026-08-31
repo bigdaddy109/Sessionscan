@@ -6,6 +6,7 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { isThisWeekJob, THIS_WEEK_MAX } from "../src/thisWeek.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -38,6 +39,17 @@ function firstJob(data) {
     }
   }
   return null;
+}
+
+function thisWeekStaticJobs(data) {
+  const jobs = [];
+  for (const key of ["jobs_gtabase", "jobs_ign", "jobs_wiki"]) {
+    for (const item of data[key] || []) {
+      if (item?.title && item?.url && isThisWeekJob(item)) jobs.push(item);
+      if (jobs.length >= THIS_WEEK_MAX) return jobs;
+    }
+  }
+  return jobs;
 }
 
 function ownedShort(data) {
@@ -73,6 +85,7 @@ if (!existsSync(htmlPath)) {
 
 const data = loadSite();
 const job = data ? firstJob(data) : null;
+const weekJobs = data ? thisWeekStaticJobs(data) : [];
 const short = data ? ownedShort(data) : null;
 let html = readFileSync(htmlPath, "utf8");
 
@@ -84,12 +97,14 @@ html = html.replace(
 
 if (job) {
   html = html.replace(
-    /<div class="job-list" id="jobList">[\s\S]*?<\/div>(?=\s*<\/section>)/,
-    `<div class="job-list" id="jobList">${jobCard(job)}</div>`,
-  );
-  html = html.replace(
     /<p id="officialBannerBody">[\s\S]*?<\/p>/,
     `<p id="officialBannerBody"><a href="${esc(job.url)}" target="_blank" rel="noopener noreferrer">${esc(job.title)}</a></p>`,
+  );
+}
+if (weekJobs.length) {
+  html = html.replace(
+    /<div class="job-list" id="jobList">[\s\S]*?<\/div>(?=\s*<\/section>)/,
+    `<div class="job-list" id="jobList">${weekJobs.map(jobCard).join("")}</div>`,
   );
 }
 

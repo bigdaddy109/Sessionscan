@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
+import { isThisWeekJob, THIS_WEEK_MAX } from "./src/thisWeek.js";
 
 const CF_WEB_ANALYTICS =
   "<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{\"token\": \"a2ed116dcca9428aae207121d25629e5\"}'></script><!-- End Cloudflare Web Analytics -->";
@@ -29,10 +30,10 @@ function staticJobCards() {
   const jobs = [];
   for (const pool of pools) {
     for (const item of pool) {
-      if (item?.title && item?.url) jobs.push(item);
-      if (jobs.length >= 3) break;
+      if (item?.title && item?.url && isThisWeekJob(item)) jobs.push(item);
+      if (jobs.length >= THIS_WEEK_MAX) break;
     }
-    if (jobs.length >= 3) break;
+    if (jobs.length >= THIS_WEEK_MAX) break;
   }
   return jobs
     .map((j, i) => {

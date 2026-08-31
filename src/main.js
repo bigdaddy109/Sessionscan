@@ -1,3 +1,5 @@
+import { THIS_WEEK_MAX, isThisWeekJob } from "./thisWeek.js";
+
 const SOURCE_HINTS = {
   gtabase: "GTABase 本週賺錢與工作：每週更新、獎勵、折扣。卡片只外連，不轉載全文。",
   ign: "IGN 只收 GTA Online 每週獎勵／賺錢。不含 GTA 6 新聞回顧。不含 GTA 4。不含 RDO。",
@@ -19,6 +21,7 @@ const state = {
   tweetsLang: "zh",
   activeTab: "jobs",
   hashLock: false,
+  showOlderJobs: false,
 };
 
 const $ = (s, root = document) => root.querySelector(s);
@@ -61,7 +64,7 @@ function jobCard(item) {
 function videoCard(v, rank, extraClass) {
   const id = v.video_id;
   const thumb = `https://i.ytimg.com/vi/${encodeURIComponent(id)}/mqdefault.jpg`;
-  const lang = v.lang === "zh" ? "中文" : v.lang === "ja" ? "日文" : "EN";
+  const lang = v.lang === "zh" ? "中文" : v.lang === "ja" ? "日文" : v.lang === "ko" ? "韓文" : "EN";
   const cls = extraClass ? `video-card ${extraClass}` : "video-card";
   const channelLink = v.owned
     ? `<p class="blurb"><a href="${esc(v.channel_url || "https://www.youtube.com/@sessionscan")}" target="_blank" rel="noopener noreferrer">SessionScan 頻道 @sessionscan ↗</a></p>`
@@ -94,7 +97,7 @@ function sessionScanSlot(slot) {
   const id = short?.video_id || "";
   if (/^[A-Za-z0-9_-]{11}$/.test(id)) {
     const embed = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`;
-    const lang = short.lang === "zh" ? "中文" : short.lang === "ja" ? "日文" : "EN";
+    const lang = short.lang === "zh" ? "中文" : short.lang === "ja" ? "日文" : short.lang === "ko" ? "韓文" : "EN";
     return `
     <article class="video-card owned-short" data-card>
       <div class="thumb-link embed-wrap">
@@ -139,6 +142,19 @@ function jaNote(note) {
     </div>`;
 }
 
+function isRelativeForumTime(t) {
+  return /(?:\d+\s*(?:秒|分|分鐘|小時|小时|天)前|刚刚|剛剛)/.test(String(t || ""));
+}
+
+function forumTimeMeta(item) {
+  const t = item?.time || "";
+  if (!t) return "";
+  if (item?.time_relative || isRelativeForumTime(t)) {
+    return `<span>${esc(t)}</span><span class="tag">來源相對時間，以快照為準</span>`;
+  }
+  return `<span>${esc(t)}</span>`;
+}
+
 function threadCard(item) {
   return `
     <article class="thread-item" data-card>
@@ -149,7 +165,7 @@ function threadCard(item) {
         <span class="tag">${esc(item.source)}</span>
         <span class="tag">${esc(item.game)}</span>
         <span>${esc(item.author)}</span>
-        <span>${esc(item.time)}</span>
+        ${forumTimeMeta(item)}
         ${item.replies != null ? `<span class="reply">回 ${esc(item.replies)}${isLiveData(state.data) ? "" : "（範例）"}</span>` : ""}
       </div>
       ${item.blurb ? `<p class="blurb">${esc(item.blurb)}</p>` : ""}
@@ -220,10 +236,15 @@ function renderJobs() {
     return;
   }
   const key = `jobs_${state.jobsSource}`;
-  const list = state.data[key] || [];
+  const raw = state.data[key] || [];
+  const list = state.showOlderJobs ? raw : raw.filter((it) => isThisWeekJob(it)).slice(0, THIS_WEEK_MAX);
   $("#jobHint").textContent = SOURCE_HINTS[state.jobsSource] || "";
   if (list.length) {
     $("#jobList").innerHTML = list.map(jobCard).join("");
+    return;
+  }
+  if (!state.showOlderJobs) {
+    $("#jobList").innerHTML = `<p class="empty-msg">本週尚無卡片</p>`;
     return;
   }
   if ($("#jobList")?.querySelector("[data-static-job]")) return;
@@ -245,7 +266,9 @@ function renderNew() {
   const slot = sessionScanSlot(state.data.sessionscan_slot);
   const others = (state.data.videos_shorts || []).filter((v) => {
     const owned = state.data.sessionscan_slot?.short?.video_id;
-    return v.video_id && v.video_id !== owned;
+    if (!v.video_id || v.video_id === owned) return false;
+    if (v.lang === "ko") return false;
+    return true;
   });
   const cards = others.map((v, i) => videoCard(v, i + 2)).join("");
   $("#newGrid").innerHTML = slot + (cards || `<p class="empty-msg">${isLiveData(state.data) ? "尚無他人當紅 Short，等待下次掃描。" : "尚無範例 Short。"}</p>`);
@@ -583,6 +606,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.addEventListener("click", (e) => {
     const pill = e.target.closest(".pill");
     if (!pill || pill.disabled) return;
+    if (pill.dataset.jobsRange === "older") {
+      state.showOlderJobs = !state.showOlderJobs;
+      pill.classList.toggle("active", state.showOlderJobs);
+      pill.setAttribute("aria-pressed", state.showOlderJobs ? "true" : "false");
+      renderJobs();
+      return;
+    }
     pill.closest(".pill-group").querySelectorAll(".pill").forEach((p) => p.classList.remove("active"));
     pill.classList.add("active");
     if (pill.dataset.source) {

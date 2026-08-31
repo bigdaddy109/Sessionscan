@@ -8,6 +8,7 @@ so the vice-dusk UI can keep fetching one file. Does not copy a PoE skin.
 import json
 import logging
 import re
+from datetime import datetime
 from pathlib import Path
 from urllib.parse import parse_qs, urljoin, urlparse
 
@@ -89,7 +90,7 @@ def is_rdo_item(item):
 
 
 def sanitize_merged(merged):
-    from scraper import is_jobs_item, keep_tweet, rank_job_items
+    from scraper import baha_abs_time, filter_other_shorts, is_jobs_item, keep_tweet, rank_job_items, taipei_now
 
     for key in LIST_SECTIONS:
         rows = merged.get(key) or []
@@ -114,6 +115,25 @@ def sanitize_merged(merged):
     for item in merged.get("forum_bahamut") or []:
         if isinstance(item, dict):
             item["url"] = baha_outbound_url(item.get("url") or "")
+    snap = None
+    meta_run = (merged.get("meta") or {}).get("_last_run") if isinstance(merged.get("meta"), dict) else None
+    if isinstance(meta_run, str) and len(meta_run) >= 10:
+        try:
+            snap = taipei_now(datetime.strptime(meta_run[:16], "%Y-%m-%d %H:%M"))
+        except ValueError:
+            snap = None
+    for item in merged.get("forum_bahamut") or []:
+        if not isinstance(item, dict):
+            continue
+        abs_t, rel = baha_abs_time(item.get("time"), now=snap)
+        item["time"] = abs_t
+        if rel:
+            item["time_relative"] = True
+        else:
+            item.pop("time_relative", None)
+    shorts = merged.get("videos_shorts")
+    if isinstance(shorts, list) and shorts:
+        merged["videos_shorts"] = filter_other_shorts(shorts)
     meta = merged.get("meta")
     if isinstance(meta, dict):
         meta["scope"] = ["GTA 5", "GTA Online", "GTA 6"]
