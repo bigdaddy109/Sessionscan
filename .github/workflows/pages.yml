@@ -1,23 +1,32 @@
 name: pages
 on:
   push:
+    # `data` is listed for intent, but a push only runs a workflow that exists on THAT
+    # branch. The data branch is JSON-only, so this never fires. Daily updates are
+    # picked up via workflow_run instead (evaluated from the default branch).
     branches: [main, data]
   workflow_dispatch:
+  workflow_run:
+    workflows: ["daily scrape"]
+    types: [completed]
 permissions:
   contents: read
   pages: write
   id-token: write
 concurrency:
   group: pages
-  cancel-in-progress: true
+  # Queue the next deploy. Cancelling an in-flight Pages job leaves github.io stale.
+  cancel-in-progress: false
 jobs:
   build:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main (code)
         uses: actions/checkout@v4
         with:
-          # Push to data → latest main. Push to main → this SHA so the shell cannot lag.
+          # Push/dispatch on main (or workflow_run) → that SHA.
+          # Push to data (only if this file exists there) → latest main.
           ref: ${{ github.ref == 'refs/heads/data' && 'main' || github.sha }}
           path: app
 
