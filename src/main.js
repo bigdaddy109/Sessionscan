@@ -1,4 +1,6 @@
 import { THIS_WEEK_MAX, isThisWeekJob } from "./thisWeek.js";
+import { filterOtherShorts } from "./shortsFilter.js";
+import { bahaAbsTime, isRelativeForumTime, parseSnapshotNow } from "./bahaTime.js";
 
 const SOURCE_HINTS = {
   gtabase: "GTABase 本週賺錢與工作：每週更新、獎勵、折扣。卡片只外連，不轉載全文。",
@@ -142,17 +144,19 @@ function jaNote(note) {
     </div>`;
 }
 
-function isRelativeForumTime(t) {
-  return /(?:\d+\s*(?:秒|分|分鐘|小時|小时|天)前|刚刚|剛剛)/.test(String(t || ""));
+function forumSnapshotNow() {
+  const meta = state.data?.meta || {};
+  return parseSnapshotNow(meta.forum_bahamut || meta.forum || meta._last_run || meta.snapshot_date);
 }
 
 function forumTimeMeta(item) {
-  const t = item?.time || "";
-  if (!t) return "";
-  if (item?.time_relative || isRelativeForumTime(t)) {
-    return `<span>${esc(t)}</span><span class="tag">來源相對時間，以快照為準</span>`;
+  const raw = item?.time || "";
+  if (!raw) return "";
+  const { text, relative } = bahaAbsTime(raw, forumSnapshotNow());
+  if (relative || item?.time_relative || isRelativeForumTime(text)) {
+    return `<span>${esc(text || raw)}</span><span class="tag">來源相對時間，以快照為準</span>`;
   }
-  return `<span>${esc(t)}</span>`;
+  return `<span>${esc(text)}</span>`;
 }
 
 function threadCard(item) {
@@ -264,8 +268,8 @@ function renderHot() {
 
 function renderNew() {
   const slot = sessionScanSlot(state.data.sessionscan_slot);
-  const others = (state.data.videos_shorts || []).filter((v) => {
-    const owned = state.data.sessionscan_slot?.short?.video_id;
+  const owned = state.data.sessionscan_slot?.short?.video_id;
+  const others = filterOtherShorts(state.data.videos_shorts || []).filter((v) => {
     if (!v.video_id || v.video_id === owned) return false;
     if (v.lang === "ko") return false;
     return true;
@@ -501,7 +505,8 @@ function localSearch(raw) {
     .filter((b) => matches(b, ["title", "title_en", "source", "game", "tags", "blurb"], words));
   const hot = [...(d.videos_hot_zh || []), ...(d.videos_hot_en || []), ...(d.videos_hot_ja || [])]
     .filter((v) => matches(v, ["title", "channel", "game", "lang"], words));
-  const fresh = [...(d.videos_shorts || [])]
+  const fresh = filterOtherShorts([...(d.videos_shorts || [])])
+    .filter((v) => v.lang !== "ko")
     .filter((v) => matches(v, ["title", "channel", "game", "lang"], words));
   const forum = [...(d.forum_bahamut || []), ...(d.forum_reddit || [])]
     .filter((b) => matches(b, ["title", "author", "source", "game", "blurb"], words));

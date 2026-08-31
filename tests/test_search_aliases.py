@@ -363,11 +363,15 @@ class SearchAliasTests(unittest.TestCase):
         subprocess.check_call(["node", str(ROOT / "tests" / "test_this_week.mjs")], cwd=ROOT)
 
     def test_shorts_default_grid_drops_ko_and_js_filters(self):
+        import subprocess
+
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
         src = (ROOT / "scraper.py").read_text(encoding="utf-8")
         self.assertIn("filter_other_shorts", src)
+        self.assertIn("filterOtherShorts", js)
         self.assertIn('v.lang === "ko"', js)
         self.assertIn("韓文", js)
+        subprocess.check_call(["node", str(ROOT / "tests" / "test_shorts_baha.mjs")], cwd=ROOT)
 
     def test_bahamut_fixture_time_is_absolute(self):
         site = load_hub()
@@ -376,6 +380,7 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("來源相對時間，以快照為準", js)
         self.assertIn("isRelativeForumTime", js)
         self.assertIn("forumTimeMeta", js)
+        self.assertIn("bahaAbsTime", js)
         rel = re.compile(r"\d+\s*分前")
         for blob in (site, sample):
             for it in blob.get("forum_bahamut") or []:
