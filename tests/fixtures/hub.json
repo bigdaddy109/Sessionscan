@@ -12,22 +12,48 @@
   "jobs_gtabase": [
     {
       "rank": 1,
-      "title": "GTA Online Weekly Update (fixture): Bonuses & Discounts",
+      "title": "GTA Online Weekly Update (August 27 - September 2): Bonuses & Discounts",
       "title_en": "GTA Online Weekly Update",
       "source": "GTABase",
       "game": "GTA Online",
-      "updated": "2026-08-20",
+      "updated": "2026-08-27",
       "url": "https://www.gtabase.com/articles/grand-theft-auto-v/news/gta-online-weekly-update"
+    },
+    {
+      "rank": 2,
+      "title": "GTA Online Weekly Update (August 13-19): Brand Wars Event",
+      "title_en": "GTA Online Weekly Update mid-August",
+      "source": "GTABase",
+      "game": "GTA Online",
+      "updated": "2026-08-13",
+      "url": "https://www.gtabase.com/articles/grand-theft-auto-v/news/gta-online-weekly-update-august-13-19"
+    },
+    {
+      "rank": 3,
+      "title": "GTA Online Weekly Update (July 23-29): Kortz Center Heist",
+      "title_en": "GTA Online Weekly Update July",
+      "source": "GTABase",
+      "game": "GTA Online",
+      "updated": "2026-07-23",
+      "url": "https://www.gtabase.com/articles/grand-theft-auto-v/news/gta-online-weekly-update-july-23-29"
     }
   ],
   "jobs_ign": [
     {
       "rank": 1,
-      "title": "GTA Online Weekly Bonuses and Discounts",
+      "title": "GTA Online Weekly Bonuses and Discounts (August 27, 2026)",
       "source": "IGN",
       "game": "GTA Online",
-      "updated": "2026-08-20",
+      "updated": "2026-08-27",
       "url": "https://www.ign.com/wikis/gta-5/GTA_Online_Weekly_Updates"
+    },
+    {
+      "rank": 2,
+      "title": "GTA Online Weekly Bonuses (August 13, 2026)",
+      "source": "IGN",
+      "game": "GTA Online",
+      "updated": "2026-08-13",
+      "url": "https://www.ign.com/wikis/gta-5/GTA_Online_Weekly_Updates#aug13"
     }
   ],
   "jobs_wiki": [
@@ -63,7 +89,9 @@
     {
       "video_id": "OtherShort01",
       "title": "Other trending Short",
-      "url": "https://www.youtube.com/shorts/OtherShort01"
+      "url": "https://www.youtube.com/shorts/OtherShort01",
+      "lang": "en",
+      "views": null
     }
   ],
   "sessionscan_slot": {
@@ -81,7 +109,8 @@
     {
       "title": "哈啦板討論",
       "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=1",
-      "game": "GTA Online"
+      "game": "GTA Online",
+      "time": "2026-08-30 14:22"
     }
   ],
   "tweets_zh": [

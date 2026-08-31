@@ -5,7 +5,7 @@ import os
 import sys
 import tempfile
 import unittest
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -36,6 +36,10 @@ from scraper import (  # noqa: E402
     scrape_owned_short,
     shorts_ids_from_html,
     tweet_lang,
+    detect_lang,
+    filter_other_shorts,
+    baha_abs_time,
+    TZ_TAIPEI,
 )
 import scraper as scraper_mod  # noqa: E402
 
@@ -231,6 +235,10 @@ class ParserTests(unittest.TestCase):
         self.assertEqual(titles, ["GTA Online 本週獎勵討論"])
         self.assertEqual(rows[0]["url"], "https://forum.gamer.com.tw/C.php?bsn=4737&snA=99")
         self.assertEqual(rows[0]["author"], "作者甲")
+        frozen = datetime(2026, 8, 31, 15, 0, tzinfo=TZ_TAIPEI)
+        rows_abs = parse_baha_rows(html, now=frozen)
+        self.assertEqual(rows_abs[0]["time"], "2026-08-27")
+        self.assertFalse(rows_abs[0].get("time_relative"))
 
     def test_bahamut_never_emits_bare_cphp(self):
         self.assertEqual(baha_outbound_url("https://forum.gamer.com.tw/C.php"), "https://forum.gamer.com.tw/B.php?bsn=4737")
@@ -401,6 +409,92 @@ class ShortsTests(unittest.TestCase):
         self.assertNotIn("bbbbbbbbbbb", ids)
         self.assertNotIn("ccccccccccc", ids)
         self.assertNotIn("WatchLong001", ids)
+
+    def test_other_shorts_dedupe_bait_and_hangul_lang(self):
+        raw = [
+            {
+                "video_id": "aaaAaaAaaAa",
+                "title": "Que Animal Consigue Esconderse #gta #gtav",
+                "channel": "FAZZGTA",
+                "lang": "en",
+                "views": None,
+            },
+            {
+                "video_id": "bbbBbbBbbBb",
+                "title": "Que Animal Consigue Esconderse  #gta #gtav",
+                "channel": "FAZZGTA",
+                "lang": "en",
+                "views": "999999",
+            },
+            {
+                "video_id": "cccCccCccCc",
+                "title": "Que Animal Consigue Esconderse #gta  #gtav",
+                "channel": "FAZZGTA",
+                "lang": "zh",
+                "views": None,
+            },
+            {
+                "video_id": "dddDddDddDd",
+                "title": "Trolling A GTA 5 Cops As A Traffic Bollards 🚨💥😂 #gta5",
+                "channel": "Gaurav Gaming",
+                "lang": "en",
+            },
+            {
+                "video_id": "eeeEeeEeeEe",
+                "title": "Trolling A GTA 5 Cops With Fake Mop 🧹💥😂 #gta5",
+                "channel": "Gaurav Gaming",
+                "lang": "en",
+            },
+            {
+                "video_id": "fffFffFffFf",
+                "title": "🤭 #gta5 #game #gaming #gtaonline #gta5online For true fans",
+                "channel": "CustomLevitate",
+                "lang": "en",
+            },
+            {
+                "video_id": "gggGggGggGg",
+                "title": "GTA 온라인 주간 보상 쇼츠",
+                "channel": "한채널",
+                "lang": "zh",
+                "views": 1234,
+            },
+        ]
+        out = filter_other_shorts(raw)
+        titles = [it["title"] for it in out]
+        self.assertEqual(sum(1 for t in titles if "Que Animal" in t), 1)
+        self.assertEqual(sum(1 for t in titles if t.startswith("Trolling A GTA 5")), 1)
+        self.assertFalse(any(t.startswith("🤭") for t in titles))
+        hangul = [it for it in out if "온라인" in it["title"]]
+        self.assertEqual(len(hangul), 1)
+        self.assertEqual(hangul[0]["lang"], "ko")
+        self.assertNotEqual(hangul[0]["lang"], "zh")
+        self.assertEqual(hangul[0]["views"], 1234)
+        self.assertTrue(all(it.get("views") is None or isinstance(it.get("views"), int) for it in out))
+        self.assertEqual(detect_lang("GTA 온라인 주간 보상"), "ko")
+        self.assertNotEqual(detect_lang("GTA 온라인 주간 보상"), "zh")
+
+    def test_bahamut_relative_becomes_taipei_absolute(self):
+        now = datetime(2026, 8, 31, 15, 40, tzinfo=TZ_TAIPEI)
+        self.assertEqual(baha_abs_time("11 分前", now=now), ("2026-08-31 15:29", False))
+        self.assertEqual(baha_abs_time("昨天 20:33", now=now), ("2026-08-30 20:33", False))
+        self.assertEqual(baha_abs_time("08/27", now=now), ("2026-08-27", False))
+        kept, rel = baha_abs_time("剛剛發的不明時間", now=now)
+        self.assertEqual(kept, "剛剛發的不明時間")
+        self.assertTrue(rel)
+        html = """
+        <table>
+          <tr class="b-list__row">
+            <td class="b-list__main">
+              <a href="C.php?bsn=4737&amp;snA=9"><p class="b-list__main__title">GTA Online 本週獎勵</p></a>
+            </td>
+            <td><div class="b-list__time__edittime"><a>11 分前</a></div></td>
+          </tr>
+        </table>
+        """
+        rows = parse_baha_rows(html, now=now)
+        self.assertEqual(rows[0]["time"], "2026-08-31 15:29")
+        self.assertFalse(rows[0].get("time_relative"))
+        self.assertNotRegex(rows[0]["time"], r"分前")
 
 
 class BuildSiteTests(unittest.TestCase):

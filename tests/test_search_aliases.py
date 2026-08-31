@@ -344,6 +344,54 @@ class SearchAliasTests(unittest.TestCase):
             self.assertNotEqual(url.rstrip("/"), "https://forum.gamer.com.tw/C.php")
             self.assertTrue("bsn=" in url, url)
 
+    def test_ch01_this_week_default_hides_old_weeklies(self):
+        import subprocess
+
+        js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        week = (ROOT / "src" / "thisWeek.js").read_text(encoding="utf-8")
+        self.assertIn("本週尚無卡片", js)
+        self.assertIn("較早週更", html)
+        self.assertIn("isThisWeekJob", js)
+        self.assertIn("showOlderJobs", js)
+        self.assertIn("THIS_WEEK_MAX", week)
+        site = load_hub()
+        titles = [it.get("title", "") + " " + str(it.get("updated", "")) for it in (site.get("jobs_gtabase") or [])]
+        self.assertTrue(any("August 27" in t or "2026-08-27" in t for t in titles))
+        self.assertTrue(any("July" in t or "2026-07" in t for t in titles))
+        self.assertTrue(any("August 13" in t or "2026-08-13" in t for t in titles))
+        subprocess.check_call(["node", str(ROOT / "tests" / "test_this_week.mjs")], cwd=ROOT)
+
+    def test_shorts_default_grid_drops_ko_and_js_filters(self):
+        import subprocess
+
+        js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
+        src = (ROOT / "scraper.py").read_text(encoding="utf-8")
+        self.assertIn("filter_other_shorts", src)
+        self.assertIn("filterOtherShorts", js)
+        self.assertIn('v.lang === "ko"', js)
+        self.assertIn("韓文", js)
+        subprocess.check_call(["node", str(ROOT / "tests" / "test_shorts_baha.mjs")], cwd=ROOT)
+
+    def test_bahamut_fixture_time_is_absolute(self):
+        site = load_hub()
+        sample = json.loads(SAMPLE_JSON.read_text(encoding="utf-8"))
+        js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
+        self.assertIn("來源相對時間，以快照為準", js)
+        self.assertIn("isRelativeForumTime", js)
+        self.assertIn("forumTimeMeta", js)
+        self.assertIn("bahaAbsTime", js)
+        rel = re.compile(r"\d+\s*分前")
+        for blob in (site, sample):
+            for it in blob.get("forum_bahamut") or []:
+                t = str(it.get("time") or "")
+                if not t:
+                    continue
+                if rel.search(t) and not re.match(r"\d{4}-\d{2}-\d{2}", t):
+                    self.fail(f"Bahamut time is expiring relative only: {t!r}")
+                if it.get("time_relative"):
+                    self.assertTrue(t)
+
 
 if __name__ == "__main__":
     unittest.main()

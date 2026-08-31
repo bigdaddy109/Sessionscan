@@ -132,6 +132,21 @@ JUNK_RES = (
 CJK_RE = re.compile(r"[\u4e00-\u9fff\u3040-\u30ff\uac00-\ud7af]")
 HAN_RE = re.compile(r"[\u4e00-\u9fff]")
 KANA_RE = re.compile(r"[\u3040-\u30ff]")
+HANGUL_RE = re.compile(r"[\uac00-\ud7af]")
+TZ_TAIPEI = timezone(timedelta(hours=8))
+EMOJI_RE = re.compile(
+    "["
+    "\U0001F300-\U0001FAFF"
+    "\u2600-\u27BF"
+    "\uFE0F"
+    "]+",
+)
+SHORT_HASHTAG_RE = re.compile(r"#\S+")
+BAHA_REL_RE = re.compile(
+    r"^(?:(\d+)\s*(秒|分鐘?|小时|小時|天)前|(今天|昨天|前天)\s*(\d{1,2}:\d{2}))$"
+)
+BAHA_MD_RE = re.compile(r"^(\d{1,2})/(\d{1,2})(?:\s+(\d{1,2}:\d{2}))?$")
+BAHA_ISO_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})(?:[ T](\d{2}:\d{2}))?$")
 JOB_MONEY_RE = re.compile(
     r"weekly(?:\s+update)?|this\s*week|bonuses?|discounts?|rewards?|"
     r"money[- ]?making|double\s+(?:money|rp)|[23]x\b|title\s+update|"
@@ -185,6 +200,14 @@ def now_str():
     return datetime.now(timezone.utc).astimezone().strftime("%Y-%m-%d %H:%M")
 
 
+def taipei_now(now=None):
+    if now is None:
+        return datetime.now(timezone.utc).astimezone(TZ_TAIPEI)
+    if now.tzinfo is None:
+        return now.replace(tzinfo=TZ_TAIPEI)
+    return now.astimezone(TZ_TAIPEI)
+
+
 def load_json(name, default):
     path = DATA / name
     if path.exists():
@@ -223,6 +246,8 @@ def has_cjk(s):
 
 def detect_lang(text, url=""):
     t = text or ""
+    if HANGUL_RE.search(t):
+        return "ko"
     if KANA_RE.search(t):
         return "ja"
     d = domain_of(url)
@@ -908,7 +933,7 @@ def collect_videos(lang):
         new_queries = ["GTA線上 攻略", "GTA 6"]
 
         def keep(title):
-            return has_cjk(title) and not KANA_RE.search(title) and game_in_title(title)
+            return has_cjk(title) and not KANA_RE.search(title) and not HANGUL_RE.search(title) and game_in_title(title)
     elif lang == "ja":
         hot_queries = ["GTAオンライン 金策", "GTA6 攻略"]
         new_queries = ["GTAオンライン"]
@@ -1120,19 +1145,82 @@ def yt_page_html(url):
     return http_get(url, timeout=20).text
 
 
-def short_item(vid, title, channel, lang="en", game=None):
+def short_item(vid, title, channel, lang="en", game=None, views=None, date=None):
+    if not isinstance(views, int):
+        views = None
+    if HANGUL_RE.search(title or ""):
+        lang = "ko"
     return {
         "id": vid,
         "video_id": vid,
         "title": title,
         "channel": channel,
         "url": f"https://www.youtube.com/shorts/{vid}",
-        "views": None,
-        "date": None,
+        "views": views,
+        "date": date,
         "lang": lang,
         "game": game or detect_game(title) or "GTA Online",
         "kind": "short",
     }
+
+
+def normalize_short_title(title):
+    t = SHORT_HASHTAG_RE.sub(" ", title or "")
+    t = EMOJI_RE.sub(" ", t)
+    t = re.sub(r"\s+", " ", t).strip()
+    t = re.sub(r"[\s.!?,;:…·•\-–—_~]+$", "", t)
+    return t.lower().strip()
+
+
+def short_title_is_bait(title):
+    raw = title or ""
+    norm = normalize_short_title(raw)
+    tags = SHORT_HASHTAG_RE.findall(raw)
+    words = re.findall(r"[A-Za-z0-9\u4e00-\u9fff\u3040-\u30ff\uac00-\ud7af]+", norm)
+    if len(norm) < 8:
+        return True
+    if tags and len("".join(words)) < 8:
+        return True
+    if tags and len(tags) >= max(2, len(words)):
+        return True
+    return False
+
+
+def filter_other_shorts(items):
+    """Dedupe series clones, drop bait, never tag Hangul as zh, never invent views."""
+    staged = []
+    seen_pair = set()
+    for raw in items or []:
+        it = dict(raw)
+        title = it.get("title") or ""
+        if short_title_is_bait(title):
+            continue
+        if HANGUL_RE.search(title):
+            it["lang"] = "ko"
+        if not isinstance(it.get("views"), int):
+            it["views"] = None
+        channel = (it.get("channel") or "").strip().lower()
+        key = (channel, normalize_short_title(title))
+        if key in seen_pair:
+            continue
+        seen_pair.add(key)
+        staged.append(it)
+    prefix_seen = set()
+    out = []
+    for it in staged:
+        norm = normalize_short_title(it.get("title") or "")
+        orig = re.sub(r"\s+", " ", (it.get("title") or "")).strip()
+        prefixes = []
+        if len(norm) >= 20:
+            prefixes.append(norm[:20])
+        if len(orig) >= 20:
+            prefixes.append(orig[:20].lower())
+        if prefixes and any(p in prefix_seen for p in prefixes):
+            continue
+        for p in prefixes:
+            prefix_seen.add(p)
+        out.append(it)
+    return out
 
 
 def empty_owned_slot():
@@ -1198,7 +1286,7 @@ def scrape_other_shorts(html_by_url=None, exclude_ids=None):
             ids.append(vid)
     items = []
     for vid in ids:
-        if len(items) >= SHORTS_OTHER_CAP:
+        if len(items) >= SHORTS_OTHER_CAP * 3:
             break
         meta = yt_oembed(vid)
         if not meta:
@@ -1210,8 +1298,22 @@ def scrape_other_shorts(html_by_url=None, exclude_ids=None):
         blob = f"{title} {channel}"
         if not title or is_gta4(blob) or is_rdo(blob) or is_old_gta(blob) or not is_in_scope(blob):
             continue
-        items.append(short_item(vid, title, channel or "YouTube", detect_lang(title), detect_game(blob)))
-    return items
+        views = meta.get("view_count")
+        if not isinstance(views, int):
+            views = None
+        items.append(
+            short_item(
+                vid,
+                title,
+                channel or "YouTube",
+                detect_lang(title),
+                detect_game(blob),
+                views=views,
+            )
+        )
+        if len(items) >= SHORTS_OTHER_CAP * 3:
+            break
+    return filter_other_shorts(items)[:SHORTS_OTHER_CAP]
 
 
 def update_shorts():
@@ -1269,7 +1371,59 @@ def baha_dedup_key(url):
     return f"b:{bsn}"
 
 
-def parse_baha_rows(html):
+def baha_abs_time(raw, now=None):
+    """Convert Bahamut relative time to Taipei YYYY-MM-DD or YYYY-MM-DD HH:MM.
+
+    Returns (text, unparseable). Unparseable keeps the original string.
+    """
+    now = taipei_now(now)
+    s = re.sub(r"\s+", " ", (raw or "").strip())
+    if not s:
+        return "", False
+    m = BAHA_ISO_RE.fullmatch(s)
+    if m:
+        return f"{m.group(1)} {m.group(2)}".strip() if m.group(2) else m.group(1), False
+    m = BAHA_REL_RE.fullmatch(s)
+    if m and m.group(1):
+        n = int(m.group(1))
+        unit = m.group(2)
+        if unit == "秒":
+            dt = now - timedelta(seconds=n)
+        elif unit.startswith("分"):
+            dt = now - timedelta(minutes=n)
+        elif "時" in unit or "时" in unit:
+            dt = now - timedelta(hours=n)
+        else:
+            dt = now - timedelta(days=n)
+            return dt.strftime("%Y-%m-%d"), False
+        return dt.strftime("%Y-%m-%d %H:%M"), False
+    if m and m.group(3):
+        days = {"今天": 0, "昨天": 1, "前天": 2}[m.group(3)]
+        hh, mm = (int(x) for x in m.group(4).split(":"))
+        dt = (now - timedelta(days=days)).replace(hour=hh, minute=mm, second=0, microsecond=0)
+        return dt.strftime("%Y-%m-%d %H:%M"), False
+    m = BAHA_MD_RE.fullmatch(s)
+    if m:
+        year = now.year
+        month, day = int(m.group(1)), int(m.group(2))
+        try:
+            dt = datetime(year, month, day, tzinfo=TZ_TAIPEI)
+        except ValueError:
+            return s, True
+        if dt.date() > now.date():
+            try:
+                dt = dt.replace(year=year - 1)
+            except ValueError:
+                return s, True
+        if m.group(3):
+            hh, mm = (int(x) for x in m.group(3).split(":"))
+            dt = dt.replace(hour=hh, minute=mm)
+            return dt.strftime("%Y-%m-%d %H:%M"), False
+        return dt.strftime("%Y-%m-%d"), False
+    return s, True
+
+
+def parse_baha_rows(html, now=None):
     soup = BeautifulSoup(html, "html.parser")
     items = []
     for row in soup.select("tr.b-list__row"):
@@ -1286,14 +1440,18 @@ def parse_baha_rows(html):
         title = title_el.get_text(" ", strip=True) if title_el else ""
         if is_gta4(title) or is_rdo(title) or is_old_gta(title):
             continue
-        items.append({
+        abs_t, rel = baha_abs_time(time_el.get_text(strip=True) if time_el else "", now=now)
+        row_out = {
             "title": title,
             "url": baha_outbound_url(main_link.get("href", "")),
             "author": author_el.get_text(strip=True) if author_el else "",
             "replies": num_el.get_text(strip=True) if num_el else "",
-            "time": time_el.get_text(strip=True) if time_el else "",
+            "time": abs_t,
             "snippet": (brief.get_text(" ", strip=True)[:120] if brief else ""),
-        })
+        }
+        if rel:
+            row_out["time_relative"] = True
+        items.append(row_out)
     return items
 
 
@@ -1372,7 +1530,7 @@ def scrape_bahamut():
         if k in seen:
             continue
         seen.add(k)
-        items.append({
+        card = {
             "id": md5_id(k),
             "rank": len(items) + 1,
             "title": it["title"],
@@ -1383,7 +1541,10 @@ def scrape_bahamut():
             "game": detect_game(it["title"]) or "GTA Online",
             "url": url,
             "blurb": "外連巴哈討論串。不轉載全文。",
-        })
+        }
+        if it.get("time_relative"):
+            card["time_relative"] = True
+        items.append(card)
         if len(items) >= FORUM_CAP:
             break
     if items:
