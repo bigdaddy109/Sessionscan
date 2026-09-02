@@ -362,6 +362,30 @@ class SearchAliasTests(unittest.TestCase):
         self.assertTrue(any("August 13" in t or "2026-08-13" in t for t in titles))
         subprocess.check_call(["node", str(ROOT / "tests" / "test_this_week.mjs")], cwd=ROOT)
 
+    def test_ch02_stale_owned_short_expiry_and_ch01_rerank(self):
+        js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        baha = (ROOT / "src" / "bahaTime.js").read_text(encoding="utf-8")
+        week = (ROOT / "src" / "thisWeek.js").read_text(encoding="utf-8")
+        inject = (ROOT / "scripts" / "inject_static_jobs.mjs").read_text(encoding="utf-8")
+        vite = (ROOT / "vite.config.js").read_text(encoding="utf-8")
+        self.assertIn("熱門影片來源這輪未更新，仍顯示上次成功快照", baha + js)
+        self.assertIn("isHotSnapshotStale", js)
+        self.assertIn("HOT_STALE_HINT", js)
+        self.assertIn('id="hotHint"', html)
+        hot_fn = js.split("function renderHot(", 1)[1].split("function renderNew", 1)[0]
+        self.assertIn("videoCard", hot_fn)
+        self.assertIn("本週尚無新 Short", js)
+        self.assertIn("isOwnedShortThisWeek", js + week)
+        self.assertIn("上一則", js)
+        self.assertIn("@sessionscan", js)
+        self.assertIn("withDisplayRanks", js + week)
+        self.assertIn("withDisplayRanks(list)", js)
+        self.assertIn("withDisplayRanks", inject)
+        self.assertIn("withDisplayRanks", vite)
+        self.assertNotIn("j.rank ??", vite)
+        self.assertNotIn("job.rank ??", inject)
+
     def test_shorts_default_grid_drops_ko_and_js_filters(self):
         import subprocess
 

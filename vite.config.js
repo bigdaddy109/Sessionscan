@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
-import { isThisWeekJob, THIS_WEEK_MAX } from "./src/thisWeek.js";
+import { isThisWeekJob, THIS_WEEK_MAX, withDisplayRanks } from "./src/thisWeek.js";
 
 const CF_WEB_ANALYTICS =
   "<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{\"token\": \"a2ed116dcca9428aae207121d25629e5\"}'></script><!-- End Cloudflare Web Analytics -->";
@@ -35,11 +35,11 @@ function staticJobCards() {
     }
     if (jobs.length >= THIS_WEEK_MAX) break;
   }
-  return jobs
-    .map((j, i) => {
+  return withDisplayRanks(jobs)
+    .map((j) => {
       const date = j.updated ? `<span>⏱ ${escHtml(j.updated)}</span>` : "";
       return `<article class="job-card" data-static-job data-card>
-      <div class="rank">${escHtml(j.rank ?? i + 1)}</div>
+      <div class="rank">${escHtml(j.rank)}</div>
       <h3><a href="${escHtml(j.url)}" target="_blank" rel="noopener noreferrer">${escHtml(j.title)}</a></h3>
       <div class="card-meta"><span class="tag">${escHtml(j.source || "")}</span>${date}</div>
     </article>`;

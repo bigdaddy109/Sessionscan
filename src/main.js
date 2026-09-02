@@ -1,6 +1,6 @@
-import { THIS_WEEK_MAX, isThisWeekJob } from "./thisWeek.js";
+import { THIS_WEEK_MAX, isOwnedShortThisWeek, isThisWeekJob, withDisplayRanks } from "./thisWeek.js";
 import { filterOtherShorts } from "./shortsFilter.js";
-import { bahaAbsTime, isRelativeForumTime, parseSnapshotNow } from "./bahaTime.js";
+import { bahaAbsTime, HOT_STALE_HINT, isHotSnapshotStale, isRelativeForumTime, parseSnapshotNow } from "./bahaTime.js";
 
 const SOURCE_HINTS = {
   gtabase: "GTABase 本週賺錢與工作：每週更新、獎勵、折扣。卡片只外連，不轉載全文。",
@@ -93,11 +93,37 @@ function videoCard(v, rank, extraClass) {
     </article>`;
 }
 
+function ownedChannelLink(channel) {
+  return `<p class="blurb"><a href="${esc(channel)}" target="_blank" rel="noopener noreferrer">SessionScan 頻道 @sessionscan ↗</a></p>`;
+}
+
+function expiredOwnedSlot(channel, short) {
+  const prevUrl = short?.url || (short?.video_id ? `https://www.youtube.com/shorts/${short.video_id}` : "");
+  const prev = prevUrl
+    ? `<p class="blurb"><a href="${esc(prevUrl)}" target="_blank" rel="noopener noreferrer">上一則：${esc(short.title || "SessionScan Short")} ↗</a></p>`
+    : "";
+  return `
+    <article class="slot-card owned-short empty" data-card>
+      <strong>SESSIONSCAN</strong>
+      <p>本週尚無新 Short</p>
+      ${ownedChannelLink(channel)}
+      ${prev}
+      <div class="card-meta" style="justify-content:center;margin-top:10px">
+        ${sampleBadge()}
+        <span class="tag">自有 Short</span>
+        <span class="tag">無偽造連結</span>
+      </div>
+    </article>`;
+}
+
 function sessionScanSlot(slot) {
   const channel = slot?.channel_url || "https://www.youtube.com/@sessionscan";
   const short = slot?.short;
   const id = short?.video_id || "";
   if (/^[A-Za-z0-9_-]{11}$/.test(id)) {
+    if (!isOwnedShortThisWeek(short)) {
+      return expiredOwnedSlot(channel, short);
+    }
     const embed = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`;
     const lang = short.lang === "zh" ? "中文" : short.lang === "ja" ? "日文" : short.lang === "ko" ? "韓文" : "EN";
     return `
@@ -115,7 +141,7 @@ function sessionScanSlot(slot) {
           <span>SessionScan</span>
           ${short.date ? `<span>${esc(short.date)}</span>` : ""}
         </div>
-        <p class="blurb"><a href="${esc(channel)}" target="_blank" rel="noopener noreferrer">SessionScan 頻道 @sessionscan ↗</a></p>
+        ${ownedChannelLink(channel)}
       </div>
     </article>`;
   }
@@ -123,7 +149,7 @@ function sessionScanSlot(slot) {
     <article class="slot-card owned-short empty" data-card>
       <strong>SESSIONSCAN</strong>
       <p>本週尚無 Short</p>
-      <p class="blurb"><a href="${esc(channel)}" target="_blank" rel="noopener noreferrer">SessionScan 頻道 @sessionscan ↗</a></p>
+      ${ownedChannelLink(channel)}
       <div class="card-meta" style="justify-content:center;margin-top:10px">
         ${sampleBadge()}
         <span class="tag">自有 Short</span>
@@ -244,7 +270,7 @@ function renderJobs() {
   const list = state.showOlderJobs ? raw : raw.filter((it) => isThisWeekJob(it)).slice(0, THIS_WEEK_MAX);
   $("#jobHint").textContent = SOURCE_HINTS[state.jobsSource] || "";
   if (list.length) {
-    $("#jobList").innerHTML = list.map(jobCard).join("");
+    $("#jobList").innerHTML = withDisplayRanks(list).map(jobCard).join("");
     return;
   }
   if (!state.showOlderJobs) {
@@ -255,7 +281,29 @@ function renderJobs() {
   $("#jobList").innerHTML = `<p class="empty-msg">${isLiveData(state.data) ? "此來源尚無卡片，等待下次掃描。" : "此來源尚無範例卡片。"}</p>`;
 }
 
+function renderHotHint() {
+  const hint = $("#hotHint");
+  const meta = state.data?.meta || {};
+  const live = isLiveData(state.data);
+  const stale = live && isHotSnapshotStale(meta, state.hotLang);
+  if (hint) {
+    hint.textContent = stale ? HOT_STALE_HINT : "";
+    hint.hidden = !stale;
+  }
+  const timeEl = document.querySelector('#view-hot [data-meta="hot"]');
+  if (!timeEl) return;
+  if (!live) {
+    timeEl.textContent = `範例快照：${meta.snapshot_date || meta.hot || ""}`;
+    return;
+  }
+  const stamp = (state.hotLang && meta[`videos_hot_${state.hotLang}`]) || meta.hot || meta._last_run || meta.snapshot_date || "";
+  timeEl.textContent = stale
+    ? `資料快照：${stamp || "—"} · 非即時掃描 · ${HOT_STALE_HINT}`
+    : `資料快照：${stamp || "—"} · 非即時掃描`;
+}
+
 function renderHot() {
+  renderHotHint();
   const list = state.data[`videos_hot_${state.hotLang}`] || [];
   if (state.hotLang === "ja" && !list.length) {
     $("#hotGrid").innerHTML = jaNote(state.data.ja_video_note);
@@ -377,9 +425,11 @@ function renderAll() {
     }
   }
   $$("[data-meta]").forEach((el) => {
+    if (el.dataset.meta === "hot") return;
     const stamp = meta[el.dataset.meta] || meta._last_run || meta.snapshot_date || "";
     el.textContent = live ? `資料快照：${stamp || "—"} · 非即時掃描` : `範例快照：${meta.snapshot_date || stamp || ""}`;
   });
+  renderHotHint();
   $("#lastRun").textContent = live
     ? `資料快照：${meta._last_run || "—"} · 非即時爬蟲`
     : `爬蟲狀態：未啟用 · 範例快照 ${meta.snapshot_date || ""}`;

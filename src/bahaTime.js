@@ -1,11 +1,33 @@
 const TAIPEI_MS = 8 * 60 * 60 * 1000;
 
+export const HOT_STALE_MS = 12 * 60 * 60 * 1000;
+export const HOT_STALE_HINT = "熱門影片來源這輪未更新，仍顯示上次成功快照";
+
 export function parseSnapshotNow(stamp) {
-  const m = String(stamp || "").match(/^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{2}):(\d{2}))?/);
-  if (!m) return new Date();
+  const ms = metaStampMs(stamp);
+  return ms == null ? new Date() : new Date(ms);
+}
+
+/** Taipei wall-clock stamp → epoch ms. Null if unparseable (does not fall back to now). */
+export function metaStampMs(stamp) {
+  const m = String(stamp || "").match(/^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{2}):(\d{2})(?::(\d{2}))?)?/);
+  if (!m) return null;
   const hh = Number(m[4] || 0);
   const mi = Number(m[5] || 0);
-  return new Date(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3]), hh, mi) - TAIPEI_MS);
+  const ss = Number(m[6] || 0);
+  return Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3]), hh, mi, ss) - TAIPEI_MS;
+}
+
+/**
+ * CH-02 videos_hot_* is stale when its snapshot is ~12h+ older than this run
+ * (_last_run or jobs). yt-dlp failure keeps yesterday's hot file.
+ */
+export function isHotSnapshotStale(meta = {}, lang) {
+  const hotStamp = (lang && meta[`videos_hot_${lang}`]) || meta.hot;
+  const hotMs = metaStampMs(hotStamp);
+  const refs = ["_last_run", "jobs"].map((k) => metaStampMs(meta[k])).filter((n) => n != null);
+  if (hotMs == null || !refs.length) return false;
+  return Math.max(...refs) - hotMs >= HOT_STALE_MS;
 }
 
 function formatTaipei(d, withTime) {
