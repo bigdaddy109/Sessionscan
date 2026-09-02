@@ -6,7 +6,7 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { isThisWeekJob, THIS_WEEK_MAX } from "../src/thisWeek.js";
+import { isThisWeekJob, THIS_WEEK_MAX, withDisplayRanks } from "../src/thisWeek.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -63,7 +63,7 @@ function ownedShort(data) {
 function jobCard(job) {
   const date = job.updated ? `<span>⏱ ${esc(job.updated)}</span>` : "";
   return `<article class="job-card" data-static-job data-card>
-      <div class="rank">${esc(job.rank ?? 1)}</div>
+      <div class="rank">${esc(job.rank)}</div>
       <h3><a href="${esc(job.url)}" target="_blank" rel="noopener noreferrer">${esc(job.title)}</a></h3>
       <div class="card-meta"><span class="tag">${esc(job.source || "")}</span>${date}</div>
     </article>`;
@@ -104,7 +104,7 @@ if (job) {
 if (weekJobs.length) {
   html = html.replace(
     /<div class="job-list" id="jobList">[\s\S]*?<\/div>(?=\s*<\/section>)/,
-    `<div class="job-list" id="jobList">${weekJobs.map(jobCard).join("")}</div>`,
+    `<div class="job-list" id="jobList">${withDisplayRanks(weekJobs).map(jobCard).join("")}</div>`,
   );
 }
 

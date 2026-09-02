@@ -588,6 +588,7 @@ main {
   font-size: 13.5px;
   margin-bottom: 8px;
 }
+.source-hint:empty { display: none; margin: 0; }
 
 .pill-group {
   display: inline-flex;

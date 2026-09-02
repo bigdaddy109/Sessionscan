@@ -112,3 +112,21 @@ export function isThisWeekJob(item, now = new Date()) {
 export function thisWeekJobs(list, now = new Date(), max = THIS_WEEK_MAX) {
   return (list || []).filter((it) => isThisWeekJob(it, now)).slice(0, max);
 }
+
+/** Number the currently visible job cards 1, 2, … regardless of source rank. */
+export function withDisplayRanks(list) {
+  return (list || []).map((item, i) => ({ ...item, rank: i + 1 }));
+}
+
+/**
+ * Owned Short slot 1: featured only while its date / title week is still inside
+ * the CH-00 / jobs window. No date and no parseable week words (e.g. “This Weekend”
+ * alone) → leave as-is. Never invent a video_id.
+ */
+export function isOwnedShortThisWeek(short, now = new Date()) {
+  if (!short) return false;
+  const title = `${short.title || ""} ${short.title_en || ""}`;
+  const item = { title, title_en: short.title_en || "", updated: short.date || "" };
+  if (!jobDates(item, now).length) return true;
+  return isThisWeekJob(item, now);
+}
