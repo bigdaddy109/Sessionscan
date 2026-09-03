@@ -145,6 +145,15 @@ img { max-width: 100%; display: block; }
   margin-top: 5px;
 }
 
+.brand-disclaimer {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
 .channel-link {
   font-family: var(--mono);
   font-size: 11px;
@@ -224,11 +233,30 @@ img { max-width: 100%; display: block; }
   text-shadow: 0 0 12px rgba(0, 232, 209, 0.35);
 }
 
+/* ---------- first screen: hero + CH-00 + data banner ---------- */
+.first-screen {
+  display: flex;
+  flex-direction: column;
+}
+.first-screen .hero { order: 1; }
+.first-screen .official-banner { order: 2; }
+.first-screen .sample-banner { order: 3; }
+
+@media (min-width: 861px) {
+  .first-screen {
+    min-height: calc(100dvh - 8rem);
+  }
+  .first-screen .hero {
+    flex: 1 1 auto;
+    min-height: min(56vh, 520px);
+  }
+}
+
 /* ---------- hero: vice night ---------- */
 .hero {
   position: relative;
   isolation: isolate;
-  min-height: min(92vh, 860px);
+  min-height: min(56vh, 520px);
   padding: 28px 18px 36px;
   overflow: hidden;
   display: flex;
@@ -879,15 +907,31 @@ main {
 :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
 
 @media (max-width: 860px) {
-  .cta-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .cta-card:last-child { grid-column: 1 / -1; }
-  .hero {
-    min-height: min(52vh, 420px);
-    padding: 16px 14px 18px;
-    gap: 12px;
+  .first-screen { min-height: 0; }
+  .first-screen .official-banner { order: 1; }
+  .first-screen .sample-banner { order: 2; }
+  .first-screen .hero { order: 3; flex: 0 0 auto; }
+  .cta-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+  .cta-card {
+    min-height: 0;
+    padding: 8px 10px;
+    gap: 2px;
   }
-  .hero-copy h1 { letter-spacing: 0.03em; }
-  .word-sub { letter-spacing: 0.2em; }
+  .cta-card:last-child { grid-column: 1 / -1; }
+  .cta-title { font-size: 15px; }
+  .cta-en { display: none; }
+  .hero {
+    min-height: min(34vh, 260px);
+    padding: 10px 12px 12px;
+    gap: 8px;
+  }
+  .hero-copy { margin-top: 28px; }
+  .hero-copy h1 {
+    letter-spacing: 0.03em;
+    font-size: clamp(32px, 11vw, 56px);
+  }
+  .word-sub { letter-spacing: 0.2em; font-size: clamp(16px, 3.6vw, 24px); }
+  .lede { font-size: 14px; }
 }
 
 @media (max-width: 720px) {
@@ -913,6 +957,7 @@ main {
   main, .site-footer, .tabs { padding-left: 12px; padding-right: 12px; }
   .job-card, .thread-item { padding-left: 58px; }
   .brand-text strong { font-size: 18px; letter-spacing: 0.1em; }
+  .brand-disclaimer { white-space: normal; }
 }
 
 @media (max-width: 420px) {

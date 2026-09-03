@@ -131,7 +131,7 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn('name="twitter:title" content="SessionScan GTA｜夜掃描"', html)
         self.assertIn("GTA HUB · 夜掃描", html)
         self.assertIn("GTA 5／Online／GTA 6 情報站，與其他同名 App 無關", html)
-        self.assertIn("彙整本週賺錢、攻略影片、論壇與 X 訊號", html)
+        self.assertIn("本週訊號、只掛標題外連，不轉載", html)
         self.assertNotIn("範例資料，非即時掃描", html)
         self.assertNotIn("domain TBD", html)
         self.assertNotIn("working title", html)
@@ -269,7 +269,7 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("pickOfficialWeekly", js)
         self.assertIn("renderOfficialBanner", js)
         self.assertIn("youtube-nocookie.com/embed/", js)
-        self.assertIn("本週尚無 Short", js)
+        self.assertIn("本週尚無新 Short", js)
         self.assertIn("i.ytimg.com/vi/", js)
         owned = js.split("function sessionScanSlot", 1)[1].split("function jaNote", 1)[0]
         others = js.split("function videoCard", 1)[1].split("function sessionScanSlot", 1)[0]
@@ -326,7 +326,7 @@ class SearchAliasTests(unittest.TestCase):
         self.assertNotIn("IBM+Plex", html)
         self.assertIn("display=swap", html)
         self.assertIn("ui-monospace", css)
-        self.assertIn("min-height: min(52vh, 420px)", css)
+        self.assertIn("min-height: min(34vh, 260px)", css)
         self.assertIn("inject-static-jobs", vite)
         self.assertIn("data-static-job", vite)
         self.assertIn('id="jobList"', html)
@@ -385,6 +385,42 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("withDisplayRanks", vite)
         self.assertNotIn("j.rank ??", vite)
         self.assertNotIn("job.rank ??", inject)
+
+    def test_copy_hierarchy_title_og_and_header(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        css = (ROOT / "src/style.css").read_text(encoding="utf-8")
+        head = html.split("<body", 1)[0]
+        header = html.split("<header", 1)[1].split("</header>", 1)[0]
+        footer = html.split("<footer", 1)[1].split("</footer>", 1)[0]
+        self.assertIn("<title>SessionScan GTA｜夜掃描</title>", head)
+        self.assertIn('property="og:title" content="SessionScan GTA｜夜掃描"', head)
+        self.assertIn('name="twitter:title" content="SessionScan GTA｜夜掃描"', head)
+        desc = "GTA 5／Online／GTA 6 情報站。本週訊號、只掛標題外連，不轉載。與其他同名 App 無關。"
+        self.assertIn(f'name="description" content="{desc}"', head)
+        self.assertIn(f'property="og:description" content="{desc}"', head)
+        self.assertIn(f'name="twitter:description" content="{desc}"', head)
+        for blob in (head,):
+            self.assertNotIn("WET ASPHALT", blob)
+            self.assertNotIn("VICE DUSK", blob)
+        self.assertIn("<strong>SESSIONSCAN</strong>", header)
+        self.assertIn("GTA HUB · 夜掃描", header)
+        self.assertIn("無廣告 · 非官方 · 快照非即時", header)
+        self.assertNotIn("WET ASPHALT", header)
+        self.assertNotIn("VICE DUSK", header)
+        self.assertIn("情報站", footer)
+        self.assertIn("與其他同名 App 無關", footer)
+        self.assertIn("無廣告", footer)
+        self.assertIn('class="first-screen"', html)
+        self.assertIn(".first-screen .hero { order: 1; }", css)
+        self.assertIn(".first-screen .official-banner { order: 2; }", css)
+        self.assertIn(".first-screen .sample-banner { order: 3; }", css)
+        self.assertIn(".first-screen .official-banner { order: 1; }", css)
+        self.assertIn(".first-screen .sample-banner { order: 2; }", css)
+        self.assertIn(".first-screen .hero { order: 3; flex: 0 0 auto; }", css)
+        self.assertIn("min-height: calc(100dvh - 8rem)", css)
+        self.assertNotRegex(css, r"\.hero[^{]*\{[^}]*min-height:\s*100vh")
+        self.assertNotRegex(css, r"\.cta-grid[^{]*\{[^}]*min-height:\s*100vh")
+        self.assertNotRegex(css, r"\.cta-card[^{]*\{[^}]*min-height:\s*100vh")
 
     def test_shorts_default_grid_drops_ko_and_js_filters(self):
         import subprocess
