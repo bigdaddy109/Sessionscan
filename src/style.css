@@ -921,9 +921,12 @@ main {
     padding: 8px;
   }
   .search-box:not(.is-open):not(:focus-within) {
+    position: relative;
     min-width: 40px;
     min-height: 40px;
+    max-height: 40px;
     justify-content: center;
+    overflow: hidden;
   }
   .search-box:not(.is-open):not(:focus-within) .search-icon {
     flex: 1;
@@ -933,14 +936,16 @@ main {
   }
   .search-box:not(.is-open):not(:focus-within) input,
   .search-box:not(.is-open):not(:focus-within) .btn-scan {
-    flex: 0 0 0;
-    width: 0;
-    min-width: 0;
-    max-width: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
     padding: 0;
-    margin: 0;
-    opacity: 0;
+    margin: -1px;
     overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    opacity: 0;
     pointer-events: none;
   }
   .search-box.is-open,
