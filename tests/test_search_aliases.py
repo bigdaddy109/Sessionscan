@@ -269,7 +269,7 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("pickOfficialWeekly", js)
         self.assertIn("renderOfficialBanner", js)
         self.assertIn("youtube-nocookie.com/embed/", js)
-        self.assertIn("本週尚無 Short", js)
+        self.assertIn("本週尚無新 Short", js)
         self.assertIn("i.ytimg.com/vi/", js)
         owned = js.split("function sessionScanSlot", 1)[1].split("function jaNote", 1)[0]
         others = js.split("function videoCard", 1)[1].split("function sessionScanSlot", 1)[0]
