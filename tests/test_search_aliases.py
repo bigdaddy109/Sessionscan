@@ -248,6 +248,18 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("帳號未解析", js)
         self.assertIn("usableZhTweet", js)
 
+    def test_header_search_form_exists(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn('id="searchForm"', html)
+        self.assertIn('role="search"', html)
+        self.assertIn('id="searchInput"', html)
+        self.assertIn('name="q"', html)
+        self.assertIn('type="search"', html)
+        self.assertIn('for="searchInput"', html)
+        js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
+        self.assertIn("setSearchExpanded", js)
+        self.assertIn('q=', js)
+
     def test_p0p1_chrome_and_no_magic_short_id(self):
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
         html = (ROOT / "index.html").read_text(encoding="utf-8")

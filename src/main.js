@@ -458,6 +458,10 @@ function writeHash() {
   });
 }
 
+function setSearchExpanded(open) {
+  $("#searchForm")?.classList.toggle("is-open", Boolean(open));
+}
+
 function applyHash({ scroll = false } = {}) {
   const raw = (location.hash || "").replace(/^#/, "");
   let tab = null;
@@ -470,6 +474,7 @@ function applyHash({ scroll = false } = {}) {
   if (q) {
     const input = $("#searchInput");
     if (input) input.value = q;
+    setSearchExpanded(true);
     doSearch(q);
     return;
   }
@@ -579,6 +584,7 @@ function localSearch(raw) {
 function doSearch(raw) {
   const q = raw.trim();
   if (!q) return;
+  setSearchExpanded(true);
   const r = localSearch(q);
   $("#searchTitle").textContent = isLiveData(state.data)
     ? `「${q}」掃描結果：${r.total} 筆`
@@ -601,6 +607,7 @@ function leaveSearchIfEmpty() {
   if (searchView && !searchView.classList.contains("hidden")) {
     switchView(state.activeTab);
   }
+  setSearchExpanded(false);
 }
 
 function tickClock() {
@@ -684,13 +691,33 @@ document.addEventListener("DOMContentLoaded", async () => {
       renderTweets();
     }
   });
-  $("#searchForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    doSearch($("#searchInput").value);
-  });
+  const searchForm = $("#searchForm");
   const searchInput = $("#searchInput");
+  searchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    doSearch(searchInput.value);
+  });
+  searchForm.addEventListener("click", (e) => {
+    if (searchForm.classList.contains("is-open")) return;
+    if (e.target.closest(".btn-scan")) return;
+    searchInput.focus();
+  });
+  searchForm.addEventListener("focusin", () => setSearchExpanded(true));
+  searchInput.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    searchInput.blur();
+    setSearchExpanded(false);
+  });
+  searchInput.addEventListener("blur", () => {
+    queueMicrotask(() => {
+      if (searchForm.contains(document.activeElement)) return;
+      if (searchInput.value.trim()) return;
+      setSearchExpanded(false);
+    });
+  });
   const clearToLastTab = () => {
     searchInput.value = "";
+    setSearchExpanded(false);
     switchView(state.activeTab);
   };
   $("#clearSearch").addEventListener("click", clearToLastTab);
