@@ -1,23 +1,47 @@
 [
  {
-  "id": "b4a41bc00bf331d8706394402724fec8",
+  "id": "3fed553de3d75371308d7edfc1dbea70",
   "rank": 1,
+  "title": "【其他】GTA4完整版滑鼠失效解法",
+  "author": "tomica1120",
+  "time": "2026-09-03 19:16",
+  "replies": "0",
+  "source": "Bahamut",
+  "game": "GTA Online",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117707",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "b4a41bc00bf331d8706394402724fec8",
+  "rank": 2,
   "title": "【情報】GTA ONLINE 活動 (9/3~9/9,免費辦公室,完成每週挑戰,獲得運動套裝)",
   "author": "ken33890458",
-  "time": "2026-09-03 07:46",
-  "replies": "2",
+  "time": "2026-09-03 17:56",
+  "replies": "14",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117705",
   "blurb": "外連巴哈討論串。不轉載全文。"
  },
  {
+  "id": "f2aa01c1f9bd2e27683a43fdaf8051e5",
+  "rank": 3,
+  "title": "【討論】GTA 6 男主角是臥底?",
+  "author": "Neo943",
+  "time": "2026-09-03 10:56",
+  "replies": "33",
+  "source": "Bahamut",
+  "game": "GTA 6",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117695",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
   "id": "ff8db1c5ca825b7493b69deae9a24178",
-  "rank": 2,
+  "rank": 4,
   "title": "【心得】柯茲中心搶劫BUG分享",
   "author": "wise01006",
   "time": "2026-09-02 23:58",
-  "replies": "21",
+  "replies": "22",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117588",
@@ -25,7 +49,7 @@
  },
  {
   "id": "ca92c4c6cf1a5560adff76fee4277dad",
-  "rank": 3,
+  "rank": 5,
   "title": "【討論】預告片看完了 來討論缺點",
   "author": "will70917",
   "time": "2026-09-02 22:07",
@@ -37,7 +61,7 @@
  },
  {
   "id": "8f3fd18eb031b88edaef6a00d23cc586",
-  "rank": 4,
+  "rank": 6,
   "title": "【討論】看完最新預告片 你會為了玩GTA6買主機嗎?(無主機玩家者投票)",
   "author": "sid",
   "time": "2026-09-02 15:20",
@@ -49,7 +73,7 @@
  },
  {
   "id": "f8fe976f4fe8a9f745cfa355701818c3",
-  "rank": 5,
+  "rank": 7,
   "title": "【情報】nopixel V 與 R星合作打造新世代 GTA RP",
   "author": "GHJKN2289",
   "time": "2026-09-02 12:51",
@@ -60,20 +84,8 @@
   "blurb": "外連巴哈討論串。不轉載全文。"
  },
  {
-  "id": "f2aa01c1f9bd2e27683a43fdaf8051e5",
-  "rank": 6,
-  "title": "【討論】GTA 6 男主角是臥底?",
-  "author": "Neo943",
-  "time": "2026-09-02 09:46",
-  "replies": "32",
-  "source": "Bahamut",
-  "game": "GTA 6",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117695",
-  "blurb": "外連巴哈討論串。不轉載全文。"
- },
- {
   "id": "0801e190b9b6b58231f975627f8ca742",
-  "rank": 7,
+  "rank": 8,
   "title": "【閒聊】我終於不殺一人逃出佩島了，可是",
   "author": "prcheng",
   "time": "2026-09-02 07:57",
@@ -85,7 +97,7 @@
  },
  {
   "id": "020cae31177cab22f1c27490b31c6f80",
-  "rank": 8,
+  "rank": 9,
   "title": "【心得】柯茲中心搶劫次要目標怎麼拿最賺錢？交給柯茲中心次要目標分配器",
   "author": "dengandy07",
   "time": "2026-09-02 00:10",
@@ -97,7 +109,7 @@
  },
  {
   "id": "02a8b488591de47c3efb8f044bec71f5",
-  "rank": 9,
+  "rank": 10,
   "title": "【問題】賣麛迷幻毒品，每次都這麼痛苦嗎？",
   "author": "prcheng",
   "time": "2026-09-01 23:58",
@@ -105,18 +117,6 @@
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117691",
-  "blurb": "外連巴哈討論串。不轉載全文。"
- },
- {
-  "id": "70b755b5c567a33b8a503e6df42aa055",
-  "rank": 10,
-  "title": "【攻略】FusionFix--改善舊STEAM版的GTA-4  畫質和光影",
-  "author": "skari",
-  "time": "2026-09-01 15:43",
-  "replies": "5",
-  "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117701",
   "blurb": "外連巴哈討論串。不轉載全文。"
  }
 ]
