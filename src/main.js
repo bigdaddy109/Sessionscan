@@ -148,7 +148,7 @@ function sessionScanSlot(slot) {
   return `
     <article class="slot-card owned-short empty" data-card>
       <strong>SESSIONSCAN</strong>
-      <p>本週尚無 Short</p>
+      <p>本週尚無新 Short</p>
       ${ownedChannelLink(channel)}
       <div class="card-meta" style="justify-content:center;margin-top:10px">
         ${sampleBadge()}
