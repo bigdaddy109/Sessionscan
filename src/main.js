@@ -462,6 +462,72 @@ function setSearchExpanded(open) {
   $("#searchForm")?.classList.toggle("is-open", Boolean(open));
 }
 
+const CHANNEL_SHORT = { jobs: "CH-01", hot: "CH-02", new: "CH-03", forum: "CH-04", x: "CH-05" };
+
+function activeViewEl() {
+  return $("#main")?.querySelector(".view:not(.hidden)");
+}
+
+function headerBottomExMini() {
+  const header = $(".site-header");
+  const mini = $("#channelMini");
+  if (!header) return 0;
+  const box = header.getBoundingClientRect();
+  if (mini && !mini.hidden) return box.bottom - mini.getBoundingClientRect().height;
+  return box.bottom;
+}
+
+function viewHeadIsPast() {
+  const view = activeViewEl();
+  const head = view?.querySelector(".view-head");
+  if (!view || !head || view.id === "view-search") return false;
+  return head.getBoundingClientRect().bottom < headerBottomExMini() - 1;
+}
+
+function fillChannelMini(view) {
+  const name = $("#channelMiniName");
+  const host = $("#channelMiniPills");
+  if (!name || !host) return;
+  const tab = view.id.replace(/^view-/, "");
+  name.textContent = CHANNEL_SHORT[tab] || "";
+  host.replaceChildren();
+  view.querySelectorAll(".controls .pill-group").forEach((group) => {
+    host.appendChild(group.cloneNode(true));
+  });
+}
+
+function syncChannelMini({ refill = false } = {}) {
+  const mini = $("#channelMini");
+  const name = $("#channelMiniName");
+  const host = $("#channelMiniPills");
+  if (!mini || !name || !host) return;
+  const view = activeViewEl();
+  const tab = view?.id?.replace(/^view-/, "") || "";
+  const show = Boolean(view && tab !== "search" && viewHeadIsPast());
+  if (!show) {
+    mini.hidden = true;
+    name.textContent = "";
+    host.replaceChildren();
+    return;
+  }
+  if (refill || mini.hidden || name.textContent !== (CHANNEL_SHORT[tab] || "")) {
+    fillChannelMini(view);
+  }
+  mini.hidden = false;
+}
+
+function requestChannelMiniSync(opts) {
+  requestAnimationFrame(() => syncChannelMini(opts));
+}
+
+function originalPillForClone(view, pill) {
+  if (pill.dataset.source) return view.querySelector(`.controls .pill[data-source="${pill.dataset.source}"]`);
+  if (pill.dataset.forum) return view.querySelector(`.controls .pill[data-forum="${pill.dataset.forum}"]`);
+  if (pill.dataset.lang) return view.querySelector(`.controls .pill[data-lang="${pill.dataset.lang}"]`);
+  if (pill.dataset.jobsRange) return view.querySelector(`.controls .pill[data-jobs-range="${pill.dataset.jobsRange}"]`);
+  return null;
+}
+
 function applyHash({ scroll = false } = {}) {
   const raw = (location.hash || "").replace(/^#/, "");
   let tab = null;
@@ -489,6 +555,7 @@ function switchView(name, { write = true } = {}) {
   if (view) view.classList.remove("hidden");
   $$(".tab").forEach((t) => t.classList.toggle("active", t.dataset.tab === name));
   if (write) writeHash();
+  syncChannelMini({ refill: true });
 }
 
 const SEARCH_ALIAS_GROUPS = [
@@ -673,6 +740,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       pill.classList.toggle("active", state.showOlderJobs);
       pill.setAttribute("aria-pressed", state.showOlderJobs ? "true" : "false");
       renderJobs();
+      syncChannelMini({ refill: true });
       return;
     }
     pill.closest(".pill-group").querySelectorAll(".pill").forEach((p) => p.classList.remove("active"));
@@ -690,7 +758,18 @@ document.addEventListener("DOMContentLoaded", async () => {
       renderNew();
       renderTweets();
     }
+    syncChannelMini({ refill: true });
   });
+  $("#channelMini")?.addEventListener("click", (e) => {
+    const pill = e.target.closest(".pill");
+    if (!pill || pill.disabled) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const view = activeViewEl();
+    originalPillForClone(view, pill)?.click();
+  });
+  window.addEventListener("scroll", () => requestChannelMiniSync(), { passive: true });
+  window.addEventListener("resize", () => requestChannelMiniSync());
   const searchForm = $("#searchForm");
   const searchInput = $("#searchInput");
   searchForm.addEventListener("submit", (e) => {
@@ -699,14 +778,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
   searchForm.addEventListener("click", (e) => {
     if (searchForm.classList.contains("is-open")) return;
-    if (e.target.closest(".btn-scan")) return;
+    if (e.target.closest(".btn-scan")) e.preventDefault();
     searchInput.focus();
   });
   searchForm.addEventListener("focusin", () => setSearchExpanded(true));
   searchInput.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
     searchInput.blur();
-    setSearchExpanded(false);
+    if (!searchInput.value.trim()) setSearchExpanded(false);
   });
   searchInput.addEventListener("blur", () => {
     queueMicrotask(() => {

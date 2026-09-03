@@ -60,6 +60,7 @@
               <path d="M16 16 L21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
             </svg>
           </label>
+          <span class="search-scan-label" aria-hidden="true">掃描 SCAN</span>
           <input id="searchInput" type="search" name="q" placeholder="掃描關鍵字 — Cayo、GTA 6、巴哈…" autocomplete="off" />
           <button type="submit" class="btn-scan">掃描 SCAN</button>
         </form>
@@ -71,6 +72,10 @@
         <button class="tab" data-tab="forum" type="button"><span class="ch">04</span><span class="tab-name">論壇</span></button>
         <button class="tab" data-tab="x" type="button"><span class="ch">05</span><span class="tab-name">X / Twitter</span></button>
       </nav>
+      <div id="channelMini" class="channel-mini" hidden aria-label="頻道篩選">
+        <span class="channel-mini-name" id="channelMiniName"></span>
+        <div class="channel-mini-pills" id="channelMiniPills"></div>
+      </div>
     </header>
     <div class="first-screen">
     <section class="hero" id="hero">
