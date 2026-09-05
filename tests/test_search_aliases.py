@@ -260,6 +260,31 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("setSearchExpanded", js)
         self.assertIn('q=', js)
 
+    def test_collapsed_scan_pill_and_channel_mini(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        css = (ROOT / "src" / "style.css").read_text(encoding="utf-8")
+        js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
+        self.assertIn('class="search-scan-label"', html)
+        self.assertIn("掃描 SCAN", html)
+        self.assertIn('id="channelMini"', html)
+        self.assertIn('id="channelMiniName"', html)
+        self.assertIn('id="channelMiniPills"', html)
+        self.assertIn(".search-scan-label", css)
+        self.assertIn(".search-box:not(.is-open):not(:focus-within) .search-scan-label", css)
+        self.assertNotRegex(
+            css,
+            r"\.search-box:not\(\.is-open\):not\(:focus-within\)\s*\{[^}]*min-width:\s*40px",
+        )
+        self.assertIn(".channel-mini", css)
+        self.assertIn("min-height: 40px", css.split(".channel-mini", 1)[1].split("}", 1)[0])
+        view_head_block = css.split(".view-head {", 1)[1].split("}", 1)[0]
+        self.assertNotIn("position: sticky", view_head_block)
+        self.assertIn("syncChannelMini", js)
+        self.assertIn("viewHeadIsPast", js)
+        self.assertIn("CHANNEL_SHORT", js)
+        self.assertIn('setSearchExpanded(true)', js)
+        self.assertIn("applyHash", js)
+
     def test_p0p1_chrome_and_no_magic_short_id(self):
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
         html = (ROOT / "index.html").read_text(encoding="utf-8")

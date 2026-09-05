@@ -187,6 +187,7 @@ img { max-width: 100%; display: block; }
   color: inherit;
   cursor: pointer;
 }
+.search-scan-label { display: none; }
 .search-box svg { width: 18px; height: 18px; color: var(--teal); flex-shrink: 0; }
 .search-box input {
   flex: 1;
@@ -238,6 +239,38 @@ img { max-width: 100%; display: block; }
   color: var(--text);
   border-bottom-color: var(--teal);
   text-shadow: 0 0 12px rgba(0, 232, 209, 0.35);
+}
+
+.channel-mini {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 3px 18px 5px;
+  min-height: 40px;
+  border-top: 1px solid var(--border);
+}
+.channel-mini[hidden] { display: none !important; }
+.channel-mini-name {
+  flex: 0 0 auto;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--teal);
+  white-space: nowrap;
+}
+.channel-mini-pills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  overflow-x: auto;
+}
+.channel-mini .pill-group { flex: 0 0 auto; }
+.channel-mini .pill {
+  font-size: 14px;
+  padding: 4px 12px;
 }
 
 /* ---------- first screen: hero + CH-00 + data banner ---------- */
@@ -922,17 +955,29 @@ main {
   }
   .search-box:not(.is-open):not(:focus-within) {
     position: relative;
-    min-width: 40px;
+    min-width: 0;
+    width: auto;
     min-height: 40px;
     max-height: 40px;
+    padding: 4px 10px;
+    gap: 6px;
     justify-content: center;
-    overflow: hidden;
+    cursor: pointer;
   }
   .search-box:not(.is-open):not(:focus-within) .search-icon {
-    flex: 1;
     justify-content: center;
-    min-width: 24px;
-    min-height: 24px;
+    min-width: 18px;
+    min-height: 18px;
+  }
+  .search-box:not(.is-open):not(:focus-within) .search-scan-label {
+    display: inline;
+    font-family: var(--condensed);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: var(--teal);
+    white-space: nowrap;
   }
   .search-box:not(.is-open):not(:focus-within) input,
   .search-box:not(.is-open):not(:focus-within) .btn-scan {
@@ -1007,7 +1052,7 @@ main {
   .header-inner { padding: 10px 12px 6px; }
   .search-box.is-open,
   .search-box:focus-within { width: 100%; min-width: 0; }
-  main, .site-footer, .tabs { padding-left: 12px; padding-right: 12px; }
+  main, .site-footer, .tabs, .channel-mini { padding-left: 12px; padding-right: 12px; }
   .job-card, .thread-item { padding-left: 58px; }
   .brand-text strong { font-size: 18px; letter-spacing: 0.1em; }
   .brand-disclaimer { white-space: normal; }
