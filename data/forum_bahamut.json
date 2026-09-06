@@ -1,14 +1,14 @@
 [
  {
-  "id": "8f3fd18eb031b88edaef6a00d23cc586",
+  "id": "86dcef0d5b0b41d663b5dca1e146108f",
   "rank": 1,
-  "title": "【討論】看完最新預告片 你會為了玩GTA6買主機嗎?(無主機玩家者投票)",
-  "author": "sid",
-  "time": "2026-09-05 22:47",
-  "replies": "48",
+  "title": "【情報】由於主機價格上漲，Rockstar被迫加快開發步伐，GTA6 PC版將比預期更早問世！",
+  "author": "Ivelyn",
+  "time": "2026-09-06 08:42",
+  "replies": "1",
   "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117692",
+  "game": "GTA 6",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117715",
   "blurb": "外連巴哈討論串。不轉載全文。"
  },
  {
@@ -16,7 +16,7 @@
   "rank": 2,
   "title": "【問題】關於製作任務一事",
   "author": "red52red1",
-  "time": "2026-09-05 12:47",
+  "time": "2026-09-05 12:37",
   "replies": "0",
   "source": "Bahamut",
   "game": "GTA Online",
@@ -28,7 +28,7 @@
   "rank": 3,
   "title": "【情報】GTA ONLINE 活動 (9/3~9/9,免費辦公室,完成每週挑戰,獲得田徑服及100萬)",
   "author": "ken33890458",
-  "time": "2026-09-05 09:47",
+  "time": "2026-09-05 08:58",
   "replies": "23",
   "source": "Bahamut",
   "game": "GTA Online",
@@ -88,35 +88,38 @@
   "rank": 8,
   "title": "【閒聊】GTA6手把!!!!!!!!!!",
   "author": "opop9933",
-  "time": "2026-09-03 22:33",
+  "time": "09-03 22:33",
   "replies": "4",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117710",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "05dbd31c2313b3138ef23ce3000429eb",
   "rank": 9,
   "title": "【閒聊】【GTA Online 本週更新】免費領阿卡迪斯辦公室！賣100萬再送100萬＋4倍大獎！",
   "author": "gta5weekly",
-  "time": "2026-09-03 22:07",
+  "time": "09-03 22:07",
   "replies": "0",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117709",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "3fed553de3d75371308d7edfc1dbea70",
   "rank": 10,
   "title": "【其他】GTA4完整版滑鼠失效解法",
   "author": "tomica1120",
-  "time": "2026-09-03 19:16",
+  "time": "09-03 19:16",
   "replies": "0",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117707",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  }
 ]
