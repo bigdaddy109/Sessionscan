@@ -341,12 +341,35 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("<title>SessionScan GTA｜夜掃描</title>", built)
         self.assertIn("載入中 / LOADING", built)
         self.assertNotIn("EXAMPLE DATA", built)
-        self.assertIn("data-static-job", built)
         self.assertIn('id="jobList"', built)
         self.assertIn('id="crawlJobs"', built)
         self.assertIn("gtabase.com", built)
         self.assertIn("GTA Online Weekly Update", built)
         self.assertIn("youtube.com/shorts/", built)
+        banner = built.split('id="officialBannerBody"', 1)[1].split("</p>", 1)[0]
+        self.assertIn("gtabase.com", banner)
+        self.assertIn("GTA Online Weekly Update", banner)
+        this_week_n = int(
+            subprocess.check_output(
+                [
+                    "node",
+                    "--input-type=module",
+                    "-e",
+                    "import { readFileSync } from 'node:fs';"
+                    "import { isThisWeekJob } from './src/thisWeek.js';"
+                    "const site = JSON.parse(readFileSync('public/data/site.json','utf8'));"
+                    "const jobs = [...(site.jobs_gtabase||[]), ...(site.jobs_ign||[]), ...(site.jobs_wiki||[])];"
+                    "process.stdout.write(String(jobs.filter((j) => j?.title && j?.url && isThisWeekJob(j)).length));",
+                ],
+                cwd=ROOT,
+                text=True,
+            )
+        )
+        job_list = built.split('id="jobList"', 1)[1].split("</div>", 1)[0]
+        if this_week_n:
+            self.assertIn("data-static-job", job_list)
+        else:
+            self.assertNotIn("data-static-job", job_list)
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
         self.assertIn('querySelector("[data-static-job]")', js)
         self.assertIn("inject_static_jobs.mjs", (ROOT / "package.json").read_text(encoding="utf-8"))
