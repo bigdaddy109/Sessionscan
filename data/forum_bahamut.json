@@ -1,10 +1,22 @@
 [
  {
-  "id": "02a8b488591de47c3efb8f044bec71f5",
+  "id": "d5140eb9c0e8f35475dff6099872d395",
   "rank": 1,
+  "title": "【問題】R星啟動失敗請問（解決）",
+  "author": "prcheng",
+  "time": "2026-09-09 00:12",
+  "replies": "1",
+  "source": "Bahamut",
+  "game": "GTA Online",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117719",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "02a8b488591de47c3efb8f044bec71f5",
+  "rank": 2,
   "title": "【問題】賣麛迷幻毒品，每次都這麼痛苦嗎？",
   "author": "prcheng",
-  "time": "2026-09-08 19:35",
+  "time": "2026-09-08 19:34",
   "replies": "26",
   "source": "Bahamut",
   "game": "GTA Online",
@@ -13,10 +25,10 @@
  },
  {
   "id": "43496159757e5314dab8cdd445593615",
-  "rank": 2,
+  "rank": 3,
   "title": "【問題】暴風雨，長崎漂不見？",
   "author": "prcheng",
-  "time": "2026-09-08 19:31",
+  "time": "2026-09-08 19:30",
   "replies": "5",
   "source": "Bahamut",
   "game": "GTA Online",
@@ -24,23 +36,11 @@
   "blurb": "外連巴哈討論串。不轉載全文。"
  },
  {
-  "id": "dbd5e5eda7442159449f5c809f2c1921",
-  "rank": 3,
-  "title": "【問題】新手剛玩 想找人一起刷佩克里島 或是找個剛玩的夥伴一起玩",
-  "author": "XiaoLin0915",
-  "time": "2026-09-08 18:59",
-  "replies": "11",
-  "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117716",
-  "blurb": "外連巴哈討論串。不轉載全文。"
- },
- {
   "id": "046da4e956cacdbf19dd6e93c4413271",
   "rank": 4,
   "title": "【情報】《GTA 6》預覽影片帶動 PS5、Xbox 主機買氣？據傳 PS5 Pro 全英國銷售一空",
   "author": "as159357",
-  "time": "2026-09-08 09:59",
+  "time": "2026-09-08 09:03",
   "replies": "1",
   "source": "Bahamut",
   "game": "GTA 6",
@@ -52,7 +52,7 @@
   "rank": 5,
   "title": "【討論】從 R星預告宣傳過去週期 來分析一下這次GTA6的宣傳",
   "author": "guitar2327",
-  "time": "2026-09-08 00:59",
+  "time": "2026-09-08 00:54",
   "replies": "6",
   "source": "Bahamut",
   "game": "GTA Online",
@@ -60,44 +60,59 @@
   "blurb": "外連巴哈討論串。不轉載全文。"
  },
  {
-  "id": "f2aa01c1f9bd2e27683a43fdaf8051e5",
+  "id": "dbd5e5eda7442159449f5c809f2c1921",
   "rank": 6,
+  "title": "【問題】新手剛玩 想找人一起刷佩克里島 或是找個剛玩的夥伴一起玩",
+  "author": "XiaoLin0915",
+  "time": "2026-09-07 23:32",
+  "replies": "11",
+  "source": "Bahamut",
+  "game": "GTA Online",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117716",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "f2aa01c1f9bd2e27683a43fdaf8051e5",
+  "rank": 7,
   "title": "【討論】GTA 6 男主角是臥底?",
   "author": "Neo943",
-  "time": "2026-09-06 18:39",
+  "time": "09-06 18:39",
   "replies": "34",
   "source": "Bahamut",
   "game": "GTA 6",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117695",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "73eaa382fcc06aec04103fa1d75033b5",
-  "rank": 7,
+  "rank": 8,
   "title": "【問題】GTA6要出了，現在還適合購買GTA5嗎",
   "author": "cranmerlin",
-  "time": "2026-09-06 13:44",
+  "time": "09-06 13:44",
   "replies": "26",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117667",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "86dcef0d5b0b41d663b5dca1e146108f",
-  "rank": 8,
+  "rank": 9,
   "title": "【情報】由於主機價格上漲，Rockstar被迫加快開發步伐，GTA6 PC版將比預期更早問世！",
   "author": "Ivelyn",
-  "time": "2026-09-06 08:12",
+  "time": "09-06 08:12",
   "replies": "7",
   "source": "Bahamut",
   "game": "GTA 6",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117715",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "5ede056a89d49bc947ecdf0b16405859",
-  "rank": 9,
+  "rank": 10,
   "title": "【問題】關於製作任務一事",
   "author": "red52red1",
   "time": "09-05 12:37",
@@ -105,19 +120,6 @@
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117714",
-  "blurb": "外連巴哈討論串。不轉載全文。",
-  "time_relative": true
- },
- {
-  "id": "b4a41bc00bf331d8706394402724fec8",
-  "rank": 10,
-  "title": "【情報】GTA ONLINE 活動 (9/3~9/9,免費辦公室,完成每週挑戰,獲得田徑服及100萬)",
-  "author": "ken33890458",
-  "time": "09-05 08:58",
-  "replies": "24",
-  "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117705",
   "blurb": "外連巴哈討論串。不轉載全文。",
   "time_relative": true
  }
