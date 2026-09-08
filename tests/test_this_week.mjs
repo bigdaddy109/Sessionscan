@@ -35,12 +35,38 @@ const cases = [
   [{ title: "GTA Online Weekly Update (August 13-19)", updated: "2026-08-13" }, false],
   [{ title: "GTA Online Weekly Update (July 23-29)", updated: "2026-07-23" }, false],
   [{ title: "The Cayo Perico Heist — 佩里克島", updated: "2026-06-01" }, false],
-  [{ title: "Fresh card with no week words", updated: "2026-08-25" }, true],
+  [{ title: "Fresh card with no week words", updated: "2026-08-28" }, true],
+  [{ title: "Last week stamp only — 8-day age backdoor removed", updated: "2026-08-25" }, false],
   [{ title: "No date at all" }, false],
 ];
 const failed = cases.filter(([item, exp]) => isThisWeekJob(item, now) !== exp);
 if (failed.length) {
   console.error("isThisWeekJob mismatches", failed.map(([item]) => item));
+  process.exit(1);
+}
+
+// Next Thursday: last week's updated/title must not enter; current-week title or date must.
+const thursday = new Date("2026-09-03T12:00:00+08:00");
+const lastWeek = { title: "GTA Online Weekly Update (August 27 - September 2)", updated: "2026-08-27" };
+const lastWeekAge = { title: "Would have passed via ≤8-day age", updated: "2026-08-30" };
+const thisWeekTitle = { title: "GTA Online Weekly Update (September 3 - September 9)" };
+const thisWeekUpdated = { title: "Fresh this-week stamp", updated: "2026-09-03" };
+if (isThisWeekJob(lastWeek, thursday) || isThisWeekJob(lastWeekAge, thursday)) {
+  console.error("Thursday freeze leaked last week's weekly or the 8-day age path");
+  process.exit(1);
+}
+if (!isThisWeekJob(thisWeekTitle, thursday) || !isThisWeekJob(thisWeekUpdated, thursday)) {
+  console.error("Thursday freeze missing this-week title/date");
+  process.exit(1);
+}
+const thursdayShown = thisWeekJobs([...jobs, lastWeek, lastWeekAge], thursday);
+if (thursdayShown.length) {
+  console.error("Thursday default must be empty when only last week exists:\n", thursdayShown);
+  process.exit(1);
+}
+const thursdayKeep = thisWeekJobs([lastWeek, lastWeekAge, thisWeekTitle, thisWeekUpdated], thursday);
+if (thursdayKeep.length !== 2 || thursdayKeep.some((j) => j === lastWeek || j === lastWeekAge)) {
+  console.error("Thursday default must keep this-week cards only", thursdayKeep);
   process.exit(1);
 }
 
