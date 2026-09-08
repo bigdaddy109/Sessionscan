@@ -2,7 +2,6 @@
 
 const TAIPEI_MS = 8 * 60 * 60 * 1000;
 export const THIS_WEEK_MAX = 2;
-export const THIS_WEEK_MAX_AGE_DAYS = 8;
 
 const MONTHS = {
   january: 1,
@@ -93,20 +92,7 @@ export function isThisWeekJob(item, now = new Date()) {
   const start = rockstarWeekStart(ref);
   const end = new Date(start);
   end.setUTCDate(end.getUTCDate() + 6);
-  const p = taipeiParts(ref);
-  const today = ymd(p.y, p.m, p.d);
-  const ageCut = new Date(today);
-  ageCut.setUTCDate(ageCut.getUTCDate() - THIS_WEEK_MAX_AGE_DAYS);
-  const updated = parseISODate(item?.updated);
-  if (updated) {
-    if (updated >= start && updated <= end) return true;
-    if (updated >= ageCut && updated <= today) return true;
-  }
-  const yearHint = p.y;
-  for (const d of collectTitleDates(`${item?.title || ""} ${item?.title_en || ""}`, yearHint)) {
-    if (d >= start && d <= end) return true;
-  }
-  return false;
+  return jobDates(item, ref).some((d) => d >= start && d <= end);
 }
 
 export function thisWeekJobs(list, now = new Date(), max = THIS_WEEK_MAX) {

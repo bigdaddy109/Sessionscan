@@ -392,6 +392,10 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("isThisWeekJob", js)
         self.assertIn("showOlderJobs", js)
         self.assertIn("THIS_WEEK_MAX", week)
+        self.assertNotIn("THIS_WEEK_MAX_AGE_DAYS", week)
+        self.assertNotIn("ageCut", week)
+        pick_fn = js.split("function pickOfficialWeekly", 1)[1].split("function gta6ScheduleLine", 1)[0]
+        self.assertNotIn("isThisWeekJob", pick_fn)
         site = load_hub()
         titles = [it.get("title", "") + " " + str(it.get("updated", "")) for it in (site.get("jobs_gtabase") or [])]
         self.assertTrue(any("August 27" in t or "2026-08-27" in t for t in titles))
