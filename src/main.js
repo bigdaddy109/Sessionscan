@@ -258,8 +258,27 @@ function syncIgnPill() {
   }
 }
 
+function wikiVisibleCount() {
+  const raw = state.data?.jobs_wiki || [];
+  if (state.showOlderJobs) return raw.length;
+  return raw.filter((it) => isThisWeekJob(it)).length;
+}
+
+function syncWikiPill() {
+  const empty = wikiVisibleCount() === 0;
+  $$('.pill[data-source="wiki"]').forEach((pill) => {
+    pill.hidden = empty;
+  });
+  if (empty && state.jobsSource === "wiki") {
+    state.jobsSource = "gtabase";
+    $$('.pill[data-source="gtabase"]').forEach((p) => p.classList.add("active"));
+    $$('.pill[data-source="wiki"]').forEach((p) => p.classList.remove("active"));
+  }
+}
+
 function renderJobs() {
   syncIgnPill();
+  syncWikiPill();
   if (state.jobsSource === "ign" && isIgnPaused()) {
     $("#jobHint").textContent = "此來源暫停。IGN 目前沒有本週 GTA Online 獎勵外連卡。";
     $("#jobList").innerHTML = `<p class="empty-msg">此來源暫停</p>`;
