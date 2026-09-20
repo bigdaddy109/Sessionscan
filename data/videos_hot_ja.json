@@ -1,33 +1,11 @@
 [
  {
-  "id": "Rk1mrWKAvtM",
-  "video_id": "Rk1mrWKAvtM",
-  "title": "ショートスリーパー堀大輔が面白過ぎる件ついて　【GTA5】",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=Rk1mrWKAvtM",
-  "views": 157959,
-  "date": "2026-09-15",
-  "lang": "ja",
-  "game": "GTA 5"
- },
- {
-  "id": "XTBa1SRhcUw",
-  "video_id": "XTBa1SRhcUw",
-  "title": "中卒の俺が炎上中のwakatte.tv について語ってみる　【GTA5】",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=XTBa1SRhcUw",
-  "views": 117805,
-  "date": "2026-09-05",
-  "lang": "ja",
-  "game": "GTA 5"
- },
- {
   "id": "wJtVE6X52RU",
   "video_id": "wJtVE6X52RU",
   "title": "【GTA6発売まで残り64日前】最新のアプデ情報まとめ・GTAオンライン",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=wJtVE6X52RU",
-  "views": 19016,
+  "views": 19037,
   "date": "2026-09-15",
   "lang": "ja",
   "game": "GTA Online"
@@ -38,7 +16,7 @@
   "title": "【GTA5】無料車両と100万ドル報酬あり！今晩の週アップデート速報 2026年9月3日～",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=WDzL0UH3Y48",
-  "views": 16192,
+  "views": 16199,
   "date": "2026-09-03",
   "lang": "ja",
   "game": "GTA 5"
@@ -49,7 +27,7 @@
   "title": "【GTA6】プレイ動画考察① 行動選択や武器照準についてなど。",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=-twRF0wNG7Q",
-  "views": 14006,
+  "views": 14083,
   "date": "2026-08-30",
   "lang": "ja",
   "game": "GTA 6"
@@ -60,7 +38,7 @@
   "title": "【GTA5】新車両ホルス先行解除！今晩の週アップデート速報 2026年9月10日～",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=46R7v6v9zyQ",
-  "views": 12226,
+  "views": 12240,
   "date": "2026-09-10",
   "lang": "ja",
   "game": "GTA 5"
@@ -71,7 +49,7 @@
   "title": "【GTA6】プレイ動画考察② 飲食物でのバフ、警察の手配システムなど",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=9kkpOQnTnqs",
-  "views": 12037,
+  "views": 12084,
   "date": "2026-09-02",
   "lang": "ja",
   "game": "GTA 6"
@@ -82,7 +60,7 @@
   "title": "【GTA5】新車両ホルス全員解除！今晩の週アップデート速報 2026年9月17日～",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=OGGpANZKEDU",
-  "views": 11277,
+  "views": 11367,
   "date": "2026-09-17",
   "lang": "ja",
   "game": "GTA 5"
@@ -93,8 +71,19 @@
   "title": "【GTA6発売まで残り2ヶ月】大規模カーミーティングをGTAオンライン参加型＆GTARPで遂に建物完成のオープニングセレモニー",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=-wIkaCgcvMQ",
-  "views": 11171,
+  "views": 11340,
   "date": "2026-09-19",
+  "lang": "ja",
+  "game": "GTA Online"
+ },
+ {
+  "id": "8DnuQEpaOpc",
+  "video_id": "8DnuQEpaOpc",
+  "title": "【GTA6速報】公式発表‼️遂にCDやレコードのグッズ販売開始‼️34曲のオリジナル楽曲を世界のアーティスト達と発表‼️",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=8DnuQEpaOpc",
+  "views": 9620,
+  "date": "2026-09-17",
   "lang": "ja",
   "game": "GTA Online"
  },
@@ -104,8 +93,19 @@
   "title": "【GTA5】新ドリフト車両3台解除！今晩の週アップデート速報 2026年8月27日～",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=J1wRxGQqz_k",
-  "views": 9581,
+  "views": 9582,
   "date": "2026-08-27",
+  "lang": "ja",
+  "game": "GTA 5"
+ },
+ {
+  "id": "H8gWBKL0s24",
+  "video_id": "H8gWBKL0s24",
+  "title": "【GTA5】節約派のカーライフ「イントルーダー」の巻【第17話】",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=H8gWBKL0s24",
+  "views": 7488,
+  "date": "2026-09-12",
   "lang": "ja",
   "game": "GTA 5"
  }
