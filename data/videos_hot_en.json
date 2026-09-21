@@ -5,7 +5,7 @@
   "title": "Grand Theft Auto VI: An Extended Look",
   "channel": "Rockstar Games",
   "url": "https://www.youtube.com/watch?v=tJbzMqJGH4k",
-  "views": 28447348,
+  "views": 28579817,
   "date": "2026-08-28",
   "lang": "en",
   "game": "GTA 6"
@@ -16,7 +16,7 @@
   "title": "Grand Theft Auto VI: An Extended Look — Now Playing",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=MJOrsRRa9GM",
-  "views": 8020113,
+  "views": 8083734,
   "date": "2026-08-28",
   "lang": "en",
   "game": "GTA 6"
@@ -27,8 +27,19 @@
   "title": "Grand Theft Auto VI: An Extended Look — Now Playing",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=53C6gUqRpK4",
-  "views": 2617022,
+  "views": 2629645,
   "date": "2026-08-28",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "b6BxK4uFOVc",
+  "video_id": "b6BxK4uFOVc",
+  "title": "GTA 6 (PS5) 4K HDR Full Gameplay Trailer",
+  "channel": "MykePlay",
+  "url": "https://www.youtube.com/watch?v=b6BxK4uFOVc",
+  "views": 1596122,
+  "date": "2026-08-27",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -38,30 +49,8 @@
   "title": "Grand Theft Auto VI: An Extended Look — Now Playing",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=mAfR_ybf5WM",
-  "views": 1559071,
+  "views": 1570009,
   "date": "2026-08-28",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "oQwzYdMEPvI",
-  "video_id": "oQwzYdMEPvI",
-  "title": "How to Watch the Trailer for Grand Theft Auto VI",
-  "channel": "videogamedunkey",
-  "url": "https://www.youtube.com/watch?v=oQwzYdMEPvI",
-  "views": 1407873,
-  "date": "2026-08-25",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "3Ev1PQEm7ns",
-  "video_id": "3Ev1PQEm7ns",
-  "title": "Travis Scott – RHYNO (prod. by Guy-Manuel de Homem-Christo) (From Grand Theft Auto VI: The Album)",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=3Ev1PQEm7ns",
-  "views": 1367485,
-  "date": "2026-09-17",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -71,19 +60,8 @@
   "title": "Grand Theft Auto VI: An Extended Look — Now Playing",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=GVTE_MuInQg",
-  "views": 1340737,
+  "views": 1347956,
   "date": "2026-08-28",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "xmn8UFDxcV4",
-  "video_id": "xmn8UFDxcV4",
-  "title": "GTA 6 is feminist slop",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=xmn8UFDxcV4",
-  "views": 1190475,
-  "date": "2026-08-29",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -93,7 +71,7 @@
   "title": "GTA 6: Rockstar Just Started Teasing Something Big...",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=RrZ72p_hCEU",
-  "views": 1158960,
+  "views": 1156635,
   "date": "2026-09-16",
   "lang": "en",
   "game": "GTA 6"
@@ -102,10 +80,32 @@
   "id": "irzbYa_Dr2U",
   "video_id": "irzbYa_Dr2U",
   "title": "Everything We Know About GTA 6 So Far",
-  "channel": "TGG",
+  "channel": "",
   "url": "https://www.youtube.com/watch?v=irzbYa_Dr2U",
-  "views": 993496,
+  "views": 1030907,
   "date": "2026-09-14",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "L-9NI3mHZVo",
+  "video_id": "L-9NI3mHZVo",
+  "title": "Grand Theft Auto VI: An Extended Look — Now Playing",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=L-9NI3mHZVo",
+  "views": 906480,
+  "date": "2026-08-28",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "ULM2OIj5o0I",
+  "video_id": "ULM2OIj5o0I",
+  "title": "VFX Artists Breakdown GTA 6's IMPOSSIBLE Graphics",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=ULM2OIj5o0I",
+  "views": 870252,
+  "date": "2026-09-20",
   "lang": "en",
   "game": "GTA 6"
  }

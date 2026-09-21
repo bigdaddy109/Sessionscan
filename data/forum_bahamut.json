@@ -1,11 +1,35 @@
 [
  {
-  "id": "53acd3522a5bd3fc5d44427fc64a89d7",
+  "id": "c1bac408695101939d6dd8879cefc135",
   "rank": 1,
+  "title": "【閒聊】臨終前想玩到《GTA6》！女兒替癌末父親發聲希望 R星 幫助圓夢",
+  "author": "jacket6719",
+  "time": "2026-09-21 14:36",
+  "replies": "0",
+  "source": "Bahamut",
+  "game": "GTA 6",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117749",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "0c90ac6a22e6eee63fec605a425d3eed",
+  "rank": 2,
+  "title": "【討論】遊戲啟動、BattleEye問題&基礎認識",
+  "author": "luo80049",
+  "time": "2026-09-21 11:36",
+  "replies": "0",
+  "source": "Bahamut",
+  "game": "GTA Online",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117747",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "53acd3522a5bd3fc5d44427fc64a89d7",
+  "rank": 3,
   "title": "【問題】佩里克島搶劫主目標出現機率",
   "author": "zz4488xx",
   "time": "2026-09-19 16:46",
-  "replies": "12",
+  "replies": "13",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117746",
@@ -13,7 +37,7 @@
  },
  {
   "id": "9364e217ff9bea6a477b984c41b8ffb1",
-  "rank": 2,
+  "rank": 4,
   "title": "【問題】每週首通加倍的柯茲搶劫是不是多人比較好",
   "author": "Gb4Kl",
   "time": "2026-09-19 14:43",
@@ -25,11 +49,11 @@
  },
  {
   "id": "557ea47703554c98a4908ad0244b10f7",
-  "rank": 3,
+  "rank": 5,
   "title": "【問題】請問PS5 Pro的GTA6 會有4K 60fps的畫質表現嗎?",
   "author": "ga429148",
   "time": "2026-09-19 13:26",
-  "replies": "14",
+  "replies": "15",
   "source": "Bahamut",
   "game": "GTA 6",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117740",
@@ -37,7 +61,7 @@
  },
  {
   "id": "92a3006432643fc06a9383c377e1fdc5",
-  "rank": 4,
+  "rank": 6,
   "title": "【情報】《俠盜獵車手 6》遊戲原聲帶搶先公開 6 首單曲 全專輯將 34 首原創曲、11/19 遊戲同步推出",
   "author": "as159357",
   "time": "2026-09-19 13:20",
@@ -49,7 +73,7 @@
  },
  {
   "id": "12ef83911c1c2da0690cf9e9345efe92",
-  "rank": 5,
+  "rank": 7,
   "title": "【討論】這一槍一定很穩 很致命",
   "author": "URSSR",
   "time": "2026-09-19 13:19",
@@ -61,7 +85,7 @@
  },
  {
   "id": "b128cd508ac74961b7901d4cd4ff61f1",
-  "rank": 6,
+  "rank": 8,
   "title": "【問題】請問GTA6 P5/XSX版的初期容量有多大？",
   "author": "mrkkk",
   "time": "2026-09-19 13:18",
@@ -73,7 +97,7 @@
  },
  {
   "id": "352f72943ed0dbfda8022609f783f9b3",
-  "rank": 7,
+  "rank": 9,
   "title": "【問題】噹噹農場完成不被發現的條件？",
   "author": "prcheng",
   "time": "2026-09-19 07:55",
@@ -85,7 +109,7 @@
  },
  {
   "id": "5a84228eda8ad94be11212585c5e099d",
-  "rank": 8,
+  "rank": 10,
   "title": "【情報】GTA6台灣可以預購了 快去買",
   "author": "god19830326",
   "time": "2026-09-19 03:25",
@@ -94,31 +118,5 @@
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117731",
   "blurb": "外連巴哈討論串。不轉載全文。"
- },
- {
-  "id": "02a8b488591de47c3efb8f044bec71f5",
-  "rank": 9,
-  "title": "【問題】賣麛迷幻毒品，每次都這麼痛苦嗎？",
-  "author": "prcheng",
-  "time": "09-18 10:41",
-  "replies": "32",
-  "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117691",
-  "blurb": "外連巴哈討論串。不轉載全文。",
-  "time_relative": true
- },
- {
-  "id": "0e9a380070cb45605703c0f614672f13",
-  "rank": 10,
-  "title": "【閒聊】佩嘉西 荷魯斯 改裝項目及試駕(注意此車部份改裝會有HITBOX BUG)",
-  "author": "seaotterskin",
-  "time": "09-17 21:52",
-  "replies": "3",
-  "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117738",
-  "blurb": "外連巴哈討論串。不轉載全文。",
-  "time_relative": true
  }
 ]
