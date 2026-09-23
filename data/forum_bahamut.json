@@ -1,11 +1,23 @@
 [
  {
-  "id": "1fa6a9ec840d56c7b56ed72ba8847c5d",
+  "id": "846406d3507f382aa6b1867341bb75fe",
   "rank": 1,
+  "title": "【閒聊】真覺得換地堡是對的",
+  "author": "prcheng",
+  "time": "2026-09-24 00:43",
+  "replies": "3",
+  "source": "Bahamut",
+  "game": "GTA Online",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117753",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "1fa6a9ec840d56c7b56ed72ba8847c5d",
+  "rank": 2,
   "title": "【閒聊】買夜鯊怎麼用才對？",
   "author": "prcheng",
-  "time": "2026-09-23 13:33",
-  "replies": "4",
+  "time": "2026-09-23 13:21",
+  "replies": "7",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117752",
@@ -13,10 +25,10 @@
  },
  {
   "id": "1d91c77d7c063c54cbfdeebda5ab21ee",
-  "rank": 2,
+  "rank": 3,
   "title": "【問題】選擇僅限邀請戰局,為何還有其他玩家?",
   "author": "prcheng",
-  "time": "2026-09-23 10:33",
+  "time": "2026-09-23 09:43",
   "replies": "3",
   "source": "Bahamut",
   "game": "GTA Online",
@@ -25,7 +37,7 @@
  },
  {
   "id": "a95dd2671784948caad80aed96044009",
-  "rank": 3,
+  "rank": 4,
   "title": "【情報】GTA VI 台區 PS Store售價出爐",
   "author": "duncan6610",
   "time": "2026-09-22 18:52",
@@ -37,43 +49,46 @@
  },
  {
   "id": "2876b03efc82ea963ddc2693ff8bc950",
-  "rank": 4,
+  "rank": 5,
   "title": "【問題】柯茲中心有方法完全恢復所有次要目標嗎？",
   "author": "playking2006",
-  "time": "2026-09-21 21:38",
+  "time": "09-21 21:38",
   "replies": "8",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117750",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "c1bac408695101939d6dd8879cefc135",
-  "rank": 5,
+  "rank": 6,
   "title": "【閒聊】臨終前想玩到《GTA6》！女兒替癌末父親發聲希望 R星 幫助圓夢",
   "author": "jacket6719",
-  "time": "2026-09-21 13:37",
+  "time": "09-21 13:37",
   "replies": "2",
   "source": "Bahamut",
   "game": "GTA 6",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117749",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "0c90ac6a22e6eee63fec605a425d3eed",
-  "rank": 6,
+  "rank": 7,
   "title": "【討論】遊戲啟動、BattleEye問題&基礎認識",
   "author": "luo80049",
-  "time": "2026-09-21 11:26",
+  "time": "09-21 11:26",
   "replies": "0",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117747",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "53acd3522a5bd3fc5d44427fc64a89d7",
-  "rank": 7,
+  "rank": 8,
   "title": "【問題】佩里克島搶劫主目標出現機率",
   "author": "zz4488xx",
   "time": "09-19 16:46",
@@ -86,7 +101,7 @@
  },
  {
   "id": "9364e217ff9bea6a477b984c41b8ffb1",
-  "rank": 8,
+  "rank": 9,
   "title": "【問題】每週首通加倍的柯茲搶劫是不是多人比較好",
   "author": "Gb4Kl",
   "time": "09-19 14:43",
@@ -99,7 +114,7 @@
  },
  {
   "id": "557ea47703554c98a4908ad0244b10f7",
-  "rank": 9,
+  "rank": 10,
   "title": "【問題】請問PS5 Pro的GTA6 會有4K 60fps的畫質表現嗎?",
   "author": "ga429148",
   "time": "09-19 13:26",
@@ -107,19 +122,6 @@
   "source": "Bahamut",
   "game": "GTA 6",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117740",
-  "blurb": "外連巴哈討論串。不轉載全文。",
-  "time_relative": true
- },
- {
-  "id": "92a3006432643fc06a9383c377e1fdc5",
-  "rank": 10,
-  "title": "【情報】《俠盜獵車手 6》遊戲原聲帶搶先公開 6 首單曲 全專輯將 34 首原創曲、11/19 遊戲同步推出",
-  "author": "as159357",
-  "time": "09-19 13:20",
-  "replies": "3",
-  "source": "Bahamut",
-  "game": "GTA 6",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117742",
   "blurb": "外連巴哈討論串。不轉載全文。",
   "time_relative": true
  }
