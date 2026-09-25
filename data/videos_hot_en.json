@@ -5,7 +5,7 @@
   "title": "Grand Theft Auto VI: An Extended Look",
   "channel": "Rockstar Games",
   "url": "https://www.youtube.com/watch?v=tJbzMqJGH4k",
-  "views": 29057765,
+  "views": 29096868,
   "date": "2026-08-28",
   "lang": "en",
   "game": "GTA 6"
@@ -16,7 +16,7 @@
   "title": "Grand Theft Auto VI: An Extended Look — Now Playing",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=MJOrsRRa9GM",
-  "views": 8335600,
+  "views": 8358795,
   "date": "2026-08-28",
   "lang": "en",
   "game": "GTA 6"
@@ -27,8 +27,19 @@
   "title": "Grand Theft Auto VI: An Extended Look — Now Playing",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=53C6gUqRpK4",
-  "views": 2685450,
+  "views": 2690295,
   "date": "2026-08-28",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "ULM2OIj5o0I",
+  "video_id": "ULM2OIj5o0I",
+  "title": "VFX Artists Breakdown GTA 6's IMPOSSIBLE Graphics",
+  "channel": "Corridor Crew",
+  "url": "https://www.youtube.com/watch?v=ULM2OIj5o0I",
+  "views": 2285095,
+  "date": "2026-09-20",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -38,7 +49,7 @@
   "title": "Grand Theft Auto VI: An Extended Look — Now Playing",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=mAfR_ybf5WM",
-  "views": 1611967,
+  "views": 1615521,
   "date": "2026-08-28",
   "lang": "en",
   "game": "GTA 6"
@@ -49,8 +60,30 @@
   "title": "Grand Theft Auto VI: An Extended Look — Now Playing",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=GVTE_MuInQg",
-  "views": 1378572,
+  "views": 1382117,
   "date": "2026-08-28",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "RrZ72p_hCEU",
+  "video_id": "RrZ72p_hCEU",
+  "title": "GTA 6: Rockstar Just Started Teasing Something Big...",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=RrZ72p_hCEU",
+  "views": 1178368,
+  "date": "2026-09-16",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "D38tWHdHTDM",
+  "video_id": "D38tWHdHTDM",
+  "title": "I Added GTA 6 Features to GTA 5",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=D38tWHdHTDM",
+  "views": 981588,
+  "date": "2026-09-18",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -60,53 +93,20 @@
   "title": "Grand Theft Auto VI: An Extended Look — Now Playing",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=L-9NI3mHZVo",
-  "views": 924979,
+  "views": 926754,
   "date": "2026-08-28",
   "lang": "en",
   "game": "GTA 6"
  },
  {
-  "id": "QvgM-Jm9JOc",
-  "video_id": "QvgM-Jm9JOc",
-  "title": "GTA 6 NEW TRAILER REVEAL *JYNXZI REACTS*",
-  "channel": "Jynxzi Live",
-  "url": "https://www.youtube.com/watch?v=QvgM-Jm9JOc",
-  "views": 636965,
-  "date": "2026-08-27",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "cxYhQg3fV8k",
-  "video_id": "cxYhQg3fV8k",
-  "title": "150 RARE Details You Missed in the GTA 6 Gameplay",
-  "channel": "Bombastic",
-  "url": "https://www.youtube.com/watch?v=cxYhQg3fV8k",
-  "views": 492734,
-  "date": "2026-08-30",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "Xzxv75FjMJk",
-  "video_id": "Xzxv75FjMJk",
-  "title": "Grand Theft Auto VI: An Extended Look — Now Playing",
+  "id": "OV2ep0NatC4",
+  "video_id": "OV2ep0NatC4",
+  "title": "Ned Luke's Doing Wonders! - Weekly Updates #gta5 #gtav #gtaonline",
   "channel": "",
-  "url": "https://www.youtube.com/watch?v=Xzxv75FjMJk",
-  "views": 443185,
-  "date": "2026-08-28",
+  "url": "https://www.youtube.com/watch?v=OV2ep0NatC4",
+  "views": 639184,
+  "date": "2026-09-24",
   "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "5WBehl0SZfM",
-  "video_id": "5WBehl0SZfM",
-  "title": "You’re Not Ready for What GTA 6’s RAGE Engine Can Do",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=5WBehl0SZfM",
-  "views": 147966,
-  "date": "2026-09-18",
-  "lang": "en",
-  "game": "GTA 6"
+  "game": "GTA Online"
  }
 ]
