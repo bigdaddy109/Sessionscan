@@ -1,7 +1,19 @@
 [
  {
-  "id": "cc0467c0e2aca824999707ec6d9b1726",
+  "id": "3640d9ee349ba7059d273a222bf6636d",
   "rank": 1,
+  "title": "【情報】《GTA6》將與NBA邁阿密熱火隊夢幻聯動！",
+  "author": "PapayaApple",
+  "time": "2026-10-03 02:40",
+  "replies": "0",
+  "source": "Bahamut",
+  "game": "GTA 6",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117770",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "cc0467c0e2aca824999707ec6d9b1726",
+  "rank": 2,
   "title": "【情報】【GTA Online 本週更新】萬聖節開季！殺人狂3倍＋事務所合約再送50萬，T恤不領就沒了",
   "author": "gta5weekly",
   "time": "2026-10-01 21:03",
@@ -13,7 +25,7 @@
  },
  {
   "id": "a7e93bed8836af625c58631d96a3c69c",
-  "rank": 2,
+  "rank": 3,
   "title": "【閒聊】賭場的空窗期,這能轉嗎...?",
   "author": "prcheng",
   "time": "2026-10-01 16:48",
@@ -25,7 +37,7 @@
  },
  {
   "id": "621d3313967de1878b7b2fb176797c05",
-  "rank": 3,
+  "rank": 4,
   "title": "【問題】奪寶行動,有可能出現完全沒線索的BUG嗎?",
   "author": "prcheng",
   "time": "2026-10-01 10:13",
@@ -36,56 +48,33 @@
   "blurb": "外連巴哈討論串。不轉載全文。"
  },
  {
-  "id": "d98e4d4caa77e05c52f05e1a2ebf891c",
-  "rank": 4,
-  "title": "【問題】路痴求助:找不到機庫零食區",
-  "author": "prcheng",
-  "time": "2026-10-01 08:40",
-  "replies": "9",
-  "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117765",
-  "blurb": "外連巴哈討論串。不轉載全文。"
- },
- {
   "id": "e4180e9e8d48859574830828b9ab4af8",
   "rank": 5,
   "title": "【情報】GTA ONLINE 活動 (10/1~10/7,萬聖節活動開始,鬼魂拍照,獲得夾克)",
   "author": "ken33890458",
   "time": "2026-10-01 06:54",
-  "replies": "17",
+  "replies": "19",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117766",
   "blurb": "外連巴哈討論串。不轉載全文。"
  },
  {
-  "id": "357ca7455cfccf3a194a9e1d8ae97821",
-  "rank": 6,
-  "title": "【閒聊】事務所尾關：別惹剛斯的小弟們……不然當給你死？",
-  "author": "prcheng",
-  "time": "2026-09-30 23:57",
-  "replies": "10",
-  "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117763",
-  "blurb": "外連巴哈討論串。不轉載全文。"
- },
- {
   "id": "ff6acdc9ef353a492d4cfb2965414877",
-  "rank": 7,
+  "rank": 6,
   "title": "【情報】《GTA 6》Game informer 雜誌訪談 颶風極端環境確認",
   "author": "PapayaApple",
-  "time": "2026-09-30 17:04",
+  "time": "09-30 17:04",
   "replies": "5",
   "source": "Bahamut",
   "game": "GTA 6",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117764",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "616166843d063ca77fa5fff7ebaf2f42",
-  "rank": 8,
+  "rank": 7,
   "title": "【問題】GTA6收藏套組…？",
   "author": "oo7274118",
   "time": "09-28 00:59",
@@ -98,7 +87,7 @@
  },
  {
   "id": "92a3006432643fc06a9383c377e1fdc5",
-  "rank": 9,
+  "rank": 8,
   "title": "【情報】《俠盜獵車手 6》遊戲原聲帶搶先公開 6 首單曲 全專輯將 34 首原創曲、11/19 遊戲同步推出",
   "author": "as159357",
   "time": "09-27 20:31",
@@ -111,7 +100,7 @@
  },
  {
   "id": "5ede056a89d49bc947ecdf0b16405859",
-  "rank": 10,
+  "rank": 9,
   "title": "【問題】關於製作任務一事",
   "author": "red52red1",
   "time": "09-27 12:09",
@@ -119,6 +108,19 @@
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117714",
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
+ },
+ {
+  "id": "a95dd2671784948caad80aed96044009",
+  "rank": 10,
+  "title": "【情報】GTA VI 台區 PS Store售價出爐",
+  "author": "duncan6610",
+  "time": "09-26 11:54",
+  "replies": "28",
+  "source": "Bahamut",
+  "game": "GTA 6",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117730",
   "blurb": "外連巴哈討論串。不轉載全文。",
   "time_relative": true
  }
