@@ -2,9 +2,9 @@
 
 GTA 5／GTA Online／GTA 6 靜態情報站。繁體中文為主。不含 GTA 4。不含 RDO。與其他同名 App 無關。
 
-線上版：https://bigdaddy109.github.io/Sessionscan/
+線上版：https://sessionscan.net/（GitHub Pages 自訂網域；github.io 部署後會轉址）
 
-換自訂網域時，一併改 `index.html` 的 canonical／og:url、`public/robots.txt` 的 Sitemap、以及 `public/sitemap.xml` 的 `<loc>`。
+換自訂網域時，一併改根目錄與 `public/CNAME`、`src/cardShare.js` 的 `CARD_SITE_BASE`、`index.html` 的 canonical／og:url、`public/robots.txt` 的 Sitemap、以及 `public/sitemap.xml` 的 `<loc>`。
 
 ## 程式與資料分開
 
