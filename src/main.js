@@ -662,6 +662,7 @@ function applyHash({ scroll = false } = {}) {
 
 function switchView(name, { write = true } = {}) {
   if (name !== "search") state.activeTab = name;
+  $$(".card-flash").forEach((el) => el.classList.remove("card-flash"));
   $$(".view").forEach((el) => el.classList.add("hidden"));
   const view = $(`#view-${name}`);
   if (view) view.classList.remove("hidden");

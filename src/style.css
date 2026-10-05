@@ -862,12 +862,22 @@ main {
 
 [data-card].card-flash {
   border-color: var(--teal);
-  box-shadow: 0 0 0 2px rgba(0, 232, 209, 0.55), 0 0 28px rgba(255, 45, 149, 0.28);
+  box-shadow:
+    inset 0 0 0 2px rgba(0, 232, 209, 0.85),
+    inset 0 0 36px rgba(0, 232, 209, 0.22);
   animation: card-flash 1.8s ease;
 }
 @keyframes card-flash {
-  0% { box-shadow: 0 0 0 3px rgba(0, 232, 209, 0.85), 0 0 36px rgba(0, 232, 209, 0.45); }
-  100% { box-shadow: 0 0 0 0 transparent; }
+  0% {
+    box-shadow:
+      inset 0 0 0 3px rgba(0, 232, 209, 1),
+      inset 0 0 48px rgba(0, 232, 209, 0.4);
+  }
+  100% {
+    box-shadow:
+      inset 0 0 0 0 transparent,
+      inset 0 0 0 transparent;
+  }
 }
 
 .slot-card {
