@@ -296,9 +296,12 @@ class SearchAliasTests(unittest.TestCase):
         magic = "EACO" + "WE6cHCI"
         self.assertNotIn(magic, js)
         self.assertNotIn(magic, html)
-        self.assertIn("TAB_TO_HASH", js)
-        self.assertIn('shorts: "new"', js)
+        share = (ROOT / "src" / "cardShare.js").read_text(encoding="utf-8")
+        self.assertIn("TAB_TO_HASH", js + share)
+        self.assertIn('shorts: "new"', js + share)
         self.assertIn("location.hash", js)
+        self.assertIn("parseHash", js)
+        self.assertIn("v=", share)
         self.assertIn("此來源暫停", js)
         self.assertNotIn(magic, (ROOT / "scraper.py").read_text(encoding="utf-8"))
 
@@ -497,6 +500,23 @@ class SearchAliasTests(unittest.TestCase):
         self.assertNotRegex(css, r"\.hero[^{]*\{[^}]*min-height:\s*100vh")
         self.assertNotRegex(css, r"\.cta-grid[^{]*\{[^}]*min-height:\s*100vh")
         self.assertNotRegex(css, r"\.cta-card[^{]*\{[^}]*min-height:\s*100vh")
+
+    def test_card_share_ids_and_hash_parse(self):
+        import subprocess
+
+        js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
+        share = (ROOT / "src" / "cardShare.js").read_text(encoding="utf-8")
+        css = (ROOT / "src" / "style.css").read_text(encoding="utf-8")
+        self.assertIn("cardShare.js", js)
+        self.assertIn("data-card-id", js)
+        self.assertIn("card-share", js + css)
+        self.assertIn("x.com/intent/post", share)
+        self.assertIn("via @sessionscan", share)
+        self.assertIn("分享到 X", share)
+        self.assertIn("Share to X", share)
+        self.assertIn("Xでシェア", share)
+        self.assertNotIn("scraper.py", share)
+        subprocess.check_call(["node", str(ROOT / "tests" / "test_card_share.mjs")], cwd=ROOT)
 
     def test_shorts_default_grid_drops_ko_and_js_filters(self):
         import subprocess

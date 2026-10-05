@@ -7,6 +7,7 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { isThisWeekJob, THIS_WEEK_MAX, withDisplayRanks } from "../src/thisWeek.js";
+import { cardActionsHtml, cardAttrs } from "../src/cardShare.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -62,7 +63,8 @@ function ownedShort(data) {
 
 function jobCard(job) {
   const date = job.updated ? `<span>⏱ ${esc(job.updated)}</span>` : "";
-  return `<article class="job-card" data-static-job data-card>
+  return `<article class="job-card" data-static-job ${cardAttrs(job)}>
+      ${cardActionsHtml(job, "jobs")}
       <div class="rank">${esc(job.rank)}</div>
       <h3><a href="${esc(job.url)}" target="_blank" rel="noopener noreferrer">${esc(job.title)}</a></h3>
       <div class="card-meta"><span class="tag">${esc(job.source || "")}</span>${date}</div>

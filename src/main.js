@@ -1,6 +1,15 @@
 import { THIS_WEEK_MAX, isOwnedShortThisWeek, isThisWeekJob, withDisplayRanks } from "./thisWeek.js";
 import { filterOtherShorts } from "./shortsFilter.js";
 import { bahaAbsTime, HOT_STALE_HINT, isHotSnapshotStale, isRelativeForumTime, parseSnapshotNow } from "./bahaTime.js";
+import {
+  TAB_TO_HASH,
+  cardActionsHtml,
+  cardAttrs,
+  cardId,
+  findCardLocation,
+  parseHash,
+  uiCopy,
+} from "./cardShare.js";
 
 const SOURCE_HINTS = {
   gtabase: "GTABase 本週賺錢與工作：每週更新、獎勵、折扣。卡片只外連，不轉載全文。",
@@ -50,7 +59,8 @@ function sampleBadge() {
 
 function jobCard(item) {
   return `
-    <article class="job-card" data-card>
+    <article class="job-card" ${cardAttrs(item)}>
+      ${cardActionsHtml(item, "jobs")}
       <div class="rank">${esc(item.rank)}</div>
       <h3><a href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a></h3>
       <div class="card-meta">
@@ -63,7 +73,7 @@ function jobCard(item) {
     </article>`;
 }
 
-function videoCard(v, rank, extraClass) {
+function videoCard(v, rank, extraClass, tab = "hot") {
   const id = v.video_id;
   const thumb = `https://i.ytimg.com/vi/${encodeURIComponent(id)}/mqdefault.jpg`;
   const lang = v.lang === "zh" ? "中文" : v.lang === "ja" ? "日文" : v.lang === "ko" ? "韓文" : "EN";
@@ -72,14 +82,17 @@ function videoCard(v, rank, extraClass) {
     ? `<p class="blurb"><a href="${esc(v.channel_url || "https://www.youtube.com/@sessionscan")}" target="_blank" rel="noopener noreferrer">SessionScan 頻道 @sessionscan ↗</a></p>`
     : "";
   return `
-    <article class="${cls}" data-card>
+    <article class="${cls}" ${cardAttrs(v)}>
       <a class="thumb-link" href="${esc(v.url)}" target="_blank" rel="noopener noreferrer">
         ${rank != null ? `<div class="rank">${rank}</div>` : ""}
         <img class="thumb" src="${thumb}" alt="" loading="lazy" />
         <div class="play" aria-hidden="true"><span>▶</span></div>
       </a>
       <div class="video-info">
-        <h3><a href="${esc(v.url)}" target="_blank" rel="noopener noreferrer">${esc(v.title)}</a></h3>
+        <div class="video-info-top">
+          <h3><a href="${esc(v.url)}" target="_blank" rel="noopener noreferrer">${esc(v.title)}</a></h3>
+          ${cardActionsHtml(v, tab)}
+        </div>
         <div class="card-meta">
           ${sampleBadge()}
           ${v.owned ? `<span class="tag">SessionScan</span>` : ""}
@@ -127,13 +140,16 @@ function sessionScanSlot(slot) {
     const embed = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`;
     const lang = short.lang === "zh" ? "中文" : short.lang === "ja" ? "日文" : short.lang === "ko" ? "韓文" : "EN";
     return `
-    <article class="video-card owned-short" data-card>
+    <article class="video-card owned-short" ${cardAttrs(short)}>
       <div class="thumb-link embed-wrap">
         <div class="rank">1</div>
         <iframe src="${esc(embed)}" title="${esc(short.title || "SessionScan Short")}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
       </div>
       <div class="video-info">
-        <h3>${esc(short.title || "SessionScan Short")}</h3>
+        <div class="video-info-top">
+          <h3>${esc(short.title || "SessionScan Short")}</h3>
+          ${cardActionsHtml(short, "new")}
+        </div>
         <div class="card-meta">
           ${sampleBadge()}
           <span class="tag">SessionScan</span>
@@ -187,7 +203,8 @@ function forumTimeMeta(item) {
 
 function threadCard(item) {
   return `
-    <article class="thread-item" data-card>
+    <article class="thread-item" ${cardAttrs(item)}>
+      ${cardActionsHtml(item, "forum")}
       <div class="rank">${esc(item.rank)}</div>
       <h3><a href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a></h3>
       <div class="card-meta">
@@ -226,7 +243,8 @@ function tweetCard(tw) {
     ? `<p class="blurb"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">外連原文 / 帳號 ↗</a></p>`
     : `<p class="blurb">帳號未解析</p>`;
   return `
-    <article class="tweet-item" data-card>
+    <article class="tweet-item" ${cardAttrs(tw)}>
+      ${cardActionsHtml(tw, "x")}
       <div class="tweet-head">
         ${nameEl}
         ${handleEl}
@@ -341,7 +359,7 @@ function renderNew() {
     if (v.lang === "ko") return false;
     return true;
   });
-  const cards = others.map((v, i) => videoCard(v, i + 2)).join("");
+  const cards = others.map((v, i) => videoCard(v, i + 2, "", "new")).join("");
   $("#newGrid").innerHTML = slot + (cards || `<p class="empty-msg">${isLiveData(state.data) ? "尚無他人當紅 Short，等待下次掃描。" : "尚無範例 Short。"}</p>`);
 }
 
@@ -454,9 +472,6 @@ function renderAll() {
     : `爬蟲狀態：未啟用 · 範例快照 ${meta.snapshot_date || ""}`;
 }
 
-const TAB_TO_HASH = { jobs: "jobs", hot: "hot", new: "shorts", forum: "forum", x: "x" };
-const HASH_TO_TAB = { jobs: "jobs", hot: "hot", shorts: "new", new: "new", forum: "forum", x: "x" };
-
 function desiredHash() {
   const q = $("#searchInput")?.value.trim() || "";
   const searchView = $("#view-search");
@@ -547,28 +562,107 @@ function originalPillForClone(view, pill) {
   return null;
 }
 
-function applyHash({ scroll = false } = {}) {
-  const raw = (location.hash || "").replace(/^#/, "");
-  let tab = null;
-  let q = "";
-  for (const part of raw.split("&").filter(Boolean)) {
-    if (part.startsWith("q=")) q = decodeURIComponent(part.slice(2).replace(/\+/g, " "));
-    else if (HASH_TO_TAB[part]) tab = HASH_TO_TAB[part];
+function jobVisibleByDefault(item, jobsSource) {
+  const raw = state.data?.[`jobs_${jobsSource}`] || [];
+  const visible = raw.filter((it) => isThisWeekJob(it)).slice(0, THIS_WEEK_MAX);
+  const id = cardId(item);
+  return Boolean(id && visible.some((it) => cardId(it) === id));
+}
+
+function locateCard(id, preferTab) {
+  const loc = findCardLocation(state.data, id, preferTab);
+  if (!loc) return null;
+  if (loc.tab === "x") {
+    if (isPlaceholderXTweet(loc.item)) return null;
+    if (loc.tweetsLang === "zh" && !usableZhTweet(loc.item)) return null;
   }
-  if (!tab && !q && raw.startsWith("q=")) q = decodeURIComponent(raw.slice(2).replace(/\+/g, " "));
-  if (q) {
+  if (loc.tab === "new" && !loc.owned) {
+    if (loc.item?.lang === "ko") return null;
+    const owned = state.data?.sessionscan_slot?.short?.video_id;
+    if (owned && loc.item?.video_id === owned) return null;
+    const others = filterOtherShorts(state.data?.videos_shorts || []);
+    if (!others.some((v) => cardId(v) === loc.id)) return null;
+  }
+  if (loc.tab === "new" && loc.owned && !isOwnedShortThisWeek(loc.item)) return null;
+  return loc;
+}
+
+function syncFilterPills() {
+  $$('.pill[data-source]').forEach((p) => p.classList.toggle("active", p.dataset.source === state.jobsSource));
+  $$('.pill[data-forum]').forEach((p) => p.classList.toggle("active", p.dataset.forum === state.forumSource));
+  $$("#view-hot .pill[data-lang]").forEach((p) => p.classList.toggle("active", p.dataset.lang === state.hotLang));
+  $$("#view-x .pill[data-lang]").forEach((p) => p.classList.toggle("active", p.dataset.lang === state.tweetsLang));
+  $$('.pill[data-jobs-range="older"]').forEach((p) => {
+    p.classList.toggle("active", state.showOlderJobs);
+    p.setAttribute("aria-pressed", state.showOlderJobs ? "true" : "false");
+  });
+}
+
+function applyCardLocation(loc) {
+  if (loc.tab === "jobs") {
+    if (loc.jobsSource) state.jobsSource = loc.jobsSource;
+    if (!jobVisibleByDefault(loc.item, loc.jobsSource)) state.showOlderJobs = true;
+  } else if (loc.tab === "hot" && loc.hotLang) {
+    state.hotLang = loc.hotLang;
+  } else if (loc.tab === "forum" && loc.forumSource) {
+    state.forumSource = loc.forumSource;
+  } else if (loc.tab === "x" && loc.tweetsLang) {
+    state.tweetsLang = loc.tweetsLang;
+  }
+  syncFilterPills();
+  if (loc.tab === "jobs") renderJobs();
+  else if (loc.tab === "hot") renderHot();
+  else if (loc.tab === "new") renderNew();
+  else if (loc.tab === "forum") renderForum();
+  else if (loc.tab === "x") renderTweets();
+}
+
+function highlightCard(id) {
+  if (!id) return false;
+  const root = activeViewEl() || document;
+  let el = null;
+  try {
+    el = root.querySelector(`[data-card-id="${CSS.escape(id)}"]`);
+  } catch {
+    el = root.querySelector(`[data-card-id="${id}"]`);
+  }
+  if (!el) return false;
+  const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  el.classList.remove("card-flash");
+  const scroll = () => {
+    el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+    el.classList.add("card-flash");
+    const clear = () => el.classList.remove("card-flash");
+    el.addEventListener("animationend", clear, { once: true });
+    setTimeout(clear, 2200);
+  };
+  requestAnimationFrame(() => requestAnimationFrame(scroll));
+  return true;
+}
+
+function applyHash({ scroll = false } = {}) {
+  const parsed = parseHash(location.hash);
+  if (parsed.q) {
     const input = $("#searchInput");
-    if (input) input.value = q;
+    if (input) input.value = parsed.q;
     setSearchExpanded(true);
-    doSearch(q);
+    doSearch(parsed.q);
     return;
   }
-  switchView(tab || state.activeTab || "jobs", { write: false });
+  const loc = parsed.v ? locateCard(parsed.v, parsed.tab) : null;
+  if (loc) {
+    applyCardLocation(loc);
+    switchView(loc.tab, { write: false });
+    highlightCard(loc.id);
+    return;
+  }
+  switchView(parsed.tab || state.activeTab || "jobs", { write: false });
   if (scroll) $("#main")?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function switchView(name, { write = true } = {}) {
   if (name !== "search") state.activeTab = name;
+  $$(".card-flash").forEach((el) => el.classList.remove("card-flash"));
   $$(".view").forEach((el) => el.classList.add("hidden"));
   const view = $(`#view-${name}`);
   if (view) view.classList.remove("hidden");
@@ -678,7 +772,7 @@ function doSearch(raw) {
   let html = "";
   if (r.jobs.length) html += `<h3 class="group-title">賺錢與工作（${r.jobs.length}）</h3>${r.jobs.map(jobCard).join("")}`;
   if (r.hot.length) html += `<h3 class="group-title">熱門影片（${r.hot.length}）</h3><div class="video-grid">${r.hot.map((v) => videoCard(v)).join("")}</div>`;
-  if (r.fresh.length) html += `<h3 class="group-title">當紅 Short（${r.fresh.length}）</h3><div class="video-grid">${r.fresh.map((v) => videoCard(v)).join("")}</div>`;
+  if (r.fresh.length) html += `<h3 class="group-title">當紅 Short（${r.fresh.length}）</h3><div class="video-grid">${r.fresh.map((v) => videoCard(v, null, "", "new")).join("")}</div>`;
   if (r.slot) html += `<h3 class="group-title">SessionScan Short</h3>${sessionScanSlot(state.data.sessionscan_slot)}`;
   if (r.forum.length) html += `<h3 class="group-title">論壇（${r.forum.length}）</h3>${r.forum.map(threadCard).join("")}`;
   if (r.tweets.length) html += `<h3 class="group-title">X / Twitter（${r.tweets.length}）</h3>${r.tweets.map(tweetCard).join("")}`;
@@ -752,6 +846,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
   document.addEventListener("click", (e) => {
+    const copyBtn = e.target.closest(".card-copy");
+    if (copyBtn) {
+      const link = copyBtn.dataset.copy || "";
+      if (!link) return;
+      const labels = uiCopy();
+      const done = () => {
+        copyBtn.classList.add("is-copied");
+        copyBtn.setAttribute("aria-label", labels.copied);
+        setTimeout(() => {
+          copyBtn.classList.remove("is-copied");
+          copyBtn.setAttribute("aria-label", labels.copy);
+        }, 1600);
+      };
+      if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(link).then(done).catch(() => {});
+      }
+      return;
+    }
     const pill = e.target.closest(".pill");
     if (!pill || pill.disabled) return;
     if (pill.dataset.jobsRange === "older") {
