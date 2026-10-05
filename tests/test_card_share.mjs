@@ -117,6 +117,7 @@ if (parseHash("").tab || parseHash("#nope").tab) fail("unknown hash stays empty"
 
 if (cardHash("hot", "yt-5XBMNYmFmTs") !== "hot&v=yt-5XBMNYmFmTs") fail("cardHash format");
 if (cardHash("new", "yt-abcABCabc12") !== "shorts&v=yt-abcABCabc12") fail("new tab hash is shorts");
+if (CARD_SITE_BASE !== "https://sessionscan.net/") fail("canonical share base", CARD_SITE_BASE);
 const link = cardDeepLink("forum", "baha-4737-117691");
 if (link !== `${CARD_SITE_BASE}#forum&v=baha-4737-117691`) fail("deep link", link);
 

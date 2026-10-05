@@ -146,10 +146,10 @@ class SearchAliasTests(unittest.TestCase):
             '<meta name="google-site-verification" content="1vNfyIHQDXh7CFm1hJ4vwXn8XhPCf_FTmqVBcM579vo" />',
             html,
         )
-        self.assertIn('rel="canonical" href="https://bigdaddy109.github.io/Sessionscan/"', html)
-        self.assertIn('property="og:url" content="https://bigdaddy109.github.io/Sessionscan/"', html)
-        self.assertIn('property="og:image" content="https://bigdaddy109.github.io/Sessionscan/og.jpg"', html)
-        self.assertIn('name="twitter:image" content="https://bigdaddy109.github.io/Sessionscan/og.jpg"', html)
+        self.assertIn('rel="canonical" href="https://sessionscan.net/"', html)
+        self.assertIn('property="og:url" content="https://sessionscan.net/"', html)
+        self.assertIn('property="og:image" content="https://sessionscan.net/og.jpg"', html)
+        self.assertIn('name="twitter:image" content="https://sessionscan.net/og.jpg"', html)
         self.assertIn('name="twitter:card" content="summary_large_image"', html)
         og = ROOT / "public" / "og.jpg"
         self.assertTrue(og.is_file())
@@ -157,9 +157,12 @@ class SearchAliasTests(unittest.TestCase):
         self.assertLessEqual(og.stat().st_size, 300 * 1024)
         robots = (ROOT / "public" / "robots.txt").read_text(encoding="utf-8")
         self.assertIn("Allow: /", robots)
-        self.assertIn("https://bigdaddy109.github.io/Sessionscan/sitemap.xml", robots)
+        self.assertIn("https://sessionscan.net/sitemap.xml", robots)
         sitemap = (ROOT / "public" / "sitemap.xml").read_text(encoding="utf-8")
-        self.assertIn("<loc>https://bigdaddy109.github.io/Sessionscan/</loc>", sitemap)
+        self.assertIn("<loc>https://sessionscan.net/</loc>", sitemap)
+        cname = (ROOT / "public" / "CNAME").read_text(encoding="utf-8").strip()
+        self.assertEqual(cname, "sessionscan.net")
+        self.assertEqual((ROOT / "CNAME").read_text(encoding="utf-8").strip(), "sessionscan.net")
         self.assertGreater((ROOT / "public" / "NOTICE").stat().st_size, 50)
 
     def test_live_ign_titles_have_no_recency_crumbs(self):
@@ -321,7 +324,7 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("youtube-nocookie.com/embed/", owned)
         self.assertNotIn("youtube-nocookie.com/embed/", others)
         self.assertIn("i.ytimg.com/vi/", others)
-        self.assertIn('content="https://bigdaddy109.github.io/Sessionscan/og.jpg"', html)
+        self.assertIn('content="https://sessionscan.net/og.jpg"', html)
         self.assertTrue((ROOT / "public" / "og.jpg").is_file())
         self.assertLessEqual((ROOT / "public" / "og.jpg").stat().st_size, 300 * 1024)
 
@@ -346,6 +349,7 @@ class SearchAliasTests(unittest.TestCase):
         import subprocess
         subprocess.check_call(["npm", "run", "build"], cwd=ROOT, stdout=subprocess.DEVNULL)
         built = (ROOT / "dist" / "index.html").read_text(encoding="utf-8")
+        self.assertEqual((ROOT / "dist" / "CNAME").read_text(encoding="utf-8").strip(), "sessionscan.net")
         self.assertIn("<title>SessionScan GTA｜夜掃描</title>", built)
         self.assertIn("載入中 / LOADING", built)
         self.assertNotIn("EXAMPLE DATA", built)

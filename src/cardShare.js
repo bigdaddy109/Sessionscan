@@ -1,6 +1,6 @@
 /** Stable card ids, hash deep-links, and Share-to-X captions. Frontend-only. */
 
-export const CARD_SITE_BASE = "https://bigdaddy109.github.io/Sessionscan/";
+export const CARD_SITE_BASE = "https://sessionscan.net/";
 export const X_INTENT_URL = "https://x.com/intent/post";
 export const X_WEIGHTED_LIMIT = 280;
 export const X_URL_WEIGHT = 23;
