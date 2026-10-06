@@ -6,15 +6,19 @@ import {
   CARD_SITE_BASE,
   X_INTENT_URL,
   X_WEIGHTED_LIMIT,
+  cardActionsHtml,
   cardDeepLink,
   cardHash,
   cardId,
+  cardShareLink,
   cardLocations,
   findCardLocation,
   parseHash,
   shareCaption,
   uiCopy,
   uiLang,
+  videoPagePath,
+  videoPageUrl,
   weightedLen,
   xIntentHref,
   youtubeId,
@@ -120,6 +124,18 @@ if (cardHash("new", "yt-abcABCabc12") !== "shorts&v=yt-abcABCabc12") fail("new t
 if (CARD_SITE_BASE !== "https://sessionscan.net/") fail("canonical share base", CARD_SITE_BASE);
 const link = cardDeepLink("forum", "baha-4737-117691");
 if (link !== `${CARD_SITE_BASE}#forum&v=baha-4737-117691`) fail("deep link", link);
+if (videoPagePath("5XBMNYmFmTs") !== "v/5XBMNYmFmTs/") fail("video path");
+if (videoPageUrl("5XBMNYmFmTs") !== `${CARD_SITE_BASE}v/5XBMNYmFmTs/`) fail("video url");
+if (videoPagePath("nope") || videoPageUrl("tooshortid")) fail("invalid youtube id must not get a page");
+const ytShare = cardShareLink({ video_id: "5XBMNYmFmTs", title: "A" }, "hot");
+if (ytShare !== `${CARD_SITE_BASE}v/5XBMNYmFmTs/`) fail("youtube share goes to static page", ytShare);
+const forumShare = cardShareLink({ url: "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117691", title: "thread" }, "forum");
+if (forumShare !== link) fail("non-video share stays a hash deep link", forumShare);
+const actions = cardActionsHtml({ video_id: "5XBMNYmFmTs", title: "A" }, "hot");
+if (!actions.includes("https://sessionscan.net/v/5XBMNYmFmTs/")) fail("card actions must copy/share the video page");
+if (actions.includes("#hot&amp;v=yt-5XBMNYmFmTs") || actions.includes("#hot&v=yt-5XBMNYmFmTs")) {
+  fail("video card actions should not use the homepage hash");
+}
 
 const zh = uiCopy("zh-Hant");
 const en = uiCopy("en-US");

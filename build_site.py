@@ -37,6 +37,21 @@ LIST_SECTIONS = [
 
 OBJECT_SECTIONS = ["meta", "sessionscan_slot", "ja_video_note"]
 
+YT_ID_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
+YT_FROM_URL = re.compile(
+    r"(?:youtube\.com/(?:watch\?(?:[^#]*?&)?v=|shorts/|embed/|live/)|youtu\.be/)([A-Za-z0-9_-]{11})",
+    re.I,
+)
+VIDEO_LIST_KEYS = [
+    "videos_hot_zh",
+    "videos_hot_en",
+    "videos_hot_ja",
+    "videos_new_zh",
+    "videos_new_en",
+    "videos_new_ja",
+    "videos_shorts",
+]
+
 BAHA_BOARD = "https://forum.gamer.com.tw/B.php?bsn=4737"
 REL_TIME_RE = re.compile(
     r"(?:just\s+now|\d+\s*(?:seconds?|minutes?|hours?|days?|weeks?|months?|years?|[smhdwy])\s+ago)",
@@ -146,6 +161,140 @@ def sanitize_merged(merged):
     return merged
 
 
+def youtube_id(item):
+    if not isinstance(item, dict):
+        return ""
+    vid = str(item.get("video_id") or "").strip()
+    if YT_ID_RE.match(vid):
+        return vid
+    match = YT_FROM_URL.search(str(item.get("url") or ""))
+    return match.group(1) if match else ""
+
+
+def normalize_video(item, extra=None):
+    extra = extra or {}
+    src = item if isinstance(item, dict) else {}
+    merged = {**src, **extra}
+    vid = youtube_id(merged)
+    if not vid:
+        return None
+    kind = str(merged.get("kind") or "").strip()
+    url = str(merged.get("url") or "").strip()
+    if not url:
+        url = f"https://www.youtube.com/shorts/{vid}" if kind == "short" else f"https://www.youtube.com/watch?v={vid}"
+    row = {
+        "video_id": vid,
+        "title": str(merged.get("title") or "").strip(),
+        "channel": str(merged.get("channel") or "").strip(),
+        "url": url,
+        "lang": str(merged.get("lang") or "").strip(),
+        "game": str(merged.get("game") or "").strip(),
+        "date": merged.get("date") or "",
+        "views": merged.get("views"),
+        "kind": kind,
+    }
+    if merged.get("owned"):
+        row["owned"] = True
+    if merged.get("channel_url"):
+        row["channel_url"] = str(merged.get("channel_url"))
+    if merged.get("first_seen"):
+        row["first_seen"] = merged["first_seen"]
+    if merged.get("last_seen"):
+        row["last_seen"] = merged["last_seen"]
+    return row
+
+
+def collect_videos(merged):
+    found = {}
+    if not isinstance(merged, dict):
+        return found
+    for key in VIDEO_LIST_KEYS:
+        for item in merged.get(key) or []:
+            row = normalize_video(item)
+            if row:
+                found[row["video_id"]] = row
+    slot = merged.get("sessionscan_slot") or {}
+    short = slot.get("short") if isinstance(slot, dict) else None
+    if isinstance(short, dict):
+        row = normalize_video(
+            short,
+            extra={
+                "owned": True,
+                "kind": short.get("kind") or "short",
+                "channel": short.get("channel") or "SessionScan",
+                "channel_url": slot.get("channel_url"),
+            },
+        )
+        if row:
+            found[row["video_id"]] = row
+    return found
+
+
+def load_video_archive(path=None):
+    path = Path(path) if path else DATA / "videos_archive.json"
+    raw = {}
+    if path.exists():
+        try:
+            raw = json.loads(path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            log.warning("skip broken video archive %s: %s", path, exc)
+            raw = {}
+    rows = []
+    if isinstance(raw, list):
+        rows = raw
+    elif isinstance(raw, dict):
+        videos = raw.get("videos", raw)
+        if isinstance(videos, dict):
+            rows = list(videos.values())
+        elif isinstance(videos, list):
+            rows = videos
+    found = {}
+    for item in rows:
+        row = normalize_video(item)
+        if row:
+            found[row["video_id"]] = row
+    return found
+
+
+def merge_video_archive(archive, current, now=None):
+    stamp = now or datetime.utcnow().strftime("%Y-%m-%d")
+    out = {vid: dict(row) for vid, row in (archive or {}).items()}
+    for vid, row in (current or {}).items():
+        prev = out.get(vid) or {}
+        merged = dict(prev)
+        for key, value in (row or {}).items():
+            if value is None or value == "":
+                continue
+            merged[key] = value
+        merged["video_id"] = vid
+        merged["first_seen"] = prev.get("first_seen") or stamp
+        merged["last_seen"] = stamp
+        if prev.get("owned") or (row or {}).get("owned"):
+            merged["owned"] = True
+        out[vid] = merged
+    return out
+
+
+def write_video_archive(videos, path=None, updated=None):
+    path = Path(path) if path else DATA / "videos_archive.json"
+    rows = [videos[key] for key in sorted(videos)]
+    payload = {
+        "updated": updated or datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "videos": rows,
+    }
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8")
+    return path
+
+
+def refresh_video_archive(merged, path=None, now=None):
+    current = collect_videos(merged)
+    archive = merge_video_archive(load_video_archive(path), current, now=now)
+    if archive:
+        write_video_archive(archive, path=path)
+    return archive
+
+
 def load_json(name, default):
     path = DATA / f"{name}.json"
     if not path.exists():
@@ -185,8 +334,9 @@ def main():
 
     sanitize_merged(merged)
     out.write_text(json.dumps(merged, ensure_ascii=False, indent=1), encoding="utf-8")
+    archive = refresh_video_archive(merged)
     counts = {k: len(merged[k]) for k in LIST_SECTIONS if merged[k]}
-    log.info("wrote %s %s", out, counts)
+    log.info("wrote %s %s archive=%s", out, counts, len(archive))
 
 
 if __name__ == "__main__":
