@@ -37,6 +37,14 @@ LIST_SECTIONS = [
 
 OBJECT_SECTIONS = ["meta", "sessionscan_slot", "ja_video_note"]
 
+VIDEO_RANK_KEYS = (
+    "videos_hot_zh",
+    "videos_hot_en",
+    "videos_hot_ja",
+    "videos_shorts",
+)
+YT_ID_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
+
 BAHA_BOARD = "https://forum.gamer.com.tw/B.php?bsn=4737"
 REL_TIME_RE = re.compile(
     r"(?:just\s+now|\d+\s*(?:seconds?|minutes?|hours?|days?|weeks?|months?|years?|[smhdwy])\s+ago)",
@@ -146,6 +154,46 @@ def sanitize_merged(merged):
     return merged
 
 
+def video_key(item):
+    if not isinstance(item, dict):
+        return ""
+    vid = str(item.get("video_id") or "").strip()
+    if YT_ID_RE.fullmatch(vid):
+        return vid
+    return ""
+
+
+def extract_rank_prev(old_site):
+    """Map video_id → 1-based list rank from the previous site.json snapshot."""
+    prev = {}
+    if not isinstance(old_site, dict):
+        return prev
+    for key in VIDEO_RANK_KEYS:
+        mapping = {}
+        rows = old_site.get(key) or []
+        if not isinstance(rows, list):
+            continue
+        for i, item in enumerate(rows):
+            vid = video_key(item)
+            if vid:
+                mapping[vid] = i + 1
+        if mapping:
+            prev[key] = mapping
+    return prev
+
+
+def load_previous_site():
+    path = PUBLIC_DATA / "site.json"
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else {}
+    except Exception as exc:
+        log.warning("skip broken previous site.json: %s", exc)
+        return {}
+
+
 def load_json(name, default):
     path = DATA / f"{name}.json"
     if not path.exists():
@@ -176,6 +224,7 @@ def main():
         merged[name] = load_json(name, {})
 
     out = PUBLIC_DATA / "site.json"
+    rank_prev = extract_rank_prev(load_previous_site())
     if not has_real_payload(merged):
         log.warning("no usable scrape payload; keeping previous site.json if present")
         if out.exists():
@@ -184,6 +233,8 @@ def main():
         return
 
     sanitize_merged(merged)
+    if rank_prev:
+        merged["rank_prev"] = rank_prev
     out.write_text(json.dumps(merged, ensure_ascii=False, indent=1), encoding="utf-8")
     counts = {k: len(merged[k]) for k in LIST_SECTIONS if merged[k]}
     log.info("wrote %s %s", out, counts)

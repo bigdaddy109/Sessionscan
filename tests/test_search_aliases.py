@@ -429,8 +429,11 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("THIS_WEEK_MAX", week)
         self.assertNotIn("THIS_WEEK_MAX_AGE_DAYS", week)
         self.assertNotIn("ageCut", week)
-        pick_fn = js.split("function pickOfficialWeekly", 1)[1].split("function gta6ScheduleLine", 1)[0]
+        extras = (ROOT / "src" / "homeExtras.js").read_text(encoding="utf-8")
+        pick_fn = extras.split("export function pickOfficialWeekly", 1)[1].split("export function gta6ScheduleLine", 1)[0]
         self.assertNotIn("isThisWeekJob", pick_fn)
+        self.assertIn("pickOfficialWeekly", js)
+        self.assertIn("homeExtras.js", js)
         site = load_hub()
         titles = [it.get("title", "") + " " + str(it.get("updated", "")) for it in (site.get("jobs_gtabase") or [])]
         self.assertTrue(any("August 27" in t or "2026-08-27" in t for t in titles))
@@ -504,6 +507,33 @@ class SearchAliasTests(unittest.TestCase):
         self.assertNotRegex(css, r"\.hero[^{]*\{[^}]*min-height:\s*100vh")
         self.assertNotRegex(css, r"\.cta-grid[^{]*\{[^}]*min-height:\s*100vh")
         self.assertNotRegex(css, r"\.cta-card[^{]*\{[^}]*min-height:\s*100vh")
+
+    def test_homepage_extras_chrome_and_logic(self):
+        import subprocess
+
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
+        css = (ROOT / "src" / "style.css").read_text(encoding="utf-8")
+        extras = (ROOT / "src" / "homeExtras.js").read_text(encoding="utf-8")
+        build = (ROOT / "build_site.py").read_text(encoding="utf-8")
+        self.assertIn('id="highlightsBar"', html)
+        self.assertIn("本週重點", html)
+        self.assertIn('id="hubStats"', html)
+        self.assertIn("掃描統計", html)
+        self.assertIn('data-sort-for="hot"', html)
+        self.assertIn('data-period-for="hot"', html)
+        self.assertIn('id="hotChannel"', html)
+        self.assertIn("data-play", js)
+        self.assertIn("rankDeltaHtml", js)
+        self.assertIn("filterSortVideos", js)
+        self.assertIn("youtube-nocookie.com/embed/", js)
+        self.assertNotIn("youtube-nocookie.com/embed/", js.split("function videoCard", 1)[1].split("function sessionScanSlot", 1)[0])
+        self.assertIn("extract_rank_prev", build)
+        self.assertIn("rank_prev", extras + build)
+        self.assertIn(".highlights-bar", css)
+        self.assertIn(".rank-delta", css)
+        self.assertIn(".hub-stats", css)
+        subprocess.check_call(["node", str(ROOT / "tests" / "test_home_extras.mjs")], cwd=ROOT)
 
     def test_card_share_ids_and_hash_parse(self):
         import subprocess

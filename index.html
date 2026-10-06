@@ -129,6 +129,14 @@
       <p id="officialBannerBody">本週官方訊號待下次掃描</p>
     </aside>
     <div class="sample-banner" id="dataBanner" role="status"><strong>載入中 / LOADING</strong><span>正在讀取公開來源快照。</span></div>
+    <aside class="highlights-bar" id="highlightsBar">
+      <div class="highlights-kicker"><strong>本週重點</strong><span>THIS WEEK · 快照精選</span></div>
+      <div class="highlights-list" id="highlightsList"><p class="highlights-empty">本週重點載入中</p></div>
+    </aside>
+    <aside class="hub-stats" id="hubStats" hidden>
+      <div class="hub-stats-kicker"><strong>掃描統計</strong><span>STATS · 只計快照數字</span></div>
+      <div class="hub-stats-row" id="hubStatsRow"></div>
+    </aside>
     </div>
     <main id="main">
       <section class="view" id="view-jobs">
@@ -143,12 +151,22 @@
       <section class="view hidden" id="view-hot">
         <div class="view-head"><h2><span>02</span> 近 30 天熱門攻略影片 <em>Hot guides</em></h2><p class="meta-time" data-meta="hot">快照載入中</p></div>
         <p class="source-hint" id="hotHint" hidden></p>
-        <div class="controls"><div class="pill-group" data-lang-for="hot" role="tablist" aria-label="語言"><button class="pill active" data-lang="zh" type="button">中文</button><button class="pill" data-lang="en" type="button">English</button><button class="pill" data-lang="ja" type="button">日本語</button></div></div>
+        <div class="controls video-controls">
+          <div class="pill-group" data-lang-for="hot" role="tablist" aria-label="語言"><button class="pill active" data-lang="zh" type="button">中文</button><button class="pill" data-lang="en" type="button">English</button><button class="pill" data-lang="ja" type="button">日本語</button></div>
+          <div class="pill-group" data-sort-for="hot" role="group" aria-label="排序"><button class="pill active" data-sort="rank" type="button">排名</button><button class="pill" data-sort="views" type="button">觀看</button><button class="pill" data-sort="newest" type="button">最新</button></div>
+          <div class="pill-group" data-period-for="hot" role="group" aria-label="期間"><button class="pill active" data-period="all" type="button">全部</button><button class="pill" data-period="week" type="button">本週</button><button class="pill" data-period="30d" type="button">近 30 天</button></div>
+          <label class="channel-filter pill-group"><span class="sr-only">頻道</span><select id="hotChannel" data-channel-for="hot"><option value="">全部頻道</option></select></label>
+        </div>
         <div class="video-grid" id="hotGrid"></div>
       </section>
       <section class="view hidden" id="view-new">
         <div class="view-head"><h2><span>03</span> 當紅 Short <em>Shorts</em></h2><p class="meta-time" data-meta="new">快照載入中</p></div>
         <p class="source-hint">第一格為 SessionScan 自有 Short，其餘為他人當紅 Short。不含長影片。</p>
+        <div class="controls video-controls">
+          <div class="pill-group" data-sort-for="new" role="group" aria-label="排序"><button class="pill active" data-sort="rank" type="button">排名</button><button class="pill" data-sort="views" type="button">觀看</button><button class="pill" data-sort="newest" type="button">最新</button></div>
+          <div class="pill-group" data-period-for="new" role="group" aria-label="期間"><button class="pill active" data-period="all" type="button">全部</button><button class="pill" data-period="week" type="button">本週</button><button class="pill" data-period="30d" type="button">近 30 天</button></div>
+          <label class="channel-filter pill-group"><span class="sr-only">頻道</span><select id="newChannel" data-channel-for="new"><option value="">全部頻道</option></select></label>
+        </div>
         <div class="video-grid" id="newGrid"></div>
       </section>
       <section class="view hidden" id="view-forum">

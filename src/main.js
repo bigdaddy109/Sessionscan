@@ -10,6 +10,18 @@ import {
   parseHash,
   uiCopy,
 } from "./cardShare.js";
+import {
+  filterSortVideos,
+  gta6ScheduleLine,
+  hubStats,
+  pickOfficialWeekly,
+  rankDelta,
+  rankDeltaHtml,
+  snapshotNow,
+  videoChannels,
+  videoKey,
+  weekHighlights,
+} from "./homeExtras.js";
 
 const SOURCE_HINTS = {
   gtabase: "GTABase 本週賺錢與工作：每週更新、獎勵、折扣。卡片只外連，不轉載全文。",
@@ -33,6 +45,12 @@ const state = {
   activeTab: "jobs",
   hashLock: false,
   showOlderJobs: false,
+  hotSort: "rank",
+  hotChannel: "",
+  hotPeriod: "all",
+  newSort: "rank",
+  newChannel: "",
+  newPeriod: "all",
 };
 
 const $ = (s, root = document) => root.querySelector(s);
@@ -73,7 +91,7 @@ function jobCard(item) {
     </article>`;
 }
 
-function videoCard(v, rank, extraClass, tab = "hot") {
+function videoCard(v, rank, extraClass, tab = "hot", rankKey = "") {
   const id = v.video_id;
   const thumb = `https://i.ytimg.com/vi/${encodeURIComponent(id)}/mqdefault.jpg`;
   const lang = v.lang === "zh" ? "中文" : v.lang === "ja" ? "日文" : v.lang === "ko" ? "韓文" : "EN";
@@ -81,13 +99,17 @@ function videoCard(v, rank, extraClass, tab = "hot") {
   const channelLink = v.owned
     ? `<p class="blurb"><a href="${esc(v.channel_url || "https://www.youtube.com/@sessionscan")}" target="_blank" rel="noopener noreferrer">SessionScan 頻道 @sessionscan ↗</a></p>`
     : "";
+  const delta = rank != null && rankKey
+    ? rankDeltaHtml(rankDelta(videoKey(v), rank, state.data?.rank_prev?.[rankKey]))
+    : "";
   return `
     <article class="${cls}" ${cardAttrs(v)}>
-      <a class="thumb-link" href="${esc(v.url)}" target="_blank" rel="noopener noreferrer">
+      <button type="button" class="thumb-link" data-play="${esc(id)}" aria-label="播放：${esc(v.title)}">
         ${rank != null ? `<div class="rank">${rank}</div>` : ""}
+        ${delta}
         <img class="thumb" src="${thumb}" alt="" loading="lazy" />
         <div class="play" aria-hidden="true"><span>▶</span></div>
-      </a>
+      </button>
       <div class="video-info">
         <div class="video-info-top">
           <h3><a href="${esc(v.url)}" target="_blank" rel="noopener noreferrer">${esc(v.title)}</a></h3>
@@ -138,13 +160,15 @@ function sessionScanSlot(slot) {
       return expiredOwnedSlot(channel, short);
     }
     const embed = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`;
+    const thumb = `https://i.ytimg.com/vi/${encodeURIComponent(id)}/mqdefault.jpg`;
     const lang = short.lang === "zh" ? "中文" : short.lang === "ja" ? "日文" : short.lang === "ko" ? "韓文" : "EN";
     return `
     <article class="video-card owned-short" ${cardAttrs(short)}>
-      <div class="thumb-link embed-wrap">
+      <button type="button" class="thumb-link embed-wrap" data-play="${esc(id)}" data-embed="${esc(embed)}" aria-label="播放：${esc(short.title || "SessionScan Short")}">
         <div class="rank">1</div>
-        <iframe src="${esc(embed)}" title="${esc(short.title || "SessionScan Short")}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-      </div>
+        <img class="thumb" src="${thumb}" alt="" loading="lazy" />
+        <div class="play" aria-hidden="true"><span>▶</span></div>
+      </button>
       <div class="video-info">
         <div class="video-info-top">
           <h3>${esc(short.title || "SessionScan Short")}</h3>
@@ -341,14 +365,28 @@ function renderHotHint() {
 
 function renderHot() {
   renderHotHint();
-  const list = state.data[`videos_hot_${state.hotLang}`] || [];
-  if (state.hotLang === "ja" && !list.length) {
+  const raw = state.data[`videos_hot_${state.hotLang}`] || [];
+  if (state.hotLang === "ja" && !raw.length) {
     $("#hotGrid").innerHTML = jaNote(state.data.ja_video_note);
     return;
   }
-  $("#hotGrid").innerHTML = list.length
-    ? list.map((v, i) => videoCard(v, i + 1)).join("")
-    : `<p class="empty-msg">${isLiveData(state.data) ? "此語言尚無影片，等待下次掃描。" : "此語言尚無範例影片。"}</p>`;
+  const now = snapshotNow(state.data?.meta || {});
+  state.hotChannel = fillChannelSelect($("#hotChannel"), videoChannels(raw), state.hotChannel) || "";
+  const list = filterSortVideos(raw, {
+    sort: state.hotSort,
+    channel: state.hotChannel,
+    period: state.hotPeriod,
+    now,
+  });
+  const rankKey = `videos_hot_${state.hotLang}`;
+  if (list.length) {
+    $("#hotGrid").innerHTML = list.map((v) => videoCard(v, v._rank, "", "hot", rankKey)).join("");
+    return;
+  }
+  const empty = raw.length
+    ? "此條件沒有影片"
+    : (isLiveData(state.data) ? "此語言尚無影片，等待下次掃描。" : "此語言尚無範例影片。");
+  $("#hotGrid").innerHTML = `<p class="empty-msg">${empty}</p>`;
 }
 
 function renderNew() {
@@ -359,8 +397,19 @@ function renderNew() {
     if (v.lang === "ko") return false;
     return true;
   });
-  const cards = others.map((v, i) => videoCard(v, i + 2, "", "new")).join("");
-  $("#newGrid").innerHTML = slot + (cards || `<p class="empty-msg">${isLiveData(state.data) ? "尚無他人當紅 Short，等待下次掃描。" : "尚無範例 Short。"}</p>`);
+  const now = snapshotNow(state.data?.meta || {});
+  state.newChannel = fillChannelSelect($("#newChannel"), videoChannels(others), state.newChannel) || "";
+  const list = filterSortVideos(others, {
+    sort: state.newSort,
+    channel: state.newChannel,
+    period: state.newPeriod,
+    now,
+  });
+  const cards = list.map((v) => videoCard(v, v._rank + 1, "", "new", "videos_shorts")).join("");
+  const empty = others.length && !list.length
+    ? `<p class="empty-msg">此條件沒有 Short</p>`
+    : (cards || `<p class="empty-msg">${isLiveData(state.data) ? "尚無他人當紅 Short，等待下次掃描。" : "尚無範例 Short。"}</p>`);
+  $("#newGrid").innerHTML = slot + empty;
 }
 
 function renderForum() {
@@ -395,39 +444,14 @@ function renderTweets() {
   $("#tweetList").innerHTML = `<p class="empty-msg">${isLiveData(state.data) ? "尚無訊號，等待下次掃描。" : "尚無範例訊號。"}</p>`;
 }
 
-function isWeeklyJobCard(item) {
-  const blob = `${item?.title || ""} ${item?.title_en || ""} ${item?.tags || ""}`.toLowerCase();
-  return /weekly|本週|本周|每週|每周|獎勵|折扣|bonus|discount/.test(blob);
-}
-
-function pickOfficialWeekly(data) {
-  const pools = [
-    ...(data?.jobs_gtabase || []),
-    ...(data?.jobs_ign || []),
-    ...(data?.jobs_wiki || []),
-  ].filter((it) => it && it.url && it.title && isWeeklyJobCard(it));
-  pools.sort((a, b) => {
-    const da = String(a.updated || "");
-    const db = String(b.updated || "");
-    if (da !== db) return db.localeCompare(da);
-    return (a.rank || 99) - (b.rank || 99);
-  });
-  return pools[0] || null;
-}
-
-function gta6ScheduleLine(data) {
-  const blobs = [];
-  for (const key of ["jobs_gtabase", "jobs_ign", "jobs_wiki", "videos_hot_zh", "videos_hot_en", "tweets_zh", "tweets_en"]) {
-    for (const it of data?.[key] || []) {
-      blobs.push(`${it.title || ""} ${it.title_en || ""} ${it.text || ""} ${it.blurb || ""}`);
-    }
-  }
-  const hay = blobs.join("\n");
-  if (!/gta\s*6|gta\s*vi|俠盜獵車手\s*6|grand theft auto\s*(?:6|vi)/i.test(hay)) return "";
-  if (/11\s*月\s*19\s*日/.test(hay) || /november\s*19/i.test(hay)) {
-    return "GTA 6 已公開時程：11 月 19 日";
-  }
-  return "";
+function fillChannelSelect(sel, channels, current) {
+  if (!sel) return;
+  const keep = channels.includes(current) ? current : "";
+  const opts = [`<option value="">全部頻道</option>`]
+    .concat(channels.map((ch) => `<option value="${esc(ch)}"${ch === keep ? " selected" : ""}>${esc(ch)}</option>`));
+  sel.innerHTML = opts.join("");
+  sel.value = keep;
+  return keep;
 }
 
 function renderOfficialBanner() {
@@ -443,6 +467,38 @@ function renderOfficialBanner() {
   el.innerHTML = `<a href="${esc(weekly.url)}" target="_blank" rel="noopener noreferrer">${esc(weekly.title)}</a><span class="official-sub">來源 ${esc(weekly.source || "")}${weekly.updated ? ` · ${esc(weekly.updated)}` : ""}</span>${extra}`;
 }
 
+function renderHighlights() {
+  const host = $("#highlightsList");
+  if (!host) return;
+  const now = snapshotNow(state.data?.meta || {});
+  const items = weekHighlights(state.data || {}, now);
+  if (!items.length) {
+    host.innerHTML = `<p class="highlights-empty">本週重點待下次掃描</p>`;
+    return;
+  }
+  host.innerHTML = items.map((it) => `
+    <button type="button" class="highlight-card" data-jump-tab="${esc(it.tab || "")}" data-jump-id="${esc(it.id || "")}">
+      <span class="highlight-kicker">${esc(it.kicker)}</span>
+      <span class="highlight-title">${esc(it.title)}</span>
+      ${it.meta ? `<span class="highlight-meta">${esc(it.meta)}</span>` : ""}
+    </button>`).join("");
+}
+
+function renderHubStats() {
+  const box = $("#hubStats");
+  const row = $("#hubStatsRow");
+  if (!box || !row) return;
+  const now = snapshotNow(state.data?.meta || {});
+  const stats = hubStats(state.data || {}, now);
+  const chips = [];
+  if (stats.videoCount) chips.push(`<div class="stat-chip"><strong>${stats.videoCount}</strong><span>影片追蹤</span></div>`);
+  if (stats.totalViews != null) chips.push(`<div class="stat-chip"><strong>${esc(fmtViews(stats.totalViews))}</strong><span>總觀看</span></div>`);
+  if (stats.avgViews != null) chips.push(`<div class="stat-chip"><strong>${esc(fmtViews(stats.avgViews))}</strong><span>平均觀看</span></div>`);
+  if (stats.topChannel) chips.push(`<div class="stat-chip"><strong>${esc(stats.topChannel)}</strong><span>本週頻道</span></div>`);
+  row.innerHTML = chips.join("");
+  box.hidden = chips.length === 0;
+}
+
 function renderAll() {
   renderJobs();
   renderHot();
@@ -450,6 +506,8 @@ function renderAll() {
   renderForum();
   renderTweets();
   renderOfficialBanner();
+  renderHighlights();
+  renderHubStats();
   const meta = state.data.meta || {};
   const live = isLiveData(state.data);
   const banner = $("#dataBanner");
@@ -559,6 +617,8 @@ function originalPillForClone(view, pill) {
   if (pill.dataset.forum) return view.querySelector(`.controls .pill[data-forum="${pill.dataset.forum}"]`);
   if (pill.dataset.lang) return view.querySelector(`.controls .pill[data-lang="${pill.dataset.lang}"]`);
   if (pill.dataset.jobsRange) return view.querySelector(`.controls .pill[data-jobs-range="${pill.dataset.jobsRange}"]`);
+  if (pill.dataset.sort) return view.querySelector(`.controls .pill[data-sort="${pill.dataset.sort}"]`);
+  if (pill.dataset.period) return view.querySelector(`.controls .pill[data-period="${pill.dataset.period}"]`);
   return null;
 }
 
@@ -596,6 +656,10 @@ function syncFilterPills() {
     p.classList.toggle("active", state.showOlderJobs);
     p.setAttribute("aria-pressed", state.showOlderJobs ? "true" : "false");
   });
+  $$('#view-hot .pill[data-sort]').forEach((p) => p.classList.toggle("active", p.dataset.sort === state.hotSort));
+  $$('#view-hot .pill[data-period]').forEach((p) => p.classList.toggle("active", p.dataset.period === state.hotPeriod));
+  $$('#view-new .pill[data-sort]').forEach((p) => p.classList.toggle("active", p.dataset.sort === state.newSort));
+  $$('#view-new .pill[data-period]').forEach((p) => p.classList.toggle("active", p.dataset.period === state.newPeriod));
 }
 
 function applyCardLocation(loc) {
@@ -604,6 +668,13 @@ function applyCardLocation(loc) {
     if (!jobVisibleByDefault(loc.item, loc.jobsSource)) state.showOlderJobs = true;
   } else if (loc.tab === "hot" && loc.hotLang) {
     state.hotLang = loc.hotLang;
+    state.hotSort = "rank";
+    state.hotChannel = "";
+    state.hotPeriod = "all";
+  } else if (loc.tab === "new") {
+    state.newSort = "rank";
+    state.newChannel = "";
+    state.newPeriod = "all";
   } else if (loc.tab === "forum" && loc.forumSource) {
     state.forumSource = loc.forumSource;
   } else if (loc.tab === "x" && loc.tweetsLang) {
@@ -846,6 +917,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
   document.addEventListener("click", (e) => {
+    const playBtn = e.target.closest("[data-play]");
+    if (playBtn && !playBtn.classList.contains("is-playing")) {
+      const id = playBtn.dataset.play || "";
+      if (/^[A-Za-z0-9_-]{11}$/.test(id)) {
+        const base = playBtn.dataset.embed || `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`;
+        const src = base.includes("autoplay=") ? base : `${base}${base.includes("?") ? "&" : "?"}autoplay=1`;
+        const title = playBtn.getAttribute("aria-label") || "YouTube";
+        playBtn.classList.add("is-playing");
+        playBtn.innerHTML = `<iframe src="${esc(src)}" title="${esc(title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+      }
+      return;
+    }
+    const jump = e.target.closest("[data-jump-tab]");
+    if (jump) {
+      const tab = jump.dataset.jumpTab || "jobs";
+      const id = jump.dataset.jumpId || "";
+      const loc = id ? locateCard(id, tab) : null;
+      if (loc) {
+        applyCardLocation(loc);
+        switchView(loc.tab);
+        highlightCard(loc.id);
+        $("#main")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        switchView(tab);
+        $("#main")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      return;
+    }
     const copyBtn = e.target.closest(".card-copy");
     if (copyBtn) {
       const link = copyBtn.dataset.copy || "";
@@ -874,6 +973,26 @@ document.addEventListener("DOMContentLoaded", async () => {
       syncChannelMini({ refill: true });
       return;
     }
+    if (pill.dataset.sort) {
+      const which = pill.closest(".pill-group")?.dataset.sortFor;
+      if (which) state[`${which}Sort`] = pill.dataset.sort;
+      pill.closest(".pill-group").querySelectorAll(".pill").forEach((p) => p.classList.remove("active"));
+      pill.classList.add("active");
+      if (which === "hot") renderHot();
+      else if (which === "new") renderNew();
+      syncChannelMini({ refill: true });
+      return;
+    }
+    if (pill.dataset.period) {
+      const which = pill.closest(".pill-group")?.dataset.periodFor;
+      if (which) state[`${which}Period`] = pill.dataset.period;
+      pill.closest(".pill-group").querySelectorAll(".pill").forEach((p) => p.classList.remove("active"));
+      pill.classList.add("active");
+      if (which === "hot") renderHot();
+      else if (which === "new") renderNew();
+      syncChannelMini({ refill: true });
+      return;
+    }
     pill.closest(".pill-group").querySelectorAll(".pill").forEach((p) => p.classList.remove("active"));
     pill.classList.add("active");
     if (pill.dataset.source) {
@@ -888,6 +1007,25 @@ document.addEventListener("DOMContentLoaded", async () => {
       renderHot();
       renderNew();
       renderTweets();
+    }
+    syncChannelMini({ refill: true });
+  });
+  document.addEventListener("change", (e) => {
+    const sel = e.target.closest("select[data-channel-for]");
+    if (!sel) return;
+    const which = sel.dataset.channelFor;
+    const value = sel.value || "";
+    if (which === "hot") {
+      state.hotChannel = value;
+      renderHot();
+    } else if (which === "new") {
+      state.newChannel = value;
+      renderNew();
+    }
+    if (sel.closest("#channelMini")) {
+      const view = activeViewEl();
+      const orig = view?.querySelector(`select[data-channel-for="${which}"]`);
+      if (orig && orig !== sel) orig.value = value;
     }
     syncChannelMini({ refill: true });
   });

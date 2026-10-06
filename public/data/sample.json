@@ -146,6 +146,18 @@
       "views_note": "範例觀看數",
       "url": "https://www.youtube.com/watch?v=kIomnva1jGU",
       "game": "GTA Online"
+    },
+    {
+      "id": "OAbemtpGAew",
+      "video_id": "OAbemtpGAew",
+      "title": "《GTA 6》最新長預告完整解析！新玩法、地圖與劇情細節一次看懂",
+      "channel": "Kim 阿金",
+      "lang": "zh",
+      "date": "2026-08-28",
+      "views": 70714,
+      "views_note": "範例觀看數",
+      "url": "https://www.youtube.com/watch?v=OAbemtpGAew",
+      "game": "GTA 6"
     }
   ],
   "videos_hot_en": [
@@ -442,5 +454,17 @@
         "url": "https://www.youtube.com/results?search_query=GTA%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%20%E9%87%91%E7%AD%96"
       }
     ]
+  },
+  "rank_prev": {
+    "videos_hot_zh": {
+      "5XBMNYmFmTs": 3,
+      "kIomnva1jGU": 1
+    },
+    "videos_hot_en": {
+      "eKXmxGp3Q54": 2,
+      "wEyiMABOLug": 1,
+      "xCbpAX6gXpw": 3,
+      "KxFBm2aiC0I": 4
+    }
   }
 }
