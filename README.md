@@ -4,7 +4,9 @@ GTA 5／GTA Online／GTA 6 靜態情報站。繁體中文為主。不含 GTA 4�
 
 線上版：https://sessionscan.net/（GitHub Pages 自訂網域；github.io 部署後會轉址）
 
-換自訂網域時，一併改根目錄與 `public/CNAME`、`src/cardShare.js` 的 `CARD_SITE_BASE`、`index.html` 的 canonical／og:url、`public/robots.txt` 的 Sitemap、以及 `public/sitemap.xml` 的 `<loc>`。
+換自訂網域時，一併改根目錄與 `public/CNAME`、`src/cardShare.js` 的 `CARD_SITE_BASE`、`index.html` 的 canonical／og:url、`public/robots.txt` 的 Sitemap、以及 `public/sitemap.xml` 的首頁 `<loc>`（建置時 `scripts/generate_video_pages.mjs` 會再把 `/v/{youtubeId}/` 寫進 `dist/sitemap.xml`）。
+
+每支 YouTube 影片有固定靜態頁：`https://sessionscan.net/v/{youtubeId}/`。slug 用資料裡的 11 碼 `video_id`，與首頁卡片 id（`yt-…`）同一來源，日更刷新不會改網址。每日掃描把看過的影片累加進 `data/videos_archive.json`（寫入 `data` branch），影片從首頁列表掉下去後頁面仍在。分享到 X／複製連結對影片卡改指向此頁，並帶 Open Graph／Twitter card（縮圖直連 `i.ytimg.com`）。
 
 ## 程式與資料分開
 
@@ -33,7 +35,7 @@ npm run dev
 Frank 同款資料管線（不是 PoE 皮膚）：
 
 1. GitHub Actions 每天三次 **台北 08:00／15:00／21:00**（UTC `0 0,7,13 * * *`，含週末）在 `main` 跑 `scraper.py`
-2. 先套上 `data` branch 的昨日 JSON，各來源寫入工作樹 `data/*.json`，再由 `build_site.py` 彙整成 `public/data/site.json`（並把上一份 `site.json` 的影片名次寫進 `rank_prev`，給前端 ▲／▼／NEW）
+2. 先套上 `data` branch 的昨日 JSON，各來源寫入工作樹 `data/*.json`，再由 `build_site.py` 彙整成 `public/data/site.json`（並把上一份 `site.json` 的影片名次寫進 `rank_prev`，給前端 ▲／▼／NEW；看過的影片累加進 `data/videos_archive.json`）
 3. 有檔案變化才由 `github-actions[bot]` commit 到 **`data`**（訊息 `daily data update`），**不會**為此在 `main` 開 commit
 4. `data` 或 `main` 有 push 時，Pages workflow 再 `npm run build` 並部署
 

@@ -183,6 +183,27 @@ export function cardDeepLink(tab, id) {
   return `${CARD_SITE_BASE}#${cardHash(tab, id)}`;
 }
 
+/** Stable per-video path. YouTube ids stay put when a card leaves the homepage list. */
+export const VIDEO_PAGE_PREFIX = "v";
+
+export function videoPagePath(youtubeId) {
+  const id = String(youtubeId || "").trim();
+  if (!YT_ID.test(id)) return "";
+  return `${VIDEO_PAGE_PREFIX}/${id}/`;
+}
+
+export function videoPageUrl(youtubeId) {
+  const path = videoPagePath(youtubeId);
+  return path ? `${CARD_SITE_BASE}${path}` : "";
+}
+
+export function cardShareLink(item, tab) {
+  const yt = youtubeId(item);
+  if (yt) return videoPageUrl(yt);
+  const id = cardId(item);
+  return id ? cardDeepLink(tab, id) : "";
+}
+
 export function weightedLen(text) {
   let n = 0;
   for (const ch of String(text || "")) {
@@ -291,7 +312,7 @@ export function cardActionsHtml(item, tab, lang) {
   const id = cardId(item);
   if (!id) return "";
   const copy = uiCopy(lang);
-  const link = cardDeepLink(tab, id);
+  const link = cardShareLink(item, tab) || cardDeepLink(tab, id);
   const href = xIntentHref(shareCaption(cardTitle(item), link, copy.via));
   return `<div class="card-actions">
       <a class="card-share" href="${escAttr(href)}" target="_blank" rel="noopener noreferrer" aria-label="${escAttr(copy.share)}">${SHARE_ICON}</a>

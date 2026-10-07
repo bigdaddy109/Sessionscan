@@ -562,6 +562,57 @@ class BuildSiteTests(unittest.TestCase):
         self.assertEqual(merged["meta"]["scope"], ["GTA 5", "GTA Online", "GTA 6"])
         self.assertIn("RDO", merged["meta"]["excluded"])
 
+    def test_video_archive_keeps_dropped_ids(self):
+        sys.path.insert(0, str(ROOT))
+        import build_site
+
+        current = build_site.collect_videos({
+            "videos_hot_zh": [{
+                "video_id": "5XBMNYmFmTs",
+                "title": "新標題",
+                "channel": "Yu",
+                "url": "https://www.youtube.com/watch?v=5XBMNYmFmTs",
+                "lang": "zh",
+            }],
+            "sessionscan_slot": {
+                "channel_url": "https://www.youtube.com/@sessionscan",
+                "short": {
+                    "video_id": "SsFixture01",
+                    "title": "Owned Short",
+                    "url": "https://www.youtube.com/shorts/SsFixture01",
+                },
+            },
+        })
+        self.assertEqual(set(current), {"5XBMNYmFmTs", "SsFixture01"})
+        self.assertTrue(current["SsFixture01"].get("owned"))
+
+        prev = {
+            "5XBMNYmFmTs": {
+                "video_id": "5XBMNYmFmTs",
+                "title": "舊標題",
+                "first_seen": "2026-01-01",
+            },
+            "kIomnva1jGU": {
+                "video_id": "kIomnva1jGU",
+                "title": "已下榜",
+                "first_seen": "2026-02-02",
+            },
+        }
+        merged = build_site.merge_video_archive(prev, current, now="2026-10-06")
+        self.assertEqual(merged["5XBMNYmFmTs"]["title"], "新標題")
+        self.assertEqual(merged["5XBMNYmFmTs"]["first_seen"], "2026-01-01")
+        self.assertEqual(merged["5XBMNYmFmTs"]["last_seen"], "2026-10-06")
+        self.assertEqual(merged["kIomnva1jGU"]["title"], "已下榜")
+        self.assertNotIn("last_seen", merged["kIomnva1jGU"])
+        self.assertTrue(merged["SsFixture01"]["owned"])
+
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "videos_archive.json"
+            build_site.write_video_archive(merged, path=path, updated="2026-10-06T00:00:00Z")
+            loaded = build_site.load_video_archive(path)
+            self.assertEqual(set(loaded), {"5XBMNYmFmTs", "kIomnva1jGU", "SsFixture01"})
+            self.assertEqual(loaded["kIomnva1jGU"]["title"], "已下榜")
+
 
 if __name__ == "__main__":
     unittest.main()

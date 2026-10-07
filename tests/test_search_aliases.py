@@ -384,7 +384,9 @@ class SearchAliasTests(unittest.TestCase):
             self.assertNotIn("data-static-job", job_list)
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
         self.assertIn('querySelector("[data-static-job]")', js)
-        self.assertIn("inject_static_jobs.mjs", (ROOT / "package.json").read_text(encoding="utf-8"))
+        pkg = (ROOT / "package.json").read_text(encoding="utf-8")
+        self.assertIn("inject_static_jobs.mjs", pkg)
+        self.assertIn("generate_video_pages.mjs", pkg)
 
     def test_opt5_fonts_hero_and_static_jobs(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
@@ -407,6 +409,10 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("public/data/site.json", script)
         self.assertIn("dist/data/site.json", script)
         self.assertNotIn("public/data/sample.json", script)
+        gen = (ROOT / "scripts" / "generate_video_pages.mjs").read_text(encoding="utf-8")
+        self.assertIn("videos_archive.json", gen)
+        self.assertIn("dist/v", gen)
+        self.assertIn("sitemap.xml", gen)
         self.assertIn("Require crawler-visible weekly title", (ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8"))
 
     def test_live_bahamut_never_uses_bare_cphp(self):
@@ -546,11 +552,14 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("card-share", js + css)
         self.assertIn("x.com/intent/post", share)
         self.assertIn("via @sessionscan", share)
+        self.assertIn("videoPageUrl", share)
+        self.assertIn('VIDEO_PAGE_PREFIX = "v"', share)
         self.assertIn("分享到 X", share)
         self.assertIn("Share to X", share)
         self.assertIn("Xでシェア", share)
         self.assertNotIn("scraper.py", share)
         subprocess.check_call(["node", str(ROOT / "tests" / "test_card_share.mjs")], cwd=ROOT)
+        subprocess.check_call(["node", str(ROOT / "tests" / "test_video_pages.mjs")], cwd=ROOT)
 
     def test_shorts_default_grid_drops_ko_and_js_filters(self):
         import subprocess
