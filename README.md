@@ -35,7 +35,7 @@ npm run dev
 Frank 同款資料管線（不是 PoE 皮膚）：
 
 1. GitHub Actions 每天三次 **台北 08:00／15:00／21:00**（UTC `0 0,7,13 * * *`，含週末）在 `main` 跑 `scraper.py`
-2. 先套上 `data` branch 的昨日 JSON，各來源寫入工作樹 `data/*.json`，再由 `build_site.py` 彙整成 `public/data/site.json`
+2. 先套上 `data` branch 的昨日 JSON，各來源寫入工作樹 `data/*.json`，再由 `build_site.py` 彙整成 `public/data/site.json`（並把上一份 `site.json` 的影片名次寫進 `rank_prev`，給前端 ▲／▼／NEW；看過的影片累加進 `data/videos_archive.json`）
 3. 有檔案變化才由 `github-actions[bot]` commit 到 **`data`**（訊息 `daily data update`），**不會**為此在 `main` 開 commit
 4. `data` 或 `main` 有 push 時，Pages workflow 再 `npm run build` 並部署
 

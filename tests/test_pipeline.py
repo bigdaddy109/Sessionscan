@@ -524,6 +524,24 @@ class BuildSiteTests(unittest.TestCase):
         self.assertEqual(merged["jobs_ign"][0]["title"], "GTA Online Weekly Bonuses and Discounts")
         self.assertEqual(merged["forum_bahamut"][0]["url"], "https://forum.gamer.com.tw/B.php?bsn=4737")
 
+    def test_extract_rank_prev_from_previous_site(self):
+        sys.path.insert(0, str(ROOT))
+        import build_site
+
+        prev = build_site.extract_rank_prev({
+            "videos_hot_zh": [
+                {"video_id": "aaaaaaaaaaa", "title": "A"},
+                {"video_id": "bbbbbbbbbbb", "title": "B"},
+            ],
+            "videos_shorts": [{"video_id": "shortshort1", "title": "S"}],
+            "jobs_gtabase": [{"title": "not a video"}],
+        })
+        self.assertEqual(prev["videos_hot_zh"]["aaaaaaaaaaa"], 1)
+        self.assertEqual(prev["videos_hot_zh"]["bbbbbbbbbbb"], 2)
+        self.assertEqual(prev["videos_shorts"]["shortshort1"], 1)
+        self.assertNotIn("jobs_gtabase", prev)
+        self.assertEqual(build_site.extract_rank_prev({}), {})
+
     def test_sanitize_drops_rdo_cards(self):
         sys.path.insert(0, str(ROOT))
         import build_site
