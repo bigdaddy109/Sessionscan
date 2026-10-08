@@ -1,11 +1,35 @@
 [
  {
-  "id": "b7a9ae1f7469806dc90beab39e747596",
+  "id": "31bf36f3b412748a03c960dd4dfaf065",
   "rank": 1,
+  "title": "【情報】GTA ONLINE 活動 (10/8~10/14,萬聖節活動第2週,完成5個電話殺機,獲得50萬及免費T恤)",
+  "author": "ken33890458",
+  "time": "2026-10-08 12:11",
+  "replies": "4",
+  "source": "Bahamut",
+  "game": "GTA Online",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117778",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "616166843d063ca77fa5fff7ebaf2f42",
+  "rank": 2,
+  "title": "【問題】GTA6收藏套組…？",
+  "author": "oo7274118",
+  "time": "2026-10-08 12:07",
+  "replies": "19",
+  "source": "Bahamut",
+  "game": "GTA Online",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117760",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "b7a9ae1f7469806dc90beab39e747596",
+  "rank": 3,
   "title": "【討論】GTA6 也快發售了",
   "author": "URSSR",
-  "time": "2026-10-07 13:13",
-  "replies": "2",
+  "time": "2026-10-07 12:50",
+  "replies": "3",
   "source": "Bahamut",
   "game": "GTA 6",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117777",
@@ -13,7 +37,7 @@
  },
  {
   "id": "b1662785b588f26dd1e64c5fd3f95ce5",
-  "rank": 2,
+  "rank": 4,
   "title": "【問題】線上一堆bug正常嗎",
   "author": "karta70108",
   "time": "2026-10-06 15:03",
@@ -25,7 +49,7 @@
  },
  {
   "id": "91923c3623a4612dfea8974bab0b5813",
-  "rank": 3,
+  "rank": 5,
   "title": "【問題】異國出口載具可用冥府護衛出現的位置來找嗎",
   "author": "jack898919",
   "time": "2026-10-06 00:25",
@@ -37,43 +61,46 @@
  },
  {
   "id": "5ff7bd4ddd4cd6137d459f0182a3ee6a",
-  "rank": 4,
+  "rank": 6,
   "title": "【問題】卡輸入 請問該怎麼處理",
   "author": "karta70108",
-  "time": "2026-10-05 22:41",
+  "time": "10-05 22:41",
   "replies": "3",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117773",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "163b81d8cad54d30d62d9261aab2388a",
-  "rank": 5,
+  "rank": 7,
   "title": "【情報】《LOVE》雜誌訪談;大女主\"露西亞\"將與\"亞瑟·摩根\"並駕齊驅?",
   "author": "PapayaApple",
-  "time": "2026-10-05 19:39",
-  "replies": "5",
+  "time": "10-05 19:39",
+  "replies": "8",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117772",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "f4e686ca455a245af34582d6d3a13a9f",
-  "rank": 6,
+  "rank": 8,
   "title": "【討論】拉瑪這麼帥",
   "author": "URSSR",
-  "time": "2026-10-05 09:28",
+  "time": "10-05 09:28",
   "replies": "1",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117771",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "3640d9ee349ba7059d273a222bf6636d",
-  "rank": 7,
+  "rank": 9,
   "title": "【情報】《GTA6》將與NBA邁阿密熱火隊夢幻聯動！",
   "author": "PapayaApple",
   "time": "10-03 02:32",
@@ -86,7 +113,7 @@
  },
  {
   "id": "cc0467c0e2aca824999707ec6d9b1726",
-  "rank": 8,
+  "rank": 10,
   "title": "【情報】【GTA Online 本週更新】萬聖節開季！殺人狂3倍＋事務所合約再送50萬，T恤不領就沒了",
   "author": "gta5weekly",
   "time": "10-01 21:03",
@@ -94,32 +121,6 @@
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117769",
-  "blurb": "外連巴哈討論串。不轉載全文。",
-  "time_relative": true
- },
- {
-  "id": "a7e93bed8836af625c58631d96a3c69c",
-  "rank": 9,
-  "title": "【閒聊】賭場的空窗期,這能轉嗎...?",
-  "author": "prcheng",
-  "time": "10-01 16:48",
-  "replies": "1",
-  "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117767",
-  "blurb": "外連巴哈討論串。不轉載全文。",
-  "time_relative": true
- },
- {
-  "id": "621d3313967de1878b7b2fb176797c05",
-  "rank": 10,
-  "title": "【問題】奪寶行動,有可能出現完全沒線索的BUG嗎?",
-  "author": "prcheng",
-  "time": "10-01 10:13",
-  "replies": "3",
-  "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117762",
   "blurb": "外連巴哈討論串。不轉載全文。",
   "time_relative": true
  }
