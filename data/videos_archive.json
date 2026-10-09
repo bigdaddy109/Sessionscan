@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-08T14:24:08Z",
+ "updated": "2026-10-09T04:23:48Z",
  "videos": [
   {
    "video_id": "-N9dvWeogzc",
@@ -23,6 +23,7 @@
    "game": "GTA Online",
    "date": "2026-10-08",
    "views": 7930,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
   },
@@ -47,10 +48,22 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-05",
-   "views": 788281,
+   "views": 795404,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "0eAOyE4hnbs",
+   "title": "GTA 6 - BIGGEST ANNOUNCEMENT YET!",
+   "channel": "T5G",
+   "url": "https://www.youtube.com/watch?v=0eAOyE4hnbs",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-08",
+   "views": 33898,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "1IN2Bhr97Kg",
@@ -63,16 +76,29 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "1_7hdlsww-8",
+   "title": "Free Fire vs GTA v 😱 funny moments 🤣 #gta5 #shorts #funny #gaming",
+   "channel": "Kiran",
+   "url": "https://www.youtube.com/shorts/1_7hdlsww-8",
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short",
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "1da1U2FRRbg",
    "title": "【GTA6発売まで41日前】ハロウィンアプデ第２弾・GTAオンライン",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=1da1U2FRRbg",
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-08",
    "views": 0,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
   },
@@ -103,6 +129,17 @@
    "last_seen": "2026-10-08"
   },
   {
+   "video_id": "2c1ifi4UfBY",
+   "title": "GTA Online (Then vs Now) Part 1 #shorts #gaming #gta #gtaonline",
+   "channel": "flonk_gaming",
+   "url": "https://www.youtube.com/shorts/2c1ifi4UfBY",
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short",
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
    "video_id": "2jHpPgivcvY",
    "title": "gta主角的头撞到车后都会有什么反应？ #gta #gta5 #遊戲頻道",
    "channel": "",
@@ -126,16 +163,18 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "2vkXNvBcqyg",
    "title": "ハロウィン楽しむ＆お金を貯めようの会！目指せ2件目豪邸！オンラインでミッション！PS5【GTA5】",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=2vkXNvBcqyg",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-04",
    "views": 1058,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
   },
@@ -147,10 +186,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-04",
-   "views": 322466,
+   "views": 349105,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "34xAC-c2nUI",
@@ -168,13 +207,15 @@
   {
    "video_id": "46R7v6v9zyQ",
    "title": "【GTA5】新車両ホルス先行解除！今晩の週アップデート速報 2026年9月10日～",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=46R7v6v9zyQ",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-10",
-   "views": 12607,
+   "views": 12613,
+   "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "4vR3qgYtD9Q",
@@ -201,6 +242,17 @@
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-08"
+  },
+  {
+   "video_id": "5tfiBFXSa28",
+   "title": "【GTA5】GTA＋への単月加入と野良アメリカンバイク【第19話】",
+   "url": "https://www.youtube.com/watch?v=5tfiBFXSa28",
+   "lang": "ja",
+   "game": "GTA 5",
+   "date": "2026-09-19",
+   "views": 5011,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "65JV3YTSwNE",
@@ -255,6 +307,17 @@
    "last_seen": "2026-10-08"
   },
   {
+   "video_id": "6uLuo2GXYi0",
+   "title": "GTA 6 Criminal Profiles Explained",
+   "url": "https://www.youtube.com/watch?v=6uLuo2GXYi0",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-08",
+   "views": 2619,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
    "video_id": "7cJMt5WtOYk",
    "title": "I Become A Fake Traffic Bollard And Trolled GTA 5 Cops 🚨💥😂 #gta5",
    "channel": "XP Playz",
@@ -270,11 +333,13 @@
   {
    "video_id": "7xw0gyojYxs",
    "title": "PS5已被徹底攻破？從2幀到流暢運行的背後：我們真能在電腦上玩《GTA 6》嗎？",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=7xw0gyojYxs",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-08",
    "views": 111,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
   },
@@ -299,10 +364,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-04",
-   "views": 3787,
+   "views": 4107,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "ANpj1m2W8tg",
@@ -316,6 +381,30 @@
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-08"
+  },
+  {
+   "video_id": "Afu5tL_24vA",
+   "title": "GTA 6 Reveals More Songs, Radio Stations, and Celebrity DJs - IGN Daily Fix",
+   "channel": "IGN",
+   "url": "https://www.youtube.com/watch?v=Afu5tL_24vA",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-08",
+   "views": 24650,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "Am3c8pZDTRM",
+   "title": "FASTEST Ways to Make MILLIONS NOW in GTA Online! (Get MILLIONS Easy)",
+   "channel": "Fresh Gaming",
+   "url": "https://www.youtube.com/watch?v=Am3c8pZDTRM",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-08",
+   "views": 3879,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "BmuAJqRtPnc",
@@ -333,24 +422,28 @@
   {
    "video_id": "By5YczWTtpc",
    "title": "GTA 6 MAP UPDATE! Fully Interactive Map!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=By5YczWTtpc",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-08",
    "views": 1781,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
   },
   {
    "video_id": "C6Ymq6hnGkE",
    "title": "【GTA5】次週からハロウィンイベント開始！？今晩の週アップデート速報 2026年9月24日～",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=C6Ymq6hnGkE",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-24",
-   "views": 10201,
+   "views": 10213,
+   "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "CnMXgr8Rugs",
@@ -381,22 +474,48 @@
   {
    "video_id": "CvF62Oo_i2Y",
    "title": "LIVE: NEW GTA Online Event Week! Covering ALL New Event Week Details as They Drop",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=CvF62Oo_i2Y",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-08",
    "views": 1386,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
   },
   {
+   "video_id": "DXnq1hf4m24",
+   "title": "IGN dogs rate the new GTA 6 merch",
+   "url": "https://www.youtube.com/watch?v=DXnq1hf4m24",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-08",
+   "views": 9005,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "Dp4EAvxR_94",
+   "title": "GTA5 DLC 載具 佩嘉西 荷魯斯 改裝 Pegassi Horus Customization (Pagani Zonda C12)",
+   "url": "https://www.youtube.com/watch?v=Dp4EAvxR_94",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-10-02",
+   "views": 174,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
    "video_id": "EIlOEB_PudQ",
    "title": "UNLOCK Halloween Vehicle, NEW OUTFITS, Free Cars, MASKS, Money (GTA 5 Online Halloween Update 2026)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=EIlOEB_PudQ",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-08",
    "views": 204,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
   },
@@ -425,6 +544,17 @@
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-08"
+  },
+  {
+   "video_id": "F9RnRw7TsRk",
+   "title": "Not the hot dogs 🌭💀 #gta5 #gtaonline",
+   "channel": "CertifiedMuppet",
+   "url": "https://www.youtube.com/shorts/F9RnRw7TsRk",
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short",
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "G0EZ35VPfTo",
@@ -466,6 +596,17 @@
    "last_seen": "2026-10-08"
   },
   {
+   "video_id": "H8gWBKL0s24",
+   "title": "【GTA5】節約派のカーライフ「イントルーダー」の巻【第17話】",
+   "url": "https://www.youtube.com/watch?v=H8gWBKL0s24",
+   "lang": "ja",
+   "game": "GTA 5",
+   "date": "2026-09-12",
+   "views": 7708,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
    "video_id": "HcQN9ARf4Xo",
    "title": "【速報】GTA6の公式マップ付きGTA6の限定アイテムコレクションが6万円⁉️で発売開始されました",
    "channel": "",
@@ -481,11 +622,13 @@
   {
    "video_id": "Hjkt_s2np94",
    "title": "報酬2倍で稼ぎまくれ！今週は保釈局＆ディスパッチワークの金策が激アツすぎる！【GTA5】【ミロクノ】",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Hjkt_s2np94",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-03",
    "views": 1204,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
   },
@@ -518,22 +661,26 @@
   {
    "video_id": "IW2DeMumXEw",
    "title": "GTA 6 Album Artists Won't Stop Teasing And YouTube Is Now Running GTA 6 Ads...",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=IW2DeMumXEw",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-08",
    "views": 6677,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
   },
   {
    "video_id": "IWOzj_hpqR8",
    "title": "【阿航】GTA5 背叛警隊!? 重返快樂麻場賺大錢! 模擬人生 EP11 | FiveM伺服器 胖海熊RPG",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=IWOzj_hpqR8",
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-09-25",
    "views": 52117,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
   },
@@ -548,7 +695,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "JpnFMyHDS04",
@@ -558,10 +705,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-03",
-   "views": 1790,
+   "views": 1838,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "Jq3n90n2hrc",
@@ -571,10 +718,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-09-20",
-   "views": 381018,
+   "views": 382022,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "JuErTIEA0Bs",
@@ -592,13 +739,38 @@
   {
    "video_id": "KPW8lhvre3E",
    "title": "週任務50萬獎勵＋各種萬聖節活動！GTAOnline Weekly Update",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=KPW8lhvre3E",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-08",
    "views": 146,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
+  },
+  {
+   "video_id": "Ls9fXk2da4w",
+   "title": "GTA 6: NEW INFO - 3 New Screenshots, 6 Radio Stations & On-Foot Radio!",
+   "channel": "TGG",
+   "url": "https://www.youtube.com/watch?v=Ls9fXk2da4w",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-08",
+   "views": 536514,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "MdqoakYy2CM",
+   "title": "【阿杰】GTA 5 徒步環島大結局！最後一個中秋節，我把麥可、崔佛跟小富找來一起烤肉了！｜GTA 5 完結篇",
+   "url": "https://www.youtube.com/watch?v=MdqoakYy2CM",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-09-25",
+   "views": 17581,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "MwcMIKgZ4Gk",
@@ -621,19 +793,21 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-04",
-   "views": 283994,
+   "views": 308807,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "NSI_iDPjwNQ",
    "title": "１時間だけ！ゴーストとなったデビンを見に行こうの会！オンラインでミッション！PS5【GTA5】",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=NSI_iDPjwNQ",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-06",
    "views": 771,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
   },
@@ -651,15 +825,39 @@
    "last_seen": "2026-10-08"
   },
   {
+   "video_id": "Nq_AEKdBEVk",
+   "title": "Kai Cenat Broke His Silence On GTA VI! 👀🤫",
+   "url": "https://www.youtube.com/watch?v=Nq_AEKdBEVk",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-09-29",
+   "views": 418605,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
    "video_id": "OGGpANZKEDU",
    "title": "【GTA5】新車両ホルス全員解除！今晩の週アップデート速報 2026年9月17日～",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=OGGpANZKEDU",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-17",
-   "views": 12840,
+   "views": 12843,
+   "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "PBLUcfIvlKk",
+   "title": "GTA6 COLLECTOR'S EDITION IS WEIRD, ACTIVISION HALO & MORE",
+   "url": "https://www.youtube.com/watch?v=PBLUcfIvlKk",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-09-25",
+   "views": 382444,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "PYfKtBUKIhI",
@@ -669,21 +867,23 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-04",
-   "views": 103,
+   "views": 105,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "QLsUeUnQhrU",
    "title": "Don't Rush Your First GTA 6 Playthrough",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=QLsUeUnQhrU",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-08",
-   "views": 21137,
+   "views": 105172,
+   "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "QVmKXMDEjaw",
@@ -705,6 +905,8 @@
    "url": "https://www.youtube.com/shorts/QeNztVAeQlo",
    "lang": "en",
    "game": "GTA Online",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
@@ -743,22 +945,23 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-09-20",
-   "views": 18177,
+   "views": 18219,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "UskLh1DPE-U",
-   "title": "GTA 6: NEW INFO ARTICLE - More Nudity Info, Mission Design, Map Changes, Safehouses & More",
+   "title": "GTA 6: IGN & Rockstar Reveals New Gameplay Details",
    "channel": "TGG",
    "url": "https://www.youtube.com/watch?v=UskLh1DPE-U",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-07",
-   "views": 571371,
+   "views": 874609,
+   "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "VbjNDsuLeao",
@@ -768,10 +971,21 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-06",
-   "views": 4543,
+   "views": 4784,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "W6hoqeVSQgI",
+   "title": "【GTA5 OL】GTA5線上更新，地堡資產免費送，佩諾跑者最後一周免費送，全新載具荷魯斯上架，西米恩偷偷在賣軍用載具，露西亞同款燃燒瓶限時回歸武器車（9.17-9.24）",
+   "url": "https://www.youtube.com/watch?v=W6hoqeVSQgI",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-09-17",
+   "views": 7304,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "WqKxCjL8OVs",
@@ -785,6 +999,19 @@
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-08"
+  },
+  {
+   "video_id": "XWOBrn69Tzc",
+   "title": "3X Halloween Survival This Week | GTA Online",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/XWOBrn69Tzc",
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short",
+   "owned": true,
+   "channel_url": "https://www.youtube.com/@sessionscan",
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "XXTpOkOqq1A",
@@ -802,22 +1029,37 @@
   {
    "video_id": "Xi5Sqf7hyIs",
    "title": "【08/10/2026萬聖節活動第二週】GTA Online每週最新資訊 [4K]",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Xi5Sqf7hyIs",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-08",
    "views": 60,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
   },
   {
+   "video_id": "XrRQH80OkqA",
+   "title": "【阿杰】同業想買ALPHARD能順利成交嗎？！民宿老闆要求實測接客，開去機場接VIP直奔無敵山莊！｜GTA 5 麥可買車",
+   "url": "https://www.youtube.com/watch?v=XrRQH80OkqA",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-09-28",
+   "views": 23494,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
    "video_id": "Yc7ZQ6ORYII",
    "title": "GTA Online Freemode Shenanigans and More!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Yc7ZQ6ORYII",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-08",
    "views": 6580,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
   },
@@ -843,8 +1085,20 @@
    "game": "GTA Online",
    "date": "2026-10-08",
    "views": 918,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
+  },
+  {
+   "video_id": "_ZBPNTVJSZo",
+   "title": "MS RESPONDS TO XBOX BEING SOLD, GTA6 NEW INFO & MORE",
+   "url": "https://www.youtube.com/watch?v=_ZBPNTVJSZo",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-02",
+   "views": 613510,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "__qmKTqOXbc",
@@ -858,6 +1112,18 @@
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-08"
+  },
+  {
+   "video_id": "_t6rdOQxGD0",
+   "title": "【ライブアーカイブ】GTA ONLINE　GTA+加入状態　屋根無しメサ３下さい　及びソロ稼ぎの日常",
+   "channel": "インドア秘密基地（GTA動画多し）",
+   "url": "https://www.youtube.com/watch?v=_t6rdOQxGD0",
+   "lang": "ja",
+   "game": "GTA Online",
+   "date": "2026-09-27",
+   "views": 2822,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "a5cUNKdUJeQ",
@@ -880,10 +1146,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-03",
-   "views": 210,
+   "views": 216,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "bIQzxpxQjdw",
@@ -901,13 +1167,48 @@
   {
    "video_id": "bLeg9NroQdc",
    "title": "HUGE NEW 25 MINUTES GTA 6 LEAK (Spoiler Free Breakdown)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=bLeg9NroQdc",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-08",
    "views": 3360,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
+  },
+  {
+   "video_id": "bi3RsIKiQYw",
+   "title": "I become a fake bollard tank and trolled gta cops #gta #gtav #gtaonline",
+   "channel": "BISON Gaming",
+   "url": "https://www.youtube.com/shorts/bi3RsIKiQYw",
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short",
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "c3L-ep-drYE",
+   "title": "【GTA Online 本週更新】萬聖節開季！殺人狂3倍＋事務所合約再送50萬，T恤不領就沒了",
+   "url": "https://www.youtube.com/watch?v=c3L-ep-drYE",
+   "lang": "zh",
+   "game": "GTA Online",
+   "date": "2026-10-01",
+   "views": 4391,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "coKJVxr2Lvo",
+   "title": "【GTA Online 本週更新】錯過這週少賺200萬！免費葡萄籽地堡＋佩諾奔馳者最後機會",
+   "url": "https://www.youtube.com/watch?v=coKJVxr2Lvo",
+   "lang": "zh",
+   "game": "GTA Online",
+   "date": "2026-09-17",
+   "views": 8845,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "eBfeykbj8Ew",
@@ -931,6 +1232,7 @@
    "game": "GTA Online",
    "date": "2026-10-08",
    "views": 14036,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
   },
@@ -955,10 +1257,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-01",
-   "views": 15951,
+   "views": 16006,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "glWb1fY6LJs",
@@ -971,7 +1273,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "gpWwWDIdYyM",
@@ -1026,6 +1328,17 @@
    "last_seen": "2026-10-08"
   },
   {
+   "video_id": "i-B4QiW_zvc",
+   "title": "【GTA6】プレイ動画考察③ 武器・アイテムホイールついてなど",
+   "url": "https://www.youtube.com/watch?v=i-B4QiW_zvc",
+   "lang": "ja",
+   "game": "GTA 6",
+   "date": "2026-09-12",
+   "views": 7906,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
    "video_id": "iPKc4VTWIK0",
    "title": "在游戏的竞速比赛中稳拿第一名的方式 #gta #gta5 #遊戲頻道",
    "channel": "",
@@ -1052,6 +1365,17 @@
    "last_seen": "2026-10-07"
   },
   {
+   "video_id": "klc0fQmAL6k",
+   "title": "GTA 6 - How Criminal Profiles Could Change Grand Theft Auto",
+   "url": "https://www.youtube.com/watch?v=klc0fQmAL6k",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-08",
+   "views": 17664,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
    "video_id": "mB6DIw4oG-g",
    "title": "【GTA5】ハロウィンイベント2週目！今晩の週アップデート速報 2026年10月8日～",
    "channel": "まだらのGAME-ch",
@@ -1059,9 +1383,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-08",
-   "views": 5662,
+   "views": 7055,
+   "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "o1Wx0TNLPWo",
@@ -1071,10 +1396,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-07",
-   "views": 507802,
+   "views": 526967,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "oUub52N-Lv0",
@@ -1083,6 +1408,8 @@
    "url": "https://www.youtube.com/shorts/oUub52N-Lv0",
    "lang": "en",
    "game": "GTA 5",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
@@ -1095,10 +1422,21 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-05",
-   "views": 15347,
+   "views": 17090,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "p3GyRvDt5Gk",
+   "title": "【GTA5 OL】GTA5線上更新，夜總會資產免費送，佩諾跑者免費領，名鑽展臺和車友會展臺都是超跑，每周挑戰100萬獎勵，火神機槍驚現武器廂型車（9.24-10.1）",
+   "url": "https://www.youtube.com/watch?v=p3GyRvDt5Gk",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-09-24",
+   "views": 7009,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "pR4K3kat02c",
@@ -1116,13 +1454,26 @@
   {
    "video_id": "pk2Xt9Zg15s",
    "title": "gta5的游戏文件里居然藏着前作的主角模型 #gta #gta5 #遊戲頻道",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=pk2Xt9Zg15s",
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-07",
    "views": 3233,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
+  },
+  {
+   "video_id": "qS2lrZhiQIc",
+   "title": "【阿杰】雙人路邊攔檢追緝高速嫌犯！測速照相拍到狂徒拒檢狂飆，被抓還敢嘴賤嗆警察？！｜GTA 5 警察模擬",
+   "url": "https://www.youtube.com/watch?v=qS2lrZhiQIc",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-09-29",
+   "views": 28593,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "rFZ1Z1rPQQ8",
@@ -1133,6 +1484,7 @@
    "game": "GTA 5",
    "date": "2026-10-08",
    "views": 137,
+   "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
   },
@@ -1152,13 +1504,15 @@
   {
    "video_id": "smSEMWpZ8UM",
    "title": "New GTA Online Weekly Update Information!! | OCT 8th - 15th",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=smSEMWpZ8UM",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-08",
-   "views": 923,
+   "views": 2092,
+   "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "spqzvE1RZic",
@@ -1167,9 +1521,33 @@
    "url": "https://www.youtube.com/shorts/spqzvE1RZic",
    "lang": "en",
    "game": "GTA 5",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
+  },
+  {
+   "video_id": "tAPa8JgIQn8",
+   "title": "【阿杰】滿載油罐車遭竊在國道狂飆！緊急出動特警與空中直升機圍捕，一旦撞上整條公路都要被炸飛？！｜GTA 5 警察模擬",
+   "url": "https://www.youtube.com/watch?v=tAPa8JgIQn8",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-09-22",
+   "views": 38460,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "toTWmCihJMY",
+   "title": "GTA VI: Radio Stations Information, 3 New Screenshots & More!",
+   "url": "https://www.youtube.com/watch?v=toTWmCihJMY",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-08",
+   "views": 130,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "udKOLP5Rswg",
@@ -1187,12 +1565,25 @@
    "last_seen": "2026-10-08"
   },
   {
+   "video_id": "uqUX-WWb1fA",
+   "title": "【阿杰🔴LIVE】中秋跑酷之夜！GTA 5",
+   "url": "https://www.youtube.com/watch?v=uqUX-WWb1fA",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-09-26",
+   "views": 9273,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
    "video_id": "vNe4Nxo33NA",
    "title": "I become a fake bollard and trolled gta cops #gta #gtav #gtaonline",
    "channel": "SpiceX Warrior",
    "url": "https://www.youtube.com/shorts/vNe4Nxo33NA",
    "lang": "en",
    "game": "GTA Online",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
@@ -1205,10 +1596,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-03",
-   "views": 2804,
+   "views": 2830,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "w444qIiMfVg",
@@ -1218,10 +1609,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-01",
-   "views": 15736,
+   "views": 16007,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "wHB9e3FEhpk",
@@ -1235,6 +1626,39 @@
    "kind": "short",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-08"
+  },
+  {
+   "video_id": "ww8-lNt2Cpw",
+   "title": "【GTA5 OL】GTA5線上更新，摩託幫會所資產免費送，會所合約任務雙倍，佩諾跑者趕緊免費領，S95直接三折甩賣，車友會展臺載具也算是免費送 ，電磁步槍限時回歸武器廂型車（9.10-9.17）",
+   "url": "https://www.youtube.com/watch?v=ww8-lNt2Cpw",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-09-10",
+   "views": 8127,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "y42N1z7w8Ns",
+   "title": "【GTA5 OL】GTA5線上更新，萬聖節活動第二周，事務所打折出售，打僵屍差事回歸，迷幻仙人掌回歸，多輛絕版載具等你收藏，多個絕版武器槍驚現武器廂型車（10.8-10.15）",
+   "url": "https://www.youtube.com/watch?v=y42N1z7w8Ns",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-10-08",
+   "views": 2261,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "yNtb4tQpHUA",
+   "title": "【GTA5】節約派のカーライフ「ペナンブラ」の巻【第22話】",
+   "url": "https://www.youtube.com/watch?v=yNtb4tQpHUA",
+   "lang": "ja",
+   "game": "GTA 5",
+   "date": "2026-09-29",
+   "views": 1610,
+   "first_seen": "2026-10-09",
+   "last_seen": "2026-10-09"
   },
   {
    "video_id": "yjvhWljpn8M",
@@ -1252,13 +1676,15 @@
   {
    "video_id": "zmwO_jmNkVQ",
    "title": "【GTA Online 本週更新】萬聖節第2週必做清單！免費領「暮光凶刀T恤」＋發光骷髏面具！事務所/驚駭位元6折！",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=zmwO_jmNkVQ",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-08",
-   "views": 36,
+   "views": 488,
+   "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-09"
   }
  ]
 }
