@@ -1,6 +1,7 @@
 /** Collect YouTube videos and render static per-video share pages / sitemap. */
 
 import { CARD_SITE_BASE, cardActionsHtml, cardAttrs, videoPageUrl, youtubeId } from "./cardShare.js";
+import { SITE_ORIGIN, copyFor, fmtViews as fmtViewsI18n, htmlLang, langLabel as i18nLangLabel, ogLocale, t } from "./i18n.js";
 
 export const VIDEO_LIST_KEYS = [
   "videos_hot_zh",
@@ -124,30 +125,26 @@ export function thumbUrl(id, size = "hqdefault") {
   return `https://i.ytimg.com/vi/${encodeURIComponent(id)}/${size}.jpg`;
 }
 
-export function langLabel(lang) {
-  if (lang === "zh") return "中文";
-  if (lang === "ja") return "日文";
-  if (lang === "ko") return "韓文";
-  if (lang === "en") return "EN";
-  return "";
+export function langLabel(lang, ui = "en") {
+  return i18nLangLabel(lang, ui);
 }
 
-export function fmtViews(n) {
-  if (typeof n !== "number" || !Number.isFinite(n)) return "";
-  if (n >= 10000) return `${(n / 10000).toFixed(1).replace(/\.0$/, "")} 萬`;
-  if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, "")}K`;
-  return String(n);
+export function fmtViews(n, ui = "en") {
+  return fmtViewsI18n(n, { live: true, lang: ui });
 }
 
-export function videoPageTitle(video) {
+export function videoPageTitle(video, ui = "en") {
   const title = String(video?.title || "").trim();
-  return title ? `${title}｜SessionScan` : `YouTube 影片｜SessionScan`;
+  return title ? `${title} | SessionScan` : t("videoPageTitleFallback", {}, ui);
 }
 
-export function videoPageDescription(video) {
+export function videoPageDescription(video, ui = "en") {
   const bits = [video?.channel, video?.date, video?.game].map((x) => String(x || "").trim()).filter(Boolean);
-  const tail = "SessionScan 只掛標題外連，不轉載。";
-  return bits.length ? `${bits.join(" · ")}。${tail}` : `GTA Online 攻略影片。${tail}`;
+  const tail = t("videoDescTail", {}, ui);
+  if (bits.length) {
+    return ui === "zh" ? `${bits.join(" · ")}。${tail}` : `${bits.join(" · ")}. ${tail}`;
+  }
+  return ui === "zh" ? `GTA Online 攻略影片。${tail}` : `GTA Online guide video. ${tail}`;
 }
 
 function xmlEsc(value) {
@@ -156,6 +153,18 @@ function xmlEsc(value) {
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+}
+
+const HOME_ALTERNATES = [
+  ["en", CARD_SITE_BASE],
+  ["zh-Hant", `${CARD_SITE_BASE}zh/`],
+  ["x-default", CARD_SITE_BASE],
+];
+
+function xhtmlLinks() {
+  return HOME_ALTERNATES.map(
+    ([lang, href]) => `    <xhtml:link rel="alternate" hreflang="${xmlEsc(lang)}" href="${xmlEsc(href)}"/>`,
+  ).join("\n");
 }
 
 export function renderSitemap(urls) {
@@ -167,24 +176,30 @@ export function renderSitemap(urls) {
     seen.add(loc);
     locs.push(loc);
   }
+  const zhHome = `${CARD_SITE_BASE}zh/`;
   const body = locs
-    .map((loc) => `  <url>\n    <loc>${xmlEsc(loc)}</loc>\n  </url>`)
+    .map((loc) => {
+      const home = loc === CARD_SITE_BASE || loc === zhHome;
+      const extra = home ? `\n${xhtmlLinks()}` : "";
+      return `  <url>\n    <loc>${xmlEsc(loc)}</loc>${extra}\n  </url>`;
+    })
     .join("\n");
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${body}\n</urlset>\n`;
 }
 
 export function sitemapUrls(videos) {
-  return [CARD_SITE_BASE, ...videos.map((v) => videoPageUrl(v.video_id)).filter(Boolean)];
+  return [CARD_SITE_BASE, `${CARD_SITE_BASE}zh/`, ...videos.map((v) => videoPageUrl(v.video_id)).filter(Boolean)];
 }
 
-function videoCardHtml(video) {
+function videoCardHtml(video, ui = "en") {
   const id = video.video_id;
   const thumb = thumbUrl(id, "hqdefault");
-  const lang = langLabel(video.lang);
-  const views = fmtViews(video.views);
+  const lang = langLabel(video.lang, ui);
+  const views = fmtViews(video.views, ui);
+  const langKey = video.lang === "zh" ? "langLabelZh" : video.lang === "ja" ? "langLabelJa" : video.lang === "ko" ? "langLabelKo" : video.lang === "en" ? "langLabelEn" : "";
   const channelLink =
     video.owned && video.channel_url
-      ? `<p class="blurb"><a href="${esc(video.channel_url)}" target="_blank" rel="noopener noreferrer">SessionScan 頻道 @sessionscan ↗</a></p>`
+      ? `<p class="blurb"><a href="${esc(video.channel_url)}" target="_blank" rel="noopener noreferrer" data-i18n="channelOwned">${esc(t("channelOwned", {}, ui))}</a></p>`
       : "";
   return `<article class="video-card video-page-card" ${cardAttrs(video)}>
       <a class="thumb-link" href="${esc(video.url)}" target="_blank" rel="noopener noreferrer">
@@ -193,13 +208,13 @@ function videoCardHtml(video) {
       </a>
       <div class="video-info">
         <div class="video-info-top">
-          <h1><a href="${esc(video.url)}" target="_blank" rel="noopener noreferrer">${esc(video.title || "YouTube 影片")}</a></h1>
-          ${cardActionsHtml(video, video.kind === "short" ? "new" : "hot")}
+          <h1><a href="${esc(video.url)}" target="_blank" rel="noopener noreferrer">${esc(video.title || t("videoUntitled", {}, ui))}</a></h1>
+          ${cardActionsHtml(video, video.kind === "short" ? "new" : "hot", ui)}
         </div>
         <div class="card-meta">
           ${video.owned ? `<span class="tag">SessionScan</span>` : ""}
           ${video.kind === "short" ? `<span class="tag">Short</span>` : ""}
-          ${lang ? `<span class="tag">${esc(lang)}</span>` : ""}
+          ${lang ? `<span class="tag"${langKey ? ` data-i18n="${langKey}"` : ""}>${esc(lang)}</span>` : ""}
           ${video.game ? `<span class="tag">${esc(video.game)}</span>` : ""}
           ${video.channel ? `<span>${esc(video.channel)}</span>` : ""}
           ${views ? `<span>👁 ${esc(views)}</span>` : ""}
@@ -210,43 +225,126 @@ function videoCardHtml(video) {
     </article>`;
 }
 
-const COPY_SCRIPT = `<script>
-document.addEventListener("click", (e) => {
-  const btn = e.target.closest(".card-copy");
-  if (!btn) return;
-  const link = btn.getAttribute("data-copy") || "";
-  if (!link || !navigator.clipboard?.writeText) return;
-  navigator.clipboard.writeText(link).then(() => {
-    btn.classList.add("is-copied");
-    btn.setAttribute("aria-label", "已複製");
-    setTimeout(() => {
-      btn.classList.remove("is-copied");
-      btn.setAttribute("aria-label", "複製連結");
-    }, 1600);
-  }).catch(() => {});
-});
+function videoPageScript(ui) {
+  const en = copyFor("en");
+  const zh = copyFor("zh");
+  const copies = JSON.stringify({
+    en: {
+      skip: en.skip,
+      brandAriaHome: en.brandAriaHome,
+      brandEm: en.brandEm,
+      videoHome: en.videoHome,
+      videoWatch: en.videoWatch,
+      footerAbout: en.footerAbout,
+      footerScope: en.footerScope,
+      copy: en.copy,
+      copied: en.copied,
+      langLabelZh: en.langLabelZh,
+      langLabelJa: en.langLabelJa,
+      langLabelKo: en.langLabelKo,
+      langLabelEn: en.langLabelEn,
+      channelOwned: en.channelOwned,
+    },
+    zh: {
+      skip: zh.skip,
+      brandAriaHome: zh.brandAriaHome,
+      brandEm: zh.brandEm,
+      videoHome: zh.videoHome,
+      videoWatch: zh.videoWatch,
+      footerAbout: zh.footerAbout,
+      footerScope: zh.footerScope,
+      copy: zh.copy,
+      copied: zh.copied,
+      langLabelZh: zh.langLabelZh,
+      langLabelJa: zh.langLabelJa,
+      langLabelKo: zh.langLabelKo,
+      langLabelEn: zh.langLabelEn,
+      channelOwned: zh.channelOwned,
+    },
+  });
+  return `<script>
+(function () {
+  var COPIES = ${copies};
+  var KEY = "sessionscan-lang";
+  function readLang() {
+    try {
+      var stored = localStorage.getItem(KEY);
+      if (stored === "zh" || stored === "en") return stored;
+    } catch (e) {}
+    return ${JSON.stringify(ui === "zh" ? "zh" : "en")};
+  }
+  function apply(lang) {
+    var copy = COPIES[lang] || COPIES.en;
+    document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+    document.documentElement.setAttribute("data-ui-lang", lang);
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n");
+      if (copy[key]) el.textContent = copy[key];
+    });
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-aria");
+      if (copy[key]) el.setAttribute("aria-label", copy[key]);
+    });
+    document.querySelectorAll("[data-home-link]").forEach(function (el) {
+      el.setAttribute("href", lang === "zh" ? "${SITE_ORIGIN}/zh/" : "${SITE_ORIGIN}/");
+    });
+    document.querySelectorAll("[data-lang-link]").forEach(function (el) {
+      if (el.getAttribute("data-lang-link") === lang) el.setAttribute("aria-current", "page");
+      else el.removeAttribute("aria-current");
+    });
+    try { localStorage.setItem(KEY, lang); } catch (e) {}
+  }
+  document.addEventListener("click", function (e) {
+    var switcher = e.target.closest("[data-lang-link]");
+    if (switcher) {
+      e.preventDefault();
+      apply(switcher.getAttribute("data-lang-link") === "zh" ? "zh" : "en");
+      return;
+    }
+    var btn = e.target.closest(".card-copy");
+    if (!btn) return;
+    var link = btn.getAttribute("data-copy") || "";
+    if (!link || !navigator.clipboard || !navigator.clipboard.writeText) return;
+    var lang = document.documentElement.getAttribute("data-ui-lang") || "en";
+    var copy = COPIES[lang] || COPIES.en;
+    navigator.clipboard.writeText(link).then(function () {
+      btn.classList.add("is-copied");
+      btn.setAttribute("aria-label", copy.copied);
+      setTimeout(function () {
+        btn.classList.remove("is-copied");
+        btn.setAttribute("aria-label", copy.copy);
+      }, 1600);
+    }).catch(function () {});
+  });
+  apply(readLang());
+})();
 </script>`;
+}
 
-export function renderVideoPage(video, { cssHref, faviconHref } = {}) {
+export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {}) {
   const id = youtubeId(video);
   if (!id) return "";
+  const ui = lang === "zh" ? "zh" : "en";
   const page = videoPageUrl(id);
-  const title = videoPageTitle(video);
-  const desc = videoPageDescription(video);
+  const title = videoPageTitle(video, ui);
+  const desc = videoPageDescription(video, ui);
   const image = thumbUrl(id, "hqdefault");
   const css = cssHref || "../../assets/index.css";
   const icon = faviconHref || "../../favicon.svg";
-  const home = "../../";
+  const home = ui === "zh" ? `${SITE_ORIGIN}/zh/` : `${SITE_ORIGIN}/`;
   return `<!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="${htmlLang(ui)}" data-ui-lang="${ui}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(desc)}" />
     <link rel="canonical" href="${esc(page)}" />
+    <link rel="alternate" hreflang="en" href="${esc(page)}" />
+    <link rel="alternate" hreflang="zh-Hant" href="${esc(page)}" />
+    <link rel="alternate" hreflang="x-default" href="${esc(page)}" />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:locale" content="${ogLocale(ui)}" />
     <meta property="og:site_name" content="SessionScan" />
     <meta property="og:title" content="${esc(title)}" />
     <meta property="og:description" content="${esc(desc)}" />
@@ -270,31 +368,36 @@ export function renderVideoPage(video, { cssHref, faviconHref } = {}) {
   <body class="video-page">
     <div class="scanlines" aria-hidden="true"></div>
     <div class="vignette" aria-hidden="true"></div>
-    <a class="skip" href="#video">跳至內容 Skip to content</a>
+    <a class="skip" href="#video" data-i18n="skip">${esc(t("skip", {}, ui))}</a>
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="${esc(home)}" aria-label="SessionScan 回首頁">
+        <a class="brand" data-home-link href="${esc(home)}" data-i18n-aria="brandAriaHome" aria-label="${esc(t("brandAriaHome", {}, ui))}">
           ${BRAND_MARK}
           <span class="brand-text">
             <strong>SESSIONSCAN</strong>
-            <em>GTA HUB · 夜掃描</em>
+            <em data-i18n="brandEm">${esc(t("brandEm", {}, ui))}</em>
           </span>
         </a>
-        <a class="channel-link" href="${esc(home)}">回首頁</a>
+        <nav class="lang-switch" aria-label="${esc(t("langSwitchAria", {}, ui))}">
+          <a href="${SITE_ORIGIN}/" data-lang-link="en" hreflang="en"${ui === "en" ? ' aria-current="page"' : ""}>EN</a>
+          <span class="lang-switch-sep" aria-hidden="true">/</span>
+          <a href="${SITE_ORIGIN}/zh/" data-lang-link="zh" hreflang="zh-Hant"${ui === "zh" ? ' aria-current="page"' : ""}>中文</a>
+        </nav>
+        <a class="channel-link" data-home-link data-i18n="videoHome" href="${esc(home)}">${esc(t("videoHome", {}, ui))}</a>
       </div>
     </header>
     <main class="video-page-main" id="video">
-      ${videoCardHtml(video)}
+      ${videoCardHtml(video, ui)}
       <p class="video-page-links">
-        <a class="watch-yt" href="${esc(video.url)}" target="_blank" rel="noopener noreferrer">在 YouTube 觀看 ↗</a>
-        <a href="${esc(home)}">回首頁</a>
+        <a class="watch-yt" data-i18n="videoWatch" href="${esc(video.url)}" target="_blank" rel="noopener noreferrer">${esc(t("videoWatch", {}, ui))}</a>
+        <a data-home-link data-i18n="videoHome" href="${esc(home)}">${esc(t("videoHome", {}, ui))}</a>
       </p>
     </main>
     <footer class="site-footer">
-      <p><strong>SessionScan</strong> · GTA 5／Online／GTA 6 情報站，與其他同名 App 無關 · 無廣告</p>
-      <p>範圍：GTA 5、GTA 6（GTA Online 歸在 GTA 5）。不含 GTA 4。不含 RDO。卡片只外連，不轉載攻略全文。</p>
+      <p><strong>SessionScan</strong> · <span data-i18n="footerAbout">${esc(t("footerAbout", {}, ui))}</span></p>
+      <p data-i18n="footerScope">${esc(t("footerScope", {}, ui))}</p>
     </footer>
-    ${COPY_SCRIPT}
+    ${videoPageScript(ui)}
   </body>
 </html>
 `;

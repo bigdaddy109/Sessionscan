@@ -2,6 +2,7 @@
 
 import { parseSnapshotNow } from "./bahaTime.js";
 import { cardId } from "./cardShare.js";
+import { fmtViews, t } from "./i18n.js";
 import { filterOtherShorts } from "./shortsFilter.js";
 import { isOwnedShortThisWeek, isThisWeekJob } from "./thisWeek.js";
 
@@ -77,7 +78,7 @@ export function pickOfficialWeekly(data) {
   return pools[0] || null;
 }
 
-export function gta6ScheduleLine(data) {
+export function gta6ScheduleLine(data, lang = "en") {
   const blobs = [];
   for (const key of ["jobs_gtabase", "jobs_ign", "jobs_wiki", "videos_hot_zh", "videos_hot_en", "tweets_zh", "tweets_en"]) {
     for (const it of data?.[key] || []) {
@@ -87,7 +88,7 @@ export function gta6ScheduleLine(data) {
   const hay = blobs.join("\n");
   if (!/gta\s*6|gta\s*vi|俠盜獵車手\s*6|grand theft auto\s*(?:6|vi)/i.test(hay)) return "";
   if (/11\s*月\s*19\s*日/.test(hay) || /november\s*19/i.test(hay)) {
-    return "GTA 6 已公開時程：11 月 19 日";
+    return t("gta6Schedule", {}, lang);
   }
   return "";
 }
@@ -192,7 +193,7 @@ export function filterSortVideos(list, { sort = "rank", channel = "", period = "
   return out;
 }
 
-export function weekHighlights(data, now = new Date()) {
+export function weekHighlights(data, now = new Date(), lang = "en") {
   const items = [];
   const weekly = pickOfficialWeekly(data || {});
   if (weekly) {
@@ -200,18 +201,18 @@ export function weekHighlights(data, now = new Date()) {
       kind: "job",
       tab: "jobs",
       id: cardId(weekly),
-      kicker: "官方週更",
+      kicker: t("highlightOfficial", {}, lang),
       title: weekly.title,
       meta: [weekly.source, weekly.updated].filter(Boolean).join(" · "),
     });
   }
-  const schedule = gta6ScheduleLine(data || {});
+  const schedule = gta6ScheduleLine(data || {}, lang);
   if (schedule) {
     items.push({
       kind: "note",
       tab: "jobs",
       id: "",
-      kicker: "時程",
+      kicker: t("highlightSchedule", {}, lang),
       title: schedule,
       meta: "",
     });
@@ -226,18 +227,12 @@ export function weekHighlights(data, now = new Date()) {
   const pool = weekHot.length ? weekHot : hotPools;
   const topHot = pool.slice().sort((a, b) => (Number(b.views) || 0) - (Number(a.views) || 0) || a._rank - b._rank)[0];
   if (topHot) {
-    const views = typeof topHot.views === "number"
-      ? (topHot.views >= 10000
-        ? `${(topHot.views / 10000).toFixed(1).replace(/\.0$/, "")} 萬`
-        : topHot.views >= 1000
-          ? `${(topHot.views / 1000).toFixed(1).replace(/\.0$/, "")}K`
-          : String(topHot.views))
-      : "";
+    const views = typeof topHot.views === "number" ? fmtViews(topHot.views, { live: true, lang }) : "";
     items.push({
       kind: "video",
       tab: "hot",
       id: cardId(topHot),
-      kicker: weekHot.length ? "本週熱門" : "熱門攻略",
+      kicker: weekHot.length ? t("highlightHotWeek", {}, lang) : t("highlightHotGuide", {}, lang),
       title: topHot.title,
       meta: [topHot.channel, views ? `👁 ${views}` : ""].filter(Boolean).join(" · "),
     });
@@ -248,7 +243,7 @@ export function weekHighlights(data, now = new Date()) {
       kind: "short",
       tab: "new",
       id: cardId(owned),
-      kicker: "自有 Short",
+      kicker: t("highlightOwnedShort", {}, lang),
       title: owned.title || "SessionScan Short",
       meta: "SessionScan",
     });
@@ -261,7 +256,7 @@ export function weekHighlights(data, now = new Date()) {
         kind: "short",
         tab: "new",
         id: cardId(topShort),
-        kicker: "當紅 Short",
+        kicker: t("highlightTrendingShort", {}, lang),
         title: topShort.title,
         meta: topShort.channel || "",
       });

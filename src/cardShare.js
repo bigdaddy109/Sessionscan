@@ -39,15 +39,19 @@ const REDDIT_POST = /reddit\.com\/(?:r\/[^/]+\/)?comments\/([a-z0-9]+)/i;
 
 export function uiLang(raw) {
   const src =
-    raw ?? (typeof document !== "undefined" ? document.documentElement?.lang : "") ?? "";
-  const lang = String(src || "zh").toLowerCase();
+    raw ??
+    (typeof document !== "undefined"
+      ? document.documentElement?.dataset?.uiLang || document.documentElement?.lang
+      : "") ??
+    "";
+  const lang = String(src || "en").toLowerCase();
   if (lang.startsWith("ja")) return "ja";
-  if (lang.startsWith("en")) return "en";
-  return "zh";
+  if (lang.startsWith("zh")) return "zh";
+  return "en";
 }
 
 export function uiCopy(lang) {
-  return UI_COPY[uiLang(lang)] || UI_COPY.zh;
+  return UI_COPY[uiLang(lang)] || UI_COPY.en;
 }
 
 function fnv1a32(str) {

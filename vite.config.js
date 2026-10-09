@@ -74,10 +74,29 @@ function cloudflareWebAnalytics() {
   };
 }
 
+function rewriteZhDevRequest(req) {
+  const url = req.url || "";
+  if (url === "/zh" || url === "/zh/" || url.startsWith("/zh/?")) {
+    req.url = `/index.html${url.includes("?") ? url.slice(url.indexOf("?")) : ""}`;
+  }
+}
+
+function zhDevAlias() {
+  return {
+    name: "zh-dev-alias",
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        rewriteZhDevRequest(req);
+        next();
+      });
+    },
+  };
+}
+
 export default defineConfig({
   base: "./",
   publicDir: "public",
-  plugins: [injectStaticJobs(), cloudflareWebAnalytics()],
+  plugins: [injectStaticJobs(), cloudflareWebAnalytics(), zhDevAlias()],
   server: { host: "127.0.0.1", port: 43173, strictPort: true },
   preview: { host: "127.0.0.1", port: 43173, strictPort: true },
   build: { outDir: "dist", emptyOutDir: true },

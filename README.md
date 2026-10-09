@@ -1,6 +1,6 @@
 # SessionScan
 
-GTA 5／GTA Online／GTA 6 靜態情報站。繁體中文為主。不含 GTA 4。不含 RDO。與其他同名 App 無關。
+GTA 5／GTA Online／GTA 6 靜態情報站。介面預設英文，繁體中文在 `/zh/`。不含 GTA 4。不含 RDO。與其他同名 App 無關。
 
 線上版：https://sessionscan.net/（GitHub Pages 自訂網域；github.io 部署後會轉址）
 

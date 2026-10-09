@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en" data-ui-lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="1vNfyIHQDXh7CFm1hJ4vwXn8XhPCf_FTmqVBcM579vo" />
-    <title>SessionScan GTA｜夜掃描</title>
-    <meta name="description" content="GTA 5／Online／GTA 6 情報站。本週訊號、只掛標題外連，不轉載。與其他同名 App 無關。" />
+    <title data-i18n="metaTitle">SessionScan GTA</title>
+    <meta name="description" data-i18n-content="metaDesc" content="GTA 5 / Online / GTA 6 hub. This week's signals, outbound titles only — no full guides. Unrelated to other apps of the same name." />
     <link rel="canonical" href="https://sessionscan.net/" />
+    <link rel="alternate" hreflang="en" href="https://sessionscan.net/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://sessionscan.net/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://sessionscan.net/" />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="zh_TW" />
-    <meta property="og:title" content="SessionScan GTA｜夜掃描" />
-    <meta property="og:description" content="GTA 5／Online／GTA 6 情報站。本週訊號、只掛標題外連，不轉載。與其他同名 App 無關。" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_TW" />
+    <meta property="og:title" data-i18n-content="metaTitle" content="SessionScan GTA" />
+    <meta property="og:description" data-i18n-content="metaDesc" content="GTA 5 / Online / GTA 6 hub. This week's signals, outbound titles only — no full guides. Unrelated to other apps of the same name." />
     <meta property="og:url" content="https://sessionscan.net/" />
     <meta property="og:image" content="https://sessionscan.net/og.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://sessionscan.net/og.jpg" />
-    <meta name="twitter:title" content="SessionScan GTA｜夜掃描" />
-    <meta name="twitter:description" content="GTA 5／Online／GTA 6 情報站。本週訊號、只掛標題外連，不轉載。與其他同名 App 無關。" />
+    <meta name="twitter:title" data-i18n-content="metaTitle" content="SessionScan GTA" />
+    <meta name="twitter:description" data-i18n-content="metaDesc" content="GTA 5 / Online / GTA 6 hub. This week's signals, outbound titles only — no full guides. Unrelated to other apps of the same name." />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,15 +31,28 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/src/style.css" />
+    <script>
+      (function () {
+        try {
+          var path = location.pathname.replace(/\/index\.html$/, "") || "/";
+          var onZh = path === "/zh" || path.indexOf("/zh/") === 0;
+          var onVideo = /\/v\/[A-Za-z0-9_-]{11}\/?$/.test(path);
+          var stored = localStorage.getItem("sessionscan-lang");
+          if (!onZh && !onVideo && stored === "zh") {
+            location.replace("/zh/" + location.search + location.hash);
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div class="scanlines" aria-hidden="true"></div>
     <div class="vignette" aria-hidden="true"></div>
-    <a class="skip" href="#main">跳至內容 Skip to content</a>
+    <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
     <noscript id="crawlJobs"></noscript>
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="#hero" aria-label="SessionScan 回頂端">
+        <a class="brand" href="#hero" data-i18n-aria="brandAria" aria-label="SessionScan back to top">
           <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
             <circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="1.6" class="teal" />
             <circle cx="32" cy="32" r="14" fill="none" stroke="currentColor" stroke-width="1.4" class="pink" />
@@ -47,34 +64,39 @@
           </svg>
           <span class="brand-text">
             <strong>SESSIONSCAN</strong>
-            <em>GTA HUB · 夜掃描</em>
+            <em data-i18n="brandEm">GTA HUB</em>
           </span>
         </a>
-        <a class="channel-link" href="https://www.youtube.com/@sessionscan" target="_blank" rel="noopener noreferrer" aria-label="YouTube 頻道 @sessionscan">
-          <span class="channel-link-full">YouTube 頻道 @sessionscan ↗</span>
+        <a class="channel-link" href="https://www.youtube.com/@sessionscan" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="YouTube channel @sessionscan">
+          <span class="channel-link-full" data-i18n="channelFull">YouTube @sessionscan ↗</span>
           <span class="channel-link-short">@sessionscan</span>
         </a>
+        <nav class="lang-switch" data-i18n-aria="langSwitchAria" aria-label="Language">
+          <a href="/" data-lang-link="en" hreflang="en" aria-current="page">EN</a>
+          <span class="lang-switch-sep" aria-hidden="true">/</span>
+          <a href="/zh/" data-lang-link="zh" hreflang="zh-Hant">中文</a>
+        </nav>
         <form id="searchForm" class="search-box" role="search">
           <label class="search-icon" for="searchInput">
-            <span class="sr-only">掃描頁面卡片</span>
+            <span class="sr-only" data-i18n="searchAria">Scan page cards</span>
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8" />
               <path d="M16 16 L21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
             </svg>
           </label>
-          <span class="search-scan-label" aria-hidden="true">掃描 SCAN</span>
-          <input id="searchInput" type="search" name="q" placeholder="掃描關鍵字 — Cayo、GTA 6、巴哈…" autocomplete="off" />
-          <button type="submit" class="btn-scan">掃描 SCAN</button>
+          <span class="search-scan-label" aria-hidden="true" data-i18n="scanLabel">SCAN</span>
+          <input id="searchInput" type="search" name="q" data-i18n-placeholder="searchPh" placeholder="Scan keywords — Cayo, GTA 6, Bahamut…" autocomplete="off" />
+          <button type="submit" class="btn-scan" data-i18n="scanBtn">SCAN</button>
         </form>
       </div>
-      <nav class="tabs" aria-label="頻道">
-        <button class="tab active" data-tab="jobs" type="button"><span class="ch">01</span><span class="tab-name">本週賺錢與工作</span></button>
-        <button class="tab" data-tab="hot" type="button"><span class="ch">02</span><span class="tab-name">近 30 天熱門影片</span></button>
-        <button class="tab" data-tab="new" type="button"><span class="ch">03</span><span class="tab-name">當紅 Short</span></button>
-        <button class="tab" data-tab="forum" type="button"><span class="ch">04</span><span class="tab-name">論壇</span></button>
-        <button class="tab" data-tab="x" type="button"><span class="ch">05</span><span class="tab-name">X / Twitter</span></button>
+      <nav class="tabs" data-i18n-aria="navAria" aria-label="Channels">
+        <button class="tab active" data-tab="jobs" type="button"><span class="ch">01</span><span class="tab-name" data-i18n="tabJobs">This week's money &amp; jobs</span></button>
+        <button class="tab" data-tab="hot" type="button"><span class="ch">02</span><span class="tab-name" data-i18n="tabHot">Hot videos · last 30 days</span></button>
+        <button class="tab" data-tab="new" type="button"><span class="ch">03</span><span class="tab-name" data-i18n="tabNew">Trending Shorts</span></button>
+        <button class="tab" data-tab="forum" type="button"><span class="ch">04</span><span class="tab-name" data-i18n="tabForum">Forums</span></button>
+        <button class="tab" data-tab="x" type="button"><span class="ch">05</span><span class="tab-name" data-i18n="tabX">X / Twitter</span></button>
       </nav>
-      <div id="channelMini" class="channel-mini" hidden aria-label="頻道篩選">
+      <div id="channelMini" class="channel-mini" hidden data-i18n-aria="channelMiniAria" aria-label="Channel filters">
         <span class="channel-mini-name" id="channelMiniName"></span>
         <div class="channel-mini-pills" id="channelMiniPills"></div>
       </div>
@@ -107,88 +129,88 @@
       <div class="hero-beam" aria-hidden="true"></div>
       <div class="hero-hud" aria-hidden="true">
         <span class="rec"><i></i> REC</span>
-        <span>CH-07 · NIGHT SCAN · VICE DUSK</span>
+        <span data-i18n="hudLine">CH-07 · NIGHT SCAN · VICE DUSK</span>
         <span id="hudClock">00:00:00</span>
       </div>
       <div class="hero-copy">
-        <p class="eyebrow">NIGHT SCAN // WET ASPHALT</p>
+        <p class="eyebrow" data-i18n="eyebrow">NIGHT SCAN // WET ASPHALT</p>
         <h1>SESSIONSCAN</h1>
         <p class="word-sub">GTA HUB</p>
-        <p class="lede">掃描本週工作、賺錢路線、攻略影片與社群訊號。<br /><span>Focus：GTA 5 · GTA 6。線上模式算 GTA 5。不含 GTA 4。不含 RDO。</span></p>
+        <p class="lede" data-i18n-html="ledeHtml">Scan this week's jobs, money routes, guide videos, and community signals.<br /><span>Focus: GTA 5 · GTA 6. Online counts as GTA 5. No GTA 4. No RDO.</span></p>
       </div>
       <div class="cta-grid" id="ctaGrid">
-        <button class="cta-card" data-tab="jobs" type="button"><span class="cta-ch">CH-01</span><span class="cta-title">本週賺錢與工作</span><span class="cta-en">MONEY &amp; JOBS</span><span class="cta-go">切入 ↗</span></button>
-        <button class="cta-card" data-tab="hot" type="button"><span class="cta-ch">CH-02</span><span class="cta-title">近 30 天熱門影片</span><span class="cta-en">HOT GUIDES</span><span class="cta-go">切入 ↗</span></button>
-        <button class="cta-card" data-tab="new" type="button"><span class="cta-ch">CH-03</span><span class="cta-title">當紅 Short</span><span class="cta-en">SHORTS</span><span class="cta-go">切入 ↗</span></button>
-        <button class="cta-card" data-tab="forum" type="button"><span class="cta-ch">CH-04</span><span class="cta-title">論壇訊號</span><span class="cta-en">BAHAMUT / REDDIT</span><span class="cta-go">切入 ↗</span></button>
-        <button class="cta-card" data-tab="x" type="button"><span class="cta-ch">CH-05</span><span class="cta-title">X / Twitter</span><span class="cta-en">ROCKSTAR / GTA 6</span><span class="cta-go">切入 ↗</span></button>
+        <button class="cta-card" data-tab="jobs" type="button"><span class="cta-ch">CH-01</span><span class="cta-title" data-i18n="ctaJobs">This week's money &amp; jobs</span><span class="cta-en" data-i18n="ctaJobsSub">MONEY &amp; JOBS</span><span class="cta-go" data-i18n="ctaGo">Enter ↗</span></button>
+        <button class="cta-card" data-tab="hot" type="button"><span class="cta-ch">CH-02</span><span class="cta-title" data-i18n="ctaHot">Hot videos · last 30 days</span><span class="cta-en" data-i18n="ctaHotSub">HOT GUIDES</span><span class="cta-go" data-i18n="ctaGo">Enter ↗</span></button>
+        <button class="cta-card" data-tab="new" type="button"><span class="cta-ch">CH-03</span><span class="cta-title" data-i18n="ctaNew">Trending Shorts</span><span class="cta-en" data-i18n="ctaNewSub">SHORTS</span><span class="cta-go" data-i18n="ctaGo">Enter ↗</span></button>
+        <button class="cta-card" data-tab="forum" type="button"><span class="cta-ch">CH-04</span><span class="cta-title" data-i18n="ctaForum">Forum signals</span><span class="cta-en" data-i18n="ctaForumSub">BAHAMUT / REDDIT</span><span class="cta-go" data-i18n="ctaGo">Enter ↗</span></button>
+        <button class="cta-card" data-tab="x" type="button"><span class="cta-ch">CH-05</span><span class="cta-title" data-i18n="ctaX">X / Twitter</span><span class="cta-en" data-i18n="ctaXSub">ROCKSTAR / GTA 6</span><span class="cta-go" data-i18n="ctaGo">Enter ↗</span></button>
       </div>
     </section>
     <aside class="official-banner" id="officialBanner">
-      <div class="official-kicker"><strong>CH-00 · 官方週更</strong><span>無廣告 · 非官方 · 快照非即時</span></div>
-      <p id="officialBannerBody">本週官方訊號待下次掃描</p>
+      <div class="official-kicker"><strong data-i18n="officialKicker">CH-00 · Official weekly</strong><span data-i18n="officialFlags">No ads · Unofficial · Snapshot, not live</span></div>
+      <p id="officialBannerBody">Official weekly signal pending next snapshot</p>
     </aside>
-    <div class="sample-banner" id="dataBanner" role="status"><strong>載入中 / LOADING</strong><span>正在讀取公開來源快照。</span></div>
+    <div class="sample-banner" id="dataBanner" role="status"><strong data-i18n="loadingStrong">LOADING</strong><span data-i18n="loadingSpan">Reading the public-source snapshot.</span></div>
     <aside class="highlights-bar" id="highlightsBar">
-      <div class="highlights-kicker"><strong>本週重點</strong><span>THIS WEEK · 快照精選</span></div>
-      <div class="highlights-list" id="highlightsList"><p class="highlights-empty">本週重點載入中</p></div>
+      <div class="highlights-kicker"><strong data-i18n="highlightsKicker">This week</strong><span data-i18n="highlightsTag">THIS WEEK · snapshot picks</span></div>
+      <div class="highlights-list" id="highlightsList"><p class="highlights-empty" data-i18n="highlightsLoading">Loading this week's picks</p></div>
     </aside>
     <aside class="hub-stats" id="hubStats" hidden>
-      <div class="hub-stats-kicker"><strong>掃描統計</strong><span>STATS · 只計快照數字</span></div>
+      <div class="hub-stats-kicker"><strong data-i18n="statsKicker">Scan stats</strong><span data-i18n="statsTag">STATS · snapshot counts only</span></div>
       <div class="hub-stats-row" id="hubStatsRow"></div>
     </aside>
     </div>
     <main id="main">
       <section class="view" id="view-jobs">
-        <div class="view-head"><h2><span>01</span> 本週賺錢與工作 <em>This week / money &amp; jobs</em></h2><p class="meta-time" data-meta="jobs">快照載入中</p></div>
+        <div class="view-head"><h2><span>01</span> <span data-i18n="jobsH2">This week's money &amp; jobs</span> <em data-i18n="jobsEm">Money &amp; jobs</em></h2><p class="meta-time" data-meta="jobs" data-i18n="metaLoading">Loading snapshot</p></div>
         <p class="source-hint" id="jobHint"></p>
         <div class="controls">
-          <div class="pill-group" role="tablist" aria-label="指南來源"><button class="pill active" data-source="gtabase" type="button">GTABase</button><button class="pill" data-source="ign" type="button">IGN</button><button class="pill" data-source="wiki" type="button">GTA Wiki</button></div>
-          <div class="pill-group" role="group" aria-label="週更範圍"><button class="pill" data-jobs-range="older" type="button" aria-pressed="false">較早週更</button></div>
+          <div class="pill-group" role="tablist" data-i18n-aria="jobsSourceAria" aria-label="Guide sources"><button class="pill active" data-source="gtabase" type="button">GTABase</button><button class="pill" data-source="ign" type="button">IGN</button><button class="pill" data-source="wiki" type="button">GTA Wiki</button></div>
+          <div class="pill-group" role="group" data-i18n-aria="jobsRangeAria" aria-label="Weekly range"><button class="pill" data-jobs-range="older" type="button" aria-pressed="false" data-i18n="olderWeeklies">Earlier weeklies</button></div>
         </div>
         <div class="job-list" id="jobList"></div>
       </section>
       <section class="view hidden" id="view-hot">
-        <div class="view-head"><h2><span>02</span> 近 30 天熱門攻略影片 <em>Hot guides</em></h2><p class="meta-time" data-meta="hot">快照載入中</p></div>
+        <div class="view-head"><h2><span>02</span> <span data-i18n="hotH2">Hot guide videos · last 30 days</span> <em data-i18n="hotEm">Hot guides</em></h2><p class="meta-time" data-meta="hot" data-i18n="metaLoading">Loading snapshot</p></div>
         <p class="source-hint" id="hotHint" hidden></p>
         <div class="controls video-controls">
-          <div class="pill-group" data-lang-for="hot" role="tablist" aria-label="語言"><button class="pill active" data-lang="zh" type="button">中文</button><button class="pill" data-lang="en" type="button">English</button><button class="pill" data-lang="ja" type="button">日本語</button></div>
-          <div class="pill-group" data-sort-for="hot" role="group" aria-label="排序"><button class="pill active" data-sort="rank" type="button">排名</button><button class="pill" data-sort="views" type="button">觀看</button><button class="pill" data-sort="newest" type="button">最新</button></div>
-          <div class="pill-group" data-period-for="hot" role="group" aria-label="期間"><button class="pill active" data-period="all" type="button">全部</button><button class="pill" data-period="week" type="button">本週</button><button class="pill" data-period="30d" type="button">近 30 天</button></div>
-          <label class="channel-filter pill-group"><span class="sr-only">頻道</span><select id="hotChannel" data-channel-for="hot"><option value="">全部頻道</option></select></label>
+          <div class="pill-group" data-lang-for="hot" role="tablist" data-i18n-aria="langAria" aria-label="Language"><button class="pill" data-lang="zh" type="button" data-i18n="langZh">Chinese</button><button class="pill active" data-lang="en" type="button" data-i18n="langEn">English</button><button class="pill" data-lang="ja" type="button" data-i18n="langJa">Japanese</button></div>
+          <div class="pill-group" data-sort-for="hot" role="group" data-i18n-aria="sortAria" aria-label="Sort"><button class="pill active" data-sort="rank" type="button" data-i18n="sortRank">Rank</button><button class="pill" data-sort="views" type="button" data-i18n="sortViews">Views</button><button class="pill" data-sort="newest" type="button" data-i18n="sortNewest">Newest</button></div>
+          <div class="pill-group" data-period-for="hot" role="group" data-i18n-aria="periodAria" aria-label="Period"><button class="pill active" data-period="all" type="button" data-i18n="periodAll">All</button><button class="pill" data-period="week" type="button" data-i18n="periodWeek">This week</button><button class="pill" data-period="30d" type="button" data-i18n="period30d">Last 30 days</button></div>
+          <label class="channel-filter pill-group"><span class="sr-only" data-i18n="channelFilterAria">Channel</span><select id="hotChannel" data-channel-for="hot"><option value="">All channels</option></select></label>
         </div>
         <div class="video-grid" id="hotGrid"></div>
       </section>
       <section class="view hidden" id="view-new">
-        <div class="view-head"><h2><span>03</span> 當紅 Short <em>Shorts</em></h2><p class="meta-time" data-meta="new">快照載入中</p></div>
-        <p class="source-hint">第一格為 SessionScan 自有 Short，其餘為他人當紅 Short。不含長影片。</p>
+        <div class="view-head"><h2><span>03</span> <span data-i18n="newH2">Trending Shorts</span> <em data-i18n="newEm">Shorts</em></h2><p class="meta-time" data-meta="new" data-i18n="metaLoading">Loading snapshot</p></div>
+        <p class="source-hint" data-i18n="newHint">Slot 1 is the SessionScan Short; the rest are other trending Shorts. No long-form videos.</p>
         <div class="controls video-controls">
-          <div class="pill-group" data-sort-for="new" role="group" aria-label="排序"><button class="pill active" data-sort="rank" type="button">排名</button><button class="pill" data-sort="views" type="button">觀看</button><button class="pill" data-sort="newest" type="button">最新</button></div>
-          <div class="pill-group" data-period-for="new" role="group" aria-label="期間"><button class="pill active" data-period="all" type="button">全部</button><button class="pill" data-period="week" type="button">本週</button><button class="pill" data-period="30d" type="button">近 30 天</button></div>
-          <label class="channel-filter pill-group"><span class="sr-only">頻道</span><select id="newChannel" data-channel-for="new"><option value="">全部頻道</option></select></label>
+          <div class="pill-group" data-sort-for="new" role="group" data-i18n-aria="sortAria" aria-label="Sort"><button class="pill active" data-sort="rank" type="button" data-i18n="sortRank">Rank</button><button class="pill" data-sort="views" type="button" data-i18n="sortViews">Views</button><button class="pill" data-sort="newest" type="button" data-i18n="sortNewest">Newest</button></div>
+          <div class="pill-group" data-period-for="new" role="group" data-i18n-aria="periodAria" aria-label="Period"><button class="pill active" data-period="all" type="button" data-i18n="periodAll">All</button><button class="pill" data-period="week" type="button" data-i18n="periodWeek">This week</button><button class="pill" data-period="30d" type="button" data-i18n="period30d">Last 30 days</button></div>
+          <label class="channel-filter pill-group"><span class="sr-only" data-i18n="channelFilterAria">Channel</span><select id="newChannel" data-channel-for="new"><option value="">All channels</option></select></label>
         </div>
         <div class="video-grid" id="newGrid"></div>
       </section>
       <section class="view hidden" id="view-forum">
-        <div class="view-head"><h2><span>04</span> 論壇 <em>Bahamut / Reddit</em></h2><p class="meta-time" data-meta="forum">快照載入中</p></div>
-        <div class="controls"><div class="pill-group" role="tablist" aria-label="論壇來源"><button class="pill active" data-forum="bahamut" type="button">巴哈姆特</button><button class="pill" data-forum="reddit" type="button">Reddit</button></div></div>
+        <div class="view-head"><h2><span>04</span> <span data-i18n="forumH2">Forums</span> <em data-i18n="forumEm">Bahamut / Reddit</em></h2><p class="meta-time" data-meta="forum" data-i18n="metaLoading">Loading snapshot</p></div>
+        <div class="controls"><div class="pill-group" role="tablist" data-i18n-aria="forumSourceAria" aria-label="Forum sources"><button class="pill active" data-forum="bahamut" type="button" data-i18n="forumBahamut">Bahamut</button><button class="pill" data-forum="reddit" type="button" data-i18n="forumReddit">Reddit</button></div></div>
         <div class="thread-list" id="forumList"></div>
       </section>
       <section class="view hidden" id="view-x">
-        <div class="view-head"><h2><span>05</span> X / Twitter <em>Rockstar / GTA 6</em></h2><p class="meta-time" data-meta="tweets">快照載入中</p></div>
-        <div class="controls"><div class="pill-group" data-lang-for="tweets" role="tablist" aria-label="語言"><button class="pill active" data-lang="zh" type="button">中文</button><button class="pill" data-lang="en" type="button">English</button></div></div>
+        <div class="view-head"><h2><span>05</span> <span data-i18n="xH2">X / Twitter</span> <em data-i18n="xEm">Rockstar / GTA 6</em></h2><p class="meta-time" data-meta="tweets" data-i18n="metaLoading">Loading snapshot</p></div>
+        <div class="controls"><div class="pill-group" data-lang-for="tweets" role="tablist" data-i18n-aria="langAria" aria-label="Language"><button class="pill" data-lang="zh" type="button" data-i18n="langZh">Chinese</button><button class="pill active" data-lang="en" type="button" data-i18n="langEn">English</button></div></div>
         <div class="tweet-list" id="tweetList"></div>
       </section>
       <section class="view hidden" id="view-search">
-        <div class="view-head"><h2 id="searchTitle">掃描結果</h2><button type="button" class="btn-clear" id="clearSearch">✕ 清除掃描</button></div>
+        <div class="view-head"><h2 id="searchTitle" data-i18n="searchHeading">Scan results</h2><button type="button" class="btn-clear" id="clearSearch" data-i18n="clearSearch">✕ Clear scan</button></div>
         <div id="searchResults"></div>
       </section>
     </main>
     <footer class="site-footer">
-      <p><strong>SessionScan</strong> · GTA 5／Online／GTA 6 情報站，與其他同名 App 無關 · 無廣告</p>
-      <p>範圍：GTA 5、GTA 6（GTA Online 歸在 GTA 5）。不含 GTA 4。不含 RDO。卡片只外連，不轉載攻略全文。</p>
-      <p>Information architecture adapted from <a href="https://github.com/franky5440-afk/poe2" rel="noopener noreferrer">franky5440-afk/poe2</a> (Apache 2.0). Visual design, copy, and sample data are original modifications. See <a href="./NOTICE">NOTICE</a> and <a href="./LICENSE">LICENSE</a>.</p>
-      <p class="footer-meta" id="lastRun">快照載入中</p>
+      <p><strong>SessionScan</strong> · <span data-i18n="footerAbout">GTA 5 / Online / GTA 6 hub, unrelated to other apps of the same name · No ads</span></p>
+      <p data-i18n="footerScope">Scope: GTA 5, GTA 6 (GTA Online counts as GTA 5). No GTA 4. No RDO. Cards link out; we do not copy full guides.</p>
+      <p data-i18n-html="footerLegal">Information architecture adapted from <a href="https://github.com/franky5440-afk/poe2" rel="noopener noreferrer">franky5440-afk/poe2</a> (Apache 2.0). Visual design, copy, and sample data are original modifications. See <a href="./NOTICE">NOTICE</a> and <a href="./LICENSE">LICENSE</a>.</p>
+      <p class="footer-meta" id="lastRun" data-i18n="metaLoading">Loading snapshot</p>
     </footer>
     <script type="module" src="/src/main.js"></script>
   </body>
