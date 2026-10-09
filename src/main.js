@@ -534,6 +534,7 @@ function renderAll() {
   renderOfficialBanner();
   renderHighlights();
   renderHubStats();
+  syncFilterPills();
   const meta = state.data.meta || {};
   const live = isLiveData(state.data);
   const banner = $("#dataBanner");

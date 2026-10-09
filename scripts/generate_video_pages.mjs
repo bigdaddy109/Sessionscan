@@ -65,4 +65,4 @@ for (const video of videos) {
 const sitemapPath = resolve(dist, "sitemap.xml");
 writeFileSync(sitemapPath, renderSitemap(sitemapUrls(videos)));
 
-console.log(`generate_video_pages: ${written} pages -> dist/v/*/index.html; sitemap ${videos.length + 1} urls`);
+console.log(`generate_video_pages: ${written} pages -> dist/v/*/index.html; sitemap ${videos.length + 2} urls`);

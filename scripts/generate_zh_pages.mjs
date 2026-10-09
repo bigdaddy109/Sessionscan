@@ -22,6 +22,14 @@ let zh = applyHtmlI18n(en, "zh");
 zh = rewriteAssetBase(zh, "../");
 zh = zh.replaceAll("Official weekly signal pending next snapshot", UI.zh.officialPending);
 zh = zh.replaceAll(">All channels<", `>${UI.zh.allChannels}<`);
+zh = zh.replace(
+  /(<button class="pill active" data-lang="en")/g,
+  '<button class="pill" data-lang="en"',
+);
+zh = zh.replace(
+  /(<button class="pill" data-lang="zh")/g,
+  '<button class="pill active" data-lang="zh"',
+);
 
 const outDir = resolve(dist, "zh");
 mkdirSync(outDir, { recursive: true });
