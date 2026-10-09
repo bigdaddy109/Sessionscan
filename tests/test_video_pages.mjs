@@ -45,8 +45,8 @@ if (!merged.some((v) => v.video_id === "5XBMNYmFmTs")) fail("current hub videos 
 const video = fromSample.find((v) => v.video_id === "5XBMNYmFmTs");
 const html = renderVideoPage(video, { cssHref: "../../assets/index-test.css", faviconHref: "../../favicon.svg" });
 if (!html.startsWith("<!DOCTYPE html>")) fail("page must be complete HTML");
-if (!html.includes('lang="zh-Hant"')) fail("zh-Hant lang");
-if (!html.includes("佩里克島最高效率攻略｜SessionScan")) fail("title tag", html.slice(0, 400));
+if (!html.includes('lang="en"')) fail("en lang");
+if (!html.includes("佩里克島最高效率攻略 | SessionScan")) fail("title tag", html.slice(0, 400));
 for (const needle of [
   'property="og:title"',
   'property="og:description"',
@@ -56,8 +56,8 @@ for (const needle of [
   'name="twitter:image"',
   'rel="canonical" href="https://sessionscan.net/v/5XBMNYmFmTs/"',
   thumbUrl("5XBMNYmFmTs", "hqdefault"),
-  "在 YouTube 觀看",
-  "回首頁",
+  "Watch on YouTube",
+  "Home",
   video.url,
   "../../assets/index-test.css",
 ]) {
@@ -70,6 +70,8 @@ if (!html.includes(videoPageDescription(video).slice(0, 12))) fail("description 
 
 const sitemap = renderSitemap(sitemapUrls(fromSample));
 if (!sitemap.includes("<loc>https://sessionscan.net/</loc>")) fail("sitemap homepage");
+if (!sitemap.includes("<loc>https://sessionscan.net/zh/</loc>")) fail("sitemap zh homepage");
+if (!sitemap.includes('hreflang="zh-Hant"')) fail("sitemap hreflang");
 if (!sitemap.includes("<loc>https://sessionscan.net/v/5XBMNYmFmTs/</loc>")) fail("sitemap video url");
 if (sitemap.includes("dQw4w9WgXcQ")) fail("sample sitemap should not invent archive ids");
 

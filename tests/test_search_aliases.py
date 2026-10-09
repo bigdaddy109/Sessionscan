@@ -32,6 +32,12 @@ SEARCH_ALIAS_GROUPS = [
     ["ceo", "總裁", "辦公室"],
     ["autoshop", "改車廠"],
     ["diamond", "賭場", "賭場豪劫"],
+    ["chinese", "中文", "zh", "繁體", "繁体"],
+    ["english", "英文", "en", "英語"],
+    ["japanese", "日本語", "日文", "ja", "日語"],
+    ["korean", "韓文", "ko", "韓語", "한국어"],
+    ["bahamut", "巴哈", "巴哈姆特"],
+    ["shorts", "短片", "當紅"],
 ]
 
 
@@ -64,6 +70,14 @@ def term_in_hay(term: str, hay: str) -> bool:
     return term in hay
 
 
+LANG_SEARCH_ALIASES = {
+    "zh": ["zh", "中文", "chinese", "繁體", "繁体", "國語"],
+    "en": ["en", "english", "英文", "英語"],
+    "ja": ["ja", "日本語", "japanese", "日文", "日語"],
+    "ko": ["ko", "韓文", "korean", "한국어", "韓語"],
+}
+
+
 def matches(item: dict, keys: list[str], words: list[str]) -> bool:
     parts = []
     for k in keys:
@@ -72,6 +86,9 @@ def matches(item: dict, keys: list[str], words: list[str]) -> bool:
             parts.append(" ".join(str(x) for x in v))
         else:
             parts.append("" if v is None else str(v))
+    lang = item.get("lang")
+    if lang in LANG_SEARCH_ALIASES:
+        parts.append(" ".join(LANG_SEARCH_ALIASES[lang]))
     hay = " ".join(parts).lower()
     return all(any(term_in_hay(term, hay) for term in alias_terms_for(w)) for w in words)
 
@@ -105,8 +122,9 @@ class SearchAliasTests(unittest.TestCase):
                 self.assertNotRegex(blob, r"extended look|internet reacts|pc version", msg=blob)
 
     def test_zh_tweet_empty_state_copy(self):
-        chrome = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
+        chrome = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
         self.assertIn("今日無中文訊號", chrome)
+        self.assertIn("No Chinese signals today", chrome)
 
     def test_snapshot_copy_is_not_last_scan(self):
         site = load_hub()
@@ -114,7 +132,7 @@ class SearchAliasTests(unittest.TestCase):
         self.assertEqual(meta["label_zh"], "資料快照")
         self.assertEqual(meta["label_en"], "SNAPSHOT")
         self.assertIn("不是即時爬蟲", meta["note_zh"])
-        chrome = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
+        chrome = (ROOT / "src" / "main.js").read_text(encoding="utf-8") + (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
         self.assertNotIn("上次掃描", chrome)
         self.assertNotIn("LAST SCAN", chrome)
 
@@ -125,13 +143,21 @@ class SearchAliasTests(unittest.TestCase):
 
     def test_basic_seo_meta_and_public_files(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
-        self.assertIn('lang="zh-Hant"', html)
-        self.assertIn("<title>SessionScan GTA｜夜掃描</title>", html)
-        self.assertIn('property="og:title" content="SessionScan GTA｜夜掃描"', html)
-        self.assertIn('name="twitter:title" content="SessionScan GTA｜夜掃描"', html)
-        self.assertIn("GTA HUB · 夜掃描", html)
-        self.assertIn("GTA 5／Online／GTA 6 情報站，與其他同名 App 無關", html)
-        self.assertIn("本週訊號、只掛標題外連，不轉載", html)
+        i18n = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
+        self.assertIn('lang="en"', html)
+        self.assertIn('data-ui-lang="en"', html)
+        self.assertIn("<title data-i18n=\"metaTitle\">SessionScan GTA</title>", html)
+        self.assertIn('property="og:title" data-i18n-content="metaTitle" content="SessionScan GTA"', html)
+        self.assertIn('name="twitter:title" data-i18n-content="metaTitle" content="SessionScan GTA"', html)
+        self.assertIn("GTA HUB", html)
+        self.assertNotIn("GTA HUB · 夜掃描", html)
+        self.assertIn("GTA 5 / Online / GTA 6 hub, unrelated to other apps of the same name", html)
+        self.assertIn("This week's signals, outbound titles only", html)
+        self.assertIn('hreflang="zh-Hant"', html)
+        self.assertIn('hreflang="x-default"', html)
+        self.assertIn("https://sessionscan.net/zh/", html)
+        self.assertIn("SessionScan GTA｜夜掃描", i18n)
+        self.assertIn("本週訊號、只掛標題外連，不轉載", i18n)
         self.assertNotIn("範例資料，非即時掃描", html)
         self.assertNotIn("domain TBD", html)
         self.assertNotIn("working title", html)
@@ -139,8 +165,10 @@ class SearchAliasTests(unittest.TestCase):
         self.assertNotIn("爬蟲狀態：未啟用", html)
         self.assertNotIn("第一版靜態殼", html)
         self.assertNotIn("範例快照：2026-08-27", html)
-        self.assertIn("載入中 / LOADING", html)
-        self.assertIn("快照載入中", html)
+        self.assertIn("LOADING", html)
+        self.assertIn("Loading snapshot", html)
+        self.assertNotIn("載入中 / LOADING", html)
+        self.assertNotIn("掃描 SCAN", html)
         self.assertIn("https://www.youtube.com/@sessionscan", html.split("<main", 1)[0])
         self.assertIn(
             '<meta name="google-site-verification" content="1vNfyIHQDXh7CFm1hJ4vwXn8XhPCf_FTmqVBcM579vo" />',
@@ -160,6 +188,9 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("https://sessionscan.net/sitemap.xml", robots)
         sitemap = (ROOT / "public" / "sitemap.xml").read_text(encoding="utf-8")
         self.assertIn("<loc>https://sessionscan.net/</loc>", sitemap)
+        self.assertIn("<loc>https://sessionscan.net/zh/</loc>", sitemap)
+        self.assertIn('hreflang="zh-Hant"', sitemap)
+        self.assertIn('xmlns:xhtml="http://www.w3.org/1999/xhtml"', sitemap)
         cname = (ROOT / "public" / "CNAME").read_text(encoding="utf-8").strip()
         self.assertEqual(cname, "sessionscan.net")
         self.assertEqual((ROOT / "CNAME").read_text(encoding="utf-8").strip(), "sessionscan.net")
@@ -236,6 +267,12 @@ class SearchAliasTests(unittest.TestCase):
         self.assertTrue(any(matches(it, ["title", "title_en"], ["weekly"]) for it in jobs))
         self.assertTrue(any(matches(it, ["title", "channel"], ["gta6"]) for it in videos + tweets + jobs))
         self.assertTrue(any(matches(it, ["title", "title_en", "text"], query_words("俠盜獵車手6")) for it in videos + tweets + jobs))
+        self.assertEqual(set(alias_terms_for("中文")), set(alias_terms_for("chinese")))
+        self.assertEqual(set(alias_terms_for("bahamut")), set(alias_terms_for("巴哈")))
+        zh_video = {"title": "Cayo guide", "lang": "zh"}
+        self.assertTrue(matches(zh_video, ["title", "lang"], query_words("中文")))
+        self.assertTrue(matches(zh_video, ["title", "lang"], query_words("Chinese")))
+        self.assertTrue(matches({"title": "Guide", "lang": "en"}, ["title", "lang"], query_words("英文")))
 
     def test_placeholder_handle_forbidden_in_shipped_data(self):
         needle = "userHandle"
@@ -248,7 +285,9 @@ class SearchAliasTests(unittest.TestCase):
         for path in shipped:
             self.assertNotIn(needle, path.read_text(encoding="utf-8"), str(path))
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
-        self.assertIn("帳號未解析", js)
+        i18n = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
+        self.assertIn("帳號未解析", i18n)
+        self.assertIn("Account not resolved", i18n)
         self.assertIn("usableZhTweet", js)
 
     def test_header_search_form_exists(self):
@@ -268,7 +307,8 @@ class SearchAliasTests(unittest.TestCase):
         css = (ROOT / "src" / "style.css").read_text(encoding="utf-8")
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
         self.assertIn('class="search-scan-label"', html)
-        self.assertIn("掃描 SCAN", html)
+        self.assertIn("SCAN", html)
+        self.assertNotIn("掃描 SCAN", html)
         self.assertIn('id="channelMini"', html)
         self.assertIn('id="channelMiniName"', html)
         self.assertIn('id="channelMiniPills"', html)
@@ -305,19 +345,25 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("location.hash", js)
         self.assertIn("parseHash", js)
         self.assertIn("v=", share)
-        self.assertIn("此來源暫停", js)
+        i18n = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
+        self.assertIn("此來源暫停", i18n)
+        self.assertIn("This source is paused", i18n)
         self.assertNotIn(magic, (ROOT / "scraper.py").read_text(encoding="utf-8"))
 
     def test_p2_official_banner_owned_embed_and_og(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
         self.assertIn('id="officialBanner"', html)
-        self.assertIn("本週官方訊號待下次掃描", html)
-        self.assertIn("無廣告 · 非官方 · 快照非即時", html)
+        i18n = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
+        self.assertIn("Official weekly signal pending next snapshot", html)
+        self.assertIn("No ads · Unofficial · Snapshot, not live", html)
+        self.assertIn("本週官方訊號待下次掃描", i18n)
+        self.assertIn("無廣告 · 非官方 · 快照非即時", i18n)
         self.assertIn("pickOfficialWeekly", js)
         self.assertIn("renderOfficialBanner", js)
         self.assertIn("youtube-nocookie.com/embed/", js)
-        self.assertIn("本週尚無新 Short", js)
+        self.assertIn("本週尚無新 Short", i18n)
+        self.assertIn("No new Short this week", i18n)
         self.assertIn("i.ytimg.com/vi/", js)
         owned = js.split("function sessionScanSlot", 1)[1].split("function jaNote", 1)[0]
         others = js.split("function videoCard", 1)[1].split("function sessionScanSlot", 1)[0]
@@ -350,9 +396,15 @@ class SearchAliasTests(unittest.TestCase):
         subprocess.check_call(["npm", "run", "build"], cwd=ROOT, stdout=subprocess.DEVNULL)
         built = (ROOT / "dist" / "index.html").read_text(encoding="utf-8")
         self.assertEqual((ROOT / "dist" / "CNAME").read_text(encoding="utf-8").strip(), "sessionscan.net")
-        self.assertIn("<title>SessionScan GTA｜夜掃描</title>", built)
-        self.assertIn("載入中 / LOADING", built)
+        self.assertIn("<title data-i18n=\"metaTitle\">SessionScan GTA</title>", built)
+        self.assertIn("LOADING", built)
         self.assertNotIn("EXAMPLE DATA", built)
+        zh_built = (ROOT / "dist" / "zh" / "index.html").read_text(encoding="utf-8")
+        self.assertIn('lang="zh-Hant"', zh_built)
+        self.assertIn("SessionScan GTA｜夜掃描", zh_built)
+        self.assertIn("本週賺錢與工作", zh_built)
+        self.assertIn('hreflang="en"', zh_built)
+        self.assertNotIn("This week's money", zh_built)
         self.assertIn('id="jobList"', built)
         self.assertIn('id="crawlJobs"', built)
         self.assertIn("gtabase.com", built)
@@ -387,6 +439,7 @@ class SearchAliasTests(unittest.TestCase):
         pkg = (ROOT / "package.json").read_text(encoding="utf-8")
         self.assertIn("inject_static_jobs.mjs", pkg)
         self.assertIn("generate_video_pages.mjs", pkg)
+        self.assertIn("generate_zh_pages.mjs", pkg)
 
     def test_opt5_fonts_hero_and_static_jobs(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
@@ -413,6 +466,9 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("videos_archive.json", gen)
         self.assertIn("dist/v", gen)
         self.assertIn("sitemap.xml", gen)
+        zh_gen = (ROOT / "scripts" / "generate_zh_pages.mjs").read_text(encoding="utf-8")
+        self.assertIn("dist/zh", zh_gen)
+        self.assertIn("applyHtmlI18n", zh_gen)
         self.assertIn("Require crawler-visible weekly title", (ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8"))
 
     def test_live_bahamut_never_uses_bare_cphp(self):
@@ -428,8 +484,11 @@ class SearchAliasTests(unittest.TestCase):
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
         html = (ROOT / "index.html").read_text(encoding="utf-8")
         week = (ROOT / "src" / "thisWeek.js").read_text(encoding="utf-8")
-        self.assertIn("本週尚無卡片", js)
-        self.assertIn("較早週更", html)
+        i18n = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
+        self.assertIn("本週尚無卡片", i18n)
+        self.assertIn("No cards this week", i18n)
+        self.assertIn("Earlier weeklies", html)
+        self.assertIn("較早週更", i18n)
         self.assertIn("isThisWeekJob", js)
         self.assertIn("showOlderJobs", js)
         self.assertIn("THIS_WEEK_MAX", week)
@@ -454,15 +513,18 @@ class SearchAliasTests(unittest.TestCase):
         week = (ROOT / "src" / "thisWeek.js").read_text(encoding="utf-8")
         inject = (ROOT / "scripts" / "inject_static_jobs.mjs").read_text(encoding="utf-8")
         vite = (ROOT / "vite.config.js").read_text(encoding="utf-8")
-        self.assertIn("熱門影片來源這輪未更新，仍顯示上次成功快照", baha + js)
+        i18n = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
+        self.assertIn("熱門影片來源這輪未更新，仍顯示上次成功快照", baha + i18n)
         self.assertIn("isHotSnapshotStale", js)
-        self.assertIn("HOT_STALE_HINT", js)
+        self.assertIn("HOT_STALE_HINT", baha)
+        self.assertIn("hotStale", js)
         self.assertIn('id="hotHint"', html)
         hot_fn = js.split("function renderHot(", 1)[1].split("function renderNew", 1)[0]
         self.assertIn("videoCard", hot_fn)
-        self.assertIn("本週尚無新 Short", js)
+        i18n = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
+        self.assertIn("本週尚無新 Short", i18n)
         self.assertIn("isOwnedShortThisWeek", js + week)
-        self.assertIn("上一則", js)
+        self.assertIn("上一則", i18n)
         self.assertIn("@sessionscan", js)
         self.assertIn("withDisplayRanks", js + week)
         self.assertIn("withDisplayRanks(list)", js)
@@ -477,31 +539,33 @@ class SearchAliasTests(unittest.TestCase):
         head = html.split("<body", 1)[0]
         header = html.split("<header", 1)[1].split("</header>", 1)[0]
         footer = html.split("<footer", 1)[1].split("</footer>", 1)[0]
-        self.assertIn("<title>SessionScan GTA｜夜掃描</title>", head)
-        self.assertIn('property="og:title" content="SessionScan GTA｜夜掃描"', head)
-        self.assertIn('name="twitter:title" content="SessionScan GTA｜夜掃描"', head)
-        desc = "GTA 5／Online／GTA 6 情報站。本週訊號、只掛標題外連，不轉載。與其他同名 App 無關。"
-        self.assertIn(f'name="description" content="{desc}"', head)
-        self.assertIn(f'property="og:description" content="{desc}"', head)
-        self.assertIn(f'name="twitter:description" content="{desc}"', head)
+        self.assertIn(">SessionScan GTA</title>", head)
+        self.assertIn('content="SessionScan GTA"', head)
+        desc = "GTA 5 / Online / GTA 6 hub. This week's signals, outbound titles only — no full guides. Unrelated to other apps of the same name."
+        self.assertIn(f'name="description" data-i18n-content="metaDesc" content="{desc}"', head)
+        self.assertIn(f'property="og:description" data-i18n-content="metaDesc" content="{desc}"', head)
+        self.assertIn(f'name="twitter:description" data-i18n-content="metaDesc" content="{desc}"', head)
         for blob in (head,):
             self.assertNotIn("WET ASPHALT", blob)
             self.assertNotIn("VICE DUSK", blob)
         self.assertIn("<strong>SESSIONSCAN</strong>", header)
-        self.assertIn("GTA HUB · 夜掃描", header)
+        self.assertIn("GTA HUB", header)
+        self.assertNotIn("GTA HUB · 夜掃描", header)
         self.assertNotIn("無廣告 · 非官方 · 快照非即時", header)
         self.assertNotIn("brand-disclaimer", header)
         self.assertIn("channel-link-short", header)
         self.assertIn("channel-link-full", header)
         self.assertIn("@sessionscan", header)
-        self.assertIn("YouTube 頻道 @sessionscan", header)
+        self.assertIn("YouTube @sessionscan", header)
+        self.assertIn("lang-switch", header)
+        self.assertIn("data-lang-link=\"en\"", header)
+        self.assertIn("data-lang-link=\"zh\"", header)
         kicker = html.split('class="official-kicker"', 1)[1].split("</div>", 1)[0]
-        self.assertIn("無廣告 · 非官方 · 快照非即時", kicker)
+        self.assertIn("No ads · Unofficial · Snapshot, not live", kicker)
         self.assertNotIn("WET ASPHALT", header)
         self.assertNotIn("VICE DUSK", header)
-        self.assertIn("情報站", footer)
-        self.assertIn("與其他同名 App 無關", footer)
-        self.assertIn("無廣告", footer)
+        self.assertIn("hub, unrelated to other apps of the same name", footer)
+        self.assertIn("No ads", footer)
         self.assertIn('class="first-screen"', html)
         self.assertIn(".first-screen .hero { order: 1; }", css)
         self.assertIn(".first-screen .official-banner { order: 2; }", css)
@@ -523,9 +587,9 @@ class SearchAliasTests(unittest.TestCase):
         extras = (ROOT / "src" / "homeExtras.js").read_text(encoding="utf-8")
         build = (ROOT / "build_site.py").read_text(encoding="utf-8")
         self.assertIn('id="highlightsBar"', html)
-        self.assertIn("本週重點", html)
+        self.assertIn("This week", html)
         self.assertIn('id="hubStats"', html)
-        self.assertIn("掃描統計", html)
+        self.assertIn("Scan stats", html)
         self.assertIn('data-sort-for="hot"', html)
         self.assertIn('data-period-for="hot"', html)
         self.assertIn('id="hotChannel"', html)
@@ -569,14 +633,19 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("filter_other_shorts", src)
         self.assertIn("filterOtherShorts", js)
         self.assertIn('v.lang === "ko"', js)
-        self.assertIn("韓文", js)
+        i18n = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
+        self.assertIn("韓文", i18n)
+        self.assertIn("Korean", i18n)
         subprocess.check_call(["node", str(ROOT / "tests" / "test_shorts_baha.mjs")], cwd=ROOT)
+        subprocess.check_call(["node", str(ROOT / "tests" / "test_i18n.mjs")], cwd=ROOT)
 
     def test_bahamut_fixture_time_is_absolute(self):
         site = load_hub()
         sample = json.loads(SAMPLE_JSON.read_text(encoding="utf-8"))
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
-        self.assertIn("來源相對時間，以快照為準", js)
+        i18n = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
+        self.assertIn("來源相對時間，以快照為準", i18n)
+        self.assertIn("Source used relative time; snapshot is authoritative", i18n)
         self.assertIn("isRelativeForumTime", js)
         self.assertIn("forumTimeMeta", js)
         self.assertIn("bahaAbsTime", js)

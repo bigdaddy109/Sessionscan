@@ -1,6 +1,6 @@
 import { THIS_WEEK_MAX, isOwnedShortThisWeek, isThisWeekJob, withDisplayRanks } from "./thisWeek.js";
 import { filterOtherShorts } from "./shortsFilter.js";
-import { bahaAbsTime, HOT_STALE_HINT, isHotSnapshotStale, isRelativeForumTime, parseSnapshotNow } from "./bahaTime.js";
+import { bahaAbsTime, isHotSnapshotStale, isRelativeForumTime, parseSnapshotNow } from "./bahaTime.js";
 import {
   TAB_TO_HASH,
   cardActionsHtml,
@@ -22,11 +22,25 @@ import {
   videoKey,
   weekHighlights,
 } from "./homeExtras.js";
+import {
+  SEARCH_ALIAS_GROUPS,
+  applyDomI18n,
+  dataUrl,
+  fmtViews as fmtViewsI18n,
+  getUiLang,
+  isZhPath,
+  langHay,
+  langLabel,
+  localeHref,
+  persistLang,
+  setUiLang,
+  t,
+} from "./i18n.js";
 
-const SOURCE_HINTS = {
-  gtabase: "GTABase 本週賺錢與工作：每週更新、獎勵、折扣。卡片只外連，不轉載全文。",
-  ign: "IGN 只收 GTA Online 每週獎勵／賺錢。不含 GTA 6 新聞回顧。不含 GTA 4。不含 RDO。",
-  wiki: "GTA Wiki 本週活動與賺錢條目。不含 Red Dead Wiki。本站不重寫攻略正文。",
+const SOURCE_HINT_KEYS = {
+  gtabase: "jobsHintGtabase",
+  ign: "jobsHintIgn",
+  wiki: "jobsHintWiki",
 };
 
 function isLiveData(data) {
@@ -39,9 +53,9 @@ const state = {
   data: null,
   jobsSource: "gtabase",
   forumSource: "bahamut",
-  hotLang: "zh",
+  hotLang: "en",
   newLang: "zh",
-  tweetsLang: "zh",
+  tweetsLang: "en",
   activeTab: "jobs",
   hashLock: false,
   showOlderJobs: false,
@@ -63,22 +77,26 @@ function esc(value) {
 }
 
 function fmtViews(n) {
-  if (typeof n !== "number") return "";
-  const suffix = isLiveData(state.data) ? "" : "（範例）";
-  if (n >= 10000) return `${(n / 10000).toFixed(1).replace(/\.0$/, "")} 萬${suffix}`;
-  if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, "")}K${suffix}`;
-  return `${n}${suffix}`;
+  return fmtViewsI18n(n, { live: isLiveData(state.data) });
 }
 
 function sampleBadge() {
   if (isLiveData(state.data)) return "";
-  return `<span class="tag sample">範例 EXAMPLE</span>`;
+  return `<span class="tag sample">${esc(t("sampleBadge"))}</span>`;
+}
+
+function uiLang() {
+  return getUiLang();
+}
+
+function shareLang() {
+  return uiLang();
 }
 
 function jobCard(item) {
   return `
     <article class="job-card" ${cardAttrs(item)}>
-      ${cardActionsHtml(item, "jobs")}
+      ${cardActionsHtml(item, "jobs", shareLang())}
       <div class="rank">${esc(item.rank)}</div>
       <h3><a href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a></h3>
       <div class="card-meta">
@@ -94,17 +112,17 @@ function jobCard(item) {
 function videoCard(v, rank, extraClass, tab = "hot", rankKey = "") {
   const id = v.video_id;
   const thumb = `https://i.ytimg.com/vi/${encodeURIComponent(id)}/mqdefault.jpg`;
-  const lang = v.lang === "zh" ? "中文" : v.lang === "ja" ? "日文" : v.lang === "ko" ? "韓文" : "EN";
+  const lang = langLabel(v.lang) || t("langLabelEn");
   const cls = extraClass ? `video-card ${extraClass}` : "video-card";
   const channelLink = v.owned
-    ? `<p class="blurb"><a href="${esc(v.channel_url || "https://www.youtube.com/@sessionscan")}" target="_blank" rel="noopener noreferrer">SessionScan 頻道 @sessionscan ↗</a></p>`
+    ? `<p class="blurb"><a href="${esc(v.channel_url || "https://www.youtube.com/@sessionscan")}" target="_blank" rel="noopener noreferrer">${esc(t("channelOwned"))}</a></p>`
     : "";
   const delta = rank != null && rankKey
     ? rankDeltaHtml(rankDelta(videoKey(v), rank, state.data?.rank_prev?.[rankKey]))
     : "";
   return `
     <article class="${cls}" ${cardAttrs(v)}>
-      <button type="button" class="thumb-link" data-play="${esc(id)}" aria-label="播放：${esc(v.title)}">
+      <button type="button" class="thumb-link" data-play="${esc(id)}" aria-label="${esc(t("playAria", { title: v.title }))}">
         ${rank != null ? `<div class="rank">${rank}</div>` : ""}
         ${delta}
         <img class="thumb" src="${thumb}" alt="" loading="lazy" />
@@ -113,7 +131,7 @@ function videoCard(v, rank, extraClass, tab = "hot", rankKey = "") {
       <div class="video-info">
         <div class="video-info-top">
           <h3><a href="${esc(v.url)}" target="_blank" rel="noopener noreferrer">${esc(v.title)}</a></h3>
-          ${cardActionsHtml(v, tab)}
+          ${cardActionsHtml(v, tab, shareLang())}
         </div>
         <div class="card-meta">
           ${sampleBadge()}
@@ -129,24 +147,24 @@ function videoCard(v, rank, extraClass, tab = "hot", rankKey = "") {
 }
 
 function ownedChannelLink(channel) {
-  return `<p class="blurb"><a href="${esc(channel)}" target="_blank" rel="noopener noreferrer">SessionScan 頻道 @sessionscan ↗</a></p>`;
+  return `<p class="blurb"><a href="${esc(channel)}" target="_blank" rel="noopener noreferrer">${esc(t("channelOwned"))}</a></p>`;
 }
 
 function expiredOwnedSlot(channel, short) {
   const prevUrl = short?.url || (short?.video_id ? `https://www.youtube.com/shorts/${short.video_id}` : "");
   const prev = prevUrl
-    ? `<p class="blurb"><a href="${esc(prevUrl)}" target="_blank" rel="noopener noreferrer">上一則：${esc(short.title || "SessionScan Short")} ↗</a></p>`
+    ? `<p class="blurb"><a href="${esc(prevUrl)}" target="_blank" rel="noopener noreferrer">${esc(t("prevShort", { title: short.title || "SessionScan Short" }))}</a></p>`
     : "";
   return `
     <article class="slot-card owned-short empty" data-card>
       <strong>SESSIONSCAN</strong>
-      <p>本週尚無新 Short</p>
+      <p>${esc(t("noOwnedShort"))}</p>
       ${ownedChannelLink(channel)}
       ${prev}
       <div class="card-meta" style="justify-content:center;margin-top:10px">
         ${sampleBadge()}
-        <span class="tag">自有 Short</span>
-        <span class="tag">無偽造連結</span>
+        <span class="tag">${esc(t("ownedShortTag"))}</span>
+        <span class="tag">${esc(t("noFakeLink"))}</span>
       </div>
     </article>`;
 }
@@ -161,10 +179,10 @@ function sessionScanSlot(slot) {
     }
     const embed = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`;
     const thumb = `https://i.ytimg.com/vi/${encodeURIComponent(id)}/mqdefault.jpg`;
-    const lang = short.lang === "zh" ? "中文" : short.lang === "ja" ? "日文" : short.lang === "ko" ? "韓文" : "EN";
+    const lang = langLabel(short.lang) || t("langLabelEn");
     return `
     <article class="video-card owned-short" ${cardAttrs(short)}>
-      <button type="button" class="thumb-link embed-wrap" data-play="${esc(id)}" data-embed="${esc(embed)}" aria-label="播放：${esc(short.title || "SessionScan Short")}">
+      <button type="button" class="thumb-link embed-wrap" data-play="${esc(id)}" data-embed="${esc(embed)}" aria-label="${esc(t("playAria", { title: short.title || "SessionScan Short" }))}">
         <div class="rank">1</div>
         <img class="thumb" src="${thumb}" alt="" loading="lazy" />
         <div class="play" aria-hidden="true"><span>▶</span></div>
@@ -172,7 +190,7 @@ function sessionScanSlot(slot) {
       <div class="video-info">
         <div class="video-info-top">
           <h3>${esc(short.title || "SessionScan Short")}</h3>
-          ${cardActionsHtml(short, "new")}
+          ${cardActionsHtml(short, "new", shareLang())}
         </div>
         <div class="card-meta">
           ${sampleBadge()}
@@ -188,24 +206,31 @@ function sessionScanSlot(slot) {
   return `
     <article class="slot-card owned-short empty" data-card>
       <strong>SESSIONSCAN</strong>
-      <p>本週尚無新 Short</p>
+      <p>${esc(t("noOwnedShort"))}</p>
       ${ownedChannelLink(channel)}
       <div class="card-meta" style="justify-content:center;margin-top:10px">
         ${sampleBadge()}
-        <span class="tag">自有 Short</span>
-        <span class="tag">無偽造連結</span>
+        <span class="tag">${esc(t("ownedShortTag"))}</span>
+        <span class="tag">${esc(t("noFakeLink"))}</span>
       </div>
     </article>`;
 }
 
 function jaNote(note) {
+  const lang = uiLang();
+  const title = lang === "zh"
+    ? (note.title_zh || t("jaNoteTitle"))
+    : (note.title_en || t("jaNoteTitle"));
+  const body = lang === "zh"
+    ? (note.body_zh || t("jaNoteBody"))
+    : (note.body_en || t("jaNoteBody"));
   const links = (note.links || [])
     .map((l) => `<li><a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.title)}</a></li>`)
     .join("");
   return `
     <div class="ja-note" data-card>
-      <p><strong>${esc(note.title_zh)}</strong> · ${esc(note.title_en)}</p>
-      <p class="blurb">${esc(note.body_zh)}</p>
+      <p><strong>${esc(title)}</strong></p>
+      <p class="blurb">${esc(body)}</p>
       <ul class="blurb">${links}</ul>
     </div>`;
 }
@@ -220,7 +245,7 @@ function forumTimeMeta(item) {
   if (!raw) return "";
   const { text, relative } = bahaAbsTime(raw, forumSnapshotNow());
   if (relative || item?.time_relative || isRelativeForumTime(text)) {
-    return `<span>${esc(text || raw)}</span><span class="tag">來源相對時間，以快照為準</span>`;
+    return `<span>${esc(text || raw)}</span><span class="tag">${esc(t("relativeTimeTag"))}</span>`;
   }
   return `<span>${esc(text)}</span>`;
 }
@@ -228,7 +253,7 @@ function forumTimeMeta(item) {
 function threadCard(item) {
   return `
     <article class="thread-item" ${cardAttrs(item)}>
-      ${cardActionsHtml(item, "forum")}
+      ${cardActionsHtml(item, "forum", shareLang())}
       <div class="rank">${esc(item.rank)}</div>
       <h3><a href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a></h3>
       <div class="card-meta">
@@ -237,7 +262,7 @@ function threadCard(item) {
         <span class="tag">${esc(item.game)}</span>
         <span>${esc(item.author)}</span>
         ${forumTimeMeta(item)}
-        ${item.replies != null ? `<span class="reply">回 ${esc(item.replies)}${isLiveData(state.data) ? "" : "（範例）"}</span>` : ""}
+        ${item.replies != null ? `<span class="reply">${esc(t("replies", { n: item.replies }))}${isLiveData(state.data) ? "" : esc(t("repliesSample"))}</span>` : ""}
       </div>
       ${item.blurb ? `<p class="blurb">${esc(item.blurb)}</p>` : ""}
     </article>`;
@@ -262,13 +287,13 @@ function tweetCard(tw) {
     : `<span class="author">${esc(display)}</span>`;
   const handleEl = live
     ? `<span>@${esc(tw.author)}</span>`
-    : `<span>帳號未解析</span>`;
+    : `<span>${esc(t("handleUnresolved"))}</span>`;
   const outbound = live
-    ? `<p class="blurb"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">外連原文 / 帳號 ↗</a></p>`
-    : `<p class="blurb">帳號未解析</p>`;
+    ? `<p class="blurb"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(t("tweetOutbound"))}</a></p>`
+    : `<p class="blurb">${esc(t("handleUnresolved"))}</p>`;
   return `
     <article class="tweet-item" ${cardAttrs(tw)}>
-      ${cardActionsHtml(tw, "x")}
+      ${cardActionsHtml(tw, "x", shareLang())}
       <div class="tweet-head">
         ${nameEl}
         ${handleEl}
@@ -291,7 +316,7 @@ function syncIgnPill() {
   const paused = isIgnPaused();
   pill.disabled = paused;
   pill.setAttribute("aria-disabled", paused ? "true" : "false");
-  pill.title = paused ? "此來源暫停" : "";
+  pill.title = paused ? t("ignPausedTitle") : "";
   if (paused && state.jobsSource === "ign") {
     state.jobsSource = "gtabase";
     pill.closest(".pill-group")?.querySelectorAll(".pill").forEach((p) => {
@@ -322,24 +347,24 @@ function renderJobs() {
   syncIgnPill();
   syncWikiPill();
   if (state.jobsSource === "ign" && isIgnPaused()) {
-    $("#jobHint").textContent = "此來源暫停。IGN 目前沒有本週 GTA Online 獎勵外連卡。";
-    $("#jobList").innerHTML = `<p class="empty-msg">此來源暫停</p>`;
+    $("#jobHint").textContent = t("ignPausedHint");
+    $("#jobList").innerHTML = `<p class="empty-msg">${esc(t("ignPausedEmpty"))}</p>`;
     return;
   }
   const key = `jobs_${state.jobsSource}`;
   const raw = state.data[key] || [];
   const list = state.showOlderJobs ? raw : raw.filter((it) => isThisWeekJob(it)).slice(0, THIS_WEEK_MAX);
-  $("#jobHint").textContent = SOURCE_HINTS[state.jobsSource] || "";
+  $("#jobHint").textContent = t(SOURCE_HINT_KEYS[state.jobsSource] || "") || "";
   if (list.length) {
     $("#jobList").innerHTML = withDisplayRanks(list).map(jobCard).join("");
     return;
   }
   if (!state.showOlderJobs) {
-    $("#jobList").innerHTML = `<p class="empty-msg">本週尚無卡片</p>`;
+    $("#jobList").innerHTML = `<p class="empty-msg">${esc(t("noCardsThisWeek"))}</p>`;
     return;
   }
   if ($("#jobList")?.querySelector("[data-static-job]")) return;
-  $("#jobList").innerHTML = `<p class="empty-msg">${isLiveData(state.data) ? "此來源尚無卡片，等待下次掃描。" : "此來源尚無範例卡片。"}</p>`;
+  $("#jobList").innerHTML = `<p class="empty-msg">${esc(isLiveData(state.data) ? t("noCardsLive") : t("noCardsSample"))}</p>`;
 }
 
 function renderHotHint() {
@@ -348,19 +373,19 @@ function renderHotHint() {
   const live = isLiveData(state.data);
   const stale = live && isHotSnapshotStale(meta, state.hotLang);
   if (hint) {
-    hint.textContent = stale ? HOT_STALE_HINT : "";
+    hint.textContent = stale ? t("hotStale") : "";
     hint.hidden = !stale;
   }
   const timeEl = document.querySelector('#view-hot [data-meta="hot"]');
   if (!timeEl) return;
   if (!live) {
-    timeEl.textContent = `範例快照：${meta.snapshot_date || meta.hot || ""}`;
+    timeEl.textContent = t("sampleTime", { stamp: meta.snapshot_date || meta.hot || "" });
     return;
   }
   const stamp = (state.hotLang && meta[`videos_hot_${state.hotLang}`]) || meta.hot || meta._last_run || meta.snapshot_date || "";
   timeEl.textContent = stale
-    ? `資料快照：${stamp || "—"} · 非即時掃描 · ${HOT_STALE_HINT}`
-    : `資料快照：${stamp || "—"} · 非即時掃描`;
+    ? t("snapshotTimeStale", { stamp: stamp || "—", hint: t("hotStale") })
+    : t("snapshotTime", { stamp: stamp || "—" });
 }
 
 function renderHot() {
@@ -384,9 +409,9 @@ function renderHot() {
     return;
   }
   const empty = raw.length
-    ? "此條件沒有影片"
-    : (isLiveData(state.data) ? "此語言尚無影片，等待下次掃描。" : "此語言尚無範例影片。");
-  $("#hotGrid").innerHTML = `<p class="empty-msg">${empty}</p>`;
+    ? t("noVideosFilter")
+    : (isLiveData(state.data) ? t("noVideosLive") : t("noVideosSample"));
+  $("#hotGrid").innerHTML = `<p class="empty-msg">${esc(empty)}</p>`;
 }
 
 function renderNew() {
@@ -407,8 +432,8 @@ function renderNew() {
   });
   const cards = list.map((v) => videoCard(v, v._rank + 1, "", "new", "videos_shorts")).join("");
   const empty = others.length && !list.length
-    ? `<p class="empty-msg">此條件沒有 Short</p>`
-    : (cards || `<p class="empty-msg">${isLiveData(state.data) ? "尚無他人當紅 Short，等待下次掃描。" : "尚無範例 Short。"}</p>`);
+    ? `<p class="empty-msg">${esc(t("noShortsFilter"))}</p>`
+    : (cards || `<p class="empty-msg">${esc(isLiveData(state.data) ? t("noShortsLive") : t("noShortsSample"))}</p>`);
   $("#newGrid").innerHTML = slot + empty;
 }
 
@@ -417,7 +442,7 @@ function renderForum() {
   const list = state.data[key] || [];
   $("#forumList").innerHTML = list.length
     ? list.map(threadCard).join("")
-    : `<p class="empty-msg">${isLiveData(state.data) ? "尚無討論，等待下次掃描。" : "尚無範例討論。"}</p>`;
+    : `<p class="empty-msg">${esc(isLiveData(state.data) ? t("noThreadsLive") : t("noThreadsSample"))}</p>`;
 }
 
 function usableZhTweet(tw) {
@@ -438,16 +463,16 @@ function renderTweets() {
     return;
   }
   if (state.tweetsLang === "zh") {
-    $("#tweetList").innerHTML = `<p class="empty-msg">今日無中文訊號</p>`;
+    $("#tweetList").innerHTML = `<p class="empty-msg">${esc(t("noZhTweets"))}</p>`;
     return;
   }
-  $("#tweetList").innerHTML = `<p class="empty-msg">${isLiveData(state.data) ? "尚無訊號，等待下次掃描。" : "尚無範例訊號。"}</p>`;
+  $("#tweetList").innerHTML = `<p class="empty-msg">${esc(isLiveData(state.data) ? t("noTweetsLive") : t("noTweetsSample"))}</p>`;
 }
 
 function fillChannelSelect(sel, channels, current) {
   if (!sel) return;
   const keep = channels.includes(current) ? current : "";
-  const opts = [`<option value="">全部頻道</option>`]
+  const opts = [`<option value="">${esc(t("allChannels"))}</option>`]
     .concat(channels.map((ch) => `<option value="${esc(ch)}"${ch === keep ? " selected" : ""}>${esc(ch)}</option>`));
   sel.innerHTML = opts.join("");
   sel.value = keep;
@@ -458,22 +483,23 @@ function renderOfficialBanner() {
   const el = $("#officialBannerBody");
   if (!el) return;
   const weekly = pickOfficialWeekly(state.data || {});
-  const schedule = gta6ScheduleLine(state.data || {});
+  const schedule = gta6ScheduleLine(state.data || {}, uiLang());
   if (!weekly) {
-    el.innerHTML = `<span>本週官方訊號待下次掃描</span>${schedule ? `<span class="official-sub">${esc(schedule)}</span>` : ""}`;
+    el.innerHTML = `<span>${esc(t("officialPending"))}</span>${schedule ? `<span class="official-sub">${esc(schedule)}</span>` : ""}`;
     return;
   }
   const extra = schedule ? `<span class="official-sub">${esc(schedule)}</span>` : "";
-  el.innerHTML = `<a href="${esc(weekly.url)}" target="_blank" rel="noopener noreferrer">${esc(weekly.title)}</a><span class="official-sub">來源 ${esc(weekly.source || "")}${weekly.updated ? ` · ${esc(weekly.updated)}` : ""}</span>${extra}`;
+  const sourceLine = t("officialSource", { source: weekly.source || "" });
+  el.innerHTML = `<a href="${esc(weekly.url)}" target="_blank" rel="noopener noreferrer">${esc(weekly.title)}</a><span class="official-sub">${esc(sourceLine)}${weekly.updated ? ` · ${esc(weekly.updated)}` : ""}</span>${extra}`;
 }
 
 function renderHighlights() {
   const host = $("#highlightsList");
   if (!host) return;
   const now = snapshotNow(state.data?.meta || {});
-  const items = weekHighlights(state.data || {}, now);
+  const items = weekHighlights(state.data || {}, now, uiLang());
   if (!items.length) {
-    host.innerHTML = `<p class="highlights-empty">本週重點待下次掃描</p>`;
+    host.innerHTML = `<p class="highlights-empty">${esc(t("highlightsEmpty"))}</p>`;
     return;
   }
   host.innerHTML = items.map((it) => `
@@ -491,10 +517,10 @@ function renderHubStats() {
   const now = snapshotNow(state.data?.meta || {});
   const stats = hubStats(state.data || {}, now);
   const chips = [];
-  if (stats.videoCount) chips.push(`<div class="stat-chip"><strong>${stats.videoCount}</strong><span>影片追蹤</span></div>`);
-  if (stats.totalViews != null) chips.push(`<div class="stat-chip"><strong>${esc(fmtViews(stats.totalViews))}</strong><span>總觀看</span></div>`);
-  if (stats.avgViews != null) chips.push(`<div class="stat-chip"><strong>${esc(fmtViews(stats.avgViews))}</strong><span>平均觀看</span></div>`);
-  if (stats.topChannel) chips.push(`<div class="stat-chip"><strong>${esc(stats.topChannel)}</strong><span>本週頻道</span></div>`);
+  if (stats.videoCount) chips.push(`<div class="stat-chip"><strong>${stats.videoCount}</strong><span>${esc(t("statVideos"))}</span></div>`);
+  if (stats.totalViews != null) chips.push(`<div class="stat-chip"><strong>${esc(fmtViews(stats.totalViews))}</strong><span>${esc(t("statViews"))}</span></div>`);
+  if (stats.avgViews != null) chips.push(`<div class="stat-chip"><strong>${esc(fmtViews(stats.avgViews))}</strong><span>${esc(t("statAvg"))}</span></div>`);
+  if (stats.topChannel) chips.push(`<div class="stat-chip"><strong>${esc(stats.topChannel)}</strong><span>${esc(t("statChannel"))}</span></div>`);
   row.innerHTML = chips.join("");
   box.hidden = chips.length === 0;
 }
@@ -514,20 +540,22 @@ function renderAll() {
   if (banner) {
     if (live) {
       const stamp = meta._last_run || meta.snapshot_date || "—";
-      banner.innerHTML = `<strong>資料快照 / SNAPSHOT</strong><span>公開來源標題彙整，不是即時爬蟲。快照 ${esc(stamp)}。來源失敗時保留既有檔。</span>`;
+      banner.innerHTML = `<strong>${esc(t("snapshotStrong"))}</strong><span>${esc(t("snapshotSpan", { stamp }))}</span>`;
     } else {
-      banner.innerHTML = `<strong>範例資料 / EXAMPLE DATA</strong><span>第一版靜態殼。數字、時間、討論標題皆為樣本，不是即時爬蟲。</span>`;
+      banner.innerHTML = `<strong>${esc(t("sampleStrong"))}</strong><span>${esc(t("sampleSpan"))}</span>`;
     }
   }
   $$("[data-meta]").forEach((el) => {
     if (el.dataset.meta === "hot") return;
     const stamp = meta[el.dataset.meta] || meta._last_run || meta.snapshot_date || "";
-    el.textContent = live ? `資料快照：${stamp || "—"} · 非即時掃描` : `範例快照：${meta.snapshot_date || stamp || ""}`;
+    el.textContent = live
+      ? t("snapshotTime", { stamp: stamp || "—" })
+      : t("sampleTime", { stamp: meta.snapshot_date || stamp || "" });
   });
   renderHotHint();
   $("#lastRun").textContent = live
-    ? `資料快照：${meta._last_run || "—"} · 非即時爬蟲`
-    : `爬蟲狀態：未啟用 · 範例快照 ${meta.snapshot_date || ""}`;
+    ? t("lastRunLive", { stamp: meta._last_run || "—" })
+    : t("lastRunSample", { stamp: meta.snapshot_date || "" });
 }
 
 function desiredHash() {
@@ -742,30 +770,10 @@ function switchView(name, { write = true } = {}) {
   syncChannelMini({ refill: true });
 }
 
-const SEARCH_ALIAS_GROUPS = [
-  [
-    "cayo perico",
-    "cayo",
-    "perico",
-    "佩里克島",
-    "佩里克",
-    "佩裏科島",
-    "佩裏科",
-    "佩裡科島",
-    "佩裡科",
-  ],
-  ["gta 6", "gta6", "gta vi", "gta vi.", "俠盜獵車手6", "俠盜獵車手 vi"],
-  ["weekly", "本週獎勵", "每週"],
-  ["ceo", "總裁", "辦公室"],
-  ["autoshop", "改車廠"],
-  ["diamond", "賭場", "賭場豪劫"],
-];
-
 function searchHay(item, keys) {
-  return keys
-    .map((k) => (Array.isArray(item[k]) ? item[k].join(" ") : String(item[k] ?? "")))
-    .join(" ")
-    .toLowerCase();
+  const parts = keys.map((k) => (Array.isArray(item[k]) ? item[k].join(" ") : String(item[k] ?? "")));
+  if (item.lang) parts.push(langHay(item.lang));
+  return parts.join(" ").toLowerCase();
 }
 
 function queryWords(raw) {
@@ -838,16 +846,16 @@ function doSearch(raw) {
   setSearchExpanded(true);
   const r = localSearch(q);
   $("#searchTitle").textContent = isLiveData(state.data)
-    ? `「${q}」掃描結果：${r.total} 筆`
-    : `「${q}」掃描結果：${r.total} 筆（僅範例資料）`;
+    ? t("searchTitleLive", { q, n: r.total })
+    : t("searchTitleSample", { q, n: r.total });
   let html = "";
-  if (r.jobs.length) html += `<h3 class="group-title">賺錢與工作（${r.jobs.length}）</h3>${r.jobs.map(jobCard).join("")}`;
-  if (r.hot.length) html += `<h3 class="group-title">熱門影片（${r.hot.length}）</h3><div class="video-grid">${r.hot.map((v) => videoCard(v)).join("")}</div>`;
-  if (r.fresh.length) html += `<h3 class="group-title">當紅 Short（${r.fresh.length}）</h3><div class="video-grid">${r.fresh.map((v) => videoCard(v, null, "", "new")).join("")}</div>`;
-  if (r.slot) html += `<h3 class="group-title">SessionScan Short</h3>${sessionScanSlot(state.data.sessionscan_slot)}`;
-  if (r.forum.length) html += `<h3 class="group-title">論壇（${r.forum.length}）</h3>${r.forum.map(threadCard).join("")}`;
-  if (r.tweets.length) html += `<h3 class="group-title">X / Twitter（${r.tweets.length}）</h3>${r.tweets.map(tweetCard).join("")}`;
-  $("#searchResults").innerHTML = html || `<p class="no-result">掃描不到符合「${esc(q)}」的卡片。</p>`;
+  if (r.jobs.length) html += `<h3 class="group-title">${esc(t("groupJobs", { n: r.jobs.length }))}</h3>${r.jobs.map(jobCard).join("")}`;
+  if (r.hot.length) html += `<h3 class="group-title">${esc(t("groupHot", { n: r.hot.length }))}</h3><div class="video-grid">${r.hot.map((v) => videoCard(v)).join("")}</div>`;
+  if (r.fresh.length) html += `<h3 class="group-title">${esc(t("groupShorts", { n: r.fresh.length }))}</h3><div class="video-grid">${r.fresh.map((v) => videoCard(v, null, "", "new")).join("")}</div>`;
+  if (r.slot) html += `<h3 class="group-title">${esc(t("groupSlot"))}</h3>${sessionScanSlot(state.data.sessionscan_slot)}`;
+  if (r.forum.length) html += `<h3 class="group-title">${esc(t("groupForum", { n: r.forum.length }))}</h3>${r.forum.map(threadCard).join("")}`;
+  if (r.tweets.length) html += `<h3 class="group-title">${esc(t("groupX", { n: r.tweets.length }))}</h3>${r.tweets.map(tweetCard).join("")}`;
+  $("#searchResults").innerHTML = html || `<p class="no-result">${t("noResult", { q: esc(q) })}</p>`;
   switchView("search");
   $("#main").scrollIntoView({ behavior: "smooth", block: "start" });
 }
@@ -879,22 +887,50 @@ document.addEventListener(
   true,
 );
 
+function bootLocale() {
+  const lang = isZhPath(location.pathname) ? "zh" : "en";
+  setUiLang(lang);
+  persistLang(lang);
+  applyDomI18n(document, lang);
+  if (lang === "zh") {
+    state.hotLang = "zh";
+    state.tweetsLang = "zh";
+  } else {
+    state.hotLang = "en";
+    state.tweetsLang = "en";
+  }
+}
+
+function wireLangSwitch() {
+  $$("[data-lang-link]").forEach((a) => {
+    a.addEventListener("click", (e) => {
+      const next = a.dataset.langLink === "zh" ? "zh" : "en";
+      persistLang(next);
+      if ((next === "zh") === isZhPath(location.pathname)) return;
+      e.preventDefault();
+      location.assign(localeHref(next, { hash: location.hash, search: location.search }));
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
+  bootLocale();
+  wireLangSwitch();
   tickClock();
   setInterval(tickClock, 1000);
   try {
     let live = null;
     try {
-      const res = await fetch("./data/site.json");
+      const res = await fetch(dataUrl("site.json"));
       if (res.ok) live = await res.json();
     } catch {
       live = null;
     }
-    state.data = isLiveData(live) ? live : await (await fetch("./data/sample.json")).json();
+    state.data = isLiveData(live) ? live : await (await fetch(dataUrl("sample.json"))).json();
   } catch {
     $("#main").insertAdjacentHTML(
       "afterbegin",
-      `<p class="empty-msg">無法載入 JSON。請用本機靜態伺服器開啟，不要直接雙擊檔案。</p>`,
+      `<p class="empty-msg">${esc(t("loadFail"))}</p>`,
     );
     return;
   }

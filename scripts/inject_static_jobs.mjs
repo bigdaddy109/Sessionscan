@@ -99,7 +99,7 @@ html = html.replace(
 
 if (job) {
   html = html.replace(
-    /<p id="officialBannerBody">[\s\S]*?<\/p>/,
+    /<p id="officialBannerBody"[^>]*>[\s\S]*?<\/p>/,
     `<p id="officialBannerBody"><a href="${esc(job.url)}" target="_blank" rel="noopener noreferrer">${esc(job.title)}</a></p>`,
   );
 }
@@ -114,5 +114,5 @@ writeFileSync(htmlPath, html);
 if (job) {
   console.log(`inject_static_jobs: ${job.title} -> ${job.url}`);
 } else {
-  console.log("inject_static_jobs: no site.json jobs; left empty + 待下次掃描");
+  console.log("inject_static_jobs: no site.json jobs; left empty pending snapshot");
 }

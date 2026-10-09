@@ -55,8 +55,10 @@ if (!weekly?.title || !/weekly|每週|本週/i.test(`${weekly.title} ${weekly.ti
 }
 
 const highlights = weekHighlights(sample, now);
-if (!highlights.some((h) => h.kicker === "官方週更")) fail("highlights missing weekly", highlights);
+if (!highlights.some((h) => h.kicker === "Official weekly")) fail("highlights missing weekly", highlights);
 if (!highlights.some((h) => h.tab === "hot" && h.title)) fail("highlights missing video", highlights);
+const highlightsZh = weekHighlights(sample, now, "zh");
+if (!highlightsZh.some((h) => h.kicker === "官方週更")) fail("zh highlights missing weekly", highlightsZh);
 
 const stats = hubStats(sample, now);
 if (stats.videoCount < 3) fail("stats videoCount", stats);
