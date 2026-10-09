@@ -90,12 +90,6 @@ function zhDevAlias() {
         next();
       });
     },
-    configurePreviewServer(server) {
-      server.middlewares.use((req, res, next) => {
-        rewriteZhDevRequest(req);
-        next();
-      });
-    },
   };
 }
 
