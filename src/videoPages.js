@@ -2,6 +2,7 @@
 
 import { CARD_SITE_BASE, cardActionsHtml, cardAttrs, videoPageUrl, youtubeId } from "./cardShare.js";
 import { SITE_ORIGIN, copyFor, fmtViews as fmtViewsI18n, htmlLang, langLabel as i18nLangLabel, ogLocale, t } from "./i18n.js";
+import { VIDEO_JSON_LD_ID, YOUTUBE_CHANNEL_URL, jsonLdScript, videoObjectJsonLd } from "./structuredData.js";
 
 export const VIDEO_LIST_KEYS = [
   "videos_hot_zh",
@@ -244,6 +245,8 @@ function videoPageScript(ui) {
       langLabelKo: en.langLabelKo,
       langLabelEn: en.langLabelEn,
       channelOwned: en.channelOwned,
+      channelFull: en.channelFull,
+      channelAria: en.channelAria,
     },
     zh: {
       skip: zh.skip,
@@ -260,6 +263,8 @@ function videoPageScript(ui) {
       langLabelKo: zh.langLabelKo,
       langLabelEn: zh.langLabelEn,
       channelOwned: zh.channelOwned,
+      channelFull: zh.channelFull,
+      channelAria: zh.channelAria,
     },
   });
   return `<script>
@@ -332,6 +337,7 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
   const css = cssHref || "../../assets/index.css";
   const icon = faviconHref || "../../favicon.svg";
   const home = ui === "zh" ? `${SITE_ORIGIN}/zh/` : `${SITE_ORIGIN}/`;
+  const jsonLd = jsonLdScript(VIDEO_JSON_LD_ID, videoObjectJsonLd(video, { lang: ui, description: desc }));
   return `<!DOCTYPE html>
 <html lang="${htmlLang(ui)}" data-ui-lang="${ui}">
   <head>
@@ -339,6 +345,7 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(desc)}" />
+    ${jsonLd}
     <link rel="canonical" href="${esc(page)}" />
     <link rel="alternate" hreflang="en" href="${esc(page)}" />
     <link rel="alternate" hreflang="zh-Hant" href="${esc(page)}" />
@@ -378,6 +385,10 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
             <em data-i18n="brandEm">${esc(t("brandEm", {}, ui))}</em>
           </span>
         </a>
+        <a class="channel-link" href="${YOUTUBE_CHANNEL_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="${esc(t("channelAria", {}, ui))}">
+          <span class="channel-link-full" data-i18n="channelFull">${esc(t("channelFull", {}, ui))}</span>
+          <span class="channel-link-short">@sessionscan</span>
+        </a>
         <nav class="lang-switch" aria-label="${esc(t("langSwitchAria", {}, ui))}">
           <a href="${SITE_ORIGIN}/" data-lang-link="en" hreflang="en"${ui === "en" ? ' aria-current="page"' : ""}>EN</a>
           <span class="lang-switch-sep" aria-hidden="true">/</span>
@@ -394,6 +405,12 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
       </p>
     </main>
     <footer class="site-footer">
+      <p class="footer-social">
+        <a class="footer-social-link" href="${YOUTUBE_CHANNEL_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="${esc(t("channelAria", {}, ui))}">
+          <span data-i18n="channelFull">${esc(t("channelFull", {}, ui))}</span>
+          <span class="footer-social-handle">@sessionscan</span>
+        </a>
+      </p>
       <p><strong>SessionScan</strong> · <span data-i18n="footerAbout">${esc(t("footerAbout", {}, ui))}</span></p>
       <p data-i18n="footerScope">${esc(t("footerScope", {}, ui))}</p>
     </footer>
