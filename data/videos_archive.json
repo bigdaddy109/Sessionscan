@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-09T14:09:49Z",
+ "updated": "2026-10-10T04:11:41Z",
  "videos": [
   {
    "video_id": "-N9dvWeogzc",
@@ -51,7 +51,7 @@
    "views": 797903,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "0eAOyE4hnbs",
@@ -77,7 +77,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "1_7hdlsww-8",
@@ -194,7 +194,18 @@
    "views": 358899,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
+  },
+  {
+   "video_id": "33qGJ8cdfNE",
+   "title": "EVOLUTION of TRAIN vs. TANK BARREL in GTA GAMES! @RockstarGames #gta #gaming #gta5 #gta6 #gtav",
+   "channel": "ViceVi",
+   "url": "https://www.youtube.com/shorts/33qGJ8cdfNE",
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "first_seen": "2026-10-10",
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "34xAC-c2nUI",
@@ -220,7 +231,7 @@
    "views": 12614,
    "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "4AT2qTbQFck",
@@ -231,8 +242,9 @@
    "game": "GTA 6",
    "date": "2026-10-09",
    "views": 1513,
+   "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "4vR3qgYtD9Q",
@@ -250,13 +262,15 @@
   {
    "video_id": "5OVz4-emqwo",
    "title": "GTA 6 : LA PREMIERE PARTIE DU MERCH EST ARRIVEE ! LIVRAISON TRES BIENTÔT ?",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=5OVz4-emqwo",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-09",
    "views": 4419,
+   "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "5ZHTscvuQTQ",
@@ -347,7 +361,7 @@
    "views": 4359,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "7cJMt5WtOYk",
@@ -404,13 +418,15 @@
   {
    "video_id": "9X7wzR-ORvo",
    "title": "The GTA 6 Leaker Just Came Back...",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=9X7wzR-ORvo",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-06",
    "views": 464320,
+   "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "9lsNrJlFv8I",
@@ -421,8 +437,9 @@
    "game": "GTA Online",
    "date": "2026-10-09",
    "views": 51,
+   "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "ANpj1m2W8tg",
@@ -500,7 +517,7 @@
    "views": 10214,
    "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "CnMXgr8Rugs",
@@ -617,18 +634,20 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "FnK35wmX7xk",
    "title": "NEW GTA VI LEAKS Are Absolutely WILD! (CyberLeek RETURNS!)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=FnK35wmX7xk",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-09",
    "views": 2525,
+   "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "G0EZ35VPfTo",
@@ -737,11 +756,13 @@
   {
    "video_id": "IDRUqPRmmkM",
    "title": "【阿航】GTA5 新殭屍模組 尋找避難小屋!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=IDRUqPRmmkM",
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
    "views": 11501,
+   "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-09"
   },
@@ -782,7 +803,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "JpnFMyHDS04",
@@ -808,7 +829,7 @@
    "views": 382467,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "JuErTIEA0Bs",
@@ -845,8 +866,9 @@
    "game": "GTA 6",
    "date": "2026-10-09",
    "views": 20454,
+   "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "Ls9fXk2da4w",
@@ -859,7 +881,7 @@
    "views": 622007,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "MdqoakYy2CM",
@@ -885,7 +907,7 @@
    "views": 331577,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "NBQ-YHQbVqo",
@@ -950,7 +972,7 @@
    "views": 12844,
    "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "PBLUcfIvlKk",
@@ -981,13 +1003,15 @@
   {
    "video_id": "Ph4XSUekuL8",
    "title": "GTA Online New Week New Money! Completing Weekly Bonuses!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Ph4XSUekuL8",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-09",
    "views": 2384,
+   "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "QLsUeUnQhrU",
@@ -1031,11 +1055,13 @@
   {
    "video_id": "RX_1hwPOwvU",
    "title": "【GTA5實況】萬聖節連假過得開心點！GTA Online",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=RX_1hwPOwvU",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-09",
    "views": 262,
+   "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-09"
   },
@@ -1068,13 +1094,15 @@
   {
    "video_id": "SeMinu61MqI",
    "title": "The FINAL GTA 5 Playthrough Before GTA 6 Part 2! (w/ NVE Mod)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=SeMinu61MqI",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-09",
    "views": 9248,
+   "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "U8W-sd6LyQM",
@@ -1087,7 +1115,7 @@
    "views": 18269,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "UskLh1DPE-U",
@@ -1100,7 +1128,7 @@
    "views": 918421,
    "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "VbjNDsuLeao",
@@ -1154,7 +1182,7 @@
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "XXTpOkOqq1A",
@@ -1211,13 +1239,15 @@
   {
    "video_id": "YyvhcD_6H5s",
    "title": "Another Massive GTA 6 Leak Just Dropped...",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=YyvhcD_6H5s",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-08",
    "views": 330849,
+   "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "ZiM_WgaCtpI",
@@ -1298,6 +1328,17 @@
    "last_seen": "2026-10-08"
   },
   {
+   "video_id": "aztMwCC5YJk",
+   "title": "THROW A GRENADE AT 100 NPCs GTA EVOLUTION #gta #gta5 #gtasanandreas #gtav #gaming #gta6 #shorts",
+   "channel": "Quill x Gaming",
+   "url": "https://www.youtube.com/shorts/aztMwCC5YJk",
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "first_seen": "2026-10-10",
+   "last_seen": "2026-10-10"
+  },
+  {
    "video_id": "bBF8_qykYJI",
    "title": "【GTA ONLINE 】#19 電話が長いししつこいやつら【兼ヌル】",
    "channel": "",
@@ -1318,10 +1359,10 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-09-21",
-   "views": 119287,
+   "views": 119334,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "bLeg9NroQdc",
@@ -1412,7 +1453,7 @@
    "views": 329160,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "f5Na1eEq_g0",
@@ -1425,7 +1466,7 @@
    "views": 16039,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "glWb1fY6LJs",
@@ -1438,7 +1479,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "gpWwWDIdYyM",
@@ -1469,13 +1510,15 @@
   {
    "video_id": "hOO3UUshijE",
    "title": "🔴 LIVE GTA 5 RP on PS5 | Cops, Gangs & Biker Roleplay | SVG RP",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=hOO3UUshijE",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-09",
    "views": 310,
+   "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "hbiAcYRgTms",
@@ -1514,7 +1557,7 @@
    "views": 7927,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "iCEr1bmEQvA",
@@ -1523,9 +1566,11 @@
    "url": "https://www.youtube.com/shorts/iCEr1bmEQvA",
    "lang": "en",
    "game": "GTA Online",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "iPKc4VTWIK0",
@@ -1551,7 +1596,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "klc0fQmAL6k",
@@ -1564,7 +1609,7 @@
    "views": 27733,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "mB6DIw4oG-g",
@@ -1577,7 +1622,7 @@
    "views": 7459,
    "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "o1Wx0TNLPWo",
@@ -1590,7 +1635,7 @@
    "views": 535477,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "oUub52N-Lv0",
@@ -1660,11 +1705,13 @@
   {
    "video_id": "pkx38eF47J8",
    "title": "你還記得13年前的洛聖都嗎？這次真的要說再見了  #shorts #gta #gta5 #gtav",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=pkx38eF47J8",
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
    "views": 547,
+   "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-09"
   },
@@ -1710,11 +1757,13 @@
   {
    "video_id": "s_PrwZqutkk",
    "title": "GTA6公布六大遊戲電臺，R星發布3張超酷遊內戲截圖！更多周邊物品發布",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=s_PrwZqutkk",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-09",
    "views": 2799,
+   "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-09"
   },
@@ -1727,8 +1776,9 @@
    "game": "GTA 6",
    "date": "2026-10-09",
    "views": 13227,
+   "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "smSEMWpZ8UM",
@@ -1772,11 +1822,13 @@
   {
    "video_id": "tOjCxGpYpqk",
    "title": "【GTAonline】全新超跑帕加尼正式上線，送地堡送車送塗裝，本周挑戰依然10倍獎勵！好車多折扣！GTAV在線模式遊戲更新",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=tOjCxGpYpqk",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-17",
    "views": 45934,
+   "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-09"
   },
@@ -1845,7 +1897,7 @@
    "views": 2839,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "w444qIiMfVg",
@@ -1858,7 +1910,7 @@
    "views": 16113,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-10"
   },
   {
    "video_id": "wHB9e3FEhpk",
@@ -1889,11 +1941,13 @@
   {
    "video_id": "y34UESrKuVU",
    "title": "如何在罪恶都市中偷偷闯入军事基地开走武装直升机？  #gta #gta5 #遊戲頻道",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=y34UESrKuVU",
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
    "views": 4812,
+   "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-09"
   },
