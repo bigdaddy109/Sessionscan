@@ -56,6 +56,7 @@ python3 build_site.py
 - **port 43173 + `strictPort`：** 被佔就失敗，不會換埠。不要用 `file://` 開站，JSON 載不進來。
 - **換自訂網域** 要一併改根目錄與 `public/CNAME`、`src/cardShare.js` 的 `CARD_SITE_BASE`、`index.html` canonical／og:url、`public/robots.txt`、`public/sitemap.xml`。
 - 來源抓空時 **不覆寫** 昨日 JSON（keep-yesterday）。SessionScan 自有 Short 槽位沒有影片時保持空槽，不偽造網址。
+- 首頁 JSON-LD（WebSite + Organization）單一來源是 `src/structuredData.js`；`generate_zh_pages` 會 `replaceHomeJsonLd(..., "zh")`。站內搜尋是 hash `#q=`，沒有可用的 `?q=`，所以不加 SearchAction。分享頁 VideoObject 由 `renderVideoPage` 寫入；`tests/test_video_pages.mjs` 用 `JSON.parse` 斷言欄位。
 
 ## Ralph 迴圈做法（我們的版本）
 每次任務開始：

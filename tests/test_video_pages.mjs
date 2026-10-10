@@ -11,6 +11,11 @@ import {
   thumbUrl,
   videoPageDescription,
 } from "../src/videoPages.js";
+import {
+  HAS_SEARCH_URL_PARAM,
+  parseJsonLdScripts,
+  videoObjectJsonLd,
+} from "../src/structuredData.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const sample = JSON.parse(readFileSync(resolve(root, "public/data/sample.json"), "utf8"));
@@ -77,5 +82,27 @@ if (sitemap.includes("dQw4w9WgXcQ")) fail("sample sitemap should not invent arch
 
 const empty = renderVideoPage({ title: "no id" });
 if (empty) fail("video without youtube id must not render");
+
+// Share pages must ship valid VideoObject JSON-LD so crawlers can read title, date, and embed from existing hub fields.
+let videoLd;
+try {
+  const blocks = parseJsonLdScripts(html);
+  videoLd = blocks.find((block) => block["@type"] === "VideoObject");
+} catch (err) {
+  fail("share page JSON-LD must parse", err);
+}
+if (!videoLd) fail("share page must include VideoObject JSON-LD");
+const expectedLd = videoObjectJsonLd(video, { description: videoPageDescription(video) });
+for (const key of ["name", "description", "thumbnailUrl", "uploadDate", "embedUrl", "contentUrl"]) {
+  if (videoLd[key] !== expectedLd[key]) fail(`VideoObject.${key}`, videoLd[key]);
+}
+if (videoLd.name !== video.title) fail("VideoObject name is the video title", videoLd.name);
+if (videoLd.uploadDate !== video.date) fail("VideoObject uploadDate comes from hub date", videoLd.uploadDate);
+if (videoLd.contentUrl !== video.url) fail("VideoObject contentUrl comes from hub url", videoLd.contentUrl);
+if (!videoLd.thumbnailUrl.includes(video.video_id)) fail("VideoObject thumbnailUrl", videoLd.thumbnailUrl);
+if (!videoLd.embedUrl.includes(video.video_id)) fail("VideoObject embedUrl", videoLd.embedUrl);
+if (HAS_SEARCH_URL_PARAM) fail("search is hash-only; do not advertise a SearchAction URL param");
+if (!html.includes("Subscribe on YouTube")) fail("share header/footer subscribe label");
+if (!html.includes("https://www.youtube.com/@sessionscan")) fail("share pages keep the owned YouTube URL");
 
 console.log("test_video_pages.mjs ok", fromSample.length, "sample videos");
