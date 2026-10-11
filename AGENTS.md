@@ -32,6 +32,7 @@ node tests/test_i18n.mjs
 node tests/test_shorts_baha.mjs
 node tests/test_this_week.mjs
 node tests/test_video_pages.mjs
+node tests/test_header_overlap.mjs   # Playwright + system Chrome；需先 npm run build。量 header 子元素 bounding box，375–1280（含橫向高度）中英不可重疊
 
 # Python（需 pip install -r requirements.txt；CI 用 3.12）
 python3 tests/test_pipeline.py         # 見 fix_plan.md：目前 2 個失敗
@@ -57,6 +58,7 @@ python3 build_site.py
 - **換自訂網域** 要一併改根目錄與 `public/CNAME`、`src/cardShare.js` 的 `CARD_SITE_BASE`、`index.html` canonical／og:url、`public/robots.txt`、`public/sitemap.xml`。
 - 來源抓空時 **不覆寫** 昨日 JSON（keep-yesterday）。SessionScan 自有 Short 槽位沒有影片時保持空槽，不偽造網址。
 - 首頁 JSON-LD（WebSite + Organization）單一來源是 `src/structuredData.js`；`generate_zh_pages` 會 `replaceHomeJsonLd(..., "zh")`。站內搜尋是 hash `#q=`，沒有可用的 `?q=`，所以不加 SearchAction。分享頁 VideoObject 由 `renderVideoPage` 寫入；`tests/test_video_pages.mjs` 用 `JSON.parse` 斷言欄位。
+- **橫向 iPhone header：** `viewport-fit=cover` + `env(safe-area-inset-left/right)` 做在 `.site-header`。寬 ≤1023 或高 ≤520 時只顯示合併的 `▶ @sessionscan`，隱藏長 Subscribe 文案並收成 SCAN 藥丸，避免訂閱鈕蓋住 handle。`tests/test_header_overlap.mjs` 用本機 Chrome（`playwright-core` `channel: "chrome"`）量 bounding box。
 
 ## Ralph 迴圈做法（我們的版本）
 每次任務開始：

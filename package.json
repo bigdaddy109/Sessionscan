@@ -8,9 +8,11 @@
     "prebuild": "cp LICENSE NOTICE public/",
     "dev": "vite --host 127.0.0.1 --port 43173 --strictPort",
     "build": "vite build && node scripts/inject_static_jobs.mjs && node scripts/generate_video_pages.mjs && node scripts/generate_zh_pages.mjs",
-    "preview": "vite preview --host 127.0.0.1 --port 43173 --strictPort"
+    "preview": "vite preview --host 127.0.0.1 --port 43173 --strictPort",
+    "test:header": "node tests/test_header_overlap.mjs"
   },
   "devDependencies": {
+    "playwright-core": "^1.56.1",
     "vite": "^7.1.3"
   }
 }

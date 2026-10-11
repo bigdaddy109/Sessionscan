@@ -342,7 +342,7 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
 <html lang="${htmlLang(ui)}" data-ui-lang="${ui}">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(desc)}" />
     ${jsonLd}
@@ -386,6 +386,7 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
           </span>
         </a>
         <a class="channel-link" href="${YOUTUBE_CHANNEL_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="${esc(t("channelAria", {}, ui))}">
+          <span class="channel-link-play" aria-hidden="true">▶</span>
           <span class="channel-link-full" data-i18n="channelFull">${esc(t("channelFull", {}, ui))}</span>
           <span class="channel-link-short">@sessionscan</span>
         </a>
@@ -394,7 +395,7 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
           <span class="lang-switch-sep" aria-hidden="true">/</span>
           <a href="${SITE_ORIGIN}/zh/" data-lang-link="zh" hreflang="zh-Hant"${ui === "zh" ? ' aria-current="page"' : ""}>中文</a>
         </nav>
-        <a class="channel-link" data-home-link data-i18n="videoHome" href="${esc(home)}">${esc(t("videoHome", {}, ui))}</a>
+        <a class="header-home-link" data-home-link data-i18n="videoHome" href="${esc(home)}">${esc(t("videoHome", {}, ui))}</a>
       </div>
     </header>
     <main class="video-page-main" id="video">
