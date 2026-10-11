@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015"
+      xmlns:media="http://search.yahoo.com/mrss/"
+      xmlns="http://www.w3.org/2005/Atom">
+  <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCfpCdZdtCdCFNXuEW9xvZcQ"/>
+  <title>SessionScan</title>
+  <entry>
+    <id>yt:video:WatchLong01</id>
+    <yt:videoId>WatchLong01</yt:videoId>
+    <yt:channelId>UCfpCdZdtCdCFNXuEW9xvZcQ</yt:channelId>
+    <title>Long-form should not fill Short slot</title>
+    <link rel="alternate" href="https://www.youtube.com/watch?v=WatchLong01"/>
+    <published>2026-10-10T12:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>yt:video:ShortOwn01a</id>
+    <yt:videoId>ShortOwn01a</yt:videoId>
+    <yt:channelId>UCfpCdZdtCdCFNXuEW9xvZcQ</yt:channelId>
+    <title>3X Halloween Survival This Week | GTA Online</title>
+    <link rel="alternate" href="https://www.youtube.com/shorts/ShortOwn01a"/>
+    <published>2026-10-08T17:38:28+00:00</published>
+  </entry>
+</feed>

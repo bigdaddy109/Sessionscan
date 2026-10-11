@@ -1,0 +1,20 @@
+name = "sessionscan-youtube-websub"
+main = "src/worker.js"
+compatibility_date = "2026-10-01"
+
+# Lease renewal for YouTube PubSubHubbub (every 2 days).
+# This is NOT the optional 2h scrape cron from the faster-fetch proposal.
+[triggers]
+crons = ["0 12 */2 * *"]
+
+[vars]
+GITHUB_REPO = "bigdaddy109/Sessionscan"
+WORKFLOW_FILE = "owned-refresh.yml"
+DISPATCH_REF = "main"
+DISPATCH_COOLDOWN_SEC = "300"
+# Set after first deploy, e.g. https://sessionscan-youtube-websub.<account>.workers.dev
+# CALLBACK_URL = "https://sessionscan-youtube-websub.example.workers.dev"
+
+# Secrets (do not commit):
+#   npx wrangler secret put GITHUB_PAT
+#   npx wrangler secret put HUB_SECRET

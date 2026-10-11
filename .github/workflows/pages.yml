@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   workflow_run:
     # data branch has no workflow files; scrape success on main triggers deploy.
-    workflows: ["daily scrape", "fast scrape"]
+    workflows: ["daily scrape", "fast scrape", "owned refresh"]
     types: [completed]
 permissions:
   contents: read
@@ -19,9 +19,9 @@ concurrency:
   # Queue the next deploy. Cancelling an in-flight Pages job leaves github.io stale.
   cancel-in-progress: false
 jobs:
-  # Full suite on push/dispatch (main code). Skip on workflow_run from daily
-  # or fast scrape — those deploys only overlay data JSON. PR gates stay on
-  # ci.yml pull_request; main push still runs this reusable call before build.
+  # Full suite on push/dispatch (main code). Skip on workflow_run from daily /
+  # fast scrape / owned refresh — those deploys only overlay data JSON. PR gates
+  # stay on ci.yml pull_request; main push still runs this reusable call before build.
   ci:
     if: ${{ github.event_name != 'workflow_run' }}
     uses: ./.github/workflows/ci.yml

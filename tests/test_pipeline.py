@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scraper import (  # noqa: E402
+    OWNED_CHANNEL_ID,
     baha_outbound_url,
     clean_heading,
     empty_owned_slot,
@@ -30,9 +31,11 @@ from scraper import (  # noqa: E402
     parse_gtabase_listing,
     parse_ign_game_page,
     parse_ign_rss,
+    parse_owned_atom,
     parse_reddit_atom,
     save_or_keep,
     scrape_other_shorts,
+    scrape_owned_from_rss,
     scrape_owned_short,
     shorts_ids_from_html,
     tweet_lang,
@@ -388,6 +391,21 @@ class ShortsTests(unittest.TestCase):
         self.assertNotEqual(slot["status"], "offline")
         self.assertIsNone(empty_owned_slot()["short"])
 
+    def test_owned_atom_rss_prefers_shorts_for_websub(self):
+        # Why: WebSub delivers this Atom shape; the owned slot must stay Short-only
+        # and must never invent an id that was not in the feed.
+        xml = (ROOT / "tests/fixtures/owned_atom.xml").read_text(encoding="utf-8")
+        entries = parse_owned_atom(xml)
+        self.assertEqual(OWNED_CHANNEL_ID, "UCfpCdZdtCdCFNXuEW9xvZcQ")
+        self.assertEqual(entries[0]["video_id"], "WatchLong01")
+        self.assertFalse(entries[0]["is_short"])
+        self.assertTrue(entries[1]["is_short"])
+        slot, ok = scrape_owned_from_rss(xml)
+        self.assertTrue(ok)
+        self.assertEqual(slot["short"]["video_id"], "ShortOwn01a")
+        self.assertEqual(slot["short"]["url"], "https://www.youtube.com/shorts/ShortOwn01a")
+        self.assertIn("Halloween", slot["short"]["title"])
+
     def test_other_shorts_exclude_owned_gta4_and_longform(self):
         html = (ROOT / "tests/fixtures/shorts_trend.html").read_text(encoding="utf-8")
 
@@ -634,9 +652,12 @@ class FastScrapeModeTests(unittest.TestCase):
         names = [name for name, _ in scraper_mod.selected_steps(fast=False)]
         self.assertEqual(names, ["jobs", "videos", "shorts", "forum", "tweets"])
 
-    def test_parse_args_fast_flag(self):
+    def test_parse_args_fast_and_owned_only_flags(self):
+        # Why: fast.yml and owned-refresh.yml must keep distinct CLI modes after rebase onto main.
         self.assertTrue(scraper_mod.parse_args(["--fast"]).fast)
         self.assertFalse(scraper_mod.parse_args([]).fast)
+        self.assertTrue(scraper_mod.parse_args(["--owned-only"]).owned_only)
+        self.assertFalse(scraper_mod.parse_args(["--fast"]).owned_only)
 
 
 if __name__ == "__main__":
