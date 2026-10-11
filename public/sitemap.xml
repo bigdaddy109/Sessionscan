@@ -12,4 +12,64 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://sessionscan.net/zh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sessionscan.net/"/>
   </url>
+  <url>
+    <loc>https://sessionscan.net/week/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sessionscan.net/week/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://sessionscan.net/zh/week/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sessionscan.net/week/"/>
+  </url>
+  <url>
+    <loc>https://sessionscan.net/zh/week/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sessionscan.net/week/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://sessionscan.net/zh/week/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sessionscan.net/week/"/>
+  </url>
+  <url>
+    <loc>https://sessionscan.net/guides/money/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sessionscan.net/guides/money/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://sessionscan.net/zh/guides/money/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sessionscan.net/guides/money/"/>
+  </url>
+  <url>
+    <loc>https://sessionscan.net/zh/guides/money/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sessionscan.net/guides/money/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://sessionscan.net/zh/guides/money/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sessionscan.net/guides/money/"/>
+  </url>
+  <url>
+    <loc>https://sessionscan.net/guides/businesses/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sessionscan.net/guides/businesses/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://sessionscan.net/zh/guides/businesses/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sessionscan.net/guides/businesses/"/>
+  </url>
+  <url>
+    <loc>https://sessionscan.net/zh/guides/businesses/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sessionscan.net/guides/businesses/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://sessionscan.net/zh/guides/businesses/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sessionscan.net/guides/businesses/"/>
+  </url>
+  <url>
+    <loc>https://sessionscan.net/gta6/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sessionscan.net/gta6/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://sessionscan.net/zh/gta6/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sessionscan.net/gta6/"/>
+  </url>
+  <url>
+    <loc>https://sessionscan.net/zh/gta6/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sessionscan.net/gta6/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://sessionscan.net/zh/gta6/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sessionscan.net/gta6/"/>
+  </url>
+  <url>
+    <loc>https://sessionscan.net/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sessionscan.net/about/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://sessionscan.net/zh/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sessionscan.net/about/"/>
+  </url>
+  <url>
+    <loc>https://sessionscan.net/zh/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sessionscan.net/about/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://sessionscan.net/zh/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sessionscan.net/about/"/>
+  </url>
 </urlset>

@@ -78,6 +78,8 @@ if (!sitemap.includes("<loc>https://sessionscan.net/</loc>")) fail("sitemap home
 if (!sitemap.includes("<loc>https://sessionscan.net/zh/</loc>")) fail("sitemap zh homepage");
 if (!sitemap.includes('hreflang="zh-Hant"')) fail("sitemap hreflang");
 if (!sitemap.includes("<loc>https://sessionscan.net/v/5XBMNYmFmTs/</loc>")) fail("sitemap video url");
+if (!sitemap.includes("<loc>https://sessionscan.net/about/</loc>")) fail("sitemap about");
+if (!sitemap.includes("<loc>https://sessionscan.net/zh/guides/money/</loc>")) fail("sitemap zh money");
 if (sitemap.includes("dQw4w9WgXcQ")) fail("sample sitemap should not invent archive ids");
 
 const empty = renderVideoPage({ title: "no id" });

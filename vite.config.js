@@ -2,6 +2,13 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
 import { ensureCfWebAnalytics } from "./src/cfWebAnalytics.js";
+import {
+  SITE_PAGES,
+  injectHomeShell,
+  legacyHashRedirectScript,
+  localePath,
+  renderSitePage,
+} from "./src/sitePages.js";
 import { injectJobListHtml, renderStaticHomeJobList } from "./src/staticHomeJobs.js";
 
 function loadHubJobs() {
@@ -19,7 +26,9 @@ function injectStaticJobs() {
     name: "inject-static-jobs",
     transformIndexHtml(html) {
       const cards = renderStaticHomeJobList(loadHubJobs(), { lang: "en" });
-      return injectJobListHtml(html, cards);
+      let out = injectJobListHtml(html, cards);
+      out = injectHomeShell(out, { lang: "en" });
+      return out;
     },
   };
 }
@@ -41,6 +50,40 @@ function rewriteZhDevRequest(req) {
   }
 }
 
+function matchSitePage(urlPath) {
+  const clean = String(urlPath || "").split("?")[0].split("#")[0].replace(/\/index\.html$/, "") || "/";
+  const normalized = clean.endsWith("/") || clean === "/" ? clean : `${clean}/`;
+  for (const page of SITE_PAGES) {
+    for (const lang of ["en", "zh"]) {
+      const path = localePath(lang, page.path);
+      if (normalized === path || clean === path.replace(/\/$/, "")) {
+        return { page, lang, path };
+      }
+    }
+  }
+  return null;
+}
+
+function sitePagesDev() {
+  return {
+    name: "site-pages-dev",
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const hit = matchSitePage(req.url || "");
+        if (!hit) return next();
+        const html = renderSitePage(hit.page, {
+          lang: hit.lang,
+          cssHref: "/src/style.css",
+          faviconHref: "/favicon.svg",
+        });
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "text/html; charset=utf-8");
+        res.end(html);
+      });
+    },
+  };
+}
+
 function zhDevAlias() {
   return {
     name: "zh-dev-alias",
@@ -50,13 +93,18 @@ function zhDevAlias() {
         next();
       });
     },
+    transformIndexHtml(html) {
+      // Ensure hash-redirect script exists even when injectHomeShell already ran.
+      if (html.includes("data-legacy-hash-redirect")) return html;
+      return html.replace("</head>", `    ${legacyHashRedirectScript().replace("<script>", '<script data-legacy-hash-redirect>')}\n  </head>`);
+    },
   };
 }
 
 export default defineConfig({
   base: "./",
   publicDir: "public",
-  plugins: [injectStaticJobs(), cloudflareWebAnalytics(), zhDevAlias()],
+  plugins: [injectStaticJobs(), cloudflareWebAnalytics(), sitePagesDev(), zhDevAlias()],
   server: { host: "127.0.0.1", port: 43173, strictPort: true },
   preview: { host: "127.0.0.1", port: 43173, strictPort: true },
   build: { outDir: "dist", emptyOutDir: true },

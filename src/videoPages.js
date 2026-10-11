@@ -3,6 +3,7 @@
 import { CARD_SITE_BASE, cardActionsHtml, cardAttrs, videoPageUrl, youtubeId } from "./cardShare.js";
 import { cfWebAnalyticsHtml } from "./cfWebAnalytics.js";
 import { SITE_ORIGIN, copyFor, fmtViews as fmtViewsI18n, htmlLang, langLabel as i18nLangLabel, ogLocale, t } from "./i18n.js";
+import { SITE_PAGES, absoluteUrl, staticSitemapUrls } from "./sitePages.js";
 import { VIDEO_JSON_LD_ID, YOUTUBE_CHANNEL_URL, jsonLdScript, videoObjectJsonLd } from "./structuredData.js";
 
 export const VIDEO_LIST_KEYS = [
@@ -157,16 +158,27 @@ function xmlEsc(value) {
     .replaceAll('"', "&quot;");
 }
 
-const HOME_ALTERNATES = [
-  ["en", CARD_SITE_BASE],
-  ["zh-Hant", `${CARD_SITE_BASE}zh/`],
-  ["x-default", CARD_SITE_BASE],
-];
+function xhtmlLinks(enHref, zhHref) {
+  const en = enHref || CARD_SITE_BASE;
+  const zh = zhHref || `${CARD_SITE_BASE}zh/`;
+  return [
+    ["en", en],
+    ["zh-Hant", zh],
+    ["x-default", en],
+  ]
+    .map(([lang, href]) => `    <xhtml:link rel="alternate" hreflang="${xmlEsc(lang)}" href="${xmlEsc(href)}"/>`)
+    .join("\n");
+}
 
-function xhtmlLinks() {
-  return HOME_ALTERNATES.map(
-    ([lang, href]) => `    <xhtml:link rel="alternate" hreflang="${xmlEsc(lang)}" href="${xmlEsc(href)}"/>`,
-  ).join("\n");
+function sitemapAlternates(loc) {
+  const zhHome = `${CARD_SITE_BASE}zh/`;
+  if (loc === CARD_SITE_BASE || loc === zhHome) return xhtmlLinks(CARD_SITE_BASE, zhHome);
+  for (const page of SITE_PAGES) {
+    const en = absoluteUrl(page.path, "en");
+    const zh = absoluteUrl(page.path, "zh");
+    if (loc === en || loc === zh) return xhtmlLinks(en, zh);
+  }
+  return "";
 }
 
 export function renderSitemap(urls) {
@@ -178,11 +190,10 @@ export function renderSitemap(urls) {
     seen.add(loc);
     locs.push(loc);
   }
-  const zhHome = `${CARD_SITE_BASE}zh/`;
   const body = locs
     .map((loc) => {
-      const home = loc === CARD_SITE_BASE || loc === zhHome;
-      const extra = home ? `\n${xhtmlLinks()}` : "";
+      const alt = sitemapAlternates(loc);
+      const extra = alt ? `\n${alt}` : "";
       return `  <url>\n    <loc>${xmlEsc(loc)}</loc>${extra}\n  </url>`;
     })
     .join("\n");
@@ -190,7 +201,12 @@ export function renderSitemap(urls) {
 }
 
 export function sitemapUrls(videos) {
-  return [CARD_SITE_BASE, `${CARD_SITE_BASE}zh/`, ...videos.map((v) => videoPageUrl(v.video_id)).filter(Boolean)];
+  return [
+    CARD_SITE_BASE,
+    `${CARD_SITE_BASE}zh/`,
+    ...staticSitemapUrls(),
+    ...videos.map((v) => videoPageUrl(v.video_id)).filter(Boolean),
+  ];
 }
 
 function videoCardHtml(video, ui = "en") {

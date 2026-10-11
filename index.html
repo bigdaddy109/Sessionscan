@@ -40,7 +40,9 @@
           var onVideo = /\/v\/[A-Za-z0-9_-]{11}\/?$/.test(path);
           var stored = localStorage.getItem("sessionscan-lang");
           if (!onZh && !onVideo && stored === "zh") {
-            location.replace("/zh/" + location.search + location.hash);
+            var dest = path === "/" ? "/zh/" : "/zh" + (path.charAt(0) === "/" ? path : "/" + path);
+            if (dest.charAt(dest.length - 1) !== "/") dest += "/";
+            location.replace(dest + location.search + location.hash);
           }
         } catch (e) {}
       })();
@@ -53,7 +55,7 @@
     <noscript id="crawlJobs"></noscript>
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="#hero" data-i18n-aria="brandAria" aria-label="SessionScan back to top">
+        <a class="brand" href="/" data-i18n-aria="brandAriaHome" aria-label="SessionScan back to home">
           <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
             <circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="1.6" class="teal" />
             <circle cx="32" cy="32" r="14" fill="none" stroke="currentColor" stroke-width="1.4" class="pink" />
@@ -97,6 +99,14 @@
           <button type="submit" class="btn-scan" data-i18n="scanBtn">SCAN</button>
         </form>
       </div>
+      <nav class="site-nav" data-i18n-aria="siteNavAria" aria-label="Site">
+        <a class="site-nav-link" href="/" data-nav="home" aria-current="page" data-i18n="navThisWeek">This week</a>
+        <a class="site-nav-link" href="/week/" data-nav="week" data-i18n="navArchive">Archive</a>
+        <a class="site-nav-link" href="/guides/money/" data-nav="money" data-i18n="navMoney">Money</a>
+        <a class="site-nav-link" href="/guides/businesses/" data-nav="businesses" data-i18n="navBusinesses">Businesses</a>
+        <a class="site-nav-link" href="/gta6/" data-nav="gta6" data-i18n="navGta6">GTA 6</a>
+        <a class="site-nav-link" href="/about/" data-nav="about" data-i18n="navAbout">About</a>
+      </nav>
       <nav class="tabs" data-i18n-aria="navAria" aria-label="Channels">
         <button class="tab active" data-tab="jobs" type="button"><span class="ch">01</span><span class="tab-name" data-i18n="tabJobs">This week's money &amp; jobs</span></button>
         <button class="tab" data-tab="hot" type="button"><span class="ch">02</span><span class="tab-name" data-i18n="tabHot">Hot videos · last 30 days</span></button>

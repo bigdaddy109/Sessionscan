@@ -48,6 +48,10 @@ if (shouldRedirectToZh({ pathname: "/zh/", stored: "zh" })) fail("no redirect on
 if (shouldRedirectToZh({ pathname: "/v/5XBMNYmFmTs/", stored: "zh" })) fail("no redirect on video page");
 if (localeHref("zh", { hash: "#jobs" }) !== "/zh/#jobs") fail("zh href keeps hash");
 if (localeHref("en", { hash: "#hot" }) !== "/#hot") fail("en href keeps hash");
+if (localeHref("zh", { path: "/about/" }) !== "/zh/about/") fail("zh pairs about path");
+if (localeHref("en", { path: "/zh/guides/money/" }) !== "/guides/money/") fail("en pairs money path");
+if (t("navThisWeek", {}, "en") !== "This week") fail("en primary nav label");
+if (t("navThisWeek", {}, "zh") !== "本週") fail("zh primary nav label");
 if (!langHay("zh").includes("中文") || !langHay("zh").includes("chinese")) fail("lang hay");
 if (!SEARCH_ALIAS_GROUPS.some((g) => g.includes("中文") && g.includes("chinese"))) {
   fail("search aliases must match Chinese and English language words");

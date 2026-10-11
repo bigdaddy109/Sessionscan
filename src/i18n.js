@@ -23,6 +23,41 @@ export const UI = {
     scanBtn: "SCAN",
     searchPh: "Scan keywords — Cayo, GTA 6, Bahamut…",
     navAria: "Channels",
+    siteNavAria: "Site",
+    navThisWeek: "This week",
+    navArchive: "Archive",
+    navMoney: "Money",
+    navBusinesses: "Businesses",
+    navGta6: "GTA 6",
+    navAbout: "About",
+    pageStubFlag: "Stub — full content ships in a later phase.",
+    pageWeekTitle: "Weekly archive | SessionScan",
+    pageWeekDesc: "Frozen weekly GTA Online updates from SessionScan. Archive pages expand in a later phase.",
+    pageWeekHeading: "Weekly archive",
+    pageWeekBody:
+      "<p>This is the archive index shell. Frozen week pages (<code>/week/YYYY-MM-DD/</code>) land in Phase C. Until then, <a href=\"/\">this week on the home page</a> is the live snapshot.</p>",
+    pageMoneyTitle: "Money guide | SessionScan",
+    pageMoneyDesc: "GTA Online money routes and a lightweight $/hr calculator. Ranking with sources ships in a later phase.",
+    pageMoneyHeading: "Money guide",
+    pageMoneyBody:
+      "<p>Stub shell for the evergreen money guide and calculator. Phase C adds $/hr ranking with source + date and a simple calculator. Home still lists this week's money &amp; jobs cards.</p>",
+    pageBusinessesTitle: "Business ranking | SessionScan",
+    pageBusinessesDesc: "Which GTA Online businesses are worth buying — cited numbers, last-updated. Full list ships later.",
+    pageBusinessesHeading: "Business ranking",
+    pageBusinessesBody:
+      "<p>Stub shell for the worth-buying business list. Phase C adds last-updated timestamps and citations (Newswire / trusted secondary).</p>",
+    pageGta6Title: "GTA 6 | SessionScan",
+    pageGta6Desc: "Official Grand Theft Auto VI announcements and dates only — no leaks, no rumors as fact.",
+    pageGta6Heading: "GTA 6",
+    pageGta6Body:
+      "<p>Official information only. SessionScan links to Rockstar sources; we do not publish leaks or frame rumors as fact.</p><p>Announced release date (Rockstar): <strong>November 19, 2026</strong>.</p>",
+    pageGta6Official: "Rockstar — Grand Theft Auto VI ↗",
+    pageGta6Newswire: "Rockstar Newswire ↗",
+    pageAboutTitle: "About | SessionScan",
+    pageAboutDesc: "What SessionScan is: GTA 5 / Online / GTA 6 hub, scope, disclaimer, and social links.",
+    pageAboutHeading: "About SessionScan",
+    pageAboutBody:
+      "<p>SessionScan is a static GTA 5 / Online / GTA 6 intelligence hub. We surface this week's signals and outbound titles only — we do not copy full guides.</p><p><strong>Scope:</strong> GTA 5, GTA Online (counts as GTA 5), and GTA 6. No GTA 4. No Red Dead Online.</p><p>Unofficial fan site · no ads · snapshot data, not a live scrape. Unrelated to other apps of the same name. See NOTICE and LICENSE in the site root for attribution.</p>",
     tabJobs: "This week's money & jobs",
     tabHot: "Hot videos · last 30 days",
     tabNew: "Trending Shorts",
@@ -190,6 +225,41 @@ export const UI = {
     scanBtn: "掃描",
     searchPh: "掃描關鍵字 — Cayo、GTA 6、巴哈…",
     navAria: "頻道",
+    siteNavAria: "站內",
+    navThisWeek: "本週",
+    navArchive: "週更封存",
+    navMoney: "賺錢",
+    navBusinesses: "生意",
+    navGta6: "GTA 6",
+    navAbout: "關於",
+    pageStubFlag: "佔位頁 — 完整內容之後的階段才會上線。",
+    pageWeekTitle: "週更封存｜SessionScan",
+    pageWeekDesc: "SessionScan 凍結的 GTA Online 週更封存。完整週頁之後的階段才會上線。",
+    pageWeekHeading: "週更封存",
+    pageWeekBody:
+      "<p>這是封存索引殼。凍結週頁（<code>/zh/week/YYYY-MM-DD/</code>）在 Phase C 上線。目前請看<a href=\"/zh/\">首頁本週快照</a>。</p>",
+    pageMoneyTitle: "賺錢指南｜SessionScan",
+    pageMoneyDesc: "GTA Online 賺錢路線與簡易 $/hr 計算機。含來源的排名之後上線。",
+    pageMoneyHeading: "賺錢指南",
+    pageMoneyBody:
+      "<p>常駐賺錢指南與計算機的佔位殼。Phase C 會加上含來源與日期的 $/hr 排名與簡易計算機。首頁仍列出本週賺錢與工作卡片。</p>",
+    pageBusinessesTitle: "生意排名｜SessionScan",
+    pageBusinessesDesc: "哪些 GTA Online 生意值得買 — 附出處與更新日期。完整列表之後上線。",
+    pageBusinessesHeading: "生意排名",
+    pageBusinessesBody:
+      "<p>值得入手生意列表的佔位殼。Phase C 會加上最後更新日期與出處（Newswire／可信二級來源）。</p>",
+    pageGta6Title: "GTA 6｜SessionScan",
+    pageGta6Desc: "僅官方 Grand Theft Auto VI 公告與日期 — 不轉載洩漏、不以傳聞當事實。",
+    pageGta6Heading: "GTA 6",
+    pageGta6Body:
+      "<p>僅官方資訊。SessionScan 連到 Rockstar 來源；不發布洩漏，也不把傳聞寫成真確。</p><p>已公告上市日（Rockstar）：<strong>2026 年 11 月 19 日</strong>。</p>",
+    pageGta6Official: "Rockstar — Grand Theft Auto VI ↗",
+    pageGta6Newswire: "Rockstar Newswire ↗",
+    pageAboutTitle: "關於｜SessionScan",
+    pageAboutDesc: "SessionScan 是什麼：GTA 5／Online／GTA 6 情報站、範圍、免責與社群連結。",
+    pageAboutHeading: "關於 SessionScan",
+    pageAboutBody:
+      "<p>SessionScan 是靜態 GTA 5／Online／GTA 6 情報站。我們整理本週訊號與標題外連，不轉載全文攻略。</p><p><strong>範圍：</strong>GTA 5、GTA Online（算 GTA 5）、GTA 6。不含 GTA 4。不含 Red Dead Online。</p><p>非官方粉絲站 · 無廣告 · 快照資料非即時爬蟲。與其他同名 App 無關。著作權與歸屬見站根目錄 NOTICE、LICENSE。</p>",
     tabJobs: "本週賺錢與工作",
     tabHot: "近 30 天熱門影片",
     tabNew: "當紅 Short",
@@ -409,9 +479,22 @@ export function localeHome(lang) {
   return lang === "zh" ? `${SITE_ORIGIN}/zh/` : `${SITE_ORIGIN}/`;
 }
 
-export function localeHref(lang, { hash = "", search = "" } = {}) {
-  const path = lang === "zh" ? "/zh/" : "/";
-  return `${path}${search || ""}${hash || ""}`;
+export function localeHref(lang, { hash = "", search = "", path } = {}) {
+  let base = lang === "zh" ? "/zh/" : "/";
+  if (path != null && path !== "") {
+    let p = String(path).replace(/\/index\.html$/, "") || "/";
+    if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
+    if (p === "/zh" || p.startsWith("/zh/")) {
+      const en = p === "/zh" ? "/" : `/${p.slice(4)}`;
+      p = en === "/" ? "/" : en.startsWith("/") ? en : `/${en}`;
+    }
+    if (p === "/") base = lang === "zh" ? "/zh/" : "/";
+    else {
+      const clean = p.replace(/^\/+/, "").replace(/\/+$/, "");
+      base = lang === "zh" ? `/zh/${clean}/` : `/${clean}/`;
+    }
+  }
+  return `${base}${search || ""}${hash || ""}`;
 }
 
 export function readStoredLang() {
@@ -490,10 +573,10 @@ export function siteBase(pathname = typeof location !== "undefined" ? location.p
   const explicit = typeof document !== "undefined" ? document.documentElement?.dataset?.siteBase : "";
   if (explicit) return explicit.endsWith("/") ? explicit : `${explicit}/`;
   const p = String(pathname || "/").replace(/\/index\.html$/, "") || "/";
-  if (p === "/zh" || p === "/zh/") return "../";
-  if (/\/zh\/v\/[A-Za-z0-9_-]{11}\/?$/.test(p)) return "../../../";
-  if (/\/v\/[A-Za-z0-9_-]{11}\/?$/.test(p)) return "../../";
-  return "./";
+  if (p === "/" || p === "") return "./";
+  const parts = p.split("/").filter(Boolean);
+  if (!parts.length) return "./";
+  return "../".repeat(parts.length);
 }
 
 export function dataUrl(file, pathname) {
