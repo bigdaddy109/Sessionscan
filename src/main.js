@@ -963,7 +963,13 @@ function wireLangSwitch() {
       persistLang(next);
       if ((next === "zh") === isZhPath(location.pathname)) return;
       e.preventDefault();
-      location.assign(localeHref(next, { hash: location.hash, search: location.search }));
+      location.assign(
+        localeHref(next, {
+          hash: location.hash,
+          search: location.search,
+          path: location.pathname,
+        }),
+      );
     });
   });
 }
