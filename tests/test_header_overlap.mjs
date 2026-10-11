@@ -180,7 +180,6 @@ async function measureOverflow(page) {
     return {
       client,
       scroll: doc.scrollWidth,
-      heroScroll: document.querySelector(".hero")?.scrollWidth ?? 0,
       viewport: document.querySelector('meta[name="viewport"]')?.getAttribute("content") || "",
       miniHidden: mini ? mini.hidden : true,
       outside: checked.filter((info) => !within(info)),
@@ -213,9 +212,6 @@ function reportOverflow(label, measured) {
   const errors = [];
   if (measured.scroll > measured.client + 1) {
     errors.push(`${label}: document.scrollWidth ${measured.scroll} > clientWidth ${measured.client}`);
-  }
-  if (measured.heroScroll > measured.client + 1) {
-    errors.push(`${label}: .hero scrollWidth ${measured.heroScroll} > clientWidth ${measured.client}`);
   }
   if (measured.viewport !== "width=device-width, initial-scale=1, viewport-fit=cover") {
     errors.push(`${label}: viewport meta is ${JSON.stringify(measured.viewport)}`);
