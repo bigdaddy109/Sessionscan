@@ -1,6 +1,6 @@
 import { THIS_WEEK_MAX, isOwnedShortThisWeek, isThisWeekJob, withDisplayRanks } from "./thisWeek.js";
 import { filterOtherShorts } from "./shortsFilter.js";
-import { bahaAbsTime, isHotSnapshotStale, isRelativeForumTime, parseSnapshotNow } from "./bahaTime.js";
+import { bahaAbsTime, isRelativeForumTime, parseSnapshotNow } from "./bahaTime.js";
 import {
   TAB_TO_HASH,
   cardActionsHtml,
@@ -11,16 +11,12 @@ import {
   uiCopy,
 } from "./cardShare.js";
 import {
-  filterSortVideos,
   gta6ScheduleLine,
-  hubStats,
   pickOfficialWeekly,
   rankDelta,
   rankDeltaHtml,
   snapshotNow,
-  videoChannels,
   videoKey,
-  weekHighlights,
 } from "./homeExtras.js";
 import {
   SEARCH_ALIAS_GROUPS,
@@ -36,6 +32,12 @@ import {
   setUiLang,
   t,
 } from "./i18n.js";
+import {
+  buildWeekBullets,
+  countdownParts,
+  nextWeeklyUpdateAt,
+  pickHomeShort,
+} from "./thisWeekHome.js";
 
 const SOURCE_HINT_KEYS = {
   gtabase: "jobsHintGtabase",
@@ -65,6 +67,7 @@ const state = {
   newSort: "rank",
   newChannel: "",
   newPeriod: "all",
+  countdownTimer: 0,
 };
 
 const $ = (s, root = document) => root.querySelector(s);
@@ -216,25 +219,6 @@ function sessionScanSlot(slot) {
     </article>`;
 }
 
-function jaNote(note) {
-  const lang = uiLang();
-  const title = lang === "zh"
-    ? (note.title_zh || t("jaNoteTitle"))
-    : (note.title_en || t("jaNoteTitle"));
-  const body = lang === "zh"
-    ? (note.body_zh || t("jaNoteBody"))
-    : (note.body_en || t("jaNoteBody"));
-  const links = (note.links || [])
-    .map((l) => `<li><a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.title)}</a></li>`)
-    .join("");
-  return `
-    <div class="ja-note" data-card>
-      <p><strong>${esc(title)}</strong></p>
-      <p class="blurb">${esc(body)}</p>
-      <ul class="blurb">${links}</ul>
-    </div>`;
-}
-
 function forumSnapshotNow() {
   const meta = state.data?.meta || {};
   return parseSnapshotNow(meta.forum_bahamut || meta.forum || meta._last_run || meta.snapshot_date);
@@ -382,116 +366,62 @@ function renderJobs() {
   $("#jobList").innerHTML = `<p class="empty-msg">${esc(isLiveData(state.data) ? t("noCardsLive") : t("noCardsSample"))}</p>`;
 }
 
-function renderHotHint() {
-  const hint = $("#hotHint");
-  const meta = state.data?.meta || {};
-  const live = isLiveData(state.data);
-  const stale = live && isHotSnapshotStale(meta, state.hotLang);
-  if (hint) {
-    hint.textContent = stale ? t("hotStale") : "";
-    hint.hidden = !stale;
-  }
-  const timeEl = document.querySelector('#view-hot [data-meta="hot"]');
-  if (!timeEl) return;
-  if (!live) {
-    timeEl.textContent = t("sampleTime", { stamp: meta.snapshot_date || meta.hot || "" });
-    return;
-  }
-  const stamp = (state.hotLang && meta[`videos_hot_${state.hotLang}`]) || meta.hot || meta._last_run || meta.snapshot_date || "";
-  timeEl.textContent = stale
-    ? t("snapshotTimeStale", { stamp: stamp || "—", hint: t("hotStale") })
-    : t("snapshotTime", { stamp: stamp || "—" });
-}
-
-function renderHot() {
-  renderHotHint();
-  const raw = state.data[`videos_hot_${state.hotLang}`] || [];
-  if (state.hotLang === "ja" && !raw.length) {
-    $("#hotGrid").innerHTML = jaNote(state.data.ja_video_note);
-    return;
-  }
-  const now = snapshotNow(state.data?.meta || {});
-  state.hotChannel = fillChannelSelect($("#hotChannel"), videoChannels(raw), state.hotChannel) || "";
-  const list = filterSortVideos(raw, {
-    sort: state.hotSort,
-    channel: state.hotChannel,
-    period: state.hotPeriod,
-    now,
-  });
-  const rankKey = `videos_hot_${state.hotLang}`;
-  if (list.length) {
-    $("#hotGrid").innerHTML = list.map((v) => videoCard(v, v._rank, "", "hot", rankKey)).join("");
-    return;
-  }
-  const empty = raw.length
-    ? t("noVideosFilter")
-    : (isLiveData(state.data) ? t("noVideosLive") : t("noVideosSample"));
-  $("#hotGrid").innerHTML = `<p class="empty-msg">${esc(empty)}</p>`;
-}
-
-function renderNew() {
-  const slot = sessionScanSlot(state.data.sessionscan_slot);
-  const owned = state.data.sessionscan_slot?.short?.video_id;
-  const others = filterOtherShorts(state.data.videos_shorts || []).filter((v) => {
-    if (!v.video_id || v.video_id === owned) return false;
-    if (v.lang === "ko") return false;
-    return true;
-  });
-  const now = snapshotNow(state.data?.meta || {});
-  state.newChannel = fillChannelSelect($("#newChannel"), videoChannels(others), state.newChannel) || "";
-  const list = filterSortVideos(others, {
-    sort: state.newSort,
-    channel: state.newChannel,
-    period: state.newPeriod,
-    now,
-  });
-  const cards = list.map((v) => videoCard(v, v._rank + 1, "", "new", "videos_shorts")).join("");
-  const empty = others.length && !list.length
-    ? `<p class="empty-msg">${esc(t("noShortsFilter"))}</p>`
-    : (cards || `<p class="empty-msg">${esc(isLiveData(state.data) ? t("noShortsLive") : t("noShortsSample"))}</p>`);
-  $("#newGrid").innerHTML = slot + empty;
-}
-
-function renderForum() {
-  const key = state.forumSource === "reddit" ? "forum_reddit" : "forum_bahamut";
-  const list = state.data[key] || [];
-  $("#forumList").innerHTML = list.length
-    ? list.map(threadCard).join("")
-    : `<p class="empty-msg">${esc(isLiveData(state.data) ? t("noThreadsLive") : t("noThreadsSample"))}</p>`;
-}
-
 function usableZhTweet(tw) {
   if (isPlaceholderXTweet(tw)) return false;
-  const t = tw?.text || "";
-  if (t.length < 12) return false;
-  if (/\.\.\.\s*$|…\s*$|【\.\.\.|【…/.test(t)) return false;
-  if (!/[\u4e00-\u9fff]/.test(t)) return false;
-  if (/[们这为发会时对说]/.test(t) && !/[們這為發會時對說彙]/.test(t)) return false;
+  const text = tw?.text || "";
+  if (text.length < 12) return false;
+  if (/\.\.\.\s*$|…\s*$|【\.\.\.|【…/.test(text)) return false;
+  if (!/[\u4e00-\u9fff]/.test(text)) return false;
+  if (/[们这为发会时对说]/.test(text) && !/[們這為發會時對說彙]/.test(text)) return false;
   return true;
 }
 
-function renderTweets() {
-  let list = (state.data[`tweets_${state.tweetsLang}`] || []).filter((tw) => !isPlaceholderXTweet(tw));
-  if (state.tweetsLang === "zh") list = list.filter(usableZhTweet);
-  if (list.length) {
-    $("#tweetList").innerHTML = list.map(tweetCard).join("");
+function renderWeekCountdown() {
+  const el = $("#weekCountdownDisplay");
+  if (!el) return;
+  const target = nextWeeklyUpdateAt(new Date());
+  const parts = countdownParts(target, new Date());
+  if (parts.totalMs <= 0) {
+    el.textContent = t("weekCountdownLive");
     return;
   }
-  if (state.tweetsLang === "zh") {
-    $("#tweetList").innerHTML = `<p class="empty-msg">${esc(t("noZhTweets"))}</p>`;
-    return;
-  }
-  $("#tweetList").innerHTML = `<p class="empty-msg">${esc(isLiveData(state.data) ? t("noTweetsLive") : t("noTweetsSample"))}</p>`;
+  const pad = (n) => String(n).padStart(2, "0");
+  el.textContent = `${parts.days}d ${pad(parts.hours)}:${pad(parts.minutes)}:${pad(parts.seconds)}`;
 }
 
-function fillChannelSelect(sel, channels, current) {
-  if (!sel) return;
-  const keep = channels.includes(current) ? current : "";
-  const opts = [`<option value="">${esc(t("allChannels"))}</option>`]
-    .concat(channels.map((ch) => `<option value="${esc(ch)}"${ch === keep ? " selected" : ""}>${esc(ch)}</option>`));
-  sel.innerHTML = opts.join("");
-  sel.value = keep;
-  return keep;
+function renderWeekShort() {
+  const host = $("#weekShortBody");
+  if (!host) return;
+  const now = snapshotNow(state.data?.meta || {});
+  const short = pickHomeShort(state.data || {}, now);
+  if (!short) {
+    host.innerHTML = `<p class="week-short-empty">${esc(t("weekShortEmpty"))}</p>${sessionScanSlot(state.data?.sessionscan_slot)}`;
+    return;
+  }
+  host.innerHTML = sessionScanSlot({
+    ...(state.data?.sessionscan_slot || {}),
+    short,
+    channel_url: state.data?.sessionscan_slot?.channel_url || "https://www.youtube.com/@sessionscan",
+  });
+}
+
+function renderWeekBullets() {
+  const host = $("#weekBulletList");
+  if (!host) return;
+  const now = snapshotNow(state.data?.meta || {});
+  const bullets = buildWeekBullets(state.data || {}, now, uiLang());
+  host.innerHTML = bullets
+    .map((b) => {
+      const access = b.url
+        ? `<a class="week-bullet-how" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer">${esc(b.how)}</a>`
+        : `<span class="week-bullet-how is-muted">${esc(b.how)}</span>`;
+      return `<li class="week-bullet${b.pending ? " is-pending" : ""}" data-bullet="${esc(b.id)}">
+        <span class="week-bullet-label">${esc(b.label)}</span>
+        <span class="week-bullet-reward">${esc(b.reward)}</span>
+        ${access}
+      </li>`;
+    })
+    .join("");
 }
 
 function renderOfficialBanner() {
@@ -508,47 +438,12 @@ function renderOfficialBanner() {
   el.innerHTML = `<a href="${esc(weekly.url)}" target="_blank" rel="noopener noreferrer">${esc(weekly.title)}</a><span class="official-sub">${esc(sourceLine)}${weekly.updated ? ` · ${esc(weekly.updated)}` : ""}</span>${extra}`;
 }
 
-function renderHighlights() {
-  const host = $("#highlightsList");
-  if (!host) return;
-  const now = snapshotNow(state.data?.meta || {});
-  const items = weekHighlights(state.data || {}, now, uiLang());
-  if (!items.length) {
-    host.innerHTML = `<p class="highlights-empty">${esc(t("highlightsEmpty"))}</p>`;
-    return;
-  }
-  host.innerHTML = items.map((it) => `
-    <button type="button" class="highlight-card" data-jump-tab="${esc(it.tab || "")}" data-jump-id="${esc(it.id || "")}">
-      <span class="highlight-kicker">${esc(it.kicker)}</span>
-      <span class="highlight-title">${esc(it.title)}</span>
-      ${it.meta ? `<span class="highlight-meta">${esc(it.meta)}</span>` : ""}
-    </button>`).join("");
-}
-
-function renderHubStats() {
-  const box = $("#hubStats");
-  const row = $("#hubStatsRow");
-  if (!box || !row) return;
-  const now = snapshotNow(state.data?.meta || {});
-  const stats = hubStats(state.data || {}, now);
-  const chips = [];
-  if (stats.videoCount) chips.push(`<div class="stat-chip"><strong>${stats.videoCount}</strong><span>${esc(t("statVideos"))}</span></div>`);
-  if (stats.totalViews != null) chips.push(`<div class="stat-chip"><strong>${esc(fmtViews(stats.totalViews))}</strong><span>${esc(t("statViews"))}</span></div>`);
-  if (stats.avgViews != null) chips.push(`<div class="stat-chip"><strong>${esc(fmtViews(stats.avgViews))}</strong><span>${esc(t("statAvg"))}</span></div>`);
-  if (stats.topChannel) chips.push(`<div class="stat-chip"><strong>${esc(stats.topChannel)}</strong><span>${esc(t("statChannel"))}</span></div>`);
-  row.innerHTML = chips.join("");
-  box.hidden = chips.length === 0;
-}
-
 function renderAll() {
   renderJobs();
-  renderHot();
-  renderNew();
-  renderForum();
-  renderTweets();
   renderOfficialBanner();
-  renderHighlights();
-  renderHubStats();
+  renderWeekCountdown();
+  renderWeekShort();
+  renderWeekBullets();
   syncFilterPills();
   const meta = state.data.meta || {};
   const live = isLiveData(state.data);
@@ -562,13 +457,11 @@ function renderAll() {
     }
   }
   $$("[data-meta]").forEach((el) => {
-    if (el.dataset.meta === "hot") return;
     const stamp = meta[el.dataset.meta] || meta._last_run || meta.snapshot_date || "";
     el.textContent = live
       ? t("snapshotTime", { stamp: stamp || "—" })
       : t("sampleTime", { stamp: meta.snapshot_date || stamp || "" });
   });
-  renderHotHint();
   $("#lastRun").textContent = live
     ? t("lastRunLive", { stamp: meta._last_run || "—" })
     : t("lastRunSample", { stamp: meta.snapshot_date || "" });
@@ -598,111 +491,28 @@ function setSearchExpanded(open) {
   $("#searchForm")?.classList.toggle("is-open", Boolean(open));
 }
 
-const CHANNEL_SHORT = { jobs: "CH-01", hot: "CH-02", new: "CH-03", forum: "CH-04", x: "CH-05" };
-
 function activeViewEl() {
   return $("#main")?.querySelector(".view:not(.hidden)");
 }
 
-function headerBottomExMini() {
-  const header = $(".site-header");
-  const mini = $("#channelMini");
-  if (!header) return 0;
-  const box = header.getBoundingClientRect();
-  if (mini && !mini.hidden) return box.bottom - mini.getBoundingClientRect().height;
-  return box.bottom;
-}
-
-/** Sticky header height excluding channel-mini (destination state after jump-nav). */
+/** Sticky header height for scroll-margin (Phase B: no channel-mini strip). */
 function stickyHeaderOffsetPx() {
   const header = $(".site-header");
-  const mini = $("#channelMini");
   if (!header) return 0;
-  let h = header.getBoundingClientRect().height;
-  if (mini && !mini.hidden) h -= mini.getBoundingClientRect().height;
-  return Math.max(0, Math.ceil(h));
+  return Math.max(0, Math.ceil(header.getBoundingClientRect().height));
 }
 
 function syncStickyScrollMargin() {
   document.documentElement.style.setProperty("--sticky-header-offset", `${stickyHeaderOffsetPx()}px`);
 }
 
-/** Keep the active channel tab reachable inside the horizontally scrollable strip. */
-function ensureActiveTabVisible() {
-  const tabs = $(".tabs");
-  const active = document.querySelector(".tab.active");
-  if (!tabs || !active) return;
-  const tBox = tabs.getBoundingClientRect();
-  const aBox = active.getBoundingClientRect();
-  if (aBox.left < tBox.left + 4) tabs.scrollLeft += aBox.left - tBox.left - 8;
-  else if (aBox.right > tBox.right - 4) tabs.scrollLeft += aBox.right - tBox.right + 8;
-}
-
 /** Scroll #main just below sticky chrome (honors scroll-margin-top + safe-area). */
 function scrollMainIntoView() {
   const main = $("#main");
   if (!main) return;
-  // Jump-nav lands with the section heading visible, so channel-mini is not shown.
-  const mini = $("#channelMini");
-  if (mini) mini.hidden = true;
   syncStickyScrollMargin();
   const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
   main.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
-  ensureActiveTabVisible();
-  requestChannelMiniSync();
-}
-
-function viewHeadIsPast() {
-  const view = activeViewEl();
-  const head = view?.querySelector(".view-head");
-  if (!view || !head || view.id === "view-search") return false;
-  return head.getBoundingClientRect().bottom < headerBottomExMini() - 1;
-}
-
-function fillChannelMini(view) {
-  const name = $("#channelMiniName");
-  const host = $("#channelMiniPills");
-  if (!name || !host) return;
-  const tab = view.id.replace(/^view-/, "");
-  name.textContent = CHANNEL_SHORT[tab] || "";
-  host.replaceChildren();
-  view.querySelectorAll(".controls .pill-group").forEach((group) => {
-    host.appendChild(group.cloneNode(true));
-  });
-}
-
-function syncChannelMini({ refill = false } = {}) {
-  const mini = $("#channelMini");
-  const name = $("#channelMiniName");
-  const host = $("#channelMiniPills");
-  if (!mini || !name || !host) return;
-  const view = activeViewEl();
-  const tab = view?.id?.replace(/^view-/, "") || "";
-  const show = Boolean(view && tab !== "search" && viewHeadIsPast());
-  if (!show) {
-    mini.hidden = true;
-    name.textContent = "";
-    host.replaceChildren();
-    return;
-  }
-  if (refill || mini.hidden || name.textContent !== (CHANNEL_SHORT[tab] || "")) {
-    fillChannelMini(view);
-  }
-  mini.hidden = false;
-}
-
-function requestChannelMiniSync(opts) {
-  requestAnimationFrame(() => syncChannelMini(opts));
-}
-
-function originalPillForClone(view, pill) {
-  if (pill.dataset.source) return view.querySelector(`.controls .pill[data-source="${pill.dataset.source}"]`);
-  if (pill.dataset.forum) return view.querySelector(`.controls .pill[data-forum="${pill.dataset.forum}"]`);
-  if (pill.dataset.lang) return view.querySelector(`.controls .pill[data-lang="${pill.dataset.lang}"]`);
-  if (pill.dataset.jobsRange) return view.querySelector(`.controls .pill[data-jobs-range="${pill.dataset.jobsRange}"]`);
-  if (pill.dataset.sort) return view.querySelector(`.controls .pill[data-sort="${pill.dataset.sort}"]`);
-  if (pill.dataset.period) return view.querySelector(`.controls .pill[data-period="${pill.dataset.period}"]`);
-  return null;
 }
 
 function jobVisibleByDefault(item, jobsSource) {
@@ -731,44 +541,19 @@ function locateCard(id, preferTab) {
 }
 
 function syncFilterPills() {
-  $$('.pill[data-source]').forEach((p) => p.classList.toggle("active", p.dataset.source === state.jobsSource));
-  $$('.pill[data-forum]').forEach((p) => p.classList.toggle("active", p.dataset.forum === state.forumSource));
-  $$("#view-hot .pill[data-lang]").forEach((p) => p.classList.toggle("active", p.dataset.lang === state.hotLang));
-  $$("#view-x .pill[data-lang]").forEach((p) => p.classList.toggle("active", p.dataset.lang === state.tweetsLang));
+  $$(".pill[data-source]").forEach((p) => p.classList.toggle("active", p.dataset.source === state.jobsSource));
   $$('.pill[data-jobs-range="older"]').forEach((p) => {
     p.classList.toggle("active", state.showOlderJobs);
     p.setAttribute("aria-pressed", state.showOlderJobs ? "true" : "false");
   });
-  $$('#view-hot .pill[data-sort]').forEach((p) => p.classList.toggle("active", p.dataset.sort === state.hotSort));
-  $$('#view-hot .pill[data-period]').forEach((p) => p.classList.toggle("active", p.dataset.period === state.hotPeriod));
-  $$('#view-new .pill[data-sort]').forEach((p) => p.classList.toggle("active", p.dataset.sort === state.newSort));
-  $$('#view-new .pill[data-period]').forEach((p) => p.classList.toggle("active", p.dataset.period === state.newPeriod));
 }
 
 function applyCardLocation(loc) {
-  if (loc.tab === "jobs") {
-    if (loc.jobsSource) state.jobsSource = loc.jobsSource;
-    if (!jobVisibleByDefault(loc.item, loc.jobsSource)) state.showOlderJobs = true;
-  } else if (loc.tab === "hot" && loc.hotLang) {
-    state.hotLang = loc.hotLang;
-    state.hotSort = "rank";
-    state.hotChannel = "";
-    state.hotPeriod = "all";
-  } else if (loc.tab === "new") {
-    state.newSort = "rank";
-    state.newChannel = "";
-    state.newPeriod = "all";
-  } else if (loc.tab === "forum" && loc.forumSource) {
-    state.forumSource = loc.forumSource;
-  } else if (loc.tab === "x" && loc.tweetsLang) {
-    state.tweetsLang = loc.tweetsLang;
-  }
+  if (loc.tab !== "jobs") return;
+  if (loc.jobsSource) state.jobsSource = loc.jobsSource;
+  if (!jobVisibleByDefault(loc.item, loc.jobsSource)) state.showOlderJobs = true;
   syncFilterPills();
-  if (loc.tab === "jobs") renderJobs();
-  else if (loc.tab === "hot") renderHot();
-  else if (loc.tab === "new") renderNew();
-  else if (loc.tab === "forum") renderForum();
-  else if (loc.tab === "x") renderTweets();
+  renderJobs();
 }
 
 function highlightCard(id) {
@@ -803,26 +588,26 @@ function applyHash({ scroll = false } = {}) {
     doSearch(parsed.q);
     return;
   }
-  const loc = parsed.v ? locateCard(parsed.v, parsed.tab) : null;
-  if (loc) {
+  // Legacy channel hashes redirect away in head; leftover v= for job cards still lands here.
+  const loc = parsed.v ? locateCard(parsed.v, parsed.tab || "jobs") : null;
+  if (loc && loc.tab === "jobs") {
     applyCardLocation(loc);
-    switchView(loc.tab, { write: false });
+    switchView("jobs", { write: false });
     highlightCard(loc.id);
     return;
   }
-  switchView(parsed.tab || state.activeTab || "jobs", { write: false });
+  switchView("jobs", { write: false });
   if (scroll) scrollMainIntoView();
 }
 
 function switchView(name, { write = true } = {}) {
-  if (name !== "search") state.activeTab = name;
+  const target = name === "search" ? "search" : "jobs";
+  if (target !== "search") state.activeTab = "jobs";
   $$(".card-flash").forEach((el) => el.classList.remove("card-flash"));
   $$(".view").forEach((el) => el.classList.add("hidden"));
-  const view = $(`#view-${name}`);
+  const view = $(`#view-${target}`);
   if (view) view.classList.remove("hidden");
-  $$(".tab").forEach((t) => t.classList.toggle("active", t.dataset.tab === name));
   if (write) writeHash();
-  syncChannelMini({ refill: true });
 }
 
 function searchHay(item, keys) {
@@ -997,23 +782,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   renderAll();
   applyHash();
+  if (state.countdownTimer) clearInterval(state.countdownTimer);
+  state.countdownTimer = setInterval(renderWeekCountdown, 1000);
   window.addEventListener("hashchange", () => {
     if (state.hashLock) return;
     applyHash({ scroll: true });
   });
   syncStickyScrollMargin();
-  $$(".tab").forEach((t) => {
-    t.addEventListener("click", () => {
-      switchView(t.dataset.tab);
-      scrollMainIntoView();
-    });
-  });
-  $$("#ctaGrid .cta-card").forEach((card) => {
-    card.addEventListener("click", () => {
-      switchView(card.dataset.tab);
-      scrollMainIntoView();
-    });
-  });
   document.addEventListener("click", (e) => {
     const playBtn = e.target.closest("[data-play]");
     if (playBtn && !playBtn.classList.contains("is-playing")) {
@@ -1024,22 +799,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         const title = playBtn.getAttribute("aria-label") || "YouTube";
         playBtn.classList.add("is-playing");
         playBtn.innerHTML = `<iframe src="${esc(src)}" title="${esc(title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
-      }
-      return;
-    }
-    const jump = e.target.closest("[data-jump-tab]");
-    if (jump) {
-      const tab = jump.dataset.jumpTab || "jobs";
-      const id = jump.dataset.jumpId || "";
-      const loc = id ? locateCard(id, tab) : null;
-      if (loc) {
-        applyCardLocation(loc);
-        switchView(loc.tab);
-        highlightCard(loc.id);
-        scrollMainIntoView();
-      } else {
-        switchView(tab);
-        scrollMainIntoView();
       }
       return;
     }
@@ -1068,77 +827,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       pill.classList.toggle("active", state.showOlderJobs);
       pill.setAttribute("aria-pressed", state.showOlderJobs ? "true" : "false");
       renderJobs();
-      syncChannelMini({ refill: true });
       return;
     }
-    if (pill.dataset.sort) {
-      const which = pill.closest(".pill-group")?.dataset.sortFor;
-      if (which) state[`${which}Sort`] = pill.dataset.sort;
-      pill.closest(".pill-group").querySelectorAll(".pill").forEach((p) => p.classList.remove("active"));
-      pill.classList.add("active");
-      if (which === "hot") renderHot();
-      else if (which === "new") renderNew();
-      syncChannelMini({ refill: true });
-      return;
-    }
-    if (pill.dataset.period) {
-      const which = pill.closest(".pill-group")?.dataset.periodFor;
-      if (which) state[`${which}Period`] = pill.dataset.period;
-      pill.closest(".pill-group").querySelectorAll(".pill").forEach((p) => p.classList.remove("active"));
-      pill.classList.add("active");
-      if (which === "hot") renderHot();
-      else if (which === "new") renderNew();
-      syncChannelMini({ refill: true });
-      return;
-    }
-    pill.closest(".pill-group").querySelectorAll(".pill").forEach((p) => p.classList.remove("active"));
+    if (!pill.dataset.source) return;
+    pill.closest(".pill-group")?.querySelectorAll(".pill").forEach((p) => p.classList.remove("active"));
     pill.classList.add("active");
-    if (pill.dataset.source) {
-      state.jobsSource = pill.dataset.source;
-      renderJobs();
-    } else if (pill.dataset.forum) {
-      state.forumSource = pill.dataset.forum;
-      renderForum();
-    } else if (pill.dataset.lang) {
-      const which = pill.closest(".pill-group").dataset.langFor;
-      state[`${which}Lang`] = pill.dataset.lang;
-      renderHot();
-      renderNew();
-      renderTweets();
-    }
-    syncChannelMini({ refill: true });
+    state.jobsSource = pill.dataset.source;
+    renderJobs();
   });
-  document.addEventListener("change", (e) => {
-    const sel = e.target.closest("select[data-channel-for]");
-    if (!sel) return;
-    const which = sel.dataset.channelFor;
-    const value = sel.value || "";
-    if (which === "hot") {
-      state.hotChannel = value;
-      renderHot();
-    } else if (which === "new") {
-      state.newChannel = value;
-      renderNew();
-    }
-    if (sel.closest("#channelMini")) {
-      const view = activeViewEl();
-      const orig = view?.querySelector(`select[data-channel-for="${which}"]`);
-      if (orig && orig !== sel) orig.value = value;
-    }
-    syncChannelMini({ refill: true });
-  });
-  $("#channelMini")?.addEventListener("click", (e) => {
-    const pill = e.target.closest(".pill");
-    if (!pill || pill.disabled) return;
-    e.preventDefault();
-    e.stopPropagation();
-    const view = activeViewEl();
-    originalPillForClone(view, pill)?.click();
-  });
-  window.addEventListener("scroll", () => requestChannelMiniSync(), { passive: true });
   window.addEventListener("resize", () => {
     syncStickyScrollMargin();
-    requestChannelMiniSync();
   });
   const searchForm = $("#searchForm");
   const searchInput = $("#searchInput");

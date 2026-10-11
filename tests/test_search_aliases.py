@@ -303,28 +303,31 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn('q=', js)
 
     def test_collapsed_scan_pill_and_channel_mini(self):
+        # Phase B strips channel tab-grids / channel-mini from home; scan pill +
+        # overflow chrome must stay. Why: landscape iPhone shrink-to-fit is still
+        # a header risk even without the mini strip.
         html = (ROOT / "index.html").read_text(encoding="utf-8")
         css = (ROOT / "src" / "style.css").read_text(encoding="utf-8")
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
         self.assertIn('class="search-scan-label"', html)
         self.assertIn("SCAN", html)
         self.assertNotIn("掃描 SCAN", html)
-        self.assertIn('id="channelMini"', html)
-        self.assertIn('id="channelMiniName"', html)
-        self.assertIn('id="channelMiniPills"', html)
+        self.assertNotIn('id="channelMini"', html)
+        self.assertNotIn('id="channelMiniName"', html)
+        self.assertNotIn('id="channelMiniPills"', html)
+        self.assertNotIn('class="tabs"', html)
+        self.assertIn('class="site-nav"', html)
         self.assertIn(".search-scan-label", css)
         self.assertIn(".search-box:not(.is-open):not(:focus-within) .search-scan-label", css)
         self.assertNotRegex(
             css,
             r"\.search-box:not\(\.is-open\):not\(:focus-within\)\s*\{[^}]*min-width:\s*40px",
         )
-        self.assertIn(".channel-mini", css)
-        self.assertIn("min-height: 40px", css.split(".channel-mini", 1)[1].split("}", 1)[0])
         view_head_block = css.split(".view-head {", 1)[1].split("}", 1)[0]
         self.assertNotIn("position: sticky", view_head_block)
-        self.assertIn("syncChannelMini", js)
-        self.assertIn("viewHeadIsPast", js)
-        self.assertIn("CHANNEL_SHORT", js)
+        self.assertNotIn("syncChannelMini", js)
+        self.assertNotIn("CHANNEL_SHORT", js)
+        self.assertIn("syncStickyScrollMargin", js)
         self.assertIn('setSearchExpanded(true)', js)
         self.assertIn("applyHash", js)
         self.assertIn("syncWikiPill", js)
@@ -533,8 +536,11 @@ class SearchAliasTests(unittest.TestCase):
         subprocess.check_call(["node", str(ROOT / "tests" / "test_this_week.mjs")], cwd=ROOT)
 
     def test_ch02_stale_owned_short_expiry_and_ch01_rerank(self):
+        # Phase B: hot grid left home; owned Short lives in #weekShort via pickHomeShort.
+        # Stale-hot helper stays in bahaTime for pipeline/tests; CH-01 ranks stay single-source.
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
         html = (ROOT / "index.html").read_text(encoding="utf-8")
+        home = (ROOT / "src" / "thisWeekHome.js").read_text(encoding="utf-8")
         baha = (ROOT / "src" / "bahaTime.js").read_text(encoding="utf-8")
         week = (ROOT / "src" / "thisWeek.js").read_text(encoding="utf-8")
         inject = (ROOT / "scripts" / "inject_static_jobs.mjs").read_text(encoding="utf-8")
@@ -542,15 +548,16 @@ class SearchAliasTests(unittest.TestCase):
         static_home = (ROOT / "src" / "staticHomeJobs.js").read_text(encoding="utf-8")
         i18n = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
         self.assertIn("熱門影片來源這輪未更新，仍顯示上次成功快照", baha + i18n)
-        self.assertIn("isHotSnapshotStale", js)
+        self.assertIn("isHotSnapshotStale", baha)
         self.assertIn("HOT_STALE_HINT", baha)
-        self.assertIn("hotStale", js)
-        self.assertIn('id="hotHint"', html)
-        hot_fn = js.split("function renderHot(", 1)[1].split("function renderNew", 1)[0]
-        self.assertIn("videoCard", hot_fn)
+        self.assertIn("hotStale", i18n)
+        self.assertNotIn('id="hotHint"', html)
+        self.assertNotIn("function renderHot(", js)
+        self.assertIn('id="weekShort"', html)
+        self.assertIn("pickHomeShort", js + home)
+        self.assertIn("isOwnedShortThisWeek", home + week + js)
         i18n = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
         self.assertIn("本週尚無新 Short", i18n)
-        self.assertIn("isOwnedShortThisWeek", js + week)
         self.assertIn("上一則", i18n)
         self.assertIn("@sessionscan", js)
         self.assertIn("withDisplayRanks", js + week)
@@ -621,29 +628,43 @@ class SearchAliasTests(unittest.TestCase):
     def test_homepage_extras_chrome_and_logic(self):
         import subprocess
 
+        # Phase B home chrome: countdown, Short embed, YT/IG/X, five one-liners.
+        # homeExtras helpers still power official banner + rank delta for cards.
         html = (ROOT / "index.html").read_text(encoding="utf-8")
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
         css = (ROOT / "src" / "style.css").read_text(encoding="utf-8")
+        home = (ROOT / "src" / "thisWeekHome.js").read_text(encoding="utf-8")
         extras = (ROOT / "src" / "homeExtras.js").read_text(encoding="utf-8")
         build = (ROOT / "build_site.py").read_text(encoding="utf-8")
-        self.assertIn('id="highlightsBar"', html)
+        self.assertNotIn('id="highlightsBar"', html)
+        self.assertNotIn('id="hubStats"', html)
+        self.assertNotIn('data-sort-for="hot"', html)
+        self.assertNotIn('id="hotChannel"', html)
+        self.assertIn('id="weekCountdown"', html)
+        self.assertIn('id="weekShort"', html)
+        self.assertIn('id="weekSocial"', html)
+        self.assertIn('id="weekBullets"', html)
         self.assertIn("This week", html)
-        self.assertIn('id="hubStats"', html)
-        self.assertIn("Scan stats", html)
-        self.assertIn('data-sort-for="hot"', html)
-        self.assertIn('data-period-for="hot"', html)
-        self.assertIn('id="hotChannel"', html)
+        self.assertIn("SessionScanGTA", html)
+        self.assertIn("thisWeekHome.js", js)
+        self.assertIn("buildWeekBullets", js + home)
+        self.assertIn("nextWeeklyUpdateAt", js + home)
+        self.assertIn("pickHomeShort", js + home)
         self.assertIn("data-play", js)
         self.assertIn("rankDeltaHtml", js)
-        self.assertIn("filterSortVideos", js)
+        self.assertIn("filterSortVideos", extras)
         self.assertIn("youtube-nocookie.com/embed/", js)
-        self.assertNotIn("youtube-nocookie.com/embed/", js.split("function videoCard", 1)[1].split("function sessionScanSlot", 1)[0])
+        self.assertNotIn(
+            "youtube-nocookie.com/embed/",
+            js.split("function videoCard", 1)[1].split("function sessionScanSlot", 1)[0],
+        )
         self.assertIn("extract_rank_prev", build)
         self.assertIn("rank_prev", extras + build)
-        self.assertIn(".highlights-bar", css)
+        self.assertIn(".week-countdown", css)
+        self.assertIn(".week-bullet", css)
         self.assertIn(".rank-delta", css)
-        self.assertIn(".hub-stats", css)
         subprocess.check_call(["node", str(ROOT / "tests" / "test_home_extras.mjs")], cwd=ROOT)
+        subprocess.check_call(["node", str(ROOT / "tests" / "test_this_week_home.mjs")], cwd=ROOT)
 
     def test_card_share_ids_and_hash_parse(self):
         import subprocess
@@ -668,11 +689,15 @@ class SearchAliasTests(unittest.TestCase):
     def test_shorts_default_grid_drops_ko_and_js_filters(self):
         import subprocess
 
+        # KO drop still happens in pipeline + homeExtras + search locate; home no longer
+        # hosts the Shorts grid, so main.js uses !== for locate/search only.
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
+        extras = (ROOT / "src" / "homeExtras.js").read_text(encoding="utf-8")
         src = (ROOT / "scraper.py").read_text(encoding="utf-8")
         self.assertIn("filter_other_shorts", src)
         self.assertIn("filterOtherShorts", js)
-        self.assertIn('v.lang === "ko"', js)
+        self.assertIn('v.lang === "ko"', extras)
+        self.assertIn('v.lang !== "ko"', js)
         i18n = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
         self.assertIn("韓文", i18n)
         self.assertIn("Korean", i18n)

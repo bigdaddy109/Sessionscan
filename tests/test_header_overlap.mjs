@@ -170,22 +170,20 @@ async function measureOverflow(page) {
       if (!info) return true;
       return info.left >= -slack && info.right <= client + slack;
     };
-    const mini = document.querySelector("#channelMini");
     const checked = [
       box(document.querySelector(".site-header")),
       box(document.querySelector(".header-inner")),
-      box(document.querySelector(".tabs")),
-      box(mini && !mini.hidden ? mini : null),
-      box(mini && !mini.hidden ? mini.querySelector(".channel-mini-pills") : null),
+      box(document.querySelector(".site-nav")),
       box(document.querySelector(".hero")),
       box(document.querySelector(".hero-palms")),
       box(document.querySelector(".hero-copy")),
+      box(document.querySelector(".week-bullets")),
     ].filter(Boolean);
     return {
       client,
       scroll: doc.scrollWidth,
       viewport: document.querySelector('meta[name="viewport"]')?.getAttribute("content") || "",
-      miniHidden: mini ? mini.hidden : true,
+      miniHidden: true,
       outside: checked.filter((info) => !within(info)),
     };
   });
@@ -233,7 +231,7 @@ async function ready(page) {
   await page.evaluate(() => (document.fonts ? document.fonts.ready : null)).catch(() => {});
 }
 
-async function scrollPositions(page, { expectMini }) {
+async function scrollPositions(page) {
   const positions = [{ name: "top", y: 0 }];
   const mainY = await page.evaluate(() => {
     const main = document.querySelector("#main");
@@ -244,23 +242,6 @@ async function scrollPositions(page, { expectMini }) {
   const maxY = await page.evaluate(() => Math.max(0, document.documentElement.scrollHeight - window.innerHeight));
   if (maxY > 80) positions.push({ name: "mid", y: Math.round(maxY / 2) });
   if (maxY > 0) positions.push({ name: "bottom", y: maxY });
-
-  if (expectMini) {
-    await page.evaluate(() => document.querySelector('[data-tab="hot"]')?.click());
-    await page.evaluate((y) => window.scrollTo(0, y), Math.max(mainY + 120, Math.min(maxY, mainY + 240)));
-    await page.waitForTimeout(80);
-    const shown = await page
-      .waitForFunction(() => {
-        const mini = document.querySelector("#channelMini");
-        return Boolean(mini && !mini.hidden);
-      }, { timeout: 4000 })
-      .then(() => true)
-      .catch(() => false);
-    if (shown) {
-      const y = await page.evaluate(() => window.scrollY);
-      positions.push({ name: "compact-header", y });
-    }
-  }
   return positions;
 }
 
@@ -273,7 +254,7 @@ async function checkPage(page, pageInfo, width, height, errors, { overflow, scro
     errors.push(...reportOverflow(`${base} top`, await measureOverflow(page)));
   }
   if (!scroll) return;
-  const spots = await scrollPositions(page, { expectMini: pageInfo.label !== "video" });
+  const spots = await scrollPositions(page);
   for (const spot of spots) {
     await page.evaluate((y) => window.scrollTo(0, y), spot.y);
     await page.waitForTimeout(50);
