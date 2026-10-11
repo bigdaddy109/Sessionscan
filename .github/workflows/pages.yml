@@ -18,15 +18,22 @@ concurrency:
   # Queue the next deploy. Cancelling an in-flight Pages job leaves github.io stale.
   cancel-in-progress: false
 jobs:
-  # Reuses .github/workflows/ci.yml (JS + Python full suite). A red suite skips
-  # build/deploy, so Pages cannot ship a commit that fails unit tests.
+  # Full suite on push/dispatch (main code). Skip on workflow_run from daily
+  # scrape — those deploys only overlay data JSON. PR gates stay on ci.yml
+  # pull_request; main push still runs this reusable call before build.
   ci:
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name != 'workflow_run' }}
     uses: ./.github/workflows/ci.yml
 
   build:
     needs: ci
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    # always() so a skipped ci job (data workflow_run) does not auto-skip build.
+    # Still require scrape success on workflow_run; red ci still blocks push/dispatch.
+    if: >-
+      always()
+      && !cancelled()
+      && (needs.ci.result == 'success' || needs.ci.result == 'skipped')
+      && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main (code)
