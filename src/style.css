@@ -170,6 +170,15 @@ img { max-width: 100%; display: block; }
   white-space: nowrap;
 }
 
+/* One flex child in the header so YT + IG share a slot and stay overflow-safe. */
+.header-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+}
 .channel-link,
 .header-home-link {
   display: inline-flex;
@@ -186,6 +195,7 @@ img { max-width: 100%; display: block; }
   min-width: 0;
   max-width: 100%;
   overflow: hidden;
+  text-decoration: none;
 }
 .channel-link:hover,
 .header-home-link:hover { color: var(--mint); }
@@ -202,6 +212,11 @@ img { max-width: 100%; display: block; }
   white-space: nowrap;
 }
 .channel-link-short { display: none; }
+/* Compact IG: short "IG" label only — full "@sessionscan" would overflow 375. */
+.channel-link-ig {
+  flex: 0 0 auto;
+  padding: 6px 8px;
+}
 
 .footer-social {
   display: flex;
@@ -1310,8 +1325,10 @@ main {
    never paint on top of each other. Collapse search to the SCAN pill. */
 @media (max-width: 1023px), (max-height: 520px) {
   .header-inner { gap: 8px; }
+  .header-social { gap: 4px; }
   .channel-link-full { display: none; }
   .channel-link-short { display: inline; }
+  .channel-link-ig { padding: 6px 7px; }
   .search-box {
     flex: 0 1 auto;
     width: auto;
@@ -1365,6 +1382,8 @@ main {
     min-width: 0;
     padding: 5px 5px 5px 12px;
   }
+  .header-inner:has(.search-box.is-open) .header-social,
+  .header-inner:has(.search-box:focus-within) .header-social,
   .header-inner:has(.search-box.is-open) .channel-link,
   .header-inner:has(.search-box:focus-within) .channel-link,
   .header-inner:has(.search-box.is-open) .header-home-link,

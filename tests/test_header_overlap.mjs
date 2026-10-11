@@ -138,14 +138,18 @@ async function measureHeader(page) {
           height: box.height,
         };
       });
-    const full = document.querySelector(".header-inner .channel-link-full");
-    const short = document.querySelector(".header-inner .channel-link-short");
+    // Each social control must collapse to one label; never paint full+short together.
+    const channelPairs = [...inner.querySelectorAll(".channel-link")].map((link) => ({
+      fullPainted: painted(link.querySelector(".channel-link-full")),
+      shortPainted: painted(link.querySelector(".channel-link-short")),
+    }));
     const innerBox = inner.getBoundingClientRect();
     return {
       kids,
       inner: { left: innerBox.left, right: innerBox.right, top: innerBox.top, bottom: innerBox.bottom },
-      fullPainted: painted(full),
-      shortPainted: painted(short),
+      channelPairs,
+      fullPainted: channelPairs.some((p) => p.fullPainted),
+      shortPainted: channelPairs.some((p) => p.shortPainted),
     };
   });
 }
@@ -190,8 +194,10 @@ async function measureOverflow(page) {
 function reportOverlaps(label, measured) {
   if (measured.error) return [`${label}: ${measured.error}`];
   const errors = [];
-  if (measured.fullPainted && measured.shortPainted) {
-    errors.push(`${label}: Subscribe label and @sessionscan handle both painted`);
+  for (const pair of measured.channelPairs || []) {
+    if (pair.fullPainted && pair.shortPainted) {
+      errors.push(`${label}: channel-link full and short labels both painted`);
+    }
   }
   const kids = measured.kids;
   for (let i = 0; i < kids.length; i += 1) {
