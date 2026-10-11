@@ -35,7 +35,7 @@ node tests/test_video_pages.mjs
 node tests/test_header_overlap.mjs   # Playwright + system Chrome；需先 npm run build。量 header 子元素 bounding box，375–1280（含橫向高度）中英不可重疊
 
 # Python（需 pip install -r requirements.txt；CI 用 3.12）
-python3 tests/test_pipeline.py         # 見 fix_plan.md：目前 2 個失敗
+python3 tests/test_pipeline.py
 python3 tests/test_search_aliases.py   # 會過；內含 npm run build，並再跑多個 node tests/test_*.mjs
 ```
 
@@ -52,7 +52,7 @@ python3 build_site.py
 
 - **`main`／`data` 分開。** 不要手動在 `main` 塞 scrape JSON。每日掃描只 `git push` 到 `data`。`data` 分支本身沒有 workflow 檔，push 不會跑 `pages.yml`；部署靠 default branch 上的 `workflow_run`。
 - **沒有 `npm test`。** 前端測 `node tests/test_*.mjs`；Python 測直接跑檔案。`test_pipeline.py` 會 import `scraper`（requests／bs4／ddgs）。
-- **`test_pipeline.py` 部分案例吃牆鐘。** `keep_tweet`／`parse_ign_weekly_wiki` 用 `datetime.now()` + 28 天窗；fixture 寫死 2026-08，過期就紅（見 `fix_plan.md`）。測日期邏輯請注入 `now=`，不要靠「今天還在窗內」。
+- **`test_pipeline.py` 日期窗要注入 `now=`。** `keep_tweet`／`tweet_date_ok`／`parse_ign_weekly_wiki` 預設 `datetime.now()` + 28 天；fixture 寫死 2026-08 時必須傳 `now=date(...)`，不要靠「今天還在窗內」。
 - **`/zh/`：** `npm run dev` 靠 Vite `configureServer` 改寫到 `index.html`；建置後的正式頁是 `scripts/generate_zh_pages.mjs` 寫的 `dist/zh/`。不要在 `preview` 再改寫 `/zh/`。
 - **port 43173 + `strictPort`：** 被佔就失敗，不會換埠。不要用 `file://` 開站，JSON 載不進來。
 - **換自訂網域** 要一併改根目錄與 `public/CNAME`、`src/cardShare.js` 的 `CARD_SITE_BASE`、`index.html` canonical／og:url、`public/robots.txt`、`public/sitemap.xml`。
