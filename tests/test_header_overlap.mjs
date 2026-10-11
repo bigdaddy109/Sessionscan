@@ -7,7 +7,7 @@
  */
 import { spawnSync } from "node:child_process";
 import { createServer } from "node:http";
-import { existsSync } from "node:fs";
+import { existsSync, readdirSync } from "node:fs";
 import { readFile, stat } from "node:fs/promises";
 import { dirname, extname, join, normalize, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -175,15 +175,18 @@ function reportOverlaps(pageLabel, width, height, measured) {
 
 async function main() {
   ensureDist();
-  const videoDir = join(dist, "v", "5XBMNYmFmTs");
-  if (!existsSync(join(videoDir, "index.html"))) fail("expected built share page dist/v/5XBMNYmFmTs/");
+  const videoRoot = join(dist, "v");
+  const videoId = existsSync(videoRoot)
+    ? readdirSync(videoRoot).find((id) => existsSync(join(videoRoot, id, "index.html")))
+    : null;
+  if (!videoId) fail("expected at least one built share page under dist/v/");
 
   const { server, port } = await startStaticServer();
   const origin = `http://127.0.0.1:${port}`;
   const pages = [
     { label: "en-home", path: "/" },
     { label: "zh-home", path: "/zh/" },
-    { label: "video", path: "/v/5XBMNYmFmTs/" },
+    { label: "video", path: `/v/${videoId}/` },
   ];
 
   const browser = await chromium.launch({
