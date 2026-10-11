@@ -6,7 +6,7 @@
 
 ## 合併後跟進（非本 PR）
 
-- Fast scrape：合併後用 `gh workflow run "fast scrape" --ref main -f source=manual` 驗一次，確認 `data` commit＋Pages `workflow_run` 會跟；再授權 Cloudflare Worker 每 2h `workflow_dispatch`（不在本 PR）。
+- Faster fetch Worker：`fast.yml` 已在 main；合併 `workers/dispatch-fast-scrape/` 後 Jeff 在 Cloudflare 設 `GITHUB_PAT`（fine-grained、Actions write）並 `wrangler deploy`（cron 每 2h `workflow_dispatch`）。勿把 PAT 寫進 git。可用 `gh workflow run "fast scrape" --ref main -f source=manual` 先驗 data commit＋Pages `workflow_run`。
 - Phase B this-week home：合併後在 https://sessionscan.net `/` 與 `/zh/` 驗五格一行 bullets、Short embed（空槽不偽造）、YT／IG／X `@SessionScanGTA`、週更倒數、無 channel tab-grids；header overflow 實機再驗。Jeff live-verify 後再授權 Phase C（archive）。
 - Instagram header 按鈕：合併後在 https://sessionscan.net `/` 與 `/zh/` 用手機寬度驗 header 不溢位、IG 開新分頁、JSON-LD `sameAs` 含 Instagram。
 - 行動版 sticky header／site-nav：合併本 PR 後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
