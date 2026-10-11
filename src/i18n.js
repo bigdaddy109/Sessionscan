@@ -111,8 +111,6 @@ export const UI = {
     footerAbout: "GTA 5 / Online / GTA 6 hub, unrelated to other apps of the same name · No ads",
     footerScope:
       "Scope: GTA 5, GTA 6 (GTA Online counts as GTA 5). No GTA 4. No RDO. Cards link out; we do not copy full guides.",
-    footerLegal:
-      'Information architecture adapted from <a href="https://github.com/franky5440-afk/poe2" rel="noopener noreferrer">franky5440-afk/poe2</a> (Apache 2.0). Visual design, copy, and sample data are original modifications. See <a href="./NOTICE">NOTICE</a> and <a href="./LICENSE">LICENSE</a>.',
     sampleBadge: "SAMPLE",
     viewsSample: " (sample)",
     playAria: "Play: {title}",
@@ -279,8 +277,6 @@ export const UI = {
     clearSearch: "✕ 清除掃描",
     footerAbout: "GTA 5／Online／GTA 6 情報站，與其他同名 App 無關 · 無廣告",
     footerScope: "範圍：GTA 5、GTA 6（GTA Online 歸在 GTA 5）。不含 GTA 4。不含 RDO。卡片只外連，不轉載攻略全文。",
-    footerLegal:
-      '資訊架構改寫自 <a href="https://github.com/franky5440-afk/poe2" rel="noopener noreferrer">franky5440-afk/poe2</a>（Apache 2.0）。視覺與文案為 SessionScan 的修改。見 <a href="./NOTICE">NOTICE</a> 與 <a href="./LICENSE">LICENSE</a>。',
     sampleBadge: "範例",
     viewsSample: "（範例）",
     playAria: "播放：{title}",
