@@ -82,6 +82,8 @@ class ScopeTests(unittest.TestCase):
         self.assertFalse(is_jobs_item("GTA Online Bonuses (November 2018 Part 1)", "GTA Wiki"))
 
     def test_tweet_lang_and_cleanliness(self):
+        # Fixture dates are Aug 2026; inject now= so the 28-day window does not depend on CI wall clock.
+        frozen = date(2026, 8, 30)
         self.assertEqual(tweet_lang("俠盜獵車手6 第二支預告出來了"), "zh")
         self.assertEqual(tweet_lang("GTA 6 trailer is out"), "en")
         self.assertEqual(tweet_lang("『GTA 6』パッケージ版にディスクなし"), "ja")
@@ -93,52 +95,52 @@ class ScopeTests(unittest.TestCase):
             "author": "kyd1031578",
             "text": "\"我们为 GTA 6 做了一条“数据更新日志”： • 每次更新...",
             "date": "2026-08-26",
-        }))
+        }, now=frozen))
         dirty = {
             "tid": "1730587560726892883",
             "author": "rockstargames",
             "text": "December 1, 2023 - Rockstar Games · @RockstarGames · 2:00 PM · Dec 1, 2023248.3MViews · 61K",
             "date": "2023-12-01",
         }
-        self.assertFalse(keep_tweet(dirty))
+        self.assertFalse(keep_tweet(dirty, now=frozen))
         old_official = {
             "tid": "1919746311382851812",
             "author": "rockstargames",
             "text": "Watch Grand Theft Auto VI Trailer 2 Now",
             "date": "2025-05-06",
         }
-        self.assertFalse(keep_tweet(old_official))
+        self.assertFalse(keep_tweet(old_official, now=frozen))
         fresh = {
             "tid": "2093145954320843050",
             "author": "gtavi_countdown",
             "text": "The 4K uncompressed version of GTA 6’s Extended Look is 14.2GB.",
             "date": "2026-08-28",
         }
-        self.assertTrue(keep_tweet(fresh))
+        self.assertTrue(keep_tweet(fresh, now=frozen))
         long_one = {
             "tid": "2090804906936435002",
             "author": "gtasix_",
             "text": "New GTA 6 leaked gameplay: " + ("police " * 120),
             "date": "2026-08-21",
         }
-        self.assertFalse(keep_tweet(long_one))
+        self.assertFalse(keep_tweet(long_one, now=frozen))
         concat = {
             "tid": "2085335127287030232",
             "author": "rockstargames",
             "text": 'Grand Theft Auto VI: An Extended Look ...Rockstar Games on X / X - TwitterGTA News on X: "Pre-orders"',
             "date": "2026-08-06",
         }
-        self.assertFalse(keep_tweet(concat))
+        self.assertFalse(keep_tweet(concat, now=frozen))
         weekend = {
             "tid": "2093700196811059569",
             "author": "rockstargames",
             "text": "GTA Online Weekend Bonus\n\nTake advantage of a special 6X GTA$ and RP on select Drift and Transform Races through August 30",
             "date": "2026-08-29",
         }
-        self.assertTrue(keep_tweet(weekend, now=date(2026, 8, 30)))
+        self.assertTrue(keep_tweet(weekend, now=frozen))
         self.assertEqual(scraper_mod.snowflake_date("2093700196811059569"), "2026-08-29")
-        self.assertTrue(scraper_mod.tweet_date_ok("2026-08-29", now=date(2026, 8, 30)))
-        self.assertTrue(scraper_mod.tweet_date_ok("2026-08-30", now=date(2026, 8, 30)))
+        self.assertTrue(scraper_mod.tweet_date_ok("2026-08-29", now=frozen))
+        self.assertTrue(scraper_mod.tweet_date_ok("2026-08-30", now=frozen))
         ph = "userHandle"
         self.assertFalse(keep_tweet({
             "tid": "2093983614119891242",
@@ -147,7 +149,7 @@ class ScopeTests(unittest.TestCase):
             "text": "《俠盜獵車手6》雙主角可望即時切換，開車射擊免載入，這段夠長可通過長度檢查",
             "date": "2026-08-30",
             "url": f"https://x.com/{ph}/status/2093983614119891242",
-        }))
+        }, now=frozen))
         self.assertIsNone(parse_ddgs_x_hit({
             "href": f"https://x.com/{ph}/status/2093983614119891242",
             "title": 'Techintosh on X: "《俠盜獵車手6》雙主角可望即時切換"',
@@ -162,7 +164,7 @@ class ScopeTests(unittest.TestCase):
         })
         self.assertNotIn(ph, degraded.get("url") or "")
         self.assertNotEqual(degraded.get("author"), ph)
-        self.assertFalse(keep_tweet(degraded))
+        self.assertFalse(keep_tweet(degraded, now=frozen))
 
     def test_x_search_asks_for_recent(self):
         self.assertEqual(scraper_mod.X_SEARCH_TIMELIMITS, ("d", "w"))
@@ -306,12 +308,17 @@ class ParserTests(unittest.TestCase):
         self.assertEqual(items[0]["updated"], "2026-08-27")
 
     def test_ign_weekly_wiki_headings_become_outbound_cards(self):
+        # Fixture h2 dates are Aug 2026; inject now= so the 28-day age filter is wall-clock-independent.
         html = """
         <h2 id="aug27">August 27, 2026: Known/Unknown Races, Drift and Transform Race Bonuses, and More</h2>
         <h2>August 20, 2026: Brand Wars Event Continues, VIP Work Bonuses, and More</h2>
         <h2>July 2, 2024: Old archive week</h2>
         """
-        items = parse_ign_weekly_wiki(html, "https://www.ign.com/wikis/gta-5/GTA_Online_Weekly_Updates")
+        items = parse_ign_weekly_wiki(
+            html,
+            "https://www.ign.com/wikis/gta-5/GTA_Online_Weekly_Updates",
+            now=date(2026, 8, 30),
+        )
         self.assertGreaterEqual(len(items), 1)
         self.assertTrue(all(it["source"] == "IGN" for it in items))
         self.assertTrue(all("ign.com/wikis/" in it["url"] for it in items))

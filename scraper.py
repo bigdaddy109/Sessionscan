@@ -696,11 +696,11 @@ IGN_WEEKLY_H2_RE = re.compile(
 )
 
 
-def parse_ign_weekly_wiki(html, page_url):
+def parse_ign_weekly_wiki(html, page_url, now=None):
     """This-week GTA Online bonus headings on IGN's weekly-updates wiki. Titles + dates only."""
     soup = BeautifulSoup(html, "html.parser")
     out, seen = [], set()
-    today = datetime.now(timezone.utc).date()
+    today = now or datetime.now(timezone.utc).date()
     for h2 in soup.select("h2"):
         raw = clean_heading(h2.get_text(" ", strip=True))
         m = IGN_WEEKLY_H2_RE.match(raw)
