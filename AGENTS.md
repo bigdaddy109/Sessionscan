@@ -33,6 +33,9 @@ node tests/test_shorts_baha.mjs
 node tests/test_this_week.mjs
 node tests/test_video_pages.mjs
 node tests/test_header_overlap.mjs   # Playwright + system Chrome；需先 npm run build。量 header 子元素 bounding box，375–1280（含橫向高度）中英不可重疊
+node tests/test_static_home.mjs      # CH-01 靜態預渲染 helper（固定 now=；不依賴牆鐘本週）
+# 量首屏 job card（需 dist 內已有 data-static-job；可暫時用 data 分支 site.json 建置，勿 commit）：
+# node scripts/measure_first_content.mjs
 
 # Python（需 pip install -r requirements.txt；CI 用 3.12）
 python3 tests/test_pipeline.py         # 見 fix_plan.md：目前 2 個失敗
@@ -58,6 +61,7 @@ python3 build_site.py
 - **換自訂網域** 要一併改根目錄與 `public/CNAME`、`src/cardShare.js` 的 `CARD_SITE_BASE`、`index.html` canonical／og:url、`public/robots.txt`、`public/sitemap.xml`。
 - 來源抓空時 **不覆寫** 昨日 JSON（keep-yesterday）。SessionScan 自有 Short 槽位沒有影片時保持空槽，不偽造網址。
 - 首頁 JSON-LD（WebSite + Organization）單一來源是 `src/structuredData.js`；`generate_zh_pages` 會 `replaceHomeJsonLd(..., "zh")`。站內搜尋是 hash `#q=`，沒有可用的 `?q=`，所以不加 SearchAction。分享頁 VideoObject 由 `renderVideoPage` 寫入；`tests/test_video_pages.mjs` 用 `JSON.parse` 斷言欄位。
+- **CH-01 靜態預渲染：** `#jobList` 由 `src/staticHomeJobs.js` 單一來源寫入（Vite `transformIndexHtml` + `inject_static_jobs.mjs` + `generate_zh_pages` 再蓋 zh 分享標籤）。預設與 client 相同：只取 `jobs_gtabase` 本週（`THIS_WEEK_MAX`）。沒有本週卡時 `#jobList` 可為空；banner／noscript 仍可有 firstJob。量 first-card 時對 `site.json` 加延遲才能看出 JS fetch 路徑的差距。
 - **橫向 iPhone header／整頁縮小：** Safari 在任一元素比 viewport 寬時會 shrink-to-fit（越滑越小）。元兇曾是 `.hero-palms` 依 SVG viewBox 算出比螢幕還寬、以及捲動後 `.channel-mini` 篩選列溢出。裝飾層必須 `width: 100%` + `.hero { contain: paint }`，sticky 列 `min-width: 0` / `overflow-x: auto` 包在 header 的 `overflow-x: clip` 裡。`html, body` 的 `overflow-x: clip` 只當安全網。viewport 維持 `width=device-width, initial-scale=1, viewport-fit=cover`，不要寫 `100vw`。`tests/test_header_overlap.mjs` 量 header 重疊，並在 375/430/874/932（直向＋橫向、含 compact header）斷言 `scrollWidth <= clientWidth`。
 
 ## Ralph 迴圈做法（我們的版本）

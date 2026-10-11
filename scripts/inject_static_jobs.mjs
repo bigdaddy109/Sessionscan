@@ -2,12 +2,12 @@
 /**
  * Post-vite: stamp real outbound titles into dist/index.html from site.json.
  * Reads public/data/site.json or dist/data/site.json (Pages overlay). Does not invent titles.
+ * CH-01 #jobList uses the same default filter as the client (GTABase · this week).
  */
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { isThisWeekJob, THIS_WEEK_MAX, withDisplayRanks } from "../src/thisWeek.js";
-import { cardActionsHtml, cardAttrs } from "../src/cardShare.js";
+import { injectJobListHtml, renderStaticHomeJobList, selectHomeJobs } from "../src/staticHomeJobs.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -42,33 +42,12 @@ function firstJob(data) {
   return null;
 }
 
-function thisWeekStaticJobs(data) {
-  const jobs = [];
-  for (const key of ["jobs_gtabase", "jobs_ign", "jobs_wiki"]) {
-    for (const item of data[key] || []) {
-      if (item?.title && item?.url && isThisWeekJob(item)) jobs.push(item);
-      if (jobs.length >= THIS_WEEK_MAX) return jobs;
-    }
-  }
-  return jobs;
-}
-
 function ownedShort(data) {
   const short = data?.sessionscan_slot?.short;
   if (!short?.title) return null;
   const url = short.url || (short.video_id ? `https://www.youtube.com/shorts/${short.video_id}` : "");
   if (!url.startsWith("https://www.youtube.com/")) return null;
   return { title: short.title, url };
-}
-
-function jobCard(job) {
-  const date = job.updated ? `<span>⏱ ${esc(job.updated)}</span>` : "";
-  return `<article class="job-card" data-static-job ${cardAttrs(job)}>
-      ${cardActionsHtml(job, "jobs")}
-      <div class="rank">${esc(job.rank)}</div>
-      <h3><a href="${esc(job.url)}" target="_blank" rel="noopener noreferrer">${esc(job.title)}</a></h3>
-      <div class="card-meta"><span class="tag">${esc(job.source || "")}</span>${date}</div>
-    </article>`;
 }
 
 function crawlList(job, short) {
@@ -87,7 +66,7 @@ if (!existsSync(htmlPath)) {
 
 const data = loadSite();
 const job = data ? firstJob(data) : null;
-const weekJobs = data ? thisWeekStaticJobs(data) : [];
+const weekJobs = data ? selectHomeJobs(data) : [];
 const short = data ? ownedShort(data) : null;
 let html = readFileSync(htmlPath, "utf8");
 
@@ -103,16 +82,18 @@ if (job) {
     `<p id="officialBannerBody"><a href="${esc(job.url)}" target="_blank" rel="noopener noreferrer">${esc(job.title)}</a></p>`,
   );
 }
-if (weekJobs.length) {
-  html = html.replace(
-    /<div class="job-list" id="jobList">[\s\S]*?<\/div>(?=\s*<\/section>)/,
-    `<div class="job-list" id="jobList">${withDisplayRanks(weekJobs).map(jobCard).join("")}</div>`,
-  );
-}
+
+const cards = data ? renderStaticHomeJobList(data, { lang: "en" }) : "";
+html = injectJobListHtml(html, cards);
 
 writeFileSync(htmlPath, html);
 if (job) {
   console.log(`inject_static_jobs: ${job.title} -> ${job.url}`);
 } else {
   console.log("inject_static_jobs: no site.json jobs; left empty pending snapshot");
+}
+if (weekJobs.length) {
+  console.log(`inject_static_jobs: ${weekJobs.length} static home job card(s)`);
+} else {
+  console.log("inject_static_jobs: no this-week GTABase cards for #jobList");
 }

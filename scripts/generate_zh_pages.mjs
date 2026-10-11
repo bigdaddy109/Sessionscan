@@ -8,10 +8,25 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { UI, applyHtmlI18n, rewriteAssetBase } from "../src/i18n.js";
 import { replaceHomeJsonLd } from "../src/structuredData.js";
+import { injectJobListHtml, renderStaticHomeJobList } from "../src/staticHomeJobs.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const dist = resolve(root, "dist");
 const srcPath = resolve(dist, "index.html");
+
+function loadSite() {
+  for (const rel of ["public/data/site.json", "dist/data/site.json"]) {
+    const path = resolve(root, rel);
+    if (!existsSync(path)) continue;
+    try {
+      const data = JSON.parse(readFileSync(path, "utf8"));
+      if (data && typeof data === "object") return data;
+    } catch {
+      /* try next */
+    }
+  }
+  return null;
+}
 
 if (!existsSync(srcPath)) {
   console.warn("generate_zh_pages: dist/index.html missing");
@@ -32,6 +47,13 @@ zh = zh.replace(
   /(<button class="pill" data-lang="zh")/g,
   '<button class="pill active" data-lang="zh"',
 );
+
+// Re-stamp #jobList with zh card-action labels so /zh/ matches en progressive enhancement.
+const site = loadSite();
+if (site) {
+  const cards = renderStaticHomeJobList(site, { lang: "zh" });
+  if (cards) zh = injectJobListHtml(zh, cards);
+}
 
 const outDir = resolve(dist, "zh");
 mkdirSync(outDir, { recursive: true });

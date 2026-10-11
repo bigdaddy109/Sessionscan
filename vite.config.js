@@ -1,19 +1,10 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
-import { isThisWeekJob, THIS_WEEK_MAX, withDisplayRanks } from "./src/thisWeek.js";
-import { cardActionsHtml, cardAttrs } from "./src/cardShare.js";
+import { injectJobListHtml, renderStaticHomeJobList } from "./src/staticHomeJobs.js";
 
 const CF_WEB_ANALYTICS =
   "<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{\"token\": \"a2ed116dcca9428aae207121d25629e5\"}'></script><!-- End Cloudflare Web Analytics -->";
-
-function escHtml(value) {
-  return String(value ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
-}
 
 function loadHubJobs() {
   const sitePath = resolve("public/data/site.json");
@@ -25,40 +16,12 @@ function loadHubJobs() {
   }
 }
 
-function staticJobCards() {
-  const data = loadHubJobs();
-  const pools = [data.jobs_gtabase || [], data.jobs_ign || [], data.jobs_wiki || []];
-  const jobs = [];
-  for (const pool of pools) {
-    for (const item of pool) {
-      if (item?.title && item?.url && isThisWeekJob(item)) jobs.push(item);
-      if (jobs.length >= THIS_WEEK_MAX) break;
-    }
-    if (jobs.length >= THIS_WEEK_MAX) break;
-  }
-  return withDisplayRanks(jobs)
-    .map((j) => {
-      const date = j.updated ? `<span>⏱ ${escHtml(j.updated)}</span>` : "";
-      return `<article class="job-card" data-static-job ${cardAttrs(j)}>
-      ${cardActionsHtml(j, "jobs")}
-      <div class="rank">${escHtml(j.rank)}</div>
-      <h3><a href="${escHtml(j.url)}" target="_blank" rel="noopener noreferrer">${escHtml(j.title)}</a></h3>
-      <div class="card-meta"><span class="tag">${escHtml(j.source || "")}</span>${date}</div>
-    </article>`;
-    })
-    .join("");
-}
-
 function injectStaticJobs() {
   return {
     name: "inject-static-jobs",
     transformIndexHtml(html) {
-      const cards = staticJobCards();
-      if (!cards) return html;
-      return html.replace(
-        /<div class="job-list" id="jobList"><\/div>/,
-        `<div class="job-list" id="jobList">${cards}</div>`,
-      );
+      const cards = renderStaticHomeJobList(loadHubJobs(), { lang: "en" });
+      return injectJobListHtml(html, cards);
     },
   };
 }
