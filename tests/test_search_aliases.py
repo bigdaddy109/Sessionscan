@@ -412,6 +412,36 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("不要手動在 `main` 塞 scrape JSON", readme)
         self.assertIn("public/data/site.json", readme)
 
+    def test_fast_scrape_workflow_dispatch_only_and_pages_hook(self):
+        # Why: CF Worker will dispatch this every ~2h; a schedule here would reintroduce GHA cron jitter,
+        # and pages must listen so data commits actually redeploy.
+        fast = (ROOT / ".github" / "workflows" / "fast.yml").read_text(encoding="utf-8")
+        daily = (ROOT / ".github" / "workflows" / "daily.yml").read_text(encoding="utf-8")
+        pages = (ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn("name: fast scrape", fast)
+        self.assertIn("workflow_dispatch:", fast)
+        self.assertNotIn("schedule:", fast)
+        self.assertIn("python scraper.py --fast", fast)
+        self.assertIn("git push origin HEAD:data", fast)
+        self.assertEqual(fast.count("git push"), 1)
+        self.assertIn("group: daily-scrape", fast)
+        self.assertIn("source:", fast)
+        self.assertNotIn("api.twitter.com", fast)
+        self.assertNotIn("TWITTER_", fast)
+        self.assertNotIn("X_API", fast)
+        # daily.yml stays the full scrape (no --fast).
+        self.assertIn("python scraper.py", daily)
+        self.assertNotIn("--fast", daily)
+        self.assertIn("python scraper.py\n", daily)
+        self.assertIn('"fast scrape"', pages)
+        self.assertIn('"daily scrape"', pages)
+        # Fast scrape must keep #45 CI-skip on workflow_run (not reintroduce full suite).
+        self.assertIn("github.event_name != 'workflow_run'", pages)
+        self.assertIn("needs.ci.result == 'skipped'", pages)
+        self.assertIn("fast.yml/dispatches", readme)
+        self.assertIn('source=cf-worker', readme)
+
     def test_built_html_has_static_job_and_new_title(self):
         import subprocess
         subprocess.check_call(["npm", "run", "build"], cwd=ROOT, stdout=subprocess.DEVNULL)

@@ -45,6 +45,34 @@ Frank 同款資料管線（不是 PoE 皮膚）：
 gh workflow run daily.yml --ref main
 ```
 
+### 快速掃描（影片／Shorts／X）
+
+較短的 workflow **`fast scrape`**（`.github/workflows/fast.yml`）只跑 YouTube 影片、Shorts、X tweets（`python scraper.py --fast`），跳過 jobs／巴哈／Reddit。仍用既有免金鑰抓法（yt-dlp、YouTube RSS、Shorts HTML／oEmbed、ddgs＋syndication＋fxtwitter），**不用**付費 X API。
+
+- 觸發：僅 `workflow_dispatch`（手動或外部 cron／Cloudflare Worker 呼叫；本檔不含 GitHub `schedule`）。
+- 寫入：與每日掃描相同，有變化才 commit 到 **`data`**（訊息 `fast data update`）。
+- 部署：`pages` 的 `workflow_run` 會在 `fast scrape` 成功後跑（與 `daily scrape` 相同）。
+- 並發：與 `daily scrape` 共用 concurrency group `daily-scrape`，避免搶寫 `data`。
+
+手動或給 Worker 的 dispatch：
+
+```bash
+# CLI
+gh workflow run "fast scrape" --ref main -f source=cf-worker
+
+# HTTP (CF Worker / cron every ~2h)
+# POST https://api.github.com/repos/bigdaddy109/Sessionscan/actions/workflows/fast.yml/dispatches
+# Authorization: Bearer <PAT with actions:write>
+# Body: {"ref":"main","inputs":{"source":"cf-worker"}}
+```
+
+| 項目 | 值 |
+|------|-----|
+| Workflow 顯示名 | `fast scrape` |
+| Workflow 檔名 | `fast.yml` |
+| `ref` | `main` |
+| 可選 input | `source`（預設 `manual`；Worker 建議傳 `cf-worker`） |
+
 ## 來源失敗：保留昨日檔
 
 任一來源抓不到或解析為空時：
