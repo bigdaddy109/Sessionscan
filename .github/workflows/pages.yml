@@ -18,7 +18,14 @@ concurrency:
   # Queue the next deploy. Cancelling an in-flight Pages job leaves github.io stale.
   cancel-in-progress: false
 jobs:
+  # Reuses .github/workflows/ci.yml (JS + Python full suite). A red suite skips
+  # build/deploy, so Pages cannot ship a commit that fails unit tests.
+  ci:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    uses: ./.github/workflows/ci.yml
+
   build:
+    needs: ci
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:

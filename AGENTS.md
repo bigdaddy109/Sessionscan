@@ -15,12 +15,14 @@ npm run build        # vite build + inject_static_jobs + generate_video_pages + 
 npm run preview      # 同上 host／port，伺服 dist
 ```
 
-`npm run build` 已在本機跑過會過。Pages CI（Node 22）在建置後還會檢查：
+`npm run build` 已在本機跑過會過。PR／Pages 閘道（`.github/workflows/ci.yml`，Node 22 + Python 3.12）會 `pip install -r requirements.txt`、建置、跑全部 `node tests/test_*.mjs` 與 `python3 tests/test_pipeline.py`／`test_search_aliases.py`（含 Playwright `channel: "chrome"`，workflow 會裝 Google Chrome）。Pages CI 在建置後還會檢查：
 
 ```bash
 grep -E 'gtabase.com|GTA Online Weekly' dist/index.html
 grep 'id="crawlJobs"' dist/index.html
 ```
+
+`pages.yml` 的 `build`／`deploy` `needs: ci`（reusable `workflow_call`）；suite 紅就不會上傳 Pages artifact。PR 上同一套由 `pull_request` 觸發。
 
 單元測試（不依賴 checkout `data`；讀 `tests/fixtures/hub.json` 或 `public/data/sample.json`）：
 

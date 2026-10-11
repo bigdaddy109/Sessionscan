@@ -1,0 +1,65 @@
+# Full unit suite for PRs and as a reusable gate for Pages deploy.
+# No npm test script — JS runners are node tests/test_*.mjs; Python is run directly.
+name: ci
+
+on:
+  pull_request:
+  workflow_call:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install JS deps
+        run: npm install
+
+      # requirements.txt pins the scrape stack the suite imports (beautifulsoup4→bs4, requests, ddgs, …).
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      # test_header_overlap.mjs launches Playwright with channel: "chrome".
+      - name: Install Google Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Build
+        run: npm run build
+
+      - name: Require crawler-visible weekly title
+        run: |
+          grep -E 'gtabase.com|GTA Online Weekly' dist/index.html
+          grep 'id="crawlJobs"' dist/index.html
+
+      - name: JS unit tests
+        run: |
+          set -euo pipefail
+          for f in tests/test_*.mjs; do
+            echo "::group::${f}"
+            node "$f"
+            echo "::endgroup::"
+          done
+
+      - name: Python pipeline tests
+        run: python3 tests/test_pipeline.py
+
+      # Also re-runs several node tests and npm run build (see AGENTS.md).
+      - name: Python search-alias / integration tests
+        run: python3 tests/test_search_aliases.py
