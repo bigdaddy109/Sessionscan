@@ -1,0 +1,18 @@
+# Cloudflare Worker: dispatch SessionScan fast scrape every 2 hours.
+# Deploy: see PR body / workers/dispatch-fast-scrape/README.md
+# Secrets (never commit): GITHUB_PAT
+
+name = "sessionscan-dispatch-fast-scrape"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[triggers]
+# Every 2 hours UTC (Jeff-approved cadence). Keep in sync with CRON_EVERY_2H in src/index.js.
+crons = ["0 */2 * * *"]
+
+[vars]
+GITHUB_OWNER = "bigdaddy109"
+GITHUB_REPO = "Sessionscan"
+GITHUB_REF = "main"
+WORKFLOW_FILE = "fast.yml"
