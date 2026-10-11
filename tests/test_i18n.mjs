@@ -13,7 +13,14 @@ import {
   shouldRedirectToZh,
   t,
 } from "../src/i18n.js";
-import { homeJsonLd, parseJsonLdScripts, replaceHomeJsonLd } from "../src/structuredData.js";
+import {
+  INSTAGRAM_URL,
+  YOUTUBE_CHANNEL_URL,
+  homeJsonLd,
+  organizationJsonLd,
+  parseJsonLdScripts,
+  replaceHomeJsonLd,
+} from "../src/structuredData.js";
 
 function fail(msg, extra) {
   console.error(msg, extra ?? "");
@@ -26,6 +33,10 @@ if (t("channelFull", {}, "en") !== "Subscribe on YouTube") fail("en subscribe la
 if (t("channelFull", {}, "zh") !== "訂閱 YouTube") fail("zh subscribe label");
 if (!t("channelAria", {}, "en").includes("@sessionscan")) fail("en subscribe aria keeps handle");
 if (!t("channelAria", {}, "zh").includes("@sessionscan")) fail("zh subscribe aria keeps handle");
+if (t("instagramFull", {}, "en") !== "Follow on Instagram") fail("en instagram label");
+if (t("instagramFull", {}, "zh") !== "追蹤 Instagram") fail("zh instagram label");
+if (!t("instagramAria", {}, "en").includes("Instagram")) fail("en instagram aria");
+if (!t("instagramAria", {}, "zh").includes("Instagram")) fail("zh instagram aria");
 if (t("tabJobs", {}, "en").includes("本週")) fail("en tab must not mix Chinese");
 if (!t("tabJobs", {}, "zh").includes("本週")) fail("zh tab");
 if (isZhPath("/zh/") !== true || isZhPath("/") !== false) fail("isZhPath");
@@ -72,6 +83,21 @@ if (!graph.some((node) => node["@type"] === "Organization")) fail("home JSON-LD 
 if (graph.some((node) => node.potentialAction?.["@type"] === "SearchAction")) {
   fail("do not emit SearchAction; search is hash #q= not a URL param");
 }
+const org = organizationJsonLd();
+if (!Array.isArray(org.sameAs) || !org.sameAs.includes(YOUTUBE_CHANNEL_URL)) {
+  fail("Organization sameAs must include YouTube", org.sameAs);
+}
+if (!org.sameAs.includes(INSTAGRAM_URL)) {
+  fail("Organization sameAs must include Instagram", org.sameAs);
+}
+if (!indexHtml.includes(INSTAGRAM_URL)) fail("index.html must link Instagram in header/JSON-LD");
+if (!indexHtml.includes("channel-link-ig")) fail("index.html must render Instagram header control");
+if (!indexHtml.includes('href="https://www.instagram.com/sessionscan/"')) {
+  fail("index.html Instagram href must match owned profile");
+}
+if (!indexHtml.includes('rel="noopener noreferrer"') || !indexHtml.includes('target="_blank"')) {
+  fail("Instagram header link must open in a new tab with noopener");
+}
 
 const zhHome = replaceHomeJsonLd(indexHtml, "zh");
 let zhLd;
@@ -83,5 +109,7 @@ try {
 if (JSON.stringify(zhLd[0]) !== JSON.stringify(homeJsonLd("zh"))) fail("zh JSON-LD rewrite");
 if (zhLd[0]["@graph"][0].inLanguage !== "zh-Hant") fail("zh WebSite inLanguage");
 if (zhLd[0]["@graph"][0].url !== "https://sessionscan.net/zh/") fail("zh WebSite url");
+const zhOrg = (zhLd[0]["@graph"] || []).find((node) => node["@type"] === "Organization");
+if (!zhOrg?.sameAs?.includes(INSTAGRAM_URL)) fail("zh Organization sameAs must include Instagram", zhOrg?.sameAs);
 
 console.log("test_i18n.mjs ok");
