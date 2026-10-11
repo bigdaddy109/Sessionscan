@@ -99,6 +99,17 @@ if (!indexHtml.includes('rel="noopener noreferrer"') || !indexHtml.includes('tar
   fail("Instagram header link must open in a new tab with noopener");
 }
 
+// Footer must not credit unrelated franky5440 / poe2 projects on the live site chrome.
+if ("footerLegal" in UI.en || "footerLegal" in UI.zh) {
+  fail("footerLegal i18n key must be removed from EN and ZH");
+}
+if (/franky5440|poe2/i.test(indexHtml)) {
+  fail("index.html footer must not link franky5440 / poe2");
+}
+if (indexHtml.includes('data-i18n-html="footerLegal"')) {
+  fail("index.html must not render footerLegal paragraph");
+}
+
 const zhHome = replaceHomeJsonLd(indexHtml, "zh");
 let zhLd;
 try {
