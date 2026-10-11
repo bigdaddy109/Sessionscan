@@ -6,9 +6,9 @@
 
 ## 合併後跟進（非本 PR）
 
-- Phase A multi-page shell：合併後在 https://sessionscan.net 驗 `/` `/week/` `/guides/money/` `/guides/businesses/` `/gta6/` `/about/`（＋`/zh/…`）可開、primary `<a>` nav、`/#jobs`→`/` 與 `/#hot&v=yt-…`→`/v/…/` redirects；Jeff live-verify 後再授權 Phase B。
+- Phase B this-week home：合併後在 https://sessionscan.net `/` 與 `/zh/` 驗五格一行 bullets、Short embed（空槽不偽造）、YT／IG／X `@SessionScanGTA`、週更倒數、無 channel tab-grids；header overflow 實機再驗。Jeff live-verify 後再授權 Phase C（archive）。
 - Instagram header 按鈕：合併後在 https://sessionscan.net `/` 與 `/zh/` 用手機寬度驗 header 不溢位、IG 開新分頁、JSON-LD `sameAs` 含 Instagram。
-- 行動版頻道標籤截斷＋sticky 捲動偏移：合併本 PR 後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
+- 行動版 sticky header／site-nav：合併本 PR 後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
 - 頁尾移除 franky5440／poe2 歸屬連結（`footerLegal`）；`/` 與 `/zh/` 同源 `index.html` + i18n，NOTICE／LICENSE 仍保留 Apache 歸屬。
