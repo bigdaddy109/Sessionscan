@@ -621,5 +621,23 @@ class BuildSiteTests(unittest.TestCase):
             self.assertEqual(loaded["kIomnva1jGU"]["title"], "已下榜")
 
 
+class FastScrapeModeTests(unittest.TestCase):
+    """Fast mode must skip jobs/forum so a 2h Worker dispatch stays short and free-scraper-only."""
+
+    def test_fast_steps_are_videos_shorts_tweets_only(self):
+        names = [name for name, _ in scraper_mod.selected_steps(fast=True)]
+        self.assertEqual(names, ["videos", "shorts", "tweets"])
+        self.assertNotIn("jobs", names)
+        self.assertNotIn("forum", names)
+
+    def test_full_steps_keep_jobs_and_forum(self):
+        names = [name for name, _ in scraper_mod.selected_steps(fast=False)]
+        self.assertEqual(names, ["jobs", "videos", "shorts", "forum", "tweets"])
+
+    def test_parse_args_fast_flag(self):
+        self.assertTrue(scraper_mod.parse_args(["--fast"]).fast)
+        self.assertFalse(scraper_mod.parse_args([]).fast)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -14,6 +14,7 @@ Modifications (2026 SessionScan):
 """
 from __future__ import annotations
 
+import argparse
 import hashlib
 import html as html_lib
 import json
@@ -1868,17 +1869,44 @@ def finalize_meta(failures):
     save_json("meta.json", meta)
 
 
-def main():
+# Full daily run: jobs + forum + videos/shorts/tweets.
+# Fast run (--fast): videos + shorts + tweets only (same free scrapers; skip jobs/forum).
+FULL_STEPS = (
+    ("jobs", update_jobs),
+    ("videos", update_videos),
+    ("shorts", update_shorts),
+    ("forum", update_forum),
+    ("tweets", update_tweets),
+)
+FAST_STEPS = (
+    ("videos", update_videos),
+    ("shorts", update_shorts),
+    ("tweets", update_tweets),
+)
+
+
+def parse_args(argv=None):
+    parser = argparse.ArgumentParser(description="SessionScan scraper")
+    parser.add_argument(
+        "--fast",
+        action="store_true",
+        help="YouTube videos + Shorts + X tweets only (skip jobs/forum)",
+    )
+    return parser.parse_args(argv)
+
+
+def selected_steps(fast=False):
+    return list(FAST_STEPS if fast else FULL_STEPS)
+
+
+def main(argv=None):
+    args = parse_args(argv)
     started = time.time()
+    mode = "fast" if args.fast else "full"
     log.info("=" * 50)
+    log.info("scrape mode=%s", mode)
     write_ja_video_note()
-    steps = [
-        ("jobs", update_jobs),
-        ("videos", update_videos),
-        ("shorts", update_shorts),
-        ("forum", update_forum),
-        ("tweets", update_tweets),
-    ]
+    steps = selected_steps(fast=args.fast)
     failures = []
     for name, fn in steps:
         try:

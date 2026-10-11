@@ -7,7 +7,8 @@ on:
     branches: [main, data]
   workflow_dispatch:
   workflow_run:
-    workflows: ["daily scrape"]
+    # data branch has no workflow files; scrape success on main triggers deploy.
+    workflows: ["daily scrape", "fast scrape"]
     types: [completed]
 permissions:
   contents: read
@@ -19,8 +20,8 @@ concurrency:
   cancel-in-progress: false
 jobs:
   # Full suite on push/dispatch (main code). Skip on workflow_run from daily
-  # scrape — those deploys only overlay data JSON. PR gates stay on ci.yml
-  # pull_request; main push still runs this reusable call before build.
+  # or fast scrape — those deploys only overlay data JSON. PR gates stay on
+  # ci.yml pull_request; main push still runs this reusable call before build.
   ci:
     if: ${{ github.event_name != 'workflow_run' }}
     uses: ./.github/workflows/ci.yml

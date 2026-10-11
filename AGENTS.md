@@ -22,7 +22,7 @@ grep -E 'gtabase.com|GTA Online Weekly' dist/index.html
 grep 'id="crawlJobs"' dist/index.html
 ```
 
-`pages.yml`：`push`／`workflow_dispatch` 時 `build`／`deploy` `needs: ci`（reusable `workflow_call`）；suite 紅就不會上傳 Pages artifact。`workflow_run`（daily scrape → data）略過完整 CI，只建置＋部署（仍保留 dist grep 檢查）。PR 上同一套由 `ci.yml` 的 `pull_request` 觸發，閘道不弱化。
+`pages.yml`：`push`／`workflow_dispatch` 時 `build`／`deploy` `needs: ci`（reusable `workflow_call`）；suite 紅就不會上傳 Pages artifact。`workflow_run`（daily／fast scrape → data）略過完整 CI，只建置＋部署（仍保留 dist grep 檢查）。PR 上同一套由 `ci.yml` 的 `pull_request` 觸發，閘道不弱化。
 
 單元測試（不依賴 checkout `data`；讀 `tests/fixtures/hub.json` 或 `public/data/sample.json`）：
 
@@ -51,9 +51,12 @@ python3 tests/test_search_aliases.py   # 會過；內含 npm run build，並再�
 掃描／彙整（會打網路；日常由 `.github/workflows/daily.yml` 寫入 `data`，不要手動把 scrape JSON 推進 `main`）：
 
 ```bash
-python3 scraper.py
+python3 scraper.py          # full: jobs + videos + shorts + forum + tweets
+python3 scraper.py --fast   # fast.yml: videos + shorts + tweets only
 python3 build_site.py
 ```
+
+`fast scrape`（`.github/workflows/fast.yml`）僅 `workflow_dispatch`；與 daily 共用 concurrency `daily-scrape`。`pages.yml` 的 `workflow_run` 同時聽 `daily scrape` 與 `fast scrape`（兩者都略過完整 CI，只建置＋部署）。
 
 型別檢查：無此指令。
 
