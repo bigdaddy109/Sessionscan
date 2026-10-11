@@ -539,6 +539,7 @@ class SearchAliasTests(unittest.TestCase):
         week = (ROOT / "src" / "thisWeek.js").read_text(encoding="utf-8")
         inject = (ROOT / "scripts" / "inject_static_jobs.mjs").read_text(encoding="utf-8")
         vite = (ROOT / "vite.config.js").read_text(encoding="utf-8")
+        static_home = (ROOT / "src" / "staticHomeJobs.js").read_text(encoding="utf-8")
         i18n = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
         self.assertIn("熱門影片來源這輪未更新，仍顯示上次成功快照", baha + i18n)
         self.assertIn("isHotSnapshotStale", js)
@@ -554,10 +555,12 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("@sessionscan", js)
         self.assertIn("withDisplayRanks", js + week)
         self.assertIn("withDisplayRanks(list)", js)
-        self.assertIn("withDisplayRanks", inject)
-        self.assertIn("withDisplayRanks", vite)
-        self.assertNotIn("j.rank ??", vite)
-        self.assertNotIn("job.rank ??", inject)
+        # Build-time CH-01 ranks live in staticHomeJobs.js (single source for vite + inject).
+        self.assertIn("withDisplayRanks", static_home)
+        self.assertIn("staticHomeJobs", inject)
+        self.assertIn("staticHomeJobs", vite)
+        self.assertNotIn("j.rank ??", vite + static_home)
+        self.assertNotIn("job.rank ??", inject + static_home)
 
     def test_copy_hierarchy_title_og_and_header(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
