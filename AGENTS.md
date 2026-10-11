@@ -33,8 +33,10 @@ node tests/test_shorts_baha.mjs
 node tests/test_this_week.mjs
 node tests/test_video_pages.mjs
 node tests/test_header_overlap.mjs   # Playwright + system Chrome；需先 npm run build。量 header 子元素 bounding box，375–1280（含橫向高度）中英不可重疊
+node tests/test_mobile_tabs.mjs      # Playwright + system Chrome；需先 npm run build。手機 375/390/430 與 iPad 768/820/1024（直向＋橫向）斷言頻道標籤完整可及、點擊後 heading＋tag row 不被 sticky header 蓋住
 
 # Python（需 pip install -r requirements.txt；CI 用 3.12）
+
 python3 tests/test_pipeline.py
 python3 tests/test_search_aliases.py   # 會過；內含 npm run build，並再跑多個 node tests/test_*.mjs
 ```

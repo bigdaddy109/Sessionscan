@@ -295,8 +295,12 @@ img { max-width: 100%; display: block; }
   margin: 0 auto;
   padding: 0 var(--page-gutter);
   display: flex;
+  flex-wrap: nowrap;
   gap: 2px;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }
 .tab {
   flex: 0 0 auto;
@@ -307,6 +311,10 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.04em;
   border-bottom: 2px solid transparent;
   white-space: nowrap;
+  /* Full labels stay intact; the .tabs strip scrolls horizontally on narrow viewports. */
+  overflow: visible;
+  text-overflow: clip;
+  max-width: none;
 }
 .tab .ch {
   font-family: var(--mono);
@@ -314,7 +322,16 @@ img { max-width: 100%; display: block; }
   color: var(--pink);
   margin-right: 6px;
 }
-.tab .tab-name { display: inline; }
+.tab .tab-name {
+  display: inline;
+  white-space: nowrap;
+}
+
+/* Sticky header occludes #main when tabs/CTA call scrollIntoView(block:start).
+   --sticky-header-offset is measured in main.js (header height excluding channel-mini). */
+#main {
+  scroll-margin-top: calc(var(--sticky-header-offset, 120px) + env(safe-area-inset-top, 0px) + 8px);
+}
 .tab:hover { color: var(--text); }
 .tab.active {
   color: var(--text);
@@ -1295,10 +1312,6 @@ main {
   .header-inner { gap: 8px; }
   .channel-link-full { display: none; }
   .channel-link-short { display: inline; }
-  .tabs {
-    flex-wrap: wrap;
-    overflow-x: clip;
-  }
   .search-box {
     flex: 0 1 auto;
     width: auto;
@@ -1367,17 +1380,9 @@ main {
   .first-screen { min-height: 0; }
   .video-controls .pill-group { max-width: 100%; }
   .channel-filter { flex: 1 1 100%; }
-  .tabs {
-    overflow-x: clip;
-    flex-wrap: wrap;
-    row-gap: 0;
-  }
   .tab {
-    flex: 1 1 auto;
-    min-width: 0;
-    padding: 8px 8px 9px;
+    padding: 8px 10px 9px;
     font-size: 14px;
-    text-align: center;
   }
 }
 
@@ -1410,19 +1415,9 @@ main {
   }
   .word-sub { letter-spacing: 0.2em; font-size: clamp(16px, 3.6vw, 24px); }
   .lede { font-size: 14px; }
-  .tabs {
-    overflow-x: clip;
-    flex-wrap: wrap;
-    row-gap: 0;
-  }
   .tab {
-    flex: 1 1 calc(33.33% - 2px);
-    min-width: calc(33.33% - 2px);
-    padding: 8px 6px 9px;
+    padding: 8px 10px 9px;
     font-size: 13px;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 }
 
@@ -1443,19 +1438,11 @@ main {
 
 @media (max-width: 420px) {
   .brand-text { display: none; }
-  .tabs {
-    overflow-x: clip;
-    flex-wrap: wrap;
-  }
   .tab {
-    flex: 1 1 18%;
-    min-width: 18%;
-    padding: 8px 4px 9px;
+    padding: 8px 8px 9px;
   }
-  .tab .tab-name { display: none; }
   .tab .ch {
-    margin-right: 0;
-    font-size: 13px;
+    font-size: 12px;
   }
   .card-copy { display: none; }
   .job-card, .thread-item, .tweet-item { padding-right: 42px; }

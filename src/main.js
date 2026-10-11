@@ -598,6 +598,45 @@ function headerBottomExMini() {
   return box.bottom;
 }
 
+/** Sticky header height excluding channel-mini (destination state after jump-nav). */
+function stickyHeaderOffsetPx() {
+  const header = $(".site-header");
+  const mini = $("#channelMini");
+  if (!header) return 0;
+  let h = header.getBoundingClientRect().height;
+  if (mini && !mini.hidden) h -= mini.getBoundingClientRect().height;
+  return Math.max(0, Math.ceil(h));
+}
+
+function syncStickyScrollMargin() {
+  document.documentElement.style.setProperty("--sticky-header-offset", `${stickyHeaderOffsetPx()}px`);
+}
+
+/** Keep the active channel tab reachable inside the horizontally scrollable strip. */
+function ensureActiveTabVisible() {
+  const tabs = $(".tabs");
+  const active = document.querySelector(".tab.active");
+  if (!tabs || !active) return;
+  const tBox = tabs.getBoundingClientRect();
+  const aBox = active.getBoundingClientRect();
+  if (aBox.left < tBox.left + 4) tabs.scrollLeft += aBox.left - tBox.left - 8;
+  else if (aBox.right > tBox.right - 4) tabs.scrollLeft += aBox.right - tBox.right + 8;
+}
+
+/** Scroll #main just below sticky chrome (honors scroll-margin-top + safe-area). */
+function scrollMainIntoView() {
+  const main = $("#main");
+  if (!main) return;
+  // Jump-nav lands with the section heading visible, so channel-mini is not shown.
+  const mini = $("#channelMini");
+  if (mini) mini.hidden = true;
+  syncStickyScrollMargin();
+  const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  main.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  ensureActiveTabVisible();
+  requestChannelMiniSync();
+}
+
 function viewHeadIsPast() {
   const view = activeViewEl();
   const head = view?.querySelector(".view-head");
@@ -757,7 +796,7 @@ function applyHash({ scroll = false } = {}) {
     return;
   }
   switchView(parsed.tab || state.activeTab || "jobs", { write: false });
-  if (scroll) $("#main")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (scroll) scrollMainIntoView();
 }
 
 function switchView(name, { write = true } = {}) {
@@ -858,7 +897,7 @@ function doSearch(raw) {
   if (r.tweets.length) html += `<h3 class="group-title">${esc(t("groupX", { n: r.tweets.length }))}</h3>${r.tweets.map(tweetCard).join("")}`;
   $("#searchResults").innerHTML = html || `<p class="no-result">${t("noResult", { q: esc(q) })}</p>`;
   switchView("search");
-  $("#main").scrollIntoView({ behavior: "smooth", block: "start" });
+  scrollMainIntoView();
 }
 
 function leaveSearchIfEmpty() {
@@ -941,16 +980,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (state.hashLock) return;
     applyHash({ scroll: true });
   });
+  syncStickyScrollMargin();
   $$(".tab").forEach((t) => {
     t.addEventListener("click", () => {
       switchView(t.dataset.tab);
-      $("#main").scrollIntoView({ behavior: "smooth", block: "start" });
+      scrollMainIntoView();
     });
   });
   $$("#ctaGrid .cta-card").forEach((card) => {
     card.addEventListener("click", () => {
       switchView(card.dataset.tab);
-      $("#main").scrollIntoView({ behavior: "smooth", block: "start" });
+      scrollMainIntoView();
     });
   });
   document.addEventListener("click", (e) => {
@@ -975,10 +1015,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         applyCardLocation(loc);
         switchView(loc.tab);
         highlightCard(loc.id);
-        $("#main")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        scrollMainIntoView();
       } else {
         switchView(tab);
-        $("#main")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        scrollMainIntoView();
       }
       return;
     }
@@ -1075,7 +1115,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     originalPillForClone(view, pill)?.click();
   });
   window.addEventListener("scroll", () => requestChannelMiniSync(), { passive: true });
-  window.addEventListener("resize", () => requestChannelMiniSync());
+  window.addEventListener("resize", () => {
+    syncStickyScrollMargin();
+    requestChannelMiniSync();
+  });
   const searchForm = $("#searchForm");
   const searchInput = $("#searchInput");
   searchForm.addEventListener("submit", (e) => {

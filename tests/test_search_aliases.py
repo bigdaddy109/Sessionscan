@@ -694,6 +694,15 @@ class SearchAliasTests(unittest.TestCase):
             subprocess.check_call(["npm", "run", "build"], cwd=ROOT, stdout=subprocess.DEVNULL)
         subprocess.check_call(["node", str(ROOT / "tests" / "test_header_overlap.mjs")], cwd=ROOT)
 
+    def test_mobile_channel_tabs_labels_and_scroll(self):
+        import subprocess
+
+        # Full channel labels + sticky scroll-margin after tap; phone + iPad
+        # matrices need Chrome measurement (same harness family as header overlap).
+        if not (ROOT / "dist" / "index.html").is_file():
+            subprocess.check_call(["npm", "run", "build"], cwd=ROOT, stdout=subprocess.DEVNULL)
+        subprocess.check_call(["node", str(ROOT / "tests" / "test_mobile_tabs.mjs")], cwd=ROOT)
+
 
 if __name__ == "__main__":
     unittest.main()
