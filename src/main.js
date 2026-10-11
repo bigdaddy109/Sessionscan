@@ -343,6 +343,18 @@ function syncWikiPill() {
   }
 }
 
+function jobListCardIds(root) {
+  return [...(root?.querySelectorAll("[data-card-id]") || [])].map((el) => el.getAttribute("data-card-id") || "");
+}
+
+function sameJobCardIds(list) {
+  const host = $("#jobList");
+  if (!host?.querySelector("[data-static-job]")) return false;
+  const next = withDisplayRanks(list).map((item) => cardId(item) || "");
+  const prev = jobListCardIds(host);
+  return prev.length === next.length && prev.every((id, i) => id && id === next[i]);
+}
+
 function renderJobs() {
   syncIgnPill();
   syncWikiPill();
@@ -356,6 +368,9 @@ function renderJobs() {
   const list = state.showOlderJobs ? raw : raw.filter((it) => isThisWeekJob(it)).slice(0, THIS_WEEK_MAX);
   $("#jobHint").textContent = t(SOURCE_HINT_KEYS[state.jobsSource] || "") || "";
   if (list.length) {
+    // Progressive enhancement: keep build-time #jobList when it already matches
+    // the default this-week GTABase set so filters/search can replace it later.
+    if (!state.showOlderJobs && state.jobsSource === "gtabase" && sameJobCardIds(list)) return;
     $("#jobList").innerHTML = withDisplayRanks(list).map(jobCard).join("");
     return;
   }
