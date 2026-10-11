@@ -332,6 +332,15 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn('.pill[data-source="wiki"]', js)
         self.assertIn(".channel-link-short", css)
         self.assertIn(".channel-link-full { display: none; }", css)
+        self.assertIn("safe-area-inset-left", css)
+        self.assertIn("safe-area-inset-right", css)
+        self.assertIn("max-height: 520px", css)
+        self.assertIn("overflow-x: clip", css)
+        self.assertIn("contain: paint", css)
+        self.assertNotIn("100vw", css)
+        self.assertNotIn("maximum-scale", (ROOT / "index.html").read_text(encoding="utf-8"))
+        self.assertIn("channel-link-play", (ROOT / "index.html").read_text(encoding="utf-8"))
+        self.assertIn("viewport-fit=cover", (ROOT / "index.html").read_text(encoding="utf-8"))
 
     def test_p0p1_chrome_and_no_magic_short_id(self):
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
@@ -406,6 +415,9 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("訂閱 YouTube", zh_built)
         self.assertIn('"inLanguage":"zh-Hant"', zh_built)
         self.assertIn("Subscribe on YouTube", built)
+        self.assertIn("viewport-fit=cover", built)
+        self.assertIn("viewport-fit=cover", zh_built)
+        self.assertIn("channel-link-play", built)
         self.assertIn('"@type":"WebSite"', built)
         self.assertIn('"@type":"Organization"', built)
         self.assertNotIn("SearchAction", built)
@@ -672,6 +684,15 @@ class SearchAliasTests(unittest.TestCase):
                     self.fail(f"Bahamut time is expiring relative only: {t!r}")
                 if it.get("time_relative"):
                     self.assertTrue(t)
+
+    def test_header_children_do_not_overlap(self):
+        import subprocess
+
+        # Painted header boxes (subscribe vs @sessionscan on landscape iPhone)
+        # cannot be proven from CSS source; this launches headless Chrome.
+        if not (ROOT / "dist" / "index.html").is_file():
+            subprocess.check_call(["npm", "run", "build"], cwd=ROOT, stdout=subprocess.DEVNULL)
+        subprocess.check_call(["node", str(ROOT / "tests" / "test_header_overlap.mjs")], cwd=ROOT)
 
 
 if __name__ == "__main__":

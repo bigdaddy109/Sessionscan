@@ -104,5 +104,8 @@ if (!videoLd.embedUrl.includes(video.video_id)) fail("VideoObject embedUrl", vid
 if (HAS_SEARCH_URL_PARAM) fail("search is hash-only; do not advertise a SearchAction URL param");
 if (!html.includes("Subscribe on YouTube")) fail("share header/footer subscribe label");
 if (!html.includes("https://www.youtube.com/@sessionscan")) fail("share pages keep the owned YouTube URL");
+if (!html.includes("viewport-fit=cover")) fail("share pages must honor iOS safe-area via viewport-fit=cover");
+if (!html.includes("channel-link-play")) fail("share header merges subscribe into one ▶ control");
+if (!html.includes("header-home-link")) fail("share header home link must not reuse channel-link");
 
 console.log("test_video_pages.mjs ok", fromSample.length, "sample videos");
