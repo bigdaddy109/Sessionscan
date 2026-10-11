@@ -1,11 +1,9 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
+import { ensureCfWebAnalytics } from "./src/cfWebAnalytics.js";
 import { isThisWeekJob, THIS_WEEK_MAX, withDisplayRanks } from "./src/thisWeek.js";
 import { cardActionsHtml, cardAttrs } from "./src/cardShare.js";
-
-const CF_WEB_ANALYTICS =
-  "<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{\"token\": \"a2ed116dcca9428aae207121d25629e5\"}'></script><!-- End Cloudflare Web Analytics -->";
 
 function escHtml(value) {
   return String(value ?? "")
@@ -68,8 +66,7 @@ function cloudflareWebAnalytics() {
     name: "cloudflare-web-analytics",
     apply: "build",
     transformIndexHtml(html) {
-      if (html.includes("static.cloudflareinsights.com/beacon.min.js")) return html;
-      return html.replace("</body>", `${CF_WEB_ANALYTICS}\n  </body>`);
+      return ensureCfWebAnalytics(html);
     },
   };
 }

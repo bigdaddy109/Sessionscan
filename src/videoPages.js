@@ -1,6 +1,7 @@
 /** Collect YouTube videos and render static per-video share pages / sitemap. */
 
 import { CARD_SITE_BASE, cardActionsHtml, cardAttrs, videoPageUrl, youtubeId } from "./cardShare.js";
+import { cfWebAnalyticsHtml } from "./cfWebAnalytics.js";
 import { SITE_ORIGIN, copyFor, fmtViews as fmtViewsI18n, htmlLang, langLabel as i18nLangLabel, ogLocale, t } from "./i18n.js";
 import { VIDEO_JSON_LD_ID, YOUTUBE_CHANNEL_URL, jsonLdScript, videoObjectJsonLd } from "./structuredData.js";
 
@@ -416,6 +417,7 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
       <p data-i18n="footerScope">${esc(t("footerScope", {}, ui))}</p>
     </footer>
     ${videoPageScript(ui)}
+    ${cfWebAnalyticsHtml()}
   </body>
 </html>
 `;
