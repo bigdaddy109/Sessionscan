@@ -58,7 +58,7 @@ python3 build_site.py
 - **換自訂網域** 要一併改根目錄與 `public/CNAME`、`src/cardShare.js` 的 `CARD_SITE_BASE`、`index.html` canonical／og:url、`public/robots.txt`、`public/sitemap.xml`。
 - 來源抓空時 **不覆寫** 昨日 JSON（keep-yesterday）。SessionScan 自有 Short 槽位沒有影片時保持空槽，不偽造網址。
 - 首頁 JSON-LD（WebSite + Organization）單一來源是 `src/structuredData.js`；`generate_zh_pages` 會 `replaceHomeJsonLd(..., "zh")`。站內搜尋是 hash `#q=`，沒有可用的 `?q=`，所以不加 SearchAction。分享頁 VideoObject 由 `renderVideoPage` 寫入；`tests/test_video_pages.mjs` 用 `JSON.parse` 斷言欄位。
-- **橫向 iPhone header：** `viewport-fit=cover` + `env(safe-area-inset-left/right)` 做在 `.site-header`。寬 ≤1023 或高 ≤520 時只顯示合併的 `▶ @sessionscan`，隱藏長 Subscribe 文案並收成 SCAN 藥丸，避免訂閱鈕蓋住 handle。`tests/test_header_overlap.mjs` 用本機 Chrome（`playwright-core` `channel: "chrome"`）量 bounding box。
+- **橫向 iPhone header／整頁縮小：** Safari 在任一元素比 viewport 寬時會 shrink-to-fit（越滑越小）。元兇曾是 `.hero-palms` 依 SVG viewBox 算出比螢幕還寬、以及捲動後 `.channel-mini` 篩選列溢出。裝飾層必須 `width: 100%` + `.hero { contain: paint }`，sticky 列 `min-width: 0` / `overflow-x: auto` 包在 header 的 `overflow-x: clip` 裡。`html, body` 的 `overflow-x: clip` 只當安全網。viewport 維持 `width=device-width, initial-scale=1, viewport-fit=cover`，不要寫 `100vw`。`tests/test_header_overlap.mjs` 量 header 重疊，並在 375/430/874/932（直向＋橫向、含 compact header）斷言 `scrollWidth <= clientWidth`。
 
 ## Ralph 迴圈做法（我們的版本）
 每次任務開始：

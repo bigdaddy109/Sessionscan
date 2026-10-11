@@ -335,6 +335,10 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("safe-area-inset-left", css)
         self.assertIn("safe-area-inset-right", css)
         self.assertIn("max-height: 520px", css)
+        self.assertIn("overflow-x: clip", css)
+        self.assertIn("contain: paint", css)
+        self.assertNotIn("100vw", css)
+        self.assertNotIn("maximum-scale", (ROOT / "index.html").read_text(encoding="utf-8"))
         self.assertIn("channel-link-play", (ROOT / "index.html").read_text(encoding="utf-8"))
         self.assertIn("viewport-fit=cover", (ROOT / "index.html").read_text(encoding="utf-8"))
 
