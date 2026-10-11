@@ -440,7 +440,8 @@ class SearchAliasTests(unittest.TestCase):
                     "import { readFileSync } from 'node:fs';"
                     "import { isThisWeekJob } from './src/thisWeek.js';"
                     "const site = JSON.parse(readFileSync('public/data/site.json','utf8'));"
-                    "const jobs = [...(site.jobs_gtabase||[]), ...(site.jobs_ign||[]), ...(site.jobs_wiki||[])];"
+                    # Default home list matches client: GTABase this-week only.
+                    "const jobs = site.jobs_gtabase||[];"
                     "process.stdout.write(String(jobs.filter((j) => j?.title && j?.url && isThisWeekJob(j)).length));",
                 ],
                 cwd=ROOT,
@@ -450,6 +451,8 @@ class SearchAliasTests(unittest.TestCase):
         job_list = built.split('id="jobList"', 1)[1].split("</div>", 1)[0]
         if this_week_n:
             self.assertIn("data-static-job", job_list)
+            zh_jobs = zh_built.split('id="jobList"', 1)[1].split("</div>", 1)[0]
+            self.assertIn("data-static-job", zh_jobs)
         else:
             self.assertNotIn("data-static-job", job_list)
         js = (ROOT / "src" / "main.js").read_text(encoding="utf-8")
@@ -473,12 +476,16 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("ui-monospace", css)
         self.assertIn("min-height: min(34vh, 260px)", css)
         self.assertIn("inject-static-jobs", vite)
-        self.assertIn("data-static-job", vite)
+        self.assertIn("staticHomeJobs", vite)
+        static_home = (ROOT / "src" / "staticHomeJobs.js").read_text(encoding="utf-8")
+        self.assertIn("data-static-job", static_home)
+        self.assertIn("jobs_gtabase", static_home)
         self.assertIn('id="jobList"', html)
         self.assertIn('id="crawlJobs"', html)
         script = (ROOT / "scripts" / "inject_static_jobs.mjs").read_text(encoding="utf-8")
         self.assertIn("public/data/site.json", script)
         self.assertIn("dist/data/site.json", script)
+        self.assertIn("staticHomeJobs", script)
         self.assertNotIn("public/data/sample.json", script)
         gen = (ROOT / "scripts" / "generate_video_pages.mjs").read_text(encoding="utf-8")
         self.assertIn("videos_archive.json", gen)
@@ -487,6 +494,7 @@ class SearchAliasTests(unittest.TestCase):
         zh_gen = (ROOT / "scripts" / "generate_zh_pages.mjs").read_text(encoding="utf-8")
         self.assertIn("dist/zh", zh_gen)
         self.assertIn("applyHtmlI18n", zh_gen)
+        self.assertIn("renderStaticHomeJobList", zh_gen)
         self.assertIn("Require crawler-visible weekly title", (ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8"))
 
     def test_live_bahamut_never_uses_bare_cphp(self):
@@ -531,6 +539,7 @@ class SearchAliasTests(unittest.TestCase):
         week = (ROOT / "src" / "thisWeek.js").read_text(encoding="utf-8")
         inject = (ROOT / "scripts" / "inject_static_jobs.mjs").read_text(encoding="utf-8")
         vite = (ROOT / "vite.config.js").read_text(encoding="utf-8")
+        static_home = (ROOT / "src" / "staticHomeJobs.js").read_text(encoding="utf-8")
         i18n = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
         self.assertIn("熱門影片來源這輪未更新，仍顯示上次成功快照", baha + i18n)
         self.assertIn("isHotSnapshotStale", js)
@@ -546,10 +555,12 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("@sessionscan", js)
         self.assertIn("withDisplayRanks", js + week)
         self.assertIn("withDisplayRanks(list)", js)
-        self.assertIn("withDisplayRanks", inject)
-        self.assertIn("withDisplayRanks", vite)
-        self.assertNotIn("j.rank ??", vite)
-        self.assertNotIn("job.rank ??", inject)
+        # Build-time CH-01 ranks live in staticHomeJobs.js (single source for vite + inject).
+        self.assertIn("withDisplayRanks", static_home)
+        self.assertIn("staticHomeJobs", inject)
+        self.assertIn("staticHomeJobs", vite)
+        self.assertNotIn("j.rank ??", vite + static_home)
+        self.assertNotIn("job.rank ??", inject + static_home)
 
     def test_copy_hierarchy_title_og_and_header(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
