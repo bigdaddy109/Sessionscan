@@ -387,8 +387,11 @@ class SearchAliasTests(unittest.TestCase):
         self.assertLessEqual((ROOT / "public" / "og.jpg").stat().st_size, 300 * 1024)
 
     def test_data_branch_workflows_do_not_commit_json_to_main(self):
+        # Why: data-only Pages deploys must not pay the full Playwright CI tax, but
+        # PR / main-push gates must stay intact (proposal option G).
         daily = (ROOT / ".github" / "workflows" / "daily.yml").read_text(encoding="utf-8")
         pages = (ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
+        ci = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         self.assertIn('cron: "0 0,7,13 * * *"', daily)
         self.assertIn("ref: main", daily)
@@ -400,6 +403,12 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("github.sha", pages)
         self.assertIn("ref: data", pages)
         self.assertIn("path: app/dist", pages)
+        self.assertIn("uses: ./.github/workflows/ci.yml", pages)
+        self.assertIn("github.event_name != 'workflow_run'", pages)
+        self.assertIn("needs.ci.result == 'skipped'", pages)
+        self.assertIn("always()", pages)
+        self.assertIn("pull_request:", ci)
+        self.assertIn("workflow_call:", ci)
         self.assertIn("不要手動在 `main` 塞 scrape JSON", readme)
         self.assertIn("public/data/site.json", readme)
 

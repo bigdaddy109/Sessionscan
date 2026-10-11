@@ -22,7 +22,7 @@ grep -E 'gtabase.com|GTA Online Weekly' dist/index.html
 grep 'id="crawlJobs"' dist/index.html
 ```
 
-`pages.yml` 的 `build`／`deploy` `needs: ci`（reusable `workflow_call`）；suite 紅就不會上傳 Pages artifact。PR 上同一套由 `pull_request` 觸發。
+`pages.yml`：`push`／`workflow_dispatch` 時 `build`／`deploy` `needs: ci`（reusable `workflow_call`）；suite 紅就不會上傳 Pages artifact。`workflow_run`（daily scrape → data）略過完整 CI，只建置＋部署（仍保留 dist grep 檢查）。PR 上同一套由 `ci.yml` 的 `pull_request` 觸發，閘道不弱化。
 
 單元測試（不依賴 checkout `data`；讀 `tests/fixtures/hub.json` 或 `public/data/sample.json`）：
 
