@@ -21,6 +21,7 @@ import json
 import logging
 import os
 import re
+import sys
 import time
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
@@ -69,6 +70,9 @@ FORUM_CAP = 10
 SHORTS_OTHER_CAP = 8
 OWNED_CHANNEL_URL = "https://www.youtube.com/@sessionscan"
 OWNED_SHORTS_URL = "https://www.youtube.com/@sessionscan/shorts"
+# UC… id for Atom RSS + WebSub topic (not the @handle). Free — no Data API.
+OWNED_CHANNEL_ID = "UCfpCdZdtCdCFNXuEW9xvZcQ"
+OWNED_ATOM_URL = f"https://www.youtube.com/feeds/videos.xml?channel_id={OWNED_CHANNEL_ID}"
 SHORTS_ID_RE = re.compile(r"/shorts/([A-Za-z0-9_-]{11})")
 YT_SHORTS_SOURCES = (
     "https://www.youtube.com/hashtag/gtaonline/shorts",
@@ -1237,6 +1241,85 @@ def empty_owned_slot():
     }
 
 
+def owned_slot_with_short(item):
+    slot = empty_owned_slot()
+    slot["note_zh"] = "自有每週 Short。其餘為他人當紅 Short。"
+    slot["note_en"] = "Owned weekly Short. Other cells are other creators’ trending Shorts."
+    slot["short"] = item
+    return slot
+
+
+def parse_owned_atom(xml_text):
+    """Parse @sessionscan Atom RSS. Prefer /shorts/ entries; never invent IDs."""
+    ns = {
+        "a": "http://www.w3.org/2005/Atom",
+        "yt": "http://www.youtube.com/xml/schemas/2015",
+    }
+    root = ET.fromstring(xml_text)
+    out = []
+    for e in root.findall("a:entry", ns):
+        vid = (e.findtext("yt:videoId", "", ns) or "").strip()
+        if not re.fullmatch(r"[A-Za-z0-9_-]{11}", vid):
+            continue
+        ch = (e.findtext("yt:channelId", "", ns) or "").strip()
+        if ch and ch != OWNED_CHANNEL_ID and ch != OWNED_CHANNEL_ID[2:]:
+            # Feed channel id sometimes omits the UC prefix.
+            continue
+        title = (e.findtext("a:title", "", ns) or "").strip()
+        pub = (e.findtext("a:published", "", ns) or "")[:10] or None
+        href = ""
+        for link in e.findall("a:link", ns):
+            if (link.get("rel") or "alternate") == "alternate":
+                href = link.get("href") or ""
+                break
+        is_short = bool(SHORTS_ID_RE.search(href)) or "/shorts/" in href
+        out.append(
+            {
+                "video_id": vid,
+                "title": title,
+                "date": pub,
+                "url": href or f"https://www.youtube.com/watch?v={vid}",
+                "is_short": is_short,
+            }
+        )
+    return out
+
+
+def scrape_owned_from_rss(xml_text=None):
+    """Owned slot from free Atom RSS (WebSub topic). Prefer Shorts; no Data API."""
+    fetched_ok = True
+    if xml_text is None:
+        try:
+            r = http_get(OWNED_ATOM_URL, timeout=15)
+            xml_text = r.content
+        except Exception as exc:
+            log.error("owned atom rss: %s", exc)
+            return None, False
+    if isinstance(xml_text, bytes):
+        xml_text = xml_text.decode("utf-8", errors="replace")
+    try:
+        entries = parse_owned_atom(xml_text)
+    except Exception as exc:
+        log.error("owned atom parse: %s", exc)
+        return None, False
+    for entry in entries:
+        if not entry.get("is_short"):
+            continue
+        title = (entry.get("title") or "").strip()
+        if not title:
+            continue
+        item = short_item(
+            entry["video_id"],
+            title,
+            "SessionScan",
+            "en",
+            detect_game(title) or "GTA Online",
+            date=entry.get("date"),
+        )
+        return owned_slot_with_short(item), True
+    return empty_owned_slot(), fetched_ok
+
+
 def scrape_owned_short(html=None):
     """Latest Short listed on @sessionscan/shorts. Never mint an ID."""
     fetched_ok = True
@@ -1260,12 +1343,31 @@ def scrape_owned_short(html=None):
         if not title:
             continue
         item = short_item(vid, title, "SessionScan", "en", detect_game(title) or "GTA Online")
-        slot = empty_owned_slot()
-        slot["note_zh"] = "自有每週 Short。其餘為他人當紅 Short。"
-        slot["note_en"] = "Owned weekly Short. Other cells are other creators’ trending Shorts."
-        slot["short"] = item
-        return slot, True
+        return owned_slot_with_short(item), True
     return empty_owned_slot(), fetched_ok
+
+
+def update_owned_slot():
+    """Lightweight owned-slot refresh (WebSub / workflow_dispatch). RSS first, HTML fallback."""
+    prev = load_json("sessionscan_slot.json", {})
+    slot, fetched_ok = scrape_owned_from_rss()
+    if not fetched_ok or not (slot and slot.get("short")):
+        slot2, ok2 = scrape_owned_short()
+        if ok2:
+            slot, fetched_ok = slot2, ok2
+        elif not fetched_ok:
+            log.warning("owned slot refresh failed, keeping previous slot")
+            if not prev:
+                save_json("sessionscan_slot.json", empty_owned_slot())
+                set_meta("sessionscan_slot")
+            return False
+    save_json("sessionscan_slot.json", slot)
+    set_meta("sessionscan_slot")
+    log.info(
+        "owned slot: %s",
+        (slot.get("short") or {}).get("video_id") or "(empty)",
+    )
+    return True
 
 
 def scrape_other_shorts(html_by_url=None, exclude_ids=None):
@@ -1871,6 +1973,7 @@ def finalize_meta(failures):
 
 # Full daily run: jobs + forum + videos/shorts/tweets.
 # Fast run (--fast): videos + shorts + tweets only (same free scrapers; skip jobs/forum).
+# Owned-only (--owned-only): WebSub path — Atom RSS (+ HTML fallback) for @sessionscan slot.
 FULL_STEPS = (
     ("jobs", update_jobs),
     ("videos", update_videos),
@@ -1892,6 +1995,11 @@ def parse_args(argv=None):
         action="store_true",
         help="YouTube videos + Shorts + X tweets only (skip jobs/forum)",
     )
+    parser.add_argument(
+        "--owned-only",
+        action="store_true",
+        help="Owned @sessionscan slot only (Atom RSS + HTML fallback; WebSub path)",
+    )
     return parser.parse_args(argv)
 
 
@@ -1902,8 +2010,24 @@ def selected_steps(fast=False):
 def main(argv=None):
     args = parse_args(argv)
     started = time.time()
-    mode = "fast" if args.fast else "full"
     log.info("=" * 50)
+    if args.owned_only:
+        # WebSub / owned-refresh workflow: Atom RSS (+ HTML fallback), no full scrape.
+        failures = []
+        try:
+            if not update_owned_slot():
+                failures.append("owned")
+        except Exception as exc:
+            log.exception("owned crashed: %s", exc)
+            failures.append("owned")
+        finalize_meta(failures)
+        log.info(
+            "owned-only done in %.1fs%s",
+            time.time() - started,
+            f" | FAILED: {failures}" if failures else "",
+        )
+        return
+    mode = "fast" if args.fast else "full"
     log.info("scrape mode=%s", mode)
     write_ja_video_note()
     steps = selected_steps(fast=args.fast)

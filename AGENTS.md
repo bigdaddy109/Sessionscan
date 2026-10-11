@@ -39,6 +39,7 @@ node tests/test_header_overlap.mjs   # Playwright + system Chrome；需先 npm r
 node tests/test_mobile_tabs.mjs      # Playwright + system Chrome；需先 npm run build。手機 375/390/430 與 iPad 768/820/1024（直向＋橫向）斷言頻道標籤完整可及、點擊後 heading＋tag row 不被 sticky header 蓋住
 node tests/test_static_home.mjs      # CH-01 靜態預渲染 helper（固定 now=；不依賴牆鐘本週）
 node tests/test_site_pages.mjs       # Phase A 多頁殼：path nav、hash→path、sitemap／JSON-LD（建置後會再驗 dist）
+node tests/test_youtube_websub.mjs   # Owned WebSub：topic／challenge／Atom parse／dispatch URL（無網路）
 # 量首屏 job card（需 dist 內已有 data-static-job；可暫時用 data 分支 site.json 建置，勿 commit）：
 # node scripts/measure_first_content.mjs
 
@@ -51,12 +52,13 @@ python3 tests/test_search_aliases.py   # 會過；內含 npm run build，並再�
 掃描／彙整（會打網路；日常由 `.github/workflows/daily.yml` 寫入 `data`，不要手動把 scrape JSON 推進 `main`）：
 
 ```bash
-python3 scraper.py          # full: jobs + videos + shorts + forum + tweets
-python3 scraper.py --fast   # fast.yml: videos + shorts + tweets only
+python3 scraper.py               # full: jobs + videos + shorts + forum + tweets
+python3 scraper.py --fast        # fast.yml: videos + shorts + tweets only
+python3 scraper.py --owned-only  # owned-refresh.yml / WebSub: @sessionscan slot only
 python3 build_site.py
 ```
 
-`fast scrape`（`.github/workflows/fast.yml`）僅 `workflow_dispatch`；與 daily 共用 concurrency `daily-scrape`。`pages.yml` 的 `workflow_run` 同時聽 `daily scrape` 與 `fast scrape`（兩者都略過完整 CI，只建置＋部署）。
+`fast scrape`（`.github/workflows/fast.yml`）與 `owned refresh`（`.github/workflows/owned-refresh.yml`）僅 `workflow_dispatch`；與 daily 共用 concurrency `daily-scrape`。`pages.yml` 的 `workflow_run` 同時聽 `daily scrape`、`fast scrape`、`owned refresh`（都略過完整 CI，只建置＋部署）。
 
 型別檢查：無此指令。
 
@@ -75,6 +77,7 @@ python3 build_site.py
 - **Phase A 多頁殼：** 靜態頁（`/week/`、`/guides/money/`、`/guides/businesses/`、`/gta6/`、`/about/` ＋ `/zh/…`）單一來源 `src/sitePages.js`，建置後 `scripts/generate_site_pages.mjs` 寫入 `dist`；Vite `configureServer` 在 `npm run dev` 直接 render 同殼。Primary nav 是 `.site-nav` 真 `<a>`；home 仍保留 channel `.tabs` 至 Phase B。Legacy hash→path 腳本掛在 `/` 與 `/zh/`（`legacyHashRedirectScript`／`injectHomeShell`）。Sitemap 靜態 URL 由 `staticSitemapUrls()` 併入 `sitemapUrls`。新殼頁測 `node tests/test_site_pages.mjs`。
 - **Fast scrape Cloudflare Worker：** `workers/dispatch-fast-scrape/` 以 cron `0 */2 * * *`（每 2 小時）對 `.github/workflows/fast.yml` 發 `workflow_dispatch`。不進 Vite build；測 `node tests/test_dispatch_fast_scrape_worker.mjs`。`GITHUB_PAT` 只放 CF secret。合併順序：先 `fast.yml`，再 Worker，再 `wrangler deploy`。
 - **橫向 iPhone header／整頁縮小：** Safari 在任一元素比 viewport 寬時會 shrink-to-fit（越滑越小）。元兇曾是 `.hero-palms` 依 SVG viewBox 算出比螢幕還寬、以及捲動後 `.channel-mini` 篩選列溢出。裝飾層必須 `width: 100%` + `.hero { contain: paint }`，sticky 列 `min-width: 0` / `overflow-x: auto` 包在 header 的 `overflow-x: clip` 裡。`html, body` 的 `overflow-x: clip` 只當安全網。viewport 維持 `width=device-width, initial-scale=1, viewport-fit=cover`，不要寫 `100vw`。`tests/test_header_overlap.mjs` 量 header 重疊，並在 375/430/874/932（直向＋橫向、含 compact header）斷言 `scrollWidth <= clientWidth`。
+- **Owned WebSub：** `@sessionscan` channel id `UCfpCdZdtCdCFNXuEW9xvZcQ`；topic 用 `feeds/videos.xml?channel_id=…`（免費 Atom，無 Data API）。Callback 在 `workers/youtube-websub/`；推送後 dispatch `owned-refresh.yml`（`scraper.py --owned-only`）。與 `daily.yml`／`fast.yml` 共用 concurrency group `daily-scrape`；`pages.yml` `workflow_run` 聽 `owned refresh`（CI-skip）。Hub lease 約數日，Worker cron 只負責續訂，不是 2h scrape cron。測：`node tests/test_youtube_websub.mjs`。
 
 ## Ralph 迴圈做法（我們的版本）
 每次任務開始：

@@ -73,6 +73,22 @@ gh workflow run "fast scrape" --ref main -f source=cf-worker
 | `ref` | `main` |
 | 可選 input | `source`（預設 `manual`；Worker 建議傳 `cf-worker`） |
 
+### Owned-channel WebSub（`@sessionscan`）
+
+Jeff 自有 Short／影片可用 **免費** YouTube Atom RSS + PubSubHubbub（WebSub）近即時觸發輕量刷新，**不需** YouTube Data API、也**不用**付費 X API：
+
+1. Cloudflare Worker：`workers/youtube-websub/`（部署與 hub 訂閱步驟見該目錄 README）
+2. 收到推送後 `workflow_dispatch` → `.github/workflows/owned-refresh.yml`
+3. 該 job 跑 `python scraper.py --owned-only`（先 Atom RSS，失敗再抓 `@sessionscan/shorts`），再 `build_site.py`，有變化才 push `data`
+4. 部署：`pages` 的 `workflow_run` 會在 `owned refresh` 成功後跑（與 daily／fast 相同，略過完整 CI）
+
+手動也可：
+
+```bash
+gh workflow run owned-refresh.yml --ref main
+```
+
+預設仍走輕量 `owned-refresh`（只刷自有槽）。若要把 WebSub 改成觸發完整 fast scrape，可在 Worker 設 `WORKFLOW_FILE=fast.yml`。
 ## 來源失敗：保留昨日檔
 
 任一來源抓不到或解析為空時：

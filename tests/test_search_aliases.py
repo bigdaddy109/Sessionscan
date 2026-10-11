@@ -436,6 +436,7 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("python scraper.py\n", daily)
         self.assertIn('"fast scrape"', pages)
         self.assertIn('"daily scrape"', pages)
+        self.assertIn('"owned refresh"', pages)
         # Fast scrape must keep #45 CI-skip on workflow_run (not reintroduce full suite).
         self.assertIn("github.event_name != 'workflow_run'", pages)
         self.assertIn("needs.ci.result == 'skipped'", pages)
