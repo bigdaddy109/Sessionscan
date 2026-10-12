@@ -58,6 +58,8 @@ const en = renderSitePage(moneyPage, { lang: "en", cssHref: "../../assets/x.css"
 if (en.includes("page-stub-flag")) fail("en money must drop stub flag");
 if (!en.includes("money-route-list")) fail("en money rank list");
 if (!en.includes("moneyCalcRoute") || !en.includes("data-money-calculator")) fail("en money calculator");
+// Why: t()/interpolate would wipe `{rate}` from data-template — calculator must keep the placeholder.
+if (!en.includes('data-template="{rate}/hr')) fail("en calc template keeps {rate}");
 if (!en.includes(MONEY_LAST_UPDATED)) fail("en last updated");
 if (!en.includes("https://gta.fandom.com/wiki/The_Cayo_Perico_Heist/Finale")) fail("en cayo source");
 if (!en.includes("GTA$1,300,000")) fail("en cited cayo take");
