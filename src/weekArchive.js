@@ -1,0 +1,358 @@
+/**
+ * Phase C weekly archive: index of past Rockstar weeks + frozen /week/YYYY-MM-DD/ pages.
+ * Titles / highlights / outbound links only — never invent numbers or Short URLs.
+ */
+
+import { CARD_SITE_BASE, youtubeId } from "./cardShare.js";
+import { snapshotNow } from "./homeExtras.js";
+import { t } from "./i18n.js";
+import {
+  absoluteUrl,
+  esc,
+  localePath,
+  pageById,
+  renderSitePage,
+} from "./sitePages.js";
+import {
+  isJobInWeek,
+  isOwnedShortThisWeek,
+  jobDates,
+  parseISODate,
+  rockstarWeekStart,
+  toIsoDate,
+} from "./thisWeek.js";
+import { buildWeekBullets, pickHomeShort, weekSignalItems } from "./thisWeekHome.js";
+
+export const WEEK_ISO_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+function isWeeklyTitle(item) {
+  const blob = `${item?.title || ""} ${item?.title_en || ""} ${item?.tags || ""}`.toLowerCase();
+  return /weekly|本週|本周|每週|每周|獎勵與折扣|bonuses?\s*&?\s*discounts/.test(blob);
+}
+
+/** Mid-week Date used so isThisWeekJob / bullets resolve to this Thursday key. */
+export function weekRefDate(weekIso) {
+  const start = parseISODate(weekIso);
+  if (!start) return null;
+  const mid = new Date(start.getTime());
+  mid.setUTCDate(mid.getUTCDate() + 3);
+  mid.setUTCHours(12, 0, 0, 0);
+  return mid;
+}
+
+/**
+ * Past weeks present in hub JSON (GTABase / IGN weekly titles with YYYY-MM-DD).
+ * Newest first. Skips undated evergreen cards.
+ */
+export function listArchiveWeeks(data) {
+  const map = new Map();
+  const pools = [
+    ...(data?.jobs_gtabase || []).map((j) => ({ ...j, _pool: "gtabase" })),
+    ...(data?.jobs_ign || []).map((j) => ({ ...j, _pool: "ign" })),
+  ];
+
+  for (const job of pools) {
+    if (!job || !isWeeklyTitle(job)) continue;
+    const updated = parseISODate(job.updated);
+    if (!updated) continue;
+    const weekIso = toIsoDate(rockstarWeekStart(updated));
+    if (!WEEK_ISO_RE.test(weekIso)) continue;
+    const title = String(job.title || job.title_en || "").trim();
+    if (!title) continue;
+    const prev = map.get(weekIso);
+    const row = {
+      week: weekIso,
+      title,
+      url: String(job.url || "").trim(),
+      source: String(job.source || "").trim(),
+      updated: toIsoDate(updated),
+      path: `week/${weekIso}/`,
+    };
+    if (!prev) {
+      map.set(weekIso, row);
+      continue;
+    }
+    // Prefer GTABase title; otherwise keep the earlier (usually richer) row.
+    if (job._pool === "gtabase" && prev.source !== "GTABase") {
+      map.set(weekIso, row);
+    }
+  }
+
+  return [...map.values()].sort((a, b) => b.week.localeCompare(a.week));
+}
+
+export function weekPagePath(weekIso, lang = "en") {
+  return localePath(lang, `week/${weekIso}/`);
+}
+
+/** Share URL for Short/IG captions — utm_source + utm_campaign=week-YYYY-MM-DD. */
+export function weekShareUrl(weekIso, { lang = "en", source = "youtube" } = {}) {
+  if (!WEEK_ISO_RE.test(String(weekIso || ""))) return "";
+  const path = weekPagePath(weekIso, lang).replace(/^\//, "");
+  const url = new URL(path, CARD_SITE_BASE);
+  const src = String(source || "youtube").trim() || "youtube";
+  url.searchParams.set("utm_source", src);
+  url.searchParams.set("utm_campaign", `week-${weekIso}`);
+  return url.toString();
+}
+
+/**
+ * Owned Short for a freeze page. Dated Shorts only match their week; undated
+ * Shorts attach only to the snapshot's current Rockstar week (never invent).
+ */
+export function pickArchiveShort(data, weekIso, snapshot = null) {
+  if (!WEEK_ISO_RE.test(String(weekIso || ""))) return null;
+  const short = data?.sessionscan_slot?.short;
+  if (!short) return null;
+  const id = youtubeId(short) || String(short.video_id || short.id || "").trim();
+  if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return null;
+
+  const item = {
+    title: `${short.title || ""} ${short.title_en || ""}`,
+    title_en: short.title_en || "",
+    updated: short.date || "",
+  };
+  const dates = jobDates(item, parseISODate(weekIso) || new Date());
+  if (dates.length) {
+    if (!isJobInWeek(item, weekIso)) return null;
+  } else {
+    const live = snapshot || snapshotNow(data?.meta || {}) || new Date();
+    const currentIso = toIsoDate(rockstarWeekStart(live));
+    if (currentIso !== weekIso) return null;
+    if (!isOwnedShortThisWeek(short, live)) return null;
+  }
+
+  return {
+    ...short,
+    video_id: id,
+    owned: true,
+    url: short.url || `https://www.youtube.com/shorts/${id}`,
+  };
+}
+
+export function weekOutboundLinks(data, weekIso) {
+  const ref = weekRefDate(weekIso);
+  if (!ref) return [];
+  const signals = weekSignalItems(data, ref).filter((s) => s.kind === "official" || s.kind === "job");
+  const seen = new Set();
+  const out = [];
+  for (const s of signals) {
+    if (!s.url || !s.title) continue;
+    if (seen.has(s.url)) continue;
+    seen.add(s.url);
+    out.push({ title: s.title, url: s.url, source: s.source, updated: s.updated });
+  }
+  return out;
+}
+
+export function archiveSitemapUrls(weeks) {
+  const out = [];
+  for (const w of weeks || []) {
+    const iso = typeof w === "string" ? w : w?.week;
+    if (!WEEK_ISO_RE.test(String(iso || ""))) continue;
+    out.push(absoluteUrl(`week/${iso}/`, "en"));
+    out.push(absoluteUrl(`week/${iso}/`, "zh"));
+  }
+  return out;
+}
+
+function bulletsHtml(bullets) {
+  return `<ul class="week-bullet-list archive-bullet-list">
+    ${bullets
+      .map((b) => {
+        const access = b.url
+          ? `<a class="week-bullet-how" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer">${esc(b.how)}</a>`
+          : `<span class="week-bullet-how is-muted">${esc(b.how)}</span>`;
+        return `<li class="week-bullet${b.pending ? " is-pending" : ""}" data-bullet="${esc(b.id)}">
+        <span class="week-bullet-label">${esc(b.label)}</span>
+        <span class="week-bullet-reward">${esc(b.reward)}</span>
+        ${access}
+      </li>`;
+      })
+      .join("")}
+  </ul>`;
+}
+
+function shortEmbedHtml(short, ui) {
+  if (!short?.video_id) {
+    return `<p class="week-short-empty">${esc(t("archiveShortEmpty", {}, ui))}</p>`;
+  }
+  const id = short.video_id;
+  const embed = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`;
+  const watch = short.url || `https://www.youtube.com/shorts/${id}`;
+  return `<div class="archive-short-embed">
+    <iframe
+      title="${esc(short.title || "SessionScan Short")}"
+      src="${esc(embed)}"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+    <p class="archive-short-caption">
+      <a href="${esc(watch)}" target="_blank" rel="noopener noreferrer">${esc(short.title || "SessionScan Short")}</a>
+    </p>
+  </div>`;
+}
+
+function outboundListHtml(links, ui) {
+  if (!links.length) {
+    return `<p class="archive-empty">${esc(t("archiveLinksEmpty", {}, ui))}</p>`;
+  }
+  return `<ul class="archive-outbound-list">
+    ${links
+      .map((link) => {
+        const meta = [link.source, link.updated].filter(Boolean).join(" · ");
+        return `<li>
+        <a href="${esc(link.url)}" target="_blank" rel="noopener noreferrer">${esc(link.title)}</a>
+        ${meta ? `<span class="archive-outbound-meta">${esc(meta)}</span>` : ""}
+      </li>`;
+      })
+      .join("")}
+  </ul>`;
+}
+
+export function archiveIndexBodyHtml(data, lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const weeks = listArchiveWeeks(data);
+  const home = localePath(ui, "/");
+  const intro = `<div class="page-body"><p>${esc(t("archiveIndexIntro", {}, ui))}</p></div>`;
+  if (!weeks.length) {
+    return `${intro}<p class="archive-empty">${esc(t("archiveIndexEmpty", {}, ui))}</p>
+      <p class="page-home-link"><a href="${esc(home)}">${esc(t("videoHome", {}, ui))}</a></p>`;
+  }
+  const list = `<ul class="archive-week-list">
+    ${weeks
+      .map((w) => {
+        const href = weekPagePath(w.week, ui);
+        return `<li>
+        <a class="archive-week-link" href="${esc(href)}">
+          <time datetime="${esc(w.week)}">${esc(w.week)}</time>
+          <span class="archive-week-title">${esc(w.title)}</span>
+        </a>
+      </li>`;
+      })
+      .join("")}
+  </ul>`;
+  return `${intro}${list}
+      <p class="page-home-link"><a href="${esc(home)}">${esc(t("videoHome", {}, ui))}</a></p>`;
+}
+
+export function weekFreezeBodyHtml(data, weekIso, lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const ref = weekRefDate(weekIso);
+  if (!ref) return `<p class="archive-empty">${esc(t("archiveWeekInvalid", {}, ui))}</p>`;
+
+  const weeks = listArchiveWeeks(data);
+  const entry = weeks.find((w) => w.week === weekIso);
+  const snapshot = snapshotNow(data?.meta || {}) || ref;
+  const short = pickArchiveShort(data, weekIso, snapshot);
+  const bullets = buildWeekBullets(data, ref, ui);
+  const links = weekOutboundLinks(data, weekIso);
+  const indexHref = localePath(ui, "week/");
+  const ytShare = weekShareUrl(weekIso, { lang: ui, source: "youtube" });
+  const igShare = weekShareUrl(weekIso, { lang: ui, source: "instagram" });
+
+  const heading = entry?.title
+    ? `<p class="archive-week-lead">${esc(entry.title)}</p>`
+    : "";
+
+  return `${heading}
+    <section class="week-short archive-freeze-short" aria-labelledby="archiveShortHeading">
+      <div class="week-panel-kicker">
+        <strong id="archiveShortHeading" data-i18n="archiveShortKicker">${esc(t("archiveShortKicker", {}, ui))}</strong>
+        <span data-i18n="archiveShortTag">${esc(t("archiveShortTag", {}, ui))}</span>
+      </div>
+      ${shortEmbedHtml(short, ui)}
+    </section>
+    <section class="week-bullets archive-freeze-bullets" aria-labelledby="archiveBulletsHeading">
+      <div class="week-panel-kicker">
+        <strong id="archiveBulletsHeading" data-i18n="archiveBulletsKicker">${esc(t("archiveBulletsKicker", {}, ui))}</strong>
+        <span data-i18n="weekBulletsTag">${esc(t("weekBulletsTag", {}, ui))}</span>
+      </div>
+      ${bulletsHtml(bullets)}
+    </section>
+    <section class="archive-outbound" aria-labelledby="archiveLinksHeading">
+      <div class="week-panel-kicker">
+        <strong id="archiveLinksHeading" data-i18n="archiveLinksKicker">${esc(t("archiveLinksKicker", {}, ui))}</strong>
+        <span data-i18n="archiveLinksTag">${esc(t("archiveLinksTag", {}, ui))}</span>
+      </div>
+      ${outboundListHtml(links, ui)}
+    </section>
+    <p class="archive-share-hint">${esc(t("archiveShareHint", {}, ui))}
+      <a href="${esc(ytShare)}">YouTube utm</a> ·
+      <a href="${esc(igShare)}">Instagram utm</a>
+    </p>
+    <p class="page-home-link"><a href="${esc(indexHref)}">${esc(t("archiveBackToIndex", {}, ui))}</a></p>`;
+}
+
+export function renderArchiveIndexPage(data, opts = {}) {
+  const page = pageById("week");
+  if (!page) return "";
+  const lang = opts.lang === "zh" ? "zh" : "en";
+  const bodyHtml = `
+      <h1 data-i18n="pageWeekHeading">${esc(t("pageWeekHeading", {}, lang))}</h1>
+      ${archiveIndexBodyHtml(data, lang)}`;
+  return renderSitePage(
+    { ...page, stub: false },
+    {
+      ...opts,
+      lang,
+      bodyHtml,
+      title: t("pageWeekTitle", {}, lang),
+      desc: t("pageWeekDesc", {}, lang),
+    },
+  );
+}
+
+export function renderWeekFreezePage(data, weekIso, opts = {}) {
+  if (!WEEK_ISO_RE.test(String(weekIso || ""))) return "";
+  const lang = opts.lang === "zh" ? "zh" : "en";
+  const path = `week/${weekIso}/`;
+  const weeks = listArchiveWeeks(data);
+  const entry = weeks.find((w) => w.week === weekIso);
+  const title = t("archiveWeekTitle", { week: weekIso }, lang);
+  const desc = t(
+    "archiveWeekDesc",
+    { week: weekIso, title: entry?.title || weekIso },
+    lang,
+  );
+  const bodyHtml = `
+      <h1>${esc(t("archiveWeekHeading", { week: weekIso }, lang))}</h1>
+      ${weekFreezeBodyHtml(data, weekIso, lang)}`;
+  return renderSitePage(
+    {
+      id: "week-freeze",
+      path,
+      navKey: "navArchive",
+      titleKey: "archiveWeekTitle",
+      descKey: "archiveWeekDesc",
+      stub: false,
+    },
+    {
+      ...opts,
+      lang,
+      bodyHtml,
+      title,
+      desc,
+      activeId: "week",
+      jsonLdName: title,
+      jsonLdDesc: desc,
+    },
+  );
+}
+
+/** Dev-server helper: match /week/YYYY-MM-DD/ (+ /zh/). */
+export function matchWeekFreezePath(urlPath) {
+  const clean = String(urlPath || "").split("?")[0].split("#")[0].replace(/\/index\.html$/, "") || "/";
+  const normalized = clean.endsWith("/") || clean === "/" ? clean : `${clean}/`;
+  const m = normalized.match(/^\/(?:zh\/)?week\/(\d{4}-\d{2}-\d{2})\/$/);
+  if (!m) return null;
+  const weekIso = m[1];
+  if (!WEEK_ISO_RE.test(weekIso)) return null;
+  const lang = normalized.startsWith("/zh/") ? "zh" : "en";
+  return { weekIso, lang, path: weekPagePath(weekIso, lang) };
+}
+
+/** Convenience for home/tests: current-week Short pick unchanged. */
+export { pickHomeShort };

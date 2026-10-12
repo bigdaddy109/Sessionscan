@@ -41,7 +41,7 @@ export const SITE_PAGES = [
     descKey: "pageWeekDesc",
     headingKey: "pageWeekHeading",
     bodyKey: "pageWeekBody",
-    stub: true,
+    stub: false,
   },
   {
     id: "money",
@@ -242,7 +242,7 @@ export function legacyHashRedirectScript() {
 </script>`;
 }
 
-export function webPageJsonLd(page, lang = "en") {
+export function webPageJsonLd(page, lang = "en", { name, description } = {}) {
   const ui = lang === "zh" ? "zh" : "en";
   const url = absoluteUrl(page.path, ui);
   return {
@@ -251,8 +251,8 @@ export function webPageJsonLd(page, lang = "en") {
       {
         "@type": "WebPage",
         "@id": `${url}#webpage`,
-        name: t(page.titleKey, {}, ui),
-        description: t(page.descKey, {}, ui),
+        name: name || t(page.titleKey, {}, ui),
+        description: description || t(page.descKey, {}, ui),
         url,
         inLanguage: htmlLang(ui),
         isPartOf: { "@id": `${localeHome(ui)}#website` },
@@ -296,23 +296,40 @@ function pageBodyHtml(page, ui) {
       ${extra}`;
 }
 
-export function renderSitePage(page, { lang = "en", cssHref, faviconHref } = {}) {
+export function renderSitePage(
+  page,
+  {
+    lang = "en",
+    cssHref,
+    faviconHref,
+    bodyHtml,
+    title: titleOverride,
+    desc: descOverride,
+    activeId,
+    jsonLdName,
+    jsonLdDesc,
+  } = {},
+) {
   if (!page?.path) return "";
   const ui = lang === "zh" ? "zh" : "en";
   const path = localePath(ui, page.path);
   const url = absoluteUrl(page.path, ui);
   const enUrl = absoluteUrl(page.path, "en");
   const zhUrl = absoluteUrl(page.path, "zh");
-  const title = t(page.titleKey, {}, ui);
-  const desc = t(page.descKey, {}, ui);
-  const home = localeHome(ui);
+  const title = titleOverride || t(page.titleKey, {}, ui);
+  const desc = descOverride || t(page.descKey, {}, ui);
   const prefix = assetPrefix(path);
   const css = cssHref || `${prefix}assets/index.css`;
   const icon = faviconHref || `${prefix}favicon.svg`;
-  const jsonLd = jsonLdScript(`page-jsonld-${page.id}`, webPageJsonLd(page, ui));
-  const nav = primaryNavHtml(ui, page.id);
+  const jsonLd = jsonLdScript(
+    `page-jsonld-${page.id}`,
+    webPageJsonLd(page, ui, { name: jsonLdName || title, description: jsonLdDesc || desc }),
+  );
+  const nav = primaryNavHtml(ui, activeId || page.id);
   const otherLang = ui === "zh" ? "en" : "zh";
   const otherHref = localePath(otherLang, page.path);
+  const mainBody = bodyHtml != null ? bodyHtml : `${pageBodyHtml(page, ui)}
+      <p class="page-home-link"><a href="${esc(ui === "zh" ? "/zh/" : "/")}">${esc(t("videoHome", {}, ui))}</a></p>`;
 
   return `<!DOCTYPE html>
 <html lang="${htmlLang(ui)}" data-ui-lang="${ui}">
@@ -380,8 +397,7 @@ export function renderSitePage(page, { lang = "en", cssHref, faviconHref } = {})
       ${nav}
     </header>
     <main id="main" class="site-page-main">
-      ${pageBodyHtml(page, ui)}
-      <p class="page-home-link"><a href="${esc(ui === "zh" ? "/zh/" : "/")}">${esc(t("videoHome", {}, ui))}</a></p>
+      ${mainBody}
     </main>
     <footer class="site-footer">
       <p class="footer-social">

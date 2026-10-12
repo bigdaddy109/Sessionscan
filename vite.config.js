@@ -10,6 +10,11 @@ import {
   renderSitePage,
 } from "./src/sitePages.js";
 import { injectJobListHtml, renderStaticHomeJobList } from "./src/staticHomeJobs.js";
+import {
+  matchWeekFreezePath,
+  renderArchiveIndexPage,
+  renderWeekFreezePage,
+} from "./src/weekArchive.js";
 
 function loadHubJobs() {
   const sitePath = resolve("public/data/site.json");
@@ -69,13 +74,29 @@ function sitePagesDev() {
     name: "site-pages-dev",
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
+        const freeze = matchWeekFreezePath(req.url || "");
+        if (freeze) {
+          const html = renderWeekFreezePage(loadHubJobs(), freeze.weekIso, {
+            lang: freeze.lang,
+            cssHref: "/src/style.css",
+            faviconHref: "/favicon.svg",
+          });
+          res.statusCode = 200;
+          res.setHeader("Content-Type", "text/html; charset=utf-8");
+          res.end(html);
+          return;
+        }
         const hit = matchSitePage(req.url || "");
         if (!hit) return next();
-        const html = renderSitePage(hit.page, {
+        const opts = {
           lang: hit.lang,
           cssHref: "/src/style.css",
           faviconHref: "/favicon.svg",
-        });
+        };
+        const html =
+          hit.page.id === "week"
+            ? renderArchiveIndexPage(loadHubJobs(), opts)
+            : renderSitePage(hit.page, opts);
         res.statusCode = 200;
         res.setHeader("Content-Type", "text/html; charset=utf-8");
         res.end(html);

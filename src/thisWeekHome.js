@@ -81,8 +81,9 @@ export function weekSignalItems(data, now = new Date()) {
     });
   };
 
+  // Only the weekly that belongs to `now`'s Rockstar week — keeps archive freezes honest.
   const weekly = pickOfficialWeekly(data || {});
-  if (weekly) push(weekly, "official");
+  if (weekly && isThisWeekJob(weekly, now)) push(weekly, "official");
 
   for (const key of ["jobs_gtabase", "jobs_ign", "jobs_wiki"]) {
     for (const job of data?.[key] || []) {
@@ -124,8 +125,12 @@ function oneLineFromTitle(title, lang) {
 export function buildWeekBullets(data, now = new Date(), lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
   const signals = weekSignalItems(data, now);
-  const weekly = pickOfficialWeekly(data || {});
-  const fallbackUrl = weekly?.url || "";
+  // Prefer this week's own outbound URL — never fall back to a newer week's article.
+  const weekOfficial =
+    signals.find((s) => s.kind === "official" && s.url) ||
+    signals.find((s) => s.kind === "job" && s.url) ||
+    null;
+  const fallbackUrl = weekOfficial?.url || "";
 
   return WEEK_BULLET_CATEGORIES.map((cat) => {
     const hit = signals.find((s) => cat.re.test(s.blob));

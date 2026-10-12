@@ -1610,6 +1610,108 @@ main {
   font-family: var(--mono);
 }
 
+/* ---------- Phase C weekly archive ---------- */
+.site-page-main.archive-wide,
+.site-page[data-page="week"] .site-page-main,
+.site-page[data-page="week-freeze"] .site-page-main {
+  max-width: min(820px, var(--page-max));
+}
+.archive-week-lead {
+  margin: 0 0 18px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+.archive-week-list {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.archive-week-link {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 10px 14px;
+  align-items: baseline;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  background: rgba(0, 12, 16, 0.55);
+  color: var(--text);
+  text-decoration: none;
+}
+.archive-week-link:hover {
+  border-color: var(--border-teal);
+  color: var(--mint);
+}
+.archive-week-link time {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--teal);
+}
+.archive-week-title {
+  min-width: 0;
+  line-height: 1.4;
+}
+.archive-freeze-short,
+.archive-freeze-bullets,
+.archive-outbound {
+  width: 100%;
+  margin: 0 0 18px;
+  padding: 14px 0 4px;
+  border-top: 1px solid var(--border);
+}
+.archive-short-embed {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 520px;
+}
+.archive-short-embed iframe {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: min(70vh, 520px);
+  border: 1px solid var(--border);
+  background: #000;
+}
+.archive-short-caption {
+  margin: 0;
+}
+.archive-short-caption a { color: var(--teal); }
+.archive-outbound-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.archive-outbound-list a { color: var(--teal); }
+.archive-outbound-meta {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.archive-empty {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+.archive-share-hint {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.archive-share-hint a { color: var(--teal); }
+@media (max-width: 720px) {
+  .archive-week-link {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
 /* ---------- static shell pages (Phase A) ---------- */
 .site-page-main {
   max-width: min(720px, var(--page-max));
