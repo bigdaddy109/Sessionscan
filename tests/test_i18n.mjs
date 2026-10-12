@@ -27,8 +27,10 @@ function fail(msg, extra) {
   process.exit(1);
 }
 
-if (t("metaTitle", {}, "en") !== "SessionScan GTA") fail("en meta title");
-if (t("metaTitle", {}, "zh") !== "SessionScan GTA｜夜掃描") fail("zh meta title");
+if (t("siteName", {}, "en") !== "SessionScan GTA") fail("en site name");
+if (t("siteName", {}, "zh") !== "SessionScan GTA｜夜掃描") fail("zh site name");
+if (t("metaTitle", {}, "en") !== "This week in GTA Online | SessionScan") fail("en meta title");
+if (t("metaTitle", {}, "zh") !== "本週 GTA Online｜SessionScan") fail("zh meta title");
 if (t("channelFull", {}, "en") !== "Subscribe on YouTube") fail("en subscribe label");
 if (t("channelFull", {}, "zh") !== "訂閱 YouTube") fail("zh subscribe label");
 if (!t("channelAria", {}, "en").includes("@sessionscan")) fail("en subscribe aria keeps handle");
@@ -58,7 +60,7 @@ if (!SEARCH_ALIAS_GROUPS.some((g) => g.includes("中文") && g.includes("chinese
 }
 
 const html = `<html lang="en" data-ui-lang="en">
-  <title data-i18n="metaTitle">SessionScan GTA</title>
+  <title data-i18n="metaTitle">This week in GTA Online | SessionScan</title>
   <a data-i18n="tabJobs">This week's money & jobs</a>
   <link rel="canonical" href="https://sessionscan.net/" />
   <meta property="og:url" content="https://sessionscan.net/" />

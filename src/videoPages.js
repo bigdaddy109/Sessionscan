@@ -2,7 +2,18 @@
 
 import { CARD_SITE_BASE, cardActionsHtml, cardAttrs, videoPageUrl, youtubeId } from "./cardShare.js";
 import { cfWebAnalyticsHtml } from "./cfWebAnalytics.js";
-import { SITE_ORIGIN, copyFor, fmtViews as fmtViewsI18n, htmlLang, langLabel as i18nLangLabel, ogLocale, t } from "./i18n.js";
+import {
+  OG_IMAGE_HEIGHT,
+  OG_IMAGE_WIDTH,
+  SITE_ORIGIN,
+  TWITTER_SITE,
+  copyFor,
+  fmtViews as fmtViewsI18n,
+  htmlLang,
+  langLabel as i18nLangLabel,
+  ogLocale,
+  t,
+} from "./i18n.js";
 import { SITE_PAGES, absoluteUrl, staticSitemapUrls } from "./sitePages.js";
 import { VIDEO_JSON_LD_ID, YOUTUBE_CHANNEL_URL, jsonLdScript, videoObjectJsonLd } from "./structuredData.js";
 import { archiveSitemapUrls } from "./weekArchive.js";
@@ -376,9 +387,11 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
     <meta property="og:description" content="${esc(desc)}" />
     <meta property="og:url" content="${esc(page)}" />
     <meta property="og:image" content="${esc(image)}" />
+    <meta property="og:image:width" content="${OG_IMAGE_WIDTH}" />
+    <meta property="og:image:height" content="${OG_IMAGE_HEIGHT}" />
     <meta property="og:image:alt" content="${esc(video.title || title)}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@sessionscan" />
+    <meta name="twitter:site" content="${TWITTER_SITE}" />
     <meta name="twitter:title" content="${esc(title)}" />
     <meta name="twitter:description" content="${esc(desc)}" />
     <meta name="twitter:image" content="${esc(image)}" />

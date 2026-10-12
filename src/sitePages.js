@@ -3,7 +3,11 @@
 import { CARD_SITE_BASE, parseHash, videoPageUrl } from "./cardShare.js";
 import { cfWebAnalyticsHtml } from "./cfWebAnalytics.js";
 import {
+  OG_IMAGE_HEIGHT,
+  OG_IMAGE_URL,
+  OG_IMAGE_WIDTH,
   SITE_ORIGIN,
+  TWITTER_SITE,
   htmlLang,
   localeHome,
   ogLocale,
@@ -450,11 +454,15 @@ export function renderSitePage(
     <meta property="og:title" content="${esc(title)}" />
     <meta property="og:description" content="${esc(desc)}" />
     <meta property="og:url" content="${esc(url)}" />
-    <meta property="og:image" content="${SITE_ORIGIN}/og.jpg" />
+    <meta property="og:image" content="${OG_IMAGE_URL}" />
+    <meta property="og:image:width" content="${OG_IMAGE_WIDTH}" />
+    <meta property="og:image:height" content="${OG_IMAGE_HEIGHT}" />
+    <meta property="og:image:alt" content="${esc(title)}" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="${TWITTER_SITE}" />
     <meta name="twitter:title" content="${esc(title)}" />
     <meta name="twitter:description" content="${esc(desc)}" />
-    <meta name="twitter:image" content="${SITE_ORIGIN}/og.jpg" />
+    <meta name="twitter:image" content="${OG_IMAGE_URL}" />
     <link rel="icon" href="${esc(icon)}" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
