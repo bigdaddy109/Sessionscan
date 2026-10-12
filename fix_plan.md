@@ -14,6 +14,8 @@
 已完成：
 - Phase C Money：`/guides/money/`（＋`/zh/`）有出處 GTA$ 分紅排序＋簡易 $/hr 計算機（`src/moneyGuide.js`）；stub 移除；測 `tests/test_money_guide.mjs`；live-verify 手機寬度 stub 已消失（`2b72932`／calc fix `2c81da1`）。
 - Phase C Archive：`/week/` 索引＋`/week/YYYY-MM-DD/` 凍結頁（EN＋`/zh/`），`src/weekArchive.js` 單一來源；stub 文案移除；測 `tests/test_week_archive.mjs`。
+- Phase C Money：`/guides/money/`（＋`/zh/`），`src/moneyGuide.js` 單一來源；有出處分紅排序＋$/hr 計算機；測 `tests/test_money_guide.mjs`。
+- Phase C Business ranking：`/guides/businesses/`（＋`/zh/`），`src/businessRanking.js` 單一來源；Newswire 出處＋last-updated；無未附來源 GTA$；測 `tests/test_business_ranking.mjs`。
 - Phase B this-week home：五格一行 bullets、Short embed、YT／IG／X、週更倒數（`src/thisWeekHome.js`）。
 - Fast scrape workflow（`fast scrape` / `fast.yml`）：`workflow_dispatch`＋`scraper.py --fast`（videos／shorts／tweets only）；`pages.yml` 監聽成功後部署；daily.yml 不變。
 - `pages.yml`：`workflow_run`（daily／fast scrape → data）略過完整 CI；`push`／`workflow_dispatch` 與 PR（`ci.yml` `pull_request`）仍跑全套。
