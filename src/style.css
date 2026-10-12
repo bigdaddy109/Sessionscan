@@ -1761,6 +1761,139 @@ main {
   letter-spacing: 0.06em;
 }
 
+/* ---------- Money guide (Phase C) ---------- */
+.site-page-main--money {
+  max-width: min(760px, var(--page-max));
+}
+.money-updated {
+  margin: 0 0 12px;
+  color: var(--mint);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+.money-intro { margin-bottom: 22px; }
+.money-rank,
+.money-calc {
+  margin: 0 0 28px;
+}
+.money-rank h2,
+.money-calc h2 {
+  font-family: var(--condensed);
+  font-size: clamp(20px, 3vw, 26px);
+  letter-spacing: 0.05em;
+  margin: 0 0 8px;
+}
+.money-rank-note,
+.money-calc-note {
+  margin: 0 0 14px;
+  color: var(--muted);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+.money-route-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.money-route {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 14px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+  min-width: 0;
+}
+.money-route:last-child {
+  border-bottom: 1px solid var(--border);
+}
+.money-route-rank {
+  font-family: var(--condensed);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--teal);
+  line-height: 1.1;
+  padding-top: 2px;
+}
+.money-route-body { min-width: 0; }
+.money-route-title {
+  margin: 0 0 6px;
+  font-family: var(--condensed);
+  font-size: clamp(17px, 2.6vw, 20px);
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.money-route-highlight {
+  margin: 0 0 8px;
+  color: var(--muted);
+  line-height: 1.45;
+  font-size: 0.95rem;
+}
+.money-route-take {
+  margin: 0 0 6px;
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+}
+.money-route-take-value { color: var(--mint); }
+.money-route-take-label { color: var(--muted); }
+.money-route-source {
+  margin: 0;
+  font-size: 0.88rem;
+}
+.money-route-source a { color: var(--teal); word-break: break-word; }
+.money-calc-form {
+  display: grid;
+  gap: 12px;
+  max-width: 420px;
+}
+.money-calc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  min-width: 0;
+}
+.money-calc-field select,
+.money-calc-field input {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  background: rgba(0, 12, 14, 0.72);
+  color: var(--text, #e8f7f4);
+  font: inherit;
+  border-radius: 0;
+}
+.money-calc-out {
+  margin: 4px 0 0;
+  font-family: var(--condensed);
+  font-size: clamp(18px, 3vw, 24px);
+  letter-spacing: 0.04em;
+  color: var(--mint);
+  min-height: 1.4em;
+}
+.money-week-link {
+  margin: 8px 0 0;
+}
+.money-week-link a {
+  color: var(--teal);
+  font-family: var(--condensed);
+  letter-spacing: 0.05em;
+}
+@media (max-width: 520px) {
+  .money-route {
+    grid-template-columns: 28px 1fr;
+    gap: 8px 10px;
+  }
+}
+
 /* ---------- per-video share page ---------- */
 .video-page-main {
   max-width: 720px;

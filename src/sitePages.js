@@ -10,6 +10,11 @@ import {
   t,
 } from "./i18n.js";
 import {
+  moneyCalculatorScript,
+  moneyGuideJsonLd,
+  renderMoneyGuideBody,
+} from "./moneyGuide.js";
+import {
   INSTAGRAM_URL,
   YOUTUBE_CHANNEL_URL,
   jsonLdScript,
@@ -51,7 +56,7 @@ export const SITE_PAGES = [
     descKey: "pageMoneyDesc",
     headingKey: "pageMoneyHeading",
     bodyKey: "pageMoneyBody",
-    stub: true,
+    stub: false,
   },
   {
     id: "businesses",
@@ -243,6 +248,7 @@ export function legacyHashRedirectScript() {
 }
 
 export function webPageJsonLd(page, lang = "en", { name, description } = {}) {
+  if (page?.id === "money") return moneyGuideJsonLd(lang);
   const ui = lang === "zh" ? "zh" : "en";
   const url = absoluteUrl(page.path, ui);
   return {
@@ -273,6 +279,10 @@ export function staticSitemapUrls() {
 }
 
 function pageBodyHtml(page, ui) {
+  if (page.id === "money") {
+    return `<h1 data-i18n="${esc(page.headingKey)}">${esc(t(page.headingKey, {}, ui))}</h1>
+      ${renderMoneyGuideBody(ui)}`;
+  }
   const stub = page.stub
     ? `<p class="page-stub-flag" data-i18n="pageStubFlag">${esc(t("pageStubFlag", {}, ui))}</p>`
     : "";
@@ -396,7 +406,7 @@ export function renderSitePage(
       </div>
       ${nav}
     </header>
-    <main id="main" class="site-page-main">
+    <main id="main" class="site-page-main${page.id === "money" ? " site-page-main--money" : ""}">
       ${mainBody}
     </main>
     <footer class="site-footer">
@@ -409,6 +419,7 @@ export function renderSitePage(
       <p><strong>SessionScan</strong> · <span data-i18n="footerAbout">${esc(t("footerAbout", {}, ui))}</span></p>
       <p data-i18n="footerScope">${esc(t("footerScope", {}, ui))}</p>
     </footer>
+    ${page.id === "money" ? moneyCalculatorScript() : ""}
     ${cfWebAnalyticsHtml()}
   </body>
 </html>

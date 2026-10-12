@@ -86,8 +86,11 @@ const money = renderSitePage(
   { lang: "zh", cssHref: "../../../assets/x.css", faviconHref: "../../../favicon.svg" },
 );
 if (!money.includes('lang="zh-Hant"')) fail("money zh lang");
-if (!money.includes("page-stub-flag")) fail("money stub flag");
+if (money.includes("page-stub-flag")) fail("money must not be stub");
+if (!money.includes("money-route-list")) fail("money rank list");
 if (!money.includes("https://sessionscan.net/zh/guides/money/")) fail("money zh url");
+const moneyPage = SITE_PAGES.find((p) => p.id === "money");
+if (moneyPage?.stub) fail("SITE_PAGES money stub false");
 
 let aboutLd;
 try {
