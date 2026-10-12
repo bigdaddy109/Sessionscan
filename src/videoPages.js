@@ -2,6 +2,7 @@
 
 import { CARD_SITE_BASE, cardActionsHtml, cardAttrs, videoPageUrl, youtubeId } from "./cardShare.js";
 import { cfWebAnalyticsHtml } from "./cfWebAnalytics.js";
+import { fontHeadLinks } from "./fontLinks.js";
 import {
   OG_IMAGE_HEIGHT,
   OG_IMAGE_WIDTH,
@@ -396,12 +397,7 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
     <meta name="twitter:description" content="${esc(desc)}" />
     <meta name="twitter:image" content="${esc(image)}" />
     <link rel="icon" href="${esc(icon)}" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Oswald:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
+    ${fontHeadLinks(ui)}
     <link rel="stylesheet" href="${esc(css)}" />
   </head>
   <body class="video-page">
@@ -419,8 +415,8 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
         </a>
         <a class="channel-link" href="${YOUTUBE_CHANNEL_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="${esc(t("channelAria", {}, ui))}">
           <span class="channel-link-play" aria-hidden="true">▶</span>
-          <span class="channel-link-full" data-i18n="channelFull">${esc(t("channelFull", {}, ui))}</span>
-          <span class="channel-link-short">@sessionscan</span>
+          <span class="channel-link-full" data-i18n="channelFull" aria-hidden="true">${esc(t("channelFull", {}, ui))}</span>
+          <span class="channel-link-short" aria-hidden="true">@sessionscan</span>
         </a>
         <nav class="lang-switch" aria-label="${esc(t("langSwitchAria", {}, ui))}">
           <a href="${SITE_ORIGIN}/" data-lang-link="en" hreflang="en"${ui === "en" ? ' aria-current="page"' : ""}>EN</a>
@@ -440,8 +436,8 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
     <footer class="site-footer">
       <p class="footer-social">
         <a class="footer-social-link" href="${YOUTUBE_CHANNEL_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="${esc(t("channelAria", {}, ui))}">
-          <span data-i18n="channelFull">${esc(t("channelFull", {}, ui))}</span>
-          <span class="footer-social-handle">@sessionscan</span>
+          <span data-i18n="channelFull" aria-hidden="true">${esc(t("channelFull", {}, ui))}</span>
+          <span class="footer-social-handle" aria-hidden="true">@sessionscan</span>
         </a>
       </p>
       <p><strong>SessionScan</strong> · <span data-i18n="footerAbout">${esc(t("footerAbout", {}, ui))}</span></p>

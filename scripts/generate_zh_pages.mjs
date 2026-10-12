@@ -6,6 +6,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { FONT_HREF_ZH_NOTO } from "../src/fontLinks.js";
 import { UI, applyHtmlI18n, rewriteAssetBase } from "../src/i18n.js";
 import { injectHomeShell } from "../src/sitePages.js";
 import { replaceHomeJsonLd } from "../src/structuredData.js";
@@ -39,6 +40,25 @@ let zh = applyHtmlI18n(en, "zh");
 zh = replaceHomeJsonLd(zh, "zh");
 zh = injectHomeShell(zh, { lang: "zh" });
 zh = rewriteAssetBase(zh, "../");
+// EN has Oswald preloads only (vite may emit ./fonts); inject non-blocking Noto TC for CJK UI.
+if (!zh.includes("Noto+Sans+TC")) {
+  const notoTail = `<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="${FONT_HREF_ZH_NOTO}" />
+    <link rel="stylesheet" href="${FONT_HREF_ZH_NOTO}" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="${FONT_HREF_ZH_NOTO}" /></noscript>
+    `;
+  const replaced = zh.replace(
+    /(<link rel="preload" href="[^"]*fonts\/oswald-latin-700-normal\.woff2"[^>]*>)/,
+    `$1\n    ${notoTail}`,
+  );
+  if (replaced === zh) {
+    console.warn("generate_zh_pages: Oswald preload not found; appending Noto before </head>");
+    zh = zh.replace("</head>", `    ${notoTail}</head>`);
+  } else {
+    zh = replaced;
+  }
+}
 zh = zh.replaceAll("Official weekly signal pending next snapshot", UI.zh.officialPending);
 zh = zh.replaceAll(">All channels<", `>${UI.zh.allChannels}<`);
 zh = zh.replace(

@@ -18,6 +18,7 @@ import {
   moneyGuideJsonLd,
   renderMoneyGuideBody,
 } from "./moneyGuide.js";
+import { fontHeadLinks } from "./fontLinks.js";
 import {
   INSTAGRAM_URL,
   YOUTUBE_CHANNEL_URL,
@@ -464,12 +465,7 @@ export function renderSitePage(
     <meta name="twitter:description" content="${esc(desc)}" />
     <meta name="twitter:image" content="${OG_IMAGE_URL}" />
     <link rel="icon" href="${esc(icon)}" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Oswald:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
+    ${fontHeadLinks(ui)}
     <link rel="stylesheet" href="${esc(css)}" />
   </head>
   <body class="site-page" data-page="${esc(page.id)}">
@@ -488,12 +484,12 @@ export function renderSitePage(
         <nav class="header-social" data-i18n-aria="headerSocialAria" aria-label="${esc(t("headerSocialAria", {}, ui))}">
           <a class="channel-link" href="${YOUTUBE_CHANNEL_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="${esc(t("channelAria", {}, ui))}">
             <span class="channel-link-play" aria-hidden="true">▶</span>
-            <span class="channel-link-full" data-i18n="channelFull">${esc(t("channelFull", {}, ui))}</span>
-            <span class="channel-link-short">@sessionscan</span>
+            <span class="channel-link-full" data-i18n="channelFull" aria-hidden="true">${esc(t("channelFull", {}, ui))}</span>
+            <span class="channel-link-short" aria-hidden="true">@sessionscan</span>
           </a>
           <a class="channel-link channel-link-ig" href="${INSTAGRAM_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="instagramAria" aria-label="${esc(t("instagramAria", {}, ui))}">
-            <span class="channel-link-full" data-i18n="instagramFull">${esc(t("instagramFull", {}, ui))}</span>
-            <span class="channel-link-short">IG</span>
+            <span class="channel-link-full" data-i18n="instagramFull" aria-hidden="true">${esc(t("instagramFull", {}, ui))}</span>
+            <span class="channel-link-short" aria-hidden="true">IG</span>
           </a>
         </nav>
         <nav class="lang-switch" data-i18n-aria="langSwitchAria" aria-label="${esc(t("langSwitchAria", {}, ui))}">
@@ -510,8 +506,8 @@ export function renderSitePage(
     <footer class="site-footer">
       <p class="footer-social">
         <a class="footer-social-link" href="${YOUTUBE_CHANNEL_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="${esc(t("channelAria", {}, ui))}">
-          <span data-i18n="channelFull">${esc(t("channelFull", {}, ui))}</span>
-          <span class="footer-social-handle">@sessionscan</span>
+          <span data-i18n="channelFull" aria-hidden="true">${esc(t("channelFull", {}, ui))}</span>
+          <span class="footer-social-handle" aria-hidden="true">@sessionscan</span>
         </a>
       </p>${footerGuides}
       <p><strong>SessionScan</strong> · <span data-i18n="footerAbout">${esc(t("footerAbout", {}, ui))}</span></p>

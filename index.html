@@ -28,12 +28,9 @@
     <meta name="twitter:description" data-i18n-content="metaDesc" content="What to do this week in GTA Online — bonuses, money & jobs, and this week's Short. GTA 5 / Online / GTA 6 hub; titles and outbound links only. Unrelated to other apps of the same name." />
     <script type="application/ld+json" id="home-jsonld">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://sessionscan.net/#website","name":"SessionScan GTA","alternateName":"SessionScan","url":"https://sessionscan.net/","description":"What to do this week in GTA Online — bonuses, money & jobs, and this week's Short. GTA 5 / Online / GTA 6 hub; titles and outbound links only. Unrelated to other apps of the same name.","inLanguage":"en","publisher":{"@id":"https://sessionscan.net/#organization"},"hasPart":[{"@type":"WebPage","@id":"https://sessionscan.net/week/#webpage","name":"Archive","url":"https://sessionscan.net/week/"},{"@type":"WebPage","@id":"https://sessionscan.net/guides/money/#webpage","name":"Money","url":"https://sessionscan.net/guides/money/"},{"@type":"WebPage","@id":"https://sessionscan.net/guides/businesses/#webpage","name":"Businesses","url":"https://sessionscan.net/guides/businesses/"}]},{"@type":"Organization","@id":"https://sessionscan.net/#organization","name":"SessionScan","url":"https://sessionscan.net/","logo":"https://sessionscan.net/og.jpg","sameAs":["https://www.youtube.com/@sessionscan","https://www.instagram.com/sessionscan/"]}]}</script>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Oswald:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Self-hosted Oswald (see public/fonts + style.css @font-face). Noto TC only on /zh/ via fontLinks.js. -->
+    <link rel="preload" href="/fonts/oswald-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/oswald-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/src/style.css" />
     <script>
       (function () {
@@ -76,16 +73,16 @@
         <nav class="header-social" data-i18n-aria="headerSocialAria" aria-label="SessionScan social">
           <a class="channel-link" href="https://www.youtube.com/@sessionscan" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="Subscribe on YouTube @sessionscan">
             <span class="channel-link-play" aria-hidden="true">▶</span>
-            <span class="channel-link-full" data-i18n="channelFull">Subscribe on YouTube</span>
-            <span class="channel-link-short">@sessionscan</span>
+            <span class="channel-link-full" data-i18n="channelFull" aria-hidden="true">Subscribe on YouTube</span>
+            <span class="channel-link-short" aria-hidden="true">@sessionscan</span>
           </a>
           <a class="channel-link channel-link-ig" href="https://www.instagram.com/sessionscan/" target="_blank" rel="noopener noreferrer" data-i18n-aria="instagramAria" aria-label="Follow SessionScan on Instagram">
-            <span class="channel-link-full" data-i18n="instagramFull">Follow on Instagram</span>
-            <span class="channel-link-short">IG</span>
+            <span class="channel-link-full" data-i18n="instagramFull" aria-hidden="true">Follow on Instagram</span>
+            <span class="channel-link-short" aria-hidden="true">IG</span>
           </a>
           <a class="channel-link channel-link-x" href="https://x.com/SessionScanGTA" target="_blank" rel="noopener noreferrer" data-i18n-aria="weekSocialXAria" aria-label="Follow SessionScan on X @SessionScanGTA">
-            <span class="channel-link-full" data-i18n="weekSocialX">Follow on X</span>
-            <span class="channel-link-short">X</span>
+            <span class="channel-link-full" data-i18n="weekSocialX" aria-hidden="true">Follow on X</span>
+            <span class="channel-link-short" aria-hidden="true">X</span>
           </a>
         </nav>
         <nav class="lang-switch" data-i18n-aria="langSwitchAria" aria-label="Language">
@@ -170,14 +167,14 @@
       <div class="week-panel-kicker"><strong data-i18n="weekSocialKicker">Follow SessionScan</strong><span data-i18n="weekSocialTag">YT · IG · X</span></div>
       <div class="week-social-links">
         <a class="week-social-btn" href="https://www.youtube.com/@sessionscan" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="Subscribe on YouTube @sessionscan">
-          <span data-i18n="channelFull">Subscribe on YouTube</span>
+          <span data-i18n="channelFull" aria-hidden="true">Subscribe on YouTube</span>
         </a>
         <a class="week-social-btn" href="https://www.instagram.com/sessionscan/" target="_blank" rel="noopener noreferrer" data-i18n-aria="instagramAria" aria-label="Follow SessionScan on Instagram">
-          <span data-i18n="instagramFull">Follow on Instagram</span>
+          <span data-i18n="instagramFull" aria-hidden="true">Follow on Instagram</span>
         </a>
         <a class="week-social-btn" href="https://x.com/SessionScanGTA" target="_blank" rel="noopener noreferrer" data-i18n-aria="weekSocialXAria" aria-label="Follow SessionScan on X @SessionScanGTA">
-          <span data-i18n="weekSocialX">Follow on X</span>
-          <span class="week-social-handle">@SessionScanGTA</span>
+          <span data-i18n="weekSocialX" aria-hidden="true">Follow on X</span>
+          <span class="week-social-handle" aria-hidden="true">@SessionScanGTA</span>
         </a>
       </div>
     </aside>
@@ -194,7 +191,7 @@
         </div>
         <p class="source-hint" id="jobHint"></p>
         <div class="controls">
-          <div class="pill-group" role="tablist" data-i18n-aria="jobsSourceAria" aria-label="Guide sources"><button class="pill active" data-source="gtabase" type="button">GTABase</button><button class="pill" data-source="ign" type="button">IGN</button><button class="pill" data-source="wiki" type="button">GTA Wiki</button></div>
+          <div class="pill-group" role="group" data-i18n-aria="jobsSourceAria" aria-label="Guide sources"><button class="pill active" data-source="gtabase" type="button">GTABase</button><button class="pill" data-source="ign" type="button">IGN</button><button class="pill" data-source="wiki" type="button">GTA Wiki</button></div>
           <div class="pill-group" role="group" data-i18n-aria="jobsRangeAria" aria-label="Weekly range"><button class="pill" data-jobs-range="older" type="button" aria-pressed="false" data-i18n="olderWeeklies">Earlier weeklies</button></div>
         </div>
         <div class="job-list" id="jobList"></div>
@@ -207,15 +204,15 @@
     <footer class="site-footer">
       <p class="footer-social">
         <a class="footer-social-link" href="https://www.youtube.com/@sessionscan" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="Subscribe on YouTube @sessionscan">
-          <span data-i18n="channelFull">Subscribe on YouTube</span>
-          <span class="footer-social-handle">@sessionscan</span>
+          <span data-i18n="channelFull" aria-hidden="true">Subscribe on YouTube</span>
+          <span class="footer-social-handle" aria-hidden="true">@sessionscan</span>
         </a>
         <a class="footer-social-link" href="https://www.instagram.com/sessionscan/" target="_blank" rel="noopener noreferrer" data-i18n-aria="instagramAria" aria-label="Follow SessionScan on Instagram">
-          <span data-i18n="instagramFull">Follow on Instagram</span>
+          <span data-i18n="instagramFull" aria-hidden="true">Follow on Instagram</span>
         </a>
         <a class="footer-social-link" href="https://x.com/SessionScanGTA" target="_blank" rel="noopener noreferrer" data-i18n-aria="weekSocialXAria" aria-label="Follow SessionScan on X @SessionScanGTA">
-          <span data-i18n="weekSocialX">Follow on X</span>
-          <span class="footer-social-handle">@SessionScanGTA</span>
+          <span data-i18n="weekSocialX" aria-hidden="true">Follow on X</span>
+          <span class="footer-social-handle" aria-hidden="true">@SessionScanGTA</span>
         </a>
       </p>
       <p><strong>SessionScan</strong> · <span data-i18n="footerAbout">GTA 5 / Online / GTA 6 hub, unrelated to other apps of the same name · No ads</span></p>

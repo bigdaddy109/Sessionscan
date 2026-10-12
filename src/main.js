@@ -126,7 +126,7 @@ function videoCard(v, rank, extraClass, tab = "hot", rankKey = "") {
   return `
     <article class="${cls}" ${cardAttrs(v)}>
       <button type="button" class="thumb-link" data-play="${esc(id)}" aria-label="${esc(t("playAria", { title: v.title }))}">
-        ${rank != null ? `<div class="rank">${rank}</div>` : ""}
+        ${rank != null ? `<div class="rank" aria-hidden="true">${rank}</div>` : ""}
         ${delta}
         <img class="thumb" src="${thumb}" alt="" loading="lazy" />
         <div class="play" aria-hidden="true"><span>▶</span></div>
@@ -186,13 +186,13 @@ function sessionScanSlot(slot) {
     return `
     <article class="video-card owned-short" ${cardAttrs(short)}>
       <button type="button" class="thumb-link embed-wrap" data-play="${esc(id)}" data-embed="${esc(embed)}" aria-label="${esc(t("playAria", { title: short.title || "SessionScan Short" }))}">
-        <div class="rank">1</div>
+        <div class="rank" aria-hidden="true">1</div>
         <img class="thumb" src="${thumb}" alt="" loading="lazy" />
         <div class="play" aria-hidden="true"><span>▶</span></div>
       </button>
       <div class="video-info">
         <div class="video-info-top">
-          <h3>${esc(short.title || "SessionScan Short")}</h3>
+          <p class="video-card-title">${esc(short.title || "SessionScan Short")}</p>
           ${cardActionsHtml(short, "new", shareLang())}
         </div>
         <div class="card-meta">
