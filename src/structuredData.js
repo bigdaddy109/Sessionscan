@@ -23,9 +23,26 @@ export function organizationJsonLd() {
   };
 }
 
+/** Phase C destinations listed on WebSite (no SearchAction — hash-only search). */
+const HOME_HAS_PART_PATHS = [
+  { path: "week/", nameKey: "navArchive" },
+  { path: "guides/money/", nameKey: "navMoney" },
+  { path: "guides/businesses/", nameKey: "navBusinesses" },
+];
+
 export function homeJsonLd(lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
   const url = localeHome(ui);
+  const prefix = ui === "zh" ? `${SITE_ORIGIN}/zh/` : `${SITE_ORIGIN}/`;
+  const hasPart = HOME_HAS_PART_PATHS.map((item) => {
+    const pageUrl = `${prefix}${item.path}`;
+    return {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      name: t(item.nameKey, {}, ui),
+      url: pageUrl,
+    };
+  });
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -38,6 +55,7 @@ export function homeJsonLd(lang = "en") {
         description: t("metaDesc", {}, ui),
         inLanguage: htmlLang(ui),
         publisher: { "@id": `${SITE_ORIGIN}/#organization` },
+        hasPart,
       },
       organizationJsonLd(),
     ],

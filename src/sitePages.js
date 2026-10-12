@@ -170,6 +170,71 @@ export function primaryNavHtml(lang = "en", activeId = "") {
   return `<nav class="site-nav" data-i18n-aria="siteNavAria" aria-label="${esc(t("siteNavAria", {}, ui))}">${links}</nav>`;
 }
 
+/** Phase C discovery trio — Archive / Money / Businesses (home links here too). */
+export const CROSS_LINK_PAGE_IDS = ["week", "money", "businesses"];
+
+function crossLinkSkipId(currentId = "") {
+  if (currentId === "week-freeze") return "week";
+  return currentId || "";
+}
+
+/** Absolute URLs for JSON-LD relatedLink / WebSite.hasPart. */
+export function crossLinkPageRefs(lang = "en", { excludeId = "" } = {}) {
+  const ui = lang === "zh" ? "zh" : "en";
+  const skip = crossLinkSkipId(excludeId);
+  return CROSS_LINK_PAGE_IDS.filter((id) => id !== skip).map((id) => {
+    const page = pageById(id);
+    return {
+      id,
+      path: page.path,
+      url: absoluteUrl(page.path, ui),
+      name: t(page.navKey, {}, ui),
+      title: t(page.titleKey, {}, ui),
+    };
+  });
+}
+
+/**
+ * In-page discovery links: other Phase C pages + home (when not on home).
+ * Single source for home footer strip, Archive / Money / Businesses bodies.
+ */
+export function relatedPagesHtml(lang = "en", { currentId = "" } = {}) {
+  const ui = lang === "zh" ? "zh" : "en";
+  const skip = crossLinkSkipId(currentId);
+  const items = [];
+  if (skip && skip !== "home") {
+    items.push({
+      id: "home",
+      href: localePath(ui, "/"),
+      label: t("videoHome", {}, ui),
+    });
+  }
+  for (const ref of crossLinkPageRefs(ui, { excludeId: skip })) {
+    items.push({ id: ref.id, href: localePath(ui, ref.path), label: ref.name });
+  }
+  if (!items.length) return "";
+  const list = items
+    .map(
+      (item) =>
+        `<li><a href="${esc(item.href)}" data-related="${esc(item.id)}">${esc(item.label)}</a></li>`,
+    )
+    .join("");
+  return `<nav class="related-pages" data-i18n-aria="relatedPagesAria" aria-label="${esc(t("relatedPagesAria", {}, ui))}">
+      <p class="related-pages-kicker" data-i18n="relatedPagesKicker">${esc(t("relatedPagesKicker", {}, ui))}</p>
+      <ul class="related-pages-list">${list}</ul>
+    </nav>`;
+}
+
+/** Compact footer row of Archive · Money · Businesses (always all three). */
+export function footerGuidesHtml(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const links = CROSS_LINK_PAGE_IDS.map((id) => {
+    const page = pageById(id);
+    return `<a href="${esc(localePath(ui, page.path))}" data-footer-guide="${esc(id)}">${esc(t(page.navKey, {}, ui))}</a>`;
+  }).join('<span class="footer-guides-sep" aria-hidden="true"> · </span>');
+  return `<nav class="footer-guides" data-i18n-aria="footerGuidesAria" aria-label="${esc(t("footerGuidesAria", {}, ui))}">${links}</nav>`;
+}
+
 const LEGACY_TAB_TOKENS = new Set(["jobs", "hot", "shorts", "new", "forum", "x", "hero"]);
 
 /**
@@ -251,26 +316,30 @@ export function legacyHashRedirectScript() {
 </script>`;
 }
 
+function relatedLinkUrls(lang = "en", excludeId = "") {
+  return crossLinkPageRefs(lang, { excludeId }).map((ref) => ref.url);
+}
+
 export function webPageJsonLd(page, lang = "en", { name, description } = {}) {
   if (page?.id === "money") return moneyGuideJsonLd(lang);
   if (page?.id === "businesses") return businessesPageJsonLd(lang);
   const ui = lang === "zh" ? "zh" : "en";
   const url = absoluteUrl(page.path, ui);
+  const related = relatedLinkUrls(ui, page?.id);
+  const webpage = {
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    name: name || t(page.titleKey, {}, ui),
+    description: description || t(page.descKey, {}, ui),
+    url,
+    inLanguage: htmlLang(ui),
+    isPartOf: { "@id": `${localeHome(ui)}#website` },
+    publisher: { "@id": `${SITE_ORIGIN}/#organization` },
+  };
+  if (related.length) webpage.relatedLink = related;
   return {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": `${url}#webpage`,
-        name: name || t(page.titleKey, {}, ui),
-        description: description || t(page.descKey, {}, ui),
-        url,
-        inLanguage: htmlLang(ui),
-        isPartOf: { "@id": `${localeHome(ui)}#website` },
-        publisher: { "@id": `${SITE_ORIGIN}/#organization` },
-      },
-      organizationJsonLd(),
-    ],
+    "@graph": [webpage, organizationJsonLd()],
   };
 }
 
@@ -347,8 +416,20 @@ export function renderSitePage(
   const nav = primaryNavHtml(ui, activeId || page.id);
   const otherLang = ui === "zh" ? "en" : "zh";
   const otherHref = localePath(otherLang, page.path);
-  const mainBody = bodyHtml != null ? bodyHtml : `${pageBodyHtml(page, ui)}
+  const crossId = page.id;
+  const wantsRelated =
+    CROSS_LINK_PAGE_IDS.includes(crossId) || crossId === "week-freeze";
+  let mainBody = bodyHtml != null ? bodyHtml : pageBodyHtml(page, ui);
+  if (wantsRelated) {
+    if (!String(mainBody).includes('class="related-pages"')) {
+      mainBody = `${mainBody}
+      ${relatedPagesHtml(ui, { currentId: crossId })}`;
+    }
+  } else if (bodyHtml == null) {
+    mainBody = `${mainBody}
       <p class="page-home-link"><a href="${esc(ui === "zh" ? "/zh/" : "/")}">${esc(t("videoHome", {}, ui))}</a></p>`;
+  }
+  const footerGuides = wantsRelated ? `\n      ${footerGuidesHtml(ui)}` : "";
 
   return `<!DOCTYPE html>
 <html lang="${htmlLang(ui)}" data-ui-lang="${ui}">
@@ -424,7 +505,7 @@ export function renderSitePage(
           <span data-i18n="channelFull">${esc(t("channelFull", {}, ui))}</span>
           <span class="footer-social-handle">@sessionscan</span>
         </a>
-      </p>
+      </p>${footerGuides}
       <p><strong>SessionScan</strong> · <span data-i18n="footerAbout">${esc(t("footerAbout", {}, ui))}</span></p>
       <p data-i18n="footerScope">${esc(t("footerScope", {}, ui))}</p>
     </footer>
@@ -464,5 +545,28 @@ export function injectHomeShell(html, { lang = "en" } = {}) {
     /(<a class="brand"[^>]*aria-label=")[^"]*(")/,
     `$1${esc(t("brandAriaHome", {}, ui))}$2`,
   );
+
+  // In-page + footer discovery for Archive / Money / Businesses (single source).
+  const related = relatedPagesHtml(ui, { currentId: "home" });
+  if (related) {
+    if (/<nav class="related-pages"[\s\S]*?<\/nav>/.test(out)) {
+      out = out.replace(/<nav class="related-pages"[\s\S]*?<\/nav>/, related);
+    } else if (out.includes('<footer class="site-footer">')) {
+      out = out.replace('<footer class="site-footer">', `${related}\n    <footer class="site-footer">`);
+    } else if (out.includes("</main>")) {
+      out = out.replace("</main>", `    ${related}\n    </main>`);
+    }
+  }
+  const guides = footerGuidesHtml(ui);
+  if (guides) {
+    if (/<nav class="footer-guides"[\s\S]*?<\/nav>/.test(out)) {
+      out = out.replace(/<nav class="footer-guides"[\s\S]*?<\/nav>/, guides);
+    } else if (out.includes('<footer class="site-footer">')) {
+      out = out.replace(
+        /(<footer class="site-footer">\s*<p class="footer-social">[\s\S]*?<\/p>)/,
+        `$1\n      ${guides}`,
+      );
+    }
+  }
   return out;
 }

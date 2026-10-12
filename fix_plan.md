@@ -12,6 +12,7 @@
 - 行動版 sticky header／site-nav：合併本 PR 後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- Phase C cross-links：home＋Archive／Money／Businesses 互連（`relatedPagesHtml`／`footerGuidesHtml`）；sitemap 含 EN／zh；`WebSite.hasPart`＋頁級 `relatedLink`（無 SearchAction）；測 `tests/test_site_pages.mjs`。
 - Phase C Money：`/guides/money/`（＋`/zh/`）有出處 GTA$ 分紅排序＋簡易 $/hr 計算機（`src/moneyGuide.js`）；stub 移除；測 `tests/test_money_guide.mjs`；live-verify 手機寬度 stub 已消失（`2b72932`／calc fix `2c81da1`）。
 - Phase C Archive：`/week/` 索引＋`/week/YYYY-MM-DD/` 凍結頁（EN＋`/zh/`），`src/weekArchive.js` 單一來源；stub 文案移除；測 `tests/test_week_archive.mjs`。
 - Phase C Money：`/guides/money/`（＋`/zh/`），`src/moneyGuide.js` 單一來源；有出處分紅排序＋$/hr 計算機；測 `tests/test_money_guide.mjs`。

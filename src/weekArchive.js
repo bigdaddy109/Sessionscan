@@ -215,11 +215,9 @@ function outboundListHtml(links, ui) {
 export function archiveIndexBodyHtml(data, lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
   const weeks = listArchiveWeeks(data);
-  const home = localePath(ui, "/");
   const intro = `<div class="page-body"><p>${esc(t("archiveIndexIntro", {}, ui))}</p></div>`;
   if (!weeks.length) {
-    return `${intro}<p class="archive-empty">${esc(t("archiveIndexEmpty", {}, ui))}</p>
-      <p class="page-home-link"><a href="${esc(home)}">${esc(t("videoHome", {}, ui))}</a></p>`;
+    return `${intro}<p class="archive-empty">${esc(t("archiveIndexEmpty", {}, ui))}</p>`;
   }
   const list = `<ul class="archive-week-list">
     ${weeks
@@ -234,8 +232,7 @@ export function archiveIndexBodyHtml(data, lang = "en") {
       })
       .join("")}
   </ul>`;
-  return `${intro}${list}
-      <p class="page-home-link"><a href="${esc(home)}">${esc(t("videoHome", {}, ui))}</a></p>`;
+  return `${intro}${list}`;
 }
 
 export function weekFreezeBodyHtml(data, weekIso, lang = "en") {

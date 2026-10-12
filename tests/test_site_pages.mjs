@@ -10,16 +10,18 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   SITE_PAGES,
+  footerGuidesHtml,
   injectHomeShell,
   legacyHashRedirectTarget,
   localePath,
   pairedLocalePath,
   primaryNavHtml,
+  relatedPagesHtml,
   renderSitePage,
   staticSitemapUrls,
   webPageJsonLd,
 } from "../src/sitePages.js";
-import { parseJsonLdScripts } from "../src/structuredData.js";
+import { homeJsonLd, parseJsonLdScripts } from "../src/structuredData.js";
 import { renderSitemap, sitemapUrls } from "../src/videoPages.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -80,6 +82,19 @@ if (week.includes("page-stub-flag")) fail("week archive is not a stub");
 if (!SITE_PAGES.find((p) => p.id === "week") || SITE_PAGES.find((p) => p.id === "week").stub) {
   fail("SITE_PAGES week stub flag must be false");
 }
+// Cross-links matter: Archive must discover Money / Businesses / home without relying on sticky nav alone.
+if (!week.includes('class="related-pages"')) fail("week related-pages");
+if (!week.includes('data-related="money"') || !week.includes('href="/guides/money/"')) {
+  fail("week → money cross-link");
+}
+if (!week.includes('data-related="businesses"') || !week.includes('href="/guides/businesses/"')) {
+  fail("week → businesses cross-link");
+}
+if (!week.includes('data-related="home"') || !week.includes('href="/"')) fail("week → home");
+if (week.includes('data-related="week"')) fail("week must not self-link in related");
+if (!week.includes('class="footer-guides"') || !week.includes('data-footer-guide="money"')) {
+  fail("week footer guides");
+}
 
 const money = renderSitePage(
   SITE_PAGES.find((p) => p.id === "money"),
@@ -91,6 +106,10 @@ if (!money.includes("money-route-list")) fail("money rank list");
 if (!money.includes("https://sessionscan.net/zh/guides/money/")) fail("money zh url");
 const moneyPage = SITE_PAGES.find((p) => p.id === "money");
 if (moneyPage?.stub) fail("SITE_PAGES money stub false");
+if (!money.includes('href="/zh/week/"') || !money.includes('href="/zh/guides/businesses/"')) {
+  fail("zh money cross-links");
+}
+if (!money.includes('data-related="home"') || !money.includes('href="/zh/"')) fail("zh money → home");
 
 const businesses = renderSitePage(
   SITE_PAGES.find((p) => p.id === "businesses"),
@@ -99,6 +118,9 @@ const businesses = renderSitePage(
 if (businesses.includes("page-stub-flag")) fail("businesses must not be stub");
 if (!businesses.includes("biz-rank-list")) fail("businesses ranked list");
 if (!businesses.includes("https://sessionscan.net/guides/businesses/")) fail("businesses url");
+if (!businesses.includes('data-related="week"') || !businesses.includes('data-related="money"')) {
+  fail("businesses related to archive + money");
+}
 
 let aboutLd;
 try {
@@ -111,12 +133,52 @@ if (!pageNode) fail("about WebPage JSON-LD");
 const expected = webPageJsonLd(SITE_PAGES.find((p) => p.id === "about"), "en");
 if (pageNode.name !== expected["@graph"][0].name) fail("WebPage name");
 
+const weekLd = parseJsonLdScripts(week).find((b) => b["@graph"]);
+const weekPage = weekLd?.["@graph"]?.find((n) => n["@type"] === "WebPage");
+if (!weekPage?.relatedLink?.includes("https://sessionscan.net/guides/money/")) {
+  fail("week WebPage relatedLink → money");
+}
+if (!weekPage?.relatedLink?.includes("https://sessionscan.net/guides/businesses/")) {
+  fail("week WebPage relatedLink → businesses");
+}
+const moneyLd = parseJsonLdScripts(money).find((b) => b["@graph"]);
+const moneyPageNode = moneyLd?.["@graph"]?.find((n) => n["@type"] === "WebPage");
+if (!moneyPageNode?.relatedLink?.includes("https://sessionscan.net/zh/week/")) {
+  fail("zh money relatedLink → archive");
+}
+const bizLd = parseJsonLdScripts(businesses).find((b) => b["@graph"]);
+const bizPage = bizLd?.["@graph"]?.find((n) => n["@type"] === "WebPage");
+if (!bizPage?.relatedLink?.includes("https://sessionscan.net/guides/money/")) {
+  fail("businesses relatedLink → money");
+}
+
+const homeLd = homeJsonLd("en");
+const siteNode = homeLd["@graph"]?.find((n) => n["@type"] === "WebSite");
+const hasPartUrls = (siteNode?.hasPart || []).map((p) => p.url);
+for (const u of [
+  "https://sessionscan.net/week/",
+  "https://sessionscan.net/guides/money/",
+  "https://sessionscan.net/guides/businesses/",
+]) {
+  if (!hasPartUrls.includes(u)) fail("home WebSite.hasPart missing", u);
+}
+if (siteNode?.potentialAction?.["@type"] === "SearchAction") fail("no SearchAction on home");
+
 const staticUrls = staticSitemapUrls();
 if (!staticUrls.includes("https://sessionscan.net/about/")) fail("sitemap static about");
 if (!staticUrls.includes("https://sessionscan.net/zh/guides/money/")) fail("sitemap static zh money");
+if (!staticUrls.includes("https://sessionscan.net/week/")) fail("sitemap static week");
+if (!staticUrls.includes("https://sessionscan.net/zh/guides/businesses/")) {
+  fail("sitemap static zh businesses");
+}
 const sm = renderSitemap(sitemapUrls([]));
 if (!sm.includes("<loc>https://sessionscan.net/gta6/</loc>")) fail("sitemap gta6");
 if (!sm.includes('hreflang="zh-Hant" href="https://sessionscan.net/zh/gta6/"')) fail("sitemap gta6 hreflang");
+if (!sm.includes("<loc>https://sessionscan.net/week/</loc>")) fail("sitemap week loc");
+if (!sm.includes('hreflang="zh-Hant" href="https://sessionscan.net/zh/guides/money/"')) {
+  fail("sitemap money hreflang");
+}
+if (!sm.includes("<loc>https://sessionscan.net/guides/businesses/</loc>")) fail("sitemap businesses loc");
 
 const indexHtml = readFileSync(resolve(root, "index.html"), "utf8");
 if (!indexHtml.includes('class="site-nav"')) fail("index.html must include site-nav source");
@@ -124,6 +186,20 @@ if (!indexHtml.includes('href="/guides/money/"')) fail("index.html money nav");
 const shelled = injectHomeShell(indexHtml, { lang: "en" });
 if (!shelled.includes("data-legacy-hash-redirect")) fail("injectHomeShell adds hash redirect");
 if (shelled.includes('href="#hero"')) fail("brand must not stay on #hero");
+// Home discovery: in-page related + footer guides (not only sticky site-nav).
+if (!shelled.includes('class="related-pages"')) fail("home inject related-pages");
+if (!shelled.includes('data-related="week"') || !shelled.includes('href="/week/"')) {
+  fail("home → archive");
+}
+if (!shelled.includes('data-related="money"') || !shelled.includes('data-related="businesses"')) {
+  fail("home → money + businesses");
+}
+if (shelled.includes('data-related="home"')) fail("home related must omit self");
+if (!shelled.includes('class="footer-guides"')) fail("home footer guides");
+const footer = footerGuidesHtml("zh");
+if (!footer.includes("/zh/week/") || !footer.includes("/zh/guides/money/")) fail("zh footer guides");
+const relatedHome = relatedPagesHtml("en", { currentId: "home" });
+if (relatedHome.includes('data-related="home"')) fail("relatedPagesHtml home skip self");
 
 // Built dist (when present after npm run build)
 const distAbout = resolve(root, "dist/about/index.html");
