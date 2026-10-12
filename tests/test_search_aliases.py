@@ -684,9 +684,8 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn(".first-screen .hero { order: 1; }", css)
         self.assertIn(".first-screen .official-banner { order: 2; }", css)
         self.assertIn(".first-screen .sample-banner { order: 3; }", css)
-        self.assertIn(".first-screen .official-banner { order: 1; }", css)
-        self.assertIn(".first-screen .sample-banner { order: 2; }", css)
-        self.assertIn(".first-screen .hero { order: 3; flex: 0 0 auto; }", css)
+        # Mobile keeps hero first (banner-above-hero reorder caused ~0.53 Lighthouse CLS).
+        self.assertIn(".first-screen .hero { order: 1; flex: 0 0 auto; }", css)
         self.assertIn("min-height: calc(100dvh - 8rem)", css)
         self.assertNotRegex(css, r"\.hero[^{]*\{[^}]*min-height:\s*100vh")
         self.assertNotRegex(css, r"\.cta-grid[^{]*\{[^}]*min-height:\s*100vh")
