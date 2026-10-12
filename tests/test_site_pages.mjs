@@ -92,6 +92,14 @@ if (!money.includes("https://sessionscan.net/zh/guides/money/")) fail("money zh 
 const moneyPage = SITE_PAGES.find((p) => p.id === "money");
 if (moneyPage?.stub) fail("SITE_PAGES money stub false");
 
+const businesses = renderSitePage(
+  SITE_PAGES.find((p) => p.id === "businesses"),
+  { lang: "en", cssHref: "../../../assets/x.css", faviconHref: "../../../favicon.svg" },
+);
+if (businesses.includes("page-stub-flag")) fail("businesses must not be stub");
+if (!businesses.includes("biz-rank-list")) fail("businesses ranked list");
+if (!businesses.includes("https://sessionscan.net/guides/businesses/")) fail("businesses url");
+
 let aboutLd;
 try {
   aboutLd = parseJsonLdScripts(about).find((b) => b["@graph"]);

@@ -72,10 +72,16 @@ export const UI = {
     moneyCalcResult: "{rate}/hr (rough)",
     moneyWeekLink: "This week's money & jobs on home ↗",
     pageBusinessesTitle: "Business ranking | SessionScan",
-    pageBusinessesDesc: "Which GTA Online businesses are worth buying — cited numbers, last-updated. Full list ships later.",
+    pageBusinessesDesc:
+      "Which GTA Online businesses are worth buying — ranked list with Rockstar Newswire sources and last-updated dates. Titles and highlights only; no invented GTA$ figures.",
     pageBusinessesHeading: "Business ranking",
     pageBusinessesBody:
-      "<p>Stub shell for the worth-buying business list. Phase C adds last-updated timestamps and citations (Newswire / trusted secondary).</p>",
+      "<p>Worth-buying order for typical solo / grinder accounts. Highlights describe what each property unlocks — not payout math. Weekly discounts can change buy timing; check <a href=\"/\">this week</a> and Newswire before you spend.</p>",
+    bizUpdatedHtml: "<strong>Last updated</strong> <time datetime=\"{date}\">{date}</time>",
+    bizMethodologyLabel: "Ranking order follows:",
+    bizSourceDate: "Source date {date}",
+    bizDisclaimer:
+      "SessionScan does not invent purchase prices or $/hr. Every outbound link is Rockstar Newswire or a named secondary used for rank order. Figures you see on those pages are theirs — verify before spending.",
     pageGta6Title: "GTA 6 | SessionScan",
     pageGta6Desc: "Official Grand Theft Auto VI announcements and dates only — no leaks, no rumors as fact.",
     pageGta6Heading: "GTA 6",
@@ -326,10 +332,16 @@ export const UI = {
     moneyCalcResult: "{rate}/hr（粗估）",
     moneyWeekLink: "首頁本週賺錢與工作 ↗",
     pageBusinessesTitle: "生意排名｜SessionScan",
-    pageBusinessesDesc: "哪些 GTA Online 生意值得買 — 附出處與更新日期。完整列表之後上線。",
+    pageBusinessesDesc:
+      "哪些 GTA Online 生意值得買 — 附 Rockstar Newswire 出處與更新日期的排名。只列標題與重點，不編造 GTA$ 數字。",
     pageBusinessesHeading: "生意排名",
     pageBusinessesBody:
-      "<p>值得入手生意列表的佔位殼。Phase C 會加上最後更新日期與出處（Newswire／可信二級來源）。</p>",
+      "<p>依典型單人／肝帝帳戶的入手優先順序排列。重點說明各產業解鎖什麼 — 不是產值公式。每週折扣可能改變下手時機；花錢前請先看<a href=\"/zh/\">本週</a>與 Newswire。</p>",
+    bizUpdatedHtml: "<strong>最後更新</strong> <time datetime=\"{date}\">{date}</time>",
+    bizMethodologyLabel: "排名順序參考：",
+    bizSourceDate: "來源日期 {date}",
+    bizDisclaimer:
+      "SessionScan 不編造購價或 $/hr。外連皆為 Rockstar Newswire 或具名二級排名來源。那些頁面上的數字屬對方 — 花錢前請自行核對。",
     pageGta6Title: "GTA 6｜SessionScan",
     pageGta6Desc: "僅官方 Grand Theft Auto VI 公告與日期 — 不轉載洩漏、不以傳聞當事實。",
     pageGta6Heading: "GTA 6",

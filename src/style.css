@@ -1894,6 +1894,112 @@ main {
   }
 }
 
+/* ---------- Phase C business ranking ---------- */
+.biz-updated {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+.biz-updated time { color: var(--mint); }
+.biz-intro { margin-bottom: 12px; }
+.biz-methodology {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: baseline;
+}
+.biz-methodology a { color: var(--teal); }
+.biz-methodology time {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.biz-rank-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.biz-rank-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 14px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+  min-width: 0;
+}
+.biz-rank-item:last-child { border-bottom: 1px solid var(--border); }
+.biz-rank-num {
+  font-family: var(--condensed);
+  font-size: clamp(28px, 5vw, 36px);
+  letter-spacing: 0.04em;
+  color: var(--teal);
+  line-height: 1;
+  min-width: 1.4em;
+  text-align: right;
+}
+.biz-rank-body { min-width: 0; }
+.biz-rank-title {
+  margin: 0 0 6px;
+  font-family: var(--condensed);
+  font-size: clamp(18px, 3.2vw, 22px);
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+.biz-rank-highlight {
+  margin: 0 0 10px;
+  color: var(--muted);
+  line-height: 1.5;
+  font-size: 15px;
+}
+.biz-rank-source {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  line-height: 1.4;
+  min-width: 0;
+}
+.biz-source-name {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--mint);
+  text-transform: uppercase;
+}
+.biz-source-link {
+  color: var(--teal);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.biz-source-date {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.biz-disclaimer {
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+@media (max-width: 480px) {
+  .biz-rank-item {
+    gap: 10px 12px;
+    padding: 12px 0;
+  }
+  .biz-rank-highlight { font-size: 14px; }
+}
+
 /* ---------- per-video share page ---------- */
 .video-page-main {
   max-width: 720px;
