@@ -2,12 +2,20 @@
 
 export const LANG_STORAGE_KEY = "sessionscan-lang";
 export const SITE_ORIGIN = "https://sessionscan.net";
+/** Shared Open Graph / Twitter card image (existing `public/og.jpg`). */
+export const OG_IMAGE_URL = `${SITE_ORIGIN}/og.jpg`;
+export const OG_IMAGE_WIDTH = "1200";
+export const OG_IMAGE_HEIGHT = "630";
+/** X handle for twitter:site (matches header X profile). */
+export const TWITTER_SITE = "@SessionScanGTA";
 
 export const UI = {
   en: {
-    metaTitle: "SessionScan GTA",
+    siteName: "SessionScan GTA",
+    metaTitle: "This week in GTA Online | SessionScan",
     metaDesc:
-      "GTA 5 / Online / GTA 6 hub. This week's signals, outbound titles only — no full guides. Unrelated to other apps of the same name.",
+      "What to do this week in GTA Online — bonuses, money & jobs, and this week's Short. GTA 5 / Online / GTA 6 hub; titles and outbound links only. Unrelated to other apps of the same name.",
+    metaOgImageAlt: "SessionScan — GTA Online weekly hub",
     skip: "Skip to content",
     brandAria: "SessionScan back to top",
     brandAriaHome: "SessionScan back to home",
@@ -270,8 +278,11 @@ export const UI = {
     copied: "Copied",
   },
   zh: {
-    metaTitle: "SessionScan GTA｜夜掃描",
-    metaDesc: "GTA 5／Online／GTA 6 情報站。本週訊號、只掛標題外連，不轉載。與其他同名 App 無關。",
+    siteName: "SessionScan GTA｜夜掃描",
+    metaTitle: "本週 GTA Online｜SessionScan",
+    metaDesc:
+      "本週 GTA Online 怎麼玩 — 加成、賺錢與工作、本週 Short。GTA 5／Online／GTA 6 情報站；只掛標題外連，不轉載。與其他同名 App 無關。",
+    metaOgImageAlt: "SessionScan — GTA Online 週更情報站",
     skip: "跳至內容",
     brandAria: "SessionScan 回頂端",
     brandAriaHome: "SessionScan 回首頁",

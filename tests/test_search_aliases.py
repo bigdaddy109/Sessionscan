@@ -146,18 +146,28 @@ class SearchAliasTests(unittest.TestCase):
         i18n = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
         self.assertIn('lang="en"', html)
         self.assertIn('data-ui-lang="en"', html)
-        self.assertIn("<title data-i18n=\"metaTitle\">SessionScan GTA</title>", html)
-        self.assertIn('property="og:title" data-i18n-content="metaTitle" content="SessionScan GTA"', html)
-        self.assertIn('name="twitter:title" data-i18n-content="metaTitle" content="SessionScan GTA"', html)
+        self.assertIn("<title data-i18n=\"metaTitle\">This week in GTA Online | SessionScan</title>", html)
+        self.assertIn(
+            'property="og:title" data-i18n-content="metaTitle" content="This week in GTA Online | SessionScan"',
+            html,
+        )
+        self.assertIn(
+            'name="twitter:title" data-i18n-content="metaTitle" content="This week in GTA Online | SessionScan"',
+            html,
+        )
+        self.assertIn('name="twitter:site" content="@SessionScanGTA"', html)
+        self.assertIn('property="og:site_name" content="SessionScan"', html)
         self.assertIn("GTA HUB", html)
         self.assertNotIn("GTA HUB · 夜掃描", html)
         self.assertIn("GTA 5 / Online / GTA 6 hub, unrelated to other apps of the same name", html)
-        self.assertIn("This week's signals, outbound titles only", html)
+        self.assertIn("What to do this week in GTA Online", html)
+        self.assertIn("titles and outbound links only", html)
         self.assertIn('hreflang="zh-Hant"', html)
         self.assertIn('hreflang="x-default"', html)
         self.assertIn("https://sessionscan.net/zh/", html)
         self.assertIn("SessionScan GTA｜夜掃描", i18n)
-        self.assertIn("本週訊號、只掛標題外連，不轉載", i18n)
+        self.assertIn("本週 GTA Online｜SessionScan", i18n)
+        self.assertIn("只掛標題外連，不轉載", i18n)
         self.assertNotIn("範例資料，非即時掃描", html)
         self.assertNotIn("domain TBD", html)
         self.assertNotIn("working title", html)
@@ -454,12 +464,13 @@ class SearchAliasTests(unittest.TestCase):
         subprocess.check_call(["npm", "run", "build"], cwd=ROOT, stdout=subprocess.DEVNULL)
         built = (ROOT / "dist" / "index.html").read_text(encoding="utf-8")
         self.assertEqual((ROOT / "dist" / "CNAME").read_text(encoding="utf-8").strip(), "sessionscan.net")
-        self.assertIn("<title data-i18n=\"metaTitle\">SessionScan GTA</title>", built)
+        self.assertIn("<title data-i18n=\"metaTitle\">This week in GTA Online | SessionScan</title>", built)
         self.assertIn("LOADING", built)
         self.assertNotIn("EXAMPLE DATA", built)
         zh_built = (ROOT / "dist" / "zh" / "index.html").read_text(encoding="utf-8")
         self.assertIn('lang="zh-Hant"', zh_built)
-        self.assertIn("SessionScan GTA｜夜掃描", zh_built)
+        self.assertIn("本週 GTA Online｜SessionScan", zh_built)
+        self.assertIn("SessionScan GTA｜夜掃描", zh_built)  # siteName in JSON-LD
         self.assertIn("本週賺錢與工作", zh_built)
         self.assertIn("訂閱 YouTube", zh_built)
         self.assertIn('"inLanguage":"zh-Hant"', zh_built)
@@ -621,12 +632,18 @@ class SearchAliasTests(unittest.TestCase):
         head = html.split("<body", 1)[0]
         header = html.split("<header", 1)[1].split("</header>", 1)[0]
         footer = html.split("<footer", 1)[1].split("</footer>", 1)[0]
-        self.assertIn(">SessionScan GTA</title>", head)
-        self.assertIn('content="SessionScan GTA"', head)
-        desc = "GTA 5 / Online / GTA 6 hub. This week's signals, outbound titles only — no full guides. Unrelated to other apps of the same name."
+        self.assertIn(">This week in GTA Online | SessionScan</title>", head)
+        self.assertIn('content="This week in GTA Online | SessionScan"', head)
+        desc = (
+            "What to do this week in GTA Online — bonuses, money & jobs, and this week's Short. "
+            "GTA 5 / Online / GTA 6 hub; titles and outbound links only. "
+            "Unrelated to other apps of the same name."
+        )
         self.assertIn(f'name="description" data-i18n-content="metaDesc" content="{desc}"', head)
         self.assertIn(f'property="og:description" data-i18n-content="metaDesc" content="{desc}"', head)
         self.assertIn(f'name="twitter:description" data-i18n-content="metaDesc" content="{desc}"', head)
+        self.assertIn('name="twitter:site" content="@SessionScanGTA"', head)
+        self.assertIn('property="og:image:alt" data-i18n-content="metaOgImageAlt"', head)
         for blob in (head,):
             self.assertNotIn("WET ASPHALT", blob)
             self.assertNotIn("VICE DUSK", blob)

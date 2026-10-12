@@ -49,7 +49,7 @@ export function homeJsonLd(lang = "en") {
       {
         "@type": "WebSite",
         "@id": `${url}#website`,
-        name: t("metaTitle", {}, ui),
+        name: t("siteName", {}, ui),
         alternateName: "SessionScan",
         url,
         description: t("metaDesc", {}, ui),
