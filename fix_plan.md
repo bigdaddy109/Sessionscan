@@ -15,6 +15,7 @@
 已完成：
 - Fast scrape workflow（`fast scrape` / `fast.yml`）：`workflow_dispatch`＋`scraper.py --fast`（videos／shorts／tweets only）；`pages.yml` 監聽成功後部署；daily.yml 不變。
 - `pages.yml`：`workflow_run`（daily／fast scrape → data）略過完整 CI；`push`／`workflow_dispatch` 與 PR（`ci.yml` `pull_request`）仍跑全套。
+- `pages.yml` `deploy`：`if: always() && needs.build.result == 'success'`，避免 #45 skip-CI 後 build 成功卻 deploy skipped（live 不更新）。
 - 頁尾移除 franky5440／poe2 歸屬連結（`footerLegal`）；`/` 與 `/zh/` 同源 `index.html` + i18n，NOTICE／LICENSE 仍保留 Apache 歸屬。
 - CH-01 home list 建置時靜態預渲染（`/` + `/zh/`），單一來源 `src/staticHomeJobs.js`，與 client 預設 GTABase／本週對齊；JS 篩選／搜尋仍可蓋上。
 - Owned-channel WebSub 程式＋`owned-refresh` workflow（部署／訂閱仍屬合併後跟進）。
