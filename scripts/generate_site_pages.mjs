@@ -1,15 +1,31 @@
 #!/usr/bin/env node
 /**
- * Post-vite: write static shell pages (EN + /zh/) for Phase A multi-page nav.
- * Home stays Vite index.html; this covers /week/, /guides/*, /gta6/, /about/.
+ * Post-vite: write static shell pages (EN + /zh/) for multi-page nav.
+ * Home stays Vite index.html; this covers /week/, /week/YYYY-MM-DD/, /guides/*, /gta6/, /about/.
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { SITE_PAGES, assetPrefix, localePath, renderSitePage } from "../src/sitePages.js";
+import {
+  listArchiveWeeks,
+  renderArchiveIndexPage,
+  renderWeekFreezePage,
+} from "../src/weekArchive.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const dist = resolve(root, "dist");
+
+function loadJson(rel) {
+  const path = resolve(root, rel);
+  if (!existsSync(path)) return null;
+  try {
+    const data = JSON.parse(readFileSync(path, "utf8"));
+    return data && typeof data === "object" ? data : null;
+  } catch {
+    return null;
+  }
+}
 
 function readDistIndex() {
   const path = resolve(dist, "index.html");
@@ -34,6 +50,12 @@ if (!existsSync(resolve(dist, "index.html"))) {
 }
 
 const indexHtml = readDistIndex();
+const hub =
+  loadJson("public/data/site.json") ||
+  loadJson("dist/data/site.json") ||
+  loadJson("public/data/sample.json") ||
+  {};
+const weeks = listArchiveWeeks(hub);
 let written = 0;
 
 for (const page of SITE_PAGES) {
@@ -41,7 +63,29 @@ for (const page of SITE_PAGES) {
     const path = localePath(lang, page.path);
     const dir = resolve(dist, path.replace(/^\//, ""));
     mkdirSync(dir, { recursive: true });
-    const html = renderSitePage(page, {
+    const opts = {
+      lang,
+      cssHref: cssHrefFor(path, indexHtml),
+      faviconHref: faviconHrefFor(path),
+    };
+    let html = "";
+    if (page.id === "week") {
+      html = renderArchiveIndexPage(hub, opts);
+    } else {
+      html = renderSitePage(page, opts);
+    }
+    if (!html) continue;
+    writeFileSync(resolve(dir, "index.html"), html);
+    written += 1;
+  }
+}
+
+for (const week of weeks) {
+  for (const lang of ["en", "zh"]) {
+    const path = localePath(lang, week.path);
+    const dir = resolve(dist, path.replace(/^\//, ""));
+    mkdirSync(dir, { recursive: true });
+    const html = renderWeekFreezePage(hub, week.week, {
       lang,
       cssHref: cssHrefFor(path, indexHtml),
       faviconHref: faviconHrefFor(path),
@@ -52,4 +96,6 @@ for (const page of SITE_PAGES) {
   }
 }
 
-console.log(`generate_site_pages: ${written} pages -> dist/{,zh/}{week,guides,gta6,about}/`);
+console.log(
+  `generate_site_pages: ${written} pages -> dist/{,zh/}{week,week/YYYY-MM-DD,guides,gta6,about}/ (${weeks.length} freeze weeks)`,
+);

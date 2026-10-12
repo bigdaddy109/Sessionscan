@@ -72,6 +72,15 @@ if (!about.includes('aria-current="page"') || !about.includes('data-nav="about"'
 if (!about.includes("No GTA 4")) fail("about scope copy");
 if (about.includes("page-stub-flag")) fail("about is not a stub");
 
+const week = renderSitePage(
+  SITE_PAGES.find((p) => p.id === "week"),
+  { lang: "en", cssHref: "../assets/x.css", faviconHref: "../favicon.svg" },
+);
+if (week.includes("page-stub-flag")) fail("week archive is not a stub");
+if (!SITE_PAGES.find((p) => p.id === "week") || SITE_PAGES.find((p) => p.id === "week").stub) {
+  fail("SITE_PAGES week stub flag must be false");
+}
+
 const money = renderSitePage(
   SITE_PAGES.find((p) => p.id === "money"),
   { lang: "zh", cssHref: "../../../assets/x.css", faviconHref: "../../../favicon.svg" },

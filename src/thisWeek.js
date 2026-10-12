@@ -50,10 +50,40 @@ export function rockstarWeekStart(now) {
   return ymd(p.y, p.m, p.d - sinceThu);
 }
 
-function parseISODate(raw) {
+/** UTC calendar day as YYYY-MM-DD (Rockstar week keys use this). */
+export function toIsoDate(d) {
+  const dt = d instanceof Date ? d : new Date(d);
+  if (Number.isNaN(dt.getTime())) return "";
+  const y = dt.getUTCFullYear();
+  const m = String(dt.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(dt.getUTCDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
+export function parseISODate(raw) {
   const m = String(raw || "").match(/^(\d{4})-(\d{2})-(\d{2})/);
   if (!m) return null;
   return ymd(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+}
+
+/** Thursday start + Wednesday end (UTC dates) for a Rockstar week key. */
+export function weekBounds(weekStart) {
+  const start =
+    weekStart instanceof Date
+      ? ymd(weekStart.getUTCFullYear(), weekStart.getUTCMonth(), weekStart.getUTCDate())
+      : parseISODate(weekStart);
+  if (!start) return null;
+  const end = new Date(start.getTime());
+  end.setUTCDate(end.getUTCDate() + 6);
+  return { start, end };
+}
+
+/** True when any parsed job date falls in the given Rockstar week. */
+export function isJobInWeek(item, weekStart) {
+  const bounds = weekBounds(weekStart);
+  if (!bounds) return false;
+  const hint = bounds.start;
+  return jobDates(item, hint).some((d) => d >= bounds.start && d <= bounds.end);
 }
 
 function collectTitleDates(title, yearHint) {

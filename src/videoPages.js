@@ -5,6 +5,7 @@ import { cfWebAnalyticsHtml } from "./cfWebAnalytics.js";
 import { SITE_ORIGIN, copyFor, fmtViews as fmtViewsI18n, htmlLang, langLabel as i18nLangLabel, ogLocale, t } from "./i18n.js";
 import { SITE_PAGES, absoluteUrl, staticSitemapUrls } from "./sitePages.js";
 import { VIDEO_JSON_LD_ID, YOUTUBE_CHANNEL_URL, jsonLdScript, videoObjectJsonLd } from "./structuredData.js";
+import { archiveSitemapUrls } from "./weekArchive.js";
 
 export const VIDEO_LIST_KEYS = [
   "videos_hot_zh",
@@ -200,11 +201,12 @@ export function renderSitemap(urls) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${body}\n</urlset>\n`;
 }
 
-export function sitemapUrls(videos) {
+export function sitemapUrls(videos, { weeks } = {}) {
   return [
     CARD_SITE_BASE,
     `${CARD_SITE_BASE}zh/`,
     ...staticSitemapUrls(),
+    ...archiveSitemapUrls(weeks || []),
     ...videos.map((v) => videoPageUrl(v.video_id)).filter(Boolean),
   ];
 }

@@ -7,6 +7,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { collectVideos, hubHasVideos, renderSitemap, renderVideoPage, sitemapUrls } from "../src/videoPages.js";
+import { listArchiveWeeks } from "../src/weekArchive.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const dist = resolve(root, "dist");
@@ -62,7 +63,8 @@ for (const video of videos) {
   written += 1;
 }
 
+const weeks = listArchiveWeeks(site || sample || {});
 const sitemapPath = resolve(dist, "sitemap.xml");
-writeFileSync(sitemapPath, renderSitemap(sitemapUrls(videos)));
+writeFileSync(sitemapPath, renderSitemap(sitemapUrls(videos, { weeks })));
 
-console.log(`generate_video_pages: ${written} pages -> dist/v/*/index.html; sitemap written`);
+console.log(`generate_video_pages: ${written} pages -> dist/v/*/index.html; sitemap written (${weeks.length} archive weeks)`);
