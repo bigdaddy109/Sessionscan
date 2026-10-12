@@ -84,6 +84,13 @@ jobs:
           path: app/dist
   deploy:
     needs: build
+    # always() so a skipped ci (data workflow_run) does not auto-skip deploy
+    # after a successful build. Without this, GHA skips deploy whenever any
+    # ancestor job was skipped — artifact uploads but never publishes.
+    if: >-
+      always()
+      && !cancelled()
+      && needs.build.result == 'success'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

@@ -407,6 +407,12 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("github.event_name != 'workflow_run'", pages)
         self.assertIn("needs.ci.result == 'skipped'", pages)
         self.assertIn("always()", pages)
+        # Why: GHA skips jobs that need a skipped ancestor unless always() is set.
+        # build already had that; deploy must too or data workflow_run never publishes.
+        deploy_block = pages.split("\n  deploy:", 1)[1]
+        self.assertIn("needs.build.result == 'success'", deploy_block)
+        self.assertIn("always()", deploy_block)
+        self.assertIn("!cancelled()", deploy_block)
         self.assertIn("pull_request:", ci)
         self.assertIn("workflow_call:", ci)
         self.assertIn("不要手動在 `main` 塞 scrape JSON", readme)
