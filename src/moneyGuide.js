@@ -4,7 +4,7 @@
  */
 
 import { CARD_SITE_BASE } from "./cardShare.js";
-import { SITE_ORIGIN, htmlLang, localeHome, t } from "./i18n.js";
+import { SITE_ORIGIN, UI, htmlLang, localeHome, t } from "./i18n.js";
 import { organizationJsonLd } from "./structuredData.js";
 
 /** SessionScan verified these citations (not a Rockstar patch date). */
@@ -233,6 +233,8 @@ export function renderMoneyGuideBody(lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
   const ranked = moneyRoutesRanked();
   const home = ui === "zh" ? "/zh/" : "/";
+  // Raw pack string — do not run through t()/interpolate or `{rate}` is wiped.
+  const calcTemplate = String((UI[ui] || UI.en).moneyCalcResult || UI.en.moneyCalcResult || "{rate}/hr");
   return `<p class="money-updated">${esc(t("moneyLastUpdated", { date: MONEY_LAST_UPDATED }, ui))}</p>
       <div class="page-body money-intro" data-i18n-html="pageMoneyBody">${t("pageMoneyBody", {}, ui)}</div>
       <section class="money-rank" aria-labelledby="money-rank-heading">
@@ -254,7 +256,7 @@ export function renderMoneyGuideBody(lang = "en") {
             <span>${esc(t("moneyCalcMinutes", {}, ui))}</span>
             <input id="moneyCalcMinutes" name="minutes" type="number" inputmode="numeric" min="1" step="1" value="60" />
           </label>
-          <p class="money-calc-out" id="moneyCalcResult" data-empty="${esc(t("moneyCalcEmpty", {}, ui))}" data-template="${esc(t("moneyCalcResult", {}, ui))}">${esc(t("moneyCalcEmpty", {}, ui))}</p>
+          <p class="money-calc-out" id="moneyCalcResult" data-empty="${esc(t("moneyCalcEmpty", {}, ui))}" data-template="${esc(calcTemplate)}">${esc(t("moneyCalcEmpty", {}, ui))}</p>
         </form>
       </section>
       <p class="money-week-link"><a href="${esc(home)}">${esc(t("moneyWeekLink", {}, ui))}</a></p>`;
