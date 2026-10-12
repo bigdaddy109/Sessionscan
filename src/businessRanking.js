@@ -1,0 +1,316 @@
+/**
+ * Phase C Business ranking — single source for /guides/businesses/ (+ /zh/).
+ * Titles + qualitative highlights only. No invented GTA$ figures; every claim
+ * that could be a number is omitted unless a source URL is attached. Ranking
+ * order follows a cited secondary consensus; feature blurbs cite Rockstar Newswire.
+ */
+
+import { CARD_SITE_BASE } from "./cardShare.js";
+import { SITE_ORIGIN, htmlLang, localeHome, t } from "./i18n.js";
+import { jsonLdScript, organizationJsonLd } from "./structuredData.js";
+
+function esc(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function absoluteUrl(enPath = "", lang = "en") {
+  const clean = String(enPath || "").replace(/^\/+/, "");
+  const prefix = lang === "zh" ? "zh/" : "";
+  return `${CARD_SITE_BASE}${prefix}${clean}`;
+}
+
+/** Editorial pass date for the ranked list (ISO day). */
+export const BUSINESS_LIST_UPDATED = "2026-10-12";
+
+/**
+ * Secondary ranking consensus used for order (not payout math).
+ * Dot Esports “Best GTA Online businesses, ranked (2025)” — last updated Apr 29, 2025.
+ */
+export const RANKING_CONSENSUS = {
+  id: "dotesports-2025",
+  label: {
+    en: "Dot Esports — Best GTA Online businesses, ranked (2025)",
+    zh: "Dot Esports — 2025 年 GTA Online 最佳生意排名",
+  },
+  url: "https://dotesports.com/gta/news/best-gta-online-businesses-ranked",
+  date: "2025-04-29",
+};
+
+/**
+ * Worth-buying list. Order matches RANKING_CONSENSUS top picks (Acid Lab → …).
+ * Each row: title, qualitative highlight, Rockstar (or official) feature source.
+ * Intentionally no purchase prices or $/hr — those change with weekly discounts.
+ */
+export const BUSINESS_RANKING = [
+  {
+    id: "acid-lab",
+    rank: 1,
+    title: { en: "Acid Lab", zh: "迷幻藥實驗室" },
+    highlight: {
+      en: "Solo-friendly mobile product loop after First Dose — one-vehicle sells; unlock path via Fooliganz story.",
+      zh: "完成 First Dose 後解鎖的行動式產銷循環，適合單人；販售通常一輛載具即可送完。",
+    },
+    source: {
+      name: { en: "Rockstar Newswire", zh: "Rockstar Newswire" },
+      title: {
+        en: "GTA Online: Los Santos Drug Wars Now Available",
+        zh: "GTA Online：洛聖都毒品戰爭現已推出",
+      },
+      url: "https://www.rockstargames.com/newswire/article/75258k488okk33/gta-online-los-santos-drug-wars-now-available",
+      date: "2022-12-13",
+    },
+  },
+  {
+    id: "nightclub",
+    rank: 2,
+    title: { en: "Nightclub", zh: "夜總會" },
+    highlight: {
+      en: "Warehouse technicians pull from businesses you already own; daily safe income rises with popularity.",
+      zh: "倉庫技師會從你已擁有的生意進貨；人氣越高，每日保險櫃收入越好。",
+    },
+    source: {
+      name: { en: "Rockstar Newswire", zh: "Rockstar Newswire" },
+      title: {
+        en: "GTA Online: After Hours Out Now",
+        zh: "GTA Online：After Hours 現已推出",
+      },
+      url: "https://www.rockstargames.com/newswire/article/1748koo9o1229a/GTA-Online-After-Hours-Out-Now",
+      date: "2018-07-24",
+    },
+  },
+  {
+    id: "agency",
+    rank: 3,
+    title: { en: "Agency", zh: "事務所" },
+    highlight: {
+      en: "Security Contracts, Payphone Hits, and the Dr. Dre VIP Contract — short active sessions with Franklin.",
+      zh: "保全合約、公用電話刺殺與 Dr. Dre VIP 合約 — 與 Franklin 一起打短局主動任務。",
+    },
+    source: {
+      name: { en: "Rockstar Newswire", zh: "Rockstar Newswire" },
+      title: {
+        en: "GTA Online: The Contract — Out Now",
+        zh: "GTA Online：The Contract 現已推出",
+      },
+      url: "https://www.rockstargames.com/newswire/article/ak759k91592728/gta-online-the-contract-out-now",
+      date: "2021-12-15",
+    },
+  },
+  {
+    id: "kosatka",
+    rank: 4,
+    title: { en: "Kosatka (Cayo Perico)", zh: "虎鯨號（佩里克島）" },
+    highlight: {
+      en: "Submarine HQ for the Cayo Perico Heist — first heist playable fully solo from planning to finale.",
+      zh: "佩里克島搶劫的潛艦總部 — 首個可全程單人規劃到終章的搶劫。",
+    },
+    source: {
+      name: { en: "Rockstar Newswire", zh: "Rockstar Newswire" },
+      title: {
+        en: "Out Now: The Cayo Perico Heist",
+        zh: "現已推出：佩里克島搶劫",
+      },
+      url: "https://www.rockstargames.com/newswire/article/1748koo9oo583k/out-now-the-cayo-perico-heist",
+      date: "2020-12-15",
+    },
+  },
+  {
+    id: "auto-shop",
+    rank: 5,
+    title: { en: "Auto Shop", zh: "改車舖" },
+    highlight: {
+      en: "Tuner Contracts and customer car deliveries from your Auto Shop — short prep loops for active play.",
+      zh: "改車舖合約與客戶改裝車交付 — 適合主動遊玩的短準備循環。",
+    },
+    source: {
+      name: { en: "Rockstar Newswire", zh: "Rockstar Newswire" },
+      title: {
+        en: "Los Santos Tuners Coming July 20",
+        zh: "洛聖都改裝文化 7 月 20 日登場",
+      },
+      url: "https://www.rockstargames.com/newswire/article/25o1829o5o4993/los-santos-tuners-coming-july-20",
+      date: "2021-07-13",
+    },
+  },
+  {
+    id: "bunker",
+    rank: 6,
+    title: { en: "Bunker (Gunrunning)", zh: "地堡（軍火走私）" },
+    highlight: {
+      en: "Weapons research + manufacture/sell loop; strong Nightclub feeder and frequent Newswire bonus target.",
+      zh: "武器研發與產銷循環；夜總會重要進貨來源，也常是 Newswire 加倍週目標。",
+    },
+    source: {
+      name: { en: "Rockstar Newswire", zh: "Rockstar Newswire" },
+      title: {
+        en: "Gunrunning Pays Dividends in GTA Online with Bunker Bonuses",
+        zh: "GTA Online 軍火走私地堡獎勵",
+      },
+      url: "https://www.rockstargames.com/newswire/article/511aoa4828o771/gunrunning-pays-dividends-in-gta-online-with-bunker-bonuses",
+      date: "2025-02-27",
+    },
+  },
+  {
+    id: "hangar",
+    rank: 7,
+    title: { en: "Hangar (Smuggler's Run)", zh: "機庫（走私跑）" },
+    highlight: {
+      en: "Air cargo source/sell from your Hangar — pairs with Nightclub air goods once you want a full feeder set.",
+      zh: "從機庫進行空運貨物產銷 — 想湊齊夜總會進貨網時再買。",
+    },
+    source: {
+      name: { en: "Rockstar Newswire", zh: "Rockstar Newswire" },
+      title: {
+        en: "GTA Online: Smuggler's Run Now Available",
+        zh: "GTA Online：Smuggler's Run 現已推出",
+      },
+      url: "https://www.rockstargames.com/newswire/article/ak14o8838a9a51/GTA-Online-Smuggler-s-Run-Now-Available",
+      date: "2017-08-29",
+    },
+  },
+  {
+    id: "salvage-yard",
+    rank: 8,
+    title: { en: "Salvage Yard", zh: "廢車場" },
+    highlight: {
+      en: "Weekly Salvage Yard Robberies plus tow/salvage — sell to Yusuf or strip for parts over time.",
+      zh: "每週廢車場搶劫加上拖吊／拆解 — 可賣給 Yusuf 或慢慢拆零件。",
+    },
+    source: {
+      name: { en: "Rockstar Newswire", zh: "Rockstar Newswire" },
+      title: {
+        en: "GTA Online: The Chop Shop Now Available",
+        zh: "GTA Online：The Chop Shop 現已推出",
+      },
+      url: "https://www.rockstargames.com/newswire/article/75k3149ko747ka/gta-online-the-chop-shop-now-available",
+      date: "2023-12-12",
+    },
+  },
+];
+
+function pickLocale(map, lang) {
+  const ui = lang === "zh" ? "zh" : "en";
+  if (!map || typeof map !== "object") return "";
+  return String(map[ui] || map.en || "").trim();
+}
+
+/** Format ISO day for display (keeps YYYY-MM-DD — stable across locales). */
+export function formatSourceDate(isoDay) {
+  const m = String(isoDay || "").trim().match(/^(\d{4}-\d{2}-\d{2})/);
+  return m ? m[1] : "";
+}
+
+/**
+ * Reject rows that claim GTA$ / digit payouts without a figureUrl.
+ * Why: proposal forbids invented numbers; every figure needs a source URL.
+ */
+export function assertNoUnsourcedFigures(items = BUSINESS_RANKING) {
+  const moneyish = /GTA\$|\$\s*\d|\d[\d,]*\s*(?:GTA\$|per\s*(?:hour|hr|day)|\/\s*hr)/i;
+  const bad = [];
+  for (const item of items) {
+    const blob = `${pickLocale(item.title, "en")} ${pickLocale(item.highlight, "en")} ${pickLocale(item.highlight, "zh")}`;
+    if (moneyish.test(blob) && !item.figureUrl) {
+      bad.push(item.id || item.rank);
+    }
+    if (!item?.source?.url) bad.push(`${item.id}:missing-source`);
+  }
+  return bad;
+}
+
+export function businessItemListJsonLd(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const pageUrl = absoluteUrl("guides/businesses/", ui);
+  return {
+    "@type": "ItemList",
+    "@id": `${pageUrl}#itemlist`,
+    name: t("pageBusinessesHeading", {}, ui),
+    description: t("pageBusinessesDesc", {}, ui),
+    numberOfItems: BUSINESS_RANKING.length,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    dateModified: BUSINESS_LIST_UPDATED,
+    itemListElement: BUSINESS_RANKING.map((item) => ({
+      "@type": "ListItem",
+      position: item.rank,
+      name: pickLocale(item.title, ui),
+      url: item.source.url,
+      description: pickLocale(item.highlight, ui),
+    })),
+  };
+}
+
+export function businessesPageJsonLd(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const url = absoluteUrl("guides/businesses/", ui);
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        name: t("pageBusinessesTitle", {}, ui),
+        description: t("pageBusinessesDesc", {}, ui),
+        url,
+        inLanguage: htmlLang(ui),
+        dateModified: BUSINESS_LIST_UPDATED,
+        isPartOf: { "@id": `${localeHome(ui)}#website` },
+        publisher: { "@id": `${SITE_ORIGIN}/#organization` },
+        mainEntity: { "@id": `${url}#itemlist` },
+      },
+      businessItemListJsonLd(ui),
+      organizationJsonLd(),
+    ],
+  };
+}
+
+export function businessesJsonLdScript(lang = "en") {
+  return jsonLdScript("page-jsonld-businesses", businessesPageJsonLd(lang));
+}
+
+function sourceMetaHtml(source, ui) {
+  const name = pickLocale(source.name, ui);
+  const title = pickLocale(source.title, ui);
+  const date = formatSourceDate(source.date);
+  const dateLabel = t("bizSourceDate", { date }, ui);
+  return `<span class="biz-source-name">${esc(name)}</span>
+      <a class="biz-source-link" href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(title)} ↗</a>
+      <time class="biz-source-date" datetime="${esc(date)}">${esc(dateLabel)}</time>`;
+}
+
+/** Ranked list + methodology + last-updated chrome for the Businesses page body. */
+export function businessesPageBodyHtml(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const updated = formatSourceDate(BUSINESS_LIST_UPDATED);
+  const consensus = RANKING_CONSENSUS;
+  const consensusLabel = pickLocale(consensus.label, ui);
+  const consensusDate = formatSourceDate(consensus.date);
+
+  const items = BUSINESS_RANKING.map((item) => {
+    const title = pickLocale(item.title, ui);
+    const highlight = pickLocale(item.highlight, ui);
+    return `<li class="biz-rank-item" data-biz-id="${esc(item.id)}" data-rank="${esc(String(item.rank))}">
+      <div class="biz-rank-num" aria-hidden="true">${esc(String(item.rank))}</div>
+      <div class="biz-rank-body">
+        <h2 class="biz-rank-title">${esc(title)}</h2>
+        <p class="biz-rank-highlight">${esc(highlight)}</p>
+        <p class="biz-rank-source">${sourceMetaHtml(item.source, ui)}</p>
+      </div>
+    </li>`;
+  }).join("\n");
+
+    return `<p class="biz-updated">${t("bizUpdatedHtml", { date: updated }, ui)}</p>
+    <div class="page-body biz-intro">${t("pageBusinessesBody", {}, ui)}</div>
+    <p class="biz-methodology">
+      <span>${esc(t("bizMethodologyLabel", {}, ui))}</span>
+      <a href="${esc(consensus.url)}" target="_blank" rel="noopener noreferrer">${esc(consensusLabel)} ↗</a>
+      <time datetime="${esc(consensusDate)}">${esc(t("bizSourceDate", { date: consensusDate }, ui))}</time>
+    </p>
+    <ol class="biz-rank-list" data-biz-count="${BUSINESS_RANKING.length}">
+      ${items}
+    </ol>
+    <p class="biz-disclaimer">${esc(t("bizDisclaimer", {}, ui))}</p>`;
+}

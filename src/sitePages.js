@@ -20,6 +20,10 @@ import {
   jsonLdScript,
   organizationJsonLd,
 } from "./structuredData.js";
+import {
+  businessesPageBodyHtml,
+  businessesPageJsonLd,
+} from "./businessRanking.js";
 
 export const X_PROFILE_URL = "https://x.com/SessionScanGTA";
 export const X_HANDLE = "@SessionScanGTA";
@@ -66,7 +70,7 @@ export const SITE_PAGES = [
     descKey: "pageBusinessesDesc",
     headingKey: "pageBusinessesHeading",
     bodyKey: "pageBusinessesBody",
-    stub: true,
+    stub: false,
   },
   {
     id: "gta6",
@@ -249,6 +253,7 @@ export function legacyHashRedirectScript() {
 
 export function webPageJsonLd(page, lang = "en", { name, description } = {}) {
   if (page?.id === "money") return moneyGuideJsonLd(lang);
+  if (page?.id === "businesses") return businessesPageJsonLd(lang);
   const ui = lang === "zh" ? "zh" : "en";
   const url = absoluteUrl(page.path, ui);
   return {
@@ -282,6 +287,10 @@ function pageBodyHtml(page, ui) {
   if (page.id === "money") {
     return `<h1 data-i18n="${esc(page.headingKey)}">${esc(t(page.headingKey, {}, ui))}</h1>
       ${renderMoneyGuideBody(ui)}`;
+  }
+  if (page.id === "businesses") {
+    return `<h1 data-i18n="${esc(page.headingKey)}">${esc(t(page.headingKey, {}, ui))}</h1>
+      ${businessesPageBodyHtml(ui)}`;
   }
   const stub = page.stub
     ? `<p class="page-stub-flag" data-i18n="pageStubFlag">${esc(t("pageStubFlag", {}, ui))}</p>`
