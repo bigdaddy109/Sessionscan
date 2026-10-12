@@ -1761,6 +1761,65 @@ main {
   letter-spacing: 0.06em;
 }
 
+/* ---------- Phase C cross-links (home + Archive / Money / Businesses) ---------- */
+.related-pages {
+  width: min(var(--page-max), 100%);
+  max-width: var(--page-max);
+  margin: 28px auto 0;
+  padding: 0 var(--page-gutter);
+  box-sizing: border-box;
+  min-width: 0;
+}
+.site-page-main .related-pages {
+  width: auto;
+  max-width: none;
+  margin: 28px 0 0;
+  padding: 0;
+}
+.related-pages-kicker {
+  margin: 0 0 10px;
+  color: var(--mint);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.related-pages-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  min-width: 0;
+}
+.related-pages-list a {
+  color: var(--teal);
+  font-family: var(--condensed);
+  letter-spacing: 0.05em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.footer-guides {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px 2px;
+  min-width: 0;
+  font-family: var(--condensed);
+  letter-spacing: 0.05em;
+}
+.footer-guides a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.footer-guides-sep {
+  color: var(--muted);
+  padding: 0 4px;
+}
+
 /* ---------- Money guide (Phase C) ---------- */
 .site-page-main--money {
   max-width: min(760px, var(--page-max));

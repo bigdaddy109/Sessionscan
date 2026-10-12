@@ -120,6 +120,7 @@ export function moneyGuideJsonLd(lang = "en") {
   const path = "guides/money/";
   const url = `${CARD_SITE_BASE}${ui === "zh" ? "zh/" : ""}${path}`;
   const ranked = moneyRoutesRanked();
+  const relatedPrefix = ui === "zh" ? `${CARD_SITE_BASE}zh/` : CARD_SITE_BASE;
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -133,6 +134,7 @@ export function moneyGuideJsonLd(lang = "en") {
         dateModified: MONEY_LAST_UPDATED,
         isPartOf: { "@id": `${localeHome(ui)}#website` },
         publisher: { "@id": `${SITE_ORIGIN}/#organization` },
+        relatedLink: [`${relatedPrefix}week/`, `${relatedPrefix}guides/businesses/`],
       },
       {
         "@type": "ItemList",

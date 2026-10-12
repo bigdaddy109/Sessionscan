@@ -87,6 +87,15 @@ if (!graph.some((node) => node["@type"] === "Organization")) fail("home JSON-LD 
 if (graph.some((node) => node.potentialAction?.["@type"] === "SearchAction")) {
   fail("do not emit SearchAction; search is hash #q= not a URL param");
 }
+const website = graph.find((node) => node["@type"] === "WebSite");
+const hasPartUrls = (website?.hasPart || []).map((p) => p.url);
+for (const u of [
+  "https://sessionscan.net/week/",
+  "https://sessionscan.net/guides/money/",
+  "https://sessionscan.net/guides/businesses/",
+]) {
+  if (!hasPartUrls.includes(u)) fail("home WebSite.hasPart must list Phase C pages", u);
+}
 const org = organizationJsonLd();
 if (!Array.isArray(org.sameAs) || !org.sameAs.includes(YOUTUBE_CHANNEL_URL)) {
   fail("Organization sameAs must include YouTube", org.sameAs);
