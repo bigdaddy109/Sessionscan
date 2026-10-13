@@ -21,7 +21,13 @@ import {
   rockstarWeekStart,
   toIsoDate,
 } from "./thisWeek.js";
-import { buildWeekBullets, pickHomeShort, weekSignalItems } from "./thisWeekHome.js";
+import {
+  buildWeekBullets,
+  claimedStorageKey,
+  freezeClaimedChecklistScript,
+  pickHomeShort,
+  weekSignalItems,
+} from "./thisWeekHome.js";
 
 export const WEEK_ISO_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
 /** Absolute Atom path for weekly archive freezes (EN freeze URLs). */
@@ -179,14 +185,31 @@ export function archiveSitemapUrls(weeks) {
   return out;
 }
 
-function bulletsHtml(bullets) {
-  return `<ul class="week-bullet-list archive-bullet-list">
+/**
+ * Freeze bullet list. Tip week only may be claimable — same localStorage key as home.
+ * Older freezes stay read-only highlights (no invented checklist history).
+ */
+function bulletsHtml(bullets, { claimable = false, lang = "en", weekIso = "" } = {}) {
+  const ui = lang === "zh" ? "zh" : "en";
+  const ref = weekIso ? weekRefDate(weekIso) : null;
+  const weekKey = claimable && ref ? claimedStorageKey(ref) : "";
+  const listAttrs = claimable && weekKey
+    ? ` id="archiveBulletList" data-claimed-key="${esc(weekKey)}"`
+    : "";
+  return `<ul class="week-bullet-list archive-bullet-list"${listAttrs}>
     ${bullets
       .map((b) => {
         const access = b.url
           ? `<a class="week-bullet-how" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer">${esc(b.how)}</a>`
           : `<span class="week-bullet-how is-muted">${esc(b.how)}</span>`;
+        const claim = claimable
+          ? `<label class="week-bullet-claim">
+          <input type="checkbox" class="week-bullet-check" data-bullet-id="${esc(b.id)}" />
+          <span class="week-bullet-claim-text">${esc(t("weekBulletClaim", { label: b.label }, ui))}</span>
+        </label>`
+          : "";
         return `<li class="week-bullet${b.pending ? " is-pending" : ""}" data-bullet="${esc(b.id)}">
+        ${claim}
         <span class="week-bullet-label">${esc(b.label)}</span>
         <span class="week-bullet-reward">${esc(b.reward)}</span>
         ${access}
@@ -355,6 +378,9 @@ export function weekFreezeBodyHtml(data, weekIso, lang = "en") {
   const indexHref = localePath(ui, "week/");
   const ytShare = weekShareUrl(weekIso, { lang: ui, source: "youtube" });
   const igShare = weekShareUrl(weekIso, { lang: ui, source: "instagram" });
+  // Tip of listArchiveWeeks only — same Rockstar-week key as home claimed checklist.
+  const tipWeek = latestArchiveWeek(data)?.week;
+  const claimable = Boolean(tipWeek && tipWeek === weekIso);
 
   const heading = entry?.title
     ? `<p class="archive-week-lead">${esc(entry.title)}</p>`
@@ -374,7 +400,8 @@ export function weekFreezeBodyHtml(data, weekIso, lang = "en") {
         <strong id="archiveBulletsHeading" data-i18n="archiveBulletsKicker">${esc(t("archiveBulletsKicker", {}, ui))}</strong>
         <span data-i18n="weekBulletsTag">${esc(t("weekBulletsTag", {}, ui))}</span>
       </div>
-      ${bulletsHtml(bullets)}
+      ${claimable ? `<p class="week-bullets-hint" data-i18n="archiveBulletsClaimHint">${esc(t("archiveBulletsClaimHint", {}, ui))}</p>` : ""}
+      ${bulletsHtml(bullets, { claimable, lang: ui, weekIso })}
     </section>
     <section class="archive-outbound" aria-labelledby="archiveLinksHeading">
       <div class="week-panel-kicker">
@@ -388,7 +415,8 @@ export function weekFreezeBodyHtml(data, weekIso, lang = "en") {
       <a href="${esc(igShare)}">Instagram utm</a>
     </p>
     ${archiveWeekPagerHtml(data, weekIso, ui)}
-    <p class="page-home-link"><a href="${esc(indexHref)}">${esc(t("archiveBackToIndex", {}, ui))}</a></p>`;
+    <p class="page-home-link"><a href="${esc(indexHref)}">${esc(t("archiveBackToIndex", {}, ui))}</a></p>
+    ${claimable ? freezeClaimedChecklistScript() : ""}`;
 }
 
 export function renderArchiveIndexPage(data, opts = {}) {

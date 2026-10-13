@@ -63,6 +63,8 @@ export const UI = {
     archiveShortTag: "SESSIONSCAN · embed when dated",
     archiveShortEmpty: "No SessionScan Short for this freeze — slot stays empty (no fabricated link).",
     archiveBulletsKicker: "Frozen highlights",
+    archiveBulletsClaimHint:
+      "Checks sync with home on this device for this Rockstar week (Thu–Wed).",
     archiveLinksKicker: "Outbound titles",
     archiveLinksTag: "SOURCES · titles only",
     archiveLinksEmpty: "No outbound weekly titles for this freeze in the snapshot.",
@@ -350,6 +352,7 @@ export const UI = {
     archiveShortTag: "SESSIONSCAN · 有日期才嵌入",
     archiveShortEmpty: "此凍結週沒有 SessionScan Short — 空槽保留（不偽造連結）。",
     archiveBulletsKicker: "凍結重點",
+    archiveBulletsClaimHint: "勾選與首頁共用本機儲存，依此 Rockstar 週（週四–週三）重置。",
     archiveLinksKicker: "外連標題",
     archiveLinksTag: "來源 · 只列標題",
     archiveLinksEmpty: "此凍結週在快照中沒有外連週更標題。",
