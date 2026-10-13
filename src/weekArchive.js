@@ -145,6 +145,17 @@ export function freezeBusinessGuideLinkHtml(lang = "en") {
   return `<p class="archive-business-link home-business-link" id="archiveBusinessGuideLink"><a href="${esc(href)}" data-i18n="homeBusinessGuideLink">${esc(t("homeBusinessGuideLink", {}, ui))}</a></p>`;
 }
 
+/**
+ * Freeze-page GTA 6 CTA — same path + copy as home `#homeGta6Link`, so players
+ * on a freeze can open the official countdown without scrolling to related/footer.
+ */
+export function freezeGta6LinkHtml(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const page = pageById("gta6");
+  const href = localePath(ui, page?.path || "gta6/");
+  return `<p class="archive-gta6-link home-gta6-link" id="archiveGta6Link"><a href="${esc(href)}" data-i18n="homeGta6Link">${esc(t("homeGta6Link", {}, ui))}</a></p>`;
+}
+
 /** Absolute Atom URL for home `<link rel="alternate">` (EN freeze entries). */
 export function archiveAtomAbsoluteUrl() {
   return `${CARD_SITE_BASE.replace(/\/?$/, "")}${ARCHIVE_ATOM_PATH}`;
@@ -474,6 +485,7 @@ export function weekFreezeBodyHtml(data, weekIso, lang = "en") {
       ${bulletsHtml(bullets, { claimable, lang: ui, weekIso })}
       ${freezeMoneyGuideLinkHtml(ui)}
       ${freezeBusinessGuideLinkHtml(ui)}
+      ${freezeGta6LinkHtml(ui)}
     </section>
     <section class="archive-outbound" aria-labelledby="archiveLinksHeading">
       <div class="week-panel-kicker">
