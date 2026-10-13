@@ -230,6 +230,10 @@ if (weeks.length > 1) {
   if (!freeze.includes("archive-jump-latest") || !freeze.includes("打開最新凍結週")) {
     fail("zh older freeze should include jump callout", freeze.match(/archive-jump[\s\S]{0,120}/)?.[0]);
   }
+  const zhJump = archiveJumpLatestHtml(site, olderIso, "zh");
+  if (zhJump.includes("↗") || !zhJump.includes("→")) {
+    fail("zh jump-latest must use internal → not ↗", zhJump);
+  }
   const tipFreezeEn = renderWeekFreezePage(site, weeks[0].week, {
     lang: "en",
     cssHref: "../../../assets/x.css",
