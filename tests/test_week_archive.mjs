@@ -218,6 +218,9 @@ if (weeks.length > 1) {
   if (!jump.includes("archive-jump-latest")) fail("older freeze missing jump callout", jump);
   if (!jump.includes(weekPagePath(weeks[0].week, "en"))) fail("jump href must be tip", jump);
   if (!jump.includes(weeks[0].week)) fail("jump shows tip week", jump);
+  // Internal freeze→freeze nav must not use external ↗ mark.
+  if (jump.includes("↗")) fail("jump-latest must not use external arrow", jump);
+  if (!jump.includes("→")) fail("jump-latest should use internal →", jump);
   const tipJump = archiveJumpLatestHtml(site, weeks[0].week, "en");
   if (tipJump) fail("tip freeze must not show jump-to-latest", tipJump);
   const unknownJump = archiveJumpLatestHtml(site, "1999-01-01", "en");

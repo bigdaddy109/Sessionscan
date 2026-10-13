@@ -70,7 +70,7 @@ export const UI = {
     archivePagerAria: "Adjacent archived weeks",
     archivePagerOlder: "← Older · {week}",
     archivePagerNewer: "Newer · {week} →",
-    archiveJumpLatest: "View latest freeze · {week} ↗",
+    archiveJumpLatest: "View latest freeze · {week} →",
     archiveBackToIndex: "← All archived weeks",
     pageMoneyTitle: "Money guide | SessionScan",
     pageMoneyDesc:
