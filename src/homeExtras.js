@@ -93,6 +93,27 @@ export function gta6ScheduleLine(data, lang = "en") {
   return "";
 }
 
+function escSchedule(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+/**
+ * Official-banner HTML for the conditional GTA 6 date note — links `/gta6/`
+ * (locale path) so players can open the official countdown from CH-00.
+ */
+export function gta6ScheduleBannerHtml(data, lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const line = gta6ScheduleLine(data, ui);
+  if (!line) return "";
+  const href = ui === "zh" ? "/zh/gta6/" : "/gta6/";
+  return `<span class="official-sub"><a href="${escSchedule(href)}" data-gta6-schedule-link>${escSchedule(line)}</a></span>`;
+}
+
 export function collectTrackedVideos(data) {
   const seen = new Set();
   const out = [];
