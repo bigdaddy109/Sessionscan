@@ -1643,6 +1643,13 @@ main {
   font-family: var(--mono);
   font-size: 12px;
 }
+.week-claim-progress {
+  margin: 0 0 10px;
+  font-family: var(--condensed);
+  letter-spacing: 0.06em;
+  font-size: 13px;
+  color: var(--mint);
+}
 .week-bullets-hint {
   margin: 0 0 12px;
   color: var(--muted);
