@@ -2246,6 +2246,14 @@ main {
   font-family: var(--condensed);
   letter-spacing: 0.05em;
 }
+.home-money-link {
+  margin: 6px 0 10px;
+}
+.home-money-link a {
+  color: var(--teal);
+  font-family: var(--condensed);
+  letter-spacing: 0.05em;
+}
 @media (max-width: 520px) {
   .money-route {
     grid-template-columns: 28px 1fr;

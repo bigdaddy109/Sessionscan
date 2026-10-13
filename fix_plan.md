@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- Home／tip 凍結「清除勾選」（`clearClaimedIds`；#81；等研發程式 「可以合 #81」後再合）。測 `tests/test_this_week_home.mjs`、`tests/test_week_archive.mjs`。Rollback：`pre-clear-week-claimed-20261013`。
+- Home「本週賺錢與工作」區連到 `/guides/money/`（`homeMoneyGuideLinkHtml`／`injectHomeMoneyGuideLink`；與 money 頁 `moneyWeekLink` 互連；#82；等研發程式 「可以合 #82」後再合）。測 `tests/test_money_guide.mjs`。Rollback：`pre-home-money-link-20261013`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
@@ -14,6 +14,7 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- Home／tip 凍結「清除勾選」（`clearClaimedIds`；#81；rollback `pre-clear-week-claimed-20261013`；核准：研發程式 「可以合 #81」）。測 `tests/test_this_week_home.mjs`、`tests/test_week_archive.mjs`。
 - Home／tip 凍結 claimed 進度「Claimed X of Y」（`countClaimedProgress`／`formatClaimedProgress`；#80；rollback `pre-home-claimed-progress-20261013`；核准：研發程式 「可以合 #80」）。測 `tests/test_this_week_home.mjs`、`tests/test_week_archive.mjs`。
 - Home 發現 `/week/feed.xml` Atom（`homeArchiveFeedLinkHtml`／`injectHomeAtomDiscovery`；#79；rollback `pre-home-archive-atom-20261013`；核准：研發程式 「可以合 #79」）。測 `tests/test_week_archive.mjs`。
 - 最新凍結週 `/week/YYYY-MM-DD/` claimed 勾選（與 home 同源 localStorage；#78；rollback `pre-freeze-claimed-checklist-20261013`；核准：研發程式 「可以合 #78」）。測 `tests/test_week_archive.mjs`。

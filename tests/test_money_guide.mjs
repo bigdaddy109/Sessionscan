@@ -12,6 +12,8 @@ import {
   MONEY_ROUTES,
   dollarsPerHour,
   formatGtaMoney,
+  homeMoneyGuideLinkHtml,
+  injectHomeMoneyGuideLink,
   moneyGuideJsonLd,
   moneyRoutesRanked,
   renderMoneyGuideBody,
@@ -96,6 +98,43 @@ if (existsSync(distMoney)) {
   if (built.includes("page-stub-flag")) fail("dist money still stub");
   if (!built.includes("money-route-list")) fail("dist money missing rank");
   if (!built.includes("static.cloudflareinsights.com/beacon.min.js")) fail("dist money CF beacon");
+}
+
+// Why: players on home jobs need a reciprocal CTA to the evergreen money guide
+// (money page already links back via moneyWeekLink); path must stay locale-correct.
+const homeMoneyEn = homeMoneyGuideLinkHtml("en");
+if (!homeMoneyEn.includes('id="homeMoneyGuideLink"') || !homeMoneyEn.includes('href="/guides/money/"')) {
+  fail("home money link en", homeMoneyEn);
+}
+if (!homeMoneyEn.includes("Money guide") || !homeMoneyEn.includes("$/hr")) fail("home money en copy");
+const homeMoneyZh = homeMoneyGuideLinkHtml("zh");
+if (!homeMoneyZh.includes('href="/zh/guides/money/"') || !homeMoneyZh.includes("賺錢指南")) {
+  fail("home money link zh", homeMoneyZh);
+}
+const jobShell = `<section class="view" id="view-jobs"><p class="source-hint" id="jobHint"></p><div class="controls"></div></section>`;
+const injected = injectHomeMoneyGuideLink(jobShell, { lang: "en" });
+if (!injected.includes('id="homeMoneyGuideLink"') || !injected.includes('href="/guides/money/"')) {
+  fail("injectHomeMoneyGuideLink under jobHint", injected);
+}
+const zhInjected = injectHomeMoneyGuideLink(
+  `<p class="home-money-link" id="homeMoneyGuideLink"><a href="/guides/money/">x</a></p>`,
+  { lang: "zh" },
+);
+if (!zhInjected.includes('href="/zh/guides/money/"')) fail("inject replaces zh href", zhInjected);
+
+const distHome = resolve(root, "dist/index.html");
+const distZhHome = resolve(root, "dist/zh/index.html");
+if (existsSync(distHome)) {
+  const home = readFileSync(distHome, "utf8");
+  if (!home.includes('id="homeMoneyGuideLink"') || !home.includes('href="/guides/money/"')) {
+    fail("dist home missing money guide link");
+  }
+}
+if (existsSync(distZhHome)) {
+  const zhHome = readFileSync(distZhHome, "utf8");
+  if (!zhHome.includes('href="/zh/guides/money/"') || !zhHome.includes("賺錢指南")) {
+    fail("dist zh home missing money guide link");
+  }
 }
 
 console.log("test_money_guide.mjs ok", MONEY_ROUTES.length, "routes");

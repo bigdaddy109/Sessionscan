@@ -9,6 +9,7 @@ import {
   localePath,
   renderSitePage,
 } from "./src/sitePages.js";
+import { injectHomeMoneyGuideLink } from "./src/moneyGuide.js";
 import { injectJobListHtml, renderStaticHomeJobList } from "./src/staticHomeJobs.js";
 import {
   injectHomeAtomDiscovery,
@@ -36,6 +37,7 @@ function injectStaticJobs() {
       let out = injectJobListHtml(html, cards);
       out = injectHomeShell(out, { lang: "en" });
       out = injectHomeAtomDiscovery(out, { lang: "en" });
+      out = injectHomeMoneyGuideLink(out, { lang: "en" });
       return out;
     },
   };

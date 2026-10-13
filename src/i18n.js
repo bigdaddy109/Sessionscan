@@ -93,6 +93,7 @@ export const UI = {
     moneyCalcEmpty: "Enter minutes to see rough GTA$/hr.",
     moneyCalcResult: "{rate}/hr (rough)",
     moneyWeekLink: "This week's money & jobs on home ↗",
+    homeMoneyGuideLink: "Money guide — cited takes & $/hr ↗",
     pageBusinessesTitle: "Business ranking | SessionScan",
     pageBusinessesDesc:
       "Which GTA Online businesses are worth buying — ranked list with Rockstar Newswire sources and last-updated dates. Titles and highlights only; no invented GTA$ figures.",
@@ -384,6 +385,7 @@ export const UI = {
     moneyCalcEmpty: "輸入分鐘數以顯示粗估 GTA$/hr。",
     moneyCalcResult: "{rate}/hr（粗估）",
     moneyWeekLink: "首頁本週賺錢與工作 ↗",
+    homeMoneyGuideLink: "賺錢指南 — 有出處分紅與 $/hr ↗",
     pageBusinessesTitle: "生意排名｜SessionScan",
     pageBusinessesDesc:
       "哪些 GTA Online 生意值得買 — 附 Rockstar Newswire 出處與更新日期的排名。只列標題與重點，不編造 GTA$ 數字。",
