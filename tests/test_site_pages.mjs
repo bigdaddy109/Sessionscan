@@ -73,6 +73,23 @@ if (!about.includes('class="site-nav"')) fail("about has site-nav");
 if (!about.includes('aria-current="page"') || !about.includes('data-nav="about"')) fail("about active nav");
 if (!about.includes("No GTA 4")) fail("about scope copy");
 if (about.includes("page-stub-flag")) fail("about is not a stub");
+// Why: About was a dead-end (lone home link); players need guide discovery
+// without putting About into every footer strip (stays out of CROSS_LINK_PAGE_IDS).
+if (!about.includes('class="related-pages"') || !about.includes('data-related="home"')) {
+  fail("about related must include home");
+}
+if (!about.includes('data-related="week"') || !about.includes('data-related="money"')) {
+  fail("about related → archive + money");
+}
+if (!about.includes('data-related="businesses"') || !about.includes('data-related="gta6"')) {
+  fail("about related → businesses + gta6");
+}
+if (about.includes('data-related="about"')) fail("about related must omit self");
+if (!about.includes('class="footer-guides"') || !about.includes('data-footer-guide="gta6"')) {
+  fail("about footer guides");
+}
+if (about.includes('data-footer-guide="about"')) fail("footer guides must not list about");
+if (about.includes('class="page-home-link"')) fail("about uses related-pages, not lone page-home-link");
 
 const week = renderSitePage(
   SITE_PAGES.find((p) => p.id === "week"),
@@ -144,6 +161,12 @@ const pageNode = aboutLd?.["@graph"]?.find((n) => n["@type"] === "WebPage");
 if (!pageNode) fail("about WebPage JSON-LD");
 const expected = webPageJsonLd(SITE_PAGES.find((p) => p.id === "about"), "en");
 if (pageNode.name !== expected["@graph"][0].name) fail("WebPage name");
+if (!pageNode?.relatedLink?.includes("https://sessionscan.net/week/")) {
+  fail("about relatedLink → week");
+}
+if (!pageNode?.relatedLink?.includes("https://sessionscan.net/gta6/")) {
+  fail("about relatedLink → gta6");
+}
 
 const weekLd = parseJsonLdScripts(week).find((b) => b["@graph"]);
 const weekPage = weekLd?.["@graph"]?.find((n) => n["@type"] === "WebPage");

@@ -489,8 +489,12 @@ export function renderSitePage(
   const otherLang = ui === "zh" ? "en" : "zh";
   const otherHref = localePath(otherLang, page.path);
   const crossId = page.id;
+  // About is discovery-only (related + footer) — not in CROSS_LINK_PAGE_IDS,
+  // so About stays out of every guide footer strip.
   const wantsRelated =
-    CROSS_LINK_PAGE_IDS.includes(crossId) || crossId === "week-freeze";
+    CROSS_LINK_PAGE_IDS.includes(crossId) ||
+    crossId === "week-freeze" ||
+    crossId === "about";
   let mainBody = bodyHtml != null ? bodyHtml : pageBodyHtml(page, ui);
   if (wantsRelated) {
     if (!String(mainBody).includes('class="related-pages"')) {
