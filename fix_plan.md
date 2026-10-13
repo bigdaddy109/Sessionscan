@@ -4,6 +4,8 @@
 
 （目前無開放項目。）
 
+合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等 Jeff「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
+
 ## 合併後跟進（非本 PR）
 
 - Faster fetch Worker：`fast.yml` 已在 main；合併 `workers/dispatch-fast-scrape/` 後 Jeff 在 Cloudflare 設 `GITHUB_PAT`（fine-grained、Actions write）並 `wrangler deploy`（cron 每 2h `workflow_dispatch`）。勿把 PAT 寫進 git。可用 `gh workflow run "fast scrape" --ref main -f source=manual` 先驗 data commit＋Pages `workflow_run`。觀測：2026-10-13 僅見 1 次手動 `fast scrape`，2h Worker cron 尚未上線。
