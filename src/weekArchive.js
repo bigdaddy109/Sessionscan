@@ -240,14 +240,21 @@ export function archiveIndexBodyHtml(data, lang = "en") {
   if (!weeks.length) {
     return `${intro}<p class="archive-empty">${esc(t("archiveIndexEmpty", {}, ui))}</p>`;
   }
+  // Tip of listArchiveWeeks only — never invent a "Latest" on an older row.
+  const latestWeek = weeks[0]?.week;
   const list = `<ul class="archive-week-list">
     ${weeks
-      .map((w) => {
+      .map((w, i) => {
         const href = weekPagePath(w.week, ui);
-        return `<li>
-        <a class="archive-week-link" href="${esc(href)}">
+        const isLatest = i === 0 && w.week === latestWeek;
+        const badge = isLatest
+          ? `<span class="archive-latest-badge">${esc(t("archiveLatestBadge", {}, ui))}</span>`
+          : "";
+        const linkClass = isLatest ? "archive-week-link is-latest" : "archive-week-link";
+        return `<li${isLatest ? ' class="archive-week-item is-latest"' : ""}>
+        <a class="${linkClass}" href="${esc(href)}">
           <time datetime="${esc(w.week)}">${esc(w.week)}</time>
-          <span class="archive-week-title">${esc(w.title)}</span>
+          <span class="archive-week-title">${esc(w.title)}${badge}</span>
         </a>
       </li>`;
       })
