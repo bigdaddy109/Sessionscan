@@ -263,3 +263,31 @@ export function renderMoneyGuideBody(lang = "en") {
       </section>
       <p class="money-week-link"><a href="${esc(home)}">${esc(t("moneyWeekLink", {}, ui))}</a></p>`;
 }
+
+/** Home → `/guides/money/` discovery link (reciprocal of moneyWeekLink). */
+export function homeMoneyGuideLinkHtml(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const href = ui === "zh" ? "/zh/guides/money/" : "/guides/money/";
+  return `<p class="home-money-link" id="homeMoneyGuideLink"><a href="${esc(href)}" data-i18n="homeMoneyGuideLink">${esc(t("homeMoneyGuideLink", {}, ui))}</a></p>`;
+}
+
+/**
+ * Inject home money-guide discovery under #view-jobs / #jobHint.
+ * Single source with money page path — never invents a guides URL.
+ */
+export function injectHomeMoneyGuideLink(html, { lang = "en" } = {}) {
+  let out = String(html || "");
+  const ui = lang === "zh" ? "zh" : "en";
+  const body = homeMoneyGuideLinkHtml(ui);
+  if (/id="homeMoneyGuideLink"/.test(out)) {
+    out = out.replace(/<p class="home-money-link"[^>]*>[\s\S]*?<\/p>/, body);
+  } else if (/id="jobHint"/.test(out)) {
+    out = out.replace(/(<p class="source-hint" id="jobHint"><\/p>)/, `$1\n        ${body}`);
+  } else if (/id="view-jobs"/.test(out)) {
+    out = out.replace(
+      /(<section class="view" id="view-jobs">)/,
+      `$1\n        ${body}`,
+    );
+  }
+  return out;
+}
