@@ -18,8 +18,9 @@ export const WEEK_BULLET_CATEGORIES = [
   {
     id: "multipliers",
     labelKey: "weekBulletMultipliers",
-    // Nx money/RP, Halloween Series/Survivals, Adversary payout weeks — titles only.
-    re: /(?:\b|[^\w])(\d{1,2})\s*[xX×]|雙倍|三倍|六倍|[2-9]x|\d+x\b|倍獎勵|GTA\$\s*\/\s*RP|halloween\s*(?:series|survival|survivals|event)|adversary\s*mode/i,
+    // Explicit Nx / 倍 only — never treat bare "Halloween Series/Event" as a multiplier.
+    // Reward line is always the outbound title fragment (oneLineFromTitle), never a fabricated rate.
+    re: /(?:\b|[^\w])(\d{1,2})\s*[xX×]|雙倍|三倍|六倍|[2-9]x|\d+x\b|倍獎勵|GTA\$\s*\/\s*RP/i,
   },
   {
     id: "free",

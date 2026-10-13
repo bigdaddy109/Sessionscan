@@ -89,10 +89,10 @@ if (!loadClaimedIds(keyA, fakeStore).has("podium")) fail("toggle on failed");
 // Other week key stays empty — no cross-week bleed.
 if (loadClaimedIds(keyB, fakeStore).size !== 0) fail("other week must start empty");
 
-// Halloween week titles (live 2026-10-08): Freebies / Halloween Series / Bonuses & Discounts
-// must fill slots — `\bfree\b` alone used to miss "Freebies".
+// Halloween week titles (live 2026-10-08): Freebies + Bonuses & Discounts fill;
+// bare "Halloween Event/Series" must NOT invent a multipliers slot — only explicit Nx.
 const halloweenNow = new Date("2026-10-10T12:00:00Z");
-const halloweenHub = {
+const halloweenHubNoNx = {
   jobs_gtabase: [
     {
       title: "GTA Online Weekly Update (October 8-14): Second Week of Halloween Event, Bonuses & Discounts",
@@ -109,6 +109,28 @@ const halloweenHub = {
       source: "IGN",
     },
   ],
+  sessionscan_slot: { short: null },
+};
+const noNxBullets = buildWeekBullets(halloweenHubNoNx, halloweenNow, "en");
+const noNxMulti = noNxBullets.find((b) => b.id === "multipliers");
+if (!noNxMulti?.pending) {
+  fail("Halloween Event/Series without Nx must leave multipliers pending", noNxMulti);
+}
+if (noNxMulti && /\d+\s*[xX×]/.test(noNxMulti.reward) && !noNxMulti.pending) {
+  fail("must not fabricate Nx in reward text", noNxMulti);
+}
+const noNxFree = noNxBullets.find((b) => b.id === "free");
+if (!noNxFree || noNxFree.pending || !/freebies/i.test(noNxFree.reward)) {
+  fail("Freebies title must fill free slot", noNxFree);
+}
+const noNxDisc = noNxBullets.find((b) => b.id === "discounts");
+if (!noNxDisc || noNxDisc.pending || !/discount/i.test(noNxDisc.reward)) {
+  fail("Bonuses & Discounts must fill discounts", noNxDisc);
+}
+
+// With an explicit 3X Short title, multipliers uses that original title (not a made-up rate).
+const halloweenHubNx = {
+  ...halloweenHubNoNx,
   sessionscan_slot: {
     short: {
       title: "3X Halloween Survival This Week | GTA Online",
@@ -119,18 +141,15 @@ const halloweenHub = {
     },
   },
 };
-const hallBullets = buildWeekBullets(halloweenHub, halloweenNow, "en");
-const hallFree = hallBullets.find((b) => b.id === "free");
-if (!hallFree || hallFree.pending || !/freebies/i.test(hallFree.reward)) {
-  fail("Freebies title must fill free slot", hallFree);
+const nxBullets = buildWeekBullets(halloweenHubNx, halloweenNow, "en");
+const nxMulti = nxBullets.find((b) => b.id === "multipliers");
+if (!nxMulti || nxMulti.pending) fail("3X Short must fill multipliers", nxMulti);
+if (!/^3X Halloween Survival/i.test(nxMulti.reward)) {
+  fail("multipliers reward must be original Nx title, not Halloween Event prose", nxMulti);
 }
-const hallMulti = hallBullets.find((b) => b.id === "multipliers");
-if (!hallMulti || hallMulti.pending) {
-  fail("3X Halloween Survival / Halloween Series must fill multipliers", hallMulti);
-}
-const hallDisc = hallBullets.find((b) => b.id === "discounts");
-if (!hallDisc || hallDisc.pending || !/discount/i.test(hallDisc.reward)) {
-  fail("Bonuses & Discounts must fill discounts", hallDisc);
+// Must not prefer bare Halloween Event over the Nx Short when both exist.
+if (/Halloween Event/i.test(nxMulti.reward) && !/3X/i.test(nxMulti.reward)) {
+  fail("must not use non-Nx Halloween Event for multipliers when Nx Short exists", nxMulti);
 }
 
 console.log("test_this_week_home.mjs ok");
