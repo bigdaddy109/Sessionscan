@@ -2247,9 +2247,25 @@ main {
   letter-spacing: 0.05em;
 }
 .home-money-link {
-  margin: 6px 0 10px;
+  margin: 6px 0 4px;
 }
 .home-money-link a {
+  color: var(--teal);
+  font-family: var(--condensed);
+  letter-spacing: 0.05em;
+}
+.home-business-link {
+  margin: 0 0 10px;
+}
+.home-business-link a {
+  color: var(--teal);
+  font-family: var(--condensed);
+  letter-spacing: 0.05em;
+}
+.business-week-link {
+  margin: 8px 0 0;
+}
+.business-week-link a {
   color: var(--teal);
   font-family: var(--condensed);
   letter-spacing: 0.05em;

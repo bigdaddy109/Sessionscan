@@ -15,6 +15,8 @@ import {
   businessesPageBodyHtml,
   businessesPageJsonLd,
   formatSourceDate,
+  homeBusinessGuideLinkHtml,
+  injectHomeBusinessGuideLink,
 } from "../src/businessRanking.js";
 import { SITE_PAGES, renderSitePage } from "../src/sitePages.js";
 import { parseJsonLdScripts } from "../src/structuredData.js";
@@ -110,11 +112,60 @@ if (existsSync(distEn)) {
   if (built.includes("page-stub-flag")) fail("dist EN still stub");
   if (!built.includes("biz-rank-list")) fail("dist EN missing list");
   if (!built.includes("static.cloudflareinsights.com/beacon.min.js")) fail("dist EN CF beacon");
+  if (!built.includes("business-week-link") || !built.includes('href="/"')) {
+    fail("dist EN missing businessWeekLink home CTA");
+  }
 }
 if (existsSync(distZh)) {
   const built = readFileSync(distZh, "utf8");
   if (built.includes("page-stub-flag")) fail("dist zh still stub");
   if (!built.includes("biz-rank-list")) fail("dist zh missing list");
+  if (!built.includes('href="/zh/"') || !built.includes("首頁本週")) {
+    fail("dist zh missing businessWeekLink");
+  }
+}
+
+// Why: players on home jobs need a reciprocal CTA to business ranking
+// (businesses page links home via businessWeekLink); path must stay locale-correct.
+if (!bodyEn.includes("business-week-link") || !bodyEn.includes('href="/"')) {
+  fail("EN body missing businessWeekLink");
+}
+if (!bodyZh.includes('href="/zh/"') || !bodyZh.includes("首頁本週")) {
+  fail("zh body missing businessWeekLink");
+}
+const homeBizEn = homeBusinessGuideLinkHtml("en");
+if (!homeBizEn.includes('id="homeBusinessGuideLink"') || !homeBizEn.includes('href="/guides/businesses/"')) {
+  fail("home business link en", homeBizEn);
+}
+if (!homeBizEn.includes("Business ranking")) fail("home business en copy");
+const homeBizZh = homeBusinessGuideLinkHtml("zh");
+if (!homeBizZh.includes('href="/zh/guides/businesses/"') || !homeBizZh.includes("生意排名")) {
+  fail("home business link zh", homeBizZh);
+}
+const moneyThenBiz = `<p class="home-money-link" id="homeMoneyGuideLink"><a href="/guides/money/">m</a></p>`;
+const injected = injectHomeBusinessGuideLink(moneyThenBiz, { lang: "en" });
+if (!injected.includes('id="homeBusinessGuideLink"') || !injected.includes('href="/guides/businesses/"')) {
+  fail("inject after money link", injected);
+}
+const zhInjected = injectHomeBusinessGuideLink(
+  `<p class="home-business-link" id="homeBusinessGuideLink"><a href="/guides/businesses/">x</a></p>`,
+  { lang: "zh" },
+);
+if (!zhInjected.includes('href="/zh/guides/businesses/"')) fail("inject replaces zh href", zhInjected);
+
+const distHome = resolve(root, "dist/index.html");
+const distZhHome = resolve(root, "dist/zh/index.html");
+if (existsSync(distHome)) {
+  const home = readFileSync(distHome, "utf8");
+  if (!home.includes('id="homeBusinessGuideLink"') || !home.includes('href="/guides/businesses/"')) {
+    fail("dist home missing business guide link");
+  }
+}
+if (existsSync(distZhHome)) {
+  const zhHome = readFileSync(distZhHome, "utf8");
+  if (!zhHome.includes('href="/zh/guides/businesses/"') || !zhHome.includes("生意排名")) {
+    fail("dist zh home missing business guide link");
+  }
 }
 
 console.log(

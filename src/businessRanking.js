@@ -303,7 +303,8 @@ export function businessesPageBodyHtml(lang = "en") {
     </li>`;
   }).join("\n");
 
-    return `<p class="biz-updated">${t("bizUpdatedHtml", { date: updated }, ui)}</p>
+  const home = ui === "zh" ? "/zh/" : "/";
+  return `<p class="biz-updated">${t("bizUpdatedHtml", { date: updated }, ui)}</p>
     <div class="page-body biz-intro">${t("pageBusinessesBody", {}, ui)}</div>
     <p class="biz-methodology">
       <span>${esc(t("bizMethodologyLabel", {}, ui))}</span>
@@ -313,5 +314,39 @@ export function businessesPageBodyHtml(lang = "en") {
     <ol class="biz-rank-list" data-biz-count="${BUSINESS_RANKING.length}">
       ${items}
     </ol>
-    <p class="biz-disclaimer">${esc(t("bizDisclaimer", {}, ui))}</p>`;
+    <p class="biz-disclaimer">${esc(t("bizDisclaimer", {}, ui))}</p>
+    <p class="business-week-link"><a href="${esc(home)}">${esc(t("businessWeekLink", {}, ui))}</a></p>`;
+}
+
+/** Home → `/guides/businesses/` discovery link (reciprocal of businessWeekLink). */
+export function homeBusinessGuideLinkHtml(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const href = ui === "zh" ? "/zh/guides/businesses/" : "/guides/businesses/";
+  return `<p class="home-business-link" id="homeBusinessGuideLink"><a href="${esc(href)}" data-i18n="homeBusinessGuideLink">${esc(t("homeBusinessGuideLink", {}, ui))}</a></p>`;
+}
+
+/**
+ * Inject home businesses discovery under #view-jobs (after money link when present).
+ * Single source with businesses page path — never invents a guides URL.
+ */
+export function injectHomeBusinessGuideLink(html, { lang = "en" } = {}) {
+  let out = String(html || "");
+  const ui = lang === "zh" ? "zh" : "en";
+  const body = homeBusinessGuideLinkHtml(ui);
+  if (/id="homeBusinessGuideLink"/.test(out)) {
+    out = out.replace(/<p class="home-business-link"[^>]*>[\s\S]*?<\/p>/, body);
+  } else if (/id="homeMoneyGuideLink"/.test(out)) {
+    out = out.replace(
+      /(<p class="home-money-link"[^>]*>[\s\S]*?<\/p>)/,
+      `$1\n        ${body}`,
+    );
+  } else if (/id="jobHint"/.test(out)) {
+    out = out.replace(/(<p class="source-hint" id="jobHint"><\/p>)/, `$1\n        ${body}`);
+  } else if (/id="view-jobs"/.test(out)) {
+    out = out.replace(
+      /(<section class="view" id="view-jobs">)/,
+      `$1\n        ${body}`,
+    );
+  }
+  return out;
 }
