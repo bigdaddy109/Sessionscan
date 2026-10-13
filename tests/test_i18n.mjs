@@ -103,6 +103,7 @@ for (const u of [
   "https://sessionscan.net/week/",
   "https://sessionscan.net/guides/money/",
   "https://sessionscan.net/guides/businesses/",
+  "https://sessionscan.net/gta6/",
 ]) {
   if (!hasPartUrls.includes(u)) fail("home WebSite.hasPart must list Phase C pages", u);
 }

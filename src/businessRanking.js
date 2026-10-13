@@ -260,7 +260,11 @@ export function businessesPageJsonLd(lang = "en") {
         isPartOf: { "@id": `${localeHome(ui)}#website` },
         publisher: { "@id": `${SITE_ORIGIN}/#organization` },
         mainEntity: { "@id": `${url}#itemlist` },
-        relatedLink: [absoluteUrl("week/", ui), absoluteUrl("guides/money/", ui)],
+        relatedLink: [
+          absoluteUrl("week/", ui),
+          absoluteUrl("guides/money/", ui),
+          absoluteUrl("gta6/", ui),
+        ],
       },
       businessItemListJsonLd(ui),
       organizationJsonLd(),

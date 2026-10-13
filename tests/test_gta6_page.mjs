@@ -94,8 +94,16 @@ if (!html.includes("Date.parse") || !html.includes("setInterval")) {
 }
 if (!html.includes('"@type":"Event"')) fail("rendered HTML missing Event JSON-LD");
 if (!html.includes("site-page-main--gta6")) fail("gta6 main class missing");
-if ((html.match(/class="page-home-link"/g) || []).length !== 1) {
-  fail("expected exactly one home link from renderSitePage");
+// Why: once gta6 joins CROSS_LINK_PAGE_IDS it gets related-pages (not lone page-home-link).
+if (!html.includes('class="related-pages"') || !html.includes('data-related="week"')) {
+  fail("gta6 must include related-pages cross-links");
+}
+if (!html.includes('data-related="money"') || !html.includes('data-related="businesses"')) {
+  fail("gta6 related must include money + businesses");
+}
+if (html.includes('data-related="gta6"')) fail("gta6 related must omit self");
+if (!html.includes('class="footer-guides"') || !html.includes('data-footer-guide="gta6"')) {
+  fail("gta6 footer guides must list gta6 among guides");
 }
 
 const script = gta6CountdownScript();

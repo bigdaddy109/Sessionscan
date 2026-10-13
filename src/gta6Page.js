@@ -69,7 +69,11 @@ export function gta6PageJsonLd(lang = "en") {
         inLanguage: htmlLang(ui),
         isPartOf: { "@id": `${localeHome(ui)}#website` },
         publisher: { "@id": `${SITE_ORIGIN}/#organization` },
-        relatedLink: [`${relatedPrefix}`, `${relatedPrefix}about/`],
+        relatedLink: [
+          `${relatedPrefix}week/`,
+          `${relatedPrefix}guides/money/`,
+          `${relatedPrefix}guides/businesses/`,
+        ],
         mainEntity: { "@id": `${url}#release` },
       },
       {

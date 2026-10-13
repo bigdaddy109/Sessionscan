@@ -28,6 +28,7 @@ const HOME_HAS_PART_PATHS = [
   { path: "week/", nameKey: "navArchive" },
   { path: "guides/money/", nameKey: "navMoney" },
   { path: "guides/businesses/", nameKey: "navBusinesses" },
+  { path: "gta6/", nameKey: "navGta6" },
 ];
 
 export function homeJsonLd(lang = "en") {

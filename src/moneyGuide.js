@@ -134,7 +134,11 @@ export function moneyGuideJsonLd(lang = "en") {
         dateModified: MONEY_LAST_UPDATED,
         isPartOf: { "@id": `${localeHome(ui)}#website` },
         publisher: { "@id": `${SITE_ORIGIN}/#organization` },
-        relatedLink: [`${relatedPrefix}week/`, `${relatedPrefix}guides/businesses/`],
+        relatedLink: [
+          `${relatedPrefix}week/`,
+          `${relatedPrefix}guides/businesses/`,
+          `${relatedPrefix}gta6/`,
+        ],
       },
       {
         "@type": "ItemList",
