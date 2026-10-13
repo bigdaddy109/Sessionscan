@@ -23,7 +23,9 @@ export const UI = {
     channelFull: "Subscribe on YouTube",
     channelAria: "Subscribe on YouTube @sessionscan",
     instagramFull: "Follow on Instagram",
-    instagramAria: "Follow SessionScan on Instagram",
+    // Visible labels are "Follow on Instagram" (desktop) and "IG" (compact header).
+    // Accessible name must contain both for WCAG 2.5.3 / Lighthouse label-content-name-mismatch.
+    instagramAria: "Follow on Instagram · IG",
     headerSocialAria: "SessionScan social",
     langSwitchAria: "Language",
     searchAria: "Scan page cards",
@@ -124,7 +126,8 @@ export const UI = {
     weekSocialKicker: "Follow SessionScan",
     weekSocialTag: "YT · IG · X",
     weekSocialX: "Follow on X",
-    weekSocialXAria: "Follow SessionScan on X @SessionScanGTA",
+    // Visible "Follow on X" / "X" / "@SessionScanGTA" must appear in the accessible name.
+    weekSocialXAria: "Follow on X @SessionScanGTA",
     weekBulletsKicker: "This week — do this",
     weekBulletsTag: "ONE LINE · reward + access",
     weekBulletMultipliers: "2X / 3X & money multipliers",
@@ -290,7 +293,8 @@ export const UI = {
     channelFull: "訂閱 YouTube",
     channelAria: "訂閱 YouTube 頻道 @sessionscan",
     instagramFull: "追蹤 Instagram",
-    instagramAria: "在 Instagram 追蹤 SessionScan",
+    // Visible labels: "追蹤 Instagram" (desktop) and "IG" (compact header).
+    instagramAria: "追蹤 Instagram · IG",
     headerSocialAria: "SessionScan 社群",
     langSwitchAria: "語言",
     searchAria: "掃描頁面卡片",
@@ -390,7 +394,8 @@ export const UI = {
     weekSocialKicker: "追蹤 SessionScan",
     weekSocialTag: "YT · IG · X",
     weekSocialX: "追蹤 X",
-    weekSocialXAria: "在 X 追蹤 SessionScan @SessionScanGTA",
+    // Visible "追蹤 X" / "X" / "@SessionScanGTA" must appear in the accessible name.
+    weekSocialXAria: "追蹤 X @SessionScanGTA",
     weekBulletsKicker: "本週 — 先做這些",
     weekBulletsTag: "一行 · 獎勵＋入口",
     weekBulletMultipliers: "2X／3X 與倍數獎勵",

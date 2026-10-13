@@ -247,7 +247,7 @@ img { max-width: 100%; display: block; }
   white-space: nowrap;
 }
 .channel-link-short { display: none; }
-/* Compact IG: short "IG" label only — full "@sessionscan" would overflow 375. */
+/* Compact IG: short "IG" only — full "@sessionscan" overflows 375; aria includes "IG". */
 .channel-link-ig {
   flex: 0 0 auto;
   padding: 6px 8px;
@@ -1119,6 +1119,7 @@ main {
 }
 
 .video-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   border: 1px solid var(--border);
@@ -1153,12 +1154,15 @@ main {
   width: 30px;
   height: 30px;
   font-size: 15px;
+  z-index: 2;
+  pointer-events: none;
 }
 .rank-delta {
   position: absolute;
   top: 8px;
   left: 42px;
   z-index: 2;
+  pointer-events: none;
   padding: 2px 6px;
   font-family: var(--mono);
   font-size: 11px;
@@ -1197,6 +1201,16 @@ main {
   place-items: center;
   color: var(--teal);
   background: rgba(0, 0, 0, 0.4);
+}
+/* CSS triangle — no "▶" text inside the play control (WCAG 2.5.3 Label in Name). */
+.play span::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 0 7px 12px;
+  border-color: transparent transparent transparent var(--teal);
+  margin-left: 3px;
 }
 
 .video-info { padding: 12px 13px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }

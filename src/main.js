@@ -125,11 +125,11 @@ function videoCard(v, rank, extraClass, tab = "hot", rankKey = "") {
     : "";
   return `
     <article class="${cls}" ${cardAttrs(v)}>
+      ${rank != null ? `<div class="rank" aria-hidden="true">${rank}</div>` : ""}
+      ${delta}
       <button type="button" class="thumb-link" data-play="${esc(id)}" aria-label="${esc(t("playAria", { title: v.title }))}">
-        ${rank != null ? `<div class="rank" aria-hidden="true">${rank}</div>` : ""}
-        ${delta}
         <img class="thumb" src="${thumb}" alt="" loading="lazy" />
-        <div class="play" aria-hidden="true"><span>▶</span></div>
+        <div class="play" aria-hidden="true"><span></span></div>
       </button>
       <div class="video-info">
         <div class="video-info-top">
@@ -185,10 +185,10 @@ function sessionScanSlot(slot) {
     const lang = langLabel(short.lang) || t("langLabelEn");
     return `
     <article class="video-card owned-short" ${cardAttrs(short)}>
+      <div class="rank" aria-hidden="true">1</div>
       <button type="button" class="thumb-link embed-wrap" data-play="${esc(id)}" data-embed="${esc(embed)}" aria-label="${esc(t("playAria", { title: short.title || "SessionScan Short" }))}">
-        <div class="rank" aria-hidden="true">1</div>
         <img class="thumb" src="${thumb}" alt="" loading="lazy" />
-        <div class="play" aria-hidden="true"><span>▶</span></div>
+        <div class="play" aria-hidden="true"><span></span></div>
       </button>
       <div class="video-info">
         <div class="video-info-top">

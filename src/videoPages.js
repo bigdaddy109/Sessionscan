@@ -236,7 +236,7 @@ function videoCardHtml(video, ui = "en") {
   return `<article class="video-card video-page-card" ${cardAttrs(video)}>
       <a class="thumb-link" href="${esc(video.url)}" target="_blank" rel="noopener noreferrer">
         <img class="thumb" src="${esc(thumb)}" alt="${esc(video.title || "")}" />
-        <div class="play" aria-hidden="true"><span>▶</span></div>
+        <div class="play" aria-hidden="true"><span></span></div>
       </a>
       <div class="video-info">
         <div class="video-info-top">

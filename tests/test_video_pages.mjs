@@ -109,5 +109,11 @@ if (!html.includes("https://www.youtube.com/@sessionscan")) fail("share pages ke
 if (!html.includes("viewport-fit=cover")) fail("share pages must honor iOS safe-area via viewport-fit=cover");
 if (!html.includes("channel-link-play")) fail("share header merges subscribe into one ▶ control");
 if (!html.includes("header-home-link")) fail("share header home link must not reuse channel-link");
+// Why: visible "▶" inside a control whose accessible name is only "Play: {title}"
+// fails Lighthouse label-content-name-mismatch (WCAG 2.5.3). CSS triangle only.
+if (html.includes("▶</span></div>")) fail("video play chrome must not use ▶ text inside .play");
+if (!html.includes('<div class="play" aria-hidden="true"><span></span></div>')) {
+  fail("video play chrome uses empty span + CSS triangle");
+}
 
 console.log("test_video_pages.mjs ok", fromSample.length, "sample videos");
