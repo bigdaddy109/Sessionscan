@@ -18,6 +18,7 @@ import {
   archiveSitemapUrls,
   archiveWeekPagerHtml,
   freezeBusinessGuideLinkHtml,
+  freezeGta6LinkHtml,
   freezeMoneyGuideLinkHtml,
   homeArchiveFeedLinkHtml,
   injectHomeAtomDiscovery,
@@ -304,6 +305,10 @@ if (existsSync(resolve(root, "dist/week/feed.xml"))) {
   if (!biz.includes('id="archiveBusinessGuideLink"') || !biz.includes('href="/guides/businesses/"')) {
     fail("freeze business link en", biz);
   }
+  const gta6 = freezeGta6LinkHtml("en");
+  if (!gta6.includes('id="archiveGta6Link"') || !gta6.includes('href="/gta6/"')) {
+    fail("freeze gta6 link en", gta6);
+  }
   const tipIso = weeks[0].week;
   const tipBody = weekFreezeBodyHtml(site, tipIso, "en");
   if (!tipBody.includes('id="archiveMoneyGuideLink"') || !tipBody.includes("/guides/money/")) {
@@ -311,6 +316,9 @@ if (existsSync(resolve(root, "dist/week/feed.xml"))) {
   }
   if (!tipBody.includes('id="archiveBusinessGuideLink"') || !tipBody.includes("/guides/businesses/")) {
     fail("tip freeze body missing business CTA", tipBody.match(/archiveBusiness[\s\S]{0,80}/)?.[0]);
+  }
+  if (!tipBody.includes('id="archiveGta6Link"') || !tipBody.includes('href="/gta6/"')) {
+    fail("tip freeze body missing gta6 CTA", tipBody.match(/archiveGta6[\s\S]{0,80}/)?.[0]);
   }
   // CTAs sit inside the bullets section (before outbound), not only in related/footer.
   const bulletsEnd = tipBody.indexOf("archive-outbound");
@@ -322,10 +330,17 @@ if (existsSync(resolve(root, "dist/week/feed.xml"))) {
   if (!zhBody.includes("/zh/guides/money/") || !zhBody.includes("/zh/guides/businesses/")) {
     fail("zh freeze guide locale paths", zhBody.match(/archive-(?:money|business)-link[\s\S]{0,120}/)?.[0]);
   }
+  if (!zhBody.includes("/zh/gta6/")) {
+    fail("zh freeze gta6 locale path", zhBody.match(/archive-gta6-link[\s\S]{0,120}/)?.[0]);
+  }
   if (weeks.length > 1) {
     const olderBody = weekFreezeBodyHtml(site, weeks[1].week, "en");
-    if (!olderBody.includes("archiveMoneyGuideLink") || !olderBody.includes("archiveBusinessGuideLink")) {
-      fail("older freezes still need earning-guide CTAs", olderBody.slice(0, 200));
+    if (
+      !olderBody.includes("archiveMoneyGuideLink") ||
+      !olderBody.includes("archiveBusinessGuideLink") ||
+      !olderBody.includes("archiveGta6Link")
+    ) {
+      fail("older freezes still need guide CTAs", olderBody.slice(0, 200));
     }
   }
 }
