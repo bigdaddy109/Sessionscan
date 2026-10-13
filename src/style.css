@@ -1643,12 +1643,38 @@ main {
   font-family: var(--mono);
   font-size: 12px;
 }
-.week-claim-progress {
+.week-claim-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
   margin: 0 0 10px;
+  min-width: 0;
+}
+.week-claim-progress {
+  margin: 0;
   font-family: var(--condensed);
   letter-spacing: 0.06em;
   font-size: 13px;
   color: var(--mint);
+}
+.week-claim-clear {
+  margin: 0;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--condensed);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+.week-claim-clear:hover,
+.week-claim-clear:focus-visible {
+  color: var(--text);
+  border-color: var(--teal);
+  outline: none;
 }
 .week-bullets-hint {
   margin: 0 0 12px;

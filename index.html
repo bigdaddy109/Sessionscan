@@ -181,7 +181,10 @@
     <section class="week-bullets" id="weekBullets" aria-labelledby="weekBulletsHeading">
       <div class="week-panel-kicker"><strong id="weekBulletsHeading" data-i18n="weekBulletsKicker">This week — do this</strong><span data-i18n="weekBulletsTag">ONE LINE · reward + access</span></div>
       <p class="week-bullets-hint" data-i18n="weekBulletsHint">Checks stay on this device for the current Rockstar week (Thu–Wed).</p>
-      <p class="week-claim-progress" id="weekClaimProgress" hidden aria-live="polite"></p>
+      <div class="week-claim-toolbar">
+        <p class="week-claim-progress" id="weekClaimProgress" hidden aria-live="polite"></p>
+        <button type="button" class="week-claim-clear" id="weekClaimClear" hidden data-i18n="weekClaimClear" data-i18n-aria="weekClaimClearAria" aria-label="Clear all claimed checks for this Rockstar week">Clear checks</button>
+      </div>
       <ul class="week-bullet-list" id="weekBulletList"></ul>
       <p class="week-archive-latest" id="weekArchiveLatest" hidden></p>
       <p class="week-archive-feed archive-feed-link" id="weekArchiveFeed"><a href="/week/feed.xml" type="application/atom+xml" data-i18n="archiveAtomLink">Atom feed of archived weeks ↗</a></p>

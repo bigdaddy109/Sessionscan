@@ -265,6 +265,9 @@ if (existsSync(resolve(root, "dist/week/feed.xml"))) {
   if (!tipBody.includes('id="archiveClaimProgress"') || !tipBody.includes("data-progress-template")) {
     fail("tip freeze missing claimed progress", tipBody.match(/archiveClaimProgress[\s\S]{0,120}/)?.[0]);
   }
+  if (!tipBody.includes('id="archiveClaimClear"') || !tipBody.includes("week-claim-clear")) {
+    fail("tip freeze missing clear-checks control", tipBody.match(/archiveClaimClear[\s\S]{0,80}/)?.[0]);
+  }
   if (!tipBody.includes("archiveBulletsClaimHint") && !tipBody.includes("Checks sync with home")) {
     fail("tip freeze claim hint", tipBody.match(/week-bullets-hint[\s\S]{0,120}/)?.[0]);
   }
@@ -276,7 +279,8 @@ if (existsSync(resolve(root, "dist/week/feed.xml"))) {
     if (
       olderBody.includes("week-bullet-check") ||
       olderBody.includes("data-freeze-claimed") ||
-      olderBody.includes("archiveClaimProgress")
+      olderBody.includes("archiveClaimProgress") ||
+      olderBody.includes("archiveClaimClear")
     ) {
       fail("older freeze must stay read-only (no claimed checklist)", olderBody.match(/week-bullet[\s\S]{0,80}/)?.[0]);
     }

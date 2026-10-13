@@ -14,6 +14,7 @@ import {
   WEEK_BULLET_CATEGORIES,
   buildWeekBullets,
   claimedStorageKey,
+  clearClaimedIds,
   countClaimedProgress,
   countdownParts,
   formatClaimedProgress,
@@ -102,6 +103,14 @@ if (loadClaimedIds(keyB, fakeStore).size !== 0) fail("other week must start empt
   if (!en.includes("2") || !en.includes("5") || !/claimed/i.test(en)) fail("en progress copy", en);
   const zh = formatClaimedProgress(2, 5, "zh");
   if (!zh.includes("2") || !zh.includes("5") || !zh.includes("已完成")) fail("zh progress copy", zh);
+}
+
+// Clear checks — players need a one-tap reset for the Rockstar week (shared home/tip key).
+{
+  saveClaimedIds(keyA, ["multipliers", "free", "podium"], fakeStore);
+  if (loadClaimedIds(keyA, fakeStore).size !== 3) fail("pre-clear claimed size");
+  const emptied = clearClaimedIds(keyA, fakeStore);
+  if (emptied.size !== 0 || loadClaimedIds(keyA, fakeStore).size !== 0) fail("clearClaimedIds must empty week");
 }
 
 // Halloween week titles (live 2026-10-08): Freebies + Bonuses & Discounts fill;
