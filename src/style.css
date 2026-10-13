@@ -1899,6 +1899,52 @@ main {
 }
 
 /* ---------- static shell pages (Phase A) ---------- */
+.site-breadcrumbs {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: var(--muted);
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
+}
+.site-breadcrumbs ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em 0.5em;
+  align-items: baseline;
+  min-width: 0;
+  max-width: 100%;
+}
+.site-breadcrumbs li {
+  min-width: 0;
+}
+.site-breadcrumbs li:not(.site-breadcrumbs-current):not(:last-child)::after {
+  content: "/";
+  margin-left: 0.5em;
+  color: var(--border-teal, var(--muted));
+}
+.site-breadcrumbs a {
+  color: var(--teal);
+  text-decoration: none;
+}
+.site-breadcrumbs a:hover {
+  color: var(--mint);
+  text-decoration: underline;
+}
+.site-breadcrumbs-current {
+  flex: 1 1 8rem;
+  min-width: 0;
+}
+.site-breadcrumbs-current span {
+  display: block;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .site-page-main {
   max-width: min(720px, var(--page-max));
   margin: 0 auto;
