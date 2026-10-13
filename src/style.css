@@ -2246,6 +2246,22 @@ main {
   font-family: var(--condensed);
   letter-spacing: 0.05em;
 }
+.home-gta6-link {
+  margin: 4px 0 10px;
+}
+.home-gta6-link a {
+  color: var(--teal);
+  font-family: var(--condensed);
+  letter-spacing: 0.05em;
+}
+.gta6-home-link {
+  margin: 10px 0 0;
+}
+.gta6-home-link a {
+  color: var(--teal);
+  font-family: var(--condensed);
+  letter-spacing: 0.05em;
+}
 .home-money-link {
   margin: 6px 0 4px;
 }

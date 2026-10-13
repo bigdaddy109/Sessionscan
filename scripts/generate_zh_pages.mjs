@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 import { FONT_HREF_ZH_NOTO } from "../src/fontLinks.js";
 import { UI, applyHtmlI18n, rewriteAssetBase } from "../src/i18n.js";
 import { injectHomeBusinessGuideLink } from "../src/businessRanking.js";
+import { injectHomeGta6Link } from "../src/gta6Page.js";
 import { injectHomeMoneyGuideLink } from "../src/moneyGuide.js";
 import { injectHomeShell } from "../src/sitePages.js";
 import { replaceHomeJsonLd } from "../src/structuredData.js";
@@ -45,6 +46,7 @@ zh = injectHomeShell(zh, { lang: "zh" });
 zh = injectHomeAtomDiscovery(zh, { lang: "zh" });
 zh = injectHomeMoneyGuideLink(zh, { lang: "zh" });
 zh = injectHomeBusinessGuideLink(zh, { lang: "zh" });
+zh = injectHomeGta6Link(zh, { lang: "zh" });
 zh = rewriteAssetBase(zh, "../");
 // EN has Oswald preloads only (vite may emit ./fonts); inject non-blocking Noto TC for CJK UI.
 if (!zh.includes("Noto+Sans+TC")) {
