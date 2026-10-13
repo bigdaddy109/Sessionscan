@@ -103,16 +103,48 @@ export function latestArchiveWeek(data) {
 /**
  * Home “latest freeze” link HTML under this-week bullets.
  * Uses listArchiveWeeks — never invents a week key.
+ * Empty hub: hidden placeholder (browse index is `#weekArchiveIndex`).
  */
 export function latestArchiveLinkHtml(data, lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
   const latest = latestArchiveWeek(data);
   if (!latest?.week) {
-    return `<p class="week-archive-latest is-empty"><a href="${esc(localePath(ui, "week/"))}">${esc(t("weekArchiveIndexLink", {}, ui))}</a></p>`;
+    return `<p class="week-archive-latest is-empty" hidden></p>`;
   }
   const href = weekPagePath(latest.week, ui);
   const label = t("weekArchiveLatestLink", { week: latest.week }, ui);
   return `<p class="week-archive-latest"><a href="${esc(href)}">${esc(label)}</a></p>`;
+}
+
+/**
+ * Home browse-all archive index — locale `/week/` (always visible under this-week).
+ * Complements tip freeze + Atom so players can open the full week list in-panel.
+ */
+export function homeArchiveIndexLinkHtml(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const href = localePath(ui, "week/");
+  return `<p class="week-archive-index" id="weekArchiveIndex"><a href="${esc(href)}" data-i18n="weekArchiveIndexLink">${esc(t("weekArchiveIndexLink", {}, ui))}</a></p>`;
+}
+
+/**
+ * Inject home archive-index browse link under this-week bullets (before Atom).
+ * Single source with archive index path — never invents a week URL.
+ */
+export function injectHomeArchiveIndexLink(html, { lang = "en" } = {}) {
+  let out = String(html || "");
+  const ui = lang === "zh" ? "zh" : "en";
+  const body = homeArchiveIndexLinkHtml(ui);
+  if (/id="weekArchiveIndex"/.test(out)) {
+    out = out.replace(/<p class="week-archive-index"[^>]*>[\s\S]*?<\/p>/, body);
+  } else if (/id="weekArchiveLatest"/.test(out)) {
+    out = out.replace(
+      /(<p class="week-archive-latest"[^>]*>[\s\S]*?<\/p>)/,
+      `$1\n      ${body}`,
+    );
+  } else if (/id="weekArchiveFeed"/.test(out)) {
+    out = out.replace(/(<p class="week-archive-feed[\s\S]*?<\/p>)/, `${body}\n      $1`);
+  }
+  return out;
 }
 
 /**

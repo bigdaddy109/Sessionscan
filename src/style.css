@@ -1696,6 +1696,16 @@ main {
 .week-archive-latest.is-empty a {
   color: var(--teal);
 }
+.week-archive-index {
+  margin: 8px 0 0;
+  font-family: var(--condensed);
+  letter-spacing: 0.05em;
+}
+.week-archive-index a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .week-archive-feed {
   margin: 8px 0 0;
   font-family: var(--condensed);
