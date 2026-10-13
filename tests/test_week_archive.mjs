@@ -17,6 +17,8 @@ import {
   archiveJumpLatestHtml,
   archiveSitemapUrls,
   archiveWeekPagerHtml,
+  freezeBusinessGuideLinkHtml,
+  freezeMoneyGuideLinkHtml,
   homeArchiveFeedLinkHtml,
   injectHomeAtomDiscovery,
   latestArchiveLinkHtml,
@@ -288,6 +290,43 @@ if (existsSync(resolve(root, "dist/week/feed.xml"))) {
   const zhTip = weekFreezeBodyHtml(site, tipIso, "zh");
   if (!zhTip.includes("week-bullet-check") || !zhTip.includes("標記完成")) {
     fail("zh tip freeze should include claimable checkboxes", zhTip.match(/week-bullet-claim[\s\S]{0,80}/)?.[0]);
+  }
+}
+
+// Freeze money/business CTAs — same locale paths as home discovery; players ticking
+// a week should reach cited earning guides without scrolling to related/footer.
+{
+  const money = freezeMoneyGuideLinkHtml("en");
+  if (!money.includes('id="archiveMoneyGuideLink"') || !money.includes('href="/guides/money/"')) {
+    fail("freeze money link en", money);
+  }
+  const biz = freezeBusinessGuideLinkHtml("en");
+  if (!biz.includes('id="archiveBusinessGuideLink"') || !biz.includes('href="/guides/businesses/"')) {
+    fail("freeze business link en", biz);
+  }
+  const tipIso = weeks[0].week;
+  const tipBody = weekFreezeBodyHtml(site, tipIso, "en");
+  if (!tipBody.includes('id="archiveMoneyGuideLink"') || !tipBody.includes("/guides/money/")) {
+    fail("tip freeze body missing money CTA", tipBody.match(/archiveMoney[\s\S]{0,80}/)?.[0]);
+  }
+  if (!tipBody.includes('id="archiveBusinessGuideLink"') || !tipBody.includes("/guides/businesses/")) {
+    fail("tip freeze body missing business CTA", tipBody.match(/archiveBusiness[\s\S]{0,80}/)?.[0]);
+  }
+  // CTAs sit inside the bullets section (before outbound), not only in related/footer.
+  const bulletsEnd = tipBody.indexOf("archive-outbound");
+  const moneyAt = tipBody.indexOf("archiveMoneyGuideLink");
+  if (bulletsEnd < 0 || moneyAt < 0 || moneyAt > bulletsEnd) {
+    fail("money CTA must appear before outbound section", { moneyAt, bulletsEnd });
+  }
+  const zhBody = weekFreezeBodyHtml(site, tipIso, "zh");
+  if (!zhBody.includes("/zh/guides/money/") || !zhBody.includes("/zh/guides/businesses/")) {
+    fail("zh freeze guide locale paths", zhBody.match(/archive-(?:money|business)-link[\s\S]{0,120}/)?.[0]);
+  }
+  if (weeks.length > 1) {
+    const olderBody = weekFreezeBodyHtml(site, weeks[1].week, "en");
+    if (!olderBody.includes("archiveMoneyGuideLink") || !olderBody.includes("archiveBusinessGuideLink")) {
+      fail("older freezes still need earning-guide CTAs", olderBody.slice(0, 200));
+    }
   }
 }
 
