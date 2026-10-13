@@ -332,6 +332,15 @@ export function archiveWeekPagerHtml(data, weekIso, lang = "en") {
   </nav>`;
 }
 
+/** Callout when viewing an older freeze — links tip of listArchiveWeeks only. */
+export function archiveJumpLatestHtml(data, weekIso, lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const tip = latestArchiveWeek(data);
+  if (!tip?.week || tip.week === weekIso) return "";
+  const href = weekPagePath(tip.week, ui);
+  return `<p class="archive-jump-latest"><a href="${esc(href)}">${esc(t("archiveJumpLatest", { week: tip.week }, ui))}</a></p>`;
+}
+
 export function weekFreezeBodyHtml(data, weekIso, lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
   const ref = weekRefDate(weekIso);
@@ -352,6 +361,7 @@ export function weekFreezeBodyHtml(data, weekIso, lang = "en") {
     : "";
 
   return `${heading}
+    ${archiveJumpLatestHtml(data, weekIso, ui)}
     <section class="week-short archive-freeze-short" aria-labelledby="archiveShortHeading">
       <div class="week-panel-kicker">
         <strong id="archiveShortHeading" data-i18n="archiveShortKicker">${esc(t("archiveShortKicker", {}, ui))}</strong>

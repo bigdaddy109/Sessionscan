@@ -1744,6 +1744,19 @@ main {
   color: var(--muted);
   line-height: 1.45;
 }
+.archive-jump-latest {
+  margin: 0 0 16px;
+  font-size: 14px;
+}
+.archive-jump-latest a {
+  color: var(--mint);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--mint) 45%, transparent);
+}
+.archive-jump-latest a:hover {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+}
 .archive-feed-link {
   margin: 10px 0 0;
   font-size: 14px;

@@ -70,6 +70,7 @@ export const UI = {
     archivePagerAria: "Adjacent archived weeks",
     archivePagerOlder: "← Older · {week}",
     archivePagerNewer: "Newer · {week} →",
+    archiveJumpLatest: "View latest freeze · {week} ↗",
     archiveBackToIndex: "← All archived weeks",
     pageMoneyTitle: "Money guide | SessionScan",
     pageMoneyDesc:
@@ -355,6 +356,7 @@ export const UI = {
     archivePagerAria: "相鄰封存週",
     archivePagerOlder: "← 較舊 · {week}",
     archivePagerNewer: "較新 · {week} →",
+    archiveJumpLatest: "打開最新凍結週 · {week} ↗",
     archiveBackToIndex: "← 全部封存週",
     pageMoneyTitle: "賺錢指南｜SessionScan",
     pageMoneyDesc:
