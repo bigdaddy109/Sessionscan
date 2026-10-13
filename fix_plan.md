@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- Home「本週賺錢與工作」區連到 `/guides/businesses/`（`homeBusinessGuideLinkHtml`／`injectHomeBusinessGuideLink`；生意頁 `businessWeekLink` 互連；#83；等研發程式 「可以合 #83」後再合）。測 `tests/test_business_ranking.mjs`。Rollback：`pre-home-business-link-20261013`。
+- Home 週更倒數旁連到 `/gta6/`（`homeGta6LinkHtml`／`injectHomeGta6Link`；gta6 頁 `gta6HomeLink` 互連；#84；等研發程式 「可以合 #84」後再合）。測 `tests/test_gta6_page.mjs`。Rollback：`pre-home-gta6-link-20261013`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
@@ -14,6 +14,7 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- Home「本週賺錢與工作」區連到 `/guides/businesses/`（`homeBusinessGuideLinkHtml`／`injectHomeBusinessGuideLink`；#83；rollback `pre-home-business-link-20261013`；核准：研發程式 「可以合 #83」）。測 `tests/test_business_ranking.mjs`。
 - Home「本週賺錢與工作」區連到 `/guides/money/`（`homeMoneyGuideLinkHtml`／`injectHomeMoneyGuideLink`；#82；rollback `pre-home-money-link-20261013`；核准：研發程式 「可以合 #82」）。測 `tests/test_money_guide.mjs`。
 - Home／tip 凍結「清除勾選」（`clearClaimedIds`；#81；rollback `pre-clear-week-claimed-20261013`；核准：研發程式 「可以合 #81」）。測 `tests/test_this_week_home.mjs`、`tests/test_week_archive.mjs`。
 - Home／tip 凍結 claimed 進度「Claimed X of Y」（`countClaimedProgress`／`formatClaimedProgress`；#80；rollback `pre-home-claimed-progress-20261013`；核准：研發程式 「可以合 #80」）。測 `tests/test_this_week_home.mjs`、`tests/test_week_archive.mjs`。

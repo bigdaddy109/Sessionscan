@@ -15,6 +15,8 @@ import {
   gta6CountdownScript,
   gta6PageJsonLd,
   gta6ReleaseAt,
+  homeGta6LinkHtml,
+  injectHomeGta6Link,
   renderGta6PageBody,
 } from "../src/gta6Page.js";
 import { countdownParts } from "../src/thisWeekHome.js";
@@ -106,10 +108,60 @@ if (existsSync(distEn)) {
   const dist = readFileSync(distEn, "utf8");
   if (!dist.includes("gta6CountdownDisplay")) fail("dist EN missing countdown");
   if (!dist.includes('"@type":"Event"')) fail("dist EN missing Event JSON-LD");
+  if (!dist.includes("gta6-home-link") || !dist.includes('href="/"')) {
+    fail("dist EN missing gta6HomeLink");
+  }
 }
 if (existsSync(distZh)) {
   const dist = readFileSync(distZh, "utf8");
   if (!dist.includes("官方上市日倒數")) fail("dist ZH missing kicker");
+  if (!dist.includes('href="/zh/"') || !dist.includes("首頁本週")) {
+    fail("dist ZH missing gta6HomeLink");
+  }
+}
+
+// Why: players near the weekly countdown need a durable CTA to the official
+// GTA 6 page (not the conditional banner schedule line); path must stay locale-correct.
+if (!body.includes("gta6-home-link") || !body.includes('href="/"')) {
+  fail("EN body missing gta6HomeLink");
+}
+if (!zhBody.includes('href="/zh/"') || !zhBody.includes("首頁本週")) {
+  fail("zh body missing gta6HomeLink");
+}
+const homeEn = homeGta6LinkHtml("en");
+if (!homeEn.includes('id="homeGta6Link"') || !homeEn.includes('href="/gta6/"')) {
+  fail("home gta6 link en", homeEn);
+}
+if (!homeEn.includes("GTA 6 official countdown")) fail("home gta6 en copy");
+const homeZh = homeGta6LinkHtml("zh");
+if (!homeZh.includes('href="/zh/gta6/"') || !homeZh.includes("官方上市日倒數")) {
+  fail("home gta6 link zh", homeZh);
+}
+const shell = `<aside class="week-countdown" id="weekCountdown"><p>—</p></aside>
+    <section class="week-short" id="weekShort"></section>`;
+const injected = injectHomeGta6Link(shell, { lang: "en" });
+if (!injected.includes('id="homeGta6Link"') || !injected.includes('href="/gta6/"')) {
+  fail("injectHomeGta6Link under weekCountdown", injected);
+}
+const zhInjected = injectHomeGta6Link(
+  `<p class="home-gta6-link" id="homeGta6Link"><a href="/gta6/">x</a></p>`,
+  { lang: "zh" },
+);
+if (!zhInjected.includes('href="/zh/gta6/"')) fail("inject replaces zh href", zhInjected);
+
+const distHome = resolve(root, "dist/index.html");
+const distZhHome = resolve(root, "dist/zh/index.html");
+if (existsSync(distHome)) {
+  const home = readFileSync(distHome, "utf8");
+  if (!home.includes('id="homeGta6Link"') || !home.includes('href="/gta6/"')) {
+    fail("dist home missing gta6 link");
+  }
+}
+if (existsSync(distZhHome)) {
+  const zhHome = readFileSync(distZhHome, "utf8");
+  if (!zhHome.includes('href="/zh/gta6/"') || !zhHome.includes("官方上市日倒數")) {
+    fail("dist zh home missing gta6 link");
+  }
 }
 
 console.log("test_gta6_page: ok");

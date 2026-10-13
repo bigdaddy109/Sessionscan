@@ -10,6 +10,7 @@ import {
   renderSitePage,
 } from "./src/sitePages.js";
 import { injectHomeBusinessGuideLink } from "./src/businessRanking.js";
+import { injectHomeGta6Link } from "./src/gta6Page.js";
 import { injectHomeMoneyGuideLink } from "./src/moneyGuide.js";
 import { injectJobListHtml, renderStaticHomeJobList } from "./src/staticHomeJobs.js";
 import {
@@ -40,6 +41,7 @@ function injectStaticJobs() {
       out = injectHomeAtomDiscovery(out, { lang: "en" });
       out = injectHomeMoneyGuideLink(out, { lang: "en" });
       out = injectHomeBusinessGuideLink(out, { lang: "en" });
+      out = injectHomeGta6Link(out, { lang: "en" });
       return out;
     },
   };

@@ -160,5 +160,38 @@ export function renderGta6PageBody(lang = "en", now = new Date()) {
       <ul class="page-links">
         <li><a href="${esc(GTA6_OFFICIAL_URL)}" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6Official", {}, ui))}</a></li>
         <li><a href="${esc(GTA6_NEWSWIRE_URL)}" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6Newswire", {}, ui))}</a></li>
-      </ul>`;
+      </ul>
+      <p class="gta6-home-link"><a href="${esc(ui === "zh" ? "/zh/" : "/")}">${esc(t("gta6HomeLink", {}, ui))}</a></p>`;
+}
+
+/** Home → `/gta6/` discovery link (reciprocal of gta6HomeLink). */
+export function homeGta6LinkHtml(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const href = ui === "zh" ? "/zh/gta6/" : "/gta6/";
+  return `<p class="home-gta6-link" id="homeGta6Link"><a href="${esc(href)}" data-i18n="homeGta6Link">${esc(t("homeGta6Link", {}, ui))}</a></p>`;
+}
+
+/**
+ * Inject home GTA 6 discovery under #weekCountdown.
+ * Single source with gta6 page path — never invents a path.
+ */
+export function injectHomeGta6Link(html, { lang = "en" } = {}) {
+  let out = String(html || "");
+  const ui = lang === "zh" ? "zh" : "en";
+  const body = homeGta6LinkHtml(ui);
+  if (/id="homeGta6Link"/.test(out)) {
+    out = out.replace(/<p class="home-gta6-link"[^>]*>[\s\S]*?<\/p>/, body);
+  } else if (/id="weekCountdown"/.test(out)) {
+    out = out.replace(
+      /(<\/aside>\s*)(?=<section class="week-short")/,
+      `$1    ${body}\n    `,
+    );
+    if (!/id="homeGta6Link"/.test(out)) {
+      out = out.replace(
+        /(<aside class="week-countdown"[^>]*>[\s\S]*?<\/aside>)/,
+        `$1\n    ${body}`,
+      );
+    }
+  }
+  return out;
 }
