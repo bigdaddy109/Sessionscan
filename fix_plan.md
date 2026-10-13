@@ -2,16 +2,17 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- GTA 6 `/gta6/` 官方上市日倒數＋Event JSON-LD（`src/gta6Page.js`）— PR 開好後等 Jeff 「可以合 #N」再合；rollback tag `pre-gta6-official-countdown-20261013`。
+（目前無開放項目 — 其他 PR 等研發程式 「可以合 #N」後再合。）
 
 ## 合併後跟進（非本 PR）
 
-- Faster fetch Worker：`fast.yml` 已在 main；合併 `workers/dispatch-fast-scrape/` 後 Jeff 在 Cloudflare 設 `GITHUB_PAT`（fine-grained、Actions write）並 `wrangler deploy`（cron 每 2h `workflow_dispatch`）。勿把 PAT 寫進 git。可用 `gh workflow run "fast scrape" --ref main -f source=manual` 先驗 data commit＋Pages `workflow_run`。觀測：2026-10-13 僅見 1 次手動 `fast scrape`，2h Worker cron 尚未上線。
-- Owned YouTube WebSub：合併後 Jeff 部署 `workers/youtube-websub/`（`wrangler deploy` + `GITHUB_PAT`／`HUB_SECRET`／`CALLBACK_URL`），向 `pubsubhubbub.appspot.com` 訂閱 topic `feeds/videos.xml?channel_id=UCfpCdZdtCdCFNXuEW9xvZcQ`，再上傳一支 Short 驗 `owned-refresh` 有跑、`data` 有更新、Pages `workflow_run` 有部署。不依賴付費 X／Data API。預設仍 dispatch `owned-refresh.yml`（`--owned-only`）；若要改走完整 fast scrape 可設 Worker `WORKFLOW_FILE=fast.yml`。觀測：2026-10-13 `owned-refresh` 尚無 run。
+- Faster fetch Worker：`fast.yml` 已在 main；Worker 已部署但 cron 未穩定觸發（見 worker-health-2026-10-13）。CF 帳號持有人查 logs／`GITHUB_PAT`／redeploy。可用 `gh workflow run "fast scrape" --ref main -f source=manual` 先驗 data＋Pages。
+- Owned YouTube WebSub：Worker `/health`＋`POST /renew` 已通；`owned-refresh` 尚無 run。CF 帳號持有人確認 secrets 後上傳一支 owned Short 驗 push→deploy。
 - Instagram header 按鈕：合併後在 https://sessionscan.net `/` 與 `/zh/` 用手機寬度驗 header 不溢位、IG 開新分頁、JSON-LD `sameAs` 含 Instagram。
-- 行動版 sticky header／site-nav：合併本 PR 後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
+- 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- GTA 6 `/gta6/` 官方上市日倒數＋Event JSON-LD（`src/gta6Page.js`；#62；rollback `pre-gta6-official-countdown-20261013`；核准：研發程式 「可以合 #62」）。測 `tests/test_gta6_page.mjs`。
 - A11y Label in Name（daily 2026-10-13）：IG／X `aria-label` 含可見文案（`Follow on Instagram · IG`／`Follow on X @…`＋zh）；Short／video play 按鈕移出 rank、以 CSS 三角取代 `▶` 文字，消 Lighthouse `label-content-name-mismatch`。測 `tests/test_i18n.mjs`、`tests/test_video_pages.mjs`。
 - Phase C cross-links：home＋Archive／Money／Businesses 互連（`relatedPagesHtml`／`footerGuidesHtml`）；sitemap 含 EN／zh；`WebSite.hasPart`＋頁級 `relatedLink`（無 SearchAction）；測 `tests/test_site_pages.mjs`。
 - Phase C Money：`/guides/money/`（＋`/zh/`）有出處 GTA$ 分紅排序＋簡易 $/hr 計算機（`src/moneyGuide.js`）；stub 移除；測 `tests/test_money_guide.mjs`；live-verify 手機寬度 stub 已消失（`2b72932`／calc fix `2c81da1`）。
