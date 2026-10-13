@@ -21,6 +21,7 @@ import {
   absoluteUrl,
   breadcrumbsNavHtml,
   footerGuidesHtml,
+  primaryNavHtml,
   relatedPagesHtml,
   staticSitemapUrls,
 } from "./sitePages.js";
@@ -494,6 +495,7 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
         </nav>
         <a class="header-home-link" data-home-link data-i18n="videoHome" href="${esc(home)}">${esc(t("videoHome", {}, ui))}</a>
       </div>
+      ${primaryNavHtml(ui, "")}
     </header>
     <main class="video-page-main" id="video">
       ${crumbsHtml}
