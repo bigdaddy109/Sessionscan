@@ -141,6 +141,17 @@ if (!weekPage?.relatedLink?.includes("https://sessionscan.net/guides/money/")) {
 if (!weekPage?.relatedLink?.includes("https://sessionscan.net/guides/businesses/")) {
   fail("week WebPage relatedLink → businesses");
 }
+// BreadcrumbList on shell pages — Home → Archive (SEO trail; no invented paths).
+const weekCrumbs = weekLd?.["@graph"]?.find((n) => n["@type"] === "BreadcrumbList");
+if (!weekCrumbs?.itemListElement?.length) fail("week BreadcrumbList missing");
+const weekCrumbUrls = weekCrumbs.itemListElement.map((it) => it.item);
+if (weekCrumbUrls[0] !== "https://sessionscan.net/" || weekCrumbUrls.at(-1) !== "https://sessionscan.net/week/") {
+  fail("week breadcrumb Home → Archive", weekCrumbUrls);
+}
+const aboutCrumbs = aboutLd?.["@graph"]?.find((n) => n["@type"] === "BreadcrumbList");
+if (!aboutCrumbs?.itemListElement?.some((it) => it.item === "https://sessionscan.net/about/")) {
+  fail("about BreadcrumbList current page");
+}
 const moneyLd = parseJsonLdScripts(money).find((b) => b["@graph"]);
 const moneyPageNode = moneyLd?.["@graph"]?.find((n) => n["@type"] === "WebPage");
 if (!moneyPageNode?.relatedLink?.includes("https://sessionscan.net/zh/week/")) {

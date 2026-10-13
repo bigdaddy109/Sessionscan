@@ -9,6 +9,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { snapshotNow } from "../src/homeExtras.js";
 import { buildWeekBullets } from "../src/thisWeekHome.js";
+import { parseJsonLdScripts } from "../src/structuredData.js";
 import {
   ARCHIVE_ATOM_PATH,
   archiveAdjacentWeeks,
@@ -240,6 +241,18 @@ if (weeks.length > 1) {
     faviconHref: "../../../favicon.svg",
   });
   if (tipFreezeEn.includes("archive-jump-latest")) fail("tip freeze HTML must omit jump");
+
+  // Freeze BreadcrumbList: Home → Archive → week (real tip key only).
+  const freezeLd = parseJsonLdScripts(tipFreezeEn).find((b) => b["@graph"]);
+  const crumbs = freezeLd?.["@graph"]?.find((n) => n["@type"] === "BreadcrumbList");
+  const crumbUrls = (crumbs?.itemListElement || []).map((it) => it.item);
+  if (crumbUrls.length !== 3) fail("freeze breadcrumb depth", crumbUrls);
+  if (crumbUrls[0] !== "https://sessionscan.net/" || crumbUrls[1] !== "https://sessionscan.net/week/") {
+    fail("freeze breadcrumb Home → Archive", crumbUrls);
+  }
+  if (crumbUrls[2] !== `https://sessionscan.net/week/${weeks[0].week}/`) {
+    fail("freeze breadcrumb current week", crumbUrls);
+  }
 }
 
 console.log("test_week_archive.mjs ok", weeks.length, "weeks");

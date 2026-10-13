@@ -104,6 +104,25 @@ export function videoObjectJsonLd(video, { lang = "en", description } = {}) {
   return out;
 }
 
+/** BreadcrumbList from [{ name, url }, …] — Home → … → current. */
+export function breadcrumbListJsonLd(items) {
+  const list = (Array.isArray(items) ? items : [])
+    .filter((it) => it?.name && it?.url)
+    .map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: String(it.name),
+      item: String(it.url),
+    }));
+  if (!list.length) return null;
+  const last = list[list.length - 1];
+  return {
+    "@type": "BreadcrumbList",
+    "@id": `${last.item}#breadcrumb`,
+    itemListElement: list,
+  };
+}
+
 export function jsonLdScript(id, data) {
   if (!data) return "";
   const raw = JSON.stringify(data);

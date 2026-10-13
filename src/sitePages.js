@@ -22,6 +22,7 @@ import { fontHeadLinks } from "./fontLinks.js";
 import {
   INSTAGRAM_URL,
   YOUTUBE_CHANNEL_URL,
+  breadcrumbListJsonLd,
   jsonLdScript,
   organizationJsonLd,
 } from "./structuredData.js";
@@ -330,28 +331,60 @@ function relatedLinkUrls(lang = "en", excludeId = "") {
   return crossLinkPageRefs(lang, { excludeId }).map((ref) => ref.url);
 }
 
-export function webPageJsonLd(page, lang = "en", { name, description } = {}) {
-  if (page?.id === "money") return moneyGuideJsonLd(lang);
-  if (page?.id === "businesses") return businessesPageJsonLd(lang);
-  if (page?.id === "gta6") return gta6PageJsonLd(lang);
+/** Home → page (→ freeze week when week-freeze). Never invents paths. */
+export function shellBreadcrumbItems(page, lang = "en", { name } = {}) {
   const ui = lang === "zh" ? "zh" : "en";
-  const url = absoluteUrl(page.path, ui);
-  const related = relatedLinkUrls(ui, page?.id);
-  const webpage = {
-    "@type": "WebPage",
-    "@id": `${url}#webpage`,
-    name: name || t(page.titleKey, {}, ui),
-    description: description || t(page.descKey, {}, ui),
-    url,
-    inLanguage: htmlLang(ui),
-    isPartOf: { "@id": `${localeHome(ui)}#website` },
-    publisher: { "@id": `${SITE_ORIGIN}/#organization` },
-  };
-  if (related.length) webpage.relatedLink = related;
-  return {
-    "@context": "https://schema.org",
-    "@graph": [webpage, organizationJsonLd()],
-  };
+  if (!page?.path) return [];
+  const crumbs = [{ name: t("videoHome", {}, ui), url: localeHome(ui) }];
+  if (page.id === "week-freeze") {
+    crumbs.push({ name: t("navArchive", {}, ui), url: absoluteUrl("week/", ui) });
+    crumbs.push({
+      name: name || t("archiveWeekHeading", { week: String(page.path).replace(/^week\/|\/$/g, "") }, ui),
+      url: absoluteUrl(page.path, ui),
+    });
+    return crumbs;
+  }
+  const label = page.navKey ? t(page.navKey, {}, ui) : name || t(page.titleKey, {}, ui);
+  crumbs.push({ name: label, url: absoluteUrl(page.path, ui) });
+  return crumbs;
+}
+
+function withBreadcrumbGraph(ld, page, lang, { name } = {}) {
+  if (!ld || typeof ld !== "object") return ld;
+  const crumbs = shellBreadcrumbItems(page, lang, { name });
+  const breadcrumb = breadcrumbListJsonLd(crumbs);
+  if (!breadcrumb) return ld;
+  const graph = Array.isArray(ld["@graph"]) ? [...ld["@graph"]] : [];
+  if (!graph.some((n) => n?.["@type"] === "BreadcrumbList")) graph.push(breadcrumb);
+  return { ...ld, "@graph": graph };
+}
+
+export function webPageJsonLd(page, lang = "en", { name, description } = {}) {
+  let ld;
+  if (page?.id === "money") ld = moneyGuideJsonLd(lang);
+  else if (page?.id === "businesses") ld = businessesPageJsonLd(lang);
+  else if (page?.id === "gta6") ld = gta6PageJsonLd(lang);
+  else {
+    const ui = lang === "zh" ? "zh" : "en";
+    const url = absoluteUrl(page.path, ui);
+    const related = relatedLinkUrls(ui, page?.id);
+    const webpage = {
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      name: name || t(page.titleKey, {}, ui),
+      description: description || t(page.descKey, {}, ui),
+      url,
+      inLanguage: htmlLang(ui),
+      isPartOf: { "@id": `${localeHome(ui)}#website` },
+      publisher: { "@id": `${SITE_ORIGIN}/#organization` },
+    };
+    if (related.length) webpage.relatedLink = related;
+    ld = {
+      "@context": "https://schema.org",
+      "@graph": [webpage, organizationJsonLd()],
+    };
+  }
+  return withBreadcrumbGraph(ld, page, lang, { name });
 }
 
 export function staticSitemapUrls() {
