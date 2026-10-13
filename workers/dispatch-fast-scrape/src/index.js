@@ -62,7 +62,41 @@ export async function dispatchFastScrape(env, fetchImpl = fetch) {
   return { ok: true, status: res.status };
 }
 
+/**
+ * Liveness response for ops probes (DNS alone is not enough — without a
+ * `fetch` handler Cloudflare returns 1101 on every HTTP path).
+ * @param {object} [env]
+ */
+export function healthPayload(env = {}) {
+  return {
+    ok: true,
+    service: "sessionscan-dispatch-fast-scrape",
+    cron: CRON_EVERY_2H,
+    workflow: env.WORKFLOW_FILE || DEFAULT_WORKFLOW_FILE,
+    ref: env.GITHUB_REF || DEFAULT_REF,
+    // Never echo the PAT — only whether the secret slot is present.
+    hasGithubPat: Boolean(env.GITHUB_PAT),
+  };
+}
+
 export default {
+  /**
+   * HTTP entry — `/health` for ops probes. Other paths 404.
+   * Cron is still the only dispatch trigger (no public fire endpoint).
+   * @param {Request} request
+   * @param {object} env
+   */
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    if (url.pathname === "/health" || url.pathname === "/health/") {
+      return Response.json(healthPayload(env), {
+        status: 200,
+        headers: { "cache-control": "no-store" },
+      });
+    }
+    return new Response("not found", { status: 404 });
+  },
+
   /**
    * Cron entry — Cloudflare Scheduled Event.
    * @param {ScheduledEvent} _controller

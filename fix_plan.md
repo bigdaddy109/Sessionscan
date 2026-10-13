@@ -8,12 +8,13 @@
 
 ## 合併後跟進（非本 PR）
 
-- Faster fetch Worker：`fast.yml` 已在 main；Worker 已部署但 cron 未穩定觸發（見 worker-health-2026-10-13）。CF 帳號持有人查 logs／`GITHUB_PAT`／redeploy。可用 `gh workflow run "fast scrape" --ref main -f source=manual` 先驗 data＋Pages。
+- Faster fetch Worker：程式含 `GET /health`（#63）後仍需 CF 帳號持有人 `wrangler deploy`＋確認 cron／`GITHUB_PAT`（見 `docs/cf-fast-worker-handoff.md`；health 2026-10-13：~26h 無 cron）。可用 `gh workflow run "fast scrape" --ref main -f source=manual` 先驗 data＋Pages。
 - Owned YouTube WebSub：Worker `/health`＋`POST /renew` 已通；`owned-refresh` 尚無 run。CF 帳號持有人確認 secrets 後上傳一支 owned Short 驗 push→deploy。
 - Instagram header 按鈕：合併後在 https://sessionscan.net `/` 與 `/zh/` 用手機寬度驗 header 不溢位、IG 開新分頁、JSON-LD `sameAs` 含 Instagram。
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- Fast Worker `GET /health`（`workers/dispatch-fast-scrape`；#63；rollback `pre-fast-worker-health-20261013`；核准：研發程式 「可以合 #63」）。合後仍需 CF redeploy。測 `tests/test_dispatch_fast_scrape_worker.mjs`。
 - GTA 6 `/gta6/` 官方上市日倒數＋Event JSON-LD（`src/gta6Page.js`；#62；rollback `pre-gta6-official-countdown-20261013`；核准：研發程式 「可以合 #62」）。測 `tests/test_gta6_page.mjs`。
 - A11y Label in Name（daily 2026-10-13）：IG／X `aria-label` 含可見文案（`Follow on Instagram · IG`／`Follow on X @…`＋zh）；Short／video play 按鈕移出 rank、以 CSS 三角取代 `▶` 文字，消 Lighthouse `label-content-name-mismatch`。測 `tests/test_i18n.mjs`、`tests/test_video_pages.mjs`。
 - Phase C cross-links：home＋Archive／Money／Businesses 互連（`relatedPagesHtml`／`footerGuidesHtml`）；sitemap 含 EN／zh；`WebSite.hasPart`＋頁級 `relatedLink`（無 SearchAction）；測 `tests/test_site_pages.mjs`。

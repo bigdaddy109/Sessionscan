@@ -8,13 +8,14 @@
 import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import {
+import worker, {
   CRON_EVERY_2H,
   DEFAULT_OWNER,
   DEFAULT_REPO,
   DEFAULT_REF,
   DEFAULT_WORKFLOW_FILE,
   dispatchFastScrape,
+  healthPayload,
 } from "../workers/dispatch-fast-scrape/src/index.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -94,5 +95,34 @@ try {
 } catch (err) {
   if (!String(err).includes("404")) fail("error should include status", err);
 }
+
+// HTTP /health must exist so CF probes stop returning 1101 (no-fetch module).
+if (typeof worker.fetch !== "function") fail("Worker must export fetch for /health");
+const healthEnv = { GITHUB_PAT: "x", WORKFLOW_FILE: "fast.yml" };
+const hp = healthPayload(healthEnv);
+if (!hp.ok || hp.cron !== CRON_EVERY_2H || hp.hasGithubPat !== true) {
+  fail("healthPayload shape", hp);
+}
+const healthRes = await worker.fetch(
+  new Request("https://example.workers.dev/health"),
+  healthEnv,
+);
+if (healthRes.status !== 200) fail("GET /health status", healthRes.status);
+const healthBody = await healthRes.json();
+if (healthBody.hasGithubPat !== true || healthBody.workflow !== "fast.yml") {
+  fail("GET /health body", healthBody);
+}
+// Must not leak the secret value (only a boolean flag).
+if (Object.values(healthBody).some((v) => v === "x" || v === healthEnv.GITHUB_PAT)) {
+  fail("health must not echo PAT value", healthBody);
+}
+const missing = healthPayload({});
+if (missing.hasGithubPat !== false) fail("missing PAT must report false");
+
+const notFound = await worker.fetch(
+  new Request("https://example.workers.dev/"),
+  {},
+);
+if (notFound.status !== 404) fail("non-health paths must 404", notFound.status);
 
 console.log("test_dispatch_fast_scrape_worker: ok");

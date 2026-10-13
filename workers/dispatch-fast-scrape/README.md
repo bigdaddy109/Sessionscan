@@ -43,7 +43,22 @@ Manual smoke (after `fast.yml` is on main): Cloudflare dashboard → Worker →
 Triggers → Cron → “Test”, or wait for the next `0 */2 * * *` UTC tick and check
 the Actions tab for a `fast scrape` run with `workflow_dispatch`.
 
+## HTTP health
+
+After deploy, `GET /health` returns JSON (`ok`, `cron`, `workflow`, `ref`,
+`hasGithubPat`). Without a `fetch` handler Cloudflare answers every path with
+error **1101** — so ops probes must hit `/health`, not `/`. There is **no**
+public HTTP trigger for `workflow_dispatch` (cron only).
+
+```bash
+curl -sS https://sessionscan-dispatch-fast-scrape.jeff-25f.workers.dev/health
+```
+
+`hasGithubPat: false` means re-run `wrangler secret put GITHUB_PAT`. Cron still
+needs a successful Actions `fast scrape` run to prove end-to-end freshness.
+
 ## Non-goals
 
 - No paid X API.
 - No scrape logic, WebSub, or Pages CI-skip in this Worker.
+- No unauthenticated HTTP dispatch endpoint.
