@@ -10,7 +10,9 @@ import { fileURLToPath } from "node:url";
 import { snapshotNow } from "../src/homeExtras.js";
 import { buildWeekBullets } from "../src/thisWeekHome.js";
 import {
+  archiveAdjacentWeeks,
   archiveSitemapUrls,
+  archiveWeekPagerHtml,
   latestArchiveLinkHtml,
   latestArchiveWeek,
   listArchiveWeeks,
@@ -120,6 +122,43 @@ if (!freeze.includes(`https://sessionscan.net/zh/week/${older.week}/`)) fail("fr
 if (freeze.includes("page-stub-flag")) fail("freeze not stub");
 if (!freeze.includes("archive-outbound") && !freeze.includes("archive-empty")) fail("freeze outbound section");
 if (!freeze.includes('data-nav="week"') || !freeze.includes('aria-current="page"')) fail("archive nav active");
+
+// Prev/next pager uses listArchiveWeeks adjacency only — never invents week keys.
+if (weeks.length > 1) {
+  const mid = weeks[Math.min(1, weeks.length - 1)];
+  const adj = archiveAdjacentWeeks(site, mid.week);
+  if (!adj.newer || adj.newer.week !== weeks[0].week) {
+    fail("mid freeze newer should be tip", { mid: mid.week, adj, tip: weeks[0].week });
+  }
+  if (weeks.length > 2) {
+    if (!adj.older || adj.older.week !== weeks[2].week) {
+      fail("mid freeze older should be weeks[2]", { mid: mid.week, adj, expected: weeks[2].week });
+    }
+  }
+  const tipAdj = archiveAdjacentWeeks(site, weeks[0].week);
+  if (tipAdj.newer) fail("newest freeze has no newer neighbor", tipAdj);
+  if (!tipAdj.older || tipAdj.older.week !== weeks[1].week) {
+    fail("newest freeze older is weeks[1]", tipAdj);
+  }
+  const pager = archiveWeekPagerHtml(site, mid.week, "en");
+  if (!pager.includes("archive-week-pager")) fail("pager nav missing", pager);
+  if (adj.older && !pager.includes(`rel="prev"`)) fail("pager missing rel=prev", pager);
+  if (adj.older && !pager.includes(weekPagePath(adj.older.week, "en"))) fail("pager older href", pager);
+  if (adj.newer && !pager.includes(`rel="next"`)) fail("pager missing rel=next", pager);
+  if (adj.newer && !pager.includes(weekPagePath(adj.newer.week, "en"))) fail("pager newer href", pager);
+  if (!freeze.includes("archive-week-pager")) fail("zh freeze missing pager");
+  if (!freeze.includes("較新") && !freeze.includes("較舊")) fail("zh pager copy", freeze.match(/archive-week-pager[\s\S]{0,200}/)?.[0]);
+  const tipFreeze = renderWeekFreezePage(site, weeks[0].week, {
+    lang: "en",
+    cssHref: "../../../assets/x.css",
+    faviconHref: "../../../favicon.svg",
+  });
+  if (!tipFreeze.includes("archive-pager-older") || tipFreeze.includes('rel="next"')) {
+    fail("tip freeze should only link older", tipFreeze.match(/archive-week-pager[\s\S]{0,240}/)?.[0]);
+  }
+  const unknownPager = archiveWeekPagerHtml(site, "1999-01-01", "en");
+  if (unknownPager) fail("unknown week must not invent pager", unknownPager);
+}
 
 const sm = archiveSitemapUrls(weeks);
 if (!sm.includes(`https://sessionscan.net/week/${weeks[0].week}/`)) fail("sitemap en week");

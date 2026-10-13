@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- `/week/` 索引最新週「Latest／最新」標記（`archiveIndexBodyHtml` 只標 `listArchiveWeeks` tip；等研發程式 「可以合」後再合）。測 `tests/test_week_archive.mjs`。Rollback：`pre-archive-latest-callout-20261013`。
+- `/week/YYYY-MM-DD/` 凍結頁相鄰週 prev／next（`archiveWeekPagerHtml`；只連 `listArchiveWeeks` 鄰居；等研發程式 「可以合」後再合）。測 `tests/test_week_archive.mjs`。Rollback：`pre-week-freeze-prev-next-20261013`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
@@ -14,6 +14,7 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- `/week/` 索引最新週「Latest／最新」標記（`archiveIndexBodyHtml`；#67；rollback `pre-archive-latest-callout-20261013`；核准：研發程式 「可以合 #67」）。測 `tests/test_week_archive.mjs`。
 - Home 本週區連到最新 `/week/YYYY-MM-DD/` 封存（`latestArchiveLinkHtml`；#66；rollback `pre-home-latest-archive-20261013`；核准：研發程式 「可以合 #66」）。測 `tests/test_week_archive.mjs`。
 - Home 本週 bullets「claimed」勾選（localStorage／Rockstar 週鍵；#64；rollback `pre-week-claimed-checklist-20261013`；核准：研發程式 「可以合 #64」）。測 `tests/test_this_week_home.mjs`。
 - Fast Worker `GET /health`（`workers/dispatch-fast-scrape`；#63；rollback `pre-fast-worker-health-20261013`；核准：研發程式 「可以合 #63」）。合後仍需 CF redeploy。測 `tests/test_dispatch_fast_scrape_worker.mjs`。

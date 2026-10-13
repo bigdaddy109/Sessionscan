@@ -263,6 +263,36 @@ export function archiveIndexBodyHtml(data, lang = "en") {
   return `${intro}${list}`;
 }
 
+/**
+ * Adjacent freeze weeks from listArchiveWeeks (newest-first).
+ * newer = closer to tip; older = further back. Never invents week keys.
+ */
+export function archiveAdjacentWeeks(data, weekIso) {
+  const weeks = listArchiveWeeks(data);
+  const idx = weeks.findIndex((w) => w.week === weekIso);
+  if (idx < 0) return { newer: null, older: null };
+  return {
+    newer: idx > 0 ? weeks[idx - 1] : null,
+    older: idx < weeks.length - 1 ? weeks[idx + 1] : null,
+  };
+}
+
+export function archiveWeekPagerHtml(data, weekIso, lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const { newer, older } = archiveAdjacentWeeks(data, weekIso);
+  if (!newer && !older) return "";
+  const olderLink = older
+    ? `<a class="archive-pager-older" rel="prev" href="${esc(weekPagePath(older.week, ui))}">${esc(t("archivePagerOlder", { week: older.week }, ui))}</a>`
+    : `<span class="archive-pager-older is-empty" aria-hidden="true"></span>`;
+  const newerLink = newer
+    ? `<a class="archive-pager-newer" rel="next" href="${esc(weekPagePath(newer.week, ui))}">${esc(t("archivePagerNewer", { week: newer.week }, ui))}</a>`
+    : `<span class="archive-pager-newer is-empty" aria-hidden="true"></span>`;
+  return `<nav class="archive-week-pager" aria-label="${esc(t("archivePagerAria", {}, ui))}">
+    ${olderLink}
+    ${newerLink}
+  </nav>`;
+}
+
 export function weekFreezeBodyHtml(data, weekIso, lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
   const ref = weekRefDate(weekIso);
@@ -308,6 +338,7 @@ export function weekFreezeBodyHtml(data, weekIso, lang = "en") {
       <a href="${esc(ytShare)}">YouTube utm</a> ·
       <a href="${esc(igShare)}">Instagram utm</a>
     </p>
+    ${archiveWeekPagerHtml(data, weekIso, ui)}
     <p class="page-home-link"><a href="${esc(indexHref)}">${esc(t("archiveBackToIndex", {}, ui))}</a></p>`;
 }
 

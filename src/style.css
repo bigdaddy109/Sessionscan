@@ -1839,6 +1839,32 @@ main {
   margin: 12px 0 0;
   color: var(--muted);
 }
+.archive-week-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 16px 0 0;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+}
+.archive-week-pager a {
+  color: var(--teal);
+  text-decoration: none;
+  min-width: 0;
+}
+.archive-week-pager a:hover {
+  color: var(--mint);
+  text-decoration: underline;
+}
+.archive-pager-newer {
+  margin-left: auto;
+  text-align: right;
+}
+.archive-pager-older.is-empty,
+.archive-pager-newer.is-empty {
+  flex: 1;
+}
 .archive-share-hint {
   margin: 8px 0 0;
   font-size: 13px;
