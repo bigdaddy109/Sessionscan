@@ -145,12 +145,34 @@ if (!weekPage?.relatedLink?.includes("https://sessionscan.net/guides/businesses/
 const weekCrumbs = weekLd?.["@graph"]?.find((n) => n["@type"] === "BreadcrumbList");
 if (!weekCrumbs?.itemListElement?.length) fail("week BreadcrumbList missing");
 const weekCrumbUrls = weekCrumbs.itemListElement.map((it) => it.item);
+const weekCrumbNames = weekCrumbs.itemListElement.map((it) => it.name);
 if (weekCrumbUrls[0] !== "https://sessionscan.net/" || weekCrumbUrls.at(-1) !== "https://sessionscan.net/week/") {
   fail("week breadcrumb Home → Archive", weekCrumbUrls);
+}
+if (weekCrumbNames[0] !== "Home" || weekCrumbNames[1] !== "Archive") {
+  fail("EN week breadcrumb names", weekCrumbNames);
+}
+for (let i = 0; i < weekCrumbs.itemListElement.length; i++) {
+  if (weekCrumbs.itemListElement[i].position !== i + 1) fail("week breadcrumb positions");
 }
 const aboutCrumbs = aboutLd?.["@graph"]?.find((n) => n["@type"] === "BreadcrumbList");
 if (!aboutCrumbs?.itemListElement?.some((it) => it.item === "https://sessionscan.net/about/")) {
   fail("about BreadcrumbList current page");
+}
+const zhWeekHtml = renderSitePage(SITE_PAGES.find((p) => p.id === "week"), {
+  lang: "zh",
+  cssHref: "../assets/x.css",
+  faviconHref: "../favicon.svg",
+});
+const zhWeekLd = parseJsonLdScripts(zhWeekHtml).find((b) => b["@graph"]);
+const zhWeekBc = zhWeekLd?.["@graph"]?.find((n) => n["@type"] === "BreadcrumbList");
+const zhWeekNames = (zhWeekBc?.itemListElement || []).map((it) => it.name);
+const zhWeekUrls = (zhWeekBc?.itemListElement || []).map((it) => it.item);
+if (zhWeekNames[0] !== "回首頁" || zhWeekNames[1] !== "週更封存") {
+  fail("ZH week breadcrumb names", zhWeekNames);
+}
+if (!zhWeekUrls.every((u) => String(u).startsWith("https://sessionscan.net/zh/"))) {
+  fail("ZH week crumb URLs under /zh/", zhWeekUrls);
 }
 const moneyLd = parseJsonLdScripts(money).find((b) => b["@graph"]);
 const moneyPageNode = moneyLd?.["@graph"]?.find((n) => n["@type"] === "WebPage");

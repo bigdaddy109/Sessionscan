@@ -245,13 +245,29 @@ if (weeks.length > 1) {
   // Freeze BreadcrumbList: Home → Archive → week (real tip key only).
   const freezeLd = parseJsonLdScripts(tipFreezeEn).find((b) => b["@graph"]);
   const crumbs = freezeLd?.["@graph"]?.find((n) => n["@type"] === "BreadcrumbList");
-  const crumbUrls = (crumbs?.itemListElement || []).map((it) => it.item);
+  const els = crumbs?.itemListElement || [];
+  const crumbUrls = els.map((it) => it.item);
   if (crumbUrls.length !== 3) fail("freeze breadcrumb depth", crumbUrls);
   if (crumbUrls[0] !== "https://sessionscan.net/" || crumbUrls[1] !== "https://sessionscan.net/week/") {
     fail("freeze breadcrumb Home → Archive", crumbUrls);
   }
   if (crumbUrls[2] !== `https://sessionscan.net/week/${weeks[0].week}/`) {
     fail("freeze breadcrumb current week", crumbUrls);
+  }
+  for (let i = 0; i < els.length; i++) {
+    if (els[i].position !== i + 1) fail("freeze breadcrumb positions", els);
+  }
+  if (els[2].name !== `Week of ${weeks[0].week}`) {
+    fail("EN freeze crumb uses archiveWeekHeading", els[2].name);
+  }
+  const zhFreezeLd = parseJsonLdScripts(freeze).find((b) => b["@graph"]);
+  const zhBc = zhFreezeLd?.["@graph"]?.find((n) => n["@type"] === "BreadcrumbList");
+  const zhNames = (zhBc?.itemListElement || []).map((it) => it.name);
+  if (!zhNames.includes("回首頁") || !zhNames.includes("週更封存")) {
+    fail("zh freeze breadcrumb localized names", zhNames);
+  }
+  if (zhNames.includes("Home") || zhNames.includes("Archive")) {
+    fail("zh freeze must not use EN crumb labels", zhNames);
   }
 }
 

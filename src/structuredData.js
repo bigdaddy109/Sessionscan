@@ -104,16 +104,37 @@ export function videoObjectJsonLd(video, { lang = "en", description } = {}) {
   return out;
 }
 
-/** BreadcrumbList from [{ name, url }, …] — Home → … → current. */
+const ABS_SITE_URL_RE = /^https:\/\/sessionscan\.net(?:\/zh)?\/(?:.*)?$/;
+
+/** Resolve crumb URL from string or `{ "@id"|url|item }`; require absolute sessionscan.net. */
+export function absoluteBreadcrumbItemUrl(raw) {
+  if (raw == null) return "";
+  if (typeof raw === "string") return raw.trim();
+  if (typeof raw === "object") {
+    const v = raw["@id"] || raw.url || raw.item || "";
+    return String(v).trim();
+  }
+  return "";
+}
+
+/** BreadcrumbList from [{ name, url }, …] — Home → … → current. Positions 1…n. */
 export function breadcrumbListJsonLd(items) {
-  const list = (Array.isArray(items) ? items : [])
-    .filter((it) => it?.name && it?.url)
-    .map((it, i) => ({
+  const list = [];
+  for (const it of Array.isArray(items) ? items : []) {
+    const name = String(it?.name || "").trim();
+    const item = absoluteBreadcrumbItemUrl(it?.url ?? it?.item ?? it?.["@id"]);
+    if (!name || !item) continue;
+    if (!ABS_SITE_URL_RE.test(item) || item.includes("..")) {
+      // Never emit relative or off-site crumb URLs into JSON-LD.
+      continue;
+    }
+    list.push({
       "@type": "ListItem",
-      position: i + 1,
-      name: String(it.name),
-      item: String(it.url),
-    }));
+      position: list.length + 1,
+      name,
+      item,
+    });
+  }
   if (!list.length) return null;
   const last = list[list.length - 1];
   return {

@@ -337,9 +337,13 @@ export function shellBreadcrumbItems(page, lang = "en", { name } = {}) {
   if (!page?.path) return [];
   const crumbs = [{ name: t("videoHome", {}, ui), url: localeHome(ui) }];
   if (page.id === "week-freeze") {
+    const weekIso = String(page.path || "").match(/week\/(\d{4}-\d{2}-\d{2})\//)?.[1] || "";
     crumbs.push({ name: t("navArchive", {}, ui), url: absoluteUrl("week/", ui) });
     crumbs.push({
-      name: name || t("archiveWeekHeading", { week: String(page.path).replace(/^week\/|\/$/g, "") }, ui),
+      // Prefer localized heading (not meta title) so EN/zh crumb names match the page H1.
+      name: weekIso
+        ? t("archiveWeekHeading", { week: weekIso }, ui)
+        : name || t(page.titleKey || "pageWeekHeading", {}, ui),
       url: absoluteUrl(page.path, ui),
     });
     return crumbs;
