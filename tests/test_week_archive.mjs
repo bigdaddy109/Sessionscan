@@ -13,9 +13,12 @@ import { parseJsonLdScripts } from "../src/structuredData.js";
 import {
   ARCHIVE_ATOM_PATH,
   archiveAdjacentWeeks,
+  archiveAtomAbsoluteUrl,
   archiveJumpLatestHtml,
   archiveSitemapUrls,
   archiveWeekPagerHtml,
+  homeArchiveFeedLinkHtml,
+  injectHomeAtomDiscovery,
   latestArchiveLinkHtml,
   latestArchiveWeek,
   listArchiveWeeks,
@@ -193,6 +196,45 @@ if (!zhLatest.includes(`/zh/week/${tip.week}/`)) fail("zh latest path", zhLatest
 const emptyHtml = latestArchiveLinkHtml({ jobs_gtabase: [], jobs_ign: [] }, "en");
 if (!emptyHtml.includes("/week/") || !emptyHtml.includes("is-empty")) {
   fail("empty hub falls back to archive index", emptyHtml);
+}
+
+// Home Atom discovery — same ARCHIVE_ATOM_PATH as /week/; never invents a feed URL.
+{
+  const feed = homeArchiveFeedLinkHtml("en");
+  if (!feed.includes(ARCHIVE_ATOM_PATH) || !feed.includes("application/atom+xml")) {
+    fail("home feed link path/type", feed);
+  }
+  if (!feed.includes('id="weekArchiveFeed"')) fail("home feed id", feed);
+  const zhFeed = homeArchiveFeedLinkHtml("zh");
+  if (!zhFeed.includes("封存週") && !zhFeed.includes("Atom")) fail("zh home feed copy", zhFeed);
+  const abs = archiveAtomAbsoluteUrl();
+  if (abs !== `https://sessionscan.net${ARCHIVE_ATOM_PATH}`) fail("atom absolute url", abs);
+  const shelled = injectHomeAtomDiscovery(
+    `<!DOCTYPE html><html><head></head><body><p class="week-archive-latest" id="weekArchiveLatest" hidden></p></body></html>`,
+    { lang: "en" },
+  );
+  if (!shelled.includes('rel="alternate"') || !shelled.includes(abs)) {
+    fail("injectHomeAtomDiscovery must add head alternate", shelled.slice(0, 280));
+  }
+  if (!shelled.includes('id="weekArchiveFeed"') || !shelled.includes(ARCHIVE_ATOM_PATH)) {
+    fail("injectHomeAtomDiscovery must add body feed link", shelled);
+  }
+  const indexSrc = readFileSync(resolve(root, "index.html"), "utf8");
+  if (!indexSrc.includes('id="weekArchiveFeed"') || !indexSrc.includes(ARCHIVE_ATOM_PATH)) {
+    fail("index.html must ship home Atom discovery without JS");
+  }
+  if (existsSync(resolve(root, "dist/index.html"))) {
+    const distHome = readFileSync(resolve(root, "dist/index.html"), "utf8");
+    if (!distHome.includes("application/atom+xml") || !distHome.includes(ARCHIVE_ATOM_PATH)) {
+      fail("dist home missing Atom discovery", distHome.match(/atom[\s\S]{0,80}/i)?.[0]);
+    }
+  }
+  if (existsSync(resolve(root, "dist/zh/index.html"))) {
+    const distZh = readFileSync(resolve(root, "dist/zh/index.html"), "utf8");
+    if (!distZh.includes(ARCHIVE_ATOM_PATH) || !distZh.includes("weekArchiveFeed")) {
+      fail("dist zh home missing Atom discovery");
+    }
+  }
 }
 
 // Atom feed — same listArchiveWeeks tip→older; never invents week keys.

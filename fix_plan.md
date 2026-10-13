@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- 最新凍結週 `/week/YYYY-MM-DD/` claimed 勾選（與 home 同源 localStorage；#78；等研發程式 「可以合 #78」後再合）。測 `tests/test_week_archive.mjs`。Rollback：`pre-freeze-claimed-checklist-20261013`。
+- Home 發現 `/week/feed.xml` Atom（`homeArchiveFeedLinkHtml`／`injectHomeAtomDiscovery`；等研發程式 「可以合」後再合）。測 `tests/test_week_archive.mjs`。Rollback：`pre-home-archive-atom-20261013`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
@@ -14,6 +14,7 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- 最新凍結週 `/week/YYYY-MM-DD/` claimed 勾選（與 home 同源 localStorage；#78；rollback `pre-freeze-claimed-checklist-20261013`；核准：研發程式 「可以合 #78」）。測 `tests/test_week_archive.mjs`。
 - `/v/{id}/`（＋`/zh/v/`）主站 `.site-nav`（`primaryNavHtml`；#77；rollback `pre-video-page-site-nav-20261013`；核准：研發程式 「可以合 #77」）。測 `tests/test_video_pages.mjs`。
 - `/v/{id}/`（＋`/zh/v/`）相關頁／頁尾攻略列（`relatedPagesHtml`／`footerGuidesHtml`；#76；rollback `pre-video-page-guides-20261013`；核准：研發程式 「可以合 #76」）。測 `tests/test_video_pages.mjs`。
 - `/zh/v/{id}/` 繁中分享頁（`renderVideoPage(..., lang:"zh")`＋sitemap hreflang；#75；rollback `pre-zh-video-pages-20261013`；核准：研發程式 「可以合 #75」）。測 `tests/test_video_pages.mjs`。

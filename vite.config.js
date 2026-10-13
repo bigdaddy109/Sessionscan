@@ -11,6 +11,7 @@ import {
 } from "./src/sitePages.js";
 import { injectJobListHtml, renderStaticHomeJobList } from "./src/staticHomeJobs.js";
 import {
+  injectHomeAtomDiscovery,
   matchWeekFreezePath,
   renderArchiveAtomFeed,
   renderArchiveIndexPage,
@@ -34,6 +35,7 @@ function injectStaticJobs() {
       const cards = renderStaticHomeJobList(loadHubJobs(), { lang: "en" });
       let out = injectJobListHtml(html, cards);
       out = injectHomeShell(out, { lang: "en" });
+      out = injectHomeAtomDiscovery(out, { lang: "en" });
       return out;
     },
   };
