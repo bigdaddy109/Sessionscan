@@ -12,11 +12,23 @@ import {
   fmtViews as fmtViewsI18n,
   htmlLang,
   langLabel as i18nLangLabel,
+  localeHome,
   ogLocale,
   t,
 } from "./i18n.js";
-import { SITE_PAGES, absoluteUrl, staticSitemapUrls } from "./sitePages.js";
-import { VIDEO_JSON_LD_ID, YOUTUBE_CHANNEL_URL, jsonLdScript, videoObjectJsonLd } from "./structuredData.js";
+import {
+  SITE_PAGES,
+  absoluteUrl,
+  breadcrumbsNavHtml,
+  staticSitemapUrls,
+} from "./sitePages.js";
+import {
+  VIDEO_JSON_LD_ID,
+  YOUTUBE_CHANNEL_URL,
+  breadcrumbListJsonLd,
+  jsonLdScript,
+  videoObjectJsonLd,
+} from "./structuredData.js";
 import { archiveSitemapUrls } from "./weekArchive.js";
 
 export const VIDEO_LIST_KEYS = [
@@ -152,6 +164,34 @@ export function fmtViews(n, ui = "en") {
 export function videoPageTitle(video, ui = "en") {
   const title = String(video?.title || "").trim();
   return title ? `${title} | SessionScan` : t("videoPageTitleFallback", {}, ui);
+}
+
+/** Home → video title; absolute sessionscan.net URLs for JSON-LD + visible crumbs. */
+export function videoBreadcrumbItems(video, lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const id = youtubeId(video);
+  const page = videoPageUrl(id);
+  if (!page) return [];
+  const name =
+    String(video?.title || "").trim() ||
+    t("videoUntitled", {}, ui) ||
+    t("videoPageTitleFallback", {}, ui);
+  return [
+    { name: t("videoHome", {}, ui), url: localeHome(ui) },
+    { name, url: page },
+  ];
+}
+
+/** VideoObject + BreadcrumbList in one @graph (same trail as visible nav). */
+export function videoPageJsonLd(video, { lang = "en", description } = {}) {
+  const vo = videoObjectJsonLd(video, { lang, description });
+  if (!vo) return null;
+  const { "@context": _ctx, ...videoNode } = vo;
+  const crumbs = videoBreadcrumbItems(video, lang);
+  const breadcrumb = breadcrumbListJsonLd(crumbs);
+  const graph = [videoNode];
+  if (breadcrumb) graph.push(breadcrumb);
+  return { "@context": "https://schema.org", "@graph": graph };
 }
 
 export function videoPageDescription(video, ui = "en") {
@@ -368,7 +408,12 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
   const css = cssHref || "../../assets/index.css";
   const icon = faviconHref || "../../favicon.svg";
   const home = ui === "zh" ? `${SITE_ORIGIN}/zh/` : `${SITE_ORIGIN}/`;
-  const jsonLd = jsonLdScript(VIDEO_JSON_LD_ID, videoObjectJsonLd(video, { lang: ui, description: desc }));
+  const crumbs = videoBreadcrumbItems(video, ui);
+  const crumbsHtml = breadcrumbsNavHtml(crumbs, ui);
+  const jsonLd = jsonLdScript(
+    VIDEO_JSON_LD_ID,
+    videoPageJsonLd(video, { lang: ui, description: desc }),
+  );
   return `<!DOCTYPE html>
 <html lang="${htmlLang(ui)}" data-ui-lang="${ui}">
   <head>
@@ -427,6 +472,7 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
       </div>
     </header>
     <main class="video-page-main" id="video">
+      ${crumbsHtml}
       ${videoCardHtml(video, ui)}
       <p class="video-page-links">
         <a class="watch-yt" data-i18n="videoWatch" href="${esc(video.url)}" target="_blank" rel="noopener noreferrer">${esc(t("videoWatch", {}, ui))}</a>

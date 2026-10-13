@@ -87,9 +87,14 @@ if (empty) fail("video without youtube id must not render");
 
 // Share pages must ship valid VideoObject JSON-LD so crawlers can read title, date, and embed from existing hub fields.
 let videoLd;
+let breadcrumbLd;
 try {
   const blocks = parseJsonLdScripts(html);
-  videoLd = blocks.find((block) => block["@type"] === "VideoObject");
+  const graphBlock = blocks.find((block) => Array.isArray(block["@graph"]));
+  const graph = graphBlock?.["@graph"] || [];
+  videoLd = graph.find((n) => n?.["@type"] === "VideoObject")
+    || blocks.find((block) => block["@type"] === "VideoObject");
+  breadcrumbLd = graph.find((n) => n?.["@type"] === "BreadcrumbList");
 } catch (err) {
   fail("share page JSON-LD must parse", err);
 }
@@ -103,6 +108,23 @@ if (videoLd.uploadDate !== video.date) fail("VideoObject uploadDate comes from h
 if (videoLd.contentUrl !== video.url) fail("VideoObject contentUrl comes from hub url", videoLd.contentUrl);
 if (!videoLd.thumbnailUrl.includes(video.video_id)) fail("VideoObject thumbnailUrl", videoLd.thumbnailUrl);
 if (!videoLd.embedUrl.includes(video.video_id)) fail("VideoObject embedUrl", videoLd.embedUrl);
+// Why: share pages need the same a11y breadcrumb contract as shell/freeze (#73) so
+// Home is one click away and the current title is not a self-link.
+if (!html.includes('<nav class="site-breadcrumbs" aria-label="Breadcrumb">')) {
+  fail("video page visible breadcrumbs nav aria-label");
+}
+const crumbNav = html.match(/<nav class="site-breadcrumbs"[\s\S]*?<\/nav>/)?.[0] || "";
+if (!crumbNav.includes('aria-current="page"') || /site-breadcrumbs-current[\s\S]*?<a\s/i.test(crumbNav)) {
+  fail("video current crumb not a link + aria-current", crumbNav);
+}
+if (!crumbNav.includes('href="/"') || !crumbNav.includes(video.title)) {
+  fail("video crumbs Home + title", crumbNav);
+}
+if (!breadcrumbLd?.itemListElement?.length) fail("video BreadcrumbList JSON-LD");
+const bcUrls = breadcrumbLd.itemListElement.map((it) => it.item);
+if (bcUrls[0] !== "https://sessionscan.net/" || !String(bcUrls[1] || "").includes(`/v/${video.video_id}/`)) {
+  fail("video BreadcrumbList absolute URLs", bcUrls);
+}
 if (HAS_SEARCH_URL_PARAM) fail("search is hash-only; do not advertise a SearchAction URL param");
 if (!html.includes("Subscribe on YouTube")) fail("share header/footer subscribe label");
 if (!html.includes("https://www.youtube.com/@sessionscan")) fail("share pages keep the owned YouTube URL");

@@ -363,14 +363,17 @@ function withBreadcrumbGraph(ld, page, lang, { name } = {}) {
   return { ...ld, "@graph": graph };
 }
 
-/** Visible trail matching shellBreadcrumbItems (same names; path hrefs). */
-export function shellBreadcrumbsHtml(page, lang = "en", { name } = {}) {
+/**
+ * Visible breadcrumb nav from [{ name, url }, …].
+ * Last crumb is never a link; marks aria-current="page".
+ */
+export function breadcrumbsNavHtml(crumbs, lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
-  const crumbs = shellBreadcrumbItems(page, lang, { name });
-  if (crumbs.length < 2) return "";
-  const lis = crumbs
+  const list = Array.isArray(crumbs) ? crumbs : [];
+  if (list.length < 2) return "";
+  const lis = list
     .map((c, i) => {
-      const last = i === crumbs.length - 1;
+      const last = i === list.length - 1;
       const href = String(c.url || "").replace(/^https:\/\/sessionscan\.net/, "") || "/";
       if (last) {
         return `<li class="site-breadcrumbs-current" aria-current="page"><span>${esc(c.name)}</span></li>`;
@@ -379,6 +382,11 @@ export function shellBreadcrumbsHtml(page, lang = "en", { name } = {}) {
     })
     .join("");
   return `<nav class="site-breadcrumbs" aria-label="${esc(t("breadcrumbsAria", {}, ui))}"><ol>${lis}</ol></nav>`;
+}
+
+/** Visible trail matching shellBreadcrumbItems (same names; path hrefs). */
+export function shellBreadcrumbsHtml(page, lang = "en", { name } = {}) {
+  return breadcrumbsNavHtml(shellBreadcrumbItems(page, lang, { name }), lang);
 }
 
 export function webPageJsonLd(page, lang = "en", { name, description } = {}) {
