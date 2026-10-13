@@ -101,7 +101,7 @@ python3 build_site.py
 完成門檻／合併政策：
 - 跑相關測試＋建置全過才 commit；無關測試壞了也要修或記入 fix_plan.md。
 - CI 全綠、變更已 commit、preview／本機驗證截圖備好 → 回報 PR 連結後**等待**；等的期間**不要合併**。CI 綠本身不夠。
-- Agent 可以自己合 PR，**僅限** Jeff（研發程式）明確說「可以合 #<n>」（或同等清楚點名該 PR 的核准）。沒有這句就等。
+- Agent 可以自己合 PR，**僅限** 研發程式明確說「可以合 #<n>」（或同等清楚點名該 PR 的核准）。沒有這句就等。
 - 等 review 期間可平行開另一 branch 做下一項。
 - 核准合併後：在 https://sessionscan.net 做 live-verify，再繼續下一個。
 收尾：
