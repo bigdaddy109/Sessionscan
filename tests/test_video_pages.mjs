@@ -11,6 +11,7 @@ import {
   thumbUrl,
   videoPageDescription,
 } from "../src/videoPages.js";
+import { videoPageUrl } from "../src/cardShare.js";
 import {
   HAS_SEARCH_URL_PARAM,
   parseJsonLdScripts,
@@ -78,9 +79,13 @@ if (!sitemap.includes("<loc>https://sessionscan.net/</loc>")) fail("sitemap home
 if (!sitemap.includes("<loc>https://sessionscan.net/zh/</loc>")) fail("sitemap zh homepage");
 if (!sitemap.includes('hreflang="zh-Hant"')) fail("sitemap hreflang");
 if (!sitemap.includes("<loc>https://sessionscan.net/v/5XBMNYmFmTs/</loc>")) fail("sitemap video url");
+if (!sitemap.includes("<loc>https://sessionscan.net/zh/v/5XBMNYmFmTs/</loc>")) fail("sitemap zh video url");
 if (!sitemap.includes("<loc>https://sessionscan.net/about/</loc>")) fail("sitemap about");
 if (!sitemap.includes("<loc>https://sessionscan.net/zh/guides/money/</loc>")) fail("sitemap zh money");
 if (sitemap.includes("dQw4w9WgXcQ")) fail("sample sitemap should not invent archive ids");
+if (!sitemap.includes(`hreflang="zh-Hant" href="${videoPageUrl("5XBMNYmFmTs", "zh")}"`)) {
+  fail("sitemap video hreflang zh-Hant");
+}
 
 const empty = renderVideoPage({ title: "no id" });
 if (empty) fail("video without youtube id must not render");
@@ -137,5 +142,36 @@ if (html.includes("▶</span></div>")) fail("video play chrome must not use ▶ 
 if (!html.includes('<div class="play" aria-hidden="true"><span></span></div>')) {
   fail("video play chrome uses empty span + CSS triangle");
 }
+
+// Why: #74 live gate asked for ZH video crumbs; /zh/v/{id}/ must ship with localized
+// nav + BreadcrumbList so Home → /zh/ and last crumb is not a self-link.
+const zhHtml = renderVideoPage(video, {
+  cssHref: "../../../assets/index-test.css",
+  faviconHref: "../../../favicon.svg",
+  lang: "zh",
+});
+if (!zhHtml.includes('lang="zh-Hant"') || !zhHtml.includes('data-ui-lang="zh"')) fail("zh video lang");
+if (!zhHtml.includes('aria-label="麵包屑導覽"')) fail("zh video breadcrumbs aria-label");
+const zhNav = zhHtml.match(/<nav class="site-breadcrumbs"[\s\S]*?<\/nav>/)?.[0] || "";
+if (!zhNav.includes('href="/zh/"') || !zhNav.includes("回首頁")) fail("zh video Home crumb", zhNav);
+if (!zhNav.includes('aria-current="page"') || /site-breadcrumbs-current[\s\S]*?<a\s/i.test(zhNav)) {
+  fail("zh video current crumb not a link", zhNav);
+}
+if (!zhHtml.includes(`rel="canonical" href="${videoPageUrl(video.video_id, "zh")}"`)) {
+  fail("zh video canonical");
+}
+if (!zhHtml.includes(`hreflang="en" href="${videoPageUrl(video.video_id, "en")}"`)) {
+  fail("zh video hreflang en peer");
+}
+const zhBlocks = parseJsonLdScripts(zhHtml);
+const zhGraph = zhBlocks.find((b) => Array.isArray(b["@graph"]))?.["@graph"] || [];
+const zhBc = zhGraph.find((n) => n?.["@type"] === "BreadcrumbList");
+const zhVo = zhGraph.find((n) => n?.["@type"] === "VideoObject");
+if (!zhVo || !zhBc) fail("zh video @graph VideoObject + BreadcrumbList");
+const zhBcUrls = (zhBc.itemListElement || []).map((it) => it.item);
+if (zhBcUrls[0] !== "https://sessionscan.net/zh/" || zhBcUrls[1] !== videoPageUrl(video.video_id, "zh")) {
+  fail("zh video BreadcrumbList absolute URLs", zhBcUrls);
+}
+if (zhVo.url !== videoPageUrl(video.video_id, "zh")) fail("zh VideoObject.url is locale page", zhVo.url);
 
 console.log("test_video_pages.mjs ok", fromSample.length, "sample videos");

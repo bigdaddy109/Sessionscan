@@ -170,7 +170,7 @@ export function videoPageTitle(video, ui = "en") {
 export function videoBreadcrumbItems(video, lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
   const id = youtubeId(video);
-  const page = videoPageUrl(id);
+  const page = videoPageUrl(id, ui);
   if (!page) return [];
   const name =
     String(video?.title || "").trim() ||
@@ -231,6 +231,10 @@ function sitemapAlternates(loc) {
     const zh = absoluteUrl(page.path, "zh");
     if (loc === en || loc === zh) return xhtmlLinks(en, zh);
   }
+  const videoId = String(loc || "").match(
+    /^https:\/\/sessionscan\.net(?:\/zh)?\/v\/([A-Za-z0-9_-]{11})\/$/,
+  )?.[1];
+  if (videoId) return xhtmlLinks(videoPageUrl(videoId, "en"), videoPageUrl(videoId, "zh"));
   return "";
 }
 
@@ -254,12 +258,19 @@ export function renderSitemap(urls) {
 }
 
 export function sitemapUrls(videos, { weeks } = {}) {
+  const videoLocs = [];
+  for (const v of videos || []) {
+    const en = videoPageUrl(v.video_id, "en");
+    const zh = videoPageUrl(v.video_id, "zh");
+    if (en) videoLocs.push(en);
+    if (zh) videoLocs.push(zh);
+  }
   return [
     CARD_SITE_BASE,
     `${CARD_SITE_BASE}zh/`,
     ...staticSitemapUrls(),
     ...archiveSitemapUrls(weeks || []),
-    ...videos.map((v) => videoPageUrl(v.video_id)).filter(Boolean),
+    ...videoLocs,
   ];
 }
 
@@ -343,6 +354,9 @@ function videoPageScript(ui) {
   var COPIES = ${copies};
   var KEY = "sessionscan-lang";
   function readLang() {
+    // Prefer the baked page locale so /zh/v/{id}/ crumbs/JSON-LD stay zh.
+    var pageLang = document.documentElement.getAttribute("data-ui-lang");
+    if (pageLang === "zh" || pageLang === "en") return pageLang;
     try {
       var stored = localStorage.getItem(KEY);
       if (stored === "zh" || stored === "en") return stored;
@@ -373,6 +387,12 @@ function videoPageScript(ui) {
   document.addEventListener("click", function (e) {
     var switcher = e.target.closest("[data-lang-link]");
     if (switcher) {
+      var href = switcher.getAttribute("href") || "";
+      // Real EN↔ZH video URLs: navigate so static crumbs/JSON-LD match the locale.
+      if (/\\/v\\/[A-Za-z0-9_-]{11}\\/?$/.test(href) || /\\/zh\\/v\\/[A-Za-z0-9_-]{11}\\/?$/.test(href)) {
+        try { localStorage.setItem(KEY, switcher.getAttribute("data-lang-link") === "zh" ? "zh" : "en"); } catch (err) {}
+        return;
+      }
       e.preventDefault();
       apply(switcher.getAttribute("data-lang-link") === "zh" ? "zh" : "en");
       return;
@@ -401,12 +421,14 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
   const id = youtubeId(video);
   if (!id) return "";
   const ui = lang === "zh" ? "zh" : "en";
-  const page = videoPageUrl(id);
+  const page = videoPageUrl(id, ui);
+  const enPage = videoPageUrl(id, "en");
+  const zhPage = videoPageUrl(id, "zh");
   const title = videoPageTitle(video, ui);
   const desc = videoPageDescription(video, ui);
   const image = thumbUrl(id, "hqdefault");
-  const css = cssHref || "../../assets/index.css";
-  const icon = faviconHref || "../../favicon.svg";
+  const css = cssHref || (ui === "zh" ? "../../../assets/index.css" : "../../assets/index.css");
+  const icon = faviconHref || (ui === "zh" ? "../../../favicon.svg" : "../../favicon.svg");
   const home = ui === "zh" ? `${SITE_ORIGIN}/zh/` : `${SITE_ORIGIN}/`;
   const crumbs = videoBreadcrumbItems(video, ui);
   const crumbsHtml = breadcrumbsNavHtml(crumbs, ui);
@@ -423,9 +445,9 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
     <meta name="description" content="${esc(desc)}" />
     ${jsonLd}
     <link rel="canonical" href="${esc(page)}" />
-    <link rel="alternate" hreflang="en" href="${esc(page)}" />
-    <link rel="alternate" hreflang="zh-Hant" href="${esc(page)}" />
-    <link rel="alternate" hreflang="x-default" href="${esc(page)}" />
+    <link rel="alternate" hreflang="en" href="${esc(enPage)}" />
+    <link rel="alternate" hreflang="zh-Hant" href="${esc(zhPage)}" />
+    <link rel="alternate" hreflang="x-default" href="${esc(enPage)}" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="${ogLocale(ui)}" />
     <meta property="og:site_name" content="SessionScan" />
@@ -464,9 +486,9 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
           <span class="channel-link-short" aria-hidden="true">@sessionscan</span>
         </a>
         <nav class="lang-switch" aria-label="${esc(t("langSwitchAria", {}, ui))}">
-          <a href="${SITE_ORIGIN}/" data-lang-link="en" hreflang="en"${ui === "en" ? ' aria-current="page"' : ""}>EN</a>
+          <a href="${esc(enPage)}" data-lang-link="en" hreflang="en"${ui === "en" ? ' aria-current="page"' : ""}>EN</a>
           <span class="lang-switch-sep" aria-hidden="true">/</span>
-          <a href="${SITE_ORIGIN}/zh/" data-lang-link="zh" hreflang="zh-Hant"${ui === "zh" ? ' aria-current="page"' : ""}>中文</a>
+          <a href="${esc(zhPage)}" data-lang-link="zh" hreflang="zh-Hant"${ui === "zh" ? ' aria-current="page"' : ""}>中文</a>
         </nav>
         <a class="header-home-link" data-home-link data-i18n="videoHome" href="${esc(home)}">${esc(t("videoHome", {}, ui))}</a>
       </div>
