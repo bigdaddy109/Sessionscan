@@ -90,14 +90,20 @@ python3 build_site.py
 每次任務開始：
 1. 先讀 AGENTS.md（建置／測試指令、已知坑）與 fix_plan.md（優先序待辦）；有 specs/ 也要讀。
 2. 只做一件最重要的事（任務指定的，或 fix_plan.md 最上面那項）。不順手做別的。
+3. 開新功能迭代前：確認目前工作已 commit；在 `main` tip 打並 push 回滾 tag `pre-<feature>-YYYYMMDD`（feature 用短 kebab slug），再開 branch 動手。
 告示牌（必守）：
 - 改之前先搜尋程式碼，不要假設「還沒做」；避免重複實作。
 - 不准寫空殼、佔位、TODO 假實作；要完整實作。
 - 單一事實來源，不加轉接層／遷移殼。
 - 寫測試時用註解說明「為什麼這個測試重要」。
-完成門檻：
+- 只開 PR，不直接推 `main`。回滾用 `pre-*` tag 可以打；不要亂打 release／其他 tag。
+- **不要付費 X API**（維持現有免金鑰抓法；勿引入付費 X／Data API 依賴）。
+完成門檻／合併政策：
 - 跑相關測試＋建置全過才 commit；無關測試壞了也要修或記入 fix_plan.md。
-- 只開 PR，不直接推 main、不自己合併、不打 tag。
+- CI 全綠、變更已 commit、preview／本機驗證截圖備好 → 回報 PR 連結後**等待**；等的期間**不要合併**。CI 綠本身不夠。
+- Agent 可以自己合 PR，**僅限** 研發程式明確說「可以合 #<n>」（或同等清楚點名該 PR 的核准）。沒有這句就等。
+- 等 review 期間可平行開另一 branch 做下一項。
+- 核准合併後：在 https://sessionscan.net 做 live-verify，再繼續下一個。
 收尾：
 - 更新 fix_plan.md：完成的移除，新發現的 bug 依優先序加入。
 - 學到的建置／測試技巧簡短寫進 AGENTS.md；不要寫進度報告。
