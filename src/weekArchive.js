@@ -85,6 +85,27 @@ export function weekPagePath(weekIso, lang = "en") {
   return localePath(lang, `week/${weekIso}/`);
 }
 
+/** Newest archive week row from hub JSON, or null. */
+export function latestArchiveWeek(data) {
+  const weeks = listArchiveWeeks(data);
+  return weeks[0] || null;
+}
+
+/**
+ * Home “latest freeze” link HTML under this-week bullets.
+ * Uses listArchiveWeeks — never invents a week key.
+ */
+export function latestArchiveLinkHtml(data, lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const latest = latestArchiveWeek(data);
+  if (!latest?.week) {
+    return `<p class="week-archive-latest is-empty"><a href="${esc(localePath(ui, "week/"))}">${esc(t("weekArchiveIndexLink", {}, ui))}</a></p>`;
+  }
+  const href = weekPagePath(latest.week, ui);
+  const label = t("weekArchiveLatestLink", { week: latest.week }, ui);
+  return `<p class="week-archive-latest"><a href="${esc(href)}">${esc(label)}</a></p>`;
+}
+
 /** Share URL for Short/IG captions — utm_source + utm_campaign=week-YYYY-MM-DD. */
 export function weekShareUrl(weekIso, { lang = "en", source = "youtube" } = {}) {
   if (!WEEK_ISO_RE.test(String(weekIso || ""))) return "";

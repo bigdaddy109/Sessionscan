@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- 本週 bullets 標題匹配加寬（Freebies／Halloween Series／Adversary）— 等研發程式 「可以合 #N」。Rollback tag `pre-week-bullet-signals-20261013`。
+（目前無開放項目 — 其他 PR 等研發程式 「可以合 #N」後再合。）
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
@@ -14,6 +14,7 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- Home 本週區連到最新 `/week/YYYY-MM-DD/` 封存（`latestArchiveLinkHtml`；#66；rollback `pre-home-latest-archive-20261013`；核准：研發程式 「可以合 #66」）。測 `tests/test_week_archive.mjs`。
 - Home 本週 bullets「claimed」勾選（localStorage／Rockstar 週鍵；#64；rollback `pre-week-claimed-checklist-20261013`；核准：研發程式 「可以合 #64」）。測 `tests/test_this_week_home.mjs`。
 - Fast Worker `GET /health`（`workers/dispatch-fast-scrape`；#63；rollback `pre-fast-worker-health-20261013`；核准：研發程式 「可以合 #63」）。合後仍需 CF redeploy。測 `tests/test_dispatch_fast_scrape_worker.mjs`。
 - GTA 6 `/gta6/` 官方上市日倒數＋Event JSON-LD（`src/gta6Page.js`；#62；rollback `pre-gta6-official-countdown-20261013`；核准：研發程式 「可以合 #62」）。測 `tests/test_gta6_page.mjs`。
