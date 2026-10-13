@@ -14,6 +14,7 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- Home 本週 bullets「claimed」勾選（localStorage／Rockstar 週鍵；#64；rollback `pre-week-claimed-checklist-20261013`；核准：研發程式 「可以合 #64」）。測 `tests/test_this_week_home.mjs`。
 - Fast Worker `GET /health`（`workers/dispatch-fast-scrape`；#63；rollback `pre-fast-worker-health-20261013`；核准：研發程式 「可以合 #63」）。合後仍需 CF redeploy。測 `tests/test_dispatch_fast_scrape_worker.mjs`。
 - GTA 6 `/gta6/` 官方上市日倒數＋Event JSON-LD（`src/gta6Page.js`；#62；rollback `pre-gta6-official-countdown-20261013`；核准：研發程式 「可以合 #62」）。測 `tests/test_gta6_page.mjs`。
 - A11y Label in Name（daily 2026-10-13）：IG／X `aria-label` 含可見文案（`Follow on Instagram · IG`／`Follow on X @…`＋zh）；Short／video play 按鈕移出 rank、以 CSS 三角取代 `▶` 文字，消 Lighthouse `label-content-name-mismatch`。測 `tests/test_i18n.mjs`、`tests/test_video_pages.mjs`。
