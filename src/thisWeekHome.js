@@ -18,27 +18,30 @@ export const WEEK_BULLET_CATEGORIES = [
   {
     id: "multipliers",
     labelKey: "weekBulletMultipliers",
+    // Explicit Nx / 倍 only — never treat bare "Halloween Series/Event" as a multiplier.
+    // Reward line is always the outbound title fragment (oneLineFromTitle), never a fabricated rate.
     re: /(?:\b|[^\w])(\d{1,2})\s*[xX×]|雙倍|三倍|六倍|[2-9]x|\d+x\b|倍獎勵|GTA\$\s*\/\s*RP/i,
   },
   {
     id: "free",
     labelKey: "weekBulletFree",
-    re: /\bfree\b|limited|限時|限免|贈送|gift|giveaway|試玩/i,
+    // "Freebies" (IGN) must match — `\bfree\b` alone misses it.
+    re: /\bfreebies?\b|\bfree\b|limited|限時|限免|贈送|gift|giveaway|試玩|免費/i,
   },
   {
     id: "discounts",
     labelKey: "weekBulletDiscounts",
-    re: /discount|折扣|減價|\bsale\b|bonuses?\s*&\s*discounts|獎勵與折扣/i,
+    re: /discount|折扣|減價|\bsale\b|bonuses?\s*(?:&|and)\s*discounts|獎勵與折扣/i,
   },
   {
     id: "podium",
     labelKey: "weekBulletPodium",
-    re: /podium|prize\s*ride|展台|獎勵載具|幸運輪|lucky\s*wheel/i,
+    re: /podium|prize\s*ride|展台|獎勵載具|幸運輪|lucky\s*wheel|podium\s*vehicle/i,
   },
   {
     id: "salvage_cayo",
     labelKey: "weekBulletSalvageCayo",
-    re: /salvage|廢車場|cayo|perico|佩里克|打撈|panther|黑豹/i,
+    re: /salvage|廢車場|cayo|perico|佩里克|打撈|panther|黑豹|chop\s*shop/i,
   },
 ];
 
