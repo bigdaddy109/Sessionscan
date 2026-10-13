@@ -11,12 +11,15 @@ import { snapshotNow } from "../src/homeExtras.js";
 import { buildWeekBullets } from "../src/thisWeekHome.js";
 import {
   archiveSitemapUrls,
+  latestArchiveLinkHtml,
+  latestArchiveWeek,
   listArchiveWeeks,
   matchWeekFreezePath,
   pickArchiveShort,
   renderArchiveIndexPage,
   renderWeekFreezePage,
   weekOutboundLinks,
+  weekPagePath,
   weekShareUrl,
 } from "../src/weekArchive.js";
 
@@ -112,6 +115,19 @@ if (existsSync(distWeek)) {
     const fz = readFileSync(freezeDir, "utf8");
     if (!fz.includes("archive-freeze-bullets") && !fz.includes("week-bullet-list")) fail("dist freeze bullets");
   }
+}
+
+// Home “latest freeze” link — same listArchiveWeeks tip; never invent a week key.
+const tip = latestArchiveWeek(site);
+if (!tip || tip.week !== weeks[0].week) fail("latestArchiveWeek must be newest list tip", tip);
+const latestHtml = latestArchiveLinkHtml(site, "en");
+if (!latestHtml.includes(weekPagePath(tip.week, "en"))) fail("latest link href", latestHtml);
+if (!latestHtml.includes(tip.week)) fail("latest link shows week iso", latestHtml);
+const zhLatest = latestArchiveLinkHtml(site, "zh");
+if (!zhLatest.includes(`/zh/week/${tip.week}/`)) fail("zh latest path", zhLatest);
+const emptyHtml = latestArchiveLinkHtml({ jobs_gtabase: [], jobs_ign: [] }, "en");
+if (!emptyHtml.includes("/week/") || !emptyHtml.includes("is-empty")) {
+  fail("empty hub falls back to archive index", emptyHtml);
 }
 
 console.log("test_week_archive.mjs ok", weeks.length, "weeks");

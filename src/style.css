@@ -1650,6 +1650,19 @@ main {
   font-size: 11px;
   letter-spacing: 0.04em;
 }
+.week-archive-latest {
+  margin: 14px 0 0;
+  font-family: var(--condensed);
+  letter-spacing: 0.05em;
+}
+.week-archive-latest a {
+  color: var(--mint);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.week-archive-latest.is-empty a {
+  color: var(--teal);
+}
 .week-bullet-list {
   list-style: none;
   margin: 0;

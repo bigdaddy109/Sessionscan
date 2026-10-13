@@ -41,6 +41,7 @@ import {
   pickHomeShort,
   toggleClaimedId,
 } from "./thisWeekHome.js";
+import { latestArchiveLinkHtml } from "./weekArchive.js";
 
 const SOURCE_HINT_KEYS = {
   gtabase: "jobsHintGtabase",
@@ -451,6 +452,17 @@ function bindWeekBulletClaims() {
   });
 }
 
+function renderLatestArchiveLink() {
+  const el = $("#weekArchiveLatest");
+  if (!el) return;
+  const wrap = document.createElement("div");
+  wrap.innerHTML = latestArchiveLinkHtml(state.data || {}, uiLang());
+  const next = wrap.firstElementChild;
+  if (!next) return;
+  next.id = "weekArchiveLatest";
+  el.replaceWith(next);
+}
+
 function renderOfficialBanner() {
   const el = $("#officialBannerBody");
   if (!el) return;
@@ -471,6 +483,7 @@ function renderAll() {
   renderWeekCountdown();
   renderWeekShort();
   renderWeekBullets();
+  renderLatestArchiveLink();
   syncFilterPills();
   const meta = state.data.meta || {};
   const live = isLiveData(state.data);
