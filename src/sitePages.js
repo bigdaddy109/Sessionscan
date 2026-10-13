@@ -363,6 +363,24 @@ function withBreadcrumbGraph(ld, page, lang, { name } = {}) {
   return { ...ld, "@graph": graph };
 }
 
+/** Visible trail matching shellBreadcrumbItems (same names; path hrefs). */
+export function shellBreadcrumbsHtml(page, lang = "en", { name } = {}) {
+  const ui = lang === "zh" ? "zh" : "en";
+  const crumbs = shellBreadcrumbItems(page, lang, { name });
+  if (crumbs.length < 2) return "";
+  const lis = crumbs
+    .map((c, i) => {
+      const last = i === crumbs.length - 1;
+      const href = String(c.url || "").replace(/^https:\/\/sessionscan\.net/, "") || "/";
+      if (last) {
+        return `<li class="site-breadcrumbs-current" aria-current="page"><span>${esc(c.name)}</span></li>`;
+      }
+      return `<li><a href="${esc(href)}">${esc(c.name)}</a></li>`;
+    })
+    .join("");
+  return `<nav class="site-breadcrumbs" aria-label="${esc(t("breadcrumbsAria", {}, ui))}"><ol>${lis}</ol></nav>`;
+}
+
 export function webPageJsonLd(page, lang = "en", { name, description } = {}) {
   let ld;
   if (page?.id === "money") ld = moneyGuideJsonLd(lang);
@@ -474,6 +492,11 @@ export function renderSitePage(
   } else if (bodyHtml == null) {
     mainBody = `${mainBody}
       <p class="page-home-link"><a href="${esc(ui === "zh" ? "/zh/" : "/")}">${esc(t("videoHome", {}, ui))}</a></p>`;
+  }
+  const crumbsHtml = shellBreadcrumbsHtml(page, ui, { name: jsonLdName || title });
+  if (crumbsHtml && !String(mainBody).includes('class="site-breadcrumbs"')) {
+    mainBody = `${crumbsHtml}
+      ${mainBody}`;
   }
   const footerGuides = wantsRelated ? `\n      ${footerGuidesHtml(ui)}` : "";
 

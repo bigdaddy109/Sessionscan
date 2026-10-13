@@ -71,6 +71,7 @@ export const UI = {
     archivePagerOlder: "← Older · {week}",
     archivePagerNewer: "Newer · {week} →",
     archiveJumpLatest: "View latest freeze · {week} →",
+    breadcrumbsAria: "Breadcrumb",
     archiveBackToIndex: "← All archived weeks",
     pageMoneyTitle: "Money guide | SessionScan",
     pageMoneyDesc:
@@ -357,6 +358,7 @@ export const UI = {
     archivePagerOlder: "← 較舊 · {week}",
     archivePagerNewer: "較新 · {week} →",
     archiveJumpLatest: "打開最新凍結週 · {week} →",
+    breadcrumbsAria: "麵包屑導覽",
     archiveBackToIndex: "← 全部封存週",
     pageMoneyTitle: "賺錢指南｜SessionScan",
     pageMoneyDesc:

@@ -260,6 +260,13 @@ if (weeks.length > 1) {
   if (els[2].name !== `Week of ${weeks[0].week}`) {
     fail("EN freeze crumb uses archiveWeekHeading", els[2].name);
   }
+  // Visible trail matches JSON-LD names (same shellBreadcrumbItems source).
+  if (!tipFreezeEn.includes('class="site-breadcrumbs"') || !tipFreezeEn.includes(`Week of ${weeks[0].week}`)) {
+    fail("EN freeze visible breadcrumbs", tipFreezeEn.match(/site-breadcrumbs[\s\S]{0,200}/)?.[0]);
+  }
+  if (!freeze.includes("site-breadcrumbs") || !freeze.includes("回首頁") || !freeze.includes("週更封存")) {
+    fail("zh freeze visible breadcrumbs localized");
+  }
   const zhFreezeLd = parseJsonLdScripts(freeze).find((b) => b["@graph"]);
   const zhBc = zhFreezeLd?.["@graph"]?.find((n) => n["@type"] === "BreadcrumbList");
   const zhNames = (zhBc?.itemListElement || []).map((it) => it.name);

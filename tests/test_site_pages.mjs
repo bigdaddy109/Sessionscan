@@ -78,6 +78,9 @@ const week = renderSitePage(
   SITE_PAGES.find((p) => p.id === "week"),
   { lang: "en", cssHref: "../assets/x.css", faviconHref: "../favicon.svg" },
 );
+if (!week.includes('class="site-breadcrumbs"') || !week.includes("Archive")) {
+  fail("week page visible breadcrumbs");
+}
 if (week.includes("page-stub-flag")) fail("week archive is not a stub");
 if (!SITE_PAGES.find((p) => p.id === "week") || SITE_PAGES.find((p) => p.id === "week").stub) {
   fail("SITE_PAGES week stub flag must be false");
