@@ -66,6 +66,9 @@ export const UI = {
     archiveLinksTag: "SOURCES · titles only",
     archiveLinksEmpty: "No outbound weekly titles for this freeze in the snapshot.",
     archiveShareHint: "Caption-ready week URLs:",
+    archivePagerAria: "Adjacent archived weeks",
+    archivePagerOlder: "← Older · {week}",
+    archivePagerNewer: "Newer · {week} →",
     archiveBackToIndex: "← All archived weeks",
     pageMoneyTitle: "Money guide | SessionScan",
     pageMoneyDesc:
@@ -347,6 +350,9 @@ export const UI = {
     archiveLinksTag: "來源 · 只列標題",
     archiveLinksEmpty: "此凍結週在快照中沒有外連週更標題。",
     archiveShareHint: "字幕可用的週頁網址：",
+    archivePagerAria: "相鄰封存週",
+    archivePagerOlder: "← 較舊 · {week}",
+    archivePagerNewer: "較新 · {week} →",
     archiveBackToIndex: "← 全部封存週",
     pageMoneyTitle: "賺錢指南｜SessionScan",
     pageMoneyDesc:
