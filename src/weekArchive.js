@@ -123,6 +123,28 @@ export function homeArchiveFeedLinkHtml(lang = "en") {
   return `<p class="week-archive-feed archive-feed-link" id="weekArchiveFeed"><a href="${esc(ARCHIVE_ATOM_PATH)}" type="application/atom+xml" data-i18n="archiveAtomLink">${esc(t("archiveAtomLink", {}, ui))}</a></p>`;
 }
 
+/**
+ * Freeze-page money guide CTA — same path + copy as home `#homeMoneyGuideLink`
+ * (locale `/guides/money/`), so players ticking a week can open cited takes
+ * without scrolling to the related strip.
+ */
+export function freezeMoneyGuideLinkHtml(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const page = pageById("money");
+  const href = localePath(ui, page?.path || "guides/money/");
+  return `<p class="archive-money-link home-money-link" id="archiveMoneyGuideLink"><a href="${esc(href)}" data-i18n="homeMoneyGuideLink">${esc(t("homeMoneyGuideLink", {}, ui))}</a></p>`;
+}
+
+/**
+ * Freeze-page businesses CTA — same path + copy as home `#homeBusinessGuideLink`.
+ */
+export function freezeBusinessGuideLinkHtml(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const page = pageById("businesses");
+  const href = localePath(ui, page?.path || "guides/businesses/");
+  return `<p class="archive-business-link home-business-link" id="archiveBusinessGuideLink"><a href="${esc(href)}" data-i18n="homeBusinessGuideLink">${esc(t("homeBusinessGuideLink", {}, ui))}</a></p>`;
+}
+
 /** Absolute Atom URL for home `<link rel="alternate">` (EN freeze entries). */
 export function archiveAtomAbsoluteUrl() {
   return `${CARD_SITE_BASE.replace(/\/?$/, "")}${ARCHIVE_ATOM_PATH}`;
@@ -450,6 +472,8 @@ export function weekFreezeBodyHtml(data, weekIso, lang = "en") {
       </div>`;
       })() : ""}
       ${bulletsHtml(bullets, { claimable, lang: ui, weekIso })}
+      ${freezeMoneyGuideLinkHtml(ui)}
+      ${freezeBusinessGuideLinkHtml(ui)}
     </section>
     <section class="archive-outbound" aria-labelledby="archiveLinksHeading">
       <div class="week-panel-kicker">

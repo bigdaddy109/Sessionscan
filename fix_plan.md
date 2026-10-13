@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- CH-00 official banner GTA 6 時程改為連到 `/gta6/`（`gta6ScheduleBannerHtml`；條件仍依 snapshot 文案；#87；等研發程式 「可以合 #87」後再合）。測 `tests/test_home_extras.mjs`。Rollback：`pre-banner-gta6-link-20261013`。
+- 凍結頁 bullets 下連到 `/guides/money/`＋`/guides/businesses/`（`freezeMoneyGuideLinkHtml`／`freezeBusinessGuideLinkHtml`；與 home 同源 path／文案；#88；等研發程式 「可以合 #88」後再合）。測 `tests/test_week_archive.mjs`。Rollback：`pre-freeze-money-link-20261013`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
@@ -14,6 +14,7 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- CH-00 official banner GTA 6 時程連到 `/gta6/`（`gta6ScheduleBannerHtml`；#87；rollback `pre-banner-gta6-link-20261013`；核准：研發程式 「可以合 #87」）。測 `tests/test_home_extras.mjs`。
 - About 頁 related＋footer 攻略列（`wantsRelated` 含 `about`；不進 `CROSS_LINK_PAGE_IDS`；#86；rollback `pre-about-related-20261013`；核准：研發程式 「可以合 #86」）。測 `tests/test_site_pages.mjs`。
 - GTA 6 加入 Phase C 互連（`CROSS_LINK_PAGE_IDS`＋`HOME_HAS_PART_PATHS`；#85；rollback `pre-gta6-crosslinks-20261013`；核准：研發程式 「可以合 #85」）。測 `tests/test_site_pages.mjs`、`tests/test_gta6_page.mjs`、`tests/test_i18n.mjs`。
 - Home 週更倒數旁連到 `/gta6/`（`homeGta6LinkHtml`／`injectHomeGta6Link`；#84；rollback `pre-home-gta6-link-20261013`；核准：研發程式 「可以合 #84」）。測 `tests/test_gta6_page.mjs`。
