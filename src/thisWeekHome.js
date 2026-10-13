@@ -3,7 +3,15 @@
 import { youtubeId } from "./cardShare.js";
 import { pickOfficialWeekly } from "./homeExtras.js";
 import { t } from "./i18n.js";
-import { isOwnedShortThisWeek, isThisWeekJob, rockstarWeekStart } from "./thisWeek.js";
+import {
+  isOwnedShortThisWeek,
+  isThisWeekJob,
+  rockstarWeekStart,
+  toIsoDate,
+} from "./thisWeek.js";
+
+/** localStorage key prefix for the home “claimed” checklist (per Rockstar week). */
+export const CLAIMED_STORAGE_PREFIX = "sessionscan:week-claimed:";
 
 /** Fixed verdict slots — always rendered so the home screen has one clear shape. */
 export const WEEK_BULLET_CATEGORIES = [
@@ -153,6 +161,68 @@ export function buildWeekBullets(data, now = new Date(), lang = "en") {
       pending: true,
     };
   });
+}
+
+/**
+ * Storage key for claimed bullet ids in the current Rockstar week.
+ * Resets automatically when Thursday rolls — no login, local only.
+ * @param {Date|string} [now]
+ */
+export function claimedStorageKey(now = new Date()) {
+  const weekIso = toIsoDate(rockstarWeekStart(now));
+  return `${CLAIMED_STORAGE_PREFIX}${weekIso}`;
+}
+
+/**
+ * @param {string} weekKey full localStorage key
+ * @param {Storage} [store]
+ * @returns {Set<string>}
+ */
+export function loadClaimedIds(weekKey, store = globalThis.localStorage) {
+  const out = new Set();
+  if (!weekKey || !store) return out;
+  try {
+    const raw = store.getItem(weekKey);
+    if (!raw) return out;
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return out;
+    for (const id of parsed) {
+      if (typeof id === "string" && id) out.add(id);
+    }
+  } catch {
+    /* corrupt → empty */
+  }
+  return out;
+}
+
+/**
+ * @param {string} weekKey
+ * @param {Iterable<string>} ids
+ * @param {Storage} [store]
+ */
+export function saveClaimedIds(weekKey, ids, store = globalThis.localStorage) {
+  if (!weekKey || !store) return;
+  const list = [...new Set([...ids].filter((id) => typeof id === "string" && id))].sort();
+  try {
+    store.setItem(weekKey, JSON.stringify(list));
+  } catch {
+    /* quota / private mode — ignore */
+  }
+}
+
+/**
+ * Toggle one bullet id; returns the new claimed set.
+ * @param {string} weekKey
+ * @param {string} bulletId
+ * @param {Storage} [store]
+ */
+export function toggleClaimedId(weekKey, bulletId, store = globalThis.localStorage) {
+  const set = loadClaimedIds(weekKey, store);
+  if (!bulletId) return set;
+  if (set.has(bulletId)) set.delete(bulletId);
+  else set.add(bulletId);
+  saveClaimedIds(weekKey, set, store);
+  return set;
 }
 
 /** Owned Short only — never invent a video when the slot is empty. */

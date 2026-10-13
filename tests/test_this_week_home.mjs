@@ -10,11 +10,16 @@ import { fileURLToPath } from "node:url";
 import { snapshotNow } from "../src/homeExtras.js";
 import { rockstarWeekStart } from "../src/thisWeek.js";
 import {
+  CLAIMED_STORAGE_PREFIX,
   WEEK_BULLET_CATEGORIES,
   buildWeekBullets,
+  claimedStorageKey,
   countdownParts,
+  loadClaimedIds,
   nextWeeklyUpdateAt,
   pickHomeShort,
+  saveClaimedIds,
+  toggleClaimedId,
   weekSignalItems,
 } from "../src/thisWeekHome.js";
 
@@ -59,5 +64,29 @@ if (!short || short.video_id !== "J0XqcPVN7Yg") fail("pick owned short from site
 
 const emptyShort = pickHomeShort(sample, snapshotNow(sample.meta) || now);
 if (emptyShort) fail("sample with null short must not invent a video", emptyShort);
+
+// Claimed checklist: local-only, keyed by Rockstar week so Thu reset is automatic.
+const mem = new Map();
+const fakeStore = {
+  getItem: (k) => (mem.has(k) ? mem.get(k) : null),
+  setItem: (k, v) => {
+    mem.set(k, String(v));
+  },
+};
+const keyA = claimedStorageKey(now);
+const keyB = claimedStorageKey(new Date(now.getTime() + 7 * 86400000));
+if (!keyA.startsWith(CLAIMED_STORAGE_PREFIX)) fail("claimed key prefix", keyA);
+if (keyA === keyB) fail("adjacent Rockstar weeks must not share claimed key", { keyA, keyB });
+saveClaimedIds(keyA, ["multipliers", "free"], fakeStore);
+const loaded = loadClaimedIds(keyA, fakeStore);
+if (!loaded.has("multipliers") || !loaded.has("free") || loaded.size !== 2) {
+  fail("loadClaimedIds", [...loaded]);
+}
+toggleClaimedId(keyA, "multipliers", fakeStore);
+if (loadClaimedIds(keyA, fakeStore).has("multipliers")) fail("toggle off failed");
+toggleClaimedId(keyA, "podium", fakeStore);
+if (!loadClaimedIds(keyA, fakeStore).has("podium")) fail("toggle on failed");
+// Other week key stays empty — no cross-week bleed.
+if (loadClaimedIds(keyB, fakeStore).size !== 0) fail("other week must start empty");
 
 console.log("test_this_week_home.mjs ok");

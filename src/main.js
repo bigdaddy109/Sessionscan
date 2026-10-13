@@ -34,9 +34,12 @@ import {
 } from "./i18n.js";
 import {
   buildWeekBullets,
+  claimedStorageKey,
   countdownParts,
+  loadClaimedIds,
   nextWeeklyUpdateAt,
   pickHomeShort,
+  toggleClaimedId,
 } from "./thisWeekHome.js";
 
 const SOURCE_HINT_KEYS = {
@@ -410,18 +413,42 @@ function renderWeekBullets() {
   if (!host) return;
   const now = snapshotNow(state.data?.meta || {});
   const bullets = buildWeekBullets(state.data || {}, now, uiLang());
+  const weekKey = claimedStorageKey(now);
+  const claimed = loadClaimedIds(weekKey);
+  host.dataset.claimedKey = weekKey;
   host.innerHTML = bullets
     .map((b) => {
+      const done = claimed.has(b.id);
       const access = b.url
         ? `<a class="week-bullet-how" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer">${esc(b.how)}</a>`
         : `<span class="week-bullet-how is-muted">${esc(b.how)}</span>`;
-      return `<li class="week-bullet${b.pending ? " is-pending" : ""}" data-bullet="${esc(b.id)}">
+      const claimLabel = t("weekBulletClaim", { label: b.label });
+      return `<li class="week-bullet${b.pending ? " is-pending" : ""}${done ? " is-claimed" : ""}" data-bullet="${esc(b.id)}">
+        <label class="week-bullet-claim">
+          <input type="checkbox" class="week-bullet-check" data-bullet-id="${esc(b.id)}" ${done ? "checked" : ""} />
+          <span class="week-bullet-claim-text">${esc(claimLabel)}</span>
+        </label>
         <span class="week-bullet-label">${esc(b.label)}</span>
         <span class="week-bullet-reward">${esc(b.reward)}</span>
         ${access}
       </li>`;
     })
     .join("");
+}
+
+function bindWeekBulletClaims() {
+  const host = $("#weekBulletList");
+  if (!host || host.dataset.claimBound === "1") return;
+  host.dataset.claimBound = "1";
+  host.addEventListener("change", (ev) => {
+    const input = ev.target?.closest?.(".week-bullet-check");
+    if (!input) return;
+    const id = input.getAttribute("data-bullet-id") || "";
+    const weekKey = host.dataset.claimedKey || claimedStorageKey(snapshotNow(state.data?.meta || {}));
+    toggleClaimedId(weekKey, id);
+    const row = input.closest(".week-bullet");
+    if (row) row.classList.toggle("is-claimed", Boolean(input.checked));
+  });
 }
 
 function renderOfficialBanner() {
@@ -781,6 +808,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
   renderAll();
+  bindWeekBulletClaims();
   applyHash();
   if (state.countdownTimer) clearInterval(state.countdownTimer);
   state.countdownTimer = setInterval(renderWeekCountdown, 1000);
