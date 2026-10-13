@@ -12,6 +12,7 @@ import { buildWeekBullets } from "../src/thisWeekHome.js";
 import {
   ARCHIVE_ATOM_PATH,
   archiveAdjacentWeeks,
+  archiveJumpLatestHtml,
   archiveSitemapUrls,
   archiveWeekPagerHtml,
   latestArchiveLinkHtml,
@@ -208,6 +209,33 @@ if (existsSync(resolve(root, "dist/week/feed.xml"))) {
   if (!builtFeed.includes(`https://sessionscan.net/week/${weeks[0].week}/`)) {
     fail("dist week/feed.xml missing tip", builtFeed.slice(0, 200));
   }
+}
+
+// Jump-to-latest on older freezes only — tip of listArchiveWeeks; never invent week keys.
+if (weeks.length > 1) {
+  const olderIso = weeks[1].week;
+  const jump = archiveJumpLatestHtml(site, olderIso, "en");
+  if (!jump.includes("archive-jump-latest")) fail("older freeze missing jump callout", jump);
+  if (!jump.includes(weekPagePath(weeks[0].week, "en"))) fail("jump href must be tip", jump);
+  if (!jump.includes(weeks[0].week)) fail("jump shows tip week", jump);
+  // Internal freeze→freeze nav must not use external ↗ mark.
+  if (jump.includes("↗")) fail("jump-latest must not use external arrow", jump);
+  if (!jump.includes("→")) fail("jump-latest should use internal →", jump);
+  const tipJump = archiveJumpLatestHtml(site, weeks[0].week, "en");
+  if (tipJump) fail("tip freeze must not show jump-to-latest", tipJump);
+  const unknownJump = archiveJumpLatestHtml(site, "1999-01-01", "en");
+  if (!unknownJump.includes(weekPagePath(weeks[0].week, "en"))) {
+    fail("unknown week may still offer tip when tip exists", unknownJump);
+  }
+  if (!freeze.includes("archive-jump-latest") || !freeze.includes("打開最新凍結週")) {
+    fail("zh older freeze should include jump callout", freeze.match(/archive-jump[\s\S]{0,120}/)?.[0]);
+  }
+  const tipFreezeEn = renderWeekFreezePage(site, weeks[0].week, {
+    lang: "en",
+    cssHref: "../../../assets/x.css",
+    faviconHref: "../../../favicon.svg",
+  });
+  if (tipFreezeEn.includes("archive-jump-latest")) fail("tip freeze HTML must omit jump");
 }
 
 console.log("test_week_archive.mjs ok", weeks.length, "weeks");
