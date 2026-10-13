@@ -189,4 +189,18 @@ for (const [label, pageHtml] of [
   }
 }
 
+// Why: video shares should match shell primary path nav so This week / Archive /
+// Money stay reachable without hunting related/footer links (proposal §2).
+const enSiteNav = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)?.[0] || "";
+const zhSiteNav = zhHtml.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)?.[0] || "";
+if (!enSiteNav.includes('data-nav="week"') || !enSiteNav.includes('href="/week/"')) {
+  fail("en video primary site-nav", enSiteNav.slice(0, 200));
+}
+if (!zhSiteNav.includes('href="/zh/week/"') || !zhSiteNav.includes('href="/zh/guides/money/"')) {
+  fail("zh video primary site-nav locale hrefs", zhSiteNav.slice(0, 200));
+}
+if (enSiteNav.includes('aria-current="page"') || zhSiteNav.includes('aria-current="page"')) {
+  fail("video site-nav must not mark a shell page as current");
+}
+
 console.log("test_video_pages.mjs ok", fromSample.length, "sample videos");
