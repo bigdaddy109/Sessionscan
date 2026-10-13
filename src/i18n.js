@@ -96,12 +96,20 @@ export const UI = {
     bizDisclaimer:
       "SessionScan does not invent purchase prices or $/hr. Every outbound link is Rockstar Newswire or a named secondary used for rank order. Figures you see on those pages are theirs — verify before spending.",
     pageGta6Title: "GTA 6 | SessionScan",
-    pageGta6Desc: "Official Grand Theft Auto VI announcements and dates only — no leaks, no rumors as fact.",
+    pageGta6Desc:
+      "Official Grand Theft Auto VI release date countdown and Rockstar links only — no leaks, no rumors as fact.",
     pageGta6Heading: "GTA 6",
     pageGta6Body:
       "<p>Official information only. SessionScan links to Rockstar sources; we do not publish leaks or frame rumors as fact.</p><p>Announced release date (Rockstar): <strong>November 19, 2026</strong>.</p>",
     pageGta6Official: "Rockstar — Grand Theft Auto VI ↗",
     pageGta6Newswire: "Rockstar Newswire ↗",
+    pageGta6CountdownKicker: "Official release countdown",
+    pageGta6CountdownTag: "COUNTDOWN · Rockstar announced date",
+    pageGta6CountdownLive: "Release day window is open (per Rockstar announcement)",
+    pageGta6SourceNote: "Source: Rockstar — announced {date}",
+    pageGta6EventName: "Grand Theft Auto VI — announced release",
+    pageGta6EventDesc:
+      "Rockstar-announced release date for Grand Theft Auto VI. SessionScan cites the official announcement only.",
     pageAboutTitle: "About | SessionScan",
     pageAboutDesc: "What SessionScan is: GTA 5 / Online / GTA 6 hub, scope, disclaimer, and social links.",
     pageAboutHeading: "About SessionScan",
@@ -364,12 +372,18 @@ export const UI = {
     bizDisclaimer:
       "SessionScan 不編造購價或 $/hr。外連皆為 Rockstar Newswire 或具名二級排名來源。那些頁面上的數字屬對方 — 花錢前請自行核對。",
     pageGta6Title: "GTA 6｜SessionScan",
-    pageGta6Desc: "僅官方 Grand Theft Auto VI 公告與日期 — 不轉載洩漏、不以傳聞當事實。",
+    pageGta6Desc: "僅官方 Grand Theft Auto VI 上市日倒數與 Rockstar 連結 — 不轉載洩漏、不以傳聞當事實。",
     pageGta6Heading: "GTA 6",
     pageGta6Body:
       "<p>僅官方資訊。SessionScan 連到 Rockstar 來源；不發布洩漏，也不把傳聞寫成真確。</p><p>已公告上市日（Rockstar）：<strong>2026 年 11 月 19 日</strong>。</p>",
     pageGta6Official: "Rockstar — Grand Theft Auto VI ↗",
     pageGta6Newswire: "Rockstar Newswire ↗",
+    pageGta6CountdownKicker: "官方上市日倒數",
+    pageGta6CountdownTag: "COUNTDOWN · Rockstar 已公告日期",
+    pageGta6CountdownLive: "上市日窗口已開（依 Rockstar 公告）",
+    pageGta6SourceNote: "來源：Rockstar — 已公告 {date}",
+    pageGta6EventName: "Grand Theft Auto VI — 已公告上市日",
+    pageGta6EventDesc: "Rockstar 公告的 Grand Theft Auto VI 上市日。SessionScan 只引用官方公告。",
     pageAboutTitle: "關於｜SessionScan",
     pageAboutDesc: "SessionScan 是什麼：GTA 5／Online／GTA 6 情報站、範圍、免責與社群連結。",
     pageAboutHeading: "關於 SessionScan",

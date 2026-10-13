@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-（目前無開放項目。）
+- GTA 6 `/gta6/` 官方上市日倒數＋Event JSON-LD（`src/gta6Page.js`）— PR 開好後等 Jeff 「可以合 #N」再合；rollback tag `pre-gta6-official-countdown-20261013`。
 
 ## 合併後跟進（非本 PR）
 

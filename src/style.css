@@ -1890,6 +1890,31 @@ main {
   padding: 0 4px;
 }
 
+/* ---------- GTA 6 official countdown ---------- */
+.site-page-main--gta6 {
+  max-width: min(760px, var(--page-max));
+}
+.gta6-countdown {
+  margin: 22px 0 8px;
+  padding: 14px 0 4px;
+  border-top: 1px solid var(--border);
+  /* Reserve space so the live tick does not shift layout (CLS). */
+  min-height: 7.5rem;
+}
+.gta6-countdown .week-countdown-display {
+  margin: 0 0 10px;
+}
+.gta6-countdown-source {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.gta6-countdown-source a {
+  color: var(--teal);
+}
+
 /* ---------- Money guide (Phase C) ---------- */
 .site-page-main--money {
   max-width: min(760px, var(--page-max));
