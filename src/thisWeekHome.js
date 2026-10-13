@@ -58,16 +58,32 @@ export function freezeClaimedChecklistScript() {
   }
   function updateProgress(host) {
     var el = document.getElementById("archiveClaimProgress");
-    if (!el || !host) return;
+    var clearBtn = document.getElementById("archiveClaimClear");
+    if (!host) return;
     var inputs = host.querySelectorAll(".week-bullet-check");
     var total = inputs.length;
     var done = 0;
     for (var i = 0; i < inputs.length; i++) {
       if (inputs[i].checked) done += 1;
     }
-    var tpl = el.getAttribute("data-progress-template") || "Claimed {done} of {total}";
-    el.textContent = tpl.replace("{done}", String(done)).replace("{total}", String(total));
-    el.hidden = total === 0;
+    if (el) {
+      var tpl = el.getAttribute("data-progress-template") || "Claimed {done} of {total}";
+      el.textContent = tpl.replace("{done}", String(done)).replace("{total}", String(total));
+      el.hidden = total === 0;
+    }
+    if (clearBtn) clearBtn.hidden = !(total > 0 && done > 0);
+  }
+  function clearAll(host) {
+    var key = host.getAttribute("data-claimed-key") || "";
+    if (!key || key.indexOf(PREFIX) !== 0) return;
+    saveIds(key, []);
+    var inputs = host.querySelectorAll(".week-bullet-check");
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].checked = false;
+      var row = inputs[i].closest(".week-bullet");
+      if (row) row.classList.remove("is-claimed");
+    }
+    updateProgress(host);
   }
   function hydrate(host) {
     var key = host.getAttribute("data-claimed-key") || "";
@@ -108,6 +124,11 @@ export function freezeClaimedChecklistScript() {
       }
       updateProgress(host);
     });
+    var clearBtn = document.getElementById("archiveClaimClear");
+    if (clearBtn && clearBtn.getAttribute("data-clear-bound") !== "1") {
+      clearBtn.setAttribute("data-clear-bound", "1");
+      clearBtn.addEventListener("click", function () { clearAll(host); });
+    }
   });
 })();
 </script>`;
@@ -311,6 +332,17 @@ export function saveClaimedIds(weekKey, ids, store = globalThis.localStorage) {
   } catch {
     /* quota / private mode — ignore */
   }
+}
+
+/**
+ * Clear all claimed ids for one Rockstar-week key (home + tip freeze share it).
+ * @param {string} weekKey
+ * @param {Storage} [store]
+ * @returns {Set<string>} empty set
+ */
+export function clearClaimedIds(weekKey, store = globalThis.localStorage) {
+  saveClaimedIds(weekKey, [], store);
+  return new Set();
 }
 
 /**

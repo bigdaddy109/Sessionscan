@@ -442,7 +442,12 @@ export function weekFreezeBodyHtml(data, weekIso, lang = "en") {
       ${claimable ? (() => {
         const tpl = String((UI[ui] || UI.en).weekClaimProgress || UI.en.weekClaimProgress || "Claimed {done} of {total}");
         const zero = formatClaimedProgress(0, bullets.length, ui);
-        return `<p class="week-claim-progress" id="archiveClaimProgress" data-progress-template="${esc(tpl)}" aria-live="polite">${esc(zero)}</p>`;
+        const clearLabel = t("weekClaimClear", {}, ui);
+        const clearAria = t("weekClaimClearAria", {}, ui);
+        return `<div class="week-claim-toolbar">
+        <p class="week-claim-progress" id="archiveClaimProgress" data-progress-template="${esc(tpl)}" aria-live="polite">${esc(zero)}</p>
+        <button type="button" class="week-claim-clear" id="archiveClaimClear" hidden data-i18n="weekClaimClear" data-i18n-aria="weekClaimClearAria" aria-label="${esc(clearAria)}">${esc(clearLabel)}</button>
+      </div>`;
       })() : ""}
       ${bulletsHtml(bullets, { claimable, lang: ui, weekIso })}
     </section>

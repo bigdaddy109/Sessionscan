@@ -35,6 +35,7 @@ import {
 import {
   buildWeekBullets,
   claimedStorageKey,
+  clearClaimedIds,
   countClaimedProgress,
   countdownParts,
   formatClaimedProgress,
@@ -413,15 +414,23 @@ function renderWeekShort() {
 
 function updateWeekClaimProgress(bullets, claimed) {
   const el = $("#weekClaimProgress");
+  const clearBtn = $("#weekClaimClear");
   if (!el) return;
   const { done, total } = countClaimedProgress(bullets, claimed);
   if (!total) {
     el.hidden = true;
     el.textContent = "";
+    if (clearBtn) clearBtn.hidden = true;
     return;
   }
   el.hidden = false;
   el.textContent = formatClaimedProgress(done, total, uiLang());
+  if (clearBtn) {
+    clearBtn.hidden = done === 0;
+    clearBtn.setAttribute("aria-label", t("weekClaimClearAria"));
+    const label = t("weekClaimClear");
+    if (clearBtn.textContent !== label) clearBtn.textContent = label;
+  }
 }
 
 function renderWeekBullets() {
@@ -469,6 +478,15 @@ function bindWeekBulletClaims() {
     const bullets = buildWeekBullets(state.data || {}, now, uiLang());
     updateWeekClaimProgress(bullets, claimed);
   });
+  const clearBtn = $("#weekClaimClear");
+  if (clearBtn && clearBtn.dataset.clearBound !== "1") {
+    clearBtn.dataset.clearBound = "1";
+    clearBtn.addEventListener("click", () => {
+      const weekKey = host.dataset.claimedKey || claimedStorageKey(snapshotNow(state.data?.meta || {}));
+      clearClaimedIds(weekKey);
+      renderWeekBullets();
+    });
+  }
 }
 
 function renderLatestArchiveLink() {
