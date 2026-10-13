@@ -174,4 +174,19 @@ if (zhBcUrls[0] !== "https://sessionscan.net/zh/" || zhBcUrls[1] !== videoPageUr
 }
 if (zhVo.url !== videoPageUrl(video.video_id, "zh")) fail("zh VideoObject.url is locale page", zhVo.url);
 
+// Why: share pages were a dead-end after crumbs; reuse shell related/footer
+// guides so Archive/Money/Businesses stay one click away on EN and ZH videos.
+for (const [label, pageHtml] of [
+  ["en", html],
+  ["zh", zhHtml],
+]) {
+  if (!pageHtml.includes('class="related-pages"')) fail(`${label} video related-pages`);
+  if (!pageHtml.includes('data-related="week"') || !pageHtml.includes('data-related="money"')) {
+    fail(`${label} video related Archive/Money`, pageHtml.match(/related-pages[\s\S]{0,200}/)?.[0]);
+  }
+  if (!pageHtml.includes('class="footer-guides"') || !pageHtml.includes('data-footer-guide="businesses"')) {
+    fail(`${label} video footer-guides`);
+  }
+}
+
 console.log("test_video_pages.mjs ok", fromSample.length, "sample videos");

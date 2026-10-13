@@ -20,6 +20,8 @@ import {
   SITE_PAGES,
   absoluteUrl,
   breadcrumbsNavHtml,
+  footerGuidesHtml,
+  relatedPagesHtml,
   staticSitemapUrls,
 } from "./sitePages.js";
 import {
@@ -500,6 +502,7 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
         <a class="watch-yt" data-i18n="videoWatch" href="${esc(video.url)}" target="_blank" rel="noopener noreferrer">${esc(t("videoWatch", {}, ui))}</a>
         <a data-home-link data-i18n="videoHome" href="${esc(home)}">${esc(t("videoHome", {}, ui))}</a>
       </p>
+      ${relatedPagesHtml(ui, { currentId: "video" })}
     </main>
     <footer class="site-footer">
       <p class="footer-social">
@@ -508,6 +511,7 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
           <span class="footer-social-handle" aria-hidden="true">@sessionscan</span>
         </a>
       </p>
+      ${footerGuidesHtml(ui)}
       <p><strong>SessionScan</strong> · <span data-i18n="footerAbout">${esc(t("footerAbout", {}, ui))}</span></p>
       <p data-i18n="footerScope">${esc(t("footerScope", {}, ui))}</p>
     </footer>
