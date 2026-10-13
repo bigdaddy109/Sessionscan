@@ -14,7 +14,9 @@ import {
   WEEK_BULLET_CATEGORIES,
   buildWeekBullets,
   claimedStorageKey,
+  countClaimedProgress,
   countdownParts,
+  formatClaimedProgress,
   loadClaimedIds,
   nextWeeklyUpdateAt,
   pickHomeShort,
@@ -88,6 +90,19 @@ toggleClaimedId(keyA, "podium", fakeStore);
 if (!loadClaimedIds(keyA, fakeStore).has("podium")) fail("toggle on failed");
 // Other week key stays empty — no cross-week bleed.
 if (loadClaimedIds(keyB, fakeStore).size !== 0) fail("other week must start empty");
+
+// Progress copy — players need a glanceable “done of total” on home / tip freeze.
+{
+  const sampleBullets = WEEK_BULLET_CATEGORIES.map((c) => ({ id: c.id }));
+  const prog0 = countClaimedProgress(sampleBullets, new Set());
+  if (prog0.done !== 0 || prog0.total !== 5) fail("empty claimed progress", prog0);
+  const prog2 = countClaimedProgress(sampleBullets, new Set(["free", "podium"]));
+  if (prog2.done !== 2 || prog2.total !== 5) fail("partial claimed progress", prog2);
+  const en = formatClaimedProgress(2, 5, "en");
+  if (!en.includes("2") || !en.includes("5") || !/claimed/i.test(en)) fail("en progress copy", en);
+  const zh = formatClaimedProgress(2, 5, "zh");
+  if (!zh.includes("2") || !zh.includes("5") || !zh.includes("已完成")) fail("zh progress copy", zh);
+}
 
 // Halloween week titles (live 2026-10-08): Freebies + Bonuses & Discounts fill;
 // bare "Halloween Event/Series" must NOT invent a multipliers slot — only explicit Nx.

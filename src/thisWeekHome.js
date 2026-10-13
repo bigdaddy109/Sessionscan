@@ -56,6 +56,19 @@ export function freezeClaimedChecklistScript() {
     saveIds(key, ids);
     return ids;
   }
+  function updateProgress(host) {
+    var el = document.getElementById("archiveClaimProgress");
+    if (!el || !host) return;
+    var inputs = host.querySelectorAll(".week-bullet-check");
+    var total = inputs.length;
+    var done = 0;
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].checked) done += 1;
+    }
+    var tpl = el.getAttribute("data-progress-template") || "Claimed {done} of {total}";
+    el.textContent = tpl.replace("{done}", String(done)).replace("{total}", String(total));
+    el.hidden = total === 0;
+  }
   function hydrate(host) {
     var key = host.getAttribute("data-claimed-key") || "";
     if (!key || key.indexOf(PREFIX) !== 0) return;
@@ -74,6 +87,7 @@ export function freezeClaimedChecklistScript() {
         else row.classList.remove("is-claimed");
       }
     }
+    updateProgress(host);
   }
   document.addEventListener("DOMContentLoaded", function () {
     var host = document.getElementById("archiveBulletList");
@@ -92,6 +106,7 @@ export function freezeClaimedChecklistScript() {
         if (t.checked) row.classList.add("is-claimed");
         else row.classList.remove("is-claimed");
       }
+      updateProgress(host);
     });
   });
 })();
@@ -311,6 +326,31 @@ export function toggleClaimedId(weekKey, bulletId, store = globalThis.localStora
   else set.add(bulletId);
   saveClaimedIds(weekKey, set, store);
   return set;
+}
+
+/**
+ * Count claimed slots among the fixed weekly bullet ids (always 5 categories).
+ * @param {Iterable<{id?: string}>} bullets
+ * @param {Set<string>} claimed
+ */
+export function countClaimedProgress(bullets, claimed) {
+  const list = [...(bullets || [])];
+  const total = list.length;
+  let done = 0;
+  const set = claimed instanceof Set ? claimed : new Set();
+  for (const b of list) {
+    const id = b?.id;
+    if (id && set.has(id)) done += 1;
+  }
+  return { done, total };
+}
+
+/** Localized “Claimed X of Y” — single source for home + tip freeze. */
+export function formatClaimedProgress(done, total, lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const d = Number.isFinite(Number(done)) ? Math.max(0, Math.round(Number(done))) : 0;
+  const tTotal = Number.isFinite(Number(total)) ? Math.max(0, Math.round(Number(total))) : 0;
+  return t("weekClaimProgress", { done: String(d), total: String(tTotal) }, ui);
 }
 
 /** Owned Short only — never invent a video when the slot is empty. */

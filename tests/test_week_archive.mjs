@@ -262,6 +262,9 @@ if (existsSync(resolve(root, "dist/week/feed.xml"))) {
   if (!tipBody.includes('id="archiveBulletList"')) fail("tip freeze missing claimable list id", tipBody.slice(0, 200));
   if (!tipBody.includes("week-bullet-check")) fail("tip freeze must expose claim checkboxes");
   if (!tipBody.includes("data-freeze-claimed")) fail("tip freeze missing hydrate script");
+  if (!tipBody.includes('id="archiveClaimProgress"') || !tipBody.includes("data-progress-template")) {
+    fail("tip freeze missing claimed progress", tipBody.match(/archiveClaimProgress[\s\S]{0,120}/)?.[0]);
+  }
   if (!tipBody.includes("archiveBulletsClaimHint") && !tipBody.includes("Checks sync with home")) {
     fail("tip freeze claim hint", tipBody.match(/week-bullets-hint[\s\S]{0,120}/)?.[0]);
   }
@@ -270,7 +273,11 @@ if (existsSync(resolve(root, "dist/week/feed.xml"))) {
   if (!tipKey.endsWith(tipIso)) fail("tip claimed key must use freeze week iso", tipKey);
   if (weeks.length > 1) {
     const olderBody = weekFreezeBodyHtml(site, weeks[1].week, "en");
-    if (olderBody.includes("week-bullet-check") || olderBody.includes("data-freeze-claimed")) {
+    if (
+      olderBody.includes("week-bullet-check") ||
+      olderBody.includes("data-freeze-claimed") ||
+      olderBody.includes("archiveClaimProgress")
+    ) {
       fail("older freeze must stay read-only (no claimed checklist)", olderBody.match(/week-bullet[\s\S]{0,80}/)?.[0]);
     }
   }

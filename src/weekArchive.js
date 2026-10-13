@@ -5,7 +5,7 @@
 
 import { CARD_SITE_BASE, youtubeId } from "./cardShare.js";
 import { snapshotNow } from "./homeExtras.js";
-import { t } from "./i18n.js";
+import { UI, t } from "./i18n.js";
 import {
   absoluteUrl,
   esc,
@@ -24,6 +24,7 @@ import {
 import {
   buildWeekBullets,
   claimedStorageKey,
+  formatClaimedProgress,
   freezeClaimedChecklistScript,
   pickHomeShort,
   weekSignalItems,
@@ -438,6 +439,11 @@ export function weekFreezeBodyHtml(data, weekIso, lang = "en") {
         <span data-i18n="weekBulletsTag">${esc(t("weekBulletsTag", {}, ui))}</span>
       </div>
       ${claimable ? `<p class="week-bullets-hint" data-i18n="archiveBulletsClaimHint">${esc(t("archiveBulletsClaimHint", {}, ui))}</p>` : ""}
+      ${claimable ? (() => {
+        const tpl = String((UI[ui] || UI.en).weekClaimProgress || UI.en.weekClaimProgress || "Claimed {done} of {total}");
+        const zero = formatClaimedProgress(0, bullets.length, ui);
+        return `<p class="week-claim-progress" id="archiveClaimProgress" data-progress-template="${esc(tpl)}" aria-live="polite">${esc(zero)}</p>`;
+      })() : ""}
       ${bulletsHtml(bullets, { claimable, lang: ui, weekIso })}
     </section>
     <section class="archive-outbound" aria-labelledby="archiveLinksHeading">

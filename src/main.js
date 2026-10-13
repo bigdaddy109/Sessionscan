@@ -35,7 +35,9 @@ import {
 import {
   buildWeekBullets,
   claimedStorageKey,
+  countClaimedProgress,
   countdownParts,
+  formatClaimedProgress,
   loadClaimedIds,
   nextWeeklyUpdateAt,
   pickHomeShort,
@@ -409,6 +411,19 @@ function renderWeekShort() {
   });
 }
 
+function updateWeekClaimProgress(bullets, claimed) {
+  const el = $("#weekClaimProgress");
+  if (!el) return;
+  const { done, total } = countClaimedProgress(bullets, claimed);
+  if (!total) {
+    el.hidden = true;
+    el.textContent = "";
+    return;
+  }
+  el.hidden = false;
+  el.textContent = formatClaimedProgress(done, total, uiLang());
+}
+
 function renderWeekBullets() {
   const host = $("#weekBulletList");
   if (!host) return;
@@ -435,6 +450,7 @@ function renderWeekBullets() {
       </li>`;
     })
     .join("");
+  updateWeekClaimProgress(bullets, claimed);
 }
 
 function bindWeekBulletClaims() {
@@ -446,9 +462,12 @@ function bindWeekBulletClaims() {
     if (!input) return;
     const id = input.getAttribute("data-bullet-id") || "";
     const weekKey = host.dataset.claimedKey || claimedStorageKey(snapshotNow(state.data?.meta || {}));
-    toggleClaimedId(weekKey, id);
+    const claimed = toggleClaimedId(weekKey, id);
     const row = input.closest(".week-bullet");
     if (row) row.classList.toggle("is-claimed", Boolean(input.checked));
+    const now = snapshotNow(state.data?.meta || {});
+    const bullets = buildWeekBullets(state.data || {}, now, uiLang());
+    updateWeekClaimProgress(bullets, claimed);
   });
 }
 
