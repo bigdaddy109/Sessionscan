@@ -24,6 +24,7 @@ import {
   renderArchiveAtomFeed,
   renderArchiveIndexPage,
   renderWeekFreezePage,
+  weekFreezeBodyHtml,
   weekOutboundLinks,
   weekPagePath,
   weekShareUrl,
@@ -209,6 +210,31 @@ if (existsSync(resolve(root, "dist/week/feed.xml"))) {
   const builtFeed = readFileSync(resolve(root, "dist/week/feed.xml"), "utf8");
   if (!builtFeed.includes(`https://sessionscan.net/week/${weeks[0].week}/`)) {
     fail("dist week/feed.xml missing tip", builtFeed.slice(0, 200));
+  }
+}
+
+// Tip freeze claimed checklist — same Rockstar-week localStorage key as home; older freezes stay read-only.
+{
+  const tipIso = weeks[0].week;
+  const tipBody = weekFreezeBodyHtml(site, tipIso, "en");
+  if (!tipBody.includes('id="archiveBulletList"')) fail("tip freeze missing claimable list id", tipBody.slice(0, 200));
+  if (!tipBody.includes("week-bullet-check")) fail("tip freeze must expose claim checkboxes");
+  if (!tipBody.includes("data-freeze-claimed")) fail("tip freeze missing hydrate script");
+  if (!tipBody.includes("archiveBulletsClaimHint") && !tipBody.includes("Checks sync with home")) {
+    fail("tip freeze claim hint", tipBody.match(/week-bullets-hint[\s\S]{0,120}/)?.[0]);
+  }
+  const tipKey = tipBody.match(/data-claimed-key="([^"]+)"/)?.[1] || "";
+  if (!tipKey.startsWith("sessionscan:week-claimed:")) fail("tip claimed key prefix", tipKey);
+  if (!tipKey.endsWith(tipIso)) fail("tip claimed key must use freeze week iso", tipKey);
+  if (weeks.length > 1) {
+    const olderBody = weekFreezeBodyHtml(site, weeks[1].week, "en");
+    if (olderBody.includes("week-bullet-check") || olderBody.includes("data-freeze-claimed")) {
+      fail("older freeze must stay read-only (no claimed checklist)", olderBody.match(/week-bullet[\s\S]{0,80}/)?.[0]);
+    }
+  }
+  const zhTip = weekFreezeBodyHtml(site, tipIso, "zh");
+  if (!zhTip.includes("week-bullet-check") || !zhTip.includes("標記完成")) {
+    fail("zh tip freeze should include claimable checkboxes", zhTip.match(/week-bullet-claim[\s\S]{0,80}/)?.[0]);
   }
 }
 

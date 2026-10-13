@@ -10,8 +10,93 @@ import {
   toIsoDate,
 } from "./thisWeek.js";
 
-/** localStorage key prefix for the home “claimed” checklist (per Rockstar week). */
+/** localStorage key prefix for home + tip-freeze “claimed” checklist (per Rockstar week). */
 export const CLAIMED_STORAGE_PREFIX = "sessionscan:week-claimed:";
+
+/**
+ * Inline script for tip `/week/YYYY-MM-DD/` freezes — same key/prefix as home.
+ * Static shell pages have no bundled module entry (see moneyCalculatorScript).
+ */
+export function freezeClaimedChecklistScript() {
+  return `<script data-freeze-claimed>
+(function () {
+  var PREFIX = ${JSON.stringify(CLAIMED_STORAGE_PREFIX)};
+  function loadIds(key) {
+    var out = [];
+    if (!key || !window.localStorage) return out;
+    try {
+      var raw = localStorage.getItem(key);
+      if (!raw) return out;
+      var parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) return out;
+      for (var i = 0; i < parsed.length; i++) {
+        if (typeof parsed[i] === "string" && parsed[i]) out.push(parsed[i]);
+      }
+    } catch (e) { /* corrupt → empty */ }
+    return out;
+  }
+  function saveIds(key, ids) {
+    if (!key || !window.localStorage) return;
+    var list = [];
+    var seen = Object.create(null);
+    for (var i = 0; i < ids.length; i++) {
+      var id = ids[i];
+      if (typeof id !== "string" || !id || seen[id]) continue;
+      seen[id] = 1;
+      list.push(id);
+    }
+    list.sort();
+    try { localStorage.setItem(key, JSON.stringify(list)); } catch (e) { /* quota */ }
+  }
+  function toggleId(key, id) {
+    var ids = loadIds(key);
+    var idx = ids.indexOf(id);
+    if (idx >= 0) ids.splice(idx, 1);
+    else ids.push(id);
+    saveIds(key, ids);
+    return ids;
+  }
+  function hydrate(host) {
+    var key = host.getAttribute("data-claimed-key") || "";
+    if (!key || key.indexOf(PREFIX) !== 0) return;
+    var claimed = loadIds(key);
+    var map = Object.create(null);
+    for (var i = 0; i < claimed.length; i++) map[claimed[i]] = 1;
+    var inputs = host.querySelectorAll(".week-bullet-check");
+    for (var j = 0; j < inputs.length; j++) {
+      var input = inputs[j];
+      var bid = input.getAttribute("data-bullet-id") || "";
+      var done = Boolean(map[bid]);
+      input.checked = done;
+      var row = input.closest(".week-bullet");
+      if (row) {
+        if (done) row.classList.add("is-claimed");
+        else row.classList.remove("is-claimed");
+      }
+    }
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    var host = document.getElementById("archiveBulletList");
+    if (!host || host.getAttribute("data-claim-bound") === "1") return;
+    host.setAttribute("data-claim-bound", "1");
+    hydrate(host);
+    host.addEventListener("change", function (ev) {
+      var t = ev.target;
+      if (!t || !t.classList || !t.classList.contains("week-bullet-check")) return;
+      var id = t.getAttribute("data-bullet-id") || "";
+      var key = host.getAttribute("data-claimed-key") || "";
+      if (!id || !key) return;
+      toggleId(key, id);
+      var row = t.closest(".week-bullet");
+      if (row) {
+        if (t.checked) row.classList.add("is-claimed");
+        else row.classList.remove("is-claimed");
+      }
+    });
+  });
+})();
+</script>`;
+}
 
 /** Fixed verdict slots — always rendered so the home screen has one clear shape. */
 export const WEEK_BULLET_CATEGORIES = [
