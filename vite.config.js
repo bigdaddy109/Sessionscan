@@ -12,6 +12,7 @@ import {
 import { injectJobListHtml, renderStaticHomeJobList } from "./src/staticHomeJobs.js";
 import {
   matchWeekFreezePath,
+  renderArchiveAtomFeed,
   renderArchiveIndexPage,
   renderWeekFreezePage,
 } from "./src/weekArchive.js";
@@ -74,6 +75,13 @@ function sitePagesDev() {
     name: "site-pages-dev",
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
+        const pathOnly = String(req.url || "").split("?")[0];
+        if (pathOnly === "/week/feed.xml" || pathOnly === "/week/feed.xml/") {
+          res.statusCode = 200;
+          res.setHeader("Content-Type", "application/atom+xml; charset=utf-8");
+          res.end(renderArchiveAtomFeed(loadHubJobs()));
+          return;
+        }
         const freeze = matchWeekFreezePath(req.url || "");
         if (freeze) {
           const html = renderWeekFreezePage(loadHubJobs(), freeze.weekIso, {

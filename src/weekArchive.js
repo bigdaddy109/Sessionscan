@@ -24,6 +24,8 @@ import {
 import { buildWeekBullets, pickHomeShort, weekSignalItems } from "./thisWeekHome.js";
 
 export const WEEK_ISO_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
+/** Absolute Atom path for weekly archive freezes (EN freeze URLs). */
+export const ARCHIVE_ATOM_PATH = "/week/feed.xml";
 
 function isWeeklyTitle(item) {
   const blob = `${item?.title || ""} ${item?.title_en || ""} ${item?.tags || ""}`.toLowerCase();
@@ -237,8 +239,9 @@ export function archiveIndexBodyHtml(data, lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
   const weeks = listArchiveWeeks(data);
   const intro = `<div class="page-body"><p>${esc(t("archiveIndexIntro", {}, ui))}</p></div>`;
+  const feedLink = `<p class="archive-feed-link"><a href="${esc(ARCHIVE_ATOM_PATH)}" type="application/atom+xml">${esc(t("archiveAtomLink", {}, ui))}</a></p>`;
   if (!weeks.length) {
-    return `${intro}<p class="archive-empty">${esc(t("archiveIndexEmpty", {}, ui))}</p>`;
+    return `${intro}${feedLink}<p class="archive-empty">${esc(t("archiveIndexEmpty", {}, ui))}</p>`;
   }
   // Tip of listArchiveWeeks only — never invent a "Latest" on an older row.
   const latestWeek = weeks[0]?.week;
@@ -260,7 +263,43 @@ export function archiveIndexBodyHtml(data, lang = "en") {
       })
       .join("")}
   </ul>`;
-  return `${intro}${list}`;
+  return `${intro}${feedLink}${list}`;
+}
+
+/**
+ * Atom feed of listArchiveWeeks tip→older. Entries link EN freeze pages only.
+ * Never invents week keys.
+ */
+export function renderArchiveAtomFeed(data) {
+  const weeks = listArchiveWeeks(data);
+  const feedUrl = `${CARD_SITE_BASE.replace(/\/?$/, "")}${ARCHIVE_ATOM_PATH}`;
+  const indexUrl = absoluteUrl("week/", "en");
+  const updated = weeks[0]?.week ? `${weeks[0].week}T12:00:00Z` : "1970-01-01T00:00:00Z";
+  const entries = weeks
+    .map((w) => {
+      const href = absoluteUrl(`week/${w.week}/`, "en");
+      const entryUpdated = `${w.week}T12:00:00Z`;
+      return `  <entry>
+    <id>${esc(href)}</id>
+    <title>${esc(w.title || w.week)}</title>
+    <updated>${esc(entryUpdated)}</updated>
+    <link rel="alternate" href="${esc(href)}" />
+    <summary>${esc(w.title || w.week)}</summary>
+  </entry>`;
+    })
+    .join("\n");
+  return `<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SessionScan weekly archive</title>
+  <subtitle>Frozen GTA Online Thursday weeks — titles and outbound links only</subtitle>
+  <id>${esc(feedUrl)}</id>
+  <link rel="self" href="${esc(feedUrl)}" type="application/atom+xml" />
+  <link rel="alternate" href="${esc(indexUrl)}" />
+  <updated>${esc(updated)}</updated>
+  <author><name>SessionScan</name></author>
+${entries}
+</feed>
+`;
 }
 
 /**
@@ -349,6 +388,7 @@ export function renderArchiveIndexPage(data, opts = {}) {
   const bodyHtml = `
       <h1 data-i18n="pageWeekHeading">${esc(t("pageWeekHeading", {}, lang))}</h1>
       ${archiveIndexBodyHtml(data, lang)}`;
+  const feedAbs = `${CARD_SITE_BASE.replace(/\/?$/, "")}${ARCHIVE_ATOM_PATH}`;
   return renderSitePage(
     { ...page, stub: false },
     {
@@ -357,6 +397,7 @@ export function renderArchiveIndexPage(data, opts = {}) {
       bodyHtml,
       title: t("pageWeekTitle", {}, lang),
       desc: t("pageWeekDesc", {}, lang),
+      extraHead: `<link rel="alternate" type="application/atom+xml" title="SessionScan weekly archive" href="${esc(feedAbs)}" />`,
     },
   );
 }

@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 import { SITE_PAGES, assetPrefix, localePath, renderSitePage } from "../src/sitePages.js";
 import {
   listArchiveWeeks,
+  renderArchiveAtomFeed,
   renderArchiveIndexPage,
   renderWeekFreezePage,
 } from "../src/weekArchive.js";
@@ -96,6 +97,10 @@ for (const week of weeks) {
   }
 }
 
+const feedDir = resolve(dist, "week");
+mkdirSync(feedDir, { recursive: true });
+writeFileSync(resolve(feedDir, "feed.xml"), renderArchiveAtomFeed(hub));
+
 console.log(
-  `generate_site_pages: ${written} pages -> dist/{,zh/}{week,week/YYYY-MM-DD,guides,gta6,about}/ (${weeks.length} freeze weeks)`,
+  `generate_site_pages: ${written} pages -> dist/{,zh/}{week,week/YYYY-MM-DD,guides,gta6,about}/ (${weeks.length} freeze weeks); week/feed.xml`,
 );
