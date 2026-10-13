@@ -404,6 +404,7 @@ export function renderSitePage(
     activeId,
     jsonLdName,
     jsonLdDesc,
+    extraHead = "",
   } = {},
 ) {
   if (!page?.path) return "";
@@ -470,7 +471,7 @@ export function renderSitePage(
     <link rel="icon" href="${esc(icon)}" type="image/svg+xml" />
     ${fontHeadLinks(ui)}
     <link rel="stylesheet" href="${esc(css)}" />
-  </head>
+    ${extraHead ? `${extraHead}\n` : ""}  </head>
   <body class="site-page" data-page="${esc(page.id)}">
     <div class="scanlines" aria-hidden="true"></div>
     <div class="vignette" aria-hidden="true"></div>

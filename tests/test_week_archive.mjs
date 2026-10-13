@@ -10,6 +10,7 @@ import { fileURLToPath } from "node:url";
 import { snapshotNow } from "../src/homeExtras.js";
 import { buildWeekBullets } from "../src/thisWeekHome.js";
 import {
+  ARCHIVE_ATOM_PATH,
   archiveAdjacentWeeks,
   archiveSitemapUrls,
   archiveWeekPagerHtml,
@@ -18,6 +19,7 @@ import {
   listArchiveWeeks,
   matchWeekFreezePath,
   pickArchiveShort,
+  renderArchiveAtomFeed,
   renderArchiveIndexPage,
   renderWeekFreezePage,
   weekOutboundLinks,
@@ -188,6 +190,24 @@ if (!zhLatest.includes(`/zh/week/${tip.week}/`)) fail("zh latest path", zhLatest
 const emptyHtml = latestArchiveLinkHtml({ jobs_gtabase: [], jobs_ign: [] }, "en");
 if (!emptyHtml.includes("/week/") || !emptyHtml.includes("is-empty")) {
   fail("empty hub falls back to archive index", emptyHtml);
+}
+
+// Atom feed — same listArchiveWeeks tip→older; never invents week keys.
+const atom = renderArchiveAtomFeed(site);
+if (!atom.includes('xmlns="http://www.w3.org/2005/Atom"')) fail("atom root", atom.slice(0, 120));
+if (!atom.includes(ARCHIVE_ATOM_PATH)) fail("atom self path", atom);
+if (!atom.includes(`https://sessionscan.net/week/${weeks[0].week}/`)) fail("atom tip entry", atom);
+const entryCount = (atom.match(/<entry>/g) || []).length;
+if (entryCount !== weeks.length) fail("atom entry count", { entryCount, weeks: weeks.length });
+if (atom.includes("/week/1999-01-01/")) fail("atom invented week");
+if (!indexHtml.includes(ARCHIVE_ATOM_PATH) || !indexHtml.includes("application/atom+xml")) {
+  fail("archive index must discover Atom feed", indexHtml.match(/atom[\s\S]{0,80}/i)?.[0]);
+}
+if (existsSync(resolve(root, "dist/week/feed.xml"))) {
+  const builtFeed = readFileSync(resolve(root, "dist/week/feed.xml"), "utf8");
+  if (!builtFeed.includes(`https://sessionscan.net/week/${weeks[0].week}/`)) {
+    fail("dist week/feed.xml missing tip", builtFeed.slice(0, 200));
+  }
 }
 
 console.log("test_week_archive.mjs ok", weeks.length, "weeks");
