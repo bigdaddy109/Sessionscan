@@ -37,8 +37,16 @@ if (!t("channelAria", {}, "en").includes("@sessionscan")) fail("en subscribe ari
 if (!t("channelAria", {}, "zh").includes("@sessionscan")) fail("zh subscribe aria keeps handle");
 if (t("instagramFull", {}, "en") !== "Follow on Instagram") fail("en instagram label");
 if (t("instagramFull", {}, "zh") !== "追蹤 Instagram") fail("zh instagram label");
-if (!t("instagramAria", {}, "en").includes("Instagram")) fail("en instagram aria");
-if (!t("instagramAria", {}, "zh").includes("Instagram")) fail("zh instagram aria");
+// Why: Lighthouse label-content-name-mismatch fails when visible "Follow on Instagram" / "IG"
+// (or zh "追蹤 Instagram") is not a substring of the accessible name.
+if (!t("instagramAria", {}, "en").includes("Follow on Instagram")) fail("en instagram aria keeps visible label");
+if (!t("instagramAria", {}, "en").includes("IG")) fail("en instagram aria keeps compact IG");
+if (!t("instagramAria", {}, "zh").includes("追蹤 Instagram")) fail("zh instagram aria keeps visible label");
+if (!t("instagramAria", {}, "zh").includes("IG")) fail("zh instagram aria keeps compact IG");
+if (!t("weekSocialXAria", {}, "en").includes("Follow on X")) fail("en X aria keeps visible label");
+if (!t("weekSocialXAria", {}, "en").includes("@SessionScanGTA")) fail("en X aria keeps handle");
+if (!t("weekSocialXAria", {}, "zh").includes("追蹤 X")) fail("zh X aria keeps visible label");
+if (!t("weekSocialXAria", {}, "zh").includes("@SessionScanGTA")) fail("zh X aria keeps handle");
 if (t("tabJobs", {}, "en").includes("本週")) fail("en tab must not mix Chinese");
 if (!t("tabJobs", {}, "zh").includes("本週")) fail("zh tab");
 if (isZhPath("/zh/") !== true || isZhPath("/") !== false) fail("isZhPath");
@@ -137,5 +145,16 @@ if (zhLd[0]["@graph"][0].inLanguage !== "zh-Hant") fail("zh WebSite inLanguage")
 if (zhLd[0]["@graph"][0].url !== "https://sessionscan.net/zh/") fail("zh WebSite url");
 const zhOrg = (zhLd[0]["@graph"] || []).find((node) => node["@type"] === "Organization");
 if (!zhOrg?.sameAs?.includes(INSTAGRAM_URL)) fail("zh Organization sameAs must include Instagram", zhOrg?.sameAs);
+
+// Static home HTML must ship the same Label-in-Name-safe aria strings (pre-JS).
+if (!indexHtml.includes('aria-label="Follow on Instagram · IG"')) {
+  fail("index.html IG aria must include visible Follow on Instagram + IG");
+}
+if (!indexHtml.includes('aria-label="Follow on X @SessionScanGTA"')) {
+  fail("index.html X aria must include visible Follow on X + handle");
+}
+if (indexHtml.includes("Follow SessionScan on Instagram")) {
+  fail("index.html must not keep old IG aria that omitted visible label text");
+}
 
 console.log("test_i18n.mjs ok");
