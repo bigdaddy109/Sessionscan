@@ -81,6 +81,15 @@ const week = renderSitePage(
 if (!week.includes('class="site-breadcrumbs"') || !week.includes("Archive")) {
   fail("week page visible breadcrumbs");
 }
+// a11y: nav + aria-label; last crumb is not a link and marks current page.
+if (!week.includes('<nav class="site-breadcrumbs" aria-label="Breadcrumb">')) {
+  fail("week breadcrumbs nav aria-label Breadcrumb");
+}
+const weekCrumbNav = week.match(/<nav class="site-breadcrumbs"[\s\S]*?<\/nav>/)?.[0] || "";
+if (!weekCrumbNav.includes('aria-current="page"')) fail("week last crumb aria-current");
+if (/site-breadcrumbs-current[\s\S]*?<a\s/i.test(weekCrumbNav)) {
+  fail("week current crumb must not be a link", weekCrumbNav);
+}
 if (week.includes("page-stub-flag")) fail("week archive is not a stub");
 if (!SITE_PAGES.find((p) => p.id === "week") || SITE_PAGES.find((p) => p.id === "week").stub) {
   fail("SITE_PAGES week stub flag must be false");

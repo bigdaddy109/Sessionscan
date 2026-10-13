@@ -264,9 +264,23 @@ if (weeks.length > 1) {
   if (!tipFreezeEn.includes('class="site-breadcrumbs"') || !tipFreezeEn.includes(`Week of ${weeks[0].week}`)) {
     fail("EN freeze visible breadcrumbs", tipFreezeEn.match(/site-breadcrumbs[\s\S]{0,200}/)?.[0]);
   }
+  if (!tipFreezeEn.includes('<nav class="site-breadcrumbs" aria-label="Breadcrumb">')) {
+    fail("EN freeze breadcrumbs nav aria-label");
+  }
+  const enNav = tipFreezeEn.match(/<nav class="site-breadcrumbs"[\s\S]*?<\/nav>/)?.[0] || "";
+  if (!enNav.includes('aria-current="page"') || /site-breadcrumbs-current[\s\S]*?<a\s/i.test(enNav)) {
+    fail("EN freeze current crumb not a link + aria-current", enNav);
+  }
+  if (!enNav.includes('href="/week/"')) fail("EN freeze Archive crumb links /week/", enNav);
   if (!freeze.includes("site-breadcrumbs") || !freeze.includes("回首頁") || !freeze.includes("週更封存")) {
     fail("zh freeze visible breadcrumbs localized");
   }
+  if (!freeze.includes('aria-label="麵包屑導覽"')) fail("zh freeze breadcrumbs aria-label localized");
+  const zhNav = freeze.match(/<nav class="site-breadcrumbs"[\s\S]*?<\/nav>/)?.[0] || "";
+  if (!zhNav.includes('aria-current="page"') || /site-breadcrumbs-current[\s\S]*?<a\s/i.test(zhNav)) {
+    fail("zh freeze current crumb not a link + aria-current", zhNav);
+  }
+  if (!zhNav.includes('href="/zh/week/"')) fail("zh freeze Archive crumb links /zh/week/", zhNav);
   const zhFreezeLd = parseJsonLdScripts(freeze).find((b) => b["@graph"]);
   const zhBc = zhFreezeLd?.["@graph"]?.find((n) => n["@type"] === "BreadcrumbList");
   const zhNames = (zhBc?.itemListElement || []).map((it) => it.name);
