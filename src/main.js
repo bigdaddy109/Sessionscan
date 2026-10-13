@@ -11,7 +11,7 @@ import {
   uiCopy,
 } from "./cardShare.js";
 import {
-  gta6ScheduleLine,
+  gta6ScheduleBannerHtml,
   pickOfficialWeekly,
   rankDelta,
   rankDeltaHtml,
@@ -504,14 +504,13 @@ function renderOfficialBanner() {
   const el = $("#officialBannerBody");
   if (!el) return;
   const weekly = pickOfficialWeekly(state.data || {});
-  const schedule = gta6ScheduleLine(state.data || {}, uiLang());
+  const scheduleHtml = gta6ScheduleBannerHtml(state.data || {}, uiLang());
   if (!weekly) {
-    el.innerHTML = `<span>${esc(t("officialPending"))}</span>${schedule ? `<span class="official-sub">${esc(schedule)}</span>` : ""}`;
+    el.innerHTML = `<span>${esc(t("officialPending"))}</span>${scheduleHtml}`;
     return;
   }
-  const extra = schedule ? `<span class="official-sub">${esc(schedule)}</span>` : "";
   const sourceLine = t("officialSource", { source: weekly.source || "" });
-  el.innerHTML = `<a href="${esc(weekly.url)}" target="_blank" rel="noopener noreferrer">${esc(weekly.title)}</a><span class="official-sub">${esc(sourceLine)}${weekly.updated ? ` · ${esc(weekly.updated)}` : ""}</span>${extra}`;
+  el.innerHTML = `<a href="${esc(weekly.url)}" target="_blank" rel="noopener noreferrer">${esc(weekly.title)}</a><span class="official-sub">${esc(sourceLine)}${weekly.updated ? ` · ${esc(weekly.updated)}` : ""}</span>${scheduleHtml}`;
 }
 
 function renderAll() {

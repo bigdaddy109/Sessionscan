@@ -5,6 +5,8 @@ import { fileURLToPath } from "node:url";
 import {
   extractRankPrev,
   filterSortVideos,
+  gta6ScheduleBannerHtml,
+  gta6ScheduleLine,
   hubStats,
   pickOfficialWeekly,
   rankDelta,
@@ -81,6 +83,30 @@ const samplePrev = sample.rank_prev.videos_hot_zh;
 if (rankDelta("5XBMNYmFmTs", 1, samplePrev).kind !== "up") fail("sample #1 rose");
 if (rankDelta("kIomnva1jGU", 2, samplePrev).kind !== "down") fail("sample #2 fell");
 if (rankDelta("OAbemtpGAew", 3, samplePrev).kind !== "new") fail("sample #3 is NEW");
+
+// Why: when snapshot text mentions the announced GTA 6 date, the CH-00 banner
+// note must link to /gta6/ (locale path) — plain text wasted a discovery chance.
+const scheduleData = {
+  jobs_gtabase: [{ title: "GTA 6 coming November 19 — Rockstar" }],
+};
+if (!gta6ScheduleLine(scheduleData, "en").includes("November 19")) {
+  fail("schedule line en", gta6ScheduleLine(scheduleData, "en"));
+}
+const bannerEn = gta6ScheduleBannerHtml(scheduleData, "en");
+if (!bannerEn.includes('data-gta6-schedule-link') || !bannerEn.includes('href="/gta6/"')) {
+  fail("banner schedule en link", bannerEn);
+}
+if (!bannerEn.includes("GTA 6 date announced")) fail("banner schedule en copy");
+const bannerZh = gta6ScheduleBannerHtml(
+  { jobs_gtabase: [{ title: "俠盜獵車手 6 · 11 月 19 日" }] },
+  "zh",
+);
+if (!bannerZh.includes('href="/zh/gta6/"') || !bannerZh.includes("已公開時程")) {
+  fail("banner schedule zh link", bannerZh);
+}
+if (gta6ScheduleBannerHtml({ jobs_gtabase: [{ title: "weekly bonuses only" }] }, "en") !== "") {
+  fail("banner empty without GTA 6 date signal");
+}
 
 console.log("test_home_extras.mjs ok", {
   highlights: highlights.map((h) => h.kicker),
