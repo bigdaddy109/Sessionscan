@@ -114,6 +114,43 @@ export function latestArchiveLinkHtml(data, lang = "en") {
   return `<p class="week-archive-latest"><a href="${esc(href)}">${esc(label)}</a></p>`;
 }
 
+/**
+ * Home Atom discovery link — same `/week/feed.xml` as archive index (no invented path).
+ */
+export function homeArchiveFeedLinkHtml(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  return `<p class="week-archive-feed archive-feed-link" id="weekArchiveFeed"><a href="${esc(ARCHIVE_ATOM_PATH)}" type="application/atom+xml" data-i18n="archiveAtomLink">${esc(t("archiveAtomLink", {}, ui))}</a></p>`;
+}
+
+/** Absolute Atom URL for home `<link rel="alternate">` (EN freeze entries). */
+export function archiveAtomAbsoluteUrl() {
+  return `${CARD_SITE_BASE.replace(/\/?$/, "")}${ARCHIVE_ATOM_PATH}`;
+}
+
+/**
+ * Inject home Atom discovery: head alternate + body link under this-week bullets.
+ * Single source with archive index feed path — never invents a feed URL.
+ */
+export function injectHomeAtomDiscovery(html, { lang = "en" } = {}) {
+  let out = String(html || "");
+  const ui = lang === "zh" ? "zh" : "en";
+  const feedAbs = archiveAtomAbsoluteUrl();
+  const alt = `<link rel="alternate" type="application/atom+xml" title="SessionScan weekly archive" href="${esc(feedAbs)}" />`;
+  if (!/rel=["']alternate["'][^>]*application\/atom\+xml|type=["']application\/atom\+xml["'][^>]*rel=["']alternate["']/.test(out)) {
+    out = out.replace("</head>", `    ${alt}\n  </head>`);
+  }
+  const body = homeArchiveFeedLinkHtml(ui);
+  if (/id="weekArchiveFeed"/.test(out)) {
+    out = out.replace(/<p class="week-archive-feed[\s\S]*?<\/p>/, body);
+  } else if (/id="weekArchiveLatest"/.test(out)) {
+    out = out.replace(
+      /(<p class="week-archive-latest"[^>]*>[\s\S]*?<\/p>)/,
+      `$1\n      ${body}`,
+    );
+  }
+  return out;
+}
+
 /** Share URL for Short/IG captions — utm_source + utm_campaign=week-YYYY-MM-DD. */
 export function weekShareUrl(weekIso, { lang = "en", source = "youtube" } = {}) {
   if (!WEEK_ISO_RE.test(String(weekIso || ""))) return "";

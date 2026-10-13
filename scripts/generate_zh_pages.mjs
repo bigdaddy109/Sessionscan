@@ -11,6 +11,7 @@ import { UI, applyHtmlI18n, rewriteAssetBase } from "../src/i18n.js";
 import { injectHomeShell } from "../src/sitePages.js";
 import { replaceHomeJsonLd } from "../src/structuredData.js";
 import { injectJobListHtml, renderStaticHomeJobList } from "../src/staticHomeJobs.js";
+import { injectHomeAtomDiscovery } from "../src/weekArchive.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const dist = resolve(root, "dist");
@@ -39,6 +40,7 @@ const en = readFileSync(srcPath, "utf8");
 let zh = applyHtmlI18n(en, "zh");
 zh = replaceHomeJsonLd(zh, "zh");
 zh = injectHomeShell(zh, { lang: "zh" });
+zh = injectHomeAtomDiscovery(zh, { lang: "zh" });
 zh = rewriteAssetBase(zh, "../");
 // EN has Oswald preloads only (vite may emit ./fonts); inject non-blocking Noto TC for CJK UI.
 if (!zh.includes("Noto+Sans+TC")) {
