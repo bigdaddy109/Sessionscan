@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- About 頁 related＋footer 攻略列（`wantsRelated` 含 `about`；不進 `CROSS_LINK_PAGE_IDS` 以免出現在每頁 footer；等研發程式 「可以合」後再合）。測 `tests/test_site_pages.mjs`。Rollback：`pre-about-related-20261013`。
+- About 頁 related＋footer 攻略列（`wantsRelated` 含 `about`；不進 `CROSS_LINK_PAGE_IDS` 以免出現在每頁 footer；#86；等研發程式 「可以合 #86」後再合）。測 `tests/test_site_pages.mjs`。Rollback：`pre-about-related-20261013`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
