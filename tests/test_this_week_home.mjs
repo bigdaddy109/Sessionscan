@@ -89,4 +89,48 @@ if (!loadClaimedIds(keyA, fakeStore).has("podium")) fail("toggle on failed");
 // Other week key stays empty — no cross-week bleed.
 if (loadClaimedIds(keyB, fakeStore).size !== 0) fail("other week must start empty");
 
+// Halloween week titles (live 2026-10-08): Freebies / Halloween Series / Bonuses & Discounts
+// must fill slots — `\bfree\b` alone used to miss "Freebies".
+const halloweenNow = new Date("2026-10-10T12:00:00Z");
+const halloweenHub = {
+  jobs_gtabase: [
+    {
+      title: "GTA Online Weekly Update (October 8-14): Second Week of Halloween Event, Bonuses & Discounts",
+      url: "https://www.gtabase.com/example-halloween-week",
+      updated: "2026-10-08",
+      source: "GTABase",
+    },
+  ],
+  jobs_ign: [
+    {
+      title: "GTA Online Weekly Updates (October 8, 2026): Halloween Series Continues, New Freebies, and More",
+      url: "https://www.ign.com/wikis/gta-5/example-halloween",
+      updated: "2026-10-08",
+      source: "IGN",
+    },
+  ],
+  sessionscan_slot: {
+    short: {
+      title: "3X Halloween Survival This Week | GTA Online",
+      video_id: "abcdefghijk",
+      url: "https://www.youtube.com/shorts/abcdefghijk",
+      date: "2026-10-09",
+      channel: "SessionScan",
+    },
+  },
+};
+const hallBullets = buildWeekBullets(halloweenHub, halloweenNow, "en");
+const hallFree = hallBullets.find((b) => b.id === "free");
+if (!hallFree || hallFree.pending || !/freebies/i.test(hallFree.reward)) {
+  fail("Freebies title must fill free slot", hallFree);
+}
+const hallMulti = hallBullets.find((b) => b.id === "multipliers");
+if (!hallMulti || hallMulti.pending) {
+  fail("3X Halloween Survival / Halloween Series must fill multipliers", hallMulti);
+}
+const hallDisc = hallBullets.find((b) => b.id === "discounts");
+if (!hallDisc || hallDisc.pending || !/discount/i.test(hallDisc.reward)) {
+  fail("Bonuses & Discounts must fill discounts", hallDisc);
+}
+
 console.log("test_this_week_home.mjs ok");
