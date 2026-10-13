@@ -153,6 +153,9 @@ if (!weekPage?.relatedLink?.includes("https://sessionscan.net/guides/money/")) {
 if (!weekPage?.relatedLink?.includes("https://sessionscan.net/guides/businesses/")) {
   fail("week WebPage relatedLink → businesses");
 }
+if (!weekPage?.relatedLink?.includes("https://sessionscan.net/gta6/")) {
+  fail("week WebPage relatedLink → gta6");
+}
 // BreadcrumbList on shell pages — Home → Archive (SEO trail; no invented paths).
 const weekCrumbs = weekLd?.["@graph"]?.find((n) => n["@type"] === "BreadcrumbList");
 if (!weekCrumbs?.itemListElement?.length) fail("week BreadcrumbList missing");
@@ -196,6 +199,30 @@ const bizPage = bizLd?.["@graph"]?.find((n) => n["@type"] === "WebPage");
 if (!bizPage?.relatedLink?.includes("https://sessionscan.net/guides/money/")) {
   fail("businesses relatedLink → money");
 }
+if (!bizPage?.relatedLink?.includes("https://sessionscan.net/gta6/")) {
+  fail("businesses relatedLink → gta6");
+}
+if (!moneyPageNode?.relatedLink?.includes("https://sessionscan.net/zh/gta6/")) {
+  fail("zh money relatedLink → gta6");
+}
+const gta6Html = renderSitePage(SITE_PAGES.find((p) => p.id === "gta6"), {
+  lang: "en",
+  cssHref: "../assets/x.css",
+  faviconHref: "../favicon.svg",
+});
+if (!gta6Html.includes('class="related-pages"') || !gta6Html.includes('data-related="week"')) {
+  fail("gta6 page related-pages");
+}
+if (!gta6Html.includes('data-related="money"') || !gta6Html.includes('data-related="businesses"')) {
+  fail("gta6 related must include money + businesses");
+}
+if (gta6Html.includes('data-related="gta6"')) fail("gta6 related must omit self");
+if (!gta6Html.includes('data-footer-guide="gta6"')) fail("footer guides include gta6 on gta6 page");
+const gta6Ld = parseJsonLdScripts(gta6Html).find((b) => b["@graph"]);
+const gta6PageNode = gta6Ld?.["@graph"]?.find((n) => n["@type"] === "WebPage");
+if (!gta6PageNode?.relatedLink?.includes("https://sessionscan.net/week/")) {
+  fail("gta6 relatedLink → week");
+}
 
 const homeLd = homeJsonLd("en");
 const siteNode = homeLd["@graph"]?.find((n) => n["@type"] === "WebSite");
@@ -204,6 +231,7 @@ for (const u of [
   "https://sessionscan.net/week/",
   "https://sessionscan.net/guides/money/",
   "https://sessionscan.net/guides/businesses/",
+  "https://sessionscan.net/gta6/",
 ]) {
   if (!hasPartUrls.includes(u)) fail("home WebSite.hasPart missing", u);
 }
@@ -239,10 +267,17 @@ if (!shelled.includes('data-related="week"') || !shelled.includes('href="/week/"
 if (!shelled.includes('data-related="money"') || !shelled.includes('data-related="businesses"')) {
   fail("home → money + businesses");
 }
+if (!shelled.includes('data-related="gta6"') || !shelled.includes('href="/gta6/"')) {
+  fail("home → gta6");
+}
 if (shelled.includes('data-related="home"')) fail("home related must omit self");
 if (!shelled.includes('class="footer-guides"')) fail("home footer guides");
+if (!shelled.includes('data-footer-guide="gta6"')) fail("home footer guides include gta6");
 const footer = footerGuidesHtml("zh");
 if (!footer.includes("/zh/week/") || !footer.includes("/zh/guides/money/")) fail("zh footer guides");
+if (!footer.includes("/zh/gta6/") || !footer.includes('data-footer-guide="gta6"')) {
+  fail("zh footer guides include gta6");
+}
 const relatedHome = relatedPagesHtml("en", { currentId: "home" });
 if (relatedHome.includes('data-related="home"')) fail("relatedPagesHtml home skip self");
 

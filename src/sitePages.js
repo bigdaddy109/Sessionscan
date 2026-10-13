@@ -182,7 +182,7 @@ export function primaryNavHtml(lang = "en", activeId = "") {
 }
 
 /** Phase C discovery trio — Archive / Money / Businesses (home links here too). */
-export const CROSS_LINK_PAGE_IDS = ["week", "money", "businesses"];
+export const CROSS_LINK_PAGE_IDS = ["week", "money", "businesses", "gta6"];
 
 function crossLinkSkipId(currentId = "") {
   if (currentId === "week-freeze") return "week";
@@ -236,7 +236,7 @@ export function relatedPagesHtml(lang = "en", { currentId = "" } = {}) {
     </nav>`;
 }
 
-/** Compact footer row of Archive · Money · Businesses (always all three). */
+/** Compact footer row of Archive · Money · Businesses · GTA 6 (always all four). */
 export function footerGuidesHtml(lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
   const links = CROSS_LINK_PAGE_IDS.map((id) => {
