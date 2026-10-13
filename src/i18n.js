@@ -53,6 +53,7 @@ export const UI = {
     archiveIndexIntro:
       "Past Rockstar Thursday weeks from the public snapshot. Titles and outbound links only — no full guide copies, no invented numbers.",
     archiveIndexEmpty: "No dated weekly titles in this snapshot yet. Check this week on the home page.",
+    archiveLatestBadge: "Latest",
     archiveWeekInvalid: "That week key is not a valid YYYY-MM-DD freeze.",
     archiveWeekTitle: "Week of {week} | SessionScan",
     archiveWeekDesc: "Frozen GTA Online week of {week}: {title}. Titles and outbound links only.",
@@ -333,6 +334,7 @@ export const UI = {
     archiveIndexIntro:
       "依公開快照列出過去的 Rockstar 週四週更。只列標題與外連 — 不轉載全文、不捏造數字。",
     archiveIndexEmpty: "此快照尚無帶日期的週更標題。請先看首頁本週。",
+    archiveLatestBadge: "最新",
     archiveWeekInvalid: "此週鍵不是有效的 YYYY-MM-DD 凍結頁。",
     archiveWeekTitle: "{week} 當週｜SessionScan",
     archiveWeekDesc: "凍結的 GTA Online 週更 {week}：{title}。只列標題與外連。",

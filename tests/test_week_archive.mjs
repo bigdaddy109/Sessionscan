@@ -88,6 +88,27 @@ if (indexHtml.includes("page-stub-flag")) fail("archive index must not be stub")
 if (indexHtml.includes("Archive pages expand in a later phase")) fail("stub copy leaked");
 if (!indexHtml.includes("archive-week-list")) fail("index list missing");
 if (!indexHtml.includes(`/week/${weeks[0].week}/`)) fail("index links newest week");
+// Latest callout must mark only listArchiveWeeks tip — older freezes stay unmarked.
+if (!indexHtml.includes("archive-latest-badge")) fail("index missing Latest badge");
+if (!indexHtml.includes(">Latest<")) fail("EN Latest badge copy", indexHtml.match(/archive-latest-badge[\s\S]{0,40}/)?.[0]);
+const latestLi = indexHtml.match(
+  /<li class="archive-week-item is-latest">[\s\S]*?<\/li>/,
+);
+if (!latestLi) fail("newest row missing is-latest wrapper");
+if (!latestLi[0].includes(`/week/${weeks[0].week}/`)) fail("Latest badge not on tip week", latestLi[0]);
+if ((indexHtml.match(/archive-latest-badge/g) || []).length !== 1) {
+  fail("Latest badge must appear once", (indexHtml.match(/archive-latest-badge/g) || []).length);
+}
+if (weeks.length > 1) {
+  const olderIso = weeks[1].week;
+  const olderChunk = indexHtml.split(`datetime="${olderIso}"`)[1]?.slice(0, 280) || "";
+  if (olderChunk.includes("archive-latest-badge") || olderChunk.includes("is-latest")) {
+    fail("older week must not carry Latest callout", { olderIso, olderChunk });
+  }
+}
+const indexZh = renderArchiveIndexPage(site, { lang: "zh", cssHref: "../assets/x.css", faviconHref: "../favicon.svg" });
+if (!indexZh.includes(">最新<")) fail("zh Latest badge copy");
+if (!indexZh.includes(`/zh/week/${weeks[0].week}/`)) fail("zh index links tip week");
 
 const freeze = renderWeekFreezePage(site, older.week, {
   lang: "zh",

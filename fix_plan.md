@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-（目前無開放項目 — 其他 PR 等研發程式 「可以合 #N」後再合。）
+- `/week/` 索引最新週「Latest／最新」標記（`archiveIndexBodyHtml` 只標 `listArchiveWeeks` tip；等研發程式 「可以合」後再合）。測 `tests/test_week_archive.mjs`。Rollback：`pre-archive-latest-callout-20261013`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
