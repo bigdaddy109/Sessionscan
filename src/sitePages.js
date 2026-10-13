@@ -29,6 +29,11 @@ import {
   businessesPageBodyHtml,
   businessesPageJsonLd,
 } from "./businessRanking.js";
+import {
+  gta6CountdownScript,
+  gta6PageJsonLd,
+  renderGta6PageBody,
+} from "./gta6Page.js";
 
 export const X_PROFILE_URL = "https://x.com/SessionScanGTA";
 export const X_HANDLE = "@SessionScanGTA";
@@ -328,6 +333,7 @@ function relatedLinkUrls(lang = "en", excludeId = "") {
 export function webPageJsonLd(page, lang = "en", { name, description } = {}) {
   if (page?.id === "money") return moneyGuideJsonLd(lang);
   if (page?.id === "businesses") return businessesPageJsonLd(lang);
+  if (page?.id === "gta6") return gta6PageJsonLd(lang);
   const ui = lang === "zh" ? "zh" : "en";
   const url = absoluteUrl(page.path, ui);
   const related = relatedLinkUrls(ui, page?.id);
@@ -366,16 +372,13 @@ function pageBodyHtml(page, ui) {
     return `<h1 data-i18n="${esc(page.headingKey)}">${esc(t(page.headingKey, {}, ui))}</h1>
       ${businessesPageBodyHtml(ui)}`;
   }
+  if (page.id === "gta6") {
+    return renderGta6PageBody(ui);
+  }
   const stub = page.stub
     ? `<p class="page-stub-flag" data-i18n="pageStubFlag">${esc(t("pageStubFlag", {}, ui))}</p>`
     : "";
   let extra = "";
-  if (page.id === "gta6") {
-    extra = `<ul class="page-links">
-      <li><a href="https://www.rockstargames.com/VI" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6Official", {}, ui))}</a></li>
-      <li><a href="https://www.rockstargames.com/newswire" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6Newswire", {}, ui))}</a></li>
-    </ul>`;
-  }
   if (page.id === "about") {
     extra = `<ul class="page-links">
       <li><a href="${YOUTUBE_CHANNEL_URL}" target="_blank" rel="noopener noreferrer">YouTube @sessionscan</a></li>
@@ -500,7 +503,7 @@ export function renderSitePage(
       </div>
       ${nav}
     </header>
-    <main id="main" class="site-page-main${page.id === "money" ? " site-page-main--money" : ""}">
+    <main id="main" class="site-page-main${page.id === "money" ? " site-page-main--money" : ""}${page.id === "gta6" ? " site-page-main--gta6" : ""}">
       ${mainBody}
     </main>
     <footer class="site-footer">
@@ -514,6 +517,7 @@ export function renderSitePage(
       <p data-i18n="footerScope">${esc(t("footerScope", {}, ui))}</p>
     </footer>
     ${page.id === "money" ? moneyCalculatorScript() : ""}
+    ${page.id === "gta6" ? gta6CountdownScript() : ""}
     ${cfWebAnalyticsHtml()}
   </body>
 </html>
