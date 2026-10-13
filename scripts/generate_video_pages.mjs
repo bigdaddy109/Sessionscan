@@ -53,18 +53,36 @@ const indexHtml = readDistIndex();
 const cssHref = cssHrefFromIndex(indexHtml);
 const faviconHref = "../../favicon.svg";
 
+const zhCssHref = cssHref.replace(/^\.\.\/\.\.\//, "../../../");
+const zhFaviconHref = "../../../favicon.svg";
+
 let written = 0;
+let writtenZh = 0;
 for (const video of videos) {
   const dir = resolve(dist, "v", video.video_id);
   mkdirSync(dir, { recursive: true });
-  const html = renderVideoPage(video, { cssHref, faviconHref });
+  const html = renderVideoPage(video, { cssHref, faviconHref, lang: "en" });
   if (!html) continue;
   writeFileSync(resolve(dir, "index.html"), html);
   written += 1;
+
+  const zhDir = resolve(dist, "zh", "v", video.video_id);
+  mkdirSync(zhDir, { recursive: true });
+  const zhHtml = renderVideoPage(video, {
+    cssHref: zhCssHref,
+    faviconHref: zhFaviconHref,
+    lang: "zh",
+  });
+  if (zhHtml) {
+    writeFileSync(resolve(zhDir, "index.html"), zhHtml);
+    writtenZh += 1;
+  }
 }
 
 const weeks = listArchiveWeeks(site || sample || {});
 const sitemapPath = resolve(dist, "sitemap.xml");
 writeFileSync(sitemapPath, renderSitemap(sitemapUrls(videos, { weeks })));
 
-console.log(`generate_video_pages: ${written} pages -> dist/v/*/index.html; sitemap written (${weeks.length} archive weeks)`);
+console.log(
+  `generate_video_pages: ${written} EN + ${writtenZh} ZH pages -> dist/v/*/ + dist/zh/v/*/index.html; sitemap written (${weeks.length} archive weeks)`,
+);

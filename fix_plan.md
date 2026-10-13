@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- `/v/{id}/` 可見麵包屑＋BreadcrumbList（`videoBreadcrumbItems`／`breadcrumbsNavHtml`；等研發程式 「可以合」後再合）。測 `tests/test_video_pages.mjs`。Rollback：`pre-video-page-breadcrumbs-20261013`。
+- `/zh/v/{id}/` 繁中分享頁（`renderVideoPage(..., lang:"zh")`＋sitemap hreflang；補齊 #74 live 缺口）。測 `tests/test_video_pages.mjs`。Rollback：`pre-zh-video-pages-20261013`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
@@ -14,6 +14,7 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- `/v/{id}/` 可見麵包屑＋BreadcrumbList（`videoBreadcrumbItems`／`breadcrumbsNavHtml`；#74；rollback `pre-video-page-breadcrumbs-20261013`；核准：研發程式 「可以合 #74」）。測 `tests/test_video_pages.mjs`。
 - 殼頁可見麵包屑（`shellBreadcrumbsHtml`；與 JSON-LD 同源 `shellBreadcrumbItems`；#73；rollback `pre-visible-breadcrumbs-20261013`；核准：研發程式 「可以合 #73」）。測 `tests/test_site_pages.mjs`、`tests/test_week_archive.mjs`。
 - 殼頁／凍結頁 BreadcrumbList JSON-LD（`shellBreadcrumbItems`；#72；rollback `pre-shell-breadcrumbs-20261013`；核准：研發程式 「可以合 #72」）。測 `tests/test_breadcrumb_dist.mjs`。
 - 較舊凍結頁「跳到最新週」（`archiveJumpLatestHtml`；#70＋zh → hotfix #71；rollback `pre-freeze-jump-latest-20261013`；核准：研發程式 「可以合 #70」）。測 `tests/test_week_archive.mjs`。

@@ -553,7 +553,9 @@ class SearchAliasTests(unittest.TestCase):
         self.assertNotIn("public/data/sample.json", script)
         gen = (ROOT / "scripts" / "generate_video_pages.mjs").read_text(encoding="utf-8")
         self.assertIn("videos_archive.json", gen)
+        # EN + ZH share pages (generate writes dist/v/{id}/ and dist/zh/v/{id}/).
         self.assertIn("dist/v", gen)
+        self.assertIn("dist/zh/v", gen)
         self.assertIn("sitemap.xml", gen)
         zh_gen = (ROOT / "scripts" / "generate_zh_pages.mjs").read_text(encoding="utf-8")
         self.assertIn("dist/zh", zh_gen)

@@ -98,7 +98,7 @@ export function videoObjectJsonLd(video, { lang = "en", description } = {}) {
     thumbnailUrl: youtubeThumbUrl(id),
     embedUrl: youtubeEmbedUrl(id),
     contentUrl,
-    url: videoPageUrl(id) || `${CARD_SITE_BASE}v/${id}/`,
+    url: videoPageUrl(id, ui) || `${CARD_SITE_BASE}v/${id}/`,
   };
   if (uploadDate) out.uploadDate = uploadDate;
   return out;

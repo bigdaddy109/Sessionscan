@@ -196,9 +196,11 @@ export function videoPagePath(youtubeId) {
   return `${VIDEO_PAGE_PREFIX}/${id}/`;
 }
 
-export function videoPageUrl(youtubeId) {
+export function videoPageUrl(youtubeId, lang = "en") {
   const path = videoPagePath(youtubeId);
-  return path ? `${CARD_SITE_BASE}${path}` : "";
+  if (!path) return "";
+  if (lang === "zh") return `${CARD_SITE_BASE}zh/${path}`;
+  return `${CARD_SITE_BASE}${path}`;
 }
 
 export function cardShareLink(item, tab) {
