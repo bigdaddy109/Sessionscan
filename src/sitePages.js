@@ -29,6 +29,7 @@ import {
 import {
   businessesPageBodyHtml,
   businessesPageJsonLd,
+  businessesSoloFilterScript,
 } from "./businessRanking.js";
 import {
   gta6CountdownScript,
@@ -591,6 +592,7 @@ export function renderSitePage(
       <p data-i18n="footerScope">${esc(t("footerScope", {}, ui))}</p>
     </footer>
     ${page.id === "money" ? moneyCalculatorScript() : ""}
+    ${page.id === "businesses" ? businessesSoloFilterScript() : ""}
     ${page.id === "gta6" ? gta6CountdownScript() : ""}
     ${cfWebAnalyticsHtml()}
   </body>
