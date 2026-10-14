@@ -4,11 +4,11 @@
  * Bullets, countdown, and owned-Short pick must stay honest (no fabricated
  * Short URL) and keep working when snapshot titles only hint at categories.
  */
+import { spawnSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { snapshotNow } from "../src/homeExtras.js";
-import { rockstarWeekStart } from "../src/thisWeek.js";
 import {
   CLAIMED_STORAGE_PREFIX,
   WEEK_BULLET_CATEGORIES,
@@ -46,14 +46,92 @@ function fail(msg, extra) {
 
 if (WEEK_BULLET_CATEGORIES.length !== 5) fail("five bullet slots");
 
-const now = new Date("2026-08-29T12:00:00Z");
+const now = new Date("2026-08-29T12:00:00Z"); // Saturday UTC
 const next = nextWeeklyUpdateAt(now);
-const start = rockstarWeekStart(now);
-if (next.getTime() !== start.getTime() + 7 * 86400000) fail("next weekly = current Thu + 7d", { next, start });
+// Next Rockstar drop is Thursday 10:00 UTC (not Taipei week-start midnight).
+if (next.toISOString() !== "2026-09-03T10:00:00.000Z") {
+  fail("next weekly = next Thu 10:00 UTC", next.toISOString());
+}
 
 const parts = countdownParts(new Date(now.getTime() + 90061000), now);
 if (parts.days !== 1 || parts.hours !== 1 || parts.minutes !== 1) fail("countdown parts", parts);
 if (countdownParts(now, now).totalMs !== 0) fail("zero countdown");
+
+// Why: Taipei Thu morning is still Wednesday UTC — using local weekday made the
+// countdown jump a full week (bug: 7d+ when ~11h remained to Thu 10:00 UTC).
+function assertNext(label, nowIso, expectIso) {
+  const got = nextWeeklyUpdateAt(new Date(nowIso)).toISOString();
+  if (got !== expectIso) fail(`nextWeeklyUpdateAt ${label}`, { nowIso, got, expectIso });
+}
+// UTC Wednesday evening / Taipei Thursday morning (~11h to drop)
+assertNext(
+  "UTC Wed evening → this Thu 10:00",
+  "2026-10-14T22:55:00.000Z",
+  "2026-10-15T10:00:00.000Z",
+);
+assertNext(
+  "Taipei Thu 06:55 (= UTC Wed 22:55) → this Thu 10:00",
+  "2026-10-14T22:55:00.000Z",
+  "2026-10-15T10:00:00.000Z",
+);
+// America/Los_Angeles Wed afternoon = UTC Wed evening (same wall as above case)
+assertNext(
+  "LA Wed afternoon path → this Thu 10:00 UTC",
+  "2026-10-14T22:55:00.000Z",
+  "2026-10-15T10:00:00.000Z",
+);
+// Thursday early UTC (before 10:00) — still this week's drop
+assertNext(
+  "UTC Thu 06:00 → same Thu 10:00",
+  "2026-10-15T06:00:00.000Z",
+  "2026-10-15T10:00:00.000Z",
+);
+assertNext(
+  "UTC Thu 09:59 → same Thu 10:00",
+  "2026-10-15T09:59:00.000Z",
+  "2026-10-15T10:00:00.000Z",
+);
+// Exactly at / just after 10:00 UTC → next week
+assertNext(
+  "UTC Thu 10:00 → next Thu",
+  "2026-10-15T10:00:00.000Z",
+  "2026-10-22T10:00:00.000Z",
+);
+assertNext(
+  "UTC Thu 10:01 → next Thu",
+  "2026-10-15T10:01:00.000Z",
+  "2026-10-22T10:00:00.000Z",
+);
+// Remaining minutes before drop (Jeff report shape: ~11h not 7d)
+const jeffNow = new Date("2026-10-14T22:55:00.000Z");
+const jeffParts = countdownParts(nextWeeklyUpdateAt(jeffNow), jeffNow);
+if (jeffParts.days !== 0 || jeffParts.hours !== 11 || jeffParts.minutes !== 5) {
+  fail("Jeff Wed 22:55 UTC must be ~11h05 to Thu 10:00", jeffParts);
+}
+const fmt = formatWeekCountdown(jeffParts, "en");
+if (!/^0d 11:05:\d{2}$/.test(fmt)) fail("countdown format near drop", fmt);
+
+// Why: process TZ must not change the target — reproduce under Taipei / LA / UTC.
+for (const tz of ["Asia/Taipei", "America/Los_Angeles", "UTC"]) {
+  const probe = spawnSync(
+    process.execPath,
+    [
+      "--input-type=module",
+      "-e",
+      `import { nextWeeklyUpdateAt, countdownParts } from ${JSON.stringify(resolve(root, "src/thisWeekHome.js"))};
+const now = new Date("2026-10-14T22:55:00.000Z");
+const n = nextWeeklyUpdateAt(now);
+const p = countdownParts(n, now);
+if (n.toISOString() !== "2026-10-15T10:00:00.000Z") process.exit(2);
+if (p.days !== 0 || p.hours !== 11 || p.minutes !== 5) process.exit(3);
+`,
+    ],
+    { env: { ...process.env, TZ: tz }, encoding: "utf8" },
+  );
+  if (probe.status !== 0) {
+    fail(`TZ=${tz} must keep Thu 10:00 UTC target`, { status: probe.status, stderr: probe.stderr, stdout: probe.stdout });
+  }
+}
 
 const siteNow = snapshotNow(site.meta) || new Date("2026-08-30T02:00:00Z");
 const signals = weekSignalItems(site, siteNow);
