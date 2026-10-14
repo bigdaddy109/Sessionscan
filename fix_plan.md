@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- Home 快照年齡靜態預渲染（`injectStaticHomeFreshness`／`staticDataBannerHtml`；首屏不再閃 LOADING；等研發程式 「可以合」後再合）。測 `tests/test_home_extras.mjs`。Rollback：`pre-static-home-freshness-20261014`。
+- Home 快照年齡靜態預渲染（`injectStaticHomeFreshness`／`staticDataBannerHtml`；首屏不再閃 LOADING；#94；等研發程式 「可以合 #94」後再合）。測 `tests/test_home_extras.mjs`。Rollback：`pre-static-home-freshness-20261014`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
