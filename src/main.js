@@ -13,6 +13,7 @@ import {
 import {
   formatSnapshotAgeLabel,
   gta6ScheduleBannerHtml,
+  isLiveHubData,
   pickOfficialWeekly,
   rankDelta,
   rankDeltaHtml,
@@ -54,9 +55,7 @@ const SOURCE_HINT_KEYS = {
 };
 
 function isLiveData(data) {
-  const meta = data?.meta || {};
-  if (meta.sample === true || meta.scraper_status === "disabled") return false;
-  return Boolean(meta._last_run);
+  return isLiveHubData(data);
 }
 
 const state = {

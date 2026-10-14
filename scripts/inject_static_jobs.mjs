@@ -7,6 +7,7 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { injectStaticHomeFreshness } from "../src/homeExtras.js";
 import { injectJobListHtml, renderStaticHomeJobList, selectHomeJobs } from "../src/staticHomeJobs.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -85,6 +86,7 @@ if (job) {
 
 const cards = data ? renderStaticHomeJobList(data, { lang: "en" }) : "";
 html = injectJobListHtml(html, cards);
+if (data) html = injectStaticHomeFreshness(html, { lang: "en", data });
 
 writeFileSync(htmlPath, html);
 if (job) {

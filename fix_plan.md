@@ -2,9 +2,11 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- GTA 6 → tip 凍結頁（`gta6TipFreezeLinkHtml`；`tipWeek` 自 `latestArchiveWeek`；#93；等研發程式 「可以合 #93」後再合）。測 `tests/test_gta6_page.mjs`。Rollback：`pre-gta6-tip-freeze-20261014`。
+- Home 快照年齡靜態預渲染（`injectStaticHomeFreshness`／`staticDataBannerHtml`；首屏不再閃 LOADING；等研發程式 「可以合」後再合）。測 `tests/test_home_extras.mjs`。Rollback：`pre-static-home-freshness-20261014`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
+
+互連／CTA 小改告一段落（#82–#93）；新項優先 UX／速度／SEO／錯誤／手機／資料新鮮度顯示。
 
 ## 合併後跟進（非本 PR）
 
@@ -14,6 +16,7 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- GTA 6 → tip 凍結頁（`gta6TipFreezeLinkHtml`；`tipWeek` 自 `latestArchiveWeek`；#93；rollback `pre-gta6-tip-freeze-20261014`；核准：研發程式 「可以合 #93」）。測 `tests/test_gta6_page.mjs`。
 - Money／Businesses → tip 凍結頁（`moneyTipFreezeLinkHtml`／`businessTipFreezeLinkHtml`；`tipWeek` 自 `latestArchiveWeek`；#92；rollback `pre-guide-tip-freeze-20261014`；核准：研發程式 「可以合 #92」）。測 `tests/test_money_guide.mjs`、`tests/test_business_ranking.mjs`。
 - Home 快照相對時間（`snapshotAgeParts`／`formatSnapshotAgeLabel`；`#dataBanner`＋`#lastRun`；#91；rollback `pre-snapshot-age-20261014`；核准：研發程式 「可以合 #91」）。測 `tests/test_shorts_baha.mjs`、`tests/test_home_extras.mjs`。
 - Home 本週區固定連到 `/week/` 索引（`homeArchiveIndexLinkHtml`／`injectHomeArchiveIndexLink`；#90；rollback `pre-home-archive-index-20261013`；核准：研發程式 「可以合 #90」）。測 `tests/test_week_archive.mjs`。
