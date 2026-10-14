@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import {
   extractRankPrev,
   filterSortVideos,
+  formatSnapshotAgeLabel,
   gta6ScheduleBannerHtml,
   gta6ScheduleLine,
   hubStats,
@@ -16,6 +17,7 @@ import {
   videoKey,
   weekHighlights,
 } from "../src/homeExtras.js";
+import { parseSnapshotNow } from "../src/bahaTime.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const sample = JSON.parse(readFileSync(resolve(root, "public/data/sample.json"), "utf8"));
@@ -106,6 +108,16 @@ if (!bannerZh.includes('href="/zh/gta6/"') || !bannerZh.includes("已公開時�
 }
 if (gta6ScheduleBannerHtml({ jobs_gtabase: [{ title: "weekly bonuses only" }] }, "en") !== "") {
   fail("banner empty without GTA 6 date signal");
+}
+
+// Why: players need glanceable freshness on the snapshot banner, not only absolute stamps.
+{
+  const fixedNow = parseSnapshotNow("2026-10-14 02:00");
+  const enAge = formatSnapshotAgeLabel("2026-10-13 14:51", "en", fixedNow);
+  if (enAge !== "11h ago") fail("formatSnapshotAgeLabel en hours", enAge);
+  const zhAge = formatSnapshotAgeLabel("2026-10-13 14:51", "zh", fixedNow);
+  if (zhAge !== "11 小時前") fail("formatSnapshotAgeLabel zh hours", zhAge);
+  if (formatSnapshotAgeLabel("", "en", fixedNow) !== "") fail("empty stamp → empty age");
 }
 
 console.log("test_home_extras.mjs ok", {

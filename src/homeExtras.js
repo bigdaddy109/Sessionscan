@@ -1,6 +1,6 @@
 /** Homepage extras: highlights, snapshot stats, rank deltas, video sort/filter. */
 
-import { parseSnapshotNow } from "./bahaTime.js";
+import { parseSnapshotNow, snapshotAgeParts } from "./bahaTime.js";
 import { cardId } from "./cardShare.js";
 import { fmtViews, t } from "./i18n.js";
 import { filterOtherShorts } from "./shortsFilter.js";
@@ -12,6 +12,20 @@ const YT_ID = /^[A-Za-z0-9_-]{11}$/;
 
 export function snapshotNow(meta = {}) {
   return parseSnapshotNow(meta._last_run || meta.snapshot_date || meta.hot);
+}
+
+/**
+ * Localized relative age for a meta stamp (e.g. "11h ago" / "11 小時前").
+ * Empty string when stamp is missing/unparseable — callers keep absolute stamp alone.
+ */
+export function formatSnapshotAgeLabel(stamp, lang = "en", now = new Date()) {
+  const parts = snapshotAgeParts(stamp, now);
+  if (!parts) return "";
+  const ui = lang === "zh" ? "zh" : "en";
+  if (parts.unit === "now") return t("snapshotAgeNow", {}, ui);
+  if (parts.unit === "minutes") return t("snapshotAgeMinutes", { n: parts.n }, ui);
+  if (parts.unit === "hours") return t("snapshotAgeHours", { n: parts.n }, ui);
+  return t("snapshotAgeDays", { n: parts.n }, ui);
 }
 
 export function videoKey(item) {
