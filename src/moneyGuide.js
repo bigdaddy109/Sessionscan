@@ -235,7 +235,21 @@ export function moneyCalculatorScript() {
 </script>`;
 }
 
-export function renderMoneyGuideBody(lang = "en") {
+/**
+ * Money → tip freeze CTA (reciprocal of freezeMoneyGuideLinkHtml).
+ * tipWeek must be a real Rockstar-week key from listArchiveWeeks — never invent.
+ */
+export function moneyTipFreezeLinkHtml(tipWeek, lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const week = String(tipWeek || "").trim();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(week)) {
+    return `<p class="money-tip-freeze is-empty" id="moneyTipFreezeLink" hidden></p>`;
+  }
+  const href = ui === "zh" ? `/zh/week/${week}/` : `/week/${week}/`;
+  return `<p class="money-tip-freeze" id="moneyTipFreezeLink"><a href="${esc(href)}">${esc(t("weekArchiveLatestLink", { week }, ui))}</a></p>`;
+}
+
+export function renderMoneyGuideBody(lang = "en", { tipWeek = "" } = {}) {
   const ui = lang === "zh" ? "zh" : "en";
   const ranked = moneyRoutesRanked();
   const home = ui === "zh" ? "/zh/" : "/";
@@ -265,7 +279,8 @@ export function renderMoneyGuideBody(lang = "en") {
           <p class="money-calc-out" id="moneyCalcResult" data-empty="${esc(t("moneyCalcEmpty", {}, ui))}" data-template="${esc(calcTemplate)}">${esc(t("moneyCalcEmpty", {}, ui))}</p>
         </form>
       </section>
-      <p class="money-week-link"><a href="${esc(home)}">${esc(t("moneyWeekLink", {}, ui))}</a></p>`;
+      <p class="money-week-link"><a href="${esc(home)}">${esc(t("moneyWeekLink", {}, ui))}</a></p>
+      ${moneyTipFreezeLinkHtml(tipWeek, ui)}`;
 }
 
 /** Home → `/guides/money/` discovery link (reciprocal of moneyWeekLink). */

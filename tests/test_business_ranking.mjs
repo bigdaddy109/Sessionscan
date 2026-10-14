@@ -12,6 +12,7 @@ import {
   BUSINESS_RANKING,
   RANKING_CONSENSUS,
   assertNoUnsourcedFigures,
+  businessTipFreezeLinkHtml,
   businessesPageBodyHtml,
   businessesPageJsonLd,
   formatSourceDate,
@@ -166,6 +167,44 @@ if (existsSync(distZhHome)) {
   if (!zhHome.includes('href="/zh/guides/businesses/"') || !zhHome.includes("生意排名")) {
     fail("dist zh home missing business guide link");
   }
+}
+
+// Why: freeze→business (#88) needs the reciprocal businesses→tip freeze so
+// players ranking businesses can open this week's checklist without inventing a week key.
+const tipFixture = "2026-08-07";
+const tipEn = businessTipFreezeLinkHtml(tipFixture, "en");
+if (!tipEn.includes('id="businessTipFreezeLink"') || !tipEn.includes(`href="/week/${tipFixture}/"`)) {
+  fail("business tip freeze en", tipEn);
+}
+if (!tipEn.includes("Open archive for week of")) fail("business tip freeze en copy", tipEn);
+const tipZh = businessTipFreezeLinkHtml(tipFixture, "zh");
+if (!tipZh.includes(`href="/zh/week/${tipFixture}/"`) || !tipZh.includes("打開")) {
+  fail("business tip freeze zh", tipZh);
+}
+const emptyTip = businessTipFreezeLinkHtml("", "en");
+if (!emptyTip.includes("is-empty") || !emptyTip.includes("hidden")) {
+  fail("empty tipWeek must hide business tip freeze", emptyTip);
+}
+const bodyWithTip = businessesPageBodyHtml("en", { tipWeek: tipFixture });
+if (!bodyWithTip.includes(`href="/week/${tipFixture}/"`) || !bodyWithTip.includes('id="businessTipFreezeLink"')) {
+  fail("businessesPageBodyHtml tipWeek", bodyWithTip.slice(-400));
+}
+const shelledTip = renderSitePage(SITE_PAGES.find((p) => p.id === "businesses"), {
+  lang: "zh",
+  cssHref: "../../../../assets/x.css",
+  faviconHref: "../../../../favicon.svg",
+  tipWeek: tipFixture,
+});
+if (!shelledTip.includes('id="businessTipFreezeLink"') || !shelledTip.includes(`/zh/week/${tipFixture}/`)) {
+  fail("renderSitePage tipWeek businesses zh");
+}
+const distBizTip = resolve(root, "dist/guides/businesses/index.html");
+if (existsSync(distBizTip)) {
+  const built = readFileSync(distBizTip, "utf8");
+  if (!built.includes('id="businessTipFreezeLink"')) fail("dist businesses missing tip freeze slot");
+  const hasWeek = /href="\/week\/\d{4}-\d{2}-\d{2}\//.test(built);
+  const empty = built.includes("is-empty");
+  if (!hasWeek && !empty) fail("dist businesses tip freeze needs week href or empty state");
 }
 
 console.log(

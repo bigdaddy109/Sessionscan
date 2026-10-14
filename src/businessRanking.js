@@ -286,8 +286,22 @@ function sourceMetaHtml(source, ui) {
       <time class="biz-source-date" datetime="${esc(date)}">${esc(dateLabel)}</time>`;
 }
 
+/**
+ * Businesses → tip freeze CTA (reciprocal of freezeBusinessGuideLinkHtml).
+ * tipWeek must be a real Rockstar-week key from listArchiveWeeks — never invent.
+ */
+export function businessTipFreezeLinkHtml(tipWeek, lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const week = String(tipWeek || "").trim();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(week)) {
+    return `<p class="business-tip-freeze is-empty" id="businessTipFreezeLink" hidden></p>`;
+  }
+  const href = ui === "zh" ? `/zh/week/${week}/` : `/week/${week}/`;
+  return `<p class="business-tip-freeze" id="businessTipFreezeLink"><a href="${esc(href)}">${esc(t("weekArchiveLatestLink", { week }, ui))}</a></p>`;
+}
+
 /** Ranked list + methodology + last-updated chrome for the Businesses page body. */
-export function businessesPageBodyHtml(lang = "en") {
+export function businessesPageBodyHtml(lang = "en", { tipWeek = "" } = {}) {
   const ui = lang === "zh" ? "zh" : "en";
   const updated = formatSourceDate(BUSINESS_LIST_UPDATED);
   const consensus = RANKING_CONSENSUS;
@@ -319,7 +333,8 @@ export function businessesPageBodyHtml(lang = "en") {
       ${items}
     </ol>
     <p class="biz-disclaimer">${esc(t("bizDisclaimer", {}, ui))}</p>
-    <p class="business-week-link"><a href="${esc(home)}">${esc(t("businessWeekLink", {}, ui))}</a></p>`;
+    <p class="business-week-link"><a href="${esc(home)}">${esc(t("businessWeekLink", {}, ui))}</a></p>
+    ${businessTipFreezeLinkHtml(tipWeek, ui)}`;
 }
 
 /** Home → `/guides/businesses/` discovery link (reciprocal of businessWeekLink). */

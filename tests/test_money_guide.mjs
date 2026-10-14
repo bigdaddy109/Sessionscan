@@ -16,6 +16,7 @@ import {
   injectHomeMoneyGuideLink,
   moneyGuideJsonLd,
   moneyRoutesRanked,
+  moneyTipFreezeLinkHtml,
   renderMoneyGuideBody,
 } from "../src/moneyGuide.js";
 import { SITE_PAGES, renderSitePage, webPageJsonLd } from "../src/sitePages.js";
@@ -135,6 +136,44 @@ if (existsSync(distZhHome)) {
   if (!zhHome.includes('href="/zh/guides/money/"') || !zhHome.includes("賺錢指南")) {
     fail("dist zh home missing money guide link");
   }
+}
+
+// Why: freeze→money (#88) needs the reciprocal money→tip freeze so players
+// planning a money session can open this week's checklist without inventing a week key.
+const tipFixture = "2026-08-07";
+const tipEn = moneyTipFreezeLinkHtml(tipFixture, "en");
+if (!tipEn.includes('id="moneyTipFreezeLink"') || !tipEn.includes(`href="/week/${tipFixture}/"`)) {
+  fail("money tip freeze en", tipEn);
+}
+if (!tipEn.includes("Open archive for week of")) fail("money tip freeze en copy", tipEn);
+const tipZh = moneyTipFreezeLinkHtml(tipFixture, "zh");
+if (!tipZh.includes(`href="/zh/week/${tipFixture}/"`) || !tipZh.includes("打開")) {
+  fail("money tip freeze zh", tipZh);
+}
+const emptyTip = moneyTipFreezeLinkHtml("", "en");
+if (!emptyTip.includes("is-empty") || !emptyTip.includes("hidden")) {
+  fail("empty tipWeek must hide money tip freeze", emptyTip);
+}
+const bodyWithTip = renderMoneyGuideBody("en", { tipWeek: tipFixture });
+if (!bodyWithTip.includes(`href="/week/${tipFixture}/"`) || !bodyWithTip.includes('id="moneyTipFreezeLink"')) {
+  fail("renderMoneyGuideBody tipWeek", bodyWithTip.slice(-400));
+}
+const shelledTip = renderSitePage(moneyPage, {
+  lang: "en",
+  cssHref: "../../assets/x.css",
+  faviconHref: "../../favicon.svg",
+  tipWeek: tipFixture,
+});
+if (!shelledTip.includes('id="moneyTipFreezeLink"') || !shelledTip.includes(`/week/${tipFixture}/`)) {
+  fail("renderSitePage tipWeek money", shelledTip.includes("moneyTipFreezeLink"));
+}
+const distMoneyTip = resolve(root, "dist/guides/money/index.html");
+if (existsSync(distMoneyTip)) {
+  const built = readFileSync(distMoneyTip, "utf8");
+  if (!built.includes('id="moneyTipFreezeLink"')) fail("dist money missing tip freeze slot");
+  const hasWeek = /href="\/week\/\d{4}-\d{2}-\d{2}\//.test(built);
+  const empty = built.includes('id="moneyTipFreezeLink"') && built.includes("is-empty");
+  if (!hasWeek && !empty) fail("dist money tip freeze needs week href or empty state");
 }
 
 console.log("test_money_guide.mjs ok", MONEY_ROUTES.length, "routes");
