@@ -19,6 +19,7 @@ import {
   countdownParts,
   formatClaimedProgress,
   formatWeekCountdown,
+  formatWeekTipPlainText,
   injectStaticWeekBullets,
   injectStaticWeekCountdown,
   loadClaimedIds,
@@ -30,6 +31,8 @@ import {
   toggleClaimedId,
   weekBulletItemsHtml,
   weekSignalItems,
+  weekTipCopyButtonHtml,
+  weekTipTextFromListEl,
 } from "../src/thisWeekHome.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -252,6 +255,61 @@ if (/Halloween Event/i.test(nxMulti.reward) && !/3X/i.test(nxMulti.reward)) {
     if (!zhHtml.includes("2X／3X") && !zhHtml.includes("倍數")) {
       fail("dist ZH bullets lack zh labels", zhCount);
     }
+  }
+}
+
+// Why: players paste the weekly tip into Discord / LINE — clipboard text must
+// list real rewards only (skip pending) and end with the locale home URL.
+{
+  const siteNow = snapshotNow(site.meta || {}) || new Date("2026-10-14T12:00:00Z");
+  const bullets = buildWeekBullets(site, siteNow, "en");
+  const text = formatWeekTipPlainText(bullets, { lang: "en" });
+  if (!text.startsWith("This week — do this")) fail("tip text heading", text);
+  if (!text.includes("https://sessionscan.net/")) fail("tip text needs home URL", text);
+  if (/No clear title signal/i.test(text)) fail("tip text must skip pending", text);
+  const filled = bullets.filter((b) => !b.pending);
+  for (const b of filled) {
+    if (!text.includes(b.label) || !text.includes(b.reward)) {
+      fail("tip text missing filled bullet", { label: b.label, reward: b.reward, text });
+    }
+  }
+  const zhText = formatWeekTipPlainText(bullets, { lang: "zh" });
+  if (!zhText.includes("https://sessionscan.net/zh/")) fail("zh tip URL", zhText);
+  if (!zhText.startsWith("本週 — 先做這些")) fail("zh tip heading", zhText);
+
+  const fakeHost = {
+    querySelectorAll(sel) {
+      if (sel !== ".week-bullet") return [];
+      return [
+        {
+          classList: { contains: (c) => c === "is-pending" },
+          querySelector(q) {
+            if (q === ".week-bullet-label") return { textContent: "Discounts" };
+            if (q === ".week-bullet-reward") return { textContent: "Pending line" };
+            return null;
+          },
+        },
+        {
+          classList: { contains: () => false },
+          querySelector(q) {
+            if (q === ".week-bullet-label") return { textContent: "Free / limited" };
+            if (q === ".week-bullet-reward") return { textContent: "New Freebies" };
+            if (q === "a.week-bullet-how") return { getAttribute: () => "https://example.com/a" };
+            return null;
+          },
+        },
+      ];
+    },
+  };
+  const fromDom = weekTipTextFromListEl(fakeHost, { lang: "en" });
+  if (fromDom.includes("Pending line") || !fromDom.includes("New Freebies")) {
+    fail("weekTipTextFromListEl pending filter", fromDom);
+  }
+  if (!fromDom.includes("https://example.com/a")) fail("weekTipTextFromListEl url", fromDom);
+
+  const btn = weekTipCopyButtonHtml("zh", { id: "archiveTipCopy" });
+  if (!btn.includes('id="archiveTipCopy"') || !btn.includes("複製 tip")) {
+    fail("weekTipCopyButtonHtml", btn);
   }
 }
 

@@ -28,6 +28,7 @@ import {
   pickHomeShort,
   weekBulletsListHtml,
   weekSignalItems,
+  weekTipCopyButtonHtml,
 } from "./thisWeekHome.js";
 
 export const WEEK_ISO_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
@@ -492,6 +493,7 @@ export function weekFreezeBodyHtml(data, weekIso, lang = "en") {
         const clearAria = t("weekClaimClearAria", {}, ui);
         return `<div class="week-claim-toolbar">
         <p class="week-claim-progress" id="archiveClaimProgress" data-progress-template="${esc(tpl)}" aria-live="polite">${esc(zero)}</p>
+        ${weekTipCopyButtonHtml(ui, { id: "archiveTipCopy" })}
         <button type="button" class="week-claim-clear" id="archiveClaimClear" hidden data-i18n="weekClaimClear" data-i18n-aria="weekClaimClearAria" aria-label="${esc(clearAria)}">${esc(clearLabel)}</button>
       </div>`;
       })() : ""}
