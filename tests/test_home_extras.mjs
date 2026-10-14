@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -9,10 +9,14 @@ import {
   gta6ScheduleBannerHtml,
   gta6ScheduleLine,
   hubStats,
+  injectStaticHomeFreshness,
+  isLiveHubData,
   pickOfficialWeekly,
   rankDelta,
   rankDeltaHtml,
   snapshotNow,
+  staticDataBannerHtml,
+  staticLastRunText,
   videoChannels,
   videoKey,
   weekHighlights,
@@ -118,6 +122,51 @@ if (gta6ScheduleBannerHtml({ jobs_gtabase: [{ title: "weekly bonuses only" }] },
   const zhAge = formatSnapshotAgeLabel("2026-10-13 14:51", "zh", fixedNow);
   if (zhAge !== "11 小時前") fail("formatSnapshotAgeLabel zh hours", zhAge);
   if (formatSnapshotAgeLabel("", "en", fixedNow) !== "") fail("empty stamp → empty age");
+}
+
+// Why: home used to flash LOADING until site.json fetch; static stamp+age on first
+// paint is the user-felt half of #91 (relative age) without waiting for JS.
+{
+  const hub = JSON.parse(readFileSync(resolve(root, "tests/fixtures/hub.json"), "utf8"));
+  const fixedNow = parseSnapshotNow("2026-08-20 11:00");
+  if (!isLiveHubData(hub)) fail("fixture hub must count as live");
+  if (isLiveHubData(sample)) fail("sample.json must not count as live");
+  const banner = staticDataBannerHtml(hub, "en", fixedNow);
+  if (!banner.includes("SNAPSHOT") || !banner.includes("2026-08-20 00:00") || !banner.includes("11h ago")) {
+    fail("staticDataBannerHtml live en", banner);
+  }
+  const bannerZh = staticDataBannerHtml(hub, "zh", fixedNow);
+  if (!bannerZh.includes("資料快照") || !bannerZh.includes("11 小時前")) {
+    fail("staticDataBannerHtml live zh", bannerZh);
+  }
+  const sampleBanner = staticDataBannerHtml(sample, "en", fixedNow);
+  if (!sampleBanner.includes("EXAMPLE DATA") || sampleBanner.includes("ago")) {
+    fail("static sample banner must not invent relative age", sampleBanner);
+  }
+  const last = staticLastRunText(hub, "en", fixedNow);
+  if (!last.includes("11h ago") || !last.includes("2026-08-20 00:00")) {
+    fail("staticLastRunText en", last);
+  }
+  const shell = `<div class="sample-banner" id="dataBanner" role="status"><strong>LOADING</strong><span>…</span></div>
+      <p class="footer-meta" id="lastRun">Loading snapshot</p>`;
+  const stamped = injectStaticHomeFreshness(shell, { lang: "en", data: hub, now: fixedNow });
+  if (stamped.includes("LOADING") || !stamped.includes("11h ago") || !stamped.includes('id="lastRun"')) {
+    fail("injectStaticHomeFreshness", stamped);
+  }
+  const enDist = resolve(root, "dist/index.html");
+  const zhDist = resolve(root, "dist/zh/index.html");
+  if (existsSync(enDist) && existsSync(zhDist)) {
+    const enHtml = readFileSync(enDist, "utf8");
+    const zhHtml = readFileSync(zhDist, "utf8");
+    const enBanner = enHtml.match(/id="dataBanner"[^>]*>([\s\S]*?)<\/div>/)?.[1] || "";
+    const zhBanner = zhHtml.match(/id="dataBanner"[^>]*>([\s\S]*?)<\/div>/)?.[1] || "";
+    if (enBanner.includes("LOADING") || zhBanner.includes("載入中") || zhBanner.includes("LOADING")) {
+      fail("dist home banner still shows loading placeholder");
+    }
+    if (!/id="lastRun"[^>]*>[^<]*(Snapshot|資料快照|EXAMPLE|範例)/.test(enHtml + zhHtml)) {
+      fail("dist lastRun missing static freshness copy");
+    }
+  }
 }
 
 console.log("test_home_extras.mjs ok", {

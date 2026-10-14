@@ -11,6 +11,7 @@ import {
 } from "./src/sitePages.js";
 import { injectHomeBusinessGuideLink } from "./src/businessRanking.js";
 import { injectHomeGta6Link } from "./src/gta6Page.js";
+import { injectStaticHomeFreshness } from "./src/homeExtras.js";
 import { injectHomeMoneyGuideLink } from "./src/moneyGuide.js";
 import { injectJobListHtml, renderStaticHomeJobList } from "./src/staticHomeJobs.js";
 import {
@@ -37,8 +38,10 @@ function injectStaticJobs() {
   return {
     name: "inject-static-jobs",
     transformIndexHtml(html) {
-      const cards = renderStaticHomeJobList(loadHubJobs(), { lang: "en" });
+      const hub = loadHubJobs();
+      const cards = renderStaticHomeJobList(hub, { lang: "en" });
       let out = injectJobListHtml(html, cards);
+      out = injectStaticHomeFreshness(out, { lang: "en", data: hub });
       out = injectHomeShell(out, { lang: "en" });
       out = injectHomeArchiveIndexLink(out, { lang: "en" });
       out = injectHomeAtomDiscovery(out, { lang: "en" });

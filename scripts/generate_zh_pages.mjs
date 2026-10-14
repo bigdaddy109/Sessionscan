@@ -13,6 +13,7 @@ import { injectHomeGta6Link } from "../src/gta6Page.js";
 import { injectHomeMoneyGuideLink } from "../src/moneyGuide.js";
 import { injectHomeShell } from "../src/sitePages.js";
 import { replaceHomeJsonLd } from "../src/structuredData.js";
+import { injectStaticHomeFreshness } from "../src/homeExtras.js";
 import { injectJobListHtml, renderStaticHomeJobList } from "../src/staticHomeJobs.js";
 import { injectHomeArchiveIndexLink, injectHomeAtomDiscovery } from "../src/weekArchive.js";
 
@@ -79,11 +80,12 @@ zh = zh.replace(
   '<button class="pill active" data-lang="zh"',
 );
 
-// Re-stamp #jobList with zh card-action labels so /zh/ matches en progressive enhancement.
+// Re-stamp #jobList + freshness chrome with zh labels (same progressive enhancement as EN).
 const site = loadSite();
 if (site) {
   const cards = renderStaticHomeJobList(site, { lang: "zh" });
   if (cards) zh = injectJobListHtml(zh, cards);
+  zh = injectStaticHomeFreshness(zh, { lang: "zh", data: site });
 }
 
 const outDir = resolve(dist, "zh");

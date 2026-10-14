@@ -15,6 +15,16 @@ export function snapshotNow(meta = {}) {
 }
 
 /**
+ * Live hub vs sample shell — same rules as main.js isLiveData.
+ * Why: build-time banner/footer freshness must not label sample as a live crawl.
+ */
+export function isLiveHubData(data) {
+  const meta = data?.meta || {};
+  if (meta.sample === true || meta.scraper_status === "disabled") return false;
+  return Boolean(meta._last_run);
+}
+
+/**
  * Localized relative age for a meta stamp (e.g. "11h ago" / "11 小時前").
  * Empty string when stamp is missing/unparseable — callers keep absolute stamp alone.
  */
@@ -26,6 +36,64 @@ export function formatSnapshotAgeLabel(stamp, lang = "en", now = new Date()) {
   if (parts.unit === "minutes") return t("snapshotAgeMinutes", { n: parts.n }, ui);
   if (parts.unit === "hours") return t("snapshotAgeHours", { n: parts.n }, ui);
   return t("snapshotAgeDays", { n: parts.n }, ui);
+}
+
+function esc(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+/**
+ * Build-time #dataBanner inner HTML (stamp + relative age when live).
+ * Inject `now=` in tests — do not rely on wall clock.
+ */
+export function staticDataBannerHtml(data, lang = "en", now = new Date()) {
+  const ui = lang === "zh" ? "zh" : "en";
+  const meta = data?.meta || {};
+  if (!isLiveHubData(data)) {
+    return `<strong>${esc(t("sampleStrong", {}, ui))}</strong><span>${esc(t("sampleSpan", {}, ui))}</span>`;
+  }
+  const stamp = meta._last_run || meta.snapshot_date || "—";
+  const ageLabel = formatSnapshotAgeLabel(stamp, ui, now);
+  const age = ageLabel ? ` · ${ageLabel}` : "";
+  return `<strong>${esc(t("snapshotStrong", {}, ui))}</strong><span>${esc(t("snapshotSpan", { stamp, age }, ui))}</span>`;
+}
+
+/** Build-time #lastRun text (same copy as client renderAll). */
+export function staticLastRunText(data, lang = "en", now = new Date()) {
+  const ui = lang === "zh" ? "zh" : "en";
+  const meta = data?.meta || {};
+  if (!isLiveHubData(data)) {
+    return t("lastRunSample", { stamp: meta.snapshot_date || "" }, ui);
+  }
+  const stamp = meta._last_run || "—";
+  const ageLabel = formatSnapshotAgeLabel(stamp, ui, now);
+  const age = ageLabel ? ` · ${ageLabel}` : "";
+  return t("lastRunLive", { stamp, age }, ui);
+}
+
+/**
+ * Progressive-enhancement: stamp home #dataBanner + #lastRun before JS fetch.
+ * Users see snapshot age on first paint instead of LOADING flash.
+ */
+export function injectStaticHomeFreshness(html, { lang = "en", data = null, now = new Date() } = {}) {
+  let out = String(html || "");
+  if (!data || typeof data !== "object") return out;
+  const bannerInner = staticDataBannerHtml(data, lang, now);
+  out = out.replace(
+    /(<div class="sample-banner" id="dataBanner"[^>]*>)[\s\S]*?(<\/div>)/,
+    `$1${bannerInner}$2`,
+  );
+  const lastRun = staticLastRunText(data, lang, now);
+  out = out.replace(
+    /<p class="footer-meta" id="lastRun"[^>]*>[\s\S]*?<\/p>/,
+    `<p class="footer-meta" id="lastRun">${esc(lastRun)}</p>`,
+  );
+  return out;
 }
 
 export function videoKey(item) {
