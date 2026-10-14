@@ -46,6 +46,7 @@ import {
   nextWeeklyUpdateAt,
   pickHomeShort,
   toggleClaimedId,
+  weekBulletItemsHtml,
 } from "./thisWeekHome.js";
 import { latestArchiveLinkHtml } from "./weekArchive.js";
 
@@ -437,24 +438,11 @@ function renderWeekBullets() {
   const weekKey = claimedStorageKey(now);
   const claimed = loadClaimedIds(weekKey);
   host.dataset.claimedKey = weekKey;
-  host.innerHTML = bullets
-    .map((b) => {
-      const done = claimed.has(b.id);
-      const access = b.url
-        ? `<a class="week-bullet-how" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer">${esc(b.how)}</a>`
-        : `<span class="week-bullet-how is-muted">${esc(b.how)}</span>`;
-      const claimLabel = t("weekBulletClaim", { label: b.label });
-      return `<li class="week-bullet${b.pending ? " is-pending" : ""}${done ? " is-claimed" : ""}" data-bullet="${esc(b.id)}">
-        <label class="week-bullet-claim">
-          <input type="checkbox" class="week-bullet-check" data-bullet-id="${esc(b.id)}" ${done ? "checked" : ""} />
-          <span class="week-bullet-claim-text">${esc(claimLabel)}</span>
-        </label>
-        <span class="week-bullet-label">${esc(b.label)}</span>
-        <span class="week-bullet-reward">${esc(b.reward)}</span>
-        ${access}
-      </li>`;
-    })
-    .join("");
+  host.innerHTML = weekBulletItemsHtml(bullets, {
+    claimable: true,
+    lang: uiLang(),
+    claimed,
+  });
   updateWeekClaimProgress(bullets, claimed);
 }
 
