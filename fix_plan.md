@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- Home 週更倒數靜態預渲染（`injectStaticWeekCountdown`／`formatWeekCountdown`；首屏不再顯示 `—`；等研發程式 「可以合」後再合）。測 `tests/test_this_week_home.mjs`。Rollback：`pre-static-week-countdown-20261014`。
+- Home 週更倒數靜態預渲染（`injectStaticWeekCountdown`／`formatWeekCountdown`；首屏不再顯示 `—`；#95；等研發程式 「可以合 #95」後再合）。測 `tests/test_this_week_home.mjs`。Rollback：`pre-static-week-countdown-20261014`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
