@@ -15,9 +15,11 @@ import {
   businessTipFreezeLinkHtml,
   businessesPageBodyHtml,
   businessesPageJsonLd,
+  businessesSoloFilterHtml,
   formatSourceDate,
   homeBusinessGuideLinkHtml,
   injectHomeBusinessGuideLink,
+  isSoloFriendlyBusiness,
 } from "../src/businessRanking.js";
 import { SITE_PAGES, renderSitePage } from "../src/sitePages.js";
 import { parseJsonLdScripts } from "../src/structuredData.js";
@@ -60,9 +62,28 @@ for (const item of BUSINESS_RANKING) {
   if (!bodyEn.includes(item.source.url)) fail("EN missing source url", item.id);
 }
 
+// Why: solo filter must only flag businesses whose published highlight already
+// says solo/單人 — never invent a playstyle tag detached from that copy.
+const soloIds = BUSINESS_RANKING.filter(isSoloFriendlyBusiness).map((b) => b.id);
+if (!soloIds.includes("acid-lab") || !soloIds.includes("kosatka")) {
+  fail("acid-lab + kosatka must be solo-friendly from highlight", soloIds);
+}
+if (soloIds.includes("nightclub")) fail("nightclub must not be solo-tagged", soloIds);
+if (!bodyEn.includes('id="bizFilter"') || !bodyEn.includes('data-biz-filter="solo"')) {
+  fail("EN missing solo filter chrome", bodyEn.match(/biz-filter[\s\S]{0,160}/)?.[0]);
+}
+if (!bodyEn.includes('data-biz-id="acid-lab" data-rank="1" data-solo="1"')) {
+  fail("EN acid-lab data-solo", bodyEn.match(/data-biz-id="acid-lab"[^>]*/)?.[0]);
+}
+const nightclubLi = bodyEn.match(/data-biz-id="nightclub"[^>]*/)?.[0] || "";
+if (!/data-solo="0"/.test(nightclubLi)) fail("EN nightclub data-solo=0 expected", nightclubLi);
+const filterZh = businessesSoloFilterHtml("zh");
+if (!filterZh.includes("單人友善") || !filterZh.includes("全部")) fail("zh filter labels", filterZh);
+
 const bodyZh = businessesPageBodyHtml("zh");
 if (!bodyZh.includes("迷幻藥實驗室") && !bodyZh.includes("生意")) fail("zh body missing zh copy");
 if (!bodyZh.includes("biz-rank-list")) fail("zh missing list");
+if (!bodyZh.includes("單人友善")) fail("zh missing solo filter label");
 
 const page = SITE_PAGES.find((p) => p.id === "businesses");
 if (!page || page.stub) fail("businesses SITE_PAGES must not be stub");
@@ -77,6 +98,7 @@ if (!html.includes('rel="canonical" href="https://sessionscan.net/guides/busines
   fail("businesses canonical");
 }
 if (!html.includes("biz-rank-list")) fail("rendered missing list");
+if (!html.includes("data-biz-solo-filter")) fail("rendered missing solo filter script");
 
 let ld;
 try {
@@ -116,6 +138,9 @@ if (existsSync(distEn)) {
   if (!built.includes("business-week-link") || !built.includes('href="/"')) {
     fail("dist EN missing businessWeekLink home CTA");
   }
+  if (!built.includes('id="bizFilter"') || !built.includes("data-biz-solo-filter")) {
+    fail("dist EN missing solo filter");
+  }
 }
 if (existsSync(distZh)) {
   const built = readFileSync(distZh, "utf8");
@@ -123,6 +148,9 @@ if (existsSync(distZh)) {
   if (!built.includes("biz-rank-list")) fail("dist zh missing list");
   if (!built.includes('href="/zh/"') || !built.includes("首頁本週")) {
     fail("dist zh missing businessWeekLink");
+  }
+  if (!built.includes("單人友善") || !built.includes("data-biz-solo-filter")) {
+    fail("dist zh missing solo filter");
   }
 }
 

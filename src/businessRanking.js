@@ -199,6 +199,15 @@ function pickLocale(map, lang) {
   return String(map[ui] || map.en || "").trim();
 }
 
+/**
+ * Solo-friendly when the existing highlight already says so (EN solo / ZH 單人).
+ * No invented tags — filter only surfaces copy we already publish.
+ */
+export function isSoloFriendlyBusiness(item) {
+  const blob = `${pickLocale(item?.highlight, "en")} ${pickLocale(item?.highlight, "zh")}`;
+  return /\bsolo(?:-friendly)?\b|單人/.test(blob);
+}
+
 /** Format ISO day for display (keeps YYYY-MM-DD — stable across locales). */
 export function formatSourceDate(isoDay) {
   const m = String(isoDay || "").trim().match(/^(\d{4}-\d{2}-\d{2})/);
@@ -300,6 +309,60 @@ export function businessTipFreezeLinkHtml(tipWeek, lang = "en") {
   return `<p class="business-tip-freeze" id="businessTipFreezeLink"><a href="${esc(href)}">${esc(t("weekArchiveLatestLink", { week }, ui))}</a></p>`;
 }
 
+/** Filter chips: All vs Solo-friendly (derived from highlight copy). */
+export function businessesSoloFilterHtml(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  return `<div class="biz-filter" id="bizFilter" role="group" aria-label="${esc(t("bizFilterAria", {}, ui))}">
+      <button type="button" class="biz-filter-btn is-active" data-biz-filter="all" aria-pressed="true">${esc(t("bizFilterAll", {}, ui))}</button>
+      <button type="button" class="biz-filter-btn" data-biz-filter="solo" aria-pressed="false">${esc(t("bizFilterSolo", {}, ui))}</button>
+    </div>
+    <p class="biz-filter-empty" id="bizFilterEmpty" hidden>${esc(t("bizFilterEmpty", {}, ui))}</p>`;
+}
+
+/** Inline filter — static businesses pages have no bundled module entry. */
+export function businessesSoloFilterScript() {
+  return `<script data-biz-solo-filter>
+(function () {
+  function apply(mode) {
+    var list = document.querySelector(".biz-rank-list");
+    var empty = document.getElementById("bizFilterEmpty");
+    var host = document.getElementById("bizFilter");
+    if (!list || !host) return;
+    var soloOnly = mode === "solo";
+    var items = list.querySelectorAll(".biz-rank-item");
+    var visible = 0;
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      var solo = item.getAttribute("data-solo") === "1";
+      var show = !soloOnly || solo;
+      item.hidden = !show;
+      if (show) visible += 1;
+    }
+    if (empty) empty.hidden = visible > 0;
+    var buttons = host.querySelectorAll(".biz-filter-btn");
+    for (var j = 0; j < buttons.length; j++) {
+      var btn = buttons[j];
+      var on = btn.getAttribute("data-biz-filter") === mode;
+      if (on) btn.classList.add("is-active");
+      else btn.classList.remove("is-active");
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    }
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    var host = document.getElementById("bizFilter");
+    if (!host || host.getAttribute("data-filter-bound") === "1") return;
+    host.setAttribute("data-filter-bound", "1");
+    host.addEventListener("click", function (ev) {
+      var btn = ev.target && ev.target.closest ? ev.target.closest(".biz-filter-btn") : null;
+      if (!btn || !host.contains(btn)) return;
+      apply(btn.getAttribute("data-biz-filter") || "all");
+    });
+    apply("all");
+  });
+})();
+</script>`;
+}
+
 /** Ranked list + methodology + last-updated chrome for the Businesses page body. */
 export function businessesPageBodyHtml(lang = "en", { tipWeek = "" } = {}) {
   const ui = lang === "zh" ? "zh" : "en";
@@ -311,7 +374,8 @@ export function businessesPageBodyHtml(lang = "en", { tipWeek = "" } = {}) {
   const items = BUSINESS_RANKING.map((item) => {
     const title = pickLocale(item.title, ui);
     const highlight = pickLocale(item.highlight, ui);
-    return `<li class="biz-rank-item" data-biz-id="${esc(item.id)}" data-rank="${esc(String(item.rank))}">
+    const solo = isSoloFriendlyBusiness(item);
+    return `<li class="biz-rank-item" data-biz-id="${esc(item.id)}" data-rank="${esc(String(item.rank))}" data-solo="${solo ? "1" : "0"}">
       <div class="biz-rank-num" aria-hidden="true">${esc(String(item.rank))}</div>
       <div class="biz-rank-body">
         <h2 class="biz-rank-title">${esc(title)}</h2>
@@ -329,6 +393,7 @@ export function businessesPageBodyHtml(lang = "en", { tipWeek = "" } = {}) {
       <a href="${esc(consensus.url)}" target="_blank" rel="noopener noreferrer">${esc(consensusLabel)} ↗</a>
       <time datetime="${esc(consensusDate)}">${esc(t("bizSourceDate", { date: consensusDate }, ui))}</time>
     </p>
+    ${businessesSoloFilterHtml(ui)}
     <ol class="biz-rank-list" data-biz-count="${BUSINESS_RANKING.length}">
       ${items}
     </ol>

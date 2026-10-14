@@ -2364,6 +2364,39 @@ main {
   font-size: 12px;
   color: var(--muted);
 }
+.biz-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 14px;
+  min-width: 0;
+}
+.biz-filter-btn {
+  margin: 0;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--condensed);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+.biz-filter-btn:hover,
+.biz-filter-btn:focus-visible {
+  color: var(--text);
+  border-color: var(--teal);
+  outline: none;
+}
+.biz-filter-btn.is-active {
+  color: var(--mint);
+  border-color: var(--mint);
+}
+.biz-filter-empty {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
 .biz-rank-list {
   list-style: none;
   margin: 0;

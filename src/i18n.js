@@ -107,6 +107,10 @@ export const UI = {
     bizUpdatedHtml: "<strong>Last updated</strong> <time datetime=\"{date}\">{date}</time>",
     bizMethodologyLabel: "Ranking order follows:",
     bizSourceDate: "Source date {date}",
+    bizFilterAria: "Filter businesses by playstyle",
+    bizFilterAll: "All",
+    bizFilterSolo: "Solo-friendly",
+    bizFilterEmpty: "No businesses match this filter.",
     bizDisclaimer:
       "SessionScan does not invent purchase prices or $/hr. Every outbound link is Rockstar Newswire or a named secondary used for rank order. Figures you see on those pages are theirs — verify before spending.",
     pageGta6Title: "GTA 6 | SessionScan",
@@ -412,6 +416,10 @@ export const UI = {
     bizUpdatedHtml: "<strong>最後更新</strong> <time datetime=\"{date}\">{date}</time>",
     bizMethodologyLabel: "排名順序參考：",
     bizSourceDate: "來源日期 {date}",
+    bizFilterAria: "依遊玩方式篩選生意",
+    bizFilterAll: "全部",
+    bizFilterSolo: "單人友善",
+    bizFilterEmpty: "沒有符合此篩選的生意。",
     bizDisclaimer:
       "SessionScan 不編造購價或 $/hr。外連皆為 Rockstar Newswire 或具名二級排名來源。那些頁面上的數字屬對方 — 花錢前請自行核對。",
     pageGta6Title: "GTA 6｜SessionScan",
