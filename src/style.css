@@ -2260,9 +2260,14 @@ main {
   padding: 14px 0;
   border-top: 1px solid var(--border);
   min-width: 0;
+  cursor: pointer;
 }
 .money-route:last-child {
   border-bottom: 1px solid var(--border);
+}
+.money-route:focus-within {
+  outline: 1px solid var(--teal);
+  outline-offset: 2px;
 }
 .money-route-rank {
   font-family: var(--condensed);
@@ -2295,6 +2300,14 @@ main {
 }
 .money-route-take-value { color: var(--mint); }
 .money-route-take-label { color: var(--muted); }
+.money-route-rate {
+  margin: 0 0 6px;
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  color: var(--teal);
+}
+.money-route-rate[hidden] { display: none; }
 .money-route-source {
   margin: 0;
   font-size: 0.88rem;

@@ -13,6 +13,7 @@ import {
   MONEY_ROUTES,
   dollarsPerHour,
   formatGtaMoney,
+  formatMoneyRouteRate,
   homeMoneyGuideLinkHtml,
   injectHomeMoneyGuideLink,
   moneyCalcMinutePresetsHtml,
@@ -55,6 +56,15 @@ if (dollarsPerHour(600_000, 60) !== 600_000) fail("calc 60 min");
 if (dollarsPerHour(600_000, 30) !== 1_200_000) fail("calc 30 min");
 if (dollarsPerHour(600_000, 0) !== null) fail("calc rejects 0 min");
 if (dollarsPerHour(600_000, -5) !== null) fail("calc rejects negative min");
+// Why: shared minutes make $/hr order === take order; list must still show a
+// live rough rate so presets (#98) change what players read on every row.
+const rateEn = formatMoneyRouteRate(2_600_000, 30, "en");
+if (!rateEn.includes("GTA$2,600,000") || !rateEn.includes("30")) fail("formatMoneyRouteRate en", rateEn);
+const rateZh = formatMoneyRouteRate(1_300_000, 60, "zh");
+if (!rateZh.includes("GTA$1,300,000") || !rateZh.includes("60") || !rateZh.includes("粗估")) {
+  fail("formatMoneyRouteRate zh", rateZh);
+}
+if (formatMoneyRouteRate(null, 60, "en") !== "") fail("formatMoneyRouteRate empty");
 
 const moneyPage = SITE_PAGES.find((p) => p.id === "money");
 if (!moneyPage || moneyPage.stub) fail("money page must not be stub");
@@ -71,6 +81,20 @@ if (!Array.isArray(MONEY_CALC_MINUTE_PRESETS) || MONEY_CALC_MINUTE_PRESETS.join(
 }
 if (!en.includes('id="moneyCalcPresets"') || !en.includes('data-minutes="15"') || !en.includes('data-minutes="60"')) {
   fail("en money calc presets missing", en.match(/money-calc-presets[\s\S]{0,200}/)?.[0]);
+}
+// Why: without per-row rates, minute presets only update one select result — players
+// comparing routes need every cited take shown as rough $/hr for their session length.
+if (!en.includes('data-money-rate') || !en.includes("data-rate-template=")) {
+  fail("en money route rate readouts missing");
+}
+if (!en.includes("≈ GTA$1,300,000/hr at 60 min") && !en.includes("GTA$1,300,000/hr at 60")) {
+  fail("en static default 60-min rate on cayo", en.match(/money-route-rate[\s\S]{0,120}/)?.[0]);
+}
+if (!en.includes("syncRouteRates") || !en.includes("data-calc-pick-bound")) {
+  fail("en money script must sync list rates + row→calc pick");
+}
+if (!en.includes("{rate}") || !en.includes("{minutes}")) {
+  fail("en rate template placeholders");
 }
 const presetHtml = moneyCalcMinutePresetsHtml("zh");
 if (!presetHtml.includes("分鐘快選") || !presetHtml.includes('data-minutes="30"')) {
@@ -114,6 +138,9 @@ if (existsSync(distMoney)) {
   if (!built.includes("static.cloudflareinsights.com/beacon.min.js")) fail("dist money CF beacon");
   if (!built.includes('id="moneyCalcPresets"') || !built.includes('data-minutes="45"')) {
     fail("dist money missing minute presets");
+  }
+  if (!built.includes("data-money-rate") || !built.includes("data-rate-template=")) {
+    fail("dist money missing route hour rates");
   }
 }
 
