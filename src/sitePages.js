@@ -436,7 +436,7 @@ function pageBodyHtml(page, ui, { tipWeek = "" } = {}) {
       ${businessesPageBodyHtml(ui, { tipWeek })}`;
   }
   if (page.id === "gta6") {
-    return renderGta6PageBody(ui);
+    return renderGta6PageBody(ui, { tipWeek });
   }
   const stub = page.stub
     ? `<p class="page-stub-flag" data-i18n="pageStubFlag">${esc(t("pageStubFlag", {}, ui))}</p>`

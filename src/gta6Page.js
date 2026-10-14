@@ -132,12 +132,29 @@ export function gta6CountdownScript() {
 }
 
 /**
+ * GTA 6 → tip freeze CTA (reciprocal of freezeGta6LinkHtml).
+ * tipWeek must be a real Rockstar-week key from listArchiveWeeks — never invent.
+ */
+export function gta6TipFreezeLinkHtml(tipWeek, lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const week = String(tipWeek || "").trim();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(week)) {
+    return `<p class="gta6-tip-freeze is-empty" id="gta6TipFreezeLink" hidden></p>`;
+  }
+  const href = ui === "zh" ? `/zh/week/${week}/` : `/week/${week}/`;
+  return `<p class="gta6-tip-freeze" id="gta6TipFreezeLink"><a href="${esc(href)}">${esc(t("weekArchiveLatestLink", { week }, ui))}</a></p>`;
+}
+
+/**
  * Body for /gta6/ — official date, live countdown, Rockstar outbound links.
  * @param {string} [lang]
- * @param {Date} [now] injectable for tests
+ * @param {{ tipWeek?: string, now?: Date }} [opts]
  */
-export function renderGta6PageBody(lang = "en", now = new Date()) {
+export function renderGta6PageBody(lang = "en", opts = {}) {
   const ui = lang === "zh" ? "zh" : "en";
+  // Backward-compat: older callers passed `now` as the 2nd argument.
+  const tipWeek = opts instanceof Date ? "" : opts?.tipWeek || "";
+  const now = opts instanceof Date ? opts : opts?.now instanceof Date ? opts.now : new Date();
   const target = gta6ReleaseAt();
   const parts = countdownParts(target, now);
   const display =
@@ -165,7 +182,8 @@ export function renderGta6PageBody(lang = "en", now = new Date()) {
         <li><a href="${esc(GTA6_OFFICIAL_URL)}" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6Official", {}, ui))}</a></li>
         <li><a href="${esc(GTA6_NEWSWIRE_URL)}" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6Newswire", {}, ui))}</a></li>
       </ul>
-      <p class="gta6-home-link"><a href="${esc(ui === "zh" ? "/zh/" : "/")}">${esc(t("gta6HomeLink", {}, ui))}</a></p>`;
+      <p class="gta6-home-link"><a href="${esc(ui === "zh" ? "/zh/" : "/")}">${esc(t("gta6HomeLink", {}, ui))}</a></p>
+      ${gta6TipFreezeLinkHtml(tipWeek, ui)}`;
 }
 
 /** Home → `/gta6/` discovery link (reciprocal of gta6HomeLink). */
