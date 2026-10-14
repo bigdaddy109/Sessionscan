@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- Businesses「我擁有」勾選＋Owned 篩選（`BIZ_OWNED_STORAGE_KEY`／`data-owned`／`data-biz-filter="owned"`；localStorage 庫存，非週鍵；等研發程式 「可以合」後再合）。測 `tests/test_business_ranking.mjs`。Rollback：`pre-business-owned-filter-20261014`。
+- Businesses「我擁有」勾選＋Owned 篩選（`BIZ_OWNED_STORAGE_KEY`／`data-owned`／`data-biz-filter="owned"`；localStorage 庫存，非週鍵；#103；等研發程式 「可以合 #103」後再合）。測 `tests/test_business_ranking.mjs`。Rollback：`pre-business-owned-filter-20261014`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
