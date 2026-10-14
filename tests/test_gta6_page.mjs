@@ -9,7 +9,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   GTA6_NEWSWIRE_URL,
-  GTA6_OFFICIAL_TRAILER_EMBED_URL,
+  GTA6_OFFICIAL_TRAILER_POSTER_URL,
   GTA6_OFFICIAL_TRAILER_WATCH_URL,
   GTA6_OFFICIAL_TRAILER_YOUTUBE_ID,
   GTA6_OFFICIAL_URL,
@@ -74,29 +74,45 @@ const zhBody = renderGta6PageBody("zh", now);
 if (!zhBody.includes("官方上市日倒數")) fail("zh kicker missing");
 if (!zhBody.includes("2026 年 11 月 19 日")) fail("zh announced date missing");
 
-// Why: /gta6/ must embed the same Rockstar-hosted trailer id as
+// Why: /gta6/ must cite the same Rockstar-hosted trailer id as
 // rockstargames.com/VI — inventing a different video would mislead players.
+// Poster + outbound watch only: youtube-nocookie iframes age-gate this title.
 if (GTA6_OFFICIAL_TRAILER_YOUTUBE_ID !== "tJbzMqJGH4k") {
   fail("official trailer YouTube id drift", GTA6_OFFICIAL_TRAILER_YOUTUBE_ID);
 }
-if (!GTA6_OFFICIAL_TRAILER_EMBED_URL.includes("youtube-nocookie.com/embed/tJbzMqJGH4k")) {
-  fail("trailer embed URL drift", GTA6_OFFICIAL_TRAILER_EMBED_URL);
+if (
+  GTA6_OFFICIAL_TRAILER_POSTER_URL !==
+  "https://i.ytimg.com/vi/tJbzMqJGH4k/hqdefault.jpg"
+) {
+  fail("trailer poster URL drift", GTA6_OFFICIAL_TRAILER_POSTER_URL);
 }
 if (!GTA6_OFFICIAL_TRAILER_WATCH_URL.includes("watch?v=tJbzMqJGH4k")) {
   fail("trailer watch URL drift", GTA6_OFFICIAL_TRAILER_WATCH_URL);
 }
 const trailerEn = gta6OfficialTrailerHtml("en");
 if (!trailerEn.includes('id="gta6OfficialTrailer"')) fail("trailer section missing");
-if (!trailerEn.includes(GTA6_OFFICIAL_TRAILER_EMBED_URL)) fail("trailer iframe src missing");
+if (!trailerEn.includes('id="gta6TrailerPoster"')) fail("trailer poster link missing");
+if (!trailerEn.includes(GTA6_OFFICIAL_TRAILER_POSTER_URL)) fail("trailer poster img missing");
+if (!trailerEn.includes(`href="${GTA6_OFFICIAL_TRAILER_WATCH_URL}"`)) {
+  fail("trailer poster must open watch URL");
+}
+if (!trailerEn.includes('target="_blank"')) fail("trailer must open new tab");
+if (/iframe|youtube-nocookie/i.test(trailerEn)) {
+  fail("trailer must not load a third-party iframe", trailerEn.slice(0, 400));
+}
 if (!trailerEn.includes("Official look")) fail("trailer en kicker");
 if (!trailerEn.includes("Watch on YouTube")) fail("trailer en watch link");
 if (!trailerEn.includes(GTA6_OFFICIAL_URL)) fail("trailer must cite Rockstar VI");
+if (!trailerEn.includes("Play:")) fail("trailer play aria missing");
 const trailerZh = gta6OfficialTrailerHtml("zh");
 if (!trailerZh.includes("官方預告") || !trailerZh.includes("在 YouTube 觀看")) {
   fail("trailer zh copy", trailerZh.slice(0, 300));
 }
-if (!body.includes('id="gta6OfficialTrailer"') || !body.includes(GTA6_OFFICIAL_TRAILER_EMBED_URL)) {
-  fail("EN body missing official trailer embed");
+if (!trailerZh.includes("播放：") || /iframe|youtube-nocookie/i.test(trailerZh)) {
+  fail("zh trailer must be poster link, not iframe");
+}
+if (!body.includes('id="gta6OfficialTrailer"') || !body.includes(GTA6_OFFICIAL_TRAILER_POSTER_URL)) {
+  fail("EN body missing official trailer poster");
 }
 if (!zhBody.includes('id="gta6OfficialTrailer"') || !zhBody.includes("官方預告")) {
   fail("zh body missing official trailer");
@@ -125,8 +141,11 @@ if (!html.includes('id="gta6CountdownDisplay"')) fail("renderSitePage missing co
 if (!html.includes("Date.parse") || !html.includes("setInterval")) {
   fail("inline countdown script missing");
 }
-if (!html.includes('id="gta6OfficialTrailer"') || !html.includes(GTA6_OFFICIAL_TRAILER_EMBED_URL)) {
-  fail("renderSitePage missing official trailer");
+if (!html.includes('id="gta6OfficialTrailer"') || !html.includes(GTA6_OFFICIAL_TRAILER_POSTER_URL)) {
+  fail("renderSitePage missing official trailer poster");
+}
+if (/youtube-nocookie|<iframe/i.test(html)) {
+  fail("renderSitePage gta6 must not embed youtube iframe");
 }
 if (!html.includes('"@type":"Event"')) fail("rendered HTML missing Event JSON-LD");
 if (!html.includes("site-page-main--gta6")) fail("gta6 main class missing");
@@ -155,8 +174,14 @@ if (existsSync(distEn)) {
   if (!dist.includes("gta6-home-link") || !dist.includes('href="/"')) {
     fail("dist EN missing gta6HomeLink");
   }
-  if (!dist.includes("gta6OfficialTrailer") || !dist.includes("tJbzMqJGH4k")) {
-    fail("dist EN missing official trailer embed");
+  if (!dist.includes("gta6OfficialTrailer") || !dist.includes("gta6TrailerPoster")) {
+    fail("dist EN missing official trailer poster");
+  }
+  if (!dist.includes("i.ytimg.com/vi/tJbzMqJGH4k/hqdefault.jpg")) {
+    fail("dist EN missing trailer thumb");
+  }
+  if (/youtube-nocookie|<iframe/i.test(dist)) {
+    fail("dist EN must not embed youtube iframe on /gta6/");
   }
 }
 if (existsSync(distZh)) {
@@ -165,8 +190,11 @@ if (existsSync(distZh)) {
   if (!dist.includes('href="/zh/"') || !dist.includes("首頁本週")) {
     fail("dist ZH missing gta6HomeLink");
   }
-  if (!dist.includes("gta6OfficialTrailer") || !dist.includes("tJbzMqJGH4k")) {
-    fail("dist ZH missing official trailer embed");
+  if (!dist.includes("gta6OfficialTrailer") || !dist.includes("gta6TrailerPoster")) {
+    fail("dist ZH missing official trailer poster");
+  }
+  if (/youtube-nocookie|<iframe/i.test(dist)) {
+    fail("dist ZH must not embed youtube iframe on /zh/gta6/");
   }
 }
 

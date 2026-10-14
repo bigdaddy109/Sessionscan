@@ -18,16 +18,18 @@ export const GTA6_OFFICIAL_URL = "https://www.rockstargames.com/VI";
 export const GTA6_NEWSWIRE_URL = "https://www.rockstargames.com/newswire";
 
 /**
- * Official Rockstar YouTube id embedded on rockstargames.com/VI
+ * Official Rockstar YouTube id hosted on rockstargames.com/VI
  * (“Grand Theft Auto VI: An Extended Look” — Rockstar Games channel).
+ * Poster + outbound watch only — no third-party iframe (age-gate on embed).
  */
 export const GTA6_OFFICIAL_TRAILER_YOUTUBE_ID = "tJbzMqJGH4k";
 
 export const GTA6_OFFICIAL_TRAILER_WATCH_URL =
   `https://www.youtube.com/watch?v=${GTA6_OFFICIAL_TRAILER_YOUTUBE_ID}`;
 
-export const GTA6_OFFICIAL_TRAILER_EMBED_URL =
-  `https://www.youtube-nocookie.com/embed/${GTA6_OFFICIAL_TRAILER_YOUTUBE_ID}`;
+/** Official YouTube thumbnail (i.ytimg.com) — static image, not an embed. */
+export const GTA6_OFFICIAL_TRAILER_POSTER_URL =
+  `https://i.ytimg.com/vi/${GTA6_OFFICIAL_TRAILER_YOUTUBE_ID}/hqdefault.jpg`;
 
 /** UTC midnight of the announced release day. */
 export function gta6ReleaseAt() {
@@ -143,24 +145,39 @@ export function gta6CountdownScript() {
 </script>`;
 }
 
-/** Privacy-friendly official trailer embed + outbound YouTube / Rockstar VI cites. */
+/**
+ * Official trailer poster + play control — opens YouTube in a new tab.
+ * No youtube-nocookie iframe (age-restricted embeds fail for many visitors).
+ */
 export function gta6OfficialTrailerHtml(lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
   const title = t("pageGta6TrailerTitle", {}, ui);
+  const playAria = t("playAria", { title }, ui);
   return `<section class="gta6-trailer" id="gta6OfficialTrailer" aria-labelledby="gta6-trailer-heading">
         <div class="week-panel-kicker">
           <strong id="gta6-trailer-heading">${esc(t("pageGta6TrailerKicker", {}, ui))}</strong>
           <span>${esc(t("pageGta6TrailerTag", {}, ui))}</span>
         </div>
         <div class="gta6-trailer-frame">
-          <iframe
-            title="${esc(title)}"
-            src="${esc(GTA6_OFFICIAL_TRAILER_EMBED_URL)}"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
+          <a
+            class="gta6-trailer-poster"
+            id="gta6TrailerPoster"
+            href="${esc(GTA6_OFFICIAL_TRAILER_WATCH_URL)}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="${esc(playAria)}"
+          >
+            <img
+              class="gta6-trailer-thumb"
+              src="${esc(GTA6_OFFICIAL_TRAILER_POSTER_URL)}"
+              alt=""
+              width="480"
+              height="360"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="gta6-trailer-play" aria-hidden="true"><span></span></span>
+          </a>
         </div>
         <p class="gta6-trailer-source">
           <a href="${esc(GTA6_OFFICIAL_TRAILER_WATCH_URL)}" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6TrailerWatch", {}, ui))}</a>
