@@ -188,6 +188,47 @@ export function countdownParts(target, now = new Date()) {
   return { days, hours, minutes, seconds, totalMs };
 }
 
+/**
+ * Compact week-countdown display (same shape as home client + GTA 6 page).
+ * @param {{ days: number, hours: number, minutes: number, seconds: number, totalMs: number }} parts
+ * @param {string} [lang]
+ */
+export function formatWeekCountdown(parts, lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  if (!parts || parts.totalMs <= 0) return t("weekCountdownLive", {}, ui);
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${parts.days}d ${pad(parts.hours)}:${pad(parts.minutes)}:${pad(parts.seconds)}`;
+}
+
+/** Build-time / injectable countdown text for `#weekCountdownDisplay`. */
+export function staticWeekCountdownText(now = new Date(), lang = "en") {
+  const target = nextWeeklyUpdateAt(now);
+  return formatWeekCountdown(countdownParts(target, now), lang);
+}
+
+function escCountdown(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+/**
+ * Progressive enhancement: stamp home week countdown before JS ticks.
+ * Users see a real timer on first paint instead of an em dash placeholder.
+ */
+export function injectStaticWeekCountdown(html, { lang = "en", now = new Date() } = {}) {
+  let out = String(html || "");
+  const text = staticWeekCountdownText(now, lang);
+  out = out.replace(
+    /(<p class="week-countdown-display" id="weekCountdownDisplay">)[\s\S]*?(<\/p>)/,
+    `$1${escCountdown(text)}$2`,
+  );
+  return out;
+}
+
 function signalBlob(item) {
   return `${item?.title || ""} ${item?.title_en || ""} ${item?.text || ""} ${item?.blurb || ""}`;
 }

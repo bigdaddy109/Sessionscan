@@ -4,7 +4,7 @@
  * Bullets, countdown, and owned-Short pick must stay honest (no fabricated
  * Short URL) and keep working when snapshot titles only hint at categories.
  */
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { snapshotNow } from "../src/homeExtras.js";
@@ -18,10 +18,13 @@ import {
   countClaimedProgress,
   countdownParts,
   formatClaimedProgress,
+  formatWeekCountdown,
+  injectStaticWeekCountdown,
   loadClaimedIds,
   nextWeeklyUpdateAt,
   pickHomeShort,
   saveClaimedIds,
+  staticWeekCountdownText,
   toggleClaimedId,
   weekSignalItems,
 } from "../src/thisWeekHome.js";
@@ -174,6 +177,33 @@ if (!/^3X Halloween Survival/i.test(nxMulti.reward)) {
 // Must not prefer bare Halloween Event over the Nx Short when both exist.
 if (/Halloween Event/i.test(nxMulti.reward) && !/3X/i.test(nxMulti.reward)) {
   fail("must not use non-Nx Halloween Event for multipliers when Nx Short exists", nxMulti);
+}
+
+// Why: home week countdown used to ship as "—" until JS ticks — first paint
+// should show a real timer (speed / UX), with fixed now= so CI is deterministic.
+{
+  const fixed = new Date("2026-10-14T03:00:00Z");
+  const text = staticWeekCountdownText(fixed, "en");
+  if (!/^\d+d \d{2}:\d{2}:\d{2}$/.test(text)) fail("staticWeekCountdownText shape", text);
+  const live = formatWeekCountdown(countdownParts(fixed, fixed), "zh");
+  if (live !== "新一週視窗已開始") fail("formatWeekCountdown live zh", live);
+  const shell = `<p class="week-countdown-display" id="weekCountdownDisplay">—</p>`;
+  const stamped = injectStaticWeekCountdown(shell, { lang: "en", now: fixed });
+  if (stamped.includes(">—<") || !stamped.includes(text)) {
+    fail("injectStaticWeekCountdown", stamped);
+  }
+  const enDist = resolve(root, "dist/index.html");
+  const zhDist = resolve(root, "dist/zh/index.html");
+  if (existsSync(enDist) && existsSync(zhDist)) {
+    const enHtml = readFileSync(enDist, "utf8");
+    const zhHtml = readFileSync(zhDist, "utf8");
+    const enCd = enHtml.match(/id="weekCountdownDisplay">([^<]*)</)?.[1] || "";
+    const zhCd = zhHtml.match(/id="weekCountdownDisplay">([^<]*)</)?.[1] || "";
+    if (enCd === "—" || zhCd === "—") fail("dist week countdown still em dash", { enCd, zhCd });
+    if (!/^\d+d \d{2}:\d{2}:\d{2}$/.test(enCd) && !/week window|視窗/.test(enCd)) {
+      fail("dist EN countdown unexpected", enCd);
+    }
+  }
 }
 
 console.log("test_this_week_home.mjs ok");

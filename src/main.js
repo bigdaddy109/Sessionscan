@@ -41,6 +41,7 @@ import {
   countClaimedProgress,
   countdownParts,
   formatClaimedProgress,
+  formatWeekCountdown,
   loadClaimedIds,
   nextWeeklyUpdateAt,
   pickHomeShort,
@@ -388,12 +389,7 @@ function renderWeekCountdown() {
   if (!el) return;
   const target = nextWeeklyUpdateAt(new Date());
   const parts = countdownParts(target, new Date());
-  if (parts.totalMs <= 0) {
-    el.textContent = t("weekCountdownLive");
-    return;
-  }
-  const pad = (n) => String(n).padStart(2, "0");
-  el.textContent = `${parts.days}d ${pad(parts.hours)}:${pad(parts.minutes)}:${pad(parts.seconds)}`;
+  el.textContent = formatWeekCountdown(parts, uiLang());
 }
 
 function renderWeekShort() {
