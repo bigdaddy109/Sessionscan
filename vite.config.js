@@ -16,6 +16,7 @@ import { injectJobListHtml, renderStaticHomeJobList } from "./src/staticHomeJobs
 import {
   injectHomeArchiveIndexLink,
   injectHomeAtomDiscovery,
+  latestArchiveWeek,
   matchWeekFreezePath,
   renderArchiveAtomFeed,
   renderArchiveIndexPage,
@@ -106,14 +107,16 @@ function sitePagesDev() {
         }
         const hit = matchSitePage(req.url || "");
         if (!hit) return next();
+        const hub = loadHubJobs();
         const opts = {
           lang: hit.lang,
           cssHref: "/src/style.css",
           faviconHref: "/favicon.svg",
+          tipWeek: latestArchiveWeek(hub)?.week || "",
         };
         const html =
           hit.page.id === "week"
-            ? renderArchiveIndexPage(loadHubJobs(), opts)
+            ? renderArchiveIndexPage(hub, opts)
             : renderSitePage(hit.page, opts);
         res.statusCode = 200;
         res.setHeader("Content-Type", "text/html; charset=utf-8");

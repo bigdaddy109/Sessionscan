@@ -8,6 +8,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { SITE_PAGES, assetPrefix, localePath, renderSitePage } from "../src/sitePages.js";
 import {
+  latestArchiveWeek,
   listArchiveWeeks,
   renderArchiveAtomFeed,
   renderArchiveIndexPage,
@@ -57,6 +58,7 @@ const hub =
   loadJson("public/data/sample.json") ||
   {};
 const weeks = listArchiveWeeks(hub);
+const tipWeek = latestArchiveWeek(hub)?.week || "";
 let written = 0;
 
 for (const page of SITE_PAGES) {
@@ -68,6 +70,7 @@ for (const page of SITE_PAGES) {
       lang,
       cssHref: cssHrefFor(path, indexHtml),
       faviconHref: faviconHrefFor(path),
+      tipWeek,
     };
     let html = "";
     if (page.id === "week") {

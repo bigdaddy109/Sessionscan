@@ -426,14 +426,14 @@ export function staticSitemapUrls() {
   return out;
 }
 
-function pageBodyHtml(page, ui) {
+function pageBodyHtml(page, ui, { tipWeek = "" } = {}) {
   if (page.id === "money") {
     return `<h1 data-i18n="${esc(page.headingKey)}">${esc(t(page.headingKey, {}, ui))}</h1>
-      ${renderMoneyGuideBody(ui)}`;
+      ${renderMoneyGuideBody(ui, { tipWeek })}`;
   }
   if (page.id === "businesses") {
     return `<h1 data-i18n="${esc(page.headingKey)}">${esc(t(page.headingKey, {}, ui))}</h1>
-      ${businessesPageBodyHtml(ui)}`;
+      ${businessesPageBodyHtml(ui, { tipWeek })}`;
   }
   if (page.id === "gta6") {
     return renderGta6PageBody(ui);
@@ -468,6 +468,7 @@ export function renderSitePage(
     jsonLdName,
     jsonLdDesc,
     extraHead = "",
+    tipWeek = "",
   } = {},
 ) {
   if (!page?.path) return "";
@@ -495,7 +496,7 @@ export function renderSitePage(
     CROSS_LINK_PAGE_IDS.includes(crossId) ||
     crossId === "week-freeze" ||
     crossId === "about";
-  let mainBody = bodyHtml != null ? bodyHtml : pageBodyHtml(page, ui);
+  let mainBody = bodyHtml != null ? bodyHtml : pageBodyHtml(page, ui, { tipWeek });
   if (wantsRelated) {
     if (!String(mainBody).includes('class="related-pages"')) {
       mainBody = `${mainBody}
