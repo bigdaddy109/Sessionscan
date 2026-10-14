@@ -42,6 +42,7 @@ import {
   countdownParts,
   formatClaimedProgress,
   formatWeekCountdown,
+  formatWeekTipPlainText,
   loadClaimedIds,
   nextWeeklyUpdateAt,
   pickHomeShort,
@@ -446,6 +447,33 @@ function renderWeekBullets() {
   updateWeekClaimProgress(bullets, claimed);
 }
 
+function bindWeekTipCopy() {
+  const btn = $("#weekTipCopy");
+  if (!btn || btn.dataset.copyBound === "1") return;
+  btn.dataset.copyBound = "1";
+  btn.addEventListener("click", () => {
+    const now = snapshotNow(state.data?.meta || {});
+    const bullets = buildWeekBullets(state.data || {}, now, uiLang());
+    const text = formatWeekTipPlainText(bullets, { lang: uiLang() });
+    const label = t("weekTipCopy");
+    const copied = t("weekTipCopied");
+    const aria = t("weekTipCopyAria");
+    const paint = () => {
+      btn.classList.add("is-copied");
+      btn.textContent = copied;
+      btn.setAttribute("aria-label", copied);
+      window.setTimeout(() => {
+        btn.classList.remove("is-copied");
+        btn.textContent = label;
+        btn.setAttribute("aria-label", aria);
+      }, 1600);
+    };
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).then(paint).catch(() => {});
+    }
+  });
+}
+
 function bindWeekBulletClaims() {
   const host = $("#weekBulletList");
   if (!host || host.dataset.claimBound === "1") return;
@@ -471,6 +499,7 @@ function bindWeekBulletClaims() {
       renderWeekBullets();
     });
   }
+  bindWeekTipCopy();
 }
 
 function renderLatestArchiveLink() {

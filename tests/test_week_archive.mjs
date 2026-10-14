@@ -303,6 +303,10 @@ if (existsSync(resolve(root, "dist/week/feed.xml"))) {
   if (!tipBody.includes('id="archiveClaimClear"') || !tipBody.includes("week-claim-clear")) {
     fail("tip freeze missing clear-checks control", tipBody.match(/archiveClaimClear[\s\S]{0,80}/)?.[0]);
   }
+  // Why: tip freeze is the shareable week URL — Copy tip must ship there too.
+  if (!tipBody.includes('id="archiveTipCopy"') || !tipBody.includes("Copy tip")) {
+    fail("tip freeze missing copy-tip control", tipBody.match(/archiveTipCopy[\s\S]{0,80}/)?.[0]);
+  }
   if (!tipBody.includes("archiveBulletsClaimHint") && !tipBody.includes("Checks sync with home")) {
     fail("tip freeze claim hint", tipBody.match(/week-bullets-hint[\s\S]{0,120}/)?.[0]);
   }

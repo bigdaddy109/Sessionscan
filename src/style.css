@@ -1658,7 +1658,8 @@ main {
   font-size: 13px;
   color: var(--mint);
 }
-.week-claim-clear {
+.week-claim-clear,
+.week-tip-copy {
   margin: 0;
   padding: 4px 10px;
   border: 1px solid var(--border);
@@ -1671,10 +1672,16 @@ main {
   cursor: pointer;
 }
 .week-claim-clear:hover,
-.week-claim-clear:focus-visible {
+.week-claim-clear:focus-visible,
+.week-tip-copy:hover,
+.week-tip-copy:focus-visible {
   color: var(--text);
   border-color: var(--teal);
   outline: none;
+}
+.week-tip-copy.is-copied {
+  color: var(--mint);
+  border-color: var(--mint);
 }
 .week-bullets-hint {
   margin: 0 0 12px;

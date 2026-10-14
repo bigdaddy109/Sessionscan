@@ -2,7 +2,7 @@
 
 import { youtubeId } from "./cardShare.js";
 import { pickOfficialWeekly, snapshotNow } from "./homeExtras.js";
-import { t } from "./i18n.js";
+import { localeHome, t } from "./i18n.js";
 import {
   isOwnedShortThisWeek,
   isThisWeekJob,
@@ -129,9 +129,61 @@ export function freezeClaimedChecklistScript() {
       clearBtn.setAttribute("data-clear-bound", "1");
       clearBtn.addEventListener("click", function () { clearAll(host); });
     }
+    var copyBtn = document.getElementById("archiveTipCopy");
+    if (copyBtn && copyBtn.getAttribute("data-copy-bound") !== "1") {
+      copyBtn.setAttribute("data-copy-bound", "1");
+      copyBtn.addEventListener("click", function () {
+        var lang = (document.documentElement.getAttribute("lang") || "en").toLowerCase().indexOf("zh") === 0
+          ? "zh" : "en";
+        var site = lang === "zh" ? "https://sessionscan.net/zh/" : "https://sessionscan.net/";
+        var lines = [];
+        var heading = copyBtn.getAttribute("data-tip-heading") || "";
+        if (heading) lines.push(heading);
+        var rows = host.querySelectorAll(".week-bullet");
+        for (var i = 0; i < rows.length; i++) {
+          var row = rows[i];
+          if (row.classList && row.classList.contains("is-pending")) continue;
+          var labelEl = row.querySelector(".week-bullet-label");
+          var rewardEl = row.querySelector(".week-bullet-reward");
+          var label = labelEl ? String(labelEl.textContent || "").trim() : "";
+          var reward = rewardEl ? String(rewardEl.textContent || "").trim() : "";
+          if (!label || !reward) continue;
+          lines.push("• " + label + ": " + reward);
+          var link = row.querySelector("a.week-bullet-how");
+          var href = link ? link.getAttribute("href") || "" : "";
+          if (href) lines.push("  " + href);
+        }
+        lines.push("");
+        lines.push(site);
+        var text = lines.join("\\n");
+        var labelCopy = copyBtn.getAttribute("data-i18n-copy") || copyBtn.textContent || "Copy tip";
+        var labelCopied = copyBtn.getAttribute("data-i18n-copied") || "Copied";
+        function painted() {
+          copyBtn.textContent = labelCopied;
+          copyBtn.setAttribute("aria-label", labelCopied);
+          window.setTimeout(function () {
+            copyBtn.textContent = labelCopy;
+            copyBtn.setAttribute("aria-label", copyBtn.getAttribute("data-i18n-aria") || labelCopy);
+          }, 1600);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(painted).catch(function () {});
+        }
+      });
+    }
   });
 })();
 </script>`;
+}
+
+/** Always-visible copy control for home + tip-freeze claim toolbars. */
+export function weekTipCopyButtonHtml(lang = "en", { id = "weekTipCopy" } = {}) {
+  const ui = lang === "zh" ? "zh" : "en";
+  const label = t("weekTipCopy", {}, ui);
+  const aria = t("weekTipCopyAria", {}, ui);
+  const copied = t("weekTipCopied", {}, ui);
+  const heading = t("weekBulletsKicker", {}, ui);
+  return `<button type="button" class="week-tip-copy" id="${escCountdown(id)}" data-i18n="weekTipCopy" data-i18n-aria="weekTipCopyAria" data-i18n-copy="${escCountdown(label)}" data-i18n-copied="${escCountdown(copied)}" data-tip-heading="${escCountdown(heading)}" aria-label="${escCountdown(aria)}">${escCountdown(label)}</button>`;
 }
 
 /** Fixed verdict slots — always rendered so the home screen has one clear shape. */
@@ -527,6 +579,48 @@ export function formatClaimedProgress(done, total, lang = "en") {
   const d = Number.isFinite(Number(done)) ? Math.max(0, Math.round(Number(done))) : 0;
   const tTotal = Number.isFinite(Number(total)) ? Math.max(0, Math.round(Number(total))) : 0;
   return t("weekClaimProgress", { done: String(d), total: String(tTotal) }, ui);
+}
+
+/**
+ * Plain-text week tip for clipboard / Discord / LINE share.
+ * Skips pending slots (no invented rewards); ends with the locale home URL.
+ */
+export function formatWeekTipPlainText(bullets, { lang = "en", siteUrl = "" } = {}) {
+  const ui = lang === "zh" ? "zh" : "en";
+  const lines = [t("weekBulletsKicker", {}, ui)];
+  for (const b of bullets || []) {
+    if (!b || b.pending) continue;
+    const label = String(b.label || "").trim();
+    const reward = String(b.reward || "").trim();
+    if (!label || !reward) continue;
+    lines.push(`• ${label}: ${reward}`);
+    const url = String(b.url || "").trim();
+    if (url) lines.push(`  ${url}`);
+  }
+  lines.push("");
+  lines.push(siteUrl || localeHome(ui));
+  return lines.join("\n");
+}
+
+/**
+ * Build tip text from a rendered bullet list (freeze pages have no module bundle).
+ * Skips `.is-pending` rows so share text stays honest.
+ */
+export function weekTipTextFromListEl(host, { lang = "en", siteUrl = "" } = {}) {
+  if (!host || !host.querySelectorAll) {
+    return formatWeekTipPlainText([], { lang, siteUrl });
+  }
+  const bullets = [];
+  const rows = host.querySelectorAll(".week-bullet");
+  for (const row of rows) {
+    const pending = row.classList?.contains("is-pending");
+    const label = row.querySelector(".week-bullet-label")?.textContent?.trim() || "";
+    const reward = row.querySelector(".week-bullet-reward")?.textContent?.trim() || "";
+    const link = row.querySelector("a.week-bullet-how");
+    const url = link?.getAttribute("href") || "";
+    bullets.push({ label, reward, url, pending: Boolean(pending) });
+  }
+  return formatWeekTipPlainText(bullets, { lang, siteUrl });
 }
 
 /** Owned Short only — never invent a video when the slot is empty. */
