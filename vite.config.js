@@ -14,6 +14,7 @@ import { injectHomeGta6Link } from "./src/gta6Page.js";
 import { injectStaticHomeFreshness } from "./src/homeExtras.js";
 import { injectHomeMoneyGuideLink } from "./src/moneyGuide.js";
 import { injectJobListHtml, renderStaticHomeJobList } from "./src/staticHomeJobs.js";
+import { injectStaticWeekCountdown } from "./src/thisWeekHome.js";
 import {
   injectHomeArchiveIndexLink,
   injectHomeAtomDiscovery,
@@ -42,6 +43,7 @@ function injectStaticJobs() {
       const cards = renderStaticHomeJobList(hub, { lang: "en" });
       let out = injectJobListHtml(html, cards);
       out = injectStaticHomeFreshness(out, { lang: "en", data: hub });
+      out = injectStaticWeekCountdown(out, { lang: "en" });
       out = injectHomeShell(out, { lang: "en" });
       out = injectHomeArchiveIndexLink(out, { lang: "en" });
       out = injectHomeAtomDiscovery(out, { lang: "en" });
