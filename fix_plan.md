@@ -2,8 +2,8 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- **URGENT** Home 週更倒數 UTC（`nextWeeklyUpdateAt` 改純 UTC 下一個週四 10:00；勿用台北 weekday；等研發程式 「可以合」後再合）。測 `tests/test_this_week_home.mjs`（含 Asia/Taipei／LA／UTC 邊界）。Rollback：`pre-week-countdown-utc-20261014`。
-- Businesses「我擁有」勾選＋Owned 篩選（#103 已開 PR，**先擱著勿合**，等倒數 UTC 修完）。Rollback：`pre-business-owned-filter-20261014`。
+- **URGENT** Home 週更倒數 UTC（`nextWeeklyUpdateAt` 改純 UTC 下一個週四 10:00；勿用台北 weekday；#104；等研發程式 「可以合 #104」後再合）。測 `tests/test_this_week_home.mjs`（含 Asia/Taipei／LA／UTC 邊界）。Rollback：`pre-week-countdown-utc-20261014`。
+- Businesses「我擁有」勾選＋Owned 篩選（#103 已開 PR，**先擱著勿合**，等倒數 UTC #104 修完）。Rollback：`pre-business-owned-filter-20261014`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
