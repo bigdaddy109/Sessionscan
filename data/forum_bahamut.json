@@ -1,10 +1,22 @@
 [
  {
-  "id": "616166843d063ca77fa5fff7ebaf2f42",
+  "id": "0462446777996cf9137b6af5d4ccdd68",
   "rank": 1,
+  "title": "【情報】《GTA6》爆最快2027年第一季登陸PC 外媒GamesBeat揭Rockstar開發計畫",
+  "author": "Okuraluna",
+  "time": "2026-10-13 23:39",
+  "replies": "7",
+  "source": "Bahamut",
+  "game": "GTA 6",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117792",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "616166843d063ca77fa5fff7ebaf2f42",
+  "rank": 2,
   "title": "【問題】GTA6收藏套組…？",
   "author": "oo7274118",
-  "time": "2026-10-13 16:49",
+  "time": "2026-10-13 16:45",
   "replies": "28",
   "source": "Bahamut",
   "game": "GTA Online",
@@ -13,10 +25,10 @@
  },
  {
   "id": "6a1ad4fcab9316724059c9df78f36ab3",
-  "rank": 2,
+  "rank": 3,
   "title": "【閒聊】《GTA6》實體版可能包含實體地圖？(未證)",
   "author": "PapayaApple",
-  "time": "2026-10-13 15:49",
+  "time": "2026-10-13 15:42",
   "replies": "1",
   "source": "Bahamut",
   "game": "GTA 6",
@@ -25,7 +37,7 @@
  },
  {
   "id": "97f50ecc85e2f6d6d5e8266cc8f484d6",
-  "rank": 3,
+  "rank": 4,
   "title": "【問題】真的會有人為了看gta6的露西亞外流去買蔥哥這詐騙仔的迷因幣嗎？",
   "author": "wrar0123456",
   "time": "2026-10-12 14:43",
@@ -37,19 +49,20 @@
  },
  {
   "id": "b47eb444ef6cd970e0df971b7e2fa0ce",
-  "rank": 4,
+  "rank": 5,
   "title": "【問題】攜帶裝甲超過10副？",
   "author": "prcheng",
-  "time": "2026-10-11 18:48",
-  "replies": "6",
+  "time": "10-11 18:48",
+  "replies": "7",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117787",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "a9bda56c42be29fcaf3ff30ba630eac6",
-  "rank": 5,
+  "rank": 6,
   "title": "【討論】GTA Online 每日挑戰「在洛聖都車聚參加爭先恐後」怎麼找人？",
   "author": "smile0306",
   "time": "10-10 22:55",
@@ -62,7 +75,7 @@
  },
  {
   "id": "063f44e26829e029d5e014b86774befb",
-  "rank": 6,
+  "rank": 7,
   "title": "【討論】《暴雷警告》關於GTA6動漫元素討論",
   "author": "nickrex",
   "time": "10-10 14:59",
@@ -75,7 +88,7 @@
  },
  {
   "id": "6ab5db4544cb0df7b9e1954f4191a79c",
-  "rank": 7,
+  "rank": 8,
   "title": "【心得】回鍋玩了一下現在的PVP公開戰局還是一樣無腦噁心（文長）",
   "author": "ERIC2535",
   "time": "10-10 12:18",
@@ -88,7 +101,7 @@
  },
  {
   "id": "a29e80c82b8b96b559e6d8f22b43d9b8",
-  "rank": 8,
+  "rank": 9,
   "title": "傑森遛鳥了",
   "author": "makoto1206",
   "time": "10-10 01:58",
@@ -101,7 +114,7 @@
  },
  {
   "id": "b7a9ae1f7469806dc90beab39e747596",
-  "rank": 9,
+  "rank": 10,
   "title": "【討論】GTA6 也快發售了",
   "author": "URSSR",
   "time": "10-09 01:09",
@@ -109,19 +122,6 @@
   "source": "Bahamut",
   "game": "GTA 6",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117777",
-  "blurb": "外連巴哈討論串。不轉載全文。",
-  "time_relative": true
- },
- {
-  "id": "423fe380251a6be724cbea722eeb0065",
-  "rank": 10,
-  "title": "【情報】《GTA6》電台節目最新陣容公開 !",
-  "author": "PapayaApple",
-  "time": "10-08 23:08",
-  "replies": "3",
-  "source": "Bahamut",
-  "game": "GTA 6",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117781",
   "blurb": "外連巴哈討論串。不轉載全文。",
   "time_relative": true
  }
