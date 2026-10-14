@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- Money 排名列粗估 $/hr（`formatMoneyRouteRate`／`data-money-rate`；跟 `#moneyCalcMinutes`＋presets 同步；點列選進計算機；等研發程式 「可以合」後再合）。測 `tests/test_money_guide.mjs`。Rollback：`pre-money-route-hour-rates-20261014`。
+- Money 排名列粗估 $/hr（`formatMoneyRouteRate`／`data-money-rate`；跟 `#moneyCalcMinutes`＋presets 同步；點列選進計算機；#102；等研發程式 「可以合 #102」後再合）。測 `tests/test_money_guide.mjs`。Rollback：`pre-money-route-hour-rates-20261014`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
