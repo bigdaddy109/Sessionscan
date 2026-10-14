@@ -15,7 +15,7 @@ import { injectHomeShell } from "../src/sitePages.js";
 import { replaceHomeJsonLd } from "../src/structuredData.js";
 import { injectStaticHomeFreshness } from "../src/homeExtras.js";
 import { injectJobListHtml, renderStaticHomeJobList } from "../src/staticHomeJobs.js";
-import { injectStaticWeekCountdown } from "../src/thisWeekHome.js";
+import { injectStaticWeekBullets, injectStaticWeekCountdown } from "../src/thisWeekHome.js";
 import { injectHomeArchiveIndexLink, injectHomeAtomDiscovery } from "../src/weekArchive.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -81,12 +81,13 @@ zh = zh.replace(
   '<button class="pill active" data-lang="zh"',
 );
 
-// Re-stamp #jobList + freshness + week countdown with zh labels (same PE as EN).
+// Re-stamp #jobList + freshness + week countdown + week bullets with zh labels.
 const site = loadSite();
 if (site) {
   const cards = renderStaticHomeJobList(site, { lang: "zh" });
   if (cards) zh = injectJobListHtml(zh, cards);
   zh = injectStaticHomeFreshness(zh, { lang: "zh", data: site });
+  zh = injectStaticWeekBullets(zh, { lang: "zh", data: site });
 }
 zh = injectStaticWeekCountdown(zh, { lang: "zh" });
 

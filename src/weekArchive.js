@@ -23,10 +23,10 @@ import {
 } from "./thisWeek.js";
 import {
   buildWeekBullets,
-  claimedStorageKey,
   formatClaimedProgress,
   freezeClaimedChecklistScript,
   pickHomeShort,
+  weekBulletsListHtml,
   weekSignalItems,
 } from "./thisWeekHome.js";
 
@@ -291,35 +291,16 @@ export function archiveSitemapUrls(weeks) {
 /**
  * Freeze bullet list. Tip week only may be claimable — same localStorage key as home.
  * Older freezes stay read-only highlights (no invented checklist history).
+ * HTML rows come from thisWeekHome.weekBulletsListHtml (single source with home).
  */
 function bulletsHtml(bullets, { claimable = false, lang = "en", weekIso = "" } = {}) {
-  const ui = lang === "zh" ? "zh" : "en";
-  const ref = weekIso ? weekRefDate(weekIso) : null;
-  const weekKey = claimable && ref ? claimedStorageKey(ref) : "";
-  const listAttrs = claimable && weekKey
-    ? ` id="archiveBulletList" data-claimed-key="${esc(weekKey)}"`
-    : "";
-  return `<ul class="week-bullet-list archive-bullet-list"${listAttrs}>
-    ${bullets
-      .map((b) => {
-        const access = b.url
-          ? `<a class="week-bullet-how" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer">${esc(b.how)}</a>`
-          : `<span class="week-bullet-how is-muted">${esc(b.how)}</span>`;
-        const claim = claimable
-          ? `<label class="week-bullet-claim">
-          <input type="checkbox" class="week-bullet-check" data-bullet-id="${esc(b.id)}" />
-          <span class="week-bullet-claim-text">${esc(t("weekBulletClaim", { label: b.label }, ui))}</span>
-        </label>`
-          : "";
-        return `<li class="week-bullet${b.pending ? " is-pending" : ""}" data-bullet="${esc(b.id)}">
-        ${claim}
-        <span class="week-bullet-label">${esc(b.label)}</span>
-        <span class="week-bullet-reward">${esc(b.reward)}</span>
-        ${access}
-      </li>`;
-      })
-      .join("")}
-  </ul>`;
+  return weekBulletsListHtml(bullets, {
+    claimable,
+    lang,
+    weekIso,
+    listId: claimable ? "archiveBulletList" : "",
+    extraClass: "archive-bullet-list",
+  });
 }
 
 function shortEmbedHtml(short, ui) {

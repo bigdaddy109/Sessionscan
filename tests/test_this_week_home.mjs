@@ -19,13 +19,16 @@ import {
   countdownParts,
   formatClaimedProgress,
   formatWeekCountdown,
+  injectStaticWeekBullets,
   injectStaticWeekCountdown,
   loadClaimedIds,
   nextWeeklyUpdateAt,
   pickHomeShort,
   saveClaimedIds,
+  staticWeekBulletsInnerHtml,
   staticWeekCountdownText,
   toggleClaimedId,
+  weekBulletItemsHtml,
   weekSignalItems,
 } from "../src/thisWeekHome.js";
 
@@ -202,6 +205,52 @@ if (/Halloween Event/i.test(nxMulti.reward) && !/3X/i.test(nxMulti.reward)) {
     if (enCd === "—" || zhCd === "—") fail("dist week countdown still em dash", { enCd, zhCd });
     if (!/^\d+d \d{2}:\d{2}:\d{2}$/.test(enCd) && !/week window|視窗/.test(enCd)) {
       fail("dist EN countdown unexpected", enCd);
+    }
+  }
+}
+
+// Why: home's core “do this” list was empty until JS while tip freezes already
+// shipped five bullets in HTML — that is a content gap, not chrome polish.
+{
+  const siteNow = snapshotNow(site.meta || {}) || new Date("2026-10-14T12:00:00Z");
+  const bullets = buildWeekBullets(site, siteNow, "en");
+  const items = weekBulletItemsHtml(bullets, { claimable: true, lang: "en" });
+  if ((items.match(/data-bullet="/g) || []).length !== 5) {
+    fail("weekBulletItemsHtml must emit 5 claimable rows", items);
+  }
+  if (!items.includes('class="week-bullet-check"')) fail("claimable checkboxes missing", items);
+  const inner = staticWeekBulletsInnerHtml(site, { lang: "en", now: siteNow });
+  if (!inner.includes("week-bullet-reward")) fail("staticWeekBulletsInnerHtml empty", inner);
+  const shell = `<p class="week-claim-progress" id="weekClaimProgress" hidden aria-live="polite"></p>
+<ul class="week-bullet-list" id="weekBulletList"></ul>`;
+  const stamped = injectStaticWeekBullets(shell, { data: site, lang: "en", now: siteNow });
+  if (!stamped.includes('id="weekBulletList"') || !stamped.includes("data-claimed-key=")) {
+    fail("injectStaticWeekBullets claimed key", stamped);
+  }
+  if ((stamped.match(/data-bullet="/g) || []).length !== 5) {
+    fail("injectStaticWeekBullets must stamp 5 bullets", stamped);
+  }
+  if (/id="weekBulletList"[^>]*>\s*<\/ul>/.test(stamped)) {
+    fail("injectStaticWeekBullets left list empty", stamped);
+  }
+  if (!stamped.includes("Claimed 0 of 5") || /id="weekClaimProgress"[^>]*\bhidden\b/.test(stamped)) {
+    fail("injectStaticWeekBullets must unhide Claimed 0 of 5", stamped);
+  }
+  const enDist = resolve(root, "dist/index.html");
+  const zhDist = resolve(root, "dist/zh/index.html");
+  if (existsSync(enDist) && existsSync(zhDist)) {
+    const enHtml = readFileSync(enDist, "utf8");
+    const zhHtml = readFileSync(zhDist, "utf8");
+    const enCount = (enHtml.match(/id="weekBulletList"[\s\S]*?<\/ul>/)?.[0].match(/data-bullet="/g) || []).length;
+    const zhCount = (zhHtml.match(/id="weekBulletList"[\s\S]*?<\/ul>/)?.[0].match(/data-bullet="/g) || []).length;
+    if (enCount !== 5 || zhCount !== 5) {
+      fail("dist home week bullets missing", { enCount, zhCount });
+    }
+    if (!enHtml.includes("2X / 3X") && !enHtml.includes("week-bullet-label")) {
+      fail("dist EN bullets lack labels", enCount);
+    }
+    if (!zhHtml.includes("2X／3X") && !zhHtml.includes("倍數")) {
+      fail("dist ZH bullets lack zh labels", zhCount);
     }
   }
 }

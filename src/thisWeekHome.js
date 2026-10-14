@@ -1,7 +1,7 @@
 /** Phase B home: this-week one-liners, Short pick, countdown to next Thursday update. */
 
 import { youtubeId } from "./cardShare.js";
-import { pickOfficialWeekly } from "./homeExtras.js";
+import { pickOfficialWeekly, snapshotNow } from "./homeExtras.js";
 import { t } from "./i18n.js";
 import {
   isOwnedShortThisWeek,
@@ -226,6 +226,109 @@ export function injectStaticWeekCountdown(html, { lang = "en", now = new Date() 
     /(<p class="week-countdown-display" id="weekCountdownDisplay">)[\s\S]*?(<\/p>)/,
     `$1${escCountdown(text)}$2`,
   );
+  return out;
+}
+
+/**
+ * Shared `<li>` rows for home + tip-freeze checklists (claimable optional).
+ * Single HTML source so static home and archive freezes cannot drift.
+ */
+export function weekBulletItemsHtml(bullets, { claimable = false, lang = "en", claimed = null } = {}) {
+  const ui = lang === "zh" ? "zh" : "en";
+  const doneSet = claimed instanceof Set ? claimed : null;
+  return (bullets || [])
+    .map((b) => {
+      const done = Boolean(doneSet && b?.id && doneSet.has(b.id));
+      const access = b.url
+        ? `<a class="week-bullet-how" href="${escCountdown(b.url)}" target="_blank" rel="noopener noreferrer">${escCountdown(b.how)}</a>`
+        : `<span class="week-bullet-how is-muted">${escCountdown(b.how)}</span>`;
+      const claim = claimable
+        ? `<label class="week-bullet-claim">
+          <input type="checkbox" class="week-bullet-check" data-bullet-id="${escCountdown(b.id)}"${done ? " checked" : ""} />
+          <span class="week-bullet-claim-text">${escCountdown(t("weekBulletClaim", { label: b.label }, ui))}</span>
+        </label>`
+        : "";
+      return `<li class="week-bullet${b.pending ? " is-pending" : ""}${done ? " is-claimed" : ""}" data-bullet="${escCountdown(b.id)}">
+        ${claim}
+        <span class="week-bullet-label">${escCountdown(b.label)}</span>
+        <span class="week-bullet-reward">${escCountdown(b.reward)}</span>
+        ${access}
+      </li>`;
+    })
+    .join("");
+}
+
+/**
+ * Full `<ul>` for archive freezes (and any host that needs a self-contained list).
+ */
+export function weekBulletsListHtml(
+  bullets,
+  {
+    claimable = false,
+    lang = "en",
+    weekIso = "",
+    listId = "",
+    extraClass = "",
+    claimed = null,
+  } = {},
+) {
+  const ui = lang === "zh" ? "zh" : "en";
+  const ref = weekIso ? new Date(`${weekIso}T12:00:00Z`) : null;
+  const weekKey = claimable && ref && !Number.isNaN(ref.getTime()) ? claimedStorageKey(ref) : "";
+  const idAttr = listId ? ` id="${escCountdown(listId)}"` : "";
+  const classAttr = extraClass ? ` ${escCountdown(extraClass)}` : "";
+  const keyAttr = claimable && weekKey ? ` data-claimed-key="${escCountdown(weekKey)}"` : "";
+  const items = weekBulletItemsHtml(bullets, { claimable, lang: ui, claimed });
+  return `<ul class="week-bullet-list${classAttr}"${idAttr}${keyAttr}>
+    ${items}
+  </ul>`;
+}
+
+/**
+ * Build-time inner HTML for home `#weekBulletList` (claimable checkboxes, unchecked).
+ * Why: home's product answer is these five one-liners — empty until JS is a content gap.
+ */
+export function staticWeekBulletsInnerHtml(data, { lang = "en", now = null } = {}) {
+  if (!data || typeof data !== "object") return "";
+  const ui = lang === "zh" ? "zh" : "en";
+  const ref = now instanceof Date ? now : snapshotNow(data.meta || {}) || new Date();
+  const bullets = buildWeekBullets(data, ref, ui);
+  return weekBulletItemsHtml(bullets, { claimable: true, lang: ui });
+}
+
+/**
+ * Stamp home `#weekBulletList` + claim progress from hub data (EN + `/zh/`).
+ * Freeze pages already ship bullets in HTML; home must match that content floor.
+ */
+export function injectStaticWeekBullets(html, { data = null, lang = "en", now = null } = {}) {
+  if (!data || typeof data !== "object") return String(html || "");
+  let out = String(html || "");
+  const ui = lang === "zh" ? "zh" : "en";
+  const ref = now instanceof Date ? now : snapshotNow(data.meta || {}) || new Date();
+  const bullets = buildWeekBullets(data, ref, ui);
+  const weekKey = claimedStorageKey(ref);
+  const items = weekBulletItemsHtml(bullets, { claimable: true, lang: ui });
+  const progress = formatClaimedProgress(0, bullets.length, ui);
+
+  out = out.replace(
+    /(<ul class="week-bullet-list" id="weekBulletList")([^>]*)>([\s\S]*?)(<\/ul>)/,
+    (_m, open, attrs, _inner, close) => {
+      let nextAttrs = String(attrs || "");
+      if (/\bdata-claimed-key=/.test(nextAttrs)) {
+        nextAttrs = nextAttrs.replace(/\s*data-claimed-key="[^"]*"/, "");
+      }
+      return `${open}${nextAttrs} data-claimed-key="${escCountdown(weekKey)}">${items}${close}`;
+    },
+  );
+
+  out = out.replace(
+    /(<p class="week-claim-progress" id="weekClaimProgress")([^>]*)>([\s\S]*?)(<\/p>)/,
+    (_m, open, attrs, _inner, close) => {
+      let nextAttrs = String(attrs || "").replace(/\s*\bhidden\b/g, "");
+      return `${open}${nextAttrs}>${escCountdown(progress)}${close}`;
+    },
+  );
+
   return out;
 }
 
