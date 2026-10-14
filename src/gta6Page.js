@@ -17,6 +17,18 @@ export const GTA6_OFFICIAL_URL = "https://www.rockstargames.com/VI";
 
 export const GTA6_NEWSWIRE_URL = "https://www.rockstargames.com/newswire";
 
+/**
+ * Official Rockstar YouTube id embedded on rockstargames.com/VI
+ * (“Grand Theft Auto VI: An Extended Look” — Rockstar Games channel).
+ */
+export const GTA6_OFFICIAL_TRAILER_YOUTUBE_ID = "tJbzMqJGH4k";
+
+export const GTA6_OFFICIAL_TRAILER_WATCH_URL =
+  `https://www.youtube.com/watch?v=${GTA6_OFFICIAL_TRAILER_YOUTUBE_ID}`;
+
+export const GTA6_OFFICIAL_TRAILER_EMBED_URL =
+  `https://www.youtube-nocookie.com/embed/${GTA6_OFFICIAL_TRAILER_YOUTUBE_ID}`;
+
 /** UTC midnight of the announced release day. */
 export function gta6ReleaseAt() {
   return new Date(`${GTA6_RELEASE_ISO_DATE}T00:00:00.000Z`);
@@ -131,6 +143,33 @@ export function gta6CountdownScript() {
 </script>`;
 }
 
+/** Privacy-friendly official trailer embed + outbound YouTube / Rockstar VI cites. */
+export function gta6OfficialTrailerHtml(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const title = t("pageGta6TrailerTitle", {}, ui);
+  return `<section class="gta6-trailer" id="gta6OfficialTrailer" aria-labelledby="gta6-trailer-heading">
+        <div class="week-panel-kicker">
+          <strong id="gta6-trailer-heading">${esc(t("pageGta6TrailerKicker", {}, ui))}</strong>
+          <span>${esc(t("pageGta6TrailerTag", {}, ui))}</span>
+        </div>
+        <div class="gta6-trailer-frame">
+          <iframe
+            title="${esc(title)}"
+            src="${esc(GTA6_OFFICIAL_TRAILER_EMBED_URL)}"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p class="gta6-trailer-source">
+          <a href="${esc(GTA6_OFFICIAL_TRAILER_WATCH_URL)}" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6TrailerWatch", {}, ui))}</a>
+          <span aria-hidden="true"> · </span>
+          <a href="${esc(GTA6_OFFICIAL_URL)}" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6TrailerVia", {}, ui))}</a>
+        </p>
+      </section>`;
+}
+
 /**
  * GTA 6 → tip freeze CTA (reciprocal of freezeGta6LinkHtml).
  * tipWeek must be a real Rockstar-week key from listArchiveWeeks — never invent.
@@ -178,6 +217,7 @@ export function renderGta6PageBody(lang = "en", opts = {}) {
           <a href="${esc(GTA6_OFFICIAL_URL)}" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6SourceNote", { date: GTA6_RELEASE_ISO_DATE }, ui))}</a>
         </p>
       </section>
+      ${gta6OfficialTrailerHtml(ui)}
       <ul class="page-links">
         <li><a href="${esc(GTA6_OFFICIAL_URL)}" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6Official", {}, ui))}</a></li>
         <li><a href="${esc(GTA6_NEWSWIRE_URL)}" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6Newswire", {}, ui))}</a></li>
