@@ -2149,12 +2149,56 @@ main {
   background: #000;
   border: 1px solid var(--border);
 }
-.gta6-trailer-frame iframe {
+/* Poster link — no third-party iframe; click opens YouTube watch URL. */
+.gta6-trailer-poster {
+  position: relative;
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border: 0;
+  overflow: hidden;
   background: #000;
+  color: inherit;
+  text-decoration: none;
+}
+.gta6-trailer-thumb {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+}
+.gta6-trailer-play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(7, 4, 12, 0.32);
+  pointer-events: none;
+}
+.gta6-trailer-play > span {
+  width: 52px;
+  height: 52px;
+  border: 2px solid var(--teal);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--teal);
+  background: rgba(0, 0, 0, 0.45);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+/* CSS triangle — no "▶" text (WCAG 2.5.3 Label in Name). */
+.gta6-trailer-play > span::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 0 8px 14px;
+  border-color: transparent transparent transparent var(--teal);
+  margin-left: 3px;
+}
+.gta6-trailer-poster:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
 }
 .gta6-trailer-source {
   margin: 0;
