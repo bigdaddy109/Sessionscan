@@ -10,6 +10,9 @@ import { organizationJsonLd } from "./structuredData.js";
 /** SessionScan verified these citations (not a Rockstar patch date). */
 export const MONEY_LAST_UPDATED = "2026-10-12";
 
+/** Quick minute chips for the $/hr calculator — same values the input accepts. */
+export const MONEY_CALC_MINUTE_PRESETS = [15, 30, 45, 60];
+
 /**
  * Evergreen money routes. `takeGta` is the ranked figure; only include values
  * that appear on the linked source page.
@@ -188,6 +191,17 @@ function rankListHtml(ranked, ui) {
     .join("");
 }
 
+/** Minute preset chips HTML (single source with MONEY_CALC_MINUTE_PRESETS). */
+export function moneyCalcMinutePresetsHtml(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const aria = t("moneyCalcPresetsAria", {}, ui);
+  const chips = MONEY_CALC_MINUTE_PRESETS.map((m) => {
+    const n = String(m);
+    return `<button type="button" class="money-calc-preset" data-minutes="${esc(n)}" aria-label="${esc(t("moneyCalcPresetAria", { minutes: n }, ui))}">${esc(n)}</button>`;
+  }).join("");
+  return `<div class="money-calc-presets" id="moneyCalcPresets" role="group" aria-label="${esc(aria)}">${chips}</div>`;
+}
+
 /** Inline calculator — static pages have no bundled module entry. */
 export function moneyCalculatorScript() {
   return `<script data-money-calculator>
@@ -206,6 +220,19 @@ export function moneyCalculatorScript() {
   function formatGta(n) {
     return "GTA$" + Math.round(n).toLocaleString("en-US");
   }
+  function syncPresetState(minsEl) {
+    var host = document.getElementById("moneyCalcPresets");
+    if (!host || !minsEl) return;
+    var val = String(minsEl.value || "");
+    var buttons = host.querySelectorAll(".money-calc-preset");
+    for (var i = 0; i < buttons.length; i++) {
+      var btn = buttons[i];
+      var on = btn.getAttribute("data-minutes") === val;
+      if (on) btn.classList.add("is-active");
+      else btn.classList.remove("is-active");
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    }
+  }
   function update() {
     var route = document.getElementById("moneyCalcRoute");
     var mins = document.getElementById("moneyCalcMinutes");
@@ -216,18 +243,31 @@ export function moneyCalculatorScript() {
     var empty = out.getAttribute("data-empty") || "";
     if (rate == null) {
       out.textContent = empty;
+      syncPresetState(mins);
       return;
     }
     var tpl = out.getAttribute("data-template") || "{rate}/hr";
     out.textContent = tpl.replace("{rate}", formatGta(rate));
+    syncPresetState(mins);
   }
   document.addEventListener("DOMContentLoaded", function () {
     var route = document.getElementById("moneyCalcRoute");
     var mins = document.getElementById("moneyCalcMinutes");
+    var presets = document.getElementById("moneyCalcPresets");
     if (route) route.addEventListener("change", update);
     if (mins) {
       mins.addEventListener("input", update);
       mins.addEventListener("change", update);
+    }
+    if (presets && mins) {
+      presets.addEventListener("click", function (ev) {
+        var btn = ev.target && ev.target.closest ? ev.target.closest(".money-calc-preset") : null;
+        if (!btn || !presets.contains(btn)) return;
+        var m = btn.getAttribute("data-minutes") || "";
+        if (!m) return;
+        mins.value = m;
+        update();
+      });
     }
     update();
   });
@@ -276,6 +316,7 @@ export function renderMoneyGuideBody(lang = "en", { tipWeek = "" } = {}) {
             <span>${esc(t("moneyCalcMinutes", {}, ui))}</span>
             <input id="moneyCalcMinutes" name="minutes" type="number" inputmode="numeric" min="1" step="1" value="60" />
           </label>
+          ${moneyCalcMinutePresetsHtml(ui)}
           <p class="money-calc-out" id="moneyCalcResult" data-empty="${esc(t("moneyCalcEmpty", {}, ui))}" data-template="${esc(calcTemplate)}">${esc(t("moneyCalcEmpty", {}, ui))}</p>
         </form>
       </section>
