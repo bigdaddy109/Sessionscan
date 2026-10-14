@@ -15,6 +15,7 @@ import {
   gta6CountdownScript,
   gta6PageJsonLd,
   gta6ReleaseAt,
+  gta6TipFreezeLinkHtml,
   homeGta6LinkHtml,
   injectHomeGta6Link,
   renderGta6PageBody,
@@ -170,6 +171,43 @@ if (existsSync(distZhHome)) {
   if (!zhHome.includes('href="/zh/gta6/"') || !zhHome.includes("官方上市日倒數")) {
     fail("dist zh home missing gta6 link");
   }
+}
+
+// Why: freeze→gta6 (#89) needs the reciprocal gta6→tip freeze so players on
+// the countdown page can open this week's checklist without inventing a week key.
+const tipFixture = "2026-08-07";
+const tipEn = gta6TipFreezeLinkHtml(tipFixture, "en");
+if (!tipEn.includes('id="gta6TipFreezeLink"') || !tipEn.includes(`href="/week/${tipFixture}/"`)) {
+  fail("gta6 tip freeze en", tipEn);
+}
+if (!tipEn.includes("Open archive for week of")) fail("gta6 tip freeze en copy", tipEn);
+const tipZh = gta6TipFreezeLinkHtml(tipFixture, "zh");
+if (!tipZh.includes(`href="/zh/week/${tipFixture}/"`) || !tipZh.includes("打開")) {
+  fail("gta6 tip freeze zh", tipZh);
+}
+const emptyTip = gta6TipFreezeLinkHtml("", "en");
+if (!emptyTip.includes("is-empty") || !emptyTip.includes("hidden")) {
+  fail("empty tipWeek must hide gta6 tip freeze", emptyTip);
+}
+const bodyWithTip = renderGta6PageBody("en", { tipWeek: tipFixture, now });
+if (!bodyWithTip.includes(`href="/week/${tipFixture}/"`) || !bodyWithTip.includes('id="gta6TipFreezeLink"')) {
+  fail("renderGta6PageBody tipWeek", bodyWithTip.slice(-400));
+}
+const shelledTip = renderSitePage(page, {
+  lang: "zh",
+  cssHref: "../../assets/x.css",
+  faviconHref: "../../favicon.svg",
+  tipWeek: tipFixture,
+});
+if (!shelledTip.includes('id="gta6TipFreezeLink"') || !shelledTip.includes(`/zh/week/${tipFixture}/`)) {
+  fail("renderSitePage tipWeek gta6 zh");
+}
+if (existsSync(distEn)) {
+  const built = readFileSync(distEn, "utf8");
+  if (!built.includes('id="gta6TipFreezeLink"')) fail("dist gta6 missing tip freeze slot");
+  const hasWeek = /href="\/week\/\d{4}-\d{2}-\d{2}\//.test(built);
+  const empty = built.includes("is-empty");
+  if (!hasWeek && !empty) fail("dist gta6 tip freeze needs week href or empty state");
 }
 
 console.log("test_gta6_page: ok");
