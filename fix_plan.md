@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- Home／tip「複製 tip」純文字（`formatWeekTipPlainText`／`#weekTipCopy`；Discord／LINE 可貼；略過 pending；#97；等研發程式 「可以合 #97」後再合）。測 `tests/test_this_week_home.mjs`。Rollback：`pre-copy-week-tip-20261014`。
+- Money $/hr 計算機分鐘快選（`MONEY_CALC_MINUTE_PRESETS` 15／30／45／60；`#moneyCalcPresets`；等研發程式 「可以合」後再合）。測 `tests/test_money_guide.mjs`。Rollback：`pre-money-calc-presets-20261014`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
@@ -16,6 +16,7 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- Home／tip「複製 tip」純文字（`formatWeekTipPlainText`／`#weekTipCopy`；Discord／LINE 可貼；略過 pending；#97；rollback `pre-copy-week-tip-20261014`；核准：研發程式 「可以合 #97」）。測 `tests/test_this_week_home.mjs`。
 - Home「本週先做這些」五格靜態寫入（`injectStaticWeekBullets`／`weekBulletItemsHtml`；與 tip 凍結同源；#96；rollback `pre-static-week-bullets-20261014`；核准：研發程式 「可以合 #96」）。測 `tests/test_this_week_home.mjs`。
 - Home 週更倒數靜態預渲染（`injectStaticWeekCountdown`／`formatWeekCountdown`；首屏不再顯示 `—`；#95；rollback `pre-static-week-countdown-20261014`；核准：研發程式 「可以合 #95」）。測 `tests/test_this_week_home.mjs`。
 - Home 快照年齡靜態預渲染（`injectStaticHomeFreshness`／`staticDataBannerHtml`；首屏不再閃 LOADING；#94；rollback `pre-static-home-freshness-20261014`；核准：研發程式 「可以合 #94」）。測 `tests/test_home_extras.mjs`。

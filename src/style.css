@@ -2247,6 +2247,34 @@ main {
   font: inherit;
   border-radius: 0;
 }
+.money-calc-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+.money-calc-preset {
+  margin: 0;
+  min-width: 3.25rem;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--condensed);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+.money-calc-preset:hover,
+.money-calc-preset:focus-visible {
+  color: var(--text);
+  border-color: var(--teal);
+  outline: none;
+}
+.money-calc-preset.is-active {
+  color: var(--mint);
+  border-color: var(--mint);
+}
 .money-calc-out {
   margin: 4px 0 0;
   font-family: var(--condensed);

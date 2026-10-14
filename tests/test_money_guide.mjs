@@ -8,12 +8,14 @@ import { readFileSync, existsSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
+  MONEY_CALC_MINUTE_PRESETS,
   MONEY_LAST_UPDATED,
   MONEY_ROUTES,
   dollarsPerHour,
   formatGtaMoney,
   homeMoneyGuideLinkHtml,
   injectHomeMoneyGuideLink,
+  moneyCalcMinutePresetsHtml,
   moneyGuideJsonLd,
   moneyRoutesRanked,
   moneyTipFreezeLinkHtml,
@@ -63,6 +65,17 @@ if (!en.includes("money-route-list")) fail("en money rank list");
 if (!en.includes("moneyCalcRoute") || !en.includes("data-money-calculator")) fail("en money calculator");
 // Why: t()/interpolate would wipe `{rate}` from data-template — calculator must keep the placeholder.
 if (!en.includes('data-template="{rate}/hr')) fail("en calc template keeps {rate}");
+// Why: players estimate $/hr faster with one-tap minutes — presets must match the calculator input.
+if (!Array.isArray(MONEY_CALC_MINUTE_PRESETS) || MONEY_CALC_MINUTE_PRESETS.join(",") !== "15,30,45,60") {
+  fail("MONEY_CALC_MINUTE_PRESETS", MONEY_CALC_MINUTE_PRESETS);
+}
+if (!en.includes('id="moneyCalcPresets"') || !en.includes('data-minutes="15"') || !en.includes('data-minutes="60"')) {
+  fail("en money calc presets missing", en.match(/money-calc-presets[\s\S]{0,200}/)?.[0]);
+}
+const presetHtml = moneyCalcMinutePresetsHtml("zh");
+if (!presetHtml.includes("分鐘快選") || !presetHtml.includes('data-minutes="30"')) {
+  fail("zh moneyCalcMinutePresetsHtml", presetHtml);
+}
 if (!en.includes(MONEY_LAST_UPDATED)) fail("en last updated");
 if (!en.includes("https://gta.fandom.com/wiki/The_Cayo_Perico_Heist/Finale")) fail("en cayo source");
 if (!en.includes("GTA$1,300,000")) fail("en cited cayo take");
@@ -99,6 +112,9 @@ if (existsSync(distMoney)) {
   if (built.includes("page-stub-flag")) fail("dist money still stub");
   if (!built.includes("money-route-list")) fail("dist money missing rank");
   if (!built.includes("static.cloudflareinsights.com/beacon.min.js")) fail("dist money CF beacon");
+  if (!built.includes('id="moneyCalcPresets"') || !built.includes('data-minutes="45"')) {
+    fail("dist money missing minute presets");
+  }
 }
 
 // Why: players on home jobs need a reciprocal CTA to the evergreen money guide
