@@ -218,9 +218,21 @@ export const WEEK_BULLET_CATEGORIES = [
   },
 ];
 
+/**
+ * Next Rockstar weekly update instant: Thursday 10:00 UTC.
+ * Pure UTC — never use local/Taipei weekday (Taipei Thu morning is still
+ * Wednesday UTC; a Taipei-based week start would jump a full week early).
+ */
 export function nextWeeklyUpdateAt(now = new Date()) {
-  const start = rockstarWeekStart(now);
-  const next = new Date(start.getTime());
+  const t = now instanceof Date ? now : new Date(now);
+  const y = t.getUTCFullYear();
+  const m = t.getUTCMonth();
+  const d = t.getUTCDate();
+  const dow = t.getUTCDay(); // 0=Sun … 4=Thu (UTC calendar)
+  const sinceThu = (dow + 7 - 4) % 7;
+  const thisThu = new Date(Date.UTC(y, m, d - sinceThu, 10, 0, 0, 0));
+  if (t.getTime() < thisThu.getTime()) return thisThu;
+  const next = new Date(thisThu.getTime());
   next.setUTCDate(next.getUTCDate() + 7);
   return next;
 }
