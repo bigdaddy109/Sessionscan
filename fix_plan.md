@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- GTA 6 trailer 縮圖＋播放鍵外連（`GTA6_OFFICIAL_TRAILER_POSTER_URL`／`#gta6TrailerPoster`；同一 id `tJbzMqJGH4k`；**不**載 youtube-nocookie iframe，避免年齡門檻；#101；等研發程式 「可以合 #101」後再合）。測 `tests/test_gta6_page.mjs`。Rollback：`pre-gta6-trailer-poster-20261014`。
+- Money 排名列粗估 $/hr（`formatMoneyRouteRate`／`data-money-rate`；跟 `#moneyCalcMinutes`＋presets 同步；點列選進計算機；等研發程式 「可以合」後再合）。測 `tests/test_money_guide.mjs`。Rollback：`pre-money-route-hour-rates-20261014`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
@@ -16,6 +16,7 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- GTA 6 trailer 縮圖＋播放鍵外連（`GTA6_OFFICIAL_TRAILER_POSTER_URL`／`#gta6TrailerPoster`；同一 id `tJbzMqJGH4k`；不載 iframe；#101；rollback `pre-gta6-trailer-poster-20261014`；核准：研發程式 「可以合 #101」）。測 `tests/test_gta6_page.mjs`。
 - GTA 6 官方 trailer（初版 youtube-nocookie iframe；#100；rollback `pre-gta6-official-trailer-20261014`；核准：研發程式 「可以合 #100」；後續改 poster 外連）。測 `tests/test_gta6_page.mjs`。
 - Businesses「單人友善」篩選（`isSoloFriendlyBusiness` 依 highlight 的 solo／單人；`#bizFilter`；#99；rollback `pre-business-solo-filter-20261014`；核准：研發程式 「可以合 #99」）。測 `tests/test_business_ranking.mjs`。
 - Money $/hr 計算機分鐘快選（`MONEY_CALC_MINUTE_PRESETS` 15／30／45／60；`#moneyCalcPresets`；#98；rollback `pre-money-calc-presets-20261014`；核准：研發程式 「可以合 #98」）。測 `tests/test_money_guide.mjs`。

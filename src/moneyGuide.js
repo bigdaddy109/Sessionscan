@@ -104,6 +104,24 @@ export function dollarsPerHour(takeGta, minutes) {
   return Math.round((take / mins) * 60);
 }
 
+/**
+ * Label for a route-row rough $/hr readout (same math as the calculator).
+ * Returns "" when rate is unavailable — never invents a take figure.
+ */
+export function formatMoneyRouteRate(rate, minutes, lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  if (rate == null || minutes == null || rate === "") return "";
+  const n = Number(rate);
+  const mins = Number(minutes);
+  if (!Number.isFinite(n) || n < 0) return "";
+  if (!Number.isFinite(mins) || mins <= 0) return "";
+  return t(
+    "moneyRouteRate",
+    { rate: formatGtaMoney(n), minutes: String(Math.round(mins)) },
+    ui,
+  );
+}
+
 function esc(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -171,19 +189,23 @@ function routeOptionsHtml(ranked, ui) {
     .join("");
 }
 
-function rankListHtml(ranked, ui) {
+function rankListHtml(ranked, ui, { minutes = 60 } = {}) {
   return ranked
     .map((route, i) => {
       const title = pickLang(route.title, ui);
       const highlight = pickLang(route.highlight, ui);
       const takeLabel = pickLang(route.takeLabel, ui);
       const sourceLabel = t("moneySourceMeta", { source: route.sourceName, date: route.sourceDate }, ui);
+      const rate = dollarsPerHour(route.takeGta, minutes);
+      const rateText = rate == null ? "" : formatMoneyRouteRate(rate, minutes, ui);
+      const rateHidden = rateText ? "" : " hidden";
       return `<li class="money-route" data-money-id="${esc(route.id)}" data-take="${esc(route.takeGta)}">
         <div class="money-route-rank" aria-hidden="true">${i + 1}</div>
         <div class="money-route-body">
           <h2 class="money-route-title">${esc(title)}</h2>
           <p class="money-route-highlight">${esc(highlight)}</p>
           <p class="money-route-take"><span class="money-route-take-value">${esc(formatGtaMoney(route.takeGta))}</span> <span class="money-route-take-label">${esc(takeLabel)}</span></p>
+          <p class="money-route-rate" data-money-rate${rateHidden}>${esc(rateText)}</p>
           <p class="money-route-source"><a href="${esc(route.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(sourceLabel)}</a></p>
         </div>
       </li>`;
@@ -202,7 +224,7 @@ export function moneyCalcMinutePresetsHtml(lang = "en") {
   return `<div class="money-calc-presets" id="moneyCalcPresets" role="group" aria-label="${esc(aria)}">${chips}</div>`;
 }
 
-/** Inline calculator — static pages have no bundled module entry. */
+/** Inline calculator + list $/hr readouts — static pages have no bundled module entry. */
 export function moneyCalculatorScript() {
   return `<script data-money-calculator>
 (function () {
@@ -233,6 +255,29 @@ export function moneyCalculatorScript() {
       btn.setAttribute("aria-pressed", on ? "true" : "false");
     }
   }
+  function syncRouteRates(minsEl) {
+    var list = document.querySelector(".money-route-list");
+    if (!list || !minsEl) return;
+    var tpl = list.getAttribute("data-rate-template") || "";
+    var minutes = Number(minsEl.value);
+    var items = list.querySelectorAll(".money-route");
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      var rateEl = item.querySelector("[data-money-rate]");
+      if (!rateEl) continue;
+      var take = Number(item.getAttribute("data-take"));
+      var rate = dollarsPerHour(take, minutes);
+      if (rate == null || !tpl) {
+        rateEl.textContent = "";
+        rateEl.hidden = true;
+        continue;
+      }
+      rateEl.textContent = tpl
+        .split("{rate}").join(formatGta(rate))
+        .split("{minutes}").join(String(Math.round(minutes)));
+      rateEl.hidden = false;
+    }
+  }
   function update() {
     var route = document.getElementById("moneyCalcRoute");
     var mins = document.getElementById("moneyCalcMinutes");
@@ -244,16 +289,19 @@ export function moneyCalculatorScript() {
     if (rate == null) {
       out.textContent = empty;
       syncPresetState(mins);
+      syncRouteRates(mins);
       return;
     }
     var tpl = out.getAttribute("data-template") || "{rate}/hr";
     out.textContent = tpl.replace("{rate}", formatGta(rate));
     syncPresetState(mins);
+    syncRouteRates(mins);
   }
   document.addEventListener("DOMContentLoaded", function () {
     var route = document.getElementById("moneyCalcRoute");
     var mins = document.getElementById("moneyCalcMinutes");
     var presets = document.getElementById("moneyCalcPresets");
+    var list = document.querySelector(".money-route-list");
     if (route) route.addEventListener("change", update);
     if (mins) {
       mins.addEventListener("input", update);
@@ -267,6 +315,20 @@ export function moneyCalculatorScript() {
         if (!m) return;
         mins.value = m;
         update();
+      });
+    }
+    // Why: tapping a ranked route selects it in the calculator without leaving the page.
+    if (list && route && list.getAttribute("data-calc-pick-bound") !== "1") {
+      list.setAttribute("data-calc-pick-bound", "1");
+      list.addEventListener("click", function (ev) {
+        var row = ev.target && ev.target.closest ? ev.target.closest(".money-route") : null;
+        if (!row || !list.contains(row)) return;
+        if (ev.target.closest && ev.target.closest("a")) return;
+        var id = row.getAttribute("data-money-id") || "";
+        if (!id) return;
+        route.value = id;
+        update();
+        try { route.focus({ preventScroll: true }); } catch (e) { route.focus(); }
       });
     }
     update();
@@ -293,17 +355,14 @@ export function renderMoneyGuideBody(lang = "en", { tipWeek = "" } = {}) {
   const ui = lang === "zh" ? "zh" : "en";
   const ranked = moneyRoutesRanked();
   const home = ui === "zh" ? "/zh/" : "/";
-  // Raw pack string — do not run through t()/interpolate or `{rate}` is wiped.
+  const defaultMinutes = 60;
+  // Raw pack strings — do not run through t()/interpolate or `{rate}` / `{minutes}` are wiped.
   const calcTemplate = String((UI[ui] || UI.en).moneyCalcResult || UI.en.moneyCalcResult || "{rate}/hr");
+  const rateTemplate = String(
+    (UI[ui] || UI.en).moneyRouteRate || UI.en.moneyRouteRate || "≈ {rate}/hr at {minutes} min (rough)",
+  );
   return `<p class="money-updated">${esc(t("moneyLastUpdated", { date: MONEY_LAST_UPDATED }, ui))}</p>
       <div class="page-body money-intro" data-i18n-html="pageMoneyBody">${t("pageMoneyBody", {}, ui)}</div>
-      <section class="money-rank" aria-labelledby="money-rank-heading">
-        <h2 id="money-rank-heading">${esc(t("moneyRankHeading", {}, ui))}</h2>
-        <p class="money-rank-note">${esc(t("moneyRankNote", {}, ui))}</p>
-        <ol class="money-route-list">
-          ${rankListHtml(ranked, ui)}
-        </ol>
-      </section>
       <section class="money-calc" aria-labelledby="money-calc-heading">
         <h2 id="money-calc-heading">${esc(t("moneyCalcHeading", {}, ui))}</h2>
         <p class="money-calc-note">${esc(t("moneyCalcNote", {}, ui))}</p>
@@ -314,11 +373,18 @@ export function renderMoneyGuideBody(lang = "en", { tipWeek = "" } = {}) {
           </label>
           <label class="money-calc-field">
             <span>${esc(t("moneyCalcMinutes", {}, ui))}</span>
-            <input id="moneyCalcMinutes" name="minutes" type="number" inputmode="numeric" min="1" step="1" value="60" />
+            <input id="moneyCalcMinutes" name="minutes" type="number" inputmode="numeric" min="1" step="1" value="${esc(String(defaultMinutes))}" />
           </label>
           ${moneyCalcMinutePresetsHtml(ui)}
           <p class="money-calc-out" id="moneyCalcResult" data-empty="${esc(t("moneyCalcEmpty", {}, ui))}" data-template="${esc(calcTemplate)}">${esc(t("moneyCalcEmpty", {}, ui))}</p>
         </form>
+      </section>
+      <section class="money-rank" aria-labelledby="money-rank-heading">
+        <h2 id="money-rank-heading">${esc(t("moneyRankHeading", {}, ui))}</h2>
+        <p class="money-rank-note">${esc(t("moneyRankNote", {}, ui))}</p>
+        <ol class="money-route-list" data-rate-template="${esc(rateTemplate)}">
+          ${rankListHtml(ranked, ui, { minutes: defaultMinutes })}
+        </ol>
       </section>
       <p class="money-week-link"><a href="${esc(home)}">${esc(t("moneyWeekLink", {}, ui))}</a></p>
       ${moneyTipFreezeLinkHtml(tipWeek, ui)}`;
