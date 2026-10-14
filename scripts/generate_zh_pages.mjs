@@ -14,7 +14,7 @@ import { injectHomeMoneyGuideLink } from "../src/moneyGuide.js";
 import { injectHomeShell } from "../src/sitePages.js";
 import { replaceHomeJsonLd } from "../src/structuredData.js";
 import { injectJobListHtml, renderStaticHomeJobList } from "../src/staticHomeJobs.js";
-import { injectHomeAtomDiscovery } from "../src/weekArchive.js";
+import { injectHomeArchiveIndexLink, injectHomeAtomDiscovery } from "../src/weekArchive.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const dist = resolve(root, "dist");
@@ -43,6 +43,7 @@ const en = readFileSync(srcPath, "utf8");
 let zh = applyHtmlI18n(en, "zh");
 zh = replaceHomeJsonLd(zh, "zh");
 zh = injectHomeShell(zh, { lang: "zh" });
+zh = injectHomeArchiveIndexLink(zh, { lang: "zh" });
 zh = injectHomeAtomDiscovery(zh, { lang: "zh" });
 zh = injectHomeMoneyGuideLink(zh, { lang: "zh" });
 zh = injectHomeBusinessGuideLink(zh, { lang: "zh" });

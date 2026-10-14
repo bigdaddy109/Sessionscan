@@ -14,6 +14,7 @@ import { injectHomeGta6Link } from "./src/gta6Page.js";
 import { injectHomeMoneyGuideLink } from "./src/moneyGuide.js";
 import { injectJobListHtml, renderStaticHomeJobList } from "./src/staticHomeJobs.js";
 import {
+  injectHomeArchiveIndexLink,
   injectHomeAtomDiscovery,
   matchWeekFreezePath,
   renderArchiveAtomFeed,
@@ -38,6 +39,7 @@ function injectStaticJobs() {
       const cards = renderStaticHomeJobList(loadHubJobs(), { lang: "en" });
       let out = injectJobListHtml(html, cards);
       out = injectHomeShell(out, { lang: "en" });
+      out = injectHomeArchiveIndexLink(out, { lang: "en" });
       out = injectHomeAtomDiscovery(out, { lang: "en" });
       out = injectHomeMoneyGuideLink(out, { lang: "en" });
       out = injectHomeBusinessGuideLink(out, { lang: "en" });

@@ -21,6 +21,8 @@ import {
   freezeGta6LinkHtml,
   freezeMoneyGuideLinkHtml,
   homeArchiveFeedLinkHtml,
+  homeArchiveIndexLinkHtml,
+  injectHomeArchiveIndexLink,
   injectHomeAtomDiscovery,
   latestArchiveLinkHtml,
   latestArchiveWeek,
@@ -197,8 +199,38 @@ if (!latestHtml.includes(tip.week)) fail("latest link shows week iso", latestHtm
 const zhLatest = latestArchiveLinkHtml(site, "zh");
 if (!zhLatest.includes(`/zh/week/${tip.week}/`)) fail("zh latest path", zhLatest);
 const emptyHtml = latestArchiveLinkHtml({ jobs_gtabase: [], jobs_ign: [] }, "en");
-if (!emptyHtml.includes("/week/") || !emptyHtml.includes("is-empty")) {
-  fail("empty hub falls back to archive index", emptyHtml);
+if (!emptyHtml.includes("is-empty") || !emptyHtml.includes("hidden")) {
+  fail("empty hub hides latest placeholder (browse is weekArchiveIndex)", emptyHtml);
+}
+
+// Home archive index browse — always locale /week/; complements tip + Atom.
+{
+  const idx = homeArchiveIndexLinkHtml("en");
+  if (!idx.includes('id="weekArchiveIndex"') || !idx.includes('href="/week/"')) {
+    fail("home archive index en", idx);
+  }
+  const zhIdx = homeArchiveIndexLinkHtml("zh");
+  if (!zhIdx.includes("/zh/week/") || !zhIdx.includes("瀏覽週更封存")) {
+    fail("home archive index zh", zhIdx);
+  }
+  const shelled = injectHomeArchiveIndexLink(
+    `<!DOCTYPE html><html><body><p class="week-archive-latest" id="weekArchiveLatest" hidden></p><p class="week-archive-feed" id="weekArchiveFeed"></p></body></html>`,
+    { lang: "zh" },
+  );
+  if (!shelled.includes('id="weekArchiveIndex"') || !shelled.includes("/zh/week/")) {
+    fail("injectHomeArchiveIndexLink zh", shelled);
+  }
+  const indexSrc = readFileSync(resolve(root, "index.html"), "utf8");
+  if (!indexSrc.includes('id="weekArchiveIndex"') || !indexSrc.includes('href="/week/"')) {
+    fail("index.html must ship home archive index without JS");
+  }
+  // Index sits between latest and Atom in source order.
+  const latestAt = indexSrc.indexOf('id="weekArchiveLatest"');
+  const indexAt = indexSrc.indexOf('id="weekArchiveIndex"');
+  const feedAt = indexSrc.indexOf('id="weekArchiveFeed"');
+  if (!(latestAt < indexAt && indexAt < feedAt)) {
+    fail("home archive index order: latest → index → atom", { latestAt, indexAt, feedAt });
+  }
 }
 
 // Home Atom discovery — same ARCHIVE_ATOM_PATH as /week/; never invents a feed URL.
