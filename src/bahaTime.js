@@ -19,6 +19,24 @@ export function metaStampMs(stamp) {
 }
 
 /**
+ * Relative age of a Taipei meta stamp vs `now`.
+ * Returns { unit: "now"|"minutes"|"hours"|"days", n } or null if unparseable.
+ */
+export function snapshotAgeParts(stamp, now = new Date()) {
+  const ms = metaStampMs(stamp);
+  if (ms == null) return null;
+  const nowMs = now instanceof Date ? now.getTime() : Number(now);
+  if (!Number.isFinite(nowMs)) return null;
+  const diff = Math.max(0, nowMs - ms);
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return { unit: "now", n: 0 };
+  if (mins < 60) return { unit: "minutes", n: mins };
+  const hours = Math.floor(mins / 60);
+  if (hours < 48) return { unit: "hours", n: hours };
+  return { unit: "days", n: Math.floor(hours / 24) };
+}
+
+/**
  * CH-02 videos_hot_* is stale when its snapshot is ~12h+ older than this run
  * (_last_run or jobs). yt-dlp failure keeps yesterday's hot file.
  */

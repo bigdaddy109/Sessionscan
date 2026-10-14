@@ -11,6 +11,7 @@ import {
   uiCopy,
 } from "./cardShare.js";
 import {
+  formatSnapshotAgeLabel,
   gta6ScheduleBannerHtml,
   pickOfficialWeekly,
   rankDelta,
@@ -527,7 +528,9 @@ function renderAll() {
   if (banner) {
     if (live) {
       const stamp = meta._last_run || meta.snapshot_date || "—";
-      banner.innerHTML = `<strong>${esc(t("snapshotStrong"))}</strong><span>${esc(t("snapshotSpan", { stamp }))}</span>`;
+      const ageLabel = formatSnapshotAgeLabel(stamp, uiLang());
+      const age = ageLabel ? ` · ${ageLabel}` : "";
+      banner.innerHTML = `<strong>${esc(t("snapshotStrong"))}</strong><span>${esc(t("snapshotSpan", { stamp, age }))}</span>`;
     } else {
       banner.innerHTML = `<strong>${esc(t("sampleStrong"))}</strong><span>${esc(t("sampleSpan"))}</span>`;
     }
@@ -538,9 +541,14 @@ function renderAll() {
       ? t("snapshotTime", { stamp: stamp || "—" })
       : t("sampleTime", { stamp: meta.snapshot_date || stamp || "" });
   });
-  $("#lastRun").textContent = live
-    ? t("lastRunLive", { stamp: meta._last_run || "—" })
-    : t("lastRunSample", { stamp: meta.snapshot_date || "" });
+  if (live) {
+    const stamp = meta._last_run || "—";
+    const ageLabel = formatSnapshotAgeLabel(stamp, uiLang());
+    const age = ageLabel ? ` · ${ageLabel}` : "";
+    $("#lastRun").textContent = t("lastRunLive", { stamp, age });
+  } else {
+    $("#lastRun").textContent = t("lastRunSample", { stamp: meta.snapshot_date || "" });
+  }
 }
 
 function desiredHash() {
