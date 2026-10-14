@@ -8,6 +8,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
+  BIZ_OWNED_STORAGE_KEY,
   BUSINESS_LIST_UPDATED,
   BUSINESS_RANKING,
   RANKING_CONSENSUS,
@@ -16,10 +17,15 @@ import {
   businessesPageBodyHtml,
   businessesPageJsonLd,
   businessesSoloFilterHtml,
+  clearOwnedBusinessIds,
   formatSourceDate,
   homeBusinessGuideLinkHtml,
   injectHomeBusinessGuideLink,
   isSoloFriendlyBusiness,
+  knownBusinessIds,
+  loadOwnedBusinessIds,
+  saveOwnedBusinessIds,
+  toggleOwnedBusinessId,
 } from "../src/businessRanking.js";
 import { SITE_PAGES, renderSitePage } from "../src/sitePages.js";
 import { parseJsonLdScripts } from "../src/structuredData.js";
@@ -79,11 +85,53 @@ const nightclubLi = bodyEn.match(/data-biz-id="nightclub"[^>]*/)?.[0] || "";
 if (!/data-solo="0"/.test(nightclubLi)) fail("EN nightclub data-solo=0 expected", nightclubLi);
 const filterZh = businessesSoloFilterHtml("zh");
 if (!filterZh.includes("單人友善") || !filterZh.includes("全部")) fail("zh filter labels", filterZh);
+if (!filterZh.includes("我擁有") || !filterZh.includes('data-biz-filter="owned"')) {
+  fail("zh owned filter label", filterZh);
+}
+
+// Why: Owned filter is personal inventory (localStorage), not a published tag —
+// helpers must only accept known BUSINESS_RANKING ids so we never invent properties.
+if (BIZ_OWNED_STORAGE_KEY !== "sessionscan:biz-owned") fail("owned storage key");
+const known = knownBusinessIds();
+if (!known.has("acid-lab") || known.has("not-a-business")) fail("knownBusinessIds", [...known]);
+function memStore(seed = {}) {
+  const bag = { ...seed };
+  return {
+    getItem: (k) => (Object.prototype.hasOwnProperty.call(bag, k) ? bag[k] : null),
+    setItem: (k, v) => {
+      bag[k] = String(v);
+    },
+    removeItem: (k) => {
+      delete bag[k];
+    },
+  };
+}
+const store = memStore();
+saveOwnedBusinessIds(["acid-lab", "fake-id", "nightclub"], store);
+const loaded = loadOwnedBusinessIds(store);
+if (!loaded.has("acid-lab") || !loaded.has("nightclub") || loaded.has("fake-id")) {
+  fail("save/load owned filters known ids", [...loaded]);
+}
+toggleOwnedBusinessId("acid-lab", store);
+if (loadOwnedBusinessIds(store).has("acid-lab")) fail("toggle off acid-lab");
+toggleOwnedBusinessId("acid-lab", store);
+if (!loadOwnedBusinessIds(store).has("acid-lab")) fail("toggle on acid-lab");
+clearOwnedBusinessIds(store);
+if (loadOwnedBusinessIds(store).size !== 0) fail("clear owned");
+
+if (!bodyEn.includes('data-biz-filter="owned"') || !bodyEn.includes('id="bizOwnedClear"')) {
+  fail("EN missing owned filter chrome");
+}
+if (!bodyEn.includes("biz-own-check") || !bodyEn.includes('data-owned="0"')) {
+  fail("EN missing own checkboxes");
+}
+if (!bodyEn.includes("I own this")) fail("EN own label");
 
 const bodyZh = businessesPageBodyHtml("zh");
 if (!bodyZh.includes("迷幻藥實驗室") && !bodyZh.includes("生意")) fail("zh body missing zh copy");
 if (!bodyZh.includes("biz-rank-list")) fail("zh missing list");
 if (!bodyZh.includes("單人友善")) fail("zh missing solo filter label");
+if (!bodyZh.includes("我擁有") || !bodyZh.includes("biz-own-check")) fail("zh missing owned chrome");
 
 const page = SITE_PAGES.find((p) => p.id === "businesses");
 if (!page || page.stub) fail("businesses SITE_PAGES must not be stub");
@@ -99,6 +147,9 @@ if (!html.includes('rel="canonical" href="https://sessionscan.net/guides/busines
 }
 if (!html.includes("biz-rank-list")) fail("rendered missing list");
 if (!html.includes("data-biz-solo-filter")) fail("rendered missing solo filter script");
+if (!html.includes("sessionscan:biz-owned") || !html.includes('data-biz-filter="owned"')) {
+  fail("rendered missing owned inventory script wiring");
+}
 
 let ld;
 try {
@@ -141,6 +192,9 @@ if (existsSync(distEn)) {
   if (!built.includes('id="bizFilter"') || !built.includes("data-biz-solo-filter")) {
     fail("dist EN missing solo filter");
   }
+  if (!built.includes('data-biz-filter="owned"') || !built.includes("biz-own-check")) {
+    fail("dist EN missing owned filter");
+  }
 }
 if (existsSync(distZh)) {
   const built = readFileSync(distZh, "utf8");
@@ -151,6 +205,9 @@ if (existsSync(distZh)) {
   }
   if (!built.includes("單人友善") || !built.includes("data-biz-solo-filter")) {
     fail("dist zh missing solo filter");
+  }
+  if (!built.includes("我擁有") || !built.includes("biz-own-check")) {
+    fail("dist zh missing owned filter");
   }
 }
 

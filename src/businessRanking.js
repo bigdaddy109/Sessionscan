@@ -208,6 +208,73 @@ export function isSoloFriendlyBusiness(item) {
   return /\bsolo(?:-friendly)?\b|單人/.test(blob);
 }
 
+/** localStorage key for evergreen “I own” inventory (not week-keyed). */
+export const BIZ_OWNED_STORAGE_KEY = "sessionscan:biz-owned";
+
+/** Known business ids from BUSINESS_RANKING — owned list never invents ids. */
+export function knownBusinessIds(items = BUSINESS_RANKING) {
+  return new Set(items.map((b) => b?.id).filter((id) => typeof id === "string" && id));
+}
+
+/**
+ * @param {Storage} [store]
+ * @returns {Set<string>}
+ */
+export function loadOwnedBusinessIds(store = globalThis.localStorage) {
+  const known = knownBusinessIds();
+  const out = new Set();
+  if (!store) return out;
+  try {
+    const raw = store.getItem(BIZ_OWNED_STORAGE_KEY);
+    if (!raw) return out;
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return out;
+    for (const id of parsed) {
+      if (typeof id === "string" && known.has(id)) out.add(id);
+    }
+  } catch {
+    /* corrupt → empty */
+  }
+  return out;
+}
+
+/**
+ * @param {Iterable<string>} ids
+ * @param {Storage} [store]
+ */
+export function saveOwnedBusinessIds(ids, store = globalThis.localStorage) {
+  if (!store) return;
+  const known = knownBusinessIds();
+  const list = [...new Set([...ids].filter((id) => typeof id === "string" && known.has(id)))].sort();
+  try {
+    store.setItem(BIZ_OWNED_STORAGE_KEY, JSON.stringify(list));
+  } catch {
+    /* quota / private mode — ignore */
+  }
+}
+
+/** @returns {Set<string>} */
+export function clearOwnedBusinessIds(store = globalThis.localStorage) {
+  saveOwnedBusinessIds([], store);
+  return new Set();
+}
+
+/**
+ * Toggle one known business id; returns the new owned set.
+ * @param {string} id
+ * @param {Storage} [store]
+ * @returns {Set<string>}
+ */
+export function toggleOwnedBusinessId(id, store = globalThis.localStorage) {
+  const known = knownBusinessIds();
+  const next = loadOwnedBusinessIds(store);
+  if (typeof id !== "string" || !known.has(id)) return next;
+  if (next.has(id)) next.delete(id);
+  else next.add(id);
+  saveOwnedBusinessIds(next, store);
+  return next;
+}
+
 /** Format ISO day for display (keeps YYYY-MM-DD — stable across locales). */
 export function formatSourceDate(isoDay) {
   const m = String(isoDay || "").trim().match(/^(\d{4}-\d{2}-\d{2})/);
@@ -309,32 +376,99 @@ export function businessTipFreezeLinkHtml(tipWeek, lang = "en") {
   return `<p class="business-tip-freeze" id="businessTipFreezeLink"><a href="${esc(href)}">${esc(t("weekArchiveLatestLink", { week }, ui))}</a></p>`;
 }
 
-/** Filter chips: All vs Solo-friendly (derived from highlight copy). */
+/**
+ * Filter chips: All / Solo-friendly / Owned (+ clear owned).
+ * Owned is client inventory (localStorage) — not a published playstyle tag.
+ */
 export function businessesSoloFilterHtml(lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
   return `<div class="biz-filter" id="bizFilter" role="group" aria-label="${esc(t("bizFilterAria", {}, ui))}">
       <button type="button" class="biz-filter-btn is-active" data-biz-filter="all" aria-pressed="true">${esc(t("bizFilterAll", {}, ui))}</button>
       <button type="button" class="biz-filter-btn" data-biz-filter="solo" aria-pressed="false">${esc(t("bizFilterSolo", {}, ui))}</button>
+      <button type="button" class="biz-filter-btn" data-biz-filter="owned" aria-pressed="false">${esc(t("bizFilterOwned", {}, ui))}</button>
     </div>
+    <p class="biz-owned-toolbar">
+      <button type="button" class="biz-owned-clear" id="bizOwnedClear" hidden data-i18n-aria="bizOwnedClearAria" aria-label="${esc(t("bizOwnedClearAria", {}, ui))}">${esc(t("bizOwnedClear", {}, ui))}</button>
+    </p>
     <p class="biz-filter-empty" id="bizFilterEmpty" hidden>${esc(t("bizFilterEmpty", {}, ui))}</p>`;
 }
 
-/** Inline filter — static businesses pages have no bundled module entry. */
+/** Inline All/Solo/Owned filter + own checkboxes — static pages have no module entry. */
 export function businessesSoloFilterScript() {
   return `<script data-biz-solo-filter>
 (function () {
+  var STORAGE_KEY = ${JSON.stringify(BIZ_OWNED_STORAGE_KEY)};
+  var KNOWN = ${JSON.stringify([...knownBusinessIds()])};
+  function knownSet() {
+    var s = {};
+    for (var i = 0; i < KNOWN.length; i++) s[KNOWN[i]] = 1;
+    return s;
+  }
+  function loadOwned() {
+    var out = {};
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return out;
+      var parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) return out;
+      var known = knownSet();
+      for (var i = 0; i < parsed.length; i++) {
+        var id = parsed[i];
+        if (typeof id === "string" && known[id]) out[id] = 1;
+      }
+    } catch (e) {}
+    return out;
+  }
+  function saveOwned(map) {
+    var list = [];
+    for (var id in map) if (map[id]) list.push(id);
+    list.sort();
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch (e) {}
+  }
+  function ownedCount(map) {
+    var n = 0;
+    for (var id in map) if (map[id]) n += 1;
+    return n;
+  }
+  function currentMode(host) {
+    var active = host && host.querySelector(".biz-filter-btn.is-active");
+    return (active && active.getAttribute("data-biz-filter")) || "all";
+  }
+  function syncClear(map) {
+    var clear = document.getElementById("bizOwnedClear");
+    if (!clear) return;
+    clear.hidden = ownedCount(map) === 0;
+  }
+  function hydrate(map) {
+    var list = document.querySelector(".biz-rank-list");
+    if (!list) return;
+    var items = list.querySelectorAll(".biz-rank-item");
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      var id = item.getAttribute("data-biz-id") || "";
+      var on = !!map[id];
+      item.setAttribute("data-owned", on ? "1" : "0");
+      if (on) item.classList.add("is-owned");
+      else item.classList.remove("is-owned");
+      var check = item.querySelector(".biz-own-check");
+      if (check) check.checked = on;
+    }
+    syncClear(map);
+  }
   function apply(mode) {
     var list = document.querySelector(".biz-rank-list");
     var empty = document.getElementById("bizFilterEmpty");
     var host = document.getElementById("bizFilter");
     if (!list || !host) return;
-    var soloOnly = mode === "solo";
     var items = list.querySelectorAll(".biz-rank-item");
     var visible = 0;
     for (var i = 0; i < items.length; i++) {
       var item = items[i];
       var solo = item.getAttribute("data-solo") === "1";
-      var show = !soloOnly || solo;
+      var owned = item.getAttribute("data-owned") === "1";
+      var show = true;
+      if (mode === "solo") show = solo;
+      else if (mode === "owned") show = owned;
       item.hidden = !show;
       if (show) visible += 1;
     }
@@ -350,13 +484,40 @@ export function businessesSoloFilterScript() {
   }
   document.addEventListener("DOMContentLoaded", function () {
     var host = document.getElementById("bizFilter");
-    if (!host || host.getAttribute("data-filter-bound") === "1") return;
+    var list = document.querySelector(".biz-rank-list");
+    if (!host || !list || host.getAttribute("data-filter-bound") === "1") return;
     host.setAttribute("data-filter-bound", "1");
+    var map = loadOwned();
+    hydrate(map);
     host.addEventListener("click", function (ev) {
       var btn = ev.target && ev.target.closest ? ev.target.closest(".biz-filter-btn") : null;
       if (!btn || !host.contains(btn)) return;
       apply(btn.getAttribute("data-biz-filter") || "all");
     });
+    list.addEventListener("change", function (ev) {
+      var check = ev.target && ev.target.classList && ev.target.classList.contains("biz-own-check")
+        ? ev.target
+        : null;
+      if (!check) return;
+      var id = check.getAttribute("data-biz-id") || "";
+      var known = knownSet();
+      if (!id || !known[id]) return;
+      if (check.checked) map[id] = 1;
+      else delete map[id];
+      saveOwned(map);
+      hydrate(map);
+      apply(currentMode(host));
+    });
+    var clear = document.getElementById("bizOwnedClear");
+    if (clear && clear.getAttribute("data-clear-bound") !== "1") {
+      clear.setAttribute("data-clear-bound", "1");
+      clear.addEventListener("click", function () {
+        map = {};
+        saveOwned(map);
+        hydrate(map);
+        apply(currentMode(host));
+      });
+    }
     apply("all");
   });
 })();
@@ -375,12 +536,17 @@ export function businessesPageBodyHtml(lang = "en", { tipWeek = "" } = {}) {
     const title = pickLocale(item.title, ui);
     const highlight = pickLocale(item.highlight, ui);
     const solo = isSoloFriendlyBusiness(item);
-    return `<li class="biz-rank-item" data-biz-id="${esc(item.id)}" data-rank="${esc(String(item.rank))}" data-solo="${solo ? "1" : "0"}">
+    const ownLabel = t("bizOwnLabel", {}, ui);
+    return `<li class="biz-rank-item" data-biz-id="${esc(item.id)}" data-rank="${esc(String(item.rank))}" data-solo="${solo ? "1" : "0"}" data-owned="0">
       <div class="biz-rank-num" aria-hidden="true">${esc(String(item.rank))}</div>
       <div class="biz-rank-body">
         <h2 class="biz-rank-title">${esc(title)}</h2>
         <p class="biz-rank-highlight">${esc(highlight)}</p>
         <p class="biz-rank-source">${sourceMetaHtml(item.source, ui)}</p>
+        <label class="biz-own-claim">
+          <input type="checkbox" class="biz-own-check" data-biz-id="${esc(item.id)}" />
+          <span class="biz-own-claim-text">${esc(ownLabel)}</span>
+        </label>
       </div>
     </li>`;
   }).join("\n");

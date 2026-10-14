@@ -2,8 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- **URGENT** Home 週更倒數 UTC（`nextWeeklyUpdateAt` 改純 UTC 下一個週四 10:00；勿用台北 weekday；#104；等研發程式 「可以合 #104」後再合）。測 `tests/test_this_week_home.mjs`（含 Asia/Taipei／LA／UTC 邊界）。Rollback：`pre-week-countdown-utc-20261014`。
-- Businesses「我擁有」勾選＋Owned 篩選（#103 已開 PR，**先擱著勿合**，等倒數 UTC #104 修完）。Rollback：`pre-business-owned-filter-20261014`。
+- Businesses「我擁有」勾選＋Owned 篩選（`BIZ_OWNED_STORAGE_KEY`／`data-owned`／`data-biz-filter="owned"`；localStorage 庫存，非週鍵；等研發程式 「可以合」後再合）。測 `tests/test_business_ranking.mjs`。Rollback：`pre-business-owned-filter-20261014`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
@@ -17,6 +16,7 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- Home 週更倒數 UTC（`nextWeeklyUpdateAt` 純 UTC 下一個週四 10:00；勿用台北 weekday；#104；rollback `pre-week-countdown-utc-20261014`；核准：研發程式 「可以合 #104」）。測 `tests/test_this_week_home.mjs`（含 Asia/Taipei／LA／UTC 邊界）。
 - Money 排名列粗估 $/hr（`formatMoneyRouteRate`／`data-money-rate`；跟分鐘／presets 同步；點列選進計算機；#102；rollback `pre-money-route-hour-rates-20261014`；核准：研發程式 「可以合 #102」）。測 `tests/test_money_guide.mjs`。
 - GTA 6 trailer 縮圖＋播放鍵外連（`GTA6_OFFICIAL_TRAILER_POSTER_URL`／`#gta6TrailerPoster`；同一 id `tJbzMqJGH4k`；不載 iframe；#101；rollback `pre-gta6-trailer-poster-20261014`；核准：研發程式 「可以合 #101」）。測 `tests/test_gta6_page.mjs`。
 - GTA 6 官方 trailer（初版 youtube-nocookie iframe；#100；rollback `pre-gta6-official-trailer-20261014`；核准：研發程式 「可以合 #100」；後續改 poster 外連）。測 `tests/test_gta6_page.mjs`。
