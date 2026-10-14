@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- Home／tip「複製 tip」純文字（`formatWeekTipPlainText`／`#weekTipCopy`；Discord／LINE 可貼；略過 pending；等研發程式 「可以合」後再合）。測 `tests/test_this_week_home.mjs`。Rollback：`pre-copy-week-tip-20261014`。
+- Home／tip「複製 tip」純文字（`formatWeekTipPlainText`／`#weekTipCopy`；Discord／LINE 可貼；略過 pending；#97；等研發程式 「可以合 #97」後再合）。測 `tests/test_this_week_home.mjs`。Rollback：`pre-copy-week-tip-20261014`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
