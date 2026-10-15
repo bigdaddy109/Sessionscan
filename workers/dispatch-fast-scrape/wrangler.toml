@@ -16,3 +16,12 @@ GITHUB_OWNER = "bigdaddy109"
 GITHUB_REPO = "Sessionscan"
 GITHUB_REF = "main"
 WORKFLOW_FILE = "fast.yml"
+
+# Wrangler 4: omitting [observability] deploys with logs disabled.
+# invocation_logs is the schema key (not invocationLogs).
+[observability]
+enabled = true
+
+[observability.logs]
+enabled = true
+invocation_logs = true

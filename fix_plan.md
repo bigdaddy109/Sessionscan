@@ -2,6 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
+- Fast Worker Logs 留在 `wrangler.toml`（`[observability] enabled = true`、`[observability.logs] enabled = true`、`invocation_logs = true`；#110；等研發程式 「可以合 #110」後再合）。本 PR 不 deploy、不換 PAT。Rollback：`pre-dispatch-observability-20261015`。測 `tests/test_dispatch_fast_scrape_worker.mjs`。
 - 全站分享預覽圖（殼頁 `ogImageUrlForPage`＋`public/og-*.jpg` 1200×630；影片頁 YouTube 縮圖；#108；等研發程式 「可以合 #108」後再合）。測 `tests/test_seo_meta.mjs`。Rollback：`pre-og-share-images-20261015`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
@@ -10,7 +11,7 @@
 
 ## 合併後跟進（非本 PR）
 
-- Faster fetch Worker：入口拆檔已合（#109，merge `9dd9f1e`）。repo 沒有 wrangler workflow，這次合並未重部署；線上 `GET /health` 200，版本仍應是研究員的 `f47df4ae`（2026-10-15 13:07 台北）。health 200 時不要為了對齊 main 再 `wrangler deploy`。下次若要部署，必須用 #109 之後的 `src/index.js`（只有 default export）。
+- Faster fetch Worker：10/12～`f47df4ae`（2026-10-15 13:07 台北）前是 named-export 1101（`Incorrect type for map entry 'CRON_EVERY_2H'`）。`f47df4ae` 之後 18:00 台北那格 GitHub 回 **401 Bad credentials**（PAT 無效）；研究員正在換 token。不要在這裡 `secret put`／`wrangler deploy`。health 200 不代表 dispatch 成功。入口拆檔已合（#109，merge `9dd9f1e`）。下次若要部署，用 #109 之後的入口，並帶上 #110 的 `[observability]`，否則 Logs 會被關掉。
 - Owned YouTube WebSub：Worker `/health`＋`POST /renew` 已通；`owned-refresh` 尚無 run。CF 帳號持有人確認 secrets 後上傳一支 owned Short 驗 push→deploy。
 - Instagram header 按鈕：合併後在 https://sessionscan.net `/` 與 `/zh/` 用手機寬度驗 header 不溢位、IG 開新分頁、JSON-LD `sameAs` 含 Instagram。
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
