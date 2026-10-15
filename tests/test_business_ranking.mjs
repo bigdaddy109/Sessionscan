@@ -124,6 +124,25 @@ if (loadOwnedBusinessIds(store).size !== 0) fail("clear owned");
 if (!bodyEn.includes('data-biz-filter="owned"') || !bodyEn.includes('id="bizOwnedClear"')) {
   fail("EN missing owned filter chrome");
 }
+
+// Why: Solo/Owned looked like no-ops on live — .biz-rank-item { display:grid }
+// overrides the UA [hidden] rule, so item.hidden=true still paints the row.
+{
+  const css = readFileSync(resolve(root, "src/style.css"), "utf8");
+  if (!/\.biz-rank-item\[hidden\]\s*\{\s*display:\s*none\s*;?\s*\}/.test(css)) {
+    fail("CSS must force .biz-rank-item[hidden]{display:none} so filters hide rows");
+  }
+  if (!/\.biz-filter-empty\[hidden\]\s*\{\s*display:\s*none\s*;?\s*\}/.test(css)) {
+    fail("CSS must force .biz-filter-empty[hidden]{display:none}");
+  }
+  const script = businessesSoloFilterScript();
+  if (!script.includes("item.hidden = !show")) {
+    fail("filter script must set HTML hidden for non-matching rows");
+  }
+  if (!script.includes('mode === "solo"') || !script.includes('mode === "owned"')) {
+    fail("filter script must handle solo + owned modes");
+  }
+}
 if (!bodyEn.includes("biz-own-check") || !bodyEn.includes('data-owned="0"')) {
   fail("EN missing own checkboxes");
 }
