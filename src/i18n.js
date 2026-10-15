@@ -114,6 +114,10 @@ export const UI = {
     bizFilterOwned: "Owned",
     bizFilterEmpty: "No businesses match this filter.",
     bizOwnLabel: "I own this",
+    bizOwnedCopy: "Copy owned",
+    bizOwnedCopyAria: "Copy owned businesses as plain text",
+    bizOwnedCopied: "Copied",
+    bizOwnedCopyHeading: "My businesses",
     bizOwnedClear: "Clear owned",
     bizOwnedClearAria: "Clear all owned business marks",
     bizDisclaimer:
@@ -433,6 +437,10 @@ export const UI = {
     bizFilterOwned: "我擁有",
     bizFilterEmpty: "沒有符合此篩選的生意。",
     bizOwnLabel: "我擁有",
+    bizOwnedCopy: "複製持有清單",
+    bizOwnedCopyAria: "複製持有生意純文字",
+    bizOwnedCopied: "已複製",
+    bizOwnedCopyHeading: "我的生意",
     bizOwnedClear: "清除持有標記",
     bizOwnedClearAria: "清除全部持有生意標記",
     bizDisclaimer:
