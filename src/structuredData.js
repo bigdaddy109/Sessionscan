@@ -77,6 +77,30 @@ export function youtubeEmbedUrl(id) {
   return vid ? `https://www.youtube-nocookie.com/embed/${encodeURIComponent(vid)}` : "";
 }
 
+/**
+ * Facade click → iframe src that starts on the same tap (esp. iOS Safari).
+ * Injecting an iframe with only autoplay=1 leaves the player paused: iOS blocks
+ * unmuted autoplay outside a direct media gesture, so users tap twice. mute=1 +
+ * playsinline=1 + autoplay=1 lets the first tap play inline.
+ * @param {string} embedUrlOrId full nocookie embed URL or 11-char video id
+ */
+export function youtubeFacadePlaySrc(embedUrlOrId) {
+  const raw = String(embedUrlOrId || "").trim();
+  if (!raw) return "";
+  const base = /^https?:\/\//i.test(raw) ? raw : youtubeEmbedUrl(raw);
+  if (!base) return "";
+  try {
+    const u = new URL(base);
+    u.searchParams.set("autoplay", "1");
+    u.searchParams.set("mute", "1");
+    u.searchParams.set("playsinline", "1");
+    return u.toString();
+  } catch {
+    const join = base.includes("?") ? "&" : "?";
+    return `${base}${join}autoplay=1&mute=1&playsinline=1`;
+  }
+}
+
 export function youtubeThumbUrl(id, size = "hqdefault") {
   const vid = String(id || "").trim();
   return vid ? `https://i.ytimg.com/vi/${encodeURIComponent(vid)}/${size}.jpg` : "";

@@ -41,6 +41,7 @@ node tests/test_static_home.mjs      # CH-01 靜態預渲染 helper（固定 now
 node tests/test_site_pages.mjs       # Phase A 多頁殼：path nav、hash→path、sitemap／JSON-LD（建置後會再驗 dist）
 node tests/test_seo_meta.mjs         # 全站 title／meta／OG／Twitter／hreflang／canonical（home＋殼頁＋freeze；建置後再驗 dist）
 node tests/test_youtube_websub.mjs   # Owned WebSub：topic／challenge／Atom parse／dispatch URL（無網路）
+node tests/test_youtube_facade_play.mjs # Short／影片 facade：iOS 一點就播（mute+playsinline+autoplay）
 # 量首屏 job card（需 dist 內已有 data-static-job；可暫時用 data 分支 site.json 建置，勿 commit）：
 # node scripts/measure_first_content.mjs
 

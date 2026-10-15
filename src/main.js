@@ -10,6 +10,7 @@ import {
   parseHash,
   uiCopy,
 } from "./cardShare.js";
+import { youtubeFacadePlaySrc } from "./structuredData.js";
 import {
   formatSnapshotAgeLabel,
   gta6ScheduleBannerHtml,
@@ -891,8 +892,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (playBtn && !playBtn.classList.contains("is-playing")) {
       const id = playBtn.dataset.play || "";
       if (/^[A-Za-z0-9_-]{11}$/.test(id)) {
+        // iOS: mute+playsinline+autoplay so the facade tap starts playback (not a 2nd tap).
         const base = playBtn.dataset.embed || `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`;
-        const src = base.includes("autoplay=") ? base : `${base}${base.includes("?") ? "&" : "?"}autoplay=1`;
+        const src = youtubeFacadePlaySrc(base);
         const title = playBtn.getAttribute("aria-label") || "YouTube";
         playBtn.classList.add("is-playing");
         playBtn.innerHTML = `<iframe src="${esc(src)}" title="${esc(title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
