@@ -47,8 +47,12 @@ the Actions tab for a `fast scrape` run with `workflow_dispatch`.
 
 After deploy, `GET /health` returns JSON (`ok`, `cron`, `workflow`, `ref`,
 `hasGithubPat`). Without a `fetch` handler Cloudflare answers every path with
-error **1101** — so ops probes must hit `/health`, not `/`. There is **no**
-public HTTP trigger for `workflow_dispatch` (cron only).
+error **1101** — so ops probes must hit `/health`, not `/`. The same 1101
+(`Incorrect type for map entry`) happens if `src/index.js` named-exports a
+string or helper: Workers treat every named export as a handler. Keep
+constants and functions in `src/lib.js`; the entry file only default-exports
+`fetch` and `scheduled`. There is **no** public HTTP trigger for
+`workflow_dispatch` (cron only).
 
 ```bash
 curl -sS https://sessionscan-dispatch-fast-scrape.jeff-25f.workers.dev/health

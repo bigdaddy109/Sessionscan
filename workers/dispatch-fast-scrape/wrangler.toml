@@ -8,7 +8,7 @@ compatibility_date = "2026-10-01"
 workers_dev = true
 
 [triggers]
-# Every 2 hours UTC (Jeff-approved cadence). Keep in sync with CRON_EVERY_2H in src/index.js.
+# Every 2 hours UTC (Jeff-approved cadence). Keep in sync with CRON_EVERY_2H in src/lib.js.
 crons = ["0 */2 * * *"]
 
 [vars]
