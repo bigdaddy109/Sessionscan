@@ -2488,6 +2488,8 @@ main {
   color: var(--muted);
   font-size: 0.95rem;
 }
+/* Author display rules beat the UA [hidden] stylesheet — keep empty state hideable. */
+.biz-filter-empty[hidden] { display: none; }
 .biz-owned-toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -2572,6 +2574,11 @@ main {
   border-top: 1px solid var(--border);
   min-width: 0;
 }
+/*
+ * Filter script sets the HTML hidden attribute. Without this, .biz-rank-item’s
+ * display:grid (same specificity as UA [hidden]) wins and Solo/Owned look like no-ops.
+ */
+.biz-rank-item[hidden] { display: none; }
 .biz-rank-item:last-child { border-bottom: 1px solid var(--border); }
 .biz-rank-num {
   font-family: var(--condensed);
