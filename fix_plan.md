@@ -2,6 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
+- Fast Worker 入口只留 default export（常數／函式在 `src/lib.js`，避免 named export `Incorrect type for map entry`／1101；#109；等研發程式 「可以合 #109」後再合）。下次 `wrangler deploy` 必須用這棵樹，不能蓋回已上線的 `f47df4ae`。測 `tests/test_dispatch_fast_scrape_worker.mjs`。Rollback：`pre-dispatch-fast-scrape-exports-20261015`。
 - 全站分享預覽圖（殼頁 `ogImageUrlForPage`＋`public/og-*.jpg` 1200×630；影片頁 YouTube 縮圖；#108；等研發程式 「可以合 #108」後再合）。測 `tests/test_seo_meta.mjs`。Rollback：`pre-og-share-images-20261015`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
