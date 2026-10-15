@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- **URGENT** Businesses 篩選 All／Solo／Owned 無效（`.biz-rank-item { display:grid }` 蓋掉 UA `[hidden]`；補 `.biz-rank-item[hidden]{display:none}`；等研發程式 「可以合」後再合）。測 `tests/test_business_ranking.mjs`。Rollback：`pre-biz-filter-hidden-20261015`。
+- 全站分享預覽圖（殼頁 `ogImageUrlForPage`＋`public/og-*.jpg` 1200×630；影片頁 YouTube 縮圖；#108；等研發程式 「可以合 #108」後再合）。測 `tests/test_seo_meta.mjs`。Rollback：`pre-og-share-images-20261015`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
@@ -16,6 +16,7 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- Businesses 篩選 `[hidden]` 顯示修復（`.biz-rank-item[hidden]{display:none}`；#107；rollback `pre-biz-filter-hidden-20261015`；核准：研發程式 「可以合 #107」）。測 `tests/test_business_ranking.mjs`。
 - Short／影片 facade 一點就播（iOS：`youtubeFacadePlaySrc` 帶 `autoplay=1&mute=1&playsinline=1`；#106；rollback `pre-short-ios-one-tap-20261015`；核准：研發程式 「可以合 #106」）。測 `tests/test_youtube_facade_play.mjs`。
 - Businesses「複製持有清單」純文字（`formatOwnedBusinessesPlainText`／`#bizOwnedCopy`；Discord／LINE；#105；rollback `pre-copy-owned-businesses-20261015`；核准：研發程式 「可以合 #105」）。測 `tests/test_business_ranking.mjs`。
 - Businesses「我擁有」勾選＋Owned 篩選（`BIZ_OWNED_STORAGE_KEY`／`data-owned`／`data-biz-filter="owned"`；localStorage 庫存，非週鍵；#103；rollback `pre-business-owned-filter-20261014`；核准：研發程式 「可以合 #103」）。測 `tests/test_business_ranking.mjs`。

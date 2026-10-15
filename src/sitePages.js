@@ -4,7 +4,6 @@ import { CARD_SITE_BASE, parseHash, videoPageUrl } from "./cardShare.js";
 import { cfWebAnalyticsHtml } from "./cfWebAnalytics.js";
 import {
   OG_IMAGE_HEIGHT,
-  OG_IMAGE_URL,
   OG_IMAGE_WIDTH,
   SITE_ORIGIN,
   TWITTER_SITE,
@@ -13,6 +12,7 @@ import {
   ogLocale,
   t,
 } from "./i18n.js";
+import { ogImageUrlForPage } from "./ogImages.js";
 import {
   moneyCalculatorScript,
   moneyGuideJsonLd,
@@ -513,6 +513,7 @@ export function renderSitePage(
       ${mainBody}`;
   }
   const footerGuides = wantsRelated ? `\n      ${footerGuidesHtml(ui)}` : "";
+  const ogImage = ogImageUrlForPage(page.id);
 
   return `<!DOCTYPE html>
 <html lang="${htmlLang(ui)}" data-ui-lang="${ui}">
@@ -533,7 +534,7 @@ export function renderSitePage(
     <meta property="og:title" content="${esc(title)}" />
     <meta property="og:description" content="${esc(desc)}" />
     <meta property="og:url" content="${esc(url)}" />
-    <meta property="og:image" content="${OG_IMAGE_URL}" />
+    <meta property="og:image" content="${ogImage}" />
     <meta property="og:image:width" content="${OG_IMAGE_WIDTH}" />
     <meta property="og:image:height" content="${OG_IMAGE_HEIGHT}" />
     <meta property="og:image:alt" content="${esc(title)}" />
@@ -541,7 +542,7 @@ export function renderSitePage(
     <meta name="twitter:site" content="${TWITTER_SITE}" />
     <meta name="twitter:title" content="${esc(title)}" />
     <meta name="twitter:description" content="${esc(desc)}" />
-    <meta name="twitter:image" content="${OG_IMAGE_URL}" />
+    <meta name="twitter:image" content="${ogImage}" />
     <link rel="icon" href="${esc(icon)}" type="image/svg+xml" />
     ${fontHeadLinks(ui)}
     <link rel="stylesheet" href="${esc(css)}" />
