@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- Businesses「複製持有清單」純文字（`formatOwnedBusinessesPlainText`／`#bizOwnedCopy`；Discord／LINE；空庫存隱藏；等研發程式 「可以合」後再合）。測 `tests/test_business_ranking.mjs`。Rollback：`pre-copy-owned-businesses-20261015`。
+- Businesses「複製持有清單」純文字（`formatOwnedBusinessesPlainText`／`#bizOwnedCopy`；Discord／LINE；空庫存隱藏；#105；等研發程式 「可以合 #105」後再合）。測 `tests/test_business_ranking.mjs`。Rollback：`pre-copy-owned-businesses-20261015`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
