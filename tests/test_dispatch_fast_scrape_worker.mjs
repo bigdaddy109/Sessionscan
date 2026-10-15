@@ -64,6 +64,15 @@ if (!toml.includes('WORKFLOW_FILE = "fast.yml"')) {
 if (/^\s*GITHUB_PAT\s*=/m.test(toml) || /\b(ghp_|github_pat_)/.test(toml)) {
   fail("wrangler.toml must not embed GITHUB_PAT or a token value");
 }
+// Why: the next wrangler deploy replaces Worker settings. Without these keys
+// Logs (including cron invocation logs) go off, and a 401 from GitHub is
+// invisible again. Keys match wrangler 4 Observability schema.
+if (!/^\[observability\]\s*$/m.test(toml) || !/^enabled = true$/m.test(toml)) {
+  fail("wrangler.toml must set [observability] enabled = true");
+}
+if (!toml.includes("[observability.logs]") || !toml.includes("invocation_logs = true")) {
+  fail("wrangler.toml must keep [observability.logs] invocation_logs = true");
+}
 
 // Missing secret must fail closed.
 try {
