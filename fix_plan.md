@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- Businesses「複製持有清單」純文字（`formatOwnedBusinessesPlainText`／`#bizOwnedCopy`；Discord／LINE；空庫存隱藏；#105；等研發程式 「可以合 #105」後再合）。測 `tests/test_business_ranking.mjs`。Rollback：`pre-copy-owned-businesses-20261015`。
+- Short／影片 facade 一點就播（iOS：`youtubeFacadePlaySrc` 帶 `autoplay=1&mute=1&playsinline=1`；等研發程式 「可以合」後再合）。測 `tests/test_youtube_facade_play.mjs`。Rollback：`pre-short-ios-one-tap-20261015`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
@@ -16,6 +16,7 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- Businesses「複製持有清單」純文字（`formatOwnedBusinessesPlainText`／`#bizOwnedCopy`；Discord／LINE；#105；rollback `pre-copy-owned-businesses-20261015`；核准：研發程式 「可以合 #105」）。測 `tests/test_business_ranking.mjs`。
 - Businesses「我擁有」勾選＋Owned 篩選（`BIZ_OWNED_STORAGE_KEY`／`data-owned`／`data-biz-filter="owned"`；localStorage 庫存，非週鍵；#103；rollback `pre-business-owned-filter-20261014`；核准：研發程式 「可以合 #103」）。測 `tests/test_business_ranking.mjs`。
 - Home 週更倒數 UTC（`nextWeeklyUpdateAt` 純 UTC 下一個週四 10:00；勿用台北 weekday；#104；rollback `pre-week-countdown-utc-20261014`；核准：研發程式 「可以合 #104」）。測 `tests/test_this_week_home.mjs`（含 Asia/Taipei／LA／UTC 邊界）。
 - Money 排名列粗估 $/hr（`formatMoneyRouteRate`／`data-money-rate`；跟分鐘／presets 同步；點列選進計算機；#102；rollback `pre-money-route-hour-rates-20261014`；核准：研發程式 「可以合 #102」）。測 `tests/test_money_guide.mjs`。
