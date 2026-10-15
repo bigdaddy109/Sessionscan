@@ -17,7 +17,9 @@ import {
   businessesPageBodyHtml,
   businessesPageJsonLd,
   businessesSoloFilterHtml,
+  businessesSoloFilterScript,
   clearOwnedBusinessIds,
+  formatOwnedBusinessesPlainText,
   formatSourceDate,
   homeBusinessGuideLinkHtml,
   injectHomeBusinessGuideLink,
@@ -127,11 +129,44 @@ if (!bodyEn.includes("biz-own-check") || !bodyEn.includes('data-owned="0"')) {
 }
 if (!bodyEn.includes("I own this")) fail("EN own label");
 
+// Why: Copy owned closes the inventory loop for Discord/LINE — rank order, known
+// ids only, sourced titles/URLs, never invent GTA$. Empty set still ends with page URL.
+const ownedText = formatOwnedBusinessesPlainText(["nightclub", "acid-lab", "fake-id"], {
+  lang: "en",
+});
+if (!ownedText.startsWith("My businesses\n")) fail("owned plain heading", ownedText.slice(0, 40));
+if (!ownedText.includes("• Acid Lab") || !ownedText.includes("• Nightclub")) {
+  fail("owned plain missing titles", ownedText);
+}
+const acidIdx = ownedText.indexOf("Acid Lab");
+const nightIdx = ownedText.indexOf("Nightclub");
+if (acidIdx < 0 || nightIdx < 0 || acidIdx > nightIdx) {
+  fail("owned plain must follow ranking order", ownedText);
+}
+if (ownedText.includes("fake-id") || /GTA\$\s*\d/.test(ownedText)) {
+  fail("owned plain must not invent ids or GTA$", ownedText);
+}
+const acid = BUSINESS_RANKING.find((b) => b.id === "acid-lab");
+if (!ownedText.includes(acid.source.url)) fail("owned plain missing Acid Lab source");
+if (!ownedText.trimEnd().endsWith("https://sessionscan.net/guides/businesses/")) {
+  fail("owned plain missing page URL", ownedText.slice(-80));
+}
+const emptyOwned = formatOwnedBusinessesPlainText([], { lang: "zh" });
+if (!emptyOwned.startsWith("我的生意\n") || !emptyOwned.includes("https://sessionscan.net/zh/guides/businesses/")) {
+  fail("empty owned zh plain", emptyOwned);
+}
+if (!bodyEn.includes('id="bizOwnedCopy"') || !bodyEn.includes("Copy owned")) {
+  fail("EN missing copy owned chrome");
+}
+
 const bodyZh = businessesPageBodyHtml("zh");
 if (!bodyZh.includes("迷幻藥實驗室") && !bodyZh.includes("生意")) fail("zh body missing zh copy");
 if (!bodyZh.includes("biz-rank-list")) fail("zh missing list");
 if (!bodyZh.includes("單人友善")) fail("zh missing solo filter label");
 if (!bodyZh.includes("我擁有") || !bodyZh.includes("biz-own-check")) fail("zh missing owned chrome");
+if (!bodyZh.includes("複製持有清單") || !bodyZh.includes('id="bizOwnedCopy"')) {
+  fail("zh missing copy owned chrome");
+}
 
 const page = SITE_PAGES.find((p) => p.id === "businesses");
 if (!page || page.stub) fail("businesses SITE_PAGES must not be stub");

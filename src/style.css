@@ -2489,9 +2489,37 @@ main {
   font-size: 0.95rem;
 }
 .biz-owned-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
   margin: -6px 0 12px;
   min-height: 0;
 }
+.biz-owned-copy {
+  margin: 0;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--condensed);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.biz-owned-copy:hover,
+.biz-owned-copy:focus-visible {
+  color: var(--text);
+  border-color: var(--teal);
+  outline: none;
+}
+.biz-owned-copy.is-copied {
+  color: var(--mint);
+  border-color: var(--mint);
+}
+.biz-owned-copy[hidden] { display: none; }
 .biz-owned-clear {
   margin: 0;
   padding: 0;

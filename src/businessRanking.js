@@ -275,6 +275,35 @@ export function toggleOwnedBusinessId(id, store = globalThis.localStorage) {
   return next;
 }
 
+/**
+ * Plain-text owned inventory for clipboard / Discord / LINE.
+ * Rank order only; titles + Rockstar source URLs — never invent GTA$.
+ * @param {Iterable<string>} ids
+ * @param {{ lang?: string, siteUrl?: string }} [opts]
+ */
+export function formatOwnedBusinessesPlainText(ids, { lang = "en", siteUrl = "" } = {}) {
+  const ui = lang === "zh" ? "zh" : "en";
+  const wanted = new Set(
+    [...(ids || [])].filter((id) => typeof id === "string" && knownBusinessIds().has(id)),
+  );
+  const lines = [t("bizOwnedCopyHeading", {}, ui)];
+  for (const item of BUSINESS_RANKING) {
+    if (!wanted.has(item.id)) continue;
+    const title = pickLocale(item.title, ui);
+    const highlight = pickLocale(item.highlight, ui);
+    if (!title) continue;
+    lines.push(highlight ? `• ${title} — ${highlight}` : `• ${title}`);
+    const src = String(item?.source?.url || "").trim();
+    if (src) lines.push(`  ${src}`);
+  }
+  lines.push("");
+  const page =
+    siteUrl ||
+    (ui === "zh" ? `${CARD_SITE_BASE}zh/guides/businesses/` : `${CARD_SITE_BASE}guides/businesses/`);
+  lines.push(page);
+  return lines.join("\n");
+}
+
 /** Format ISO day for display (keeps YYYY-MM-DD — stable across locales). */
 export function formatSourceDate(isoDay) {
   const m = String(isoDay || "").trim().match(/^(\d{4}-\d{2}-\d{2})/);
@@ -377,17 +406,24 @@ export function businessTipFreezeLinkHtml(tipWeek, lang = "en") {
 }
 
 /**
- * Filter chips: All / Solo-friendly / Owned (+ clear owned).
+ * Filter chips: All / Solo-friendly / Owned (+ copy / clear owned).
  * Owned is client inventory (localStorage) — not a published playstyle tag.
  */
 export function businessesSoloFilterHtml(lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
+  const copyLabel = t("bizOwnedCopy", {}, ui);
+  const copyAria = t("bizOwnedCopyAria", {}, ui);
+  const copied = t("bizOwnedCopied", {}, ui);
+  const heading = t("bizOwnedCopyHeading", {}, ui);
+  const pageUrl =
+    ui === "zh" ? `${CARD_SITE_BASE}zh/guides/businesses/` : `${CARD_SITE_BASE}guides/businesses/`;
   return `<div class="biz-filter" id="bizFilter" role="group" aria-label="${esc(t("bizFilterAria", {}, ui))}">
       <button type="button" class="biz-filter-btn is-active" data-biz-filter="all" aria-pressed="true">${esc(t("bizFilterAll", {}, ui))}</button>
       <button type="button" class="biz-filter-btn" data-biz-filter="solo" aria-pressed="false">${esc(t("bizFilterSolo", {}, ui))}</button>
       <button type="button" class="biz-filter-btn" data-biz-filter="owned" aria-pressed="false">${esc(t("bizFilterOwned", {}, ui))}</button>
     </div>
     <p class="biz-owned-toolbar">
+      <button type="button" class="biz-owned-copy" id="bizOwnedCopy" hidden data-i18n="bizOwnedCopy" data-i18n-aria="bizOwnedCopyAria" data-i18n-copy="${esc(copyLabel)}" data-i18n-copied="${esc(copied)}" data-owned-heading="${esc(heading)}" data-owned-page="${esc(pageUrl)}" aria-label="${esc(copyAria)}">${esc(copyLabel)}</button>
       <button type="button" class="biz-owned-clear" id="bizOwnedClear" hidden data-i18n-aria="bizOwnedClearAria" aria-label="${esc(t("bizOwnedClearAria", {}, ui))}">${esc(t("bizOwnedClear", {}, ui))}</button>
     </p>
     <p class="biz-filter-empty" id="bizFilterEmpty" hidden>${esc(t("bizFilterEmpty", {}, ui))}</p>`;
@@ -434,10 +470,38 @@ export function businessesSoloFilterScript() {
     var active = host && host.querySelector(".biz-filter-btn.is-active");
     return (active && active.getAttribute("data-biz-filter")) || "all";
   }
-  function syncClear(map) {
+  function syncToolbar(map) {
+    var empty = ownedCount(map) === 0;
     var clear = document.getElementById("bizOwnedClear");
-    if (!clear) return;
-    clear.hidden = ownedCount(map) === 0;
+    var copy = document.getElementById("bizOwnedCopy");
+    if (clear) clear.hidden = empty;
+    if (copy) copy.hidden = empty;
+  }
+  function ownedPlainText(map) {
+    var copy = document.getElementById("bizOwnedCopy");
+    var heading = (copy && copy.getAttribute("data-owned-heading")) || "";
+    var page = (copy && copy.getAttribute("data-owned-page")) || "";
+    var lines = [];
+    if (heading) lines.push(heading);
+    var list = document.querySelector(".biz-rank-list");
+    var items = list ? list.querySelectorAll(".biz-rank-item") : [];
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      var id = item.getAttribute("data-biz-id") || "";
+      if (!map[id]) continue;
+      var titleEl = item.querySelector(".biz-rank-title");
+      var hiEl = item.querySelector(".biz-rank-highlight");
+      var title = titleEl ? String(titleEl.textContent || "").trim() : "";
+      var hi = hiEl ? String(hiEl.textContent || "").trim() : "";
+      if (!title) continue;
+      lines.push(hi ? "• " + title + " — " + hi : "• " + title);
+      var src = item.querySelector(".biz-rank-source a");
+      var href = src ? src.getAttribute("href") || "" : "";
+      if (href) lines.push("  " + href);
+    }
+    lines.push("");
+    lines.push(page);
+    return lines.join("\\n");
   }
   function hydrate(map) {
     var list = document.querySelector(".biz-rank-list");
@@ -453,7 +517,7 @@ export function businessesSoloFilterScript() {
       var check = item.querySelector(".biz-own-check");
       if (check) check.checked = on;
     }
-    syncClear(map);
+    syncToolbar(map);
   }
   function apply(mode) {
     var list = document.querySelector(".biz-rank-list");
@@ -516,6 +580,29 @@ export function businessesSoloFilterScript() {
         saveOwned(map);
         hydrate(map);
         apply(currentMode(host));
+      });
+    }
+    var copy = document.getElementById("bizOwnedCopy");
+    if (copy && copy.getAttribute("data-copy-bound") !== "1") {
+      copy.setAttribute("data-copy-bound", "1");
+      copy.addEventListener("click", function () {
+        if (ownedCount(map) === 0) return;
+        var text = ownedPlainText(map);
+        var labelCopy = copy.getAttribute("data-i18n-copy") || copy.textContent || "Copy owned";
+        var labelCopied = copy.getAttribute("data-i18n-copied") || "Copied";
+        function painted() {
+          copy.textContent = labelCopied;
+          copy.setAttribute("aria-label", labelCopied);
+          copy.classList.add("is-copied");
+          window.setTimeout(function () {
+            copy.textContent = labelCopy;
+            copy.setAttribute("aria-label", copy.getAttribute("data-i18n-aria") || labelCopy);
+            copy.classList.remove("is-copied");
+          }, 1600);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(painted).catch(function () {});
+        }
       });
     }
     apply("all");
