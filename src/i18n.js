@@ -2,7 +2,7 @@
 
 export const LANG_STORAGE_KEY = "sessionscan-lang";
 export const SITE_ORIGIN = "https://sessionscan.net";
-/** Shared Open Graph / Twitter card image (existing `public/og.jpg`). */
+/** Home Open Graph / Twitter card image (`public/og.jpg`). Shell pages: `ogImages.js`. */
 export const OG_IMAGE_URL = `${SITE_ORIGIN}/og.jpg`;
 export const OG_IMAGE_WIDTH = "1200";
 export const OG_IMAGE_HEIGHT = "630";
