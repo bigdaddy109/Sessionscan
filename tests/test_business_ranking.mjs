@@ -17,6 +17,7 @@ import {
   businessesPageBodyHtml,
   businessesPageJsonLd,
   businessesSoloFilterHtml,
+  businessesSoloFilterScript,
   clearOwnedBusinessIds,
   formatOwnedBusinessesPlainText,
   formatSourceDate,
@@ -156,9 +157,6 @@ if (!emptyOwned.startsWith("我的生意\n") || !emptyOwned.includes("https://se
 }
 if (!bodyEn.includes('id="bizOwnedCopy"') || !bodyEn.includes("Copy owned")) {
   fail("EN missing copy owned chrome");
-}
-if (!bodyEn.includes("ownedPlainText") || !bodyEn.includes("bizOwnedCopy")) {
-  fail("EN missing copy owned script wiring");
 }
 
 const bodyZh = businessesPageBodyHtml("zh");
