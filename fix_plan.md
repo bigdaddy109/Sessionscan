@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- Short／影片 facade 一點就播（iOS：`youtubeFacadePlaySrc` 帶 `autoplay=1&mute=1&playsinline=1`；等研發程式 「可以合」後再合）。測 `tests/test_youtube_facade_play.mjs`。Rollback：`pre-short-ios-one-tap-20261015`。
+- Short／影片 facade 一點就播（iOS：`youtubeFacadePlaySrc` 帶 `autoplay=1&mute=1&playsinline=1`；#106；等研發程式 「可以合 #106」後再合）。測 `tests/test_youtube_facade_play.mjs`。Rollback：`pre-short-ios-one-tap-20261015`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
