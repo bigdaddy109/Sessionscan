@@ -2,7 +2,6 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- Fast Worker 入口只留 default export（常數／函式在 `src/lib.js`，避免 named export `Incorrect type for map entry`／1101；#109；等研發程式 「可以合 #109」後再合）。下次 `wrangler deploy` 必須用這棵樹，不能蓋回已上線的 `f47df4ae`。測 `tests/test_dispatch_fast_scrape_worker.mjs`。Rollback：`pre-dispatch-fast-scrape-exports-20261015`。
 - 全站分享預覽圖（殼頁 `ogImageUrlForPage`＋`public/og-*.jpg` 1200×630；影片頁 YouTube 縮圖；#108；等研發程式 「可以合 #108」後再合）。測 `tests/test_seo_meta.mjs`。Rollback：`pre-og-share-images-20261015`。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
@@ -11,12 +10,13 @@
 
 ## 合併後跟進（非本 PR）
 
-- Faster fetch Worker：程式含 `GET /health`（#63）後仍需 CF 帳號持有人 `wrangler deploy`＋確認 cron／`GITHUB_PAT`（見 `docs/cf-fast-worker-handoff.md`；health 2026-10-13：~26h 無 cron）。可用 `gh workflow run "fast scrape" --ref main -f source=manual` 先驗 data＋Pages。
+- Faster fetch Worker：入口拆檔已合（#109，merge `9dd9f1e`）。repo 沒有 wrangler workflow，這次合並未重部署；線上 `GET /health` 200，版本仍應是研究員的 `f47df4ae`（2026-10-15 13:07 台北）。health 200 時不要為了對齊 main 再 `wrangler deploy`。下次若要部署，必須用 #109 之後的 `src/index.js`（只有 default export）。
 - Owned YouTube WebSub：Worker `/health`＋`POST /renew` 已通；`owned-refresh` 尚無 run。CF 帳號持有人確認 secrets 後上傳一支 owned Short 驗 push→deploy。
 - Instagram header 按鈕：合併後在 https://sessionscan.net `/` 與 `/zh/` 用手機寬度驗 header 不溢位、IG 開新分頁、JSON-LD `sameAs` 含 Instagram。
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- Fast Worker 入口只留 default export（常數／函式在 `src/lib.js`；#109；rollback `pre-dispatch-fast-scrape-exports-20261015`；核准：研發程式 「可以合 #109」；merge `9dd9f1e`）。合後未重部署。測 `tests/test_dispatch_fast_scrape_worker.mjs`。
 - Businesses 篩選 `[hidden]` 顯示修復（`.biz-rank-item[hidden]{display:none}`；#107；rollback `pre-biz-filter-hidden-20261015`；核准：研發程式 「可以合 #107」）。測 `tests/test_business_ranking.mjs`。
 - Short／影片 facade 一點就播（iOS：`youtubeFacadePlaySrc` 帶 `autoplay=1&mute=1&playsinline=1`；#106；rollback `pre-short-ios-one-tap-20261015`；核准：研發程式 「可以合 #106」）。測 `tests/test_youtube_facade_play.mjs`。
 - Businesses「複製持有清單」純文字（`formatOwnedBusinessesPlainText`／`#bizOwnedCopy`；Discord／LINE；#105；rollback `pre-copy-owned-businesses-20261015`；核准：研發程式 「可以合 #105」）。測 `tests/test_business_ranking.mjs`。
