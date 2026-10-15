@@ -4,11 +4,17 @@
  * scrape cadence. A wrong cron (e.g. hourly) or wrong workflow filename would
  * either burn Actions minutes or 404 forever after deploy — catch that in CI
  * without needing Cloudflare credentials.
+ *
+ * Named exports on the entry module are also fatal: Workers treat them as
+ * handlers, so `export const CRON_EVERY_2H` fails the isolate with
+ * "Incorrect type for map entry 'CRON_EVERY_2H'" and every route returns 1101.
+ * Constants and helpers stay in lib.js; index.js may only default-export.
  */
 import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import worker, {
+import worker from "../workers/dispatch-fast-scrape/src/index.js";
+import {
   CRON_EVERY_2H,
   DEFAULT_OWNER,
   DEFAULT_REPO,
@@ -16,7 +22,7 @@ import worker, {
   DEFAULT_WORKFLOW_FILE,
   dispatchFastScrape,
   healthPayload,
-} from "../workers/dispatch-fast-scrape/src/index.js";
+} from "../workers/dispatch-fast-scrape/src/lib.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const workerDir = resolve(root, "workers/dispatch-fast-scrape");
@@ -36,6 +42,17 @@ if (DEFAULT_OWNER !== "bigdaddy109" || DEFAULT_REPO !== "Sessionscan") {
   fail("owner/repo defaults drift", `${DEFAULT_OWNER}/${DEFAULT_REPO}`);
 }
 if (DEFAULT_REF !== "main") fail("must dispatch main", DEFAULT_REF);
+
+const entry = readFileSync(resolve(workerDir, "src/index.js"), "utf8");
+if (/^export\s+(const|function|async|class|let|var|\{)/m.test(entry)) {
+  fail("Worker entry must not named-export; move symbols to lib.js");
+}
+if (!entry.includes('from "./lib.js"')) {
+  fail("Worker entry must import helpers from lib.js");
+}
+if (!/^export default \{/m.test(entry)) {
+  fail("Worker entry must default-export the fetch/scheduled handlers");
+}
 
 const toml = readFileSync(resolve(workerDir, "wrangler.toml"), "utf8");
 if (!toml.includes(`crons = ["${CRON_EVERY_2H}"]`)) {
