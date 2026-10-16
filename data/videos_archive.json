@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-16T12:04:25Z",
+ "updated": "2026-10-16T12:10:15Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -113,7 +113,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-09-27",
-   "views": 69089,
+   "views": 69098,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-16"
@@ -165,7 +165,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-15",
-   "views": 7399,
+   "views": 7403,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-16"
@@ -308,10 +308,10 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 3320,
+   "views": 35944,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-15"
+   "last_seen": "2026-10-16"
   },
   {
    "video_id": "2Of46FhyV7Q",
@@ -477,7 +477,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-21",
-   "views": 57012,
+   "views": 57016,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-16"
@@ -517,6 +517,7 @@
    "game": "GTA 6",
    "date": "2026-10-15",
    "views": 1030946,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -625,13 +626,27 @@
    "last_seen": "2026-10-08"
   },
   {
+   "video_id": "5dPwBWvmcbQ",
+   "title": "Justice - Flower In A Hurricane (ft Tame Impala, SZA, King Gizzard & the Lizard Wizard) [from GTAVI]",
+   "channel": "Justice",
+   "url": "https://www.youtube.com/watch?v=5dPwBWvmcbQ",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-15",
+   "views": 1399014,
+   "first_seen": "2026-10-16",
+   "last_seen": "2026-10-16"
+  },
+  {
    "video_id": "5mghTCRyrLA",
    "title": "Lucia's Ankle Monitor - Weekly Updates #gta6 #gtavi #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=5mghTCRyrLA",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 9494,
+   "views": 12574,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -682,7 +697,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-03",
-   "views": 206026,
+   "views": 206041,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-16"
@@ -851,7 +866,8 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-16",
-   "views": 4240,
+   "views": 4707,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -923,11 +939,13 @@
   {
    "video_id": "9V3bkm8eHwQ",
    "title": "Jason Changed A Lot - Weekly Updates #gta6 #gtavi #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=9V3bkm8eHwQ",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 14279,
+   "views": 15853,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -1435,7 +1453,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-30",
-   "views": 101791,
+   "views": 101770,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-16"
@@ -1461,7 +1479,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 522985,
+   "views": 525508,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-16"
@@ -1477,6 +1495,17 @@
    "views": 22538,
    "kind": "",
    "first_seen": "2026-10-15",
+   "last_seen": "2026-10-16"
+  },
+  {
+   "video_id": "EzjMZh2hZeU",
+   "title": "【GTA6】  突然公開最新宣傳片！毫無預警！全新畫面震撼登場！ #GTA6 #GrandTheftAutoVI #RockstarGames #GTA6Trailer #俠盜獵車手6",
+   "url": "https://www.youtube.com/watch?v=EzjMZh2hZeU",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-10-16",
+   "views": 7,
+   "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
   {
@@ -1520,13 +1549,13 @@
   },
   {
    "video_id": "FV93IVwJP_4",
-   "title": "GTA 6 Launch Trailer: Everything New YOU MISSED",
+   "title": "GTA 6 Launch Trailer Breakdown: Everything YOU MISSED",
    "channel": "TGG",
    "url": "https://www.youtube.com/watch?v=FV93IVwJP_4",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 956427,
+   "views": 957524,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-16"
@@ -1591,7 +1620,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 12791,
+   "views": 12813,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-16"
@@ -1721,10 +1750,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 173992,
+   "views": 175250,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-15"
+   "last_seen": "2026-10-16"
   },
   {
    "video_id": "IOY9ay9Pkmw",
@@ -1760,10 +1789,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-09-25",
-   "views": 53955,
+   "views": 54045,
    "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-15"
+   "last_seen": "2026-10-16"
   },
   {
    "video_id": "Idi0b3l0N_M",
@@ -1916,7 +1945,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-12",
-   "views": 496222,
+   "views": 496601,
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-10-16"
@@ -1942,7 +1971,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 2940,
+   "views": 2938,
    "kind": "",
    "first_seen": "2026-10-11",
    "last_seen": "2026-10-16"
@@ -1994,7 +2023,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 954819,
+   "views": 966222,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-16"
@@ -2158,11 +2187,13 @@
   {
    "video_id": "P8weZWjpp28",
    "title": "2026/10/16 槍械廂型車、毒販、塗鴉、佩里克島寶箱、遇難船、吞雲吐霧大麻位置 (GTA 5 線上模式)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=P8weZWjpp28",
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-16",
    "views": 17,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -2281,7 +2312,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-15"
+   "last_seen": "2026-10-16"
   },
   {
    "video_id": "QeNztVAeQlo",
@@ -2330,7 +2361,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 449726,
+   "views": 451482,
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
@@ -2473,7 +2504,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 2986,
+   "views": 3000,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-16"
@@ -2481,11 +2512,13 @@
   {
    "video_id": "TReKrfaLDHk",
    "title": "GTA 6 Modern Warfare - Weekly Updates #gta6 #gtavi #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=TReKrfaLDHk",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 1199,
+   "views": 2917,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -2549,7 +2582,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-09-30",
-   "views": 746311,
+   "views": 746341,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-16"
@@ -2928,7 +2961,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 16658,
+   "views": 16851,
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
@@ -3157,11 +3190,13 @@
   {
    "video_id": "aXTv6Vj7Uus",
    "title": "This Is About Moana BTW #gta5 #gtav #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=aXTv6Vj7Uus",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-16",
-   "views": 20679,
+   "views": 22563,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -3173,7 +3208,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 315,
+   "views": 332,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-16"
@@ -3242,6 +3277,17 @@
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "bDh2iwMiLsY",
+   "title": "Hidden Flamingo Meaning? - Weekly Updates #gta6 #gtavi #gtaonline",
+   "url": "https://www.youtube.com/watch?v=bDh2iwMiLsY",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-16",
+   "views": 4063,
+   "first_seen": "2026-10-16",
+   "last_seen": "2026-10-16"
   },
   {
    "video_id": "bIQzxpxQjdw",
@@ -3329,7 +3375,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 16662,
+   "views": 16777,
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
@@ -3446,7 +3492,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-15",
-   "views": 2536,
+   "views": 2540,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-16"
@@ -3875,7 +3921,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-04",
-   "views": 61822,
+   "views": 61823,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-16"
@@ -3901,7 +3947,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 716558,
+   "views": 718148,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-16"
@@ -3909,11 +3955,13 @@
   {
    "video_id": "iemEYrAYauY",
    "title": "Too Many Players Are Expecting GTA 5 From GTA 6… #gaming",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=iemEYrAYauY",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-16",
    "views": 6722,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -4175,7 +4223,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-10",
-   "last_seen": "2026-10-15"
+   "last_seen": "2026-10-16"
   },
   {
    "video_id": "njC-G5eXrMc",
@@ -4367,7 +4415,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-09-29",
-   "views": 66346,
+   "views": 66349,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-16"
@@ -4601,7 +4649,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 24818028,
+   "views": 24851330,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-16"
@@ -4627,7 +4675,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-09",
-   "views": 55192,
+   "views": 55197,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-16"
@@ -4674,11 +4722,13 @@
   {
    "video_id": "svKTqzcAsBk",
    "title": "GTA 6 Blimp Strats Incoming! - Weekly Updates #gta6 #gtavi #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=svKTqzcAsBk",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 3239,
+   "views": 3740,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -4846,7 +4896,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 40737,
+   "views": 40968,
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
@@ -5121,7 +5171,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 79546,
+   "views": 79878,
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
@@ -5160,7 +5210,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 121967,
+   "views": 122020,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-16"
