@@ -1,14 +1,16 @@
 {
- "updated": "2026-10-16T03:00:35Z",
+ "updated": "2026-10-16T04:06:48Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
    "title": "🔴4K PS5 Pro GTA 5 ONLINE LIVE STREAM GTAオンライン グラセフ 拡張版 #grandtheftauto Chill Heist Grind 238.26.9.19",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=-4tb-sWX68k",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-20",
    "views": 2316,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -101,7 +103,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-15"
+   "last_seen": "2026-10-16"
   },
   {
    "video_id": "0LoZ9ew4WeE",
@@ -231,7 +233,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-15"
+   "last_seen": "2026-10-16"
   },
   {
    "video_id": "1_7hdlsww-8",
@@ -327,11 +329,13 @@
   {
    "video_id": "2TugFv6x858",
    "title": "🔴 LIVE GTA 5 ONLINE 4K #GTAオンライン PS5 Pro グラセフ 拡張版 グランドセフトオート #gta5 JP/US版 Chill 🔫💰 Grind 245.26.10.2",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=2TugFv6x858",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-02",
    "views": 737,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -559,11 +563,13 @@
   {
    "video_id": "5Mt6wXFcUM8",
    "title": "🔴4K PS5 Pro GTA 5 ONLINE LIVE STREAM GTAオンライン グラセフ 拡張版 #grandtheftauto Chill Heist Grind 242.26.9.29",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=5Mt6wXFcUM8",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-29",
    "views": 1055,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -988,11 +994,13 @@
   {
    "video_id": "ASbUdOHv50w",
    "title": "🔴 LIVE #GTA 5 ONLINE 4K GTAオンライン PS5 Pro グラセフ 拡張版 グランドセフトオート JP/US Ver Chill Heist Grind 248.26.10.8",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=ASbUdOHv50w",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-08",
    "views": 1154,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -1850,6 +1858,7 @@
    "game": "GTA 6",
    "date": "2026-10-15",
    "views": 79463,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -1986,11 +1995,13 @@
   {
    "video_id": "Ol_60e3D7Kg",
    "title": "🔴 LIVE #GTA 5 ONLINE 4K GTAオンライン PS5 Pro グラセフ 拡張版 グランドセフトオート JP/US Ver Chill Heist Grind 246.26.10.3",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Ol_60e3D7Kg",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-03",
    "views": 1473,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -2140,11 +2151,13 @@
   {
    "video_id": "QlrcoQtCIcQ",
    "title": "🔴 LIVE #GTA 5 ONLINE 4K GTAオンライン PS5 Pro グラセフ 拡張版 グランドセフトオート JP/US Ver Chill Heist Grind 247.26.10.6",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=QlrcoQtCIcQ",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-06",
    "views": 2037,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -2411,22 +2424,26 @@
   {
    "video_id": "VOLUTOadR_g",
    "title": "🔴4K PS5 Pro GTA 5 ONLINE LIVE STREAM GTAオンライン グラセフ 拡張版 #grandtheftauto Chill Heist Grind 241.26.9.28",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=VOLUTOadR_g",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-28",
    "views": 2426,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
   {
    "video_id": "VTF7pOSgTWU",
    "title": "🔴4K PS5 Pro GTA 5 ONLINE LIVE STREAM GTAオンライン グラセフ 拡張版 #grandtheftauto Chill Heist Grind 243.26.9.30",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=VTF7pOSgTWU",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-30",
    "views": 840,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -2485,11 +2502,13 @@
   {
    "video_id": "WICtlrPL_xE",
    "title": "Talking About the NEW GTA VI Launch Trailer!!!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=WICtlrPL_xE",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-16",
    "views": 488,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -2901,11 +2920,13 @@
   {
    "video_id": "azY_FOToX3I",
    "title": "🔴4K PS5 Pro GTA 5 ONLINE LIVE STREAM GTAオンライン グラセフ 拡張版 #grandtheftauto Chill Heist Grind 239.26.9.23",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=azY_FOToX3I",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-23",
    "views": 2724,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -2964,11 +2985,13 @@
   {
    "video_id": "bM57dZOqVAM",
    "title": "你永遠也猜不到🥇各種花式首腦失敗   #gta #gta5 #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=bM57dZOqVAM",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-29",
    "views": 11117,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -2984,6 +3007,17 @@
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-10-13"
+  },
+  {
+   "video_id": "bYPZHwYLehU",
+   "title": "😂☠️Swapping the SUPRA as a Fake Franklin in GTA V#gtaviral #gtaonline #gta5online #gtacars #gta5",
+   "channel": "Toro chi",
+   "url": "https://www.youtube.com/shorts/bYPZHwYLehU",
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short",
+   "first_seen": "2026-10-16",
+   "last_seen": "2026-10-16"
   },
   {
    "video_id": "bi3RsIKiQYw",
@@ -3066,22 +3100,26 @@
   {
    "video_id": "dDez06rDYhM",
    "title": "🔴 LIVE 4K GTA 5 ONLINE JP&US版 GTAオンライン #PS5 Pro グラセフ 拡張版 グランドセフトオート #gta5 Chill 🔫💰 Grind 237.26.9.17",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=dDez06rDYhM",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-18",
    "views": 1782,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
   {
    "video_id": "dH_J2oO3ZY8",
    "title": "GTA 6 最新 Game Informer 雜誌專訪！",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=dH_J2oO3ZY8",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-09-30",
    "views": 6867,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -3218,11 +3256,13 @@
   {
    "video_id": "fWqBCagFvlI",
    "title": "特徵？噁心❗極度的噁心🤣 #gtaonline #gta5",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=fWqBCagFvlI",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-27",
    "views": 8486,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -3541,11 +3581,13 @@
   {
    "video_id": "iVCvVcMG7C0",
    "title": "回國嘍，當然要玩一下GTA5嘍！《阿金直播》",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=iVCvVcMG7C0",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-19",
    "views": 19949,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -3740,6 +3782,7 @@
    "game": "GTA 6",
    "date": "2026-10-15",
    "views": 243438,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -3934,6 +3977,7 @@
    "game": "GTA 6",
    "date": "2026-10-15",
    "views": 86342,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -4044,11 +4088,13 @@
   {
    "video_id": "qf2M3Wd21S0",
    "title": "🔴 GTA 5 ONLINE 4K LIVE STREAM GTAオンライン PS5 Pro グラセフ 拡張版 #grandtheftauto Chill 🔫💰 Grind 244.26.10.1",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=qf2M3Wd21S0",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-01",
    "views": 1803,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -4068,11 +4114,13 @@
   {
    "video_id": "qukxisC7Kzw",
    "title": "🔴 LIVE #GTA 5 ONLINE 4K GTAオンライン #PS5 Pro グラセフ 拡張版 グランドセフトオート #gta5 JP/US版 Chill💰Grind 236.26.9.17",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=qukxisC7Kzw",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-17",
    "views": 2098,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -4131,11 +4179,13 @@
   {
    "video_id": "rX-FfSHSaM8",
    "title": "買彩券也沒那麼準 🤣 #gta5 #末日首腦 #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=rX-FfSHSaM8",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-24",
    "views": 7998,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
@@ -4285,11 +4335,13 @@
   {
    "video_id": "tCnicR-UaKo",
    "title": "GTA5空中障礙賽！看起來過不了的毒圖，我來挑戰！",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=tCnicR-UaKo",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-24",
    "views": 20529,
+   "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
   },
