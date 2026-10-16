@@ -859,30 +859,6 @@
  ],
  "videos_shorts": [
   {
-   "id": "IgRTbEHSeU4",
-   "video_id": "IgRTbEHSeU4",
-   "title": "I Become A Fake Traffic Bollard And Trolled A GTA 5 Cops 🚨💥😂 #gta5",
-   "channel": "XP Playz",
-   "url": "https://www.youtube.com/shorts/IgRTbEHSeU4",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA 5",
-   "kind": "short"
-  },
-  {
-   "id": "69Z8AONrU5A",
-   "video_id": "69Z8AONrU5A",
-   "title": "Trolling A GTA V Cops As a Fake Fuel Pump! 👮⛽😂 #gta5",
-   "channel": "Gaurav Gaming",
-   "url": "https://www.youtube.com/shorts/69Z8AONrU5A",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA 5",
-   "kind": "short"
-  },
-  {
    "id": "zmUwVkBxkSQ",
    "video_id": "zmUwVkBxkSQ",
    "title": "Trolling GTA 5 Police As A Fake Gas Cylinder 🚨💥😂 #gta5",
@@ -892,30 +868,6 @@
    "date": null,
    "lang": "en",
    "game": "GTA 5",
-   "kind": "short"
-  },
-  {
-   "id": "1IN2Bhr97Kg",
-   "video_id": "1IN2Bhr97Kg",
-   "title": "Trolling A GTA 5 Players As A Fake Fuel Pump ⛽💥😂 #gta5",
-   "channel": "XP Playz",
-   "url": "https://www.youtube.com/shorts/1IN2Bhr97Kg",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA 5",
-   "kind": "short"
-  },
-  {
-   "id": "S4-sJBbOZv4",
-   "video_id": "S4-sJBbOZv4",
-   "title": "Trolling A GTA 5 Police As A Fake Barrier 🚧💥😂 #gta5 #gta5gameplay #gtaonline #gta5shorts",
-   "channel": "Gaurav Gaming",
-   "url": "https://www.youtube.com/shorts/S4-sJBbOZv4",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA Online",
    "kind": "short"
   },
   {
@@ -931,18 +883,6 @@
    "kind": "short"
   },
   {
-   "id": "fsf3vyki1Io",
-   "video_id": "fsf3vyki1Io",
-   "title": "I become a fake grass and trolled cops in gta #gta #gtav #gtaonline",
-   "channel": "BISON Gaming",
-   "url": "https://www.youtube.com/shorts/fsf3vyki1Io",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA Online",
-   "kind": "short"
-  },
-  {
    "id": "GywF44QAvvU",
    "video_id": "GywF44QAvvU",
    "title": "I become a fake cylinder and trolled cops in gta #gta #gtav #gtaonline",
@@ -952,6 +892,66 @@
    "date": null,
    "lang": "en",
    "game": "GTA Online",
+   "kind": "short"
+  },
+  {
+   "id": "S4-sJBbOZv4",
+   "video_id": "S4-sJBbOZv4",
+   "title": "Trolling A GTA 5 Police As A Fake Barrier 🚧💥😂 #gta5 #gta5gameplay #gtaonline #gta5shorts",
+   "channel": "Gaurav Gaming",
+   "url": "https://www.youtube.com/shorts/S4-sJBbOZv4",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short"
+  },
+  {
+   "id": "1IN2Bhr97Kg",
+   "video_id": "1IN2Bhr97Kg",
+   "title": "Trolling A GTA 5 Players As A Fake Fuel Pump ⛽💥😂 #gta5",
+   "channel": "XP Playz",
+   "url": "https://www.youtube.com/shorts/1IN2Bhr97Kg",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short"
+  },
+  {
+   "id": "vNe4Nxo33NA",
+   "video_id": "vNe4Nxo33NA",
+   "title": "I become a fake bollard and trolled gta cops #gta #gtav #gtaonline",
+   "channel": "SpiceX Warrior",
+   "url": "https://www.youtube.com/shorts/vNe4Nxo33NA",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short"
+  },
+  {
+   "id": "69Z8AONrU5A",
+   "video_id": "69Z8AONrU5A",
+   "title": "Trolling A GTA V Cops As a Fake Fuel Pump! 👮⛽😂 #gta5",
+   "channel": "Gaurav Gaming",
+   "url": "https://www.youtube.com/shorts/69Z8AONrU5A",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short"
+  },
+  {
+   "id": "IgRTbEHSeU4",
+   "video_id": "IgRTbEHSeU4",
+   "title": "I Become A Fake Traffic Bollard And Trolled A GTA 5 Cops 🚨💥😂 #gta5",
+   "channel": "XP Playz",
+   "url": "https://www.youtube.com/shorts/IgRTbEHSeU4",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
    "kind": "short"
   }
  ],
@@ -1723,6 +1723,54 @@
    "game": "GTA 6"
   },
   {
+   "id": "ac5ff352c828d15465f34aa2ba9228cf",
+   "tid": "2110853227973353835",
+   "url": "https://x.com/_gta6_countdown/status/2110853227973353835",
+   "author": "_gta6_countdown",
+   "author_name": "GTA 6 Countdown",
+   "text": "90.685% complete until GTA 6 release date.\n\n(34 days remaining)⏳",
+   "date": "2026-10-15",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "495967e01bc388c7899cedefb65c80bc",
+   "tid": "2110762624241529284",
+   "url": "https://x.com/synthpotato/status/2110762624241529284",
+   "author": "synthpotato",
+   "author_name": "Synth Potato",
+   "text": "Reminder that this is what the launch trailer for GTA 5 looked like.\n\nIt's crazy how much the technology has progressed, while also its more clear than ever that Rockstar themselves have gotten so much better at cinematography and writing. GTA 6 is so worth the wait!",
+   "date": "2026-10-15",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "77e29b64065a6f5e82a710beac0fdcfb",
+   "tid": "2110781416170459336",
+   "url": "https://x.com/ragnarok0316/status/2110781416170459336",
+   "author": "ragnarok0316",
+   "author_name": "FrankieRagnarok",
+   "text": "@Classic240472 @AnAverageGamerX @ADLFC0 3. If I were to only put half the hours into this game that I did with GTAV/Online then it will be well worth the $100 price tag never mind the $80 one. \n\n4. Rockstar did not gain my trust so easily like I said this is based on the past 30 years of impeccable GTA games.",
+   "date": "2026-10-15",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 5"
+  },
+  {
+   "id": "4cc879bf030aab0e7da3cdfc3274fe84",
+   "tid": "2110803696657498528",
+   "url": "https://x.com/raionsensi/status/2110803696657498528",
+   "author": "raionsensi",
+   "author_name": "Raion Sensi",
+   "text": "No one can gaslight people like Rockstar Games did with GTA VI. I thought GTA VI Trailer 1 had in-game graphics, but the GTA VI Launch Trailer shows the real in-game graphics, which look nowhere near as good as those in Trailer 1.\n\nGTA VI Launch Trailer looks shitty asf compared to GTA VI Trailer 1.",
+   "date": "2026-10-15",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
    "id": "63364e34c8335b966a0066576c00fd62",
    "tid": "2110313676687208507",
    "url": "https://x.com/gtaonlinenews/status/2110313676687208507",
@@ -2107,6 +2155,18 @@
    "game": "GTA Online"
   },
   {
+   "id": "7dba0d5b23c8dc6dcd8aa7c2e479ec87",
+   "tid": "2110354080635682949",
+   "url": "https://x.com/hekapute_/status/2110354080635682949",
+   "author": "hekapute_",
+   "author_name": "EybiTE",
+   "text": "@GTAWikiOfficial They are already starting to rename vehicles in GTA Online—notably the Bravado Youga Classic, which is called the Vapid Youga in its custom version.",
+   "date": "2026-10-14",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA Online"
+  },
+  {
    "id": "b52a1dc305c0143c2ef5915ccbacd1d0",
    "tid": "2109855342058516856",
    "url": "https://x.com/davngta/status/2109855342058516856",
@@ -2129,70 +2189,10 @@
    "likes": null,
    "lang": "en",
    "game": "GTA Online"
-  },
-  {
-   "id": "fe4e02af512579bfb0b282d56fcf44b2",
-   "tid": "2109799495907332574",
-   "url": "https://x.com/poptopicsite/status/2109799495907332574",
-   "author": "poptopicsite",
-   "author_name": "POPTOPIC",
-   "text": "GTA VI may finally let radio leave the car. Portable audio could blend stations, podcasts and music into Leonida’s streets—one small feature that could change how the whole world feels. @RockstarGames #GTAVI\n\n👇\nhttps://poptopic.com.au/news/gta-vi-radio-podcasts-on-foot/",
-   "date": "2026-10-13",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "c8df9421dc96b1a2973bb86ca664e68c",
-   "tid": "2109822473130717382",
-   "url": "https://x.com/kingzezim_kalux/status/2109822473130717382",
-   "author": "kingzezim_kalux",
-   "author_name": "kingzezim_",
-   "text": "Mendez tem tudo para ser um dos personagens mais problemáticos do GTA 6.\n\nNo Olhar Estendido, a reação do Jason e Lucia ao perceberem sua presença naquele local chama a atenção. O local também aparece brevemente no segundo trailer, mas ainda não sabemos o que aconteceu antes para justificar tanta preocupação.\n\nEles certamente não querem chamar a atenção da polícia, mas encontrar Mendez parece ser um problema à parte. O que será que aconteceu entre eles? #GTAVI",
-   "date": "2026-10-13",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "32171e73cd7823d6a8c01910dfc0cd14",
-   "tid": "2110015225307050060",
-   "url": "https://x.com/dexerto/status/2110015225307050060",
-   "author": "dexerto",
-   "author_name": "Dexerto",
-   "text": "GTA 6 will release on PC within the first three months of 2027, sources tell GamesBeat",
-   "date": "2026-10-13",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "747f9fcf71893d3255e480001e4c2e95",
-   "tid": "2109984268386492468",
-   "url": "https://x.com/gtaonlinenews/status/2109984268386492468",
-   "author": "gtaonlinenews",
-   "author_name": "GTA News RockstarINTEL.com",
-   "text": "🚨 GTA 6 gained 330,000 more pre-orders last week \n\n- 6.08m pre-orders since June\n- $32m in revenue this week\n- XBOX share up 1% (+70,000)\n- PS5 share down 1%  (260,000)\n\nVia SensorTower",
-   "date": "2026-10-13",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "14209c68bd6bbb57c99db4a64a64a21b",
-   "tid": "2110009538342449298",
-   "url": "https://x.com/niktek/status/2110009538342449298",
-   "author": "niktek",
-   "author_name": "NikTek",
-   "text": "Grand Theft Auto VI may launch on PC sooner than we expected\n\nGamesBeat has confirmed that GTA 6 is set for a PC launch in Q1 of 2027, according to four industry sources familiar with the studio’s plans.\n\nThis release schedule is much more different compared to previous Rockstar PC port releases which have sometimes taken well over a year.\n\nGamesBeat has contacted a Rockstar Games representative prior to publishing this article but they did not respond to a request for comment.\n\nSource: https://gamesbeat.com/grand-theft-auto-vis-pc-release-is-slated-for-q1-2027/",
-   "date": "2026-10-13",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
   }
  ],
  "meta": {
-  "sessionscan_slot": "2026-10-16 00:03",
+  "sessionscan_slot": "2026-10-16 02:06",
   "jobs_gtabase": "2026-10-15 17:34",
   "jobs_ign": "2026-10-15 17:34",
   "jobs_wiki": "2026-10-15 17:34",
@@ -2203,10 +2203,10 @@
   "videos_hot_ja": "2026-10-16 00:03",
   "videos_new_ja": "2026-10-16 00:03",
   "forum_reddit": "2026-10-15 17:37",
-  "tweets_en": "2026-10-16 00:03",
-  "tweets": "2026-10-16 00:03",
-  "_last_run": "2026-10-16 00:03",
-  "generated_at": "2026-10-16T00:03:51Z",
+  "tweets_en": "2026-10-16 02:08",
+  "tweets": "2026-10-16 02:08",
+  "_last_run": "2026-10-16 02:08",
+  "generated_at": "2026-10-16T02:08:11Z",
   "sample": false,
   "scraper_status": "ok",
   "label_zh": "資料快照",
@@ -2224,11 +2224,11 @@
   ],
   "jobs": "2026-10-15 17:34",
   "hot": "2026-10-16 00:03",
-  "new": "2026-10-16 00:03",
+  "new": "2026-10-16 02:06",
   "forum": "2026-10-15 17:37",
   "forum_bahamut": "2026-10-15 17:37",
-  "videos_shorts": "2026-10-16 00:03",
-  "tweets_zh": "2026-10-16 00:03"
+  "videos_shorts": "2026-10-16 02:06",
+  "tweets_zh": "2026-10-16 02:08"
  },
  "sessionscan_slot": {
   "status": "online",
@@ -2269,50 +2269,50 @@
  },
  "rank_prev": {
   "videos_hot_zh": {
-   "IDRUqPRmmkM": 1,
-   "bIQzxpxQjdw": 2,
-   "y34UESrKuVU": 3,
-   "ES48Lqv33w8": 4,
-   "0LoZ9ew4WeE": 5,
-   "pR4K3kat02c": 6,
-   "iPKc4VTWIK0": 7,
-   "34xAC-c2nUI": 8,
-   "2Of46FhyV7Q": 9,
-   "s_PrwZqutkk": 10
+   "bIQzxpxQjdw": 1,
+   "y34UESrKuVU": 2,
+   "ES48Lqv33w8": 3,
+   "0LoZ9ew4WeE": 4,
+   "pR4K3kat02c": 5,
+   "iPKc4VTWIK0": 6,
+   "34xAC-c2nUI": 7,
+   "2Of46FhyV7Q": 8,
+   "s_PrwZqutkk": 9,
+   "2jHpPgivcvY": 10
   },
   "videos_hot_en": {
    "rz1B4B2yBZY": 1,
-   "UNchri7oePg": 2,
-   "uV26izBiLF8": 3,
-   "_ZBPNTVJSZo": 4,
-   "-YzzZu_ptKo": 5,
-   "icy-lhqJhMQ": 6,
-   "MHpaxuVROlg": 7,
-   "Ej4S9MxmmOw": 8,
+   "re4f3Foyd0g": 2,
+   "vRsfurnvHbw": 3,
+   "UNchri7oePg": 4,
+   "icy-lhqJhMQ": 5,
+   "FV93IVwJP_4": 6,
+   "Ej4S9MxmmOw": 7,
+   "MHpaxuVROlg": 8,
    "2qwUGW3Fak0": 9,
-   "0eAOyE4hnbs": 10
+   "3Yu8ca22cIM": 10
   },
   "videos_hot_ja": {
-   "Rk1mrWKAvtM": 1,
-   "65JV3YTSwNE": 2,
-   "VbjNDsuLeao": 3,
-   "5tfiBFXSa28": 4,
-   "CbsauFlcxBc": 5,
-   "qUQKjAingaI": 6,
-   "62YQ4lil5WU": 7,
-   "_t6rdOQxGD0": 8,
-   "9xjTxVaMKNU": 9,
-   "JpnFMyHDS04": 10
+   "U8W-sd6LyQM": 1,
+   "w444qIiMfVg": 2,
+   "f5Na1eEq_g0": 3,
+   "OGGpANZKEDU": 4,
+   "4AT2qTbQFck": 5,
+   "C6Ymq6hnGkE": 6,
+   "mB6DIw4oG-g": 7,
+   "0q4hFCLjXQc": 8,
+   "VbjNDsuLeao": 9,
+   "5tfiBFXSa28": 10
   },
   "videos_shorts": {
-   "zmUwVkBxkSQ": 1,
-   "3fELuSIu1lY": 2,
-   "fsf3vyki1Io": 3,
-   "69Z8AONrU5A": 4,
+   "IgRTbEHSeU4": 1,
+   "69Z8AONrU5A": 2,
+   "zmUwVkBxkSQ": 3,
+   "1IN2Bhr97Kg": 4,
    "S4-sJBbOZv4": 5,
-   "IgRTbEHSeU4": 6,
-   "nflCCCE4EIc": 7,
-   "qvF0Y_H0Vo4": 8
+   "yei8sYZadEI": 6,
+   "fsf3vyki1Io": 7,
+   "GywF44QAvvU": 8
   }
  }
 }
