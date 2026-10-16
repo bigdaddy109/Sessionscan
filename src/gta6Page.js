@@ -27,8 +27,16 @@ export const GTA6_OFFICIAL_TRAILER_YOUTUBE_ID = "tJbzMqJGH4k";
 export const GTA6_OFFICIAL_TRAILER_WATCH_URL =
   `https://www.youtube.com/watch?v=${GTA6_OFFICIAL_TRAILER_YOUTUBE_ID}`;
 
-/** Official YouTube thumbnail (i.ytimg.com) — static image, not an embed. */
+/**
+ * Official YouTube thumbnail (i.ytimg.com) — static image, not an embed.
+ * maxresdefault is 1280×720 for this Rockstar id, so the 16:9 poster frame
+ * is not upscaling a 480×360 hqdefault (letterboxed, then object-fit: cover).
+ */
 export const GTA6_OFFICIAL_TRAILER_POSTER_URL =
+  `https://i.ytimg.com/vi/${GTA6_OFFICIAL_TRAILER_YOUTUBE_ID}/maxresdefault.jpg`;
+
+/** Always-available thumb if maxres 404s. Same video id — never a different clip. */
+export const GTA6_OFFICIAL_TRAILER_POSTER_FALLBACK_URL =
   `https://i.ytimg.com/vi/${GTA6_OFFICIAL_TRAILER_YOUTUBE_ID}/hqdefault.jpg`;
 
 /** UTC midnight of the announced release day. */
@@ -171,10 +179,12 @@ export function gta6OfficialTrailerHtml(lang = "en") {
               class="gta6-trailer-thumb"
               src="${esc(GTA6_OFFICIAL_TRAILER_POSTER_URL)}"
               alt=""
-              width="480"
-              height="360"
+              width="1280"
+              height="720"
               loading="lazy"
               decoding="async"
+              data-poster-fallback="${esc(GTA6_OFFICIAL_TRAILER_POSTER_FALLBACK_URL)}"
+              onerror="this.onerror=null;this.src=this.getAttribute('data-poster-fallback')"
             />
             <span class="gta6-trailer-play" aria-hidden="true"><span></span></span>
           </a>

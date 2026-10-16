@@ -9,6 +9,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   GTA6_NEWSWIRE_URL,
+  GTA6_OFFICIAL_TRAILER_POSTER_FALLBACK_URL,
   GTA6_OFFICIAL_TRAILER_POSTER_URL,
   GTA6_OFFICIAL_TRAILER_WATCH_URL,
   GTA6_OFFICIAL_TRAILER_YOUTUBE_ID,
@@ -80,11 +81,21 @@ if (!zhBody.includes("2026 年 11 月 19 日")) fail("zh announced date missing"
 if (GTA6_OFFICIAL_TRAILER_YOUTUBE_ID !== "tJbzMqJGH4k") {
   fail("official trailer YouTube id drift", GTA6_OFFICIAL_TRAILER_YOUTUBE_ID);
 }
+// Why: the poster sits in a 16:9 frame with object-fit:cover. hqdefault is
+// 480×360 and gets upscaled and cropped. This Rockstar id's maxresdefault is
+// 1280×720, so the share-sized frame stays sharp. hqdefault remains the
+// onerror fallback — a missing maxres must not blank the poster or swap videos.
 if (
   GTA6_OFFICIAL_TRAILER_POSTER_URL !==
-  "https://i.ytimg.com/vi/tJbzMqJGH4k/hqdefault.jpg"
+  "https://i.ytimg.com/vi/tJbzMqJGH4k/maxresdefault.jpg"
 ) {
   fail("trailer poster URL drift", GTA6_OFFICIAL_TRAILER_POSTER_URL);
+}
+if (
+  GTA6_OFFICIAL_TRAILER_POSTER_FALLBACK_URL !==
+  "https://i.ytimg.com/vi/tJbzMqJGH4k/hqdefault.jpg"
+) {
+  fail("trailer poster fallback drift", GTA6_OFFICIAL_TRAILER_POSTER_FALLBACK_URL);
 }
 if (!GTA6_OFFICIAL_TRAILER_WATCH_URL.includes("watch?v=tJbzMqJGH4k")) {
   fail("trailer watch URL drift", GTA6_OFFICIAL_TRAILER_WATCH_URL);
@@ -93,6 +104,15 @@ const trailerEn = gta6OfficialTrailerHtml("en");
 if (!trailerEn.includes('id="gta6OfficialTrailer"')) fail("trailer section missing");
 if (!trailerEn.includes('id="gta6TrailerPoster"')) fail("trailer poster link missing");
 if (!trailerEn.includes(GTA6_OFFICIAL_TRAILER_POSTER_URL)) fail("trailer poster img missing");
+if (!trailerEn.includes('width="1280"') || !trailerEn.includes('height="720"')) {
+  fail("trailer poster must reserve 16:9 maxres dimensions");
+}
+if (!trailerEn.includes(`data-poster-fallback="${GTA6_OFFICIAL_TRAILER_POSTER_FALLBACK_URL}"`)) {
+  fail("trailer poster missing hqdefault fallback");
+}
+if (!trailerEn.includes("this.getAttribute('data-poster-fallback')")) {
+  fail("trailer poster must swap to fallback on error");
+}
 if (!trailerEn.includes(`href="${GTA6_OFFICIAL_TRAILER_WATCH_URL}"`)) {
   fail("trailer poster must open watch URL");
 }
@@ -177,8 +197,11 @@ if (existsSync(distEn)) {
   if (!dist.includes("gta6OfficialTrailer") || !dist.includes("gta6TrailerPoster")) {
     fail("dist EN missing official trailer poster");
   }
+  if (!dist.includes("i.ytimg.com/vi/tJbzMqJGH4k/maxresdefault.jpg")) {
+    fail("dist EN missing maxres trailer thumb");
+  }
   if (!dist.includes("i.ytimg.com/vi/tJbzMqJGH4k/hqdefault.jpg")) {
-    fail("dist EN missing trailer thumb");
+    fail("dist EN missing hqdefault trailer fallback");
   }
   if (/youtube-nocookie|<iframe/i.test(dist)) {
     fail("dist EN must not embed youtube iframe on /gta6/");
@@ -192,6 +215,9 @@ if (existsSync(distZh)) {
   }
   if (!dist.includes("gta6OfficialTrailer") || !dist.includes("gta6TrailerPoster")) {
     fail("dist ZH missing official trailer poster");
+  }
+  if (!dist.includes("i.ytimg.com/vi/tJbzMqJGH4k/maxresdefault.jpg")) {
+    fail("dist ZH missing maxres trailer thumb");
   }
   if (/youtube-nocookie|<iframe/i.test(dist)) {
     fail("dist ZH must not embed youtube iframe on /zh/gta6/");
