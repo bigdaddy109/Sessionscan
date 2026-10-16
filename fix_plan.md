@@ -2,7 +2,7 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- GTA 6 官方預告海報改 `maxresdefault`（1280×720，對齊 16:9 框；`hqdefault` 只當 `data-poster-fallback`）。等研發程式 「可以合」本 PR 後再合。不載 iframe。Rollback：`pre-gta6-trailer-maxres-20261016`。測 `tests/test_gta6_page.mjs`。
+- GTA 6 官方預告海報改 `maxresdefault`（1280×720，對齊 16:9 框；`hqdefault` 只當 `data-poster-fallback`；#111；等研發程式 「可以合 #111」後再合）。不載 iframe。Rollback：`pre-gta6-trailer-maxres-20261016`。測 `tests/test_gta6_page.mjs`。
 - 影片分享頁 `og:image` 仍是 `hqdefault`（480×360）但 meta 宣告 1200×630。正式站 347 支裡 4 支 `maxresdefault` 404（含 2026-10-12／13 每日收集片 `i6LgSKZGGlg`、`lV69T7KuAWk`）。不要整批改 maxres。若要 1200×630，得先決定建置時探測再選圖。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
