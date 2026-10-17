@@ -2,8 +2,8 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- Fast Worker Logs 留在 `wrangler.toml`（`[observability] enabled = true`、`[observability.logs] enabled = true`、`invocation_logs = true`；#110；等研發程式 「可以合 #110」後再合）。本 PR 不 deploy、不換 PAT。Rollback：`pre-dispatch-observability-20261015`。測 `tests/test_dispatch_fast_scrape_worker.mjs`。
-- 全站分享預覽圖（殼頁 `ogImageUrlForPage`＋`public/og-*.jpg` 1200×630；影片頁 YouTube 縮圖；#108；等研發程式 「可以合 #108」後再合）。測 `tests/test_seo_meta.mjs`。Rollback：`pre-og-share-images-20261015`。
+- GTA 6 官方預告海報改 `maxresdefault`（1280×720，對齊 16:9 框；`hqdefault` 只當 `data-poster-fallback`；#111；等研發程式 「可以合 #111」後再合）。不載 iframe。Rollback：`pre-gta6-trailer-maxres-20261016`。測 `tests/test_gta6_page.mjs`。
+- 影片分享頁 `og:image` 仍是 `hqdefault`（480×360）但 meta 宣告 1200×630。正式站 347 支裡 4 支 `maxresdefault` 404（含 2026-10-12／13 每日收集片 `i6LgSKZGGlg`、`lV69T7KuAWk`）。不要整批改 maxres。若要 1200×630，得先決定建置時探測再選圖。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
 
@@ -17,6 +17,8 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- Fast Worker Logs 留在 `wrangler.toml`（`[observability] enabled = true`、`[observability.logs] invocation_logs = true`；#110；rollback `pre-dispatch-observability-20261015`；核准：研發程式 「可以合 #110」；merge `4dc05a0`）。合後未重部署。測 `tests/test_dispatch_fast_scrape_worker.mjs`。
+- 全站分享預覽圖（殼頁 `ogImageUrlForPage`＋`public/og-*.jpg` 1200×630；影片頁 YouTube `hqdefault`；#108；rollback `pre-og-share-images-20261015`；核准：研發程式 「可以合 #108」）。測 `tests/test_seo_meta.mjs`。
 - Fast Worker 入口只留 default export（常數／函式在 `src/lib.js`；#109；rollback `pre-dispatch-fast-scrape-exports-20261015`；核准：研發程式 「可以合 #109」；merge `9dd9f1e`）。合後未重部署。測 `tests/test_dispatch_fast_scrape_worker.mjs`。
 - Businesses 篩選 `[hidden]` 顯示修復（`.biz-rank-item[hidden]{display:none}`；#107；rollback `pre-biz-filter-hidden-20261015`；核准：研發程式 「可以合 #107」）。測 `tests/test_business_ranking.mjs`。
 - Short／影片 facade 一點就播（iOS：`youtubeFacadePlaySrc` 帶 `autoplay=1&mute=1&playsinline=1`；#106；rollback `pre-short-ios-one-tap-20261015`；核准：研發程式 「可以合 #106」）。測 `tests/test_youtube_facade_play.mjs`。
