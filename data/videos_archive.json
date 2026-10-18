@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-18T00:04:53Z",
+ "updated": "2026-10-18T02:05:33Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -62,17 +62,20 @@
    "game": "GTA Online",
    "date": "2026-10-17",
    "views": 70,
+   "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
   },
   {
    "video_id": "-Q9uju0yo4A",
    "title": "10/16 GTA Online 強化版 遊戲實況 萬聖節活動",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=-Q9uju0yo4A",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-16",
    "views": 86,
+   "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
   },
@@ -214,10 +217,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-08",
-   "views": 420559,
+   "views": 420624,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-17"
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "0q4hFCLjXQc",
@@ -675,6 +678,28 @@
    "last_seen": "2026-10-17"
   },
   {
+   "video_id": "3hqDA8v3qac",
+   "title": "GTA 6 ONLINE - ALL INFO EXPLAINED!",
+   "url": "https://www.youtube.com/watch?v=3hqDA8v3qac",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-02",
+   "views": 116023,
+   "first_seen": "2026-10-18",
+   "last_seen": "2026-10-18"
+  },
+  {
+   "video_id": "3weIdG6TThI",
+   "title": "GTA 6 LAUNCH TRAILER - 50 THINGS YOU MISSED!",
+   "url": "https://www.youtube.com/watch?v=3weIdG6TThI",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-15",
+   "views": 79163,
+   "first_seen": "2026-10-18",
+   "last_seen": "2026-10-18"
+  },
+  {
    "video_id": "46R7v6v9zyQ",
    "title": "【GTA5】新車両ホルス先行解除！今晩の週アップデート速報 2026年9月10日～",
    "channel": "",
@@ -725,6 +750,17 @@
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-15"
+  },
+  {
+   "video_id": "50ZTIfPDDYI",
+   "title": "《GTA VI》能用PC玩首發?原來還有這一招?_電玩宅速配20261007",
+   "url": "https://www.youtube.com/watch?v=50ZTIfPDDYI",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-10-07",
+   "views": 12133,
+   "first_seen": "2026-10-18",
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "5Mt6wXFcUM8",
@@ -903,10 +939,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-09-30",
-   "views": 312060,
+   "views": 312868,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-15"
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "6jHq4CMBbDk",
@@ -2191,6 +2227,8 @@
    "url": "https://www.youtube.com/shorts/HjlIz8f4utU",
    "lang": "en",
    "game": "GTA Online",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
@@ -2320,10 +2358,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-09-20",
-   "views": 384724,
+   "views": 384954,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-16"
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "JuErTIEA0Bs",
@@ -2674,6 +2712,17 @@
    "views": 337135,
    "kind": "",
    "first_seen": "2026-10-17",
+   "last_seen": "2026-10-18"
+  },
+  {
+   "video_id": "OffkLhdTQyg",
+   "title": "【雙平台開播 x GTAV】【雙平台開播 x GTAV】月底了只能來洛聖都自由行 XD",
+   "url": "https://www.youtube.com/watch?v=OffkLhdTQyg",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-09-29",
+   "views": 1180,
+   "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
   },
   {
@@ -3786,11 +3835,13 @@
   {
    "video_id": "ZRhHUHeF5lA",
    "title": "10/17 GTA Online 強化版 遊戲實況 萬聖節活動",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=ZRhHUHeF5lA",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-17",
    "views": 0,
+   "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
   },
@@ -4247,7 +4298,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-17"
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "bx48IIOGCx8",
@@ -4406,6 +4457,17 @@
    "last_seen": "2026-10-15"
   },
   {
+   "video_id": "dgU5jlucg3M",
+   "title": "PC玩家不用等太久？《GTA 6》傳PC版即將登場！-電玩宅速配20261014",
+   "url": "https://www.youtube.com/watch?v=dgU5jlucg3M",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-10-14",
+   "views": 14195,
+   "first_seen": "2026-10-18",
+   "last_seen": "2026-10-18"
+  },
+  {
    "video_id": "diHLh5_META",
    "title": "【GTA5 OL】GTA5線上更新，萬聖節活動第三周，事務所繼續打折，車友會展臺免費送車，完成別惹德瑞送錢，打僵屍差事回歸，迷幻仙人掌回歸，多輛絕版載具和武器等你收藏（10.15-10.22）",
    "channel": "麦克mk",
@@ -4465,10 +4527,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-04",
-   "views": 2946,
+   "views": 2939,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "eEu0t64x8o8",
@@ -4590,11 +4652,13 @@
   {
    "video_id": "fna60nSYHJU",
    "title": "20 REASONS TO BE EXCITED FOR GTA 6!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=fna60nSYHJU",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-17",
    "views": 2979,
+   "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
   },
@@ -5329,11 +5393,13 @@
   {
    "video_id": "moM9_MTO1pk",
    "title": "GTA 6 Cops Know You're a COUPLE 😳 #gta6  #rockstargames",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=moM9_MTO1pk",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-18",
    "views": 0,
+   "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
   },
@@ -5631,10 +5697,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 871,
+   "views": 998,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-12"
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "po73L4STGvA",
@@ -5782,11 +5848,13 @@
   {
    "video_id": "r2JQaG4JQZQ",
    "title": "The Rarest Way To Die In GTA 5 #gta5 #gtav #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=r2JQaG4JQZQ",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-17",
    "views": 32220,
+   "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
   },
@@ -5893,6 +5961,17 @@
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-08"
+  },
+  {
+   "video_id": "rsLRA7gDsf8",
+   "title": "Is GTA 6 SCAMMING Us?",
+   "url": "https://www.youtube.com/watch?v=rsLRA7gDsf8",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-09-29",
+   "views": 31957,
+   "first_seen": "2026-10-18",
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "rz1B4B2yBZY",
@@ -6165,7 +6244,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-17"
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "ttqMsX8A5cc",
@@ -6700,7 +6779,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-17"
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "ynlJjBAAT1o",
@@ -6710,10 +6789,10 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 4106,
+   "views": 4358,
    "kind": "",
    "first_seen": "2026-10-16",
-   "last_seen": "2026-10-17"
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "z04hB5ri4Lo",
