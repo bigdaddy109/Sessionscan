@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-18T02:05:33Z",
+ "updated": "2026-10-18T02:54:57Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -680,22 +680,26 @@
   {
    "video_id": "3hqDA8v3qac",
    "title": "GTA 6 ONLINE - ALL INFO EXPLAINED!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=3hqDA8v3qac",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-02",
    "views": 116023,
+   "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
   },
   {
    "video_id": "3weIdG6TThI",
    "title": "GTA 6 LAUNCH TRAILER - 50 THINGS YOU MISSED!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=3weIdG6TThI",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
    "views": 79163,
+   "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
   },
@@ -754,11 +758,13 @@
   {
    "video_id": "50ZTIfPDDYI",
    "title": "《GTA VI》能用PC玩首發?原來還有這一招?_電玩宅速配20261007",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=50ZTIfPDDYI",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-07",
    "views": 12133,
+   "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
   },
@@ -1160,10 +1166,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-04",
-   "views": 5237,
+   "views": 5288,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-16"
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "8rv-YsrzBGw",
@@ -2717,11 +2723,13 @@
   {
    "video_id": "OffkLhdTQyg",
    "title": "【雙平台開播 x GTAV】【雙平台開播 x GTAV】月底了只能來洛聖都自由行 XD",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=OffkLhdTQyg",
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-09-29",
    "views": 1180,
+   "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
   },
@@ -3635,7 +3643,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-17"
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "XaTGtmhFKdE",
@@ -4459,11 +4467,13 @@
   {
    "video_id": "dgU5jlucg3M",
    "title": "PC玩家不用等太久？《GTA 6》傳PC版即將登場！-電玩宅速配20261014",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=dgU5jlucg3M",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-14",
    "views": 14195,
+   "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
   },
@@ -4475,10 +4485,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-15",
-   "views": 3920,
+   "views": 3986,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-17"
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "drsorLG0zVY",
@@ -4986,6 +4996,17 @@
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-10-12"
+  },
+  {
+   "video_id": "i2rul28xrwM",
+   "title": "Franklin Saves Michael at the Last Second! #gta5 #shorts",
+   "channel": "Mcafee GAMING",
+   "url": "https://www.youtube.com/shorts/i2rul28xrwM",
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short",
+   "first_seen": "2026-10-18",
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "i6LgSKZGGlg",
@@ -5593,10 +5614,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-09-24",
-   "views": 7056,
+   "views": 7062,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-16"
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "p4X7lNnDf6A",
@@ -5965,11 +5986,13 @@
   {
    "video_id": "rsLRA7gDsf8",
    "title": "Is GTA 6 SCAMMING Us?",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=rsLRA7gDsf8",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-09-29",
    "views": 31957,
+   "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
   },
@@ -6724,10 +6747,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-08",
-   "views": 6860,
+   "views": 6971,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-16"
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "yNtb4tQpHUA",
