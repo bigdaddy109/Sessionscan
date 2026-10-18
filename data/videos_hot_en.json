@@ -5,18 +5,7 @@
   "title": "Grand Theft Auto VI Launch Trailer",
   "channel": "Rockstar Games",
   "url": "https://www.youtube.com/watch?v=rz1B4B2yBZY",
-  "views": 39819680,
-  "date": "2026-10-15",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "N6f30RVHOVw",
-  "video_id": "N6f30RVHOVw",
-  "title": "Grand Theft Auto VI - Tráiler de lanzamiento",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=N6f30RVHOVw",
-  "views": 3891467,
+  "views": 40237435,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
@@ -27,7 +16,7 @@
   "title": "Grand Theft Auto VI | Trailer de lançamento",
   "channel": "Rockstar Games Brasil",
   "url": "https://www.youtube.com/watch?v=3JUboYgqIxc",
-  "views": 3095965,
+  "views": 3110389,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
@@ -38,18 +27,29 @@
   "title": "Trailer di lancio di Grand Theft Auto VI",
   "channel": "Rockstar Games Italia",
   "url": "https://www.youtube.com/watch?v=84QszForbqQ",
-  "views": 2910880,
+  "views": 3014111,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
  },
  {
+  "id": "re4f3Foyd0g",
+  "video_id": "re4f3Foyd0g",
+  "title": "Grand Theft Auto V #1 | Joe Bartolozzi",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=re4f3Foyd0g",
+  "views": 1830039,
+  "date": "2026-10-08",
+  "lang": "en",
+  "game": "GTA 5"
+ },
+ {
   "id": "FV93IVwJP_4",
   "video_id": "FV93IVwJP_4",
-  "title": "GTA 6 Launch Trailer: Everything New YOU MISSED",
+  "title": "GTA 6 Launch Trailer Breakdown: Everything YOU MISSED",
   "channel": "TGG",
   "url": "https://www.youtube.com/watch?v=FV93IVwJP_4",
-  "views": 1392770,
+  "views": 1400148,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
@@ -60,30 +60,8 @@
   "title": "Grand Theft Auto VI - Launch Trailer | PS5 Games",
   "channel": "PlayStation",
   "url": "https://www.youtube.com/watch?v=Qqzj-j4qk0E",
-  "views": 1022013,
+  "views": 1036148,
   "date": "2026-10-16",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "zGjuxlWjcjI",
-  "video_id": "zGjuxlWjcjI",
-  "title": "The 4 Parent Cameos In GTA Online #gta5 #gtav #gtaonline",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=zGjuxlWjcjI",
-  "views": 940914,
-  "date": "2026-10-17",
-  "lang": "en",
-  "game": "GTA Online"
- },
- {
-  "id": "icy-lhqJhMQ",
-  "video_id": "icy-lhqJhMQ",
-  "title": "Grand Theft Auto VI Launch Trailer",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=icy-lhqJhMQ",
-  "views": 940787,
-  "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -93,20 +71,42 @@
   "title": "iShowSpeed Reacts To GTA 6 - Official Launch Trailer",
   "channel": "Live Speedy",
   "url": "https://www.youtube.com/watch?v=mlguGHEeVO0",
-  "views": 930831,
+  "views": 949071,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
  },
  {
-  "id": "g-rSSntLJ7k",
-  "video_id": "g-rSSntLJ7k",
-  "title": "10 THINGS From GTA 5 That You WON'T Be Able To Do In GTA 6",
+  "id": "icy-lhqJhMQ",
+  "video_id": "icy-lhqJhMQ",
+  "title": "Grand Theft Auto VI Launch Trailer",
   "channel": "",
-  "url": "https://www.youtube.com/watch?v=g-rSSntLJ7k",
-  "views": 880065,
-  "date": "2026-10-05",
+  "url": "https://www.youtube.com/watch?v=icy-lhqJhMQ",
+  "views": 948774,
+  "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
+ },
+ {
+  "id": "vRsfurnvHbw",
+  "video_id": "vRsfurnvHbw",
+  "title": "Grand Theft Auto V #2 | Joe Bartolozzi",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=vRsfurnvHbw",
+  "views": 907521,
+  "date": "2026-10-11",
+  "lang": "en",
+  "game": "GTA 5"
+ },
+ {
+  "id": "3Yu8ca22cIM",
+  "video_id": "3Yu8ca22cIM",
+  "title": "Grand Theft Auto V #3 | Joe Bartolozzi",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=3Yu8ca22cIM",
+  "views": 636810,
+  "date": "2026-10-14",
+  "lang": "en",
+  "game": "GTA 5"
  }
 ]
