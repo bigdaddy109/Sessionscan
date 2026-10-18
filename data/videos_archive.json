@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-18T02:54:57Z",
+ "updated": "2026-10-18T04:07:49Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -4878,7 +4878,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-17"
+   "last_seen": "2026-10-18"
   },
   {
    "video_id": "hOFcYqDBv6E",
@@ -5004,6 +5004,8 @@
    "url": "https://www.youtube.com/shorts/i2rul28xrwM",
    "lang": "en",
    "game": "GTA 5",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
