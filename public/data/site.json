@@ -187,23 +187,12 @@
  ],
  "videos_hot_zh": [
   {
-   "id": "IDRUqPRmmkM",
-   "video_id": "IDRUqPRmmkM",
-   "title": "【阿航】GTA5 新殭屍模組 尋找避難小屋!",
-   "channel": "",
-   "url": "https://www.youtube.com/watch?v=IDRUqPRmmkM",
-   "views": 180926,
-   "date": "2026-10-09",
-   "lang": "zh",
-   "game": "GTA 5"
-  },
-  {
    "id": "89hGQ2-rirI",
    "video_id": "89hGQ2-rirI",
    "title": "新王將至，舊王永垂不朽  -「GTA5/俠盜獵車手5」終極鑒賞2026  ︳Grand Theft Auto V",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=89hGQ2-rirI",
-   "views": 167222,
+   "views": 170583,
    "date": "2026-10-16",
    "lang": "zh",
    "game": "GTA 5"
@@ -214,7 +203,7 @@
    "title": "如何在罪恶都市中偷偷闯入军事基地开走武装直升机？  #gta #gta5 #遊戲頻道",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=y34UESrKuVU",
-   "views": 140434,
+   "views": 141283,
    "date": "2026-10-09",
    "lang": "zh",
    "game": "GTA 5"
@@ -225,7 +214,7 @@
    "title": "GTA6 前最後逃難潮，10月大作擠到爆！",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=bIQzxpxQjdw",
-   "views": 119806,
+   "views": 119809,
    "date": "2026-09-21",
    "lang": "zh",
    "game": "GTA 6"
@@ -236,7 +225,7 @@
    "title": "GTA6擁有颶風天氣，地圖5代兩倍大，多結局玩法確認，神秘傳說動物，戀愛系統，超170種動物~還能打臺球！",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=ES48Lqv33w8",
-   "views": 102063,
+   "views": 102076,
    "date": "2026-09-30",
    "lang": "zh",
    "game": "GTA Online"
@@ -247,7 +236,7 @@
    "title": "在游戏的竞速比赛中稳拿第一名的方式 #gta #gta5 #遊戲頻道",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=iPKc4VTWIK0",
-   "views": 66433,
+   "views": 66637,
    "date": "2026-10-04",
    "lang": "zh",
    "game": "GTA 5"
@@ -258,7 +247,7 @@
    "title": "豪宅裡的頂級超跑，我全都要！｜GTA5小富偷車×DLSS5",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=34xAC-c2nUI",
-   "views": 59467,
+   "views": 59716,
    "date": "2026-09-21",
    "lang": "zh",
    "game": "GTA Online"
@@ -269,7 +258,7 @@
    "title": "gta主角的头撞到车后都会有什么反应？ #gta #gta5 #遊戲頻道",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=2jHpPgivcvY",
-   "views": 55872,
+   "views": 55995,
    "date": "2026-10-05",
    "lang": "zh",
    "game": "GTA 5"
@@ -280,7 +269,7 @@
    "title": "【瘋狂】400美元？？GTA6收藏版禮盒值得購買嗎？R星正式發布GTA6快活之州周邊禮盒，所有收藏品介紹！！",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=2Of46FhyV7Q",
-   "views": 55777,
+   "views": 55784,
    "date": "2026-09-25",
    "lang": "zh",
    "game": "GTA Online"
@@ -295,6 +284,17 @@
    "date": "2026-10-09",
    "lang": "zh",
    "game": "GTA Online"
+  },
+  {
+   "id": "TBvAvdb8dso",
+   "video_id": "TBvAvdb8dso",
+   "title": "带着一颗警星站在高处 gta的警察还会冒险抓你吗？ #gta #gta5 #遊戲頻道",
+   "channel": "",
+   "url": "https://www.youtube.com/watch?v=TBvAvdb8dso",
+   "views": 50311,
+   "date": "2026-09-30",
+   "lang": "zh",
+   "game": "GTA 5"
   }
  ],
  "videos_hot_en": [
@@ -304,18 +304,18 @@
    "title": "Grand Theft Auto VI Launch Trailer",
    "channel": "Rockstar Games",
    "url": "https://www.youtube.com/watch?v=rz1B4B2yBZY",
-   "views": 41335456,
+   "views": 42056465,
    "date": "2026-10-15",
    "lang": "en",
    "game": "GTA 6"
   },
   {
-   "id": "N6f30RVHOVw",
-   "video_id": "N6f30RVHOVw",
-   "title": "Grand Theft Auto VI - Tráiler de lanzamiento",
-   "channel": "",
-   "url": "https://www.youtube.com/watch?v=N6f30RVHOVw",
-   "views": 4327080,
+   "id": "84QszForbqQ",
+   "video_id": "84QszForbqQ",
+   "title": "Trailer di lancio di Grand Theft Auto VI",
+   "channel": "Rockstar Games Italia",
+   "url": "https://www.youtube.com/watch?v=84QszForbqQ",
+   "views": 3391948,
    "date": "2026-10-15",
    "lang": "en",
    "game": "GTA 6"
@@ -324,9 +324,9 @@
    "id": "0tRZdKQ5lHA",
    "video_id": "0tRZdKQ5lHA",
    "title": "Tráiler de lanzamiento de Grand Theft Auto VI",
-   "channel": "Rockstar Games América Latina",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=0tRZdKQ5lHA",
-   "views": 2001850,
+   "views": 2040273,
    "date": "2026-10-15",
    "lang": "en",
    "game": "GTA 6"
@@ -337,7 +337,7 @@
    "title": "Grand Theft Auto V #1 | Joe Bartolozzi",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=re4f3Foyd0g",
-   "views": 1836065,
+   "views": 1839942,
    "date": "2026-10-08",
    "lang": "en",
    "game": "GTA 5"
@@ -348,7 +348,7 @@
    "title": "GTA 6 Launch Trailer Breakdown: Everything YOU MISSED",
    "channel": "TGG",
    "url": "https://www.youtube.com/watch?v=FV93IVwJP_4",
-   "views": 1414498,
+   "views": 1422146,
    "date": "2026-10-15",
    "lang": "en",
    "game": "GTA 6"
@@ -359,7 +359,7 @@
    "title": "The 4 Parent Cameos In GTA Online #gta5 #gtav #gtaonline",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=zGjuxlWjcjI",
-   "views": 1121175,
+   "views": 1168721,
    "date": "2026-10-17",
    "lang": "en",
    "game": "GTA Online"
@@ -370,7 +370,7 @@
    "title": "Grand Theft Auto VI - Launch Trailer | PS5 Games",
    "channel": "PlayStation",
    "url": "https://www.youtube.com/watch?v=Qqzj-j4qk0E",
-   "views": 1060162,
+   "views": 1070604,
    "date": "2026-10-16",
    "lang": "en",
    "game": "GTA 6"
@@ -381,7 +381,7 @@
    "title": "iShowSpeed Reacts To GTA 6 - Official Launch Trailer",
    "channel": "Live Speedy",
    "url": "https://www.youtube.com/watch?v=mlguGHEeVO0",
-   "views": 985896,
+   "views": 1004038,
    "date": "2026-10-15",
    "lang": "en",
    "game": "GTA 6"
@@ -392,7 +392,7 @@
    "title": "Grand Theft Auto VI Launch Trailer",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=icy-lhqJhMQ",
-   "views": 962471,
+   "views": 970661,
    "date": "2026-10-15",
    "lang": "en",
    "game": "GTA 6"
@@ -403,7 +403,7 @@
    "title": "Grand Theft Auto V #2 | Joe Bartolozzi",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=vRsfurnvHbw",
-   "views": 913057,
+   "views": 916330,
    "date": "2026-10-11",
    "lang": "en",
    "game": "GTA 5"
@@ -411,12 +411,23 @@
  ],
  "videos_hot_ja": [
   {
+   "id": "65JV3YTSwNE",
+   "video_id": "65JV3YTSwNE",
+   "title": "女はバカという話ｗ　(個人的ニュース速報)　【GTA5】",
+   "channel": "",
+   "url": "https://www.youtube.com/watch?v=65JV3YTSwNE",
+   "views": 212590,
+   "date": "2026-10-03",
+   "lang": "ja",
+   "game": "GTA 5"
+  },
+  {
    "id": "GhDxHDHDJ6g",
    "video_id": "GhDxHDHDJ6g",
    "title": "【速報】まさかの内容は◯◯⁉️GTA6の最新ローンチトレーラー大発表‼️",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=GhDxHDHDJ6g",
-   "views": 19182,
+   "views": 19305,
    "date": "2026-10-15",
    "lang": "ja",
    "game": "GTA Online"
@@ -427,7 +438,7 @@
    "title": "【GTA6】プレイ動画考察④ 完結編！GTAオンラインとGTAVIとのコラボ確定！",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=U8W-sd6LyQM",
-   "views": 19037,
+   "views": 19039,
    "date": "2026-09-20",
    "lang": "ja",
    "game": "GTA 6"
@@ -449,7 +460,7 @@
    "title": "【GTA6速報】発売前に先行して実際にGTA6の世界のラジオ局６つが味わえる‼️",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=wwx-ES5kG4Y",
-   "views": 16927,
+   "views": 16935,
    "date": "2026-10-08",
    "lang": "ja",
    "game": "GTA Online"
@@ -460,7 +471,7 @@
    "title": "【GTA5】最初から全開！ハロウィンイベント開始！今晩の週アップデート速報 2026年10月1日～",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=f5Na1eEq_g0",
-   "views": 16497,
+   "views": 16498,
    "date": "2026-10-01",
    "lang": "ja",
    "game": "GTA 5"
@@ -471,7 +482,7 @@
    "title": "【GTA6最新情報】PC版が2027年春頃までに発売か？最新アプデ情報まとめ・GTAオンライン",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=v97AQu4jP_U",
-   "views": 13528,
+   "views": 13560,
    "date": "2026-10-14",
    "lang": "ja",
    "game": "GTA Online"
@@ -482,7 +493,7 @@
    "title": "【GTA5/GTA6】まだらが気になっている2点のこと。GTAVIパッケージ版のアップグレードはクレジットカードが必要か？GTA5の冬の大型アップデートは？",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=4AT2qTbQFck",
-   "views": 13315,
+   "views": 13357,
    "date": "2026-10-09",
    "lang": "ja",
    "game": "GTA 6"
@@ -508,17 +519,6 @@
    "date": "2026-09-24",
    "lang": "ja",
    "game": "GTA 5"
-  },
-  {
-   "id": "-hidUsIMllE",
-   "video_id": "-hidUsIMllE",
-   "title": "【GTA6発売まで41日前】ハロウィンアプデ第２弾・GTAオンライン",
-   "channel": "",
-   "url": "https://www.youtube.com/watch?v=-hidUsIMllE",
-   "views": 10113,
-   "date": "2026-10-08",
-   "lang": "ja",
-   "game": "GTA Online"
   }
  ],
  "videos_new_zh": [
@@ -528,7 +528,7 @@
    "title": "【4K直播】【GTA VI一個月倒數】GTA Online Live - 重陽打喪屍_20261018",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=xx8CJqrJVIo",
-   "views": 10,
+   "views": 120,
    "date": "2026-10-18",
    "lang": "zh",
    "game": "GTA Online"
@@ -539,7 +539,7 @@
    "title": "🔥【GTA5直播】永不放棄😎團末日首腦不死 😎 週末最好看的節目來了一起來加油  #gta #gta5 #gtaonline",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=gLxKQMMcj7Y",
-   "views": 193,
+   "views": 728,
    "date": "2026-10-18",
    "lang": "zh",
    "game": "GTA Online"
@@ -550,18 +550,7 @@
    "title": "🔥【GTA5實況】末日首腦一日團😎週末最好看的節目來了🤣買好爆米花一起來加油  #gta #gta5 #gtaonline",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=g0ooyuUOn-U",
-   "views": 1466,
-   "date": "2026-10-18",
-   "lang": "zh",
-   "game": "GTA Online"
-  },
-  {
-   "id": "kxstrSvZBEc",
-   "video_id": "kxstrSvZBEc",
-   "title": "【阿航PS5直播】GTA6搖桿訓練台 6代出來前破關! 晚點玩別的",
-   "channel": "",
-   "url": "https://www.youtube.com/watch?v=kxstrSvZBEc",
-   "views": 1633,
+   "views": 1529,
    "date": "2026-10-18",
    "lang": "zh",
    "game": "GTA Online"
@@ -572,7 +561,7 @@
    "title": "GTA6發行預告片震憾推出！",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=aXSY8_28doY",
-   "views": 30173,
+   "views": 30654,
    "date": "2026-10-17",
    "lang": "zh",
    "game": "GTA Online"
@@ -583,7 +572,7 @@
    "title": "选择b结局导致的一系列糟糕事 #gta #gta5  #遊戲頻道",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=qixidBEWhBI",
-   "views": 30172,
+   "views": 31920,
    "date": "2026-10-17",
    "lang": "zh",
    "game": "GTA 5"
@@ -594,7 +583,7 @@
    "title": "《GTA6》最新發售預告！這4個細節值得關注～（我在旅行中被R星偷襲了）",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=YZMa8ZuOhnY",
-   "views": 40902,
+   "views": 41115,
    "date": "2026-10-16",
    "lang": "zh",
    "game": "GTA 6"
@@ -605,7 +594,7 @@
    "title": "【遊俠改裝款】GTA Online DLC「合約專家」隱藏載具 (生涯挑戰獎勵) [4K]",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=vH3Conm5MNc",
-   "views": 340,
+   "views": 348,
    "date": "2026-10-16",
    "lang": "zh",
    "game": "GTA Online"
@@ -616,7 +605,7 @@
    "title": "gta4故事结束后尼克是否有来过洛圣都？#gta #gta5",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=EwHrsDvjxIk",
-   "views": 3441,
+   "views": 3714,
    "date": "2026-10-16",
    "lang": "zh",
    "game": "GTA 5"
@@ -627,20 +616,53 @@
    "title": "新王將至，舊王永垂不朽  -「GTA5/俠盜獵車手5」終極鑒賞2026  ︳Grand Theft Auto V",
    "channel": "Leya蕾雅",
    "url": "https://www.youtube.com/watch?v=89hGQ2-rirI",
-   "views": 167222,
+   "views": 170583,
    "date": "2026-10-16",
    "lang": "zh",
    "game": "GTA 5"
+  },
+  {
+   "id": "CAOkSk9FwNU",
+   "video_id": "CAOkSk9FwNU",
+   "title": "GTA6大尺度宣傳＋GTA6 PC版Ｑ1謠言出現！GTAOnline Weekly Update",
+   "channel": "",
+   "url": "https://www.youtube.com/watch?v=CAOkSk9FwNU",
+   "views": 3717,
+   "date": "2026-10-15",
+   "lang": "zh",
+   "game": "GTA 6"
   }
  ],
  "videos_new_en": [
+  {
+   "id": "YogrX5D4Sz8",
+   "video_id": "YogrX5D4Sz8",
+   "title": "Fastest Way to Complete All Cayo Perico Setups in GTA Online 2026",
+   "channel": "Hazard",
+   "url": "https://www.youtube.com/watch?v=YogrX5D4Sz8",
+   "views": 654,
+   "date": "2026-10-18",
+   "lang": "en",
+   "game": "GTA Online"
+  },
+  {
+   "id": "lKOGXbqfkCw",
+   "video_id": "lKOGXbqfkCw",
+   "title": "What Happens If You Go Broke In GTA Online #gta5 #gtav #gtaonline",
+   "channel": "",
+   "url": "https://www.youtube.com/watch?v=lKOGXbqfkCw",
+   "views": 30651,
+   "date": "2026-10-18",
+   "lang": "en",
+   "game": "GTA Online"
+  },
   {
    "id": "SbCIxjHUzhA",
    "video_id": "SbCIxjHUzhA",
    "title": "I Wasted Hours Trying To Break GTA Online's Worst Grind - 100% Career Progress #410",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=SbCIxjHUzhA",
-   "views": 856,
+   "views": 19165,
    "date": "2026-10-18",
    "lang": "en",
    "game": "GTA Online"
@@ -651,7 +673,7 @@
    "title": "Poor Conductors! #gta5 #gtav #gtaonline",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=md9XDmZWoYU",
-   "views": 70607,
+   "views": 167101,
    "date": "2026-10-18",
    "lang": "en",
    "game": "GTA Online"
@@ -662,7 +684,7 @@
    "title": "Why Our Characters Get Flipped On Chairs #gta5 #gtav #gtaonline",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=q1iBlJi5BB8",
-   "views": 158340,
+   "views": 205558,
    "date": "2026-10-18",
    "lang": "en",
    "game": "GTA Online"
@@ -673,7 +695,7 @@
    "title": "Completing all Career Progress Tiers in GTA Online [Part 110] [Full Livestream]",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=VUqVuRVKQjU",
-   "views": 50942,
+   "views": 52286,
    "date": "2026-10-18",
    "lang": "en",
    "game": "GTA Online"
@@ -684,7 +706,7 @@
    "title": "The Craziest LS Customs Glitch #gta5 #gtav #gtaonline",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=qwqSPb-V-Mo",
-   "views": 471531,
+   "views": 523240,
    "date": "2026-10-18",
    "lang": "en",
    "game": "GTA Online"
@@ -695,7 +717,7 @@
    "title": "GTA 6 HAS EVERYONE LOSING IT! 😱🔥 | Crazy Girls Mega Reaction Mashup",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=lMtwMFxVP9g",
-   "views": 33,
+   "views": 528,
    "date": "2026-10-18",
    "lang": "en",
    "game": "GTA 6"
@@ -706,7 +728,7 @@
    "title": "GTA 6 IS FINALLY HERE! 🤯🔥 | Launch Trailer | ULTIMATE Reaction Mashup",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=wMiCaARhAOQ",
-   "views": 57,
+   "views": 287,
    "date": "2026-10-18",
    "lang": "en",
    "game": "GTA 6"
@@ -717,42 +739,31 @@
    "title": "GTA 6 Story Timeline: Every Trailer Put in Order",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=NAqTwtjUSYk",
-   "views": 3899,
+   "views": 6179,
    "date": "2026-10-18",
    "lang": "en",
    "game": "GTA 6"
-  },
-  {
-   "id": "5GFpQmIu71Y",
-   "video_id": "5GFpQmIu71Y",
-   "title": "GTA Online PS5 and Some Marvel Rivals",
-   "channel": "",
-   "url": "https://www.youtube.com/watch?v=5GFpQmIu71Y",
-   "views": 7385,
-   "date": "2026-10-18",
-   "lang": "en",
-   "game": "GTA Online"
-  },
-  {
-   "id": "k3KsbHCfmT8",
-   "video_id": "k3KsbHCfmT8",
-   "title": "GTA Online Money Grind Don't Stop!!!",
-   "channel": "Tylarious",
-   "url": "https://www.youtube.com/watch?v=k3KsbHCfmT8",
-   "views": 2487,
-   "date": "2026-10-18",
-   "lang": "en",
-   "game": "GTA Online"
   }
  ],
  "videos_new_ja": [
+  {
+   "id": "HEGv620q0J4",
+   "video_id": "HEGv620q0J4",
+   "title": "【GTA ONLINE 】#24 マジで金がない【兼ヌル】",
+   "channel": "",
+   "url": "https://www.youtube.com/watch?v=HEGv620q0J4",
+   "views": 84,
+   "date": "2026-10-18",
+   "lang": "ja",
+   "game": "GTA Online"
+  },
   {
    "id": "uIUzcZjt7-A",
    "video_id": "uIUzcZjt7-A",
    "title": "【GTA6発売まで32日前】現場仕事＆ワイスピカーミーティング",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=uIUzcZjt7-A",
-   "views": 8721,
+   "views": 8842,
    "date": "2026-10-17",
    "lang": "ja",
    "game": "GTA Online"
@@ -774,10 +785,21 @@
    "title": "【GTA5】節約派のカーライフ「フェニックス」の巻【第27話】",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=XI75x1XD14E",
-   "views": 1800,
+   "views": 1818,
    "date": "2026-10-17",
    "lang": "ja",
    "game": "GTA 5"
+  },
+  {
+   "id": "A-ap75BU8s8",
+   "video_id": "A-ap75BU8s8",
+   "title": "【GTA ONLINE 】#23 早めの降臨【兼ヌル】",
+   "channel": "",
+   "url": "https://www.youtube.com/watch?v=A-ap75BU8s8",
+   "views": 111,
+   "date": "2026-10-17",
+   "lang": "ja",
+   "game": "GTA Online"
   },
   {
    "id": "GhDxHDHDJ6g",
@@ -785,7 +807,7 @@
    "title": "【速報】まさかの内容は◯◯⁉️GTA6の最新ローンチトレーラー大発表‼️",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=GhDxHDHDJ6g",
-   "views": 19182,
+   "views": 19305,
    "date": "2026-10-15",
    "lang": "ja",
    "game": "GTA Online"
@@ -796,7 +818,7 @@
    "title": "【GTA6発売まで34日前】ハロウィンアプデ第３弾も稼げるリアルタイムアプデ情報・今夜はシビック無料で手に入れろ‼️GTAオンライン",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=Qlgk-gTZI1U",
-   "views": 6626,
+   "views": 6632,
    "date": "2026-10-15",
    "lang": "ja",
    "game": "GTA Online"
@@ -807,7 +829,7 @@
    "title": "【GTA5】ハロウィンイベント3週目！今晩の週アップデート速報 2026年10月15日～",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=0q4hFCLjXQc",
-   "views": 8782,
+   "views": 8811,
    "date": "2026-10-15",
    "lang": "ja",
    "game": "GTA 5"
@@ -818,7 +840,7 @@
    "title": "【GTA6最新情報】PC版が2027年春頃までに発売か？最新アプデ情報まとめ・GTAオンライン",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=v97AQu4jP_U",
-   "views": 13528,
+   "views": 13560,
    "date": "2026-10-14",
    "lang": "ja",
    "game": "GTA Online"
@@ -833,28 +855,6 @@
    "date": "2026-10-13",
    "lang": "ja",
    "game": "GTA 5"
-  },
-  {
-   "id": "1da1U2FRRbg",
-   "video_id": "1da1U2FRRbg",
-   "title": "【GTA6発売まで39日前】ゼントーノ限定カーミーティング＆日本車＆戦闘機軍事基地ミーティング＆クルー対抗戦＆強盗チャレンジ・GTAオンライン",
-   "channel": "",
-   "url": "https://www.youtube.com/watch?v=1da1U2FRRbg",
-   "views": 10724,
-   "date": "2026-10-10",
-   "lang": "ja",
-   "game": "GTA Online"
-  },
-  {
-   "id": "9xjTxVaMKNU",
-   "video_id": "9xjTxVaMKNU",
-   "title": "【GTA5】節約派のカーライフ「サンドキングSWB」の巻【第25話】",
-   "channel": "",
-   "url": "https://www.youtube.com/watch?v=9xjTxVaMKNU",
-   "views": 2357,
-   "date": "2026-10-10",
-   "lang": "ja",
-   "game": "GTA 5"
   }
  ],
  "videos_shorts": [
@@ -864,18 +864,6 @@
    "title": "Free Fire vs GTA v 😱 funny moments 🤣 #gta5 #shorts #funny #gaming",
    "channel": "Kiran",
    "url": "https://www.youtube.com/shorts/1_7hdlsww-8",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA 5",
-   "kind": "short"
-  },
-  {
-   "id": "QHQ5THmbDwM",
-   "video_id": "QHQ5THmbDwM",
-   "title": "I Become A Fake Fuel Pump And Trolled A GTA Cops 👮⛽😂 #gta5",
-   "channel": "Gaurav Gaming",
-   "url": "https://www.youtube.com/shorts/QHQ5THmbDwM",
    "views": null,
    "date": null,
    "lang": "en",
@@ -907,6 +895,18 @@
    "kind": "short"
   },
   {
+   "id": "V68wBMbweKI",
+   "video_id": "V68wBMbweKI",
+   "title": "Trolling A GTA 5 Cops As Fake Fuel Pump ⛽🚨😂 #gta5",
+   "channel": "Gaurav Gaming",
+   "url": "https://www.youtube.com/shorts/V68wBMbweKI",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short"
+  },
+  {
    "id": "kk_h1cmZQaY",
    "video_id": "kk_h1cmZQaY",
    "title": "I become a fake bollard and trolled gta cop #gta #gtav #gtaonline",
@@ -931,11 +931,11 @@
    "kind": "short"
   },
   {
-   "id": "zmUwVkBxkSQ",
-   "video_id": "zmUwVkBxkSQ",
-   "title": "Trolling GTA 5 Police As A Fake Gas Cylinder 🚨💥😂 #gta5",
-   "channel": "Falgun Gaming",
-   "url": "https://www.youtube.com/shorts/zmUwVkBxkSQ",
+   "id": "QHQ5THmbDwM",
+   "video_id": "QHQ5THmbDwM",
+   "title": "I Become A Fake Fuel Pump And Trolled A GTA Cops 👮⛽😂 #gta5",
+   "channel": "Gaurav Gaming",
+   "url": "https://www.youtube.com/shorts/QHQ5THmbDwM",
    "views": null,
    "date": null,
    "lang": "en",
@@ -1335,6 +1335,42 @@
    "author": "mont3rey",
    "author_name": "Monterey",
    "text": "@iamcontroller As an xbox player just pick a console and move on lmao\n\nIf gta 6 works on an emulated samsung fridge then play it on that\n\nI couldnt care less if someone wants to play gta 6 on a ps5",
+   "date": "2026-10-18",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "060dbb1540db4e7a23bc11276dffd273",
+   "tid": "2111774296234393788",
+   "url": "https://x.com/igrandtheftauto/status/2111774296234393788",
+   "author": "igrandtheftauto",
+   "author_name": "iGrandTheftAuto.com",
+   "text": "GTA 6 Countdown: 31 days to go! 🌴\n#GTAVI Preloading begins in 24 days!\n\n🇳🇿 Based on New Zealand's time zone, which is expected to be the first to unlock the game",
+   "date": "2026-10-18",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "f70b2e24316569838fe1da8e59450b94",
+   "tid": "2111693050150043829",
+   "url": "https://x.com/thecryptoeddy/status/2111693050150043829",
+   "author": "thecryptoeddy",
+   "author_name": "Eddy",
+   "text": "Here is the clip from cyberleek\n\nCrypto is confirmed in GTA 6\n\nnxPqZ4F7ux8Vph5NFu25rEP6Kx9Gr1U6Fmj36Rjpump",
+   "date": "2026-10-18",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "9b9b0a7c3200a4d124e740e74b8ffe32",
+   "tid": "2111761458476319055",
+   "url": "https://x.com/gtasixpolska/status/2111761458476319055",
+   "author": "gtasixpolska",
+   "author_name": "GTA VI - Polska Społeczność",
+   "text": "Rob Nelson, szef rozwoju w Rockstar Games, w niedawnym wywiadzie dla Bloomberga potwierdził, że w GTA VI znajdą się setki wnętrz dostępnych do swobodnego zwiedzania i eksplorowania. To jeden z elementów, których brakowało w piątej odsłonie. Mapa w GTA VI będzie zatem największą z wszystkich części pod względem rozmiaru i ilości wnętrz.\n\nhttps://www.bloomberg.com/news/newsletters/2026-10-16/behind-the-scenes-of-grand-theft-auto-vi",
    "date": "2026-10-18",
    "likes": null,
    "lang": "en",
@@ -2155,60 +2191,24 @@
    "likes": null,
    "lang": "en",
    "game": "GTA 6"
-  },
-  {
-   "id": "dd2a59e6a377ffc32297dffb4462e89c",
-   "tid": "2111196968601223351",
-   "url": "https://x.com/eviacrowe_/status/2111196968601223351",
-   "author": "eviacrowe_",
-   "author_name": "EviaCrowe | 【ENVTUBER】",
-   "text": "Yet ANOTHER decision that's dooming GTA 6 at launch. Smh. They want this game to fail so bad 🙄🙄",
-   "date": "2026-10-16",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "444ff1f03675fba199a827663813cdea",
-   "tid": "2111234736794304852",
-   "url": "https://x.com/frasesdeanimev2/status/2111234736794304852",
-   "author": "frasesdeanimev2",
-   "author_name": "FAPC",
-   "text": "@GameRoll_ @videotech Maybe GTA Online is separate from GTA 6 and is just GTA Online 2, hahaha",
-   "date": "2026-10-16",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "586a1635a0812b8b2428371434df3f40",
-   "tid": "2111171122125254974",
-   "url": "https://x.com/gtaonlinenews/status/2111171122125254974",
-   "author": "gtaonlinenews",
-   "author_name": "GTA News RockstarINTEL.com",
-   "text": "Rob Nelson has confirmed to Jason Schreier that there are 100s of explorable interiors in GTA6",
-   "date": "2026-10-16",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
   }
  ],
  "meta": {
-  "sessionscan_slot": "2026-10-18 14:03",
+  "sessionscan_slot": "2026-10-18 16:03",
   "jobs_gtabase": "2026-10-18 11:55",
   "jobs_ign": "2026-10-18 11:55",
   "jobs_wiki": "2026-10-18 11:55",
-  "videos_hot_zh": "2026-10-18 14:01",
-  "videos_new_zh": "2026-10-18 14:01",
-  "videos_hot_en": "2026-10-18 14:02",
-  "videos_new_en": "2026-10-18 14:02",
-  "videos_hot_ja": "2026-10-18 14:03",
-  "videos_new_ja": "2026-10-18 14:03",
+  "videos_hot_zh": "2026-10-18 16:01",
+  "videos_new_zh": "2026-10-18 16:01",
+  "videos_hot_en": "2026-10-18 16:02",
+  "videos_new_en": "2026-10-18 16:02",
+  "videos_hot_ja": "2026-10-18 16:03",
+  "videos_new_ja": "2026-10-18 16:03",
   "forum_reddit": "2026-10-18 11:58",
-  "tweets_en": "2026-10-18 14:04",
-  "tweets": "2026-10-18 14:04",
-  "_last_run": "2026-10-18 14:04",
-  "generated_at": "2026-10-18T14:04:31Z",
+  "tweets_en": "2026-10-18 16:04",
+  "tweets": "2026-10-18 16:04",
+  "_last_run": "2026-10-18 16:04",
+  "generated_at": "2026-10-18T16:04:39Z",
   "sample": false,
   "scraper_status": "ok",
   "label_zh": "資料快照",
@@ -2225,12 +2225,12 @@
    "RDO"
   ],
   "jobs": "2026-10-18 11:55",
-  "hot": "2026-10-18 14:03",
-  "new": "2026-10-18 14:03",
+  "hot": "2026-10-18 16:03",
+  "new": "2026-10-18 16:03",
   "forum": "2026-10-18 11:58",
   "forum_bahamut": "2026-10-18 11:58",
-  "videos_shorts": "2026-10-18 14:03",
-  "tweets_zh": "2026-10-18 14:04"
+  "videos_shorts": "2026-10-18 16:03",
+  "tweets_zh": "2026-10-18 16:04"
  },
  "sessionscan_slot": {
   "status": "online",
@@ -2272,14 +2272,14 @@
  "rank_prev": {
   "videos_hot_zh": {
    "IDRUqPRmmkM": 1,
-   "y34UESrKuVU": 2,
-   "bIQzxpxQjdw": 3,
-   "ES48Lqv33w8": 4,
-   "pR4K3kat02c": 5,
+   "89hGQ2-rirI": 2,
+   "y34UESrKuVU": 3,
+   "bIQzxpxQjdw": 4,
+   "ES48Lqv33w8": 5,
    "iPKc4VTWIK0": 6,
    "34xAC-c2nUI": 7,
-   "2Of46FhyV7Q": 8,
-   "2jHpPgivcvY": 9,
+   "2jHpPgivcvY": 8,
+   "2Of46FhyV7Q": 9,
    "s_PrwZqutkk": 10
   },
   "videos_hot_en": {
@@ -2295,25 +2295,25 @@
    "vRsfurnvHbw": 10
   },
   "videos_hot_ja": {
-   "65JV3YTSwNE": 1,
+   "GhDxHDHDJ6g": 1,
    "U8W-sd6LyQM": 2,
    "w444qIiMfVg": 3,
-   "f5Na1eEq_g0": 4,
-   "4AT2qTbQFck": 5,
-   "C6Ymq6hnGkE": 6,
-   "mB6DIw4oG-g": 7,
-   "0q4hFCLjXQc": 8,
-   "VbjNDsuLeao": 9,
-   "5tfiBFXSa28": 10
+   "wwx-ES5kG4Y": 4,
+   "f5Na1eEq_g0": 5,
+   "v97AQu4jP_U": 6,
+   "4AT2qTbQFck": 7,
+   "1da1U2FRRbg": 8,
+   "C6Ymq6hnGkE": 9,
+   "-hidUsIMllE": 10
   },
   "videos_shorts": {
    "1_7hdlsww-8": 1,
-   "tJTmaPgcjPA": 2,
-   "zmUwVkBxkSQ": 3,
-   "XXTpOkOqq1A": 4,
-   "F9RnRw7TsRk": 5,
-   "QHQ5THmbDwM": 6,
-   "S4-sJBbOZv4": 7,
+   "QHQ5THmbDwM": 2,
+   "HjlIz8f4utU": 3,
+   "yjvhWljpn8M": 4,
+   "kk_h1cmZQaY": 5,
+   "djfAlO4jCDU": 6,
+   "zmUwVkBxkSQ": 7,
    "IgRTbEHSeU4": 8
   }
  }
