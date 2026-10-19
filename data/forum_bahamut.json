@@ -1,19 +1,31 @@
 [
  {
-  "id": "107f6455ff5359eebdafc559e5085fae",
+  "id": "3dac5f3f7bd8609826a374525c5a71a3",
   "rank": 1,
-  "title": "【其他】請求支援每週挑戰",
-  "author": "a35671171",
-  "time": "2026-10-19 00:08",
-  "replies": "0",
+  "title": "【問題】這是一個老問題,但我還是卡住了:無法觸發石斧任務",
+  "author": "prcheng",
+  "time": "2026-10-19 10:20",
+  "replies": "3",
   "source": "Bahamut",
   "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117803",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117804",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "3ea8ebde754b024f0483a48716d2e82c",
+  "rank": 2,
+  "title": "【閒聊】大家都把科茲中心的雷射練到100%能過嗎?",
+  "author": "prcheng",
+  "time": "2026-10-19 01:05",
+  "replies": "10",
+  "source": "Bahamut",
+  "game": "GTA Online",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117796",
   "blurb": "外連巴哈討論串。不轉載全文。"
  },
  {
   "id": "16b27349cb5c28959b49cabf11b817ab",
-  "rank": 2,
+  "rank": 3,
   "title": "【心得】在遊戲裡的第二人生，我的GTA 十年回顧",
   "author": "apple5342971",
   "time": "10-16 19:32",
@@ -26,7 +38,7 @@
  },
  {
   "id": "6bd13798d36582d1c5b3af2b90177801",
-  "rank": 3,
+  "rank": 4,
   "title": "【問題】請問恐霸就是什麼機元那台貨車 怎麼改裝汽車",
   "author": "zxcv761224",
   "time": "10-16 19:20",
@@ -34,19 +46,6 @@
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117799",
-  "blurb": "外連巴哈討論串。不轉載全文。",
-  "time_relative": true
- },
- {
-  "id": "3ea8ebde754b024f0483a48716d2e82c",
-  "rank": 4,
-  "title": "【閒聊】大家都把科茲中心的雷射練到100%能過嗎?",
-  "author": "prcheng",
-  "time": "10-16 14:54",
-  "replies": "8",
-  "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117796",
   "blurb": "外連巴哈討論串。不轉載全文。",
   "time_relative": true
  },
