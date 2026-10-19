@@ -2,21 +2,33 @@
  {
   "id": "3dac5f3f7bd8609826a374525c5a71a3",
   "rank": 1,
-  "title": "【問題】這是一個老問題,但我還是卡住了:無法觸發石斧任務",
+  "title": "【問題】這是一個老問題,但我還是卡住了:無法觸發石斧任務(END)",
   "author": "prcheng",
-  "time": "2026-10-19 10:20",
-  "replies": "3",
+  "time": "2026-10-19 18:20",
+  "replies": "20",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117804",
   "blurb": "外連巴哈討論串。不轉載全文。"
  },
  {
-  "id": "3ea8ebde754b024f0483a48716d2e82c",
+  "id": "9e30e1a613eed60cbb3a7b11fb65409b",
   "rank": 2,
+  "title": "【問題】由於在拿原物料任務途中閃退，貝凱迪就不見了。",
+  "author": "YKC810325",
+  "time": "2026-10-19 11:20",
+  "replies": "5",
+  "source": "Bahamut",
+  "game": "GTA Online",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117805",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "3ea8ebde754b024f0483a48716d2e82c",
+  "rank": 3,
   "title": "【閒聊】大家都把科茲中心的雷射練到100%能過嗎?",
   "author": "prcheng",
-  "time": "2026-10-19 01:05",
+  "time": "2026-10-19 01:20",
   "replies": "10",
   "source": "Bahamut",
   "game": "GTA Online",
@@ -25,7 +37,7 @@
  },
  {
   "id": "16b27349cb5c28959b49cabf11b817ab",
-  "rank": 3,
+  "rank": 4,
   "title": "【心得】在遊戲裡的第二人生，我的GTA 十年回顧",
   "author": "apple5342971",
   "time": "10-16 19:32",
@@ -38,7 +50,7 @@
  },
  {
   "id": "6bd13798d36582d1c5b3af2b90177801",
-  "rank": 4,
+  "rank": 5,
   "title": "【問題】請問恐霸就是什麼機元那台貨車 怎麼改裝汽車",
   "author": "zxcv761224",
   "time": "10-16 19:20",
@@ -51,7 +63,7 @@
  },
  {
   "id": "d993f8899c04587e1e9f256837286a03",
-  "rank": 5,
+  "rank": 6,
   "title": "《Grand Theft Auto VI》上市預告片",
   "author": "cmpunk123",
   "time": "10-16 10:27",
@@ -64,7 +76,7 @@
  },
  {
   "id": "896674e1cf931bd6f37faa8cdaea551c",
-  "rank": 6,
+  "rank": 7,
   "title": "【閒聊】【GTA Online 本週更新】萬聖節第3週！別惹德瑞完成再送50萬＋屠殺T恤免費領，11月4日前再拿200萬",
   "author": "gta5weekly",
   "time": "10-15 20:21",
@@ -77,7 +89,7 @@
  },
  {
   "id": "8406f23ed565193bf8d8de21eeb091ba",
-  "rank": 7,
+  "rank": 8,
   "title": "【情報】GTA ONLINE 活動 (10/15~10/21,萬聖節活動第3週,完成別惹德瑞,獲得50萬及免費屠殺T恤)",
   "author": "ken33890458",
   "time": "10-15 05:34",
@@ -90,7 +102,7 @@
  },
  {
   "id": "4f570f18978ecbb58690aab412fcea0f",
-  "rank": 8,
+  "rank": 9,
   "title": "【情報】GTA6的開發歷程 ｜彭博社",
   "author": "bbfish",
   "time": "10-15 02:22",
@@ -103,7 +115,7 @@
  },
  {
   "id": "3cc855641448f8e2f9d78008eea42463",
-  "rank": 9,
+  "rank": 10,
   "title": "【情報】為《俠盜獵車手VI》玩家解套，芬蘭商推協議保障遊戲時間長達一個月",
   "author": "jacket6719",
   "time": "10-14 13:37",
@@ -111,19 +123,6 @@
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117793",
-  "blurb": "外連巴哈討論串。不轉載全文。",
-  "time_relative": true
- },
- {
-  "id": "0462446777996cf9137b6af5d4ccdd68",
-  "rank": 10,
-  "title": "【情報】《GTA6》爆最快2027年第一季登陸PC 外媒GamesBeat揭Rockstar開發計畫",
-  "author": "Okuraluna",
-  "time": "10-13 23:39",
-  "replies": "24",
-  "source": "Bahamut",
-  "game": "GTA 6",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117792",
   "blurb": "外連巴哈討論串。不轉載全文。",
   "time_relative": true
  }
