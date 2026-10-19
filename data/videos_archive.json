@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-19T00:04:44Z",
+ "updated": "2026-10-19T02:05:18Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -204,10 +204,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-14",
-   "views": 32222,
+   "views": 81143,
    "kind": "",
    "first_seen": "2026-10-14",
-   "last_seen": "2026-10-15"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "0eAOyE4hnbs",
@@ -1101,10 +1101,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-10",
-   "views": 116695,
+   "views": 178417,
    "kind": "",
    "first_seen": "2026-10-10",
-   "last_seen": "2026-10-12"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "7cILn4iJo90",
@@ -1153,10 +1153,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-17",
-   "views": 226,
+   "views": 1766,
    "kind": "",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-17"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "7rtM39Y9Ymw",
@@ -1235,6 +1235,17 @@
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-12"
+  },
+  {
+   "video_id": "8Nd7PbdqwsA",
+   "title": "EVERYTHING You Missed In The GTA 6 Launch Trailer! (New Details & Story Analysis)",
+   "url": "https://www.youtube.com/watch?v=8Nd7PbdqwsA",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-15",
+   "views": 1222,
+   "first_seen": "2026-10-19",
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "8SnvpJnehUY",
@@ -2065,10 +2076,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 540646,
+   "views": 545403,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "EnNJkwsQqP4",
@@ -2182,7 +2193,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1458737,
+   "views": 1464753,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-19"
@@ -2510,7 +2521,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "JpnFMyHDS04",
@@ -2689,10 +2700,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-12",
-   "views": 504729,
+   "views": 510456,
    "kind": "",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-17"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "MdqoakYy2CM",
@@ -2814,11 +2825,13 @@
   {
    "video_id": "NEy_dhwYzDk",
    "title": "GTA 6 PC Release: Why You Might Not Have To Wait That Long!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=NEy_dhwYzDk",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-19",
    "views": 0,
+   "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
   },
@@ -2921,10 +2934,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-17",
-   "views": 427819,
+   "views": 492762,
    "kind": "",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "OQYKjbDw6HQ",
@@ -4314,10 +4327,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-12",
-   "views": 185762,
+   "views": 242791,
    "kind": "",
    "first_seen": "2026-10-13",
-   "last_seen": "2026-10-15"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "_82dwHgYnbw",
@@ -4405,10 +4418,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-13",
-   "views": 18933,
+   "views": 19502,
    "kind": "",
    "first_seen": "2026-10-13",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "_nsY0LJSjDg",
@@ -4668,7 +4681,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-16",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "bd5-cvN7QX8",
@@ -5471,10 +5484,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-11",
-   "views": 65053,
+   "views": 170010,
    "kind": "",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-12"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "i2rul28xrwM",
@@ -5687,11 +5700,13 @@
   {
    "video_id": "kGR8tIgcU5g",
    "title": "Surprising Attention To Detail! #gta5 #gtav #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=kGR8tIgcU5g",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-18",
    "views": 24274,
+   "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
   },
@@ -6041,10 +6056,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-13",
-   "views": 58799,
+   "views": 96184,
    "kind": "",
    "first_seen": "2026-10-14",
-   "last_seen": "2026-10-14"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "nAYtRdCM6LA",
@@ -6171,10 +6186,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-05",
-   "views": 21522,
+   "views": 21659,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "p2mjC-tD82s",
@@ -6431,10 +6446,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-13",
-   "views": 45052,
+   "views": 68181,
    "kind": "",
    "first_seen": "2026-10-13",
-   "last_seen": "2026-10-14"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "qtZxF-yioYs",
@@ -6821,10 +6836,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-11",
-   "views": 73367,
+   "views": 107612,
    "kind": "",
    "first_seen": "2026-10-11",
-   "last_seen": "2026-10-12"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "tm0MevFRFl4",
@@ -7115,6 +7130,17 @@
    "last_seen": "2026-10-13"
   },
   {
+   "video_id": "vDC30imEPWY",
+   "title": "My Theory: Could GTA 6 Take Us Back to Liberty City?",
+   "url": "https://www.youtube.com/watch?v=vDC30imEPWY",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-14",
+   "views": 133856,
+   "first_seen": "2026-10-19",
+   "last_seen": "2026-10-19"
+  },
+  {
    "video_id": "vH3Conm5MNc",
    "title": "【遊俠改裝款】GTA Online DLC「合約專家」隱藏載具 (生涯挑戰獎勵) [4K]",
    "channel": "香口Karl",
@@ -7151,7 +7177,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-17"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "vPE9AK9In6I",
@@ -7286,11 +7312,13 @@
   {
    "video_id": "wQfvgYEKTvc",
    "title": "GTA 5’s Random Events Are Broken! - Let Me Ruin Them For You (Facts and Glitches)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=wQfvgYEKTvc",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-18",
    "views": 55145,
+   "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
   },
@@ -7488,6 +7516,17 @@
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-18"
+  },
+  {
+   "video_id": "yzVH0TfyyoA",
+   "title": "ALL HALLOWEEN VEHICLE CUSTOMIZATION IN GTA ONLINE! (Benny's, Liveries & MORE)",
+   "url": "https://www.youtube.com/watch?v=yzVH0TfyyoA",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-14",
+   "views": 4123,
+   "first_seen": "2026-10-19",
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "z04hB5ri4Lo",
