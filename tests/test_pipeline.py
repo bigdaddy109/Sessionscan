@@ -5,7 +5,7 @@ import os
 import sys
 import tempfile
 import unittest
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -651,6 +651,13 @@ class FastScrapeModeTests(unittest.TestCase):
     def test_full_steps_keep_jobs_and_forum(self):
         names = [name for name, _ in scraper_mod.selected_steps(fast=False)]
         self.assertEqual(names, ["jobs", "videos", "shorts", "forum", "tweets"])
+
+    def test_now_str_is_taipei_not_host_utc(self):
+        # Why: Actions runners are UTC. astimezone() with no tz wrote UTC wall
+        # time, and the site reads those stamps as Taipei, so a fresh snapshot
+        # showed "8h ago". now_str must stay Taipei even when the host is UTC.
+        instant = datetime(2026, 10, 19, 0, 4, 44, tzinfo=timezone.utc)
+        self.assertEqual(scraper_mod.now_str(instant), "2026-10-19 08:04")
 
     def test_parse_args_fast_and_owned_only_flags(self):
         # Why: fast.yml and owned-refresh.yml must keep distinct CLI modes after rebase onto main.

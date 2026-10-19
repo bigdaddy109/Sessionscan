@@ -2,7 +2,6 @@
 
 優先序待辦（僅收錄 repo 內可核實的項目）。
 
-- GTA 6 官方預告海報改 `maxresdefault`（1280×720，對齊 16:9 框；`hqdefault` 只當 `data-poster-fallback`；#111；等研發程式 「可以合 #111」後再合）。不載 iframe。Rollback：`pre-gta6-trailer-maxres-20261016`。測 `tests/test_gta6_page.mjs`。
 - 影片分享頁 `og:image` 仍是 `hqdefault`（480×360）但 meta 宣告 1200×630。正式站 347 支裡 4 支 `maxresdefault` 404（含 2026-10-12／13 每日收集片 `i6LgSKZGGlg`、`lV69T7KuAWk`）。不要整批改 maxres。若要 1200×630，得先決定建置時探測再選圖。
 
 合併政策（權威在 `AGENTS.md` Ralph 段）：開 PR → 等研發程式「可以合 #<n>」→ 再合 → sessionscan.net live-verify。CI 綠本身不夠；不等同 auto-merge。
@@ -17,6 +16,8 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- 首頁快照年齡跟 `generated_at`（UTC `Z`）走，顯示成台北牆鐘；`now_str()` 改走 `taipei_now()`，不再用主機本地時區（Actions 是 UTC，舊 `_last_run` 會被 `metaStampMs` 多減 8 小時，正式站把 00:04Z 標成 8h ago）。Rollback：`pre-snapshot-taipei-clock-20261019`。測 `tests/test_home_extras.mjs`、`tests/test_pipeline.py`。
+- GTA 6 官方預告海報改 `maxresdefault`（1280×720；`hqdefault` 只當 `data-poster-fallback`；#111；核准後 merge `84ac42d`；rollback `pre-gta6-trailer-maxres-20261016`）。不載 iframe。測 `tests/test_gta6_page.mjs`。
 - Fast Worker Logs 留在 `wrangler.toml`（`[observability] enabled = true`、`[observability.logs] invocation_logs = true`；#110；rollback `pre-dispatch-observability-20261015`；核准：研發程式 「可以合 #110」；merge `4dc05a0`）。合後未重部署。測 `tests/test_dispatch_fast_scrape_worker.mjs`。
 - 全站分享預覽圖（殼頁 `ogImageUrlForPage`＋`public/og-*.jpg` 1200×630；影片頁 YouTube `hqdefault`；#108；rollback `pre-og-share-images-20261015`；核准：研發程式 「可以合 #108」）。測 `tests/test_seo_meta.mjs`。
 - Fast Worker 入口只留 default export（常數／函式在 `src/lib.js`；#109；rollback `pre-dispatch-fast-scrape-exports-20261015`；核准：研發程式 「可以合 #109」；merge `9dd9f1e`）。合後未重部署。測 `tests/test_dispatch_fast_scrape_worker.mjs`。

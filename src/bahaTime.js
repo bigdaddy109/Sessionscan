@@ -18,6 +18,44 @@ export function metaStampMs(stamp) {
   return Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3]), hh, mi, ss) - TAIPEI_MS;
 }
 
+/** Explicit UTC instant from meta.generated_at (`...Z`). Null if missing or not Zulu. */
+export function generatedAtMs(stamp) {
+  const m = String(stamp || "").match(
+    /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2}))?(?:\.\d+)?Z$/,
+  );
+  if (!m) return null;
+  return Date.UTC(
+    Number(m[1]),
+    Number(m[2]) - 1,
+    Number(m[3]),
+    Number(m[4]),
+    Number(m[5]),
+    Number(m[6] || 0),
+  );
+}
+
+function formatTaipei(d, withTime) {
+  const t = new Date(d.getTime() + TAIPEI_MS);
+  const y = t.getUTCFullYear();
+  const mo = String(t.getUTCMonth() + 1).padStart(2, "0");
+  const da = String(t.getUTCDate()).padStart(2, "0");
+  if (!withTime) return `${y}-${mo}-${da}`;
+  const hh = String(t.getUTCHours()).padStart(2, "0");
+  const mi = String(t.getUTCMinutes()).padStart(2, "0");
+  return `${y}-${mo}-${da} ${hh}:${mi}`;
+}
+
+/**
+ * Home banner clock. generated_at is always UTC (Z); naive _last_run stays Taipei.
+ * Why both: Actions used to write _last_run in UTC, and treating those digits as
+ * Taipei showed a just-written snapshot as 8h old.
+ */
+export function hubSnapshotStamp(meta = {}) {
+  const ms = generatedAtMs(meta.generated_at);
+  if (ms != null) return formatTaipei(new Date(ms), true);
+  return meta._last_run || meta.snapshot_date || "";
+}
+
 /**
  * Relative age of a Taipei meta stamp vs `now`.
  * Returns { unit: "now"|"minutes"|"hours"|"days", n } or null if unparseable.
@@ -46,17 +84,6 @@ export function isHotSnapshotStale(meta = {}, lang) {
   const refs = ["_last_run", "jobs"].map((k) => metaStampMs(meta[k])).filter((n) => n != null);
   if (hotMs == null || !refs.length) return false;
   return Math.max(...refs) - hotMs >= HOT_STALE_MS;
-}
-
-function formatTaipei(d, withTime) {
-  const t = new Date(d.getTime() + TAIPEI_MS);
-  const y = t.getUTCFullYear();
-  const mo = String(t.getUTCMonth() + 1).padStart(2, "0");
-  const da = String(t.getUTCDate()).padStart(2, "0");
-  if (!withTime) return `${y}-${mo}-${da}`;
-  const hh = String(t.getUTCHours()).padStart(2, "0");
-  const mi = String(t.getUTCMinutes()).padStart(2, "0");
-  return `${y}-${mo}-${da} ${hh}:${mi}`;
 }
 
 export function isRelativeForumTime(t) {

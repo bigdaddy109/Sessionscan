@@ -12,13 +12,14 @@ import {
 } from "./cardShare.js";
 import { youtubeFacadePlaySrc } from "./structuredData.js";
 import {
-  formatSnapshotAgeLabel,
   gta6ScheduleBannerHtml,
   isLiveHubData,
   pickOfficialWeekly,
   rankDelta,
   rankDeltaHtml,
   snapshotNow,
+  staticDataBannerHtml,
+  staticLastRunText,
   videoKey,
 } from "./homeExtras.js";
 import {
@@ -539,14 +540,7 @@ function renderAll() {
   const live = isLiveData(state.data);
   const banner = $("#dataBanner");
   if (banner) {
-    if (live) {
-      const stamp = meta._last_run || meta.snapshot_date || "—";
-      const ageLabel = formatSnapshotAgeLabel(stamp, uiLang());
-      const age = ageLabel ? ` · ${ageLabel}` : "";
-      banner.innerHTML = `<strong>${esc(t("snapshotStrong"))}</strong><span>${esc(t("snapshotSpan", { stamp, age }))}</span>`;
-    } else {
-      banner.innerHTML = `<strong>${esc(t("sampleStrong"))}</strong><span>${esc(t("sampleSpan"))}</span>`;
-    }
+    banner.innerHTML = staticDataBannerHtml(state.data, uiLang());
   }
   $$("[data-meta]").forEach((el) => {
     const stamp = meta[el.dataset.meta] || meta._last_run || meta.snapshot_date || "";
@@ -554,14 +548,7 @@ function renderAll() {
       ? t("snapshotTime", { stamp: stamp || "—" })
       : t("sampleTime", { stamp: meta.snapshot_date || stamp || "" });
   });
-  if (live) {
-    const stamp = meta._last_run || "—";
-    const ageLabel = formatSnapshotAgeLabel(stamp, uiLang());
-    const age = ageLabel ? ` · ${ageLabel}` : "";
-    $("#lastRun").textContent = t("lastRunLive", { stamp, age });
-  } else {
-    $("#lastRun").textContent = t("lastRunSample", { stamp: meta.snapshot_date || "" });
-  }
+  $("#lastRun").textContent = staticLastRunText(state.data, uiLang());
 }
 
 function desiredHash() {
