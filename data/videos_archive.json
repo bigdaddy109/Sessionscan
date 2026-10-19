@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-19T06:05:32Z",
+ "updated": "2026-10-19T08:04:37Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -87,10 +87,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-14",
-   "views": 816672,
+   "views": 834316,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "-aVXA7KtGRw",
@@ -230,7 +230,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-15",
-   "views": 8916,
+   "views": 9023,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-19"
@@ -329,11 +329,13 @@
   {
    "video_id": "1TCKDVUWuMA",
    "title": "10 Pumpkin Locations in GTA Online! (Trick Or Treat Halloween Event)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=1TCKDVUWuMA",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-01",
    "views": 79577,
+   "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
   },
@@ -384,7 +386,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-10",
-   "views": 10738,
+   "views": 10747,
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-19"
@@ -457,15 +459,15 @@
   {
    "video_id": "2GKvZr-Iuh0",
    "title": "Grand Theft Auto VI 發行預告片",
-   "channel": "",
+   "channel": "Rockstar Games 台灣",
    "url": "https://www.youtube.com/watch?v=2GKvZr-Iuh0",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 45715,
+   "views": 68512,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-16"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "2Of46FhyV7Q",
@@ -475,7 +477,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-25",
-   "views": 55798,
+   "views": 55814,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-19"
@@ -527,7 +529,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-05",
-   "views": 56141,
+   "views": 56209,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-19"
@@ -644,7 +646,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-21",
-   "views": 59908,
+   "views": 60050,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-19"
@@ -683,9 +685,20 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 3588027,
+   "views": 3915220,
    "kind": "",
    "first_seen": "2026-10-16",
+   "last_seen": "2026-10-19"
+  },
+  {
+   "video_id": "3POi-sx4hC0",
+   "title": "GTA 6 Cops WON'T Show on Your Minimap 😳 #gta6  #rockstargames",
+   "url": "https://www.youtube.com/watch?v=3POi-sx4hC0",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-19",
+   "views": 133,
+   "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
   },
   {
@@ -787,7 +800,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-10-09",
-   "views": 13390,
+   "views": 13439,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-19"
@@ -995,7 +1008,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-03",
-   "views": 212960,
+   "views": 213306,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-19"
@@ -1042,11 +1055,24 @@
   {
    "video_id": "6OkB1KgnTYM",
    "title": "How To Install FiveM & Play NoPixel (GTA V Roleplay Server) 2026! Easy Tutorial",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=6OkB1KgnTYM",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-09",
    "views": 6559,
+   "kind": "",
+   "first_seen": "2026-10-19",
+   "last_seen": "2026-10-19"
+  },
+  {
+   "video_id": "6Sf1hKEQX18",
+   "title": "【GTA6】R星真的造出了GTA6的車輛，佩嘉西超跑警車現身邁阿密，西海岸改車王出手！",
+   "url": "https://www.youtube.com/watch?v=6Sf1hKEQX18",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-10-19",
+   "views": 3428,
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
   },
@@ -1240,10 +1266,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-16",
-   "views": 170583,
+   "views": 186419,
    "kind": "",
    "first_seen": "2026-10-16",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "8HfHUUB8To8",
@@ -1287,11 +1313,13 @@
   {
    "video_id": "8RhhElCe8k4",
    "title": "NEW Halloween UFO Event CANCELLED, UNLOCK Skeleton, Space Docker, GTA 5 DLC 2026 (GTA Online Update)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=8RhhElCe8k4",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-15",
    "views": 28520,
+   "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
   },
@@ -1474,7 +1502,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-17",
-   "views": 112,
+   "views": 113,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-19"
@@ -1682,7 +1710,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-18",
-   "views": 3643,
+   "views": 12574,
    "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-19"
@@ -2104,6 +2132,17 @@
    "last_seen": "2026-10-15"
   },
   {
+   "video_id": "EQnmIinOde8",
+   "title": "Miami Is Turning Into Vice City… For Real (GTA 6, 32 Days Left)",
+   "url": "https://www.youtube.com/watch?v=EQnmIinOde8",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-19",
+   "views": 794,
+   "first_seen": "2026-10-19",
+   "last_seen": "2026-10-19"
+  },
+  {
    "video_id": "ES48Lqv33w8",
    "title": "GTA6擁有颶風天氣，地圖5代兩倍大，多結局玩法確認，神秘傳說動物，戀愛系統，超170種動物~還能打臺球！",
    "channel": "",
@@ -2111,7 +2150,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-30",
-   "views": 102137,
+   "views": 102190,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-19"
@@ -2137,7 +2176,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 545403,
+   "views": 546028,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-19"
@@ -2163,7 +2202,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-16",
-   "views": 3978,
+   "views": 4062,
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-19"
@@ -2184,11 +2223,13 @@
   {
    "video_id": "F4jS-PJwd5w",
    "title": "NEW Halloween PHANTOM GHOST CAR Event, How To Spawn, Skeleton Outfits, GTA 5 2026 GTA Online Update",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=F4jS-PJwd5w",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-02",
    "views": 61239,
+   "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
   },
@@ -2259,13 +2300,13 @@
   },
   {
    "video_id": "FV93IVwJP_4",
-   "title": "GTA 6 Launch Trailer: Everything New YOU MISSED",
+   "title": "GTA 6 Launch Trailer Breakdown: Everything YOU MISSED",
    "channel": "TGG",
    "url": "https://www.youtube.com/watch?v=FV93IVwJP_4",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1464753,
+   "views": 1480344,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-19"
@@ -2369,7 +2410,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 19423,
+   "views": 19782,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-19"
@@ -2551,10 +2592,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 181930,
+   "views": 182179,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "IOY9ay9Pkmw",
@@ -2752,6 +2793,17 @@
    "last_seen": "2026-10-16"
   },
   {
+   "video_id": "LIugtEjZl_8",
+   "title": "The BIGGEST Update We've Gotten To The GTA 6 Map - Liberty City, Hundreds Of Interiors & MORE!",
+   "url": "https://www.youtube.com/watch?v=LIugtEjZl_8",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-18",
+   "views": 74785,
+   "first_seen": "2026-10-19",
+   "last_seen": "2026-10-19"
+  },
+  {
    "video_id": "LTw1XaK7uOk",
    "title": "GTA 6 Hacker Is Back And Leaks 25 Min Of Footage!, Why He Might Not Have A Full Build",
    "channel": "TheProfessional",
@@ -2767,11 +2819,13 @@
   {
    "video_id": "LXzS0V7DsWA",
    "title": "ALL *LIMITED TIME* HALLOWEEN CLOTHING IN GTA 5 ONLINE! Halloween 2026 DLC UPDATE! Modded Outfits!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=LXzS0V7DsWA",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-10",
    "views": 40504,
+   "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
   },
@@ -2913,7 +2967,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 5328295,
+   "views": 5577777,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-19"
@@ -3433,7 +3487,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 6636,
+   "views": 6652,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-19"
@@ -3459,7 +3513,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 1143788,
+   "views": 1148999,
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-19"
@@ -3758,7 +3812,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-09-20",
-   "views": 19068,
+   "views": 19077,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-19"
@@ -3766,11 +3820,13 @@
   {
    "video_id": "U8qMj7vb8gc",
    "title": "*SOLO* 6 BEST EASY TO MAKE HALLOWEEN OUTFITS (GTA Online Clothing Glitches)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=U8qMj7vb8gc",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-05",
    "views": 13341,
+   "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
   },
@@ -3860,10 +3916,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-18",
-   "views": 1550,
+   "views": 3377,
    "kind": "",
    "first_seen": "2026-10-18",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "UoiXcwtYa0M",
@@ -4185,7 +4241,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 1997,
+   "views": 2126,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-19"
@@ -4369,7 +4425,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 41561,
+   "views": 41839,
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-19"
@@ -4408,7 +4464,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-18",
-   "views": 11157,
+   "views": 15544,
    "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-19"
@@ -4572,15 +4628,15 @@
   {
    "video_id": "_Sn8TYo2lkg",
    "title": "GTA 6 NEW Gameplay Leak, Lucia Jason Mission, CyberLeek, Map Leaks. Trailer 3 (Grand Theft Auto VI)",
-   "channel": "",
+   "channel": "LaazrGaming",
    "url": "https://www.youtube.com/watch?v=_Sn8TYo2lkg",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-18",
-   "views": 424,
+   "views": 5738,
    "kind": "",
    "first_seen": "2026-10-18",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "_UTBBEJ6p4Q",
@@ -4663,11 +4719,13 @@
   {
    "video_id": "a1ljy_ZAycQ",
    "title": "NEW Halloween UNLOCK Bigfoot Outfit, How To Spawn, FREE Clothing, GTA 5 2026 GTA Online Update",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=a1ljy_ZAycQ",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-08",
    "views": 29041,
+   "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
   },
@@ -4718,7 +4776,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-17",
-   "views": 31782,
+   "views": 33138,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-19"
@@ -4848,7 +4906,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-09-21",
-   "views": 119818,
+   "views": 119823,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-19"
@@ -4903,6 +4961,17 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-16",
+   "last_seen": "2026-10-19"
+  },
+  {
+   "video_id": "b_6RjGRhY8A",
+   "title": "GTA V gulli bulli #cartoon​ part-72 #gta5​ #gtaonline​ #shorts​ #gta​",
+   "channel": "Fardin 3D Zone",
+   "url": "https://www.youtube.com/shorts/b_6RjGRhY8A",
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short",
+   "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
   },
   {
@@ -4977,6 +5046,8 @@
    "url": "https://www.youtube.com/shorts/c1Qi5HGlHNI",
    "lang": "en",
    "game": "GTA Online",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
@@ -5314,7 +5385,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-01",
-   "views": 16508,
+   "views": 16513,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-19"
@@ -5405,10 +5476,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-05",
-   "views": 880207,
+   "views": 880311,
    "kind": "",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "g0ooyuUOn-U",
@@ -5418,7 +5489,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-18",
-   "views": 1632,
+   "views": 1661,
    "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-19"
@@ -5444,7 +5515,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-18",
-   "views": 2229,
+   "views": 2260,
    "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-19"
@@ -5795,7 +5866,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-04",
-   "views": 66971,
+   "views": 67170,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-19"
@@ -5834,10 +5905,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 994328,
+   "views": 1019172,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "iemEYrAYauY",
@@ -5938,7 +6009,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-13",
-   "views": 1815,
+   "views": 1822,
    "kind": "",
    "first_seen": "2026-10-13",
    "last_seen": "2026-10-19"
@@ -6068,10 +6139,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-18",
-   "views": 17554,
+   "views": 18192,
    "kind": "",
    "first_seen": "2026-10-18",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "l6RnZ4Fb2mc",
@@ -6154,11 +6225,13 @@
   {
    "video_id": "l_TyW3xWI7A",
    "title": "ULTIMATE Halloween Guide! (ALL Unlocks & More!) | GTA Online",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=l_TyW3xWI7A",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-01",
    "views": 66003,
+   "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
   },
@@ -6716,7 +6789,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 36809,
+   "views": 39749,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-19"
@@ -6924,7 +6997,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 44666294,
+   "views": 46259588,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-19"
@@ -6954,6 +7027,17 @@
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
+  },
+  {
+   "video_id": "sDi67W0r_3k",
+   "title": "GTA Online Sale Lobby!!! Making Millions!!!",
+   "url": "https://www.youtube.com/watch?v=sDi67W0r_3k",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-19",
+   "views": 3073,
+   "first_seen": "2026-10-19",
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "sWHguQhTAew",
@@ -7023,11 +7107,13 @@
   {
    "video_id": "suhI5Surcsg",
    "title": "ALL GHOST EXPOSED Locations in GTA 5 Online! (Ghost Hunt Collectibles)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=suhI5Surcsg",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-01",
    "views": 107340,
+   "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
   },
@@ -7216,11 +7302,13 @@
   {
    "video_id": "txjzaBwpZUE",
    "title": "ALL *LIMITED TIME* HALLOWEEN CONTENT IN GTA 5 ONLINE! Halloween 2026 DLC UPDATE! Ghost Event & MORE!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=txjzaBwpZUE",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-03",
    "views": 38040,
+   "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
   },
@@ -7258,7 +7346,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-17",
-   "views": 8975,
+   "views": 9110,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-19"
@@ -7271,10 +7359,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-09",
-   "views": 701657,
+   "views": 702159,
    "kind": "",
    "first_seen": "2026-10-10",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "ucLm0HylwlU",
@@ -7403,7 +7491,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-14",
-   "views": 13598,
+   "views": 13664,
    "kind": "",
    "first_seen": "2026-10-14",
    "last_seen": "2026-10-19"
@@ -7455,10 +7543,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-16",
-   "views": 355,
+   "views": 365,
    "kind": "",
    "first_seen": "2026-10-16",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "vHwBz4MXRI4",
@@ -7572,7 +7660,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-01",
-   "views": 18400,
+   "views": 18427,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-19"
@@ -7663,7 +7751,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-08",
-   "views": 16941,
+   "views": 16957,
    "kind": "",
    "first_seen": "2026-10-10",
    "last_seen": "2026-10-19"
@@ -7671,11 +7759,13 @@
   {
    "video_id": "x2CgqSI9h_g",
    "title": "ALL Modded Clothing Jobs In GTA 5 Online! (Updated)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=x2CgqSI9h_g",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-09-25",
    "views": 33164,
+   "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
   },
@@ -7732,6 +7822,17 @@
    "last_seen": "2026-10-18"
   },
   {
+   "video_id": "xgaPQaDijH4",
+   "title": "FREE SECRET Halloween Car, NEW Outfits, RARE Vehicle, UFO, Demon, GTA 5 DLC 2026 (GTA Online Update)",
+   "url": "https://www.youtube.com/watch?v=xgaPQaDijH4",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-18",
+   "views": 5274,
+   "first_seen": "2026-10-19",
+   "last_seen": "2026-10-19"
+  },
+  {
    "video_id": "xkf0_UJc0co",
    "title": "🥇【GTA5直播】公寓搶劫最高榮耀「犯罪首腦」🥇 豪取1200萬大成功   #gta #gta5 #gtaonline",
    "channel": "",
@@ -7778,10 +7879,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-18",
-   "views": 393,
+   "views": 453,
    "kind": "",
    "first_seen": "2026-10-18",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-19"
   },
   {
    "video_id": "y34UESrKuVU",
@@ -7791,7 +7892,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 142861,
+   "views": 143565,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-19"
@@ -7934,7 +8035,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-18",
-   "views": 49801,
+   "views": 135904,
    "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-19"
