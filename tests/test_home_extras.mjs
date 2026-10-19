@@ -21,7 +21,7 @@ import {
   videoKey,
   weekHighlights,
 } from "../src/homeExtras.js";
-import { parseSnapshotNow } from "../src/bahaTime.js";
+import { hubSnapshotStamp, parseSnapshotNow, snapshotAgeParts } from "../src/bahaTime.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const sample = JSON.parse(readFileSync(resolve(root, "public/data/sample.json"), "utf8"));
@@ -122,6 +122,34 @@ if (gta6ScheduleBannerHtml({ jobs_gtabase: [{ title: "weekly bonuses only" }] },
   const zhAge = formatSnapshotAgeLabel("2026-10-13 14:51", "zh", fixedNow);
   if (zhAge !== "11 小時前") fail("formatSnapshotAgeLabel zh hours", zhAge);
   if (formatSnapshotAgeLabel("", "en", fixedNow) !== "") fail("empty stamp → empty age");
+}
+
+// Why: GitHub Actions is UTC, so _last_run was the same digits as generated_at.
+// metaStampMs treats those digits as Taipei and the live banner said "8h ago"
+// for a snapshot that had just been written. generated_at (Z) is the real instant.
+{
+  const meta = {
+    _last_run: "2026-10-19 00:04",
+    generated_at: "2026-10-19T00:04:44Z",
+    sample: false,
+  };
+  const builtAt = new Date("2026-10-19T00:04:50Z");
+  const trap = snapshotAgeParts(meta._last_run, builtAt);
+  if (!trap || trap.unit !== "hours" || trap.n !== 8) fail("naive UTC _last_run is the 8h trap", trap);
+  if (hubSnapshotStamp(meta) !== "2026-10-19 08:04") fail("hub stamp must be Taipei of generated_at");
+  const banner = staticDataBannerHtml({ meta }, "en", builtAt);
+  if (!banner.includes("2026-10-19 08:04") || !banner.includes("just now") || banner.includes("8h ago")) {
+    fail("banner must follow generated_at, not the UTC _last_run digits", banner);
+  }
+  const bannerZh = staticDataBannerHtml({ meta }, "zh", builtAt);
+  if (!bannerZh.includes("2026-10-19 08:04") || !bannerZh.includes("剛剛") || bannerZh.includes("小時前")) {
+    fail("zh banner must follow generated_at", bannerZh);
+  }
+  const last = staticLastRunText({ meta }, "en", builtAt);
+  if (!last.includes("2026-10-19 08:04") || !last.includes("just now")) fail("lastRun clock", last);
+  if (hubSnapshotStamp({ _last_run: "2026-08-20 00:00" }) !== "2026-08-20 00:00") {
+    fail("missing generated_at keeps the Taipei _last_run string");
+  }
 }
 
 // Why: home used to flash LOADING until site.json fetch; static stamp+age on first

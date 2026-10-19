@@ -1,6 +1,6 @@
 /** Homepage extras: highlights, snapshot stats, rank deltas, video sort/filter. */
 
-import { parseSnapshotNow, snapshotAgeParts } from "./bahaTime.js";
+import { hubSnapshotStamp, parseSnapshotNow, snapshotAgeParts } from "./bahaTime.js";
 import { cardId } from "./cardShare.js";
 import { fmtViews, t } from "./i18n.js";
 import { filterOtherShorts } from "./shortsFilter.js";
@@ -57,8 +57,9 @@ export function staticDataBannerHtml(data, lang = "en", now = new Date()) {
   if (!isLiveHubData(data)) {
     return `<strong>${esc(t("sampleStrong", {}, ui))}</strong><span>${esc(t("sampleSpan", {}, ui))}</span>`;
   }
-  const stamp = meta._last_run || meta.snapshot_date || "—";
-  const ageLabel = formatSnapshotAgeLabel(stamp, ui, now);
+  const clock = hubSnapshotStamp(meta);
+  const stamp = clock || "—";
+  const ageLabel = formatSnapshotAgeLabel(clock, ui, now);
   const age = ageLabel ? ` · ${ageLabel}` : "";
   return `<strong>${esc(t("snapshotStrong", {}, ui))}</strong><span>${esc(t("snapshotSpan", { stamp, age }, ui))}</span>`;
 }
@@ -70,8 +71,9 @@ export function staticLastRunText(data, lang = "en", now = new Date()) {
   if (!isLiveHubData(data)) {
     return t("lastRunSample", { stamp: meta.snapshot_date || "" }, ui);
   }
-  const stamp = meta._last_run || "—";
-  const ageLabel = formatSnapshotAgeLabel(stamp, ui, now);
+  const clock = hubSnapshotStamp(meta);
+  const stamp = clock || "—";
+  const ageLabel = formatSnapshotAgeLabel(clock, ui, now);
   const age = ageLabel ? ` · ${ageLabel}` : "";
   return t("lastRunLive", { stamp, age }, ui);
 }

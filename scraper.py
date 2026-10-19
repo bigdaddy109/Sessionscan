@@ -201,8 +201,10 @@ RDO_RE = re.compile(
 )
 
 
-def now_str():
-    return datetime.now(timezone.utc).astimezone().strftime("%Y-%m-%d %H:%M")
+def now_str(now=None):
+    # Taipei wall clock. metaStampMs reads these stamps as Taipei; host-local
+    # astimezone() on UTC GitHub Actions made a fresh snapshot look 8h old.
+    return taipei_now(now).strftime("%Y-%m-%d %H:%M")
 
 
 def taipei_now(now=None):
