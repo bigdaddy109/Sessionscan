@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20T00:05:32Z",
+ "updated": "2026-10-20T02:06:23Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -113,10 +113,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-08",
-   "views": 10122,
+   "views": 10124,
    "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "-ib78Q4K8Vk",
@@ -230,7 +230,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-15",
-   "views": 9179,
+   "views": 9199,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -386,7 +386,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-10",
-   "views": 10765,
+   "views": 10768,
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-20"
@@ -815,7 +815,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-10-09",
-   "views": 13575,
+   "views": 13613,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-20"
@@ -2341,7 +2341,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "FEOgNxqQKyw",
@@ -2507,7 +2507,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 20551,
+   "views": 20657,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -2905,11 +2905,13 @@
   {
    "video_id": "KXN2wAzRL6Y",
    "title": "GTA 6 Lucia’s Ankle Monitor Hides a HUGE Secret",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=KXN2wAzRL6Y",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-19",
    "views": 1675,
+   "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
@@ -3090,7 +3092,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-19",
-   "views": 84075,
+   "views": 102758,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-20"
@@ -3558,10 +3560,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-13",
-   "views": 1587,
+   "views": 1616,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-17"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "QHQ5THmbDwM",
@@ -3629,6 +3631,17 @@
    "last_seen": "2026-10-16"
   },
   {
+   "video_id": "QcDmBz3UB44",
+   "title": "Beating Criminal Mastermind Challenge as Level 1 in GTA 5 Online",
+   "url": "https://www.youtube.com/watch?v=QcDmBz3UB44",
+   "lang": "en",
+   "game": "GTA 5",
+   "date": "2026-10-11",
+   "views": 21459,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
+  },
+  {
    "video_id": "QeNztVAeQlo",
    "title": "Trolling Soldier as a Fake Fuel Pump in GTA 💥😂💀 #gtaviral #gtaonline #gta5online #gtacars #gta5",
    "channel": "GOD WARRIOR GAMING",
@@ -3662,7 +3675,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 6683,
+   "views": 6687,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -3870,10 +3883,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-10",
-   "views": 2115,
+   "views": 2121,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-17"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "SeMinu61MqI",
@@ -4013,7 +4026,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-09-20",
-   "views": 19137,
+   "views": 19142,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -4156,10 +4169,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-16",
-   "views": 1692,
+   "views": 1698,
    "kind": "",
    "first_seen": "2026-10-16",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "UskLh1DPE-U",
@@ -5331,7 +5344,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "bd5-cvN7QX8",
@@ -5576,6 +5589,7 @@
    "game": "GTA 6",
    "date": "2026-10-15",
    "views": 3173550,
+   "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
@@ -7376,11 +7390,13 @@
   {
    "video_id": "rTFyqIuh2LM",
    "title": "GTA 5 Online : CIVILIAN HELICOPTER VS MILITARY HELICOPTER (WHICH IS BEST?)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=rTFyqIuh2LM",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-19",
    "views": 1823,
+   "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
@@ -7821,7 +7837,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-17",
-   "views": 9433,
+   "views": 9463,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -8135,7 +8151,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-01",
-   "views": 18502,
+   "views": 18504,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -8226,7 +8242,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-08",
-   "views": 16991,
+   "views": 16995,
    "kind": "",
    "first_seen": "2026-10-10",
    "last_seen": "2026-10-20"
