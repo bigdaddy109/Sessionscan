@@ -5,7 +5,18 @@
   "title": "Grand Theft Auto VI Launch Trailer",
   "channel": "Rockstar Games",
   "url": "https://www.youtube.com/watch?v=rz1B4B2yBZY",
-  "views": 53027290,
+  "views": 53529780,
+  "date": "2026-10-15",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "i06GMloD_qA",
+  "video_id": "i06GMloD_qA",
+  "title": "Bande-annonce de lancement de Grand Theft Auto VI",
+  "channel": "Rockstar Games France",
+  "url": "https://www.youtube.com/watch?v=i06GMloD_qA",
+  "views": 18711811,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
@@ -16,18 +27,18 @@
   "title": "Grand Theft Auto VI - Tráiler de lanzamiento",
   "channel": "Rockstar Games España",
   "url": "https://www.youtube.com/watch?v=N6f30RVHOVw",
-  "views": 7803938,
+  "views": 7956021,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
  },
  {
-  "id": "71z9WgCVQ4s",
-  "video_id": "71z9WgCVQ4s",
-  "title": "Grand Theft Auto VI – Launch-Trailer",
-  "channel": "Rockstar Games Deutschland, Österreich & Schweiz",
-  "url": "https://www.youtube.com/watch?v=71z9WgCVQ4s",
-  "views": 4522405,
+  "id": "3JUboYgqIxc",
+  "video_id": "3JUboYgqIxc",
+  "title": "Grand Theft Auto VI | Trailer de lançamento",
+  "channel": "Rockstar Games Brasil",
+  "url": "https://www.youtube.com/watch?v=3JUboYgqIxc",
+  "views": 5407251,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
@@ -36,9 +47,9 @@
   "id": "0tRZdKQ5lHA",
   "video_id": "0tRZdKQ5lHA",
   "title": "Tráiler de lanzamiento de Grand Theft Auto VI",
-  "channel": "",
+  "channel": "Rockstar Games América Latina",
   "url": "https://www.youtube.com/watch?v=0tRZdKQ5lHA",
-  "views": 4012143,
+  "views": 4130452,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
@@ -46,10 +57,10 @@
  {
   "id": "FV93IVwJP_4",
   "video_id": "FV93IVwJP_4",
-  "title": "GTA 6 Launch Trailer Breakdown: Everything YOU MISSED",
+  "title": "GTA 6 Launch Trailer: Everything New YOU MISSED",
   "channel": "TGG",
   "url": "https://www.youtube.com/watch?v=FV93IVwJP_4",
-  "views": 1565350,
+  "views": 1570089,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
@@ -60,7 +71,7 @@
   "title": "Grand Theft Auto VI Launch Trailer",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=icy-lhqJhMQ",
-  "views": 1146737,
+  "views": 1156904,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
@@ -71,30 +82,8 @@
   "title": "New GTA 6 Features CONFIRMED by Rockstar",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=-YzzZu_ptKo",
-  "views": 888435,
+  "views": 891943,
   "date": "2026-10-14",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "g-rSSntLJ7k",
-  "video_id": "g-rSSntLJ7k",
-  "title": "10 THINGS From GTA 5 That You WON'T Be Able To Do In GTA 6",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=g-rSSntLJ7k",
-  "views": 880552,
-  "date": "2026-10-05",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "4vR3qgYtD9Q",
-  "video_id": "4vR3qgYtD9Q",
-  "title": "GTA 6 NPC’s are cooked…",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=4vR3qgYtD9Q",
-  "views": 870275,
-  "date": "2026-10-06",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -104,8 +93,19 @@
   "title": "GTA 6 LEAK DEBUNKED, PS5 PRO SKYROCKETS & MORE",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=uV26izBiLF8",
-  "views": 703171,
+  "views": 703255,
   "date": "2026-10-09",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "OGmDFz5mZ5A",
+  "video_id": "OGmDFz5mZ5A",
+  "title": "NEW INFO: Inside the Development of GTA 6",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=OGmDFz5mZ5A",
+  "views": 596339,
+  "date": "2026-10-17",
   "lang": "en",
   "game": "GTA 6"
  }
