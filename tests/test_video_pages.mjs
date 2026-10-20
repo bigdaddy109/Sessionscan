@@ -136,6 +136,21 @@ if (!html.includes("https://www.youtube.com/@sessionscan")) fail("share pages ke
 if (!html.includes("viewport-fit=cover")) fail("share pages must honor iOS safe-area via viewport-fit=cover");
 if (!html.includes("channel-link-play")) fail("share header merges subscribe into one ▶ control");
 if (!html.includes("header-home-link")) fail("share header home link must not reuse channel-link");
+// Why: share pages only offered YouTube. Players landing on /v/{id}/ could not
+// open the same Instagram and X profiles the homepage header already shows.
+const videoHeader = html.match(/<nav class="header-social"[\s\S]*?<\/nav>/)?.[0] || "";
+const videoFooter = html.match(/<p class="footer-social">[\s\S]*?<\/p>/)?.[0] || "";
+for (const href of [
+  "https://www.youtube.com/@sessionscan",
+  "https://www.instagram.com/sessionscan/",
+  "https://x.com/SessionScanGTA",
+]) {
+  if (!videoHeader.includes(href)) fail("video header social missing", href);
+  if (!videoFooter.includes(href)) fail("video footer social missing", href);
+}
+if (!videoHeader.includes('aria-label="Follow on X @SessionScanGTA"')) {
+  fail("video header X accessible name");
+}
 // Why: visible "▶" inside a control whose accessible name is only "Play: {title}"
 // fails Lighthouse label-content-name-mismatch (WCAG 2.5.3). CSS triangle only.
 if (html.includes("▶</span></div>")) fail("video play chrome must not use ▶ text inside .play");
@@ -151,6 +166,9 @@ const zhHtml = renderVideoPage(video, {
   lang: "zh",
 });
 if (!zhHtml.includes('lang="zh-Hant"') || !zhHtml.includes('data-ui-lang="zh"')) fail("zh video lang");
+if (!zhHtml.includes("追蹤 X @SessionScanGTA") || !zhHtml.includes("https://www.instagram.com/sessionscan/")) {
+  fail("zh video header/footer must keep IG and X");
+}
 if (!zhHtml.includes('aria-label="麵包屑導覽"')) fail("zh video breadcrumbs aria-label");
 const zhNav = zhHtml.match(/<nav class="site-breadcrumbs"[\s\S]*?<\/nav>/)?.[0] || "";
 if (!zhNav.includes('href="/zh/"') || !zhNav.includes("回首頁")) fail("zh video Home crumb", zhNav);

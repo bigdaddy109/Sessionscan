@@ -15,6 +15,7 @@ import {
 } from "../src/i18n.js";
 import {
   INSTAGRAM_URL,
+  X_PROFILE_URL,
   YOUTUBE_CHANNEL_URL,
   homeJsonLd,
   organizationJsonLd,
@@ -114,6 +115,11 @@ if (!Array.isArray(org.sameAs) || !org.sameAs.includes(YOUTUBE_CHANNEL_URL)) {
 if (!org.sameAs.includes(INSTAGRAM_URL)) {
   fail("Organization sameAs must include Instagram", org.sameAs);
 }
+// Why: the header already links X @SessionScanGTA; Organization.sameAs must list that
+// same profile or crawlers only see YouTube and Instagram.
+if (!org.sameAs.includes(X_PROFILE_URL)) {
+  fail("Organization sameAs must include X", org.sameAs);
+}
 if (!indexHtml.includes(INSTAGRAM_URL)) fail("index.html must link Instagram in header/JSON-LD");
 if (!indexHtml.includes("channel-link-ig")) fail("index.html must render Instagram header control");
 if (!indexHtml.includes('href="https://www.instagram.com/sessionscan/"')) {
@@ -146,6 +152,7 @@ if (zhLd[0]["@graph"][0].inLanguage !== "zh-Hant") fail("zh WebSite inLanguage")
 if (zhLd[0]["@graph"][0].url !== "https://sessionscan.net/zh/") fail("zh WebSite url");
 const zhOrg = (zhLd[0]["@graph"] || []).find((node) => node["@type"] === "Organization");
 if (!zhOrg?.sameAs?.includes(INSTAGRAM_URL)) fail("zh Organization sameAs must include Instagram", zhOrg?.sameAs);
+if (!zhOrg?.sameAs?.includes(X_PROFILE_URL)) fail("zh Organization sameAs must include X", zhOrg?.sameAs);
 
 // Static home HTML must ship the same Label-in-Name-safe aria strings (pre-JS).
 if (!indexHtml.includes('aria-label="Follow on Instagram · IG"')) {

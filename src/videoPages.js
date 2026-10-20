@@ -21,13 +21,14 @@ import {
   absoluteUrl,
   breadcrumbsNavHtml,
   footerGuidesHtml,
+  footerSocialHtml,
+  headerSocialHtml,
   primaryNavHtml,
   relatedPagesHtml,
   staticSitemapUrls,
 } from "./sitePages.js";
 import {
   VIDEO_JSON_LD_ID,
-  YOUTUBE_CHANNEL_URL,
   breadcrumbListJsonLd,
   jsonLdScript,
   videoObjectJsonLd,
@@ -483,11 +484,7 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
             <em data-i18n="brandEm">${esc(t("brandEm", {}, ui))}</em>
           </span>
         </a>
-        <a class="channel-link" href="${YOUTUBE_CHANNEL_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="${esc(t("channelAria", {}, ui))}">
-          <span class="channel-link-play" aria-hidden="true">▶</span>
-          <span class="channel-link-full" data-i18n="channelFull" aria-hidden="true">${esc(t("channelFull", {}, ui))}</span>
-          <span class="channel-link-short" aria-hidden="true">@sessionscan</span>
-        </a>
+        ${headerSocialHtml(ui)}
         <nav class="lang-switch" aria-label="${esc(t("langSwitchAria", {}, ui))}">
           <a href="${esc(enPage)}" data-lang-link="en" hreflang="en"${ui === "en" ? ' aria-current="page"' : ""}>EN</a>
           <span class="lang-switch-sep" aria-hidden="true">/</span>
@@ -507,12 +504,7 @@ export function renderVideoPage(video, { cssHref, faviconHref, lang = "en" } = {
       ${relatedPagesHtml(ui, { currentId: "video" })}
     </main>
     <footer class="site-footer">
-      <p class="footer-social">
-        <a class="footer-social-link" href="${YOUTUBE_CHANNEL_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="${esc(t("channelAria", {}, ui))}">
-          <span data-i18n="channelFull" aria-hidden="true">${esc(t("channelFull", {}, ui))}</span>
-          <span class="footer-social-handle" aria-hidden="true">@sessionscan</span>
-        </a>
-      </p>
+      ${footerSocialHtml(ui)}
       ${footerGuidesHtml(ui)}
       <p><strong>SessionScan</strong> · <span data-i18n="footerAbout">${esc(t("footerAbout", {}, ui))}</span></p>
       <p data-i18n="footerScope">${esc(t("footerScope", {}, ui))}</p>

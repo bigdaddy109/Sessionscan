@@ -90,6 +90,26 @@ if (!about.includes('class="footer-guides"') || !about.includes('data-footer-gui
 }
 if (about.includes('data-footer-guide="about"')) fail("footer guides must not list about");
 if (about.includes('class="page-home-link"')) fail("about uses related-pages, not lone page-home-link");
+// Why: home header/footer already link YouTube, Instagram, and X. Shell pages
+// dropped X in the header and dropped IG + X in the footer, so Money/Archive/GTA 6
+// could not reach the same official profiles.
+const aboutHeader = about.match(/<nav class="header-social"[\s\S]*?<\/nav>/)?.[0] || "";
+const aboutFooter = about.match(/<p class="footer-social">[\s\S]*?<\/p>/)?.[0] || "";
+for (const href of [
+  "https://www.youtube.com/@sessionscan",
+  "https://www.instagram.com/sessionscan/",
+  "https://x.com/SessionScanGTA",
+]) {
+  if (!aboutHeader.includes(href)) fail("about header social missing", href);
+  if (!aboutFooter.includes(href)) fail("about footer social missing", href);
+}
+if (!aboutHeader.includes("channel-link-x") || !aboutHeader.includes("Follow on X @SessionScanGTA")) {
+  fail("about header X control", aboutHeader);
+}
+const aboutZh = renderSitePage(SITE_PAGES.find((p) => p.id === "about"), { lang: "zh" });
+if (!aboutZh.includes("追蹤 X @SessionScanGTA") || !aboutZh.includes("https://x.com/SessionScanGTA")) {
+  fail("zh about header/footer must keep the X profile");
+}
 
 const week = renderSitePage(
   SITE_PAGES.find((p) => p.id === "week"),

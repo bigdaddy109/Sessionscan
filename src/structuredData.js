@@ -6,6 +6,8 @@ import { SITE_ORIGIN, htmlLang, localeHome, t } from "./i18n.js";
 export const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@sessionscan";
 export const YOUTUBE_HANDLE = "@sessionscan";
 export const INSTAGRAM_URL = "https://www.instagram.com/sessionscan/";
+export const X_PROFILE_URL = "https://x.com/SessionScanGTA";
+export const X_HANDLE = "@SessionScanGTA";
 export const HOME_JSON_LD_ID = "home-jsonld";
 export const VIDEO_JSON_LD_ID = "video-jsonld";
 
@@ -19,7 +21,7 @@ export function organizationJsonLd() {
     name: "SessionScan",
     url: `${SITE_ORIGIN}/`,
     logo: `${SITE_ORIGIN}/og.jpg`,
-    sameAs: [YOUTUBE_CHANNEL_URL, INSTAGRAM_URL],
+    sameAs: [YOUTUBE_CHANNEL_URL, INSTAGRAM_URL, X_PROFILE_URL],
   };
 }
 
