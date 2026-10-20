@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20T14:03:50Z",
+ "updated": "2026-10-20T16:03:53Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -113,7 +113,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-08",
-   "views": 10125,
+   "views": 10126,
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-20"
@@ -230,7 +230,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-15",
-   "views": 9308,
+   "views": 9332,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -386,7 +386,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-10",
-   "views": 10776,
+   "views": 10777,
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-20"
@@ -477,7 +477,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 79551,
+   "views": 80522,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -754,6 +754,17 @@
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-19"
+  },
+  {
+   "video_id": "3_GZBX2g93s",
+   "title": "How Did We Imagine GTA 6?",
+   "url": "https://www.youtube.com/watch?v=3_GZBX2g93s",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-11",
+   "views": 572269,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "3bnfTxfAW1k",
@@ -1101,7 +1112,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-19",
-   "views": 26266,
+   "views": 27096,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-20"
@@ -1179,7 +1190,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 4175795,
+   "views": 4326845,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-20"
@@ -1244,7 +1255,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-19",
-   "views": 16969,
+   "views": 19506,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-20"
@@ -1309,10 +1320,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 4879227,
+   "views": 5682466,
    "kind": "",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "89hGQ2-rirI",
@@ -2273,7 +2284,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-30",
-   "views": 102428,
+   "views": 102455,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -2299,7 +2310,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 550750,
+   "views": 551016,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -2429,7 +2440,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1556346,
+   "views": 1559647,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -2442,7 +2453,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-20",
-   "views": 21299,
+   "views": 40467,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
@@ -2572,7 +2583,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 21042,
+   "views": 21269,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -2851,6 +2862,17 @@
    "last_seen": "2026-10-20"
   },
   {
+   "video_id": "IoFqeEE56P4",
+   "title": "THE FASTEST SOLO RP METHOD IN GTA ONLINE RIGHT NOW! (250,000 RP PER HOUR)",
+   "url": "https://www.youtube.com/watch?v=IoFqeEE56P4",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-20",
+   "views": 0,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
+  },
+  {
    "video_id": "JHgxUguGxzw",
    "title": "GTA Online: Street Dealers, Gun Van & Shipwreck Locations (October 19th 2026) - Ultimate Guide!",
    "channel": "",
@@ -2866,11 +2888,13 @@
   {
    "video_id": "JbeBFE8JG3U",
    "title": "What you should buy before next GTA Online Weekly update!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=JbeBFE8JG3U",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 1039,
+   "views": 2895,
+   "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
@@ -2912,6 +2936,17 @@
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-14"
+  },
+  {
+   "video_id": "K2_qtb5cnRc",
+   "title": "How I Made $100 Million on a New Account in GTA Online | Part 2",
+   "url": "https://www.youtube.com/watch?v=K2_qtb5cnRc",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-20",
+   "views": 7,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "K4e1cPrN4n4",
@@ -2964,6 +2999,18 @@
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-12"
+  },
+  {
+   "video_id": "KUcGwiuIIZ0",
+   "title": "It's ALL Going Away.. Don't MISS THIS Before The NEW GTA Online Update! (New GTA5 Update)",
+   "channel": "Hazard",
+   "url": "https://www.youtube.com/watch?v=KUcGwiuIIZ0",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-20",
+   "views": 1592,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "KVjRggqXUPY",
@@ -3220,7 +3267,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 7443353,
+   "views": 7603343,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -3337,7 +3384,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 2183,
+   "views": 2477,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
@@ -3389,7 +3436,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-17",
-   "views": 584824,
+   "views": 587657,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-20"
@@ -3733,6 +3780,17 @@
    "last_seen": "2026-10-16"
   },
   {
+   "video_id": "QWBcqrkAv30",
+   "title": "洛圣都的空桶居然可以无限漏出石油？！ #gta #gta5  #遊戲頻道 #gtav",
+   "url": "https://www.youtube.com/watch?v=QWBcqrkAv30",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-10-20",
+   "views": 97,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
+  },
+  {
    "video_id": "QcDmBz3UB44",
    "title": "Beating Criminal Mastermind Challenge as Level 1 in GTA 5 Online",
    "channel": "",
@@ -3779,7 +3837,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 6718,
+   "views": 6725,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -3813,11 +3871,13 @@
   {
    "video_id": "Qw-UQE_gQwQ",
    "title": "CRAZY Details You Probably MISSED In The GTA 6 Launch Trailer",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Qw-UQE_gQwQ",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-20",
-   "views": 0,
+   "views": 148,
+   "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
@@ -4141,7 +4201,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-20",
-   "views": 395,
+   "views": 630,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
@@ -4609,7 +4669,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-20",
-   "views": 7879,
+   "views": 8062,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
@@ -4648,7 +4708,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 61,
+   "views": 189,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
@@ -4936,7 +4996,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-19",
-   "views": 16496,
+   "views": 17735,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-20"
@@ -5430,7 +5490,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-09-21",
-   "views": 119880,
+   "views": 119884,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -5550,7 +5610,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "bx48IIOGCx8",
@@ -5625,7 +5685,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 3362,
+   "views": 5969,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
@@ -5775,7 +5835,7 @@
   },
   {
    "video_id": "dTrLorj_NJI",
-   "title": "《GTA Online》頭號通緝犯⚖️勒羅伊·奧尼爾（保釋辦公室）全流程",
+   "title": "《GTA Online》頭號通緝犯⚖️勒羅伊·奧尼爾-全流程（保釋辦公室）",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=dTrLorj_NJI",
    "lang": "zh",
@@ -6093,7 +6153,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-05",
-   "views": 880421,
+   "views": 880522,
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-10-20"
@@ -6483,7 +6543,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-04",
-   "views": 69353,
+   "views": 69453,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -6522,7 +6582,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1132242,
+   "views": 1138528,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -6717,7 +6777,7 @@
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-20",
-   "views": 4159,
+   "views": 4282,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
@@ -7201,7 +7261,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-08"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "p1m6BvCZlOk",
@@ -7471,7 +7531,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 62775,
+   "views": 64373,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-20"
@@ -7692,7 +7752,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 52177135,
+   "views": 52517698,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -7757,7 +7817,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-09",
-   "views": 55664,
+   "views": 55669,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-20"
@@ -8043,7 +8103,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-17",
-   "views": 9591,
+   "views": 9655,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -8188,7 +8248,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-14",
-   "views": 13947,
+   "views": 14002,
    "kind": "",
    "first_seen": "2026-10-14",
    "last_seen": "2026-10-20"
@@ -8448,7 +8508,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-08",
-   "views": 17020,
+   "views": 17023,
    "kind": "",
    "first_seen": "2026-10-10",
    "last_seen": "2026-10-20"
@@ -8597,6 +8657,17 @@
    "last_seen": "2026-10-20"
   },
   {
+   "video_id": "y1fXowsnAoA",
+   "title": "Every Weapon in GTA 6 (UPDATED)",
+   "url": "https://www.youtube.com/watch?v=y1fXowsnAoA",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-20",
+   "views": 51,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
+  },
+  {
    "video_id": "y34UESrKuVU",
    "title": "如何在罪恶都市中偷偷闯入军事基地开走武装直升机？  #gta #gta5 #遊戲頻道",
    "channel": "",
@@ -8604,7 +8675,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 149691,
+   "views": 150212,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-20"
@@ -8650,13 +8721,13 @@
   },
   {
    "video_id": "yXNJGI5DDw0",
-   "title": "《GTAOnline》別惹德瑞🎵 (事務所)   全流程",
+   "title": "《GTAOnline》別惹德瑞🎵-全流程(事務所)",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=yXNJGI5DDw0",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-19",
-   "views": 10,
+   "views": 11,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
@@ -8725,6 +8796,18 @@
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-19"
+  },
+  {
+   "video_id": "yoosnL1kEXY",
+   "title": "2026/10/20 槍械廂型車、毒販、塗鴉、佩里克島寶箱、遇難船、吞雲吐霧大麻位置 (GTA 5 線上模式)",
+   "channel": "無聲玩家 Soundless Gamer",
+   "url": "https://www.youtube.com/watch?v=yoosnL1kEXY",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-10-20",
+   "views": 4,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "yzVH0TfyyoA",
@@ -8858,13 +8941,13 @@
   },
   {
    "video_id": "zrXu-5U91Lk",
-   "title": "《GTA Online》頭號通緝犯⚖️-查茲·里伯曼（保釋辦公室）全流程",
+   "title": "《GTA Online》頭號通緝犯⚖️-查茲·里伯曼-全流程(保釋辦公室)",
    "channel": "S41NT.L4W_3",
    "url": "https://www.youtube.com/watch?v=zrXu-5U91Lk",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 3,
+   "views": 6,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
