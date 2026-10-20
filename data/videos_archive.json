@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20T08:04:34Z",
+ "updated": "2026-10-20T10:06:00Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -87,7 +87,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-14",
-   "views": 870340,
+   "views": 877364,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -230,7 +230,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-15",
-   "views": 9239,
+   "views": 9270,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -243,7 +243,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 3805057,
+   "views": 3856901,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-20"
@@ -477,7 +477,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 76244,
+   "views": 77667,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -555,7 +555,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-05",
-   "views": 56812,
+   "views": 56871,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -672,7 +672,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-21",
-   "views": 60944,
+   "views": 60992,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -1036,7 +1036,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-03",
-   "views": 214279,
+   "views": 214774,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -1101,7 +1101,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-19",
-   "views": 22597,
+   "views": 24017,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-20"
@@ -1244,7 +1244,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-19",
-   "views": 9266,
+   "views": 11103,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-20"
@@ -1274,6 +1274,17 @@
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-10-14"
+  },
+  {
+   "video_id": "7v9kGN5-aww",
+   "title": "Completing all Career Progress Tiers in GTA Online [Part 112] [Final Livestream]",
+   "url": "https://www.youtube.com/watch?v=7v9kGN5-aww",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-20",
+   "views": 72221,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "7xw0gyojYxs",
@@ -1391,6 +1402,17 @@
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-18"
+  },
+  {
+   "video_id": "8n3VGbjqf64",
+   "title": "Evolution Of Crystal Maze Strats #gta5 #gtav #gtaonline",
+   "url": "https://www.youtube.com/watch?v=8n3VGbjqf64",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-20",
+   "views": 36852,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "8rv-YsrzBGw",
@@ -1545,10 +1567,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-10",
-   "views": 2370,
+   "views": 2409,
    "kind": "",
    "first_seen": "2026-10-10",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "A-ap75BU8s8",
@@ -1584,10 +1606,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-11",
-   "views": 457989,
+   "views": 536462,
    "kind": "",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "AFIkBJYWEaE",
@@ -1990,7 +2012,7 @@
    "views": 89,
    "kind": "",
    "first_seen": "2026-10-11",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "CbsauFlcxBc",
@@ -2000,10 +2022,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-26",
-   "views": 4782,
+   "views": 4783,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-17"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "ChipKvpy5ig",
@@ -2143,7 +2165,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-19",
-   "views": 9011,
+   "views": 9781,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-20"
@@ -2247,7 +2269,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-30",
-   "views": 102360,
+   "views": 102396,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -2273,7 +2295,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 549998,
+   "views": 550321,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -2403,9 +2425,21 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1544837,
+   "views": 1549430,
    "kind": "",
    "first_seen": "2026-10-15",
+   "last_seen": "2026-10-20"
+  },
+  {
+   "video_id": "FZIMWayNjQ8",
+   "title": "GTA 6 Is Just One Month Away - And It Still Doesn’t Feel Real",
+   "channel": "GamingBolt",
+   "url": "https://www.youtube.com/watch?v=FZIMWayNjQ8",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-20",
+   "views": 480,
+   "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
   {
@@ -2549,7 +2583,7 @@
    "views": 130,
    "kind": "",
    "first_seen": "2026-10-10",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "GywF44QAvvU",
@@ -2624,7 +2658,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-18",
-   "views": 94,
+   "views": 95,
    "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-20"
@@ -2923,7 +2957,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-19",
-   "views": 31209,
+   "views": 39396,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
@@ -2940,6 +2974,17 @@
    "kind": "",
    "first_seen": "2026-10-14",
    "last_seen": "2026-10-15"
+  },
+  {
+   "video_id": "LCqZ1U9e3kc",
+   "title": "Did Rockstar Copy This Movie? #gta5 #gtav #gtaonline",
+   "url": "https://www.youtube.com/watch?v=LCqZ1U9e3kc",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-20",
+   "views": 4117,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "LIVWTO77YAA",
@@ -3105,7 +3150,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-19",
-   "views": 140956,
+   "views": 154288,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-20"
@@ -3256,11 +3301,13 @@
   {
    "video_id": "NwxQor29h7A",
    "title": "嚇到漏尿 😱  #gta5 #末日首腦 #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=NwxQor29h7A",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 684,
+   "views": 1160,
+   "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
@@ -3311,7 +3358,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-17",
-   "views": 576399,
+   "views": 579667,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-20"
@@ -3610,7 +3657,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-19",
-   "views": 14214,
+   "views": 16099,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-20"
@@ -4045,6 +4092,17 @@
    "last_seen": "2026-10-12"
   },
   {
+   "video_id": "TjwLCmms8sE",
+   "title": "【GTA5】節約派のカーライフ「ピカドール」の巻【第28話】",
+   "url": "https://www.youtube.com/watch?v=TjwLCmms8sE",
+   "lang": "ja",
+   "game": "GTA 5",
+   "date": "2026-10-20",
+   "views": 4,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
+  },
+  {
    "video_id": "U8W-sd6LyQM",
    "title": "【GTA6】プレイ動画考察④ 完結編！GTAオンラインとGTAVIとのコラボ確定！",
    "channel": "",
@@ -4117,7 +4175,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 525007,
+   "views": 529940,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-20"
@@ -4338,10 +4396,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-06",
-   "views": 5947,
+   "views": 5972,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "VoChduW0NlQ",
@@ -4500,6 +4558,17 @@
    "last_seen": "2026-10-17"
   },
   {
+   "video_id": "X34ppPKADCo",
+   "title": "The FINAL GTA 5 Playthrough Before GTA 6 Part 5! (w/ NVE Mod)",
+   "url": "https://www.youtube.com/watch?v=X34ppPKADCo",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-20",
+   "views": 7201,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
+  },
+  {
    "video_id": "X3TN1Dbp_-Y",
    "title": "How To Play GTA 6 EARLY! (New Zealand Trick)",
    "channel": "",
@@ -4520,7 +4589,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 2396,
+   "views": 2715,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-20"
@@ -4808,7 +4877,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-19",
-   "views": 13398,
+   "views": 13986,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-20"
@@ -5302,7 +5371,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-09-21",
-   "views": 119869,
+   "views": 119879,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -5633,6 +5702,17 @@
    "last_seen": "2026-10-19"
   },
   {
+   "video_id": "dTrLorj_NJI",
+   "title": "《GTA Online》頭號通緝犯⚖️勒羅伊·奧尼爾（保釋辦公室）全流程",
+   "url": "https://www.youtube.com/watch?v=dTrLorj_NJI",
+   "lang": "zh",
+   "game": "GTA Online",
+   "date": "2026-10-19",
+   "views": 15,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
+  },
+  {
    "video_id": "deJvrdVfB78",
    "title": "GTA 6 Launch Trailer (2026)",
    "channel": "",
@@ -5952,7 +6032,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-18",
-   "views": 1708,
+   "views": 1711,
    "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-20"
@@ -5978,7 +6058,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-18",
-   "views": 2370,
+   "views": 2387,
    "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-20"
@@ -6329,7 +6409,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-04",
-   "views": 68869,
+   "views": 69024,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -6368,7 +6448,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1110478,
+   "views": 1118950,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -6485,7 +6565,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-13",
-   "views": 1844,
+   "views": 1850,
    "kind": "",
    "first_seen": "2026-10-13",
    "last_seen": "2026-10-20"
@@ -6558,11 +6638,13 @@
   {
    "video_id": "kdE6KSmn4e0",
    "title": "GTA V Push For Platinum!!!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=kdE6KSmn4e0",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-20",
-   "views": 3535,
+   "views": 3864,
+   "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
@@ -6808,10 +6890,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-08",
-   "views": 9412,
+   "views": 9441,
    "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "mP4aiFGOYTM",
@@ -7315,7 +7397,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 57444,
+   "views": 59563,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-20"
@@ -7536,7 +7618,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 51213026,
+   "views": 51615111,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -7601,7 +7683,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-09",
-   "views": 55642,
+   "views": 55654,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-20"
@@ -7900,7 +7982,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-09",
-   "views": 702846,
+   "views": 703020,
    "kind": "",
    "first_seen": "2026-10-10",
    "last_seen": "2026-10-20"
@@ -8448,7 +8530,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 148332,
+   "views": 148602,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-20"
@@ -8469,11 +8551,13 @@
   {
    "video_id": "yGt5VkNVS0Y",
    "title": "ImDontai Reacts To Grand Theft Auto VI Launch Trailer",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=yGt5VkNVS0Y",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-20",
    "views": 94352,
+   "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
@@ -8489,6 +8573,17 @@
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-15"
+  },
+  {
+   "video_id": "yXNJGI5DDw0",
+   "title": "《GTAOnline》別惹德瑞🎵 (事務所)   全流程",
+   "url": "https://www.youtube.com/watch?v=yXNJGI5DDw0",
+   "lang": "zh",
+   "game": "GTA Online",
+   "date": "2026-10-19",
+   "views": 10,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "yei8sYZadEI",
@@ -8683,6 +8778,18 @@
    "views": 1976,
    "kind": "",
    "first_seen": "2026-10-08",
+   "last_seen": "2026-10-20"
+  },
+  {
+   "video_id": "zrXu-5U91Lk",
+   "title": "《GTA Online》頭號通緝犯⚖️-查茲·里伯曼（保釋辦公室）全流程",
+   "channel": "S41NT.L4W_3",
+   "url": "https://www.youtube.com/watch?v=zrXu-5U91Lk",
+   "lang": "zh",
+   "game": "GTA Online",
+   "date": "2026-10-20",
+   "views": 3,
+   "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
   {
