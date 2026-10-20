@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20T16:03:53Z",
+ "updated": "2026-10-20T17:47:45Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -87,7 +87,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-14",
-   "views": 882045,
+   "views": 888243,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -243,7 +243,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 3871494,
+   "views": 3999416,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-20"
@@ -386,7 +386,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-10",
-   "views": 10777,
+   "views": 10778,
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-20"
@@ -477,7 +477,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 80522,
+   "views": 81871,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -490,7 +490,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-25",
-   "views": 55872,
+   "views": 55885,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -555,7 +555,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-05",
-   "views": 57021,
+   "views": 57346,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -672,7 +672,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-21",
-   "views": 61142,
+   "views": 61392,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -758,11 +758,13 @@
   {
    "video_id": "3_GZBX2g93s",
    "title": "How Did We Imagine GTA 6?",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=3_GZBX2g93s",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-11",
-   "views": 572269,
+   "views": 575120,
+   "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
@@ -790,7 +792,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-14",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "3hqDA8v3qac",
@@ -839,7 +841,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-10-09",
-   "views": 13768,
+   "views": 13827,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-20"
@@ -1112,7 +1114,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-19",
-   "views": 27096,
+   "views": 28366,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-20"
@@ -1255,7 +1257,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-19",
-   "views": 19506,
+   "views": 21826,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-20"
@@ -1972,7 +1974,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-24",
-   "views": 10292,
+   "views": 10293,
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-20"
@@ -2027,6 +2029,18 @@
    "views": 89,
    "kind": "",
    "first_seen": "2026-10-11",
+   "last_seen": "2026-10-20"
+  },
+  {
+   "video_id": "CMhKW4_3MNU",
+   "title": "🔴 LIVE GTA 5 ONLINE 4K #PS5 Pro JP/US版 GTAオンライン グラセフ グランドセフトオート 拡張版 Chill Heist 💰 Grind 252.26.10.20",
+   "channel": "Wasted_8D Gaming",
+   "url": "https://www.youtube.com/watch?v=CMhKW4_3MNU",
+   "lang": "ja",
+   "game": "GTA 5",
+   "date": "2026-10-20",
+   "views": 644,
+   "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
   {
@@ -2440,7 +2454,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1559647,
+   "views": 1564562,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -2583,7 +2597,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 21269,
+   "views": 21365,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -2864,11 +2878,13 @@
   {
    "video_id": "IoFqeEE56P4",
    "title": "THE FASTEST SOLO RP METHOD IN GTA ONLINE RIGHT NOW! (250,000 RP PER HOUR)",
+   "channel": "Fresh Gaming",
    "url": "https://www.youtube.com/watch?v=IoFqeEE56P4",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 0,
+   "views": 91,
+   "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
@@ -2940,11 +2956,13 @@
   {
    "video_id": "K2_qtb5cnRc",
    "title": "How I Made $100 Million on a New Account in GTA Online | Part 2",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=K2_qtb5cnRc",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 7,
+   "views": 171,
+   "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
@@ -3008,7 +3026,8 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 1592,
+   "views": 4511,
+   "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
@@ -3384,7 +3403,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 2477,
+   "views": 2718,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
@@ -3436,7 +3455,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-17",
-   "views": 587657,
+   "views": 591826,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-20"
@@ -3782,11 +3801,13 @@
   {
    "video_id": "QWBcqrkAv30",
    "title": "洛圣都的空桶居然可以无限漏出石油？！ #gta #gta5  #遊戲頻道 #gtav",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=QWBcqrkAv30",
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-20",
-   "views": 97,
+   "views": 530,
+   "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
@@ -3876,7 +3897,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-20",
-   "views": 148,
+   "views": 479,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
@@ -3923,15 +3944,15 @@
   {
    "video_id": "RiR77AI4uQ8",
    "title": "Grand Theft Auto VI Launch Trailer",
-   "channel": "",
+   "channel": "Rockstar Games UK & Ireland",
    "url": "https://www.youtube.com/watch?v=RiR77AI4uQ8",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 17562936,
+   "views": 25315029,
    "kind": "",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "Rk1mrWKAvtM",
@@ -4201,7 +4222,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-20",
-   "views": 630,
+   "views": 949,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
@@ -4214,7 +4235,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-09-20",
-   "views": 19188,
+   "views": 19219,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -4357,7 +4378,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-16",
-   "views": 1698,
+   "views": 1701,
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-20"
@@ -4669,7 +4690,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-20",
-   "views": 8062,
+   "views": 8341,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
@@ -4695,7 +4716,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 2848,
+   "views": 3019,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-20"
@@ -4708,7 +4729,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 189,
+   "views": 348,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
@@ -4996,7 +5017,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-19",
-   "views": 17735,
+   "views": 18857,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-20"
@@ -5490,7 +5511,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-09-21",
-   "views": 119884,
+   "views": 119883,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -5685,7 +5706,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 5969,
+   "views": 9472,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
@@ -6062,7 +6083,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-01",
-   "views": 16532,
+   "views": 16533,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -6153,7 +6174,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-05",
-   "views": 880522,
+   "views": 880552,
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-10-20"
@@ -6582,7 +6603,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1138528,
+   "views": 1146731,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -6777,7 +6798,7 @@
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-20",
-   "views": 4282,
+   "views": 4328,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
@@ -7132,6 +7153,17 @@
    "kind": "",
    "first_seen": "2026-10-14",
    "last_seen": "2026-10-19"
+  },
+  {
+   "video_id": "n-2m1HSeVOs",
+   "title": "iShowSpeed Reacts to KFC In GTA 6",
+   "url": "https://www.youtube.com/watch?v=n-2m1HSeVOs",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-20",
+   "views": 9414,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
   },
   {
    "video_id": "nAYtRdCM6LA",
@@ -7531,7 +7563,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 64373,
+   "views": 66127,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-20"
@@ -7752,7 +7784,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 52517698,
+   "views": 52960378,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -8103,7 +8135,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-17",
-   "views": 9655,
+   "views": 9696,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-20"
@@ -8116,7 +8148,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-09",
-   "views": 703071,
+   "views": 703171,
    "kind": "",
    "first_seen": "2026-10-10",
    "last_seen": "2026-10-20"
@@ -8248,7 +8280,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-14",
-   "views": 14002,
+   "views": 14069,
    "kind": "",
    "first_seen": "2026-10-14",
    "last_seen": "2026-10-20"
@@ -8358,6 +8390,17 @@
    "last_seen": "2026-10-19"
   },
   {
+   "video_id": "vb_SL-tl9UM",
+   "title": "How Should Weaponized Vehicles Be Handled in GTA 6?",
+   "url": "https://www.youtube.com/watch?v=vb_SL-tl9UM",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-20",
+   "views": 1059,
+   "first_seen": "2026-10-20",
+   "last_seen": "2026-10-20"
+  },
+  {
    "video_id": "vh4os_H7HlE",
    "title": "No Hands Looting Trick... #shorts #gta5 #gtaonline",
    "channel": "",
@@ -8417,7 +8460,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-01",
-   "views": 18559,
+   "views": 18587,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-20"
@@ -8659,11 +8702,13 @@
   {
    "video_id": "y1fXowsnAoA",
    "title": "Every Weapon in GTA 6 (UPDATED)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=y1fXowsnAoA",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-20",
-   "views": 51,
+   "views": 168,
+   "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
@@ -8675,7 +8720,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 150212,
+   "views": 150602,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-20"
@@ -8806,6 +8851,7 @@
    "game": "GTA 5",
    "date": "2026-10-20",
    "views": 4,
+   "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
   },
@@ -8947,7 +8993,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 6,
+   "views": 12,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-20"
