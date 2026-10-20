@@ -21,7 +21,10 @@ import {
 import { fontHeadLinks } from "./fontLinks.js";
 import {
   INSTAGRAM_URL,
+  X_HANDLE,
+  X_PROFILE_URL,
   YOUTUBE_CHANNEL_URL,
+  YOUTUBE_HANDLE,
   breadcrumbListJsonLd,
   jsonLdScript,
   organizationJsonLd,
@@ -36,9 +39,6 @@ import {
   gta6PageJsonLd,
   renderGta6PageBody,
 } from "./gta6Page.js";
-
-export const X_PROFILE_URL = "https://x.com/SessionScanGTA";
-export const X_HANDLE = "@SessionScanGTA";
 
 const BRAND_MARK = `<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
             <circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="1.6" class="teal" />
@@ -113,6 +113,47 @@ export function esc(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+
+/**
+ * Header social cluster (YouTube + Instagram + X). One flex child so shells,
+ * video share pages, and home cannot drop a profile or overflow 375.
+ */
+export function headerSocialHtml(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  return `<nav class="header-social" data-i18n-aria="headerSocialAria" aria-label="${esc(t("headerSocialAria", {}, ui))}">
+          <a class="channel-link" href="${YOUTUBE_CHANNEL_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="${esc(t("channelAria", {}, ui))}">
+            <span class="channel-link-play" aria-hidden="true">▶</span>
+            <span class="channel-link-full" data-i18n="channelFull" aria-hidden="true">${esc(t("channelFull", {}, ui))}</span>
+            <span class="channel-link-short" aria-hidden="true">${esc(YOUTUBE_HANDLE)}</span>
+          </a>
+          <a class="channel-link channel-link-ig" href="${INSTAGRAM_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="instagramAria" aria-label="${esc(t("instagramAria", {}, ui))}">
+            <span class="channel-link-full" data-i18n="instagramFull" aria-hidden="true">${esc(t("instagramFull", {}, ui))}</span>
+            <span class="channel-link-short" aria-hidden="true">IG</span>
+          </a>
+          <a class="channel-link channel-link-x" href="${X_PROFILE_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="weekSocialXAria" aria-label="${esc(t("weekSocialXAria", {}, ui))}">
+            <span class="channel-link-full" data-i18n="weekSocialX" aria-hidden="true">${esc(t("weekSocialX", {}, ui))}</span>
+            <span class="channel-link-short" aria-hidden="true">X</span>
+          </a>
+        </nav>`;
+}
+
+/** Footer social cluster — same three profiles as the header. */
+export function footerSocialHtml(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  return `<p class="footer-social">
+        <a class="footer-social-link" href="${YOUTUBE_CHANNEL_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="${esc(t("channelAria", {}, ui))}">
+          <span data-i18n="channelFull" aria-hidden="true">${esc(t("channelFull", {}, ui))}</span>
+          <span class="footer-social-handle" aria-hidden="true">${esc(YOUTUBE_HANDLE)}</span>
+        </a>
+        <a class="footer-social-link" href="${INSTAGRAM_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="instagramAria" aria-label="${esc(t("instagramAria", {}, ui))}">
+          <span data-i18n="instagramFull" aria-hidden="true">${esc(t("instagramFull", {}, ui))}</span>
+        </a>
+        <a class="footer-social-link" href="${X_PROFILE_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="weekSocialXAria" aria-label="${esc(t("weekSocialXAria", {}, ui))}">
+          <span data-i18n="weekSocialX" aria-hidden="true">${esc(t("weekSocialX", {}, ui))}</span>
+          <span class="footer-social-handle" aria-hidden="true">${esc(X_HANDLE)}</span>
+        </a>
+      </p>`;
 }
 
 export function normalizePathname(pathname = "/") {
@@ -560,17 +601,7 @@ export function renderSitePage(
             <em data-i18n="brandEm">${esc(t("brandEm", {}, ui))}</em>
           </span>
         </a>
-        <nav class="header-social" data-i18n-aria="headerSocialAria" aria-label="${esc(t("headerSocialAria", {}, ui))}">
-          <a class="channel-link" href="${YOUTUBE_CHANNEL_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="${esc(t("channelAria", {}, ui))}">
-            <span class="channel-link-play" aria-hidden="true">▶</span>
-            <span class="channel-link-full" data-i18n="channelFull" aria-hidden="true">${esc(t("channelFull", {}, ui))}</span>
-            <span class="channel-link-short" aria-hidden="true">@sessionscan</span>
-          </a>
-          <a class="channel-link channel-link-ig" href="${INSTAGRAM_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="instagramAria" aria-label="${esc(t("instagramAria", {}, ui))}">
-            <span class="channel-link-full" data-i18n="instagramFull" aria-hidden="true">${esc(t("instagramFull", {}, ui))}</span>
-            <span class="channel-link-short" aria-hidden="true">IG</span>
-          </a>
-        </nav>
+        ${headerSocialHtml(ui)}
         <nav class="lang-switch" data-i18n-aria="langSwitchAria" aria-label="${esc(t("langSwitchAria", {}, ui))}">
           <a href="${esc(ui === "en" ? path : otherHref)}" data-lang-link="en" hreflang="en"${ui === "en" ? ' aria-current="page"' : ""}>EN</a>
           <span class="lang-switch-sep" aria-hidden="true">/</span>
@@ -583,12 +614,7 @@ export function renderSitePage(
       ${mainBody}
     </main>
     <footer class="site-footer">
-      <p class="footer-social">
-        <a class="footer-social-link" href="${YOUTUBE_CHANNEL_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="${esc(t("channelAria", {}, ui))}">
-          <span data-i18n="channelFull" aria-hidden="true">${esc(t("channelFull", {}, ui))}</span>
-          <span class="footer-social-handle" aria-hidden="true">@sessionscan</span>
-        </a>
-      </p>${footerGuides}
+      ${footerSocialHtml(ui)}${footerGuides}
       <p><strong>SessionScan</strong> · <span data-i18n="footerAbout">${esc(t("footerAbout", {}, ui))}</span></p>
       <p data-i18n="footerScope">${esc(t("footerScope", {}, ui))}</p>
     </footer>
@@ -630,6 +656,14 @@ export function injectHomeShell(html, { lang = "en" } = {}) {
     /(<a class="brand"[^>]*aria-label=")[^"]*(")/,
     `$1${esc(t("brandAriaHome", {}, ui))}$2`,
   );
+
+  // Same YouTube / Instagram / X cluster as shells and video pages.
+  if (/<nav class="header-social"[\s\S]*?<\/nav>/.test(out)) {
+    out = out.replace(/<nav class="header-social"[\s\S]*?<\/nav>/, headerSocialHtml(ui));
+  }
+  if (/<p class="footer-social">[\s\S]*?<\/p>/.test(out)) {
+    out = out.replace(/<p class="footer-social">[\s\S]*?<\/p>/, footerSocialHtml(ui));
+  }
 
   // In-page + footer discovery for Archive / Money / Businesses (single source).
   const related = relatedPagesHtml(ui, { currentId: "home" });
