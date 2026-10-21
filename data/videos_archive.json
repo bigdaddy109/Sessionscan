@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21T16:03:56Z",
+ "updated": "2026-10-21T17:56:08Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -87,7 +87,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-14",
-   "views": 909147,
+   "views": 910910,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -243,7 +243,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-15",
-   "views": 9518,
+   "views": 9549,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -256,7 +256,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 4786209,
+   "views": 4910852,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-21"
@@ -399,7 +399,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-10",
-   "views": 10789,
+   "views": 10795,
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-21"
@@ -516,7 +516,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 87453,
+   "views": 88180,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -529,7 +529,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-25",
-   "views": 55931,
+   "views": 55937,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-21"
@@ -594,7 +594,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-05",
-   "views": 57818,
+   "views": 57977,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-21"
@@ -711,7 +711,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-21",
-   "views": 61987,
+   "views": 62000,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-21"
@@ -977,6 +977,18 @@
    "last_seen": "2026-10-19"
   },
   {
+   "video_id": "5HCPjkfbHsQ",
+   "title": "We’re In The End Game For GTA 6 - TV Commercial, Trophy Leak Window, PS5 Game Size & MORE!",
+   "channel": "Will Mac",
+   "url": "https://www.youtube.com/watch?v=5HCPjkfbHsQ",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-21",
+   "views": 13646,
+   "first_seen": "2026-10-21",
+   "last_seen": "2026-10-21"
+  },
+  {
    "video_id": "5Mt6wXFcUM8",
    "title": "🔴4K PS5 Pro GTA 5 ONLINE LIVE STREAM GTAオンライン グラセフ 拡張版 #grandtheftauto Chill Heist Grind 242.26.9.29",
    "channel": "",
@@ -1127,7 +1139,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-03",
-   "views": 215900,
+   "views": 216076,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-21"
@@ -1135,11 +1147,13 @@
   {
    "video_id": "66qX3VkqfNc",
    "title": "GTA5办公室铺满钱的方法#gta #rockstar #遊戲 #新手",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=66qX3VkqfNc",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-21",
    "views": 448,
+   "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
   },
@@ -1198,11 +1212,13 @@
   {
    "video_id": "6ROm1PZRqAk",
    "title": "GTA5无需启动资金，最新炒房教程，新手练习版，单人无插件操作五分钟1100万无限赚钱#gta #rockstar #新手 #gtav #赚钱",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=6ROm1PZRqAk",
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-21",
    "views": 16,
+   "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
   },
@@ -1214,7 +1230,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-19",
-   "views": 34301,
+   "views": 35650,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-21"
@@ -1298,6 +1314,17 @@
    "last_seen": "2026-10-10"
   },
   {
+   "video_id": "7-_GMn3FbnU",
+   "title": "Rockstar's NEW GTA 6 Trailer Has Some Changes You Might Have Missed & MORE Gameplay Screenshot Ads!",
+   "url": "https://www.youtube.com/watch?v=7-_GMn3FbnU",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-21",
+   "views": 4507,
+   "first_seen": "2026-10-21",
+   "last_seen": "2026-10-21"
+  },
+  {
    "video_id": "71z9WgCVQ4s",
    "title": "Grand Theft Auto VI – Launch-Trailer",
    "channel": "Rockstar Games Deutschland, Österreich & Schweiz",
@@ -1313,11 +1340,13 @@
   {
    "video_id": "74dmtfBQlGA",
    "title": "J’ai transformé GTA 5 en GTA 6 #gta5 #gta #jeuxvidéo #gtav #gta6 #gta5online #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=74dmtfBQlGA",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-21",
-   "views": 1,
+   "views": 1010,
+   "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
   },
@@ -1381,7 +1410,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-19",
-   "views": 30841,
+   "views": 32808,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-21"
@@ -1786,7 +1815,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-11",
-   "views": 599672,
+   "views": 610912,
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-10-21"
@@ -2403,6 +2432,17 @@
    "last_seen": "2026-10-19"
   },
   {
+   "video_id": "DuMSZ4QAI1E",
+   "title": "Rockstar Is NOT Holding Back in GTA 6.. (Here's Proof)",
+   "url": "https://www.youtube.com/watch?v=DuMSZ4QAI1E",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-21",
+   "views": 43,
+   "first_seen": "2026-10-21",
+   "last_seen": "2026-10-21"
+  },
+  {
    "video_id": "E8_Scfg-L_g",
    "title": "OFFICIAL GTA 6 LAUNCH TRAILER JUST DROPPED!",
    "channel": "DarkViperAU",
@@ -2475,7 +2515,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-30",
-   "views": 102520,
+   "views": 102532,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-21"
@@ -2501,7 +2541,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 552302,
+   "views": 553424,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -2625,13 +2665,13 @@
   },
   {
    "video_id": "FV93IVwJP_4",
-   "title": "GTA 6 Launch Trailer Breakdown: Everything YOU MISSED",
+   "title": "GTA 6 Launch Trailer: Everything New YOU MISSED",
    "channel": "TGG",
    "url": "https://www.youtube.com/watch?v=FV93IVwJP_4",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1598713,
+   "views": 1601125,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -2787,7 +2827,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 22161,
+   "views": 22208,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -2891,7 +2931,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-18",
-   "views": 99,
+   "views": 101,
    "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-21"
@@ -3133,11 +3173,13 @@
   {
    "video_id": "JfniaiMm458",
    "title": "GTA 6 is About to Make the BEST Open World Games Look OUTDATED...",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=JfniaiMm458",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-21",
-   "views": 1584,
+   "views": 5520,
+   "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
   },
@@ -3170,11 +3212,13 @@
   {
    "video_id": "JrXN3ZUhJzA",
    "title": "How I Made $100 Million on a New Account in GTA Online | Part 3",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=JrXN3ZUhJzA",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-21",
-   "views": 3,
+   "views": 163,
+   "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
   },
@@ -3706,7 +3750,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 3733,
+   "views": 3941,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-21"
@@ -3771,7 +3815,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-17",
-   "views": 615567,
+   "views": 618826,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-21"
@@ -4122,7 +4166,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-20",
-   "views": 10662,
+   "views": 13765,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-21"
@@ -4174,7 +4218,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 6773,
+   "views": 6779,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -4278,10 +4322,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 25315029,
+   "views": 28330293,
    "kind": "",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-20"
+   "last_seen": "2026-10-21"
   },
   {
    "video_id": "Rk1mrWKAvtM",
@@ -4564,7 +4608,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-20",
-   "views": 2195,
+   "views": 2249,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-21"
@@ -5136,7 +5180,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 3136,
+   "views": 3151,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-21"
@@ -5437,7 +5481,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-19",
-   "views": 21526,
+   "views": 22351,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-21"
@@ -5692,11 +5736,13 @@
   {
    "video_id": "_sbCPENWdXQ",
    "title": "省钱买gta6流程，低价点卡注意事项，pc玩家第一次入手ps5如何选购#gta6 #ps5  #gta小糖",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=_sbCPENWdXQ",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-21",
    "views": 0,
+   "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
   },
@@ -5968,7 +6014,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-09-21",
-   "views": 119949,
+   "views": 119960,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-21"
@@ -6189,7 +6235,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 16215,
+   "views": 16627,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-21"
@@ -6306,7 +6352,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-21",
-   "views": 3812,
+   "views": 4105,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
@@ -6761,7 +6807,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-18",
-   "views": 1745,
+   "views": 1762,
    "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-21"
@@ -6787,7 +6833,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-18",
-   "views": 2422,
+   "views": 2452,
    "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-21"
@@ -6886,11 +6932,13 @@
   {
    "video_id": "gvJlykW2hOc",
    "title": "15 THINGS You NEED To Do When GTA 6 Releases",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=gvJlykW2hOc",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-21",
-   "views": 0,
+   "views": 1,
+   "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
   },
@@ -7175,7 +7223,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-04",
-   "views": 70069,
+   "views": 70229,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-21"
@@ -7214,7 +7262,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1210937,
+   "views": 1215591,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -7807,11 +7855,13 @@
   {
    "video_id": "muqBRRDpoFc",
    "title": "GTA5马克兔怎么出现在家里了？太奇怪了，办公室里头一次见#gta #rockstar #遊戲 #新手",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=muqBRRDpoFc",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-21",
    "views": 1366,
+   "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
   },
@@ -7862,7 +7912,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-21",
-   "views": 288255,
+   "views": 339821,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
@@ -8013,11 +8063,13 @@
   {
    "video_id": "p1picgJvUYg",
    "title": "洛圣都高空上的大型客机最终都会飞往哪里？ #gta #gta5  #遊戲頻道",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=p1picgJvUYg",
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-21",
-   "views": 446,
+   "views": 875,
+   "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
   },
@@ -8328,7 +8380,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 79159,
+   "views": 80624,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-21"
@@ -8601,7 +8653,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 56961400,
+   "views": 57380623,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -8843,11 +8895,13 @@
   {
    "video_id": "tl3BwjLiWeQ",
    "title": "省钱买gta6流程，低价点卡注意事项，pc玩家第一次入手ps5如何选购#gta6 #ps5  #gta小糖",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=tl3BwjLiWeQ",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-21",
    "views": 5,
+   "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
   },
@@ -8989,7 +9043,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-09",
-   "views": 703757,
+   "views": 703815,
    "kind": "",
    "first_seen": "2026-10-10",
    "last_seen": "2026-10-21"
@@ -9121,7 +9175,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-14",
-   "views": 14263,
+   "views": 14298,
    "kind": "",
    "first_seen": "2026-10-14",
    "last_seen": "2026-10-21"
@@ -9407,7 +9461,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-08",
-   "views": 17062,
+   "views": 17067,
    "kind": "",
    "first_seen": "2026-10-10",
    "last_seen": "2026-10-21"
@@ -9428,11 +9482,13 @@
   {
    "video_id": "x8Bp-AhBK28",
    "title": "GTA5炒房最新完整教程，无插件快速赚钱#gta",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=x8Bp-AhBK28",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-21",
    "views": 13,
+   "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
   },
@@ -9495,6 +9551,8 @@
    "url": "https://www.youtube.com/shorts/xZYq9rPzvlc",
    "lang": "en",
    "game": "GTA 5",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
@@ -9611,7 +9669,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 154477,
+   "views": 154938,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-21"
@@ -9810,6 +9868,17 @@
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-19"
+  },
+  {
+   "video_id": "zHwt3PvAXGo",
+   "title": "GTA 5 Enhanced with DLSS 5 Looks INSANE! | RTX 5090 4K Ultra Settings + Ray Tracing",
+   "url": "https://www.youtube.com/watch?v=zHwt3PvAXGo",
+   "lang": "en",
+   "game": "GTA 5",
+   "date": "2026-10-21",
+   "views": 338,
+   "first_seen": "2026-10-21",
+   "last_seen": "2026-10-21"
   },
   {
    "video_id": "zIx_3uLIXHw",
