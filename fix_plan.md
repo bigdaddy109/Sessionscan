@@ -16,6 +16,7 @@
 - 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
 
 已完成：
+- 手機頁首 YouTube 短標不再截成 `@sess…`（`.channel-link-yt`／`.header-social` 在 compact header `flex: 0 0 auto`；≤480px 社群列換行；品牌字 ≤639px 先藏，避免 430 直向把短標擠掉。分享頁 Home／回首頁也不再被截。rollback `pre-header-yt-handle-20261021`）。測 `tests/test_header_overlap.mjs`。
 - 殼頁／影片分享頁頁首與頁尾補上與首頁相同的 YouTube、Instagram、X（`headerSocialHtml`／`footerSocialHtml` 單一來源；Organization `sameAs` 含 X；#113；rollback `pre-social-links-parity-20261020`）。測 `tests/test_site_pages.mjs`、`tests/test_video_pages.mjs`、`tests/test_i18n.mjs`。
 - 首頁快照年齡跟 `generated_at`（UTC `Z`）走，顯示成台北牆鐘；`now_str()` 改走 `taipei_now()`，不再用主機本地時區（Actions 是 UTC，舊 `_last_run` 會被 `metaStampMs` 多減 8 小時，正式站把 00:04Z 標成 8h ago；#112；rollback `pre-snapshot-taipei-clock-20261019`）。測 `tests/test_home_extras.mjs`、`tests/test_pipeline.py`。
 - GTA 6 官方預告海報改 `maxresdefault`（1280×720；`hqdefault` 只當 `data-poster-fallback`；#111；核准後 merge `84ac42d`；rollback `pre-gta6-trailer-maxres-20261016`）。不載 iframe。測 `tests/test_gta6_page.mjs`。

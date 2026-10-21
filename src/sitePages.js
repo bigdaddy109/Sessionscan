@@ -122,7 +122,7 @@ export function esc(value) {
 export function headerSocialHtml(lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
   return `<nav class="header-social" data-i18n-aria="headerSocialAria" aria-label="${esc(t("headerSocialAria", {}, ui))}">
-          <a class="channel-link" href="${YOUTUBE_CHANNEL_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="${esc(t("channelAria", {}, ui))}">
+          <a class="channel-link channel-link-yt" href="${YOUTUBE_CHANNEL_URL}" target="_blank" rel="noopener noreferrer" data-i18n-aria="channelAria" aria-label="${esc(t("channelAria", {}, ui))}">
             <span class="channel-link-play" aria-hidden="true">▶</span>
             <span class="channel-link-full" data-i18n="channelFull" aria-hidden="true">${esc(t("channelFull", {}, ui))}</span>
             <span class="channel-link-short" aria-hidden="true">${esc(YOUTUBE_HANDLE)}</span>
