@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21T12:43:58Z",
+ "updated": "2026-10-21T14:03:55Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -87,7 +87,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-14",
-   "views": 906043,
+   "views": 907135,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -243,7 +243,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-15",
-   "views": 9486,
+   "views": 9518,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -399,7 +399,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-10",
-   "views": 10788,
+   "views": 10789,
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-21"
@@ -516,7 +516,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 85904,
+   "views": 86498,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -529,7 +529,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-25",
-   "views": 55915,
+   "views": 55925,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-21"
@@ -1127,7 +1127,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-03",
-   "views": 215849,
+   "views": 215900,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-21"
@@ -1192,7 +1192,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-19",
-   "views": 33904,
+   "views": 34301,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-21"
@@ -1283,7 +1283,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 5181701,
+   "views": 5237449,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-21"
@@ -1348,7 +1348,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-19",
-   "views": 29813,
+   "views": 30841,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-21"
@@ -1753,7 +1753,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-11",
-   "views": 596177,
+   "views": 599672,
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-10-21"
@@ -2117,7 +2117,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-24",
-   "views": 10298,
+   "views": 10300,
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-21"
@@ -2181,11 +2181,11 @@
    "url": "https://www.youtube.com/watch?v=CMhKW4_3MNU",
    "lang": "ja",
    "game": "GTA 5",
-   "date": "2026-10-20",
-   "views": 644,
+   "date": "2026-10-21",
+   "views": 1473,
    "kind": "",
    "first_seen": "2026-10-20",
-   "last_seen": "2026-10-20"
+   "last_seen": "2026-10-21"
   },
   {
    "video_id": "CbsauFlcxBc",
@@ -2598,7 +2598,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1594134,
+   "views": 1595860,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -2728,7 +2728,7 @@
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-20",
-   "views": 1696,
+   "views": 3695,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-21"
@@ -2754,7 +2754,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 21973,
+   "views": 22052,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -3209,7 +3209,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 19729,
+   "views": 32991,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-21"
@@ -3651,7 +3651,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 3654,
+   "views": 3733,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-21"
@@ -3668,6 +3668,17 @@
    "kind": "short",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-19"
+  },
+  {
+   "video_id": "O3PBFQwfgRU",
+   "title": "DF Direct Q+A: Has RTX 5090 Actually Been Discontinued? GTA 6 PS5/Pro Differences?",
+   "url": "https://www.youtube.com/watch?v=O3PBFQwfgRU",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-20",
+   "views": 98422,
+   "first_seen": "2026-10-21",
+   "last_seen": "2026-10-21"
   },
   {
    "video_id": "O3b8J9Y_mX4",
@@ -3703,7 +3714,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-17",
-   "views": 614412,
+   "views": 615567,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-21"
@@ -3976,10 +3987,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-13",
-   "views": 1616,
+   "views": 1619,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-20"
+   "last_seen": "2026-10-21"
   },
   {
    "video_id": "QHQ5THmbDwM",
@@ -4054,7 +4065,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-20",
-   "views": 8786,
+   "views": 10662,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-21"
@@ -4106,7 +4117,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 6765,
+   "views": 6766,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -4145,7 +4156,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-20",
-   "views": 8425,
+   "views": 24267,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-21"
@@ -4188,6 +4199,18 @@
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-16"
+  },
+  {
+   "video_id": "RZUVU0MlX1I",
+   "title": "GTA 6: Rockstar Wont Make Another GTA Like This",
+   "channel": "NomadFiles",
+   "url": "https://www.youtube.com/watch?v=RZUVU0MlX1I",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-21",
+   "views": 339,
+   "first_seen": "2026-10-21",
+   "last_seen": "2026-10-21"
   },
   {
    "video_id": "RiR77AI4uQ8",
@@ -4574,7 +4597,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 8516792,
+   "views": 8564428,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-21"
@@ -4639,10 +4662,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-16",
-   "views": 1701,
+   "views": 1708,
    "kind": "",
    "first_seen": "2026-10-16",
-   "last_seen": "2026-10-20"
+   "last_seen": "2026-10-21"
   },
   {
    "video_id": "UskLh1DPE-U",
@@ -5356,7 +5379,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-19",
-   "views": 21132,
+   "views": 21526,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-21"
@@ -5876,7 +5899,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-09-21",
-   "views": 119947,
+   "views": 119949,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-21"
@@ -6097,7 +6120,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 15273,
+   "views": 15677,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-21"
@@ -6155,6 +6178,17 @@
    "last_seen": "2026-10-12"
   },
   {
+   "video_id": "cmDkw1uhc20",
+   "title": "Everything That Went Wrong Making GTA 6",
+   "url": "https://www.youtube.com/watch?v=cmDkw1uhc20",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-21",
+   "views": 0,
+   "first_seen": "2026-10-21",
+   "last_seen": "2026-10-21"
+  },
+  {
    "video_id": "cnF7uagbdNQ",
    "title": "GTA 6 Lets You Do Things You NEVER Thought Were Possible...",
    "channel": "",
@@ -6201,7 +6235,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-21",
-   "views": 3021,
+   "views": 3376,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
@@ -6274,7 +6308,7 @@
   {
    "video_id": "dTrLorj_NJI",
    "title": "新手推薦·保釋辦公室全流程《GTA Online》頭號通緝犯⚖️ 勒羅伊·奧尼爾",
-   "channel": "",
+   "channel": "S41NT.L4W_3",
    "url": "https://www.youtube.com/watch?v=dTrLorj_NJI",
    "lang": "zh",
    "game": "GTA Online",
@@ -6469,11 +6503,13 @@
   {
    "video_id": "e_0BPt19wbQ",
    "title": "GTA 6 Art Is Now In Los Angeles - GTA 6 News #gta6 #gtavi #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=e_0BPt19wbQ",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-21",
    "views": 1179,
+   "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
   },
@@ -6589,7 +6625,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-21",
-   "views": 8186,
+   "views": 12461,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
@@ -6641,7 +6677,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-05",
-   "views": 880643,
+   "views": 880663,
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-10-21"
@@ -7057,7 +7093,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-04",
-   "views": 69872,
+   "views": 69924,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-21"
@@ -7096,7 +7132,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1200858,
+   "views": 1204961,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -7286,11 +7322,13 @@
   {
    "video_id": "k_XRy3oIuPY",
    "title": "Why Does GTA Online Need 100 of Everything? - 100% Career Progress #44",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=k_XRy3oIuPY",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-21",
    "views": 1146,
+   "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
   },
@@ -7731,7 +7769,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-21",
-   "views": 141763,
+   "views": 201792,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
@@ -8186,7 +8224,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 75848,
+   "views": 77129,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-21"
@@ -8459,7 +8497,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 56493255,
+   "views": 56644825,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -8504,6 +8542,18 @@
    "last_seen": "2026-10-20"
   },
   {
+   "video_id": "sS7lbXP6ztw",
+   "title": "How to GET UNBANNED in GTA Online (BAN APPEAL STEP BY STEP) 2026",
+   "channel": "SimDEX",
+   "url": "https://www.youtube.com/watch?v=sS7lbXP6ztw",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-21",
+   "views": 4,
+   "first_seen": "2026-10-21",
+   "last_seen": "2026-10-21"
+  },
+  {
    "video_id": "sWHguQhTAew",
    "title": "GTA Online: Series A Funding | Full Gameplay (PS5 Pro 4K 60FPS)",
    "channel": "",
@@ -8524,7 +8574,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-09",
-   "views": 55694,
+   "views": 55717,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-21"
@@ -8810,7 +8860,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-17",
-   "views": 9829,
+   "views": 9862,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
@@ -8823,7 +8873,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-09",
-   "views": 703677,
+   "views": 703714,
    "kind": "",
    "first_seen": "2026-10-10",
    "last_seen": "2026-10-21"
@@ -8955,7 +9005,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-14",
-   "views": 14247,
+   "views": 14241,
    "kind": "",
    "first_seen": "2026-10-14",
    "last_seen": "2026-10-21"
@@ -9241,7 +9291,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-08",
-   "views": 17058,
+   "views": 17053,
    "kind": "",
    "first_seen": "2026-10-10",
    "last_seen": "2026-10-21"
@@ -9423,7 +9473,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 153033,
+   "views": 153624,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-21"
@@ -9722,20 +9772,20 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 12,
+   "views": 13,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-21"
   },
   {
    "video_id": "zyKx0C8tZfw",
-   "title": "柯茲中心怎麼速通？《GTA Online》🖼️ 新手向速通全流程(非極限競速)｜山中安居",
+   "title": "柯茲中心怎麼速通？《GTA Online》🖼️ 新手向速通全流程(非極限速通)｜山中安居",
    "channel": "S41NT.L4W_3",
    "url": "https://www.youtube.com/watch?v=zyKx0C8tZfw",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-21",
-   "views": 15,
+   "views": 20,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
