@@ -6,6 +6,8 @@
  * box is wider than the screen — often the post-scroll channel-mini bar
  * or a hero layer sized from an SVG viewBox. CSS media queries cannot
  * prove document.scrollWidth or painted header boxes; we measure them.
+ * The compact YouTube handle must stay fully readable: shrinking it painted
+ * "@sess…" and let IG/X cover the language switch on 375–430px phones.
  */
 import { spawnSync } from "node:child_process";
 import { createServer } from "node:http";
@@ -143,6 +145,27 @@ async function measureHeader(page) {
       fullPainted: painted(link.querySelector(".channel-link-full")),
       shortPainted: painted(link.querySelector(".channel-link-short")),
     }));
+    const boxOf = (el) => {
+      const box = el.getBoundingClientRect();
+      return {
+        name: el.className || el.tagName,
+        text: (el.innerText || "").replace(/\s+/g, " ").trim().slice(0, 40),
+        left: box.left,
+        right: box.right,
+        top: box.top,
+        bottom: box.bottom,
+        width: box.width,
+        height: box.height,
+      };
+    };
+    const clipped = (el) => painted(el) && el.scrollWidth > el.clientWidth + 1;
+    const ytShort = inner.querySelector(".channel-link-yt .channel-link-short");
+    const home = inner.querySelector(".header-home-link");
+    const neighbors = [".lang-switch", ".search-box", ".header-home-link", ".brand"]
+      .map((sel) => inner.querySelector(sel))
+      .filter(painted)
+      .map(boxOf);
+    const channelBoxes = [...inner.querySelectorAll(".channel-link")].filter(painted).map(boxOf);
     const innerBox = inner.getBoundingClientRect();
     return {
       kids,
@@ -150,6 +173,11 @@ async function measureHeader(page) {
       channelPairs,
       fullPainted: channelPairs.some((p) => p.fullPainted),
       shortPainted: channelPairs.some((p) => p.shortPainted),
+      ytShortClipped: clipped(ytShort),
+      ytShortMissing: [...inner.querySelectorAll(".header-social .channel-link-short")].some(painted) && !ytShort,
+      homeClipped: clipped(home),
+      channelBoxes,
+      neighbors,
     };
   });
 }
@@ -207,6 +235,22 @@ function reportOverlaps(label, measured) {
     const kid = kids[i];
     if (kid.left < measured.inner.left - 1 || kid.right > measured.inner.right + 1) {
       errors.push(`${label}: ${kid.name} overflows header-inner`);
+    }
+  }
+  if (measured.ytShortMissing) {
+    errors.push(`${label}: compact header is missing .channel-link-yt`);
+  }
+  if (measured.ytShortClipped) {
+    errors.push(`${label}: YouTube short handle is ellipsized`);
+  }
+  if (measured.homeClipped) {
+    errors.push(`${label}: header Home link is ellipsized`);
+  }
+  for (const link of measured.channelBoxes || []) {
+    for (const other of measured.neighbors || []) {
+      if (boxesIntersect(link, other)) {
+        errors.push(`${label}: social control overlaps ${other.name} (${link.text} vs ${other.text})`);
+      }
     }
   }
   return errors;
@@ -278,6 +322,7 @@ async function main() {
     { label: "en-home", path: "/" },
     { label: "zh-home", path: "/zh/" },
     { label: "video", path: `/v/${videoId}/` },
+    { label: "zh-video", path: `/zh/v/${videoId}/` },
   ];
 
   const browser = await chromium.launch({

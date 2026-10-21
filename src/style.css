@@ -1426,7 +1426,22 @@ main {
    never paint on top of each other. Collapse search to the SCAN pill. */
 @media (max-width: 1023px), (max-height: 520px) {
   .header-inner { gap: 8px; }
-  .header-social { gap: 4px; }
+  /* The short YouTube label is the readable handle. Letting this cluster shrink
+     ellipsizes it to @sess… and paints IG/X on top of the language switch. */
+  .header-social { flex: 0 0 auto; gap: 4px; }
+  .channel-link-yt,
+  .header-home-link {
+    flex: 0 0 auto;
+    max-width: none;
+    overflow: visible;
+  }
+  .channel-link-yt .channel-link-short {
+    flex: 0 0 auto;
+    min-width: max-content;
+    overflow: visible;
+    text-overflow: clip;
+  }
+  .brand { flex: 0 0 auto; overflow: visible; }
   .channel-link-full { display: none; }
   .channel-link-short { display: inline; }
   .channel-link-ig,
@@ -1560,8 +1575,20 @@ main {
   .brand-text strong { font-size: 18px; letter-spacing: 0.1em; }
 }
 
-@media (max-width: 420px) {
+/* Wordmark fits beside the full @sessionscan cluster only once the row is
+   this wide. Narrower, the logo stays and the handle stays whole. */
+@media (max-width: 639px) {
   .brand-text { display: none; }
+}
+
+/* Phone widths cannot keep logo + handle + language + Scan/Home on one row.
+   The social cluster takes the next row instead of ellipsizing the handle. */
+@media (max-width: 480px) {
+  .header-inner { flex-wrap: wrap; row-gap: 6px; }
+  .header-social { order: 5; flex: 1 0 100%; }
+}
+
+@media (max-width: 420px) {
   .tab {
     padding: 8px 8px 9px;
   }
