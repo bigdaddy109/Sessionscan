@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 /**
  * Why this test matters: Phase B removed channel hash-tabs; primary chrome is
- * `.site-nav` path links. Phone/iPad must still reach every nav label without
- * clipping, and scrolling to #main must keep the jobs heading below sticky header.
+ * `.site-nav` path links. Phone/iPad must show every nav label without a
+ * hidden horizontal scroll — on 375–430, GTA 6 and About (zh: 關於) used to
+ * sit past a thin scrollbar. Do not scrollIntoView before measuring, or that
+ * bug passes again. Scrolling to #main must keep the jobs heading below the
+ * sticky header (a wrapped nav makes the header taller).
  */
 import { spawnSync } from "node:child_process";
 import { createServer } from "node:http";
@@ -110,15 +113,24 @@ async function measureNav(page) {
     const navBox = nav.getBoundingClientRect();
     const doc = document.documentElement;
     const issues = [];
+    // Measure the first paint. scrollIntoView would pull off-screen labels
+    // into a scrollbar and hide the 375–430 GTA 6 / About clip.
+    if (nav.scrollWidth > nav.clientWidth + 1) {
+      issues.push(`.site-nav scrolls ${nav.scrollWidth}>${nav.clientWidth}; labels must wrap into view`);
+    }
     for (const link of links) {
-      link.scrollIntoView({ inline: "nearest", block: "nearest" });
       const after = link.getBoundingClientRect();
       const text = (link.textContent || "").trim();
       if (!text || text.endsWith("…") || text.endsWith("...")) {
         issues.push(`${text || "(empty)"}: truncated label`);
       }
-      const visible = after.left < navBox.right - 2 && after.right > navBox.left + 2 && after.width > 1;
-      if (!visible) issues.push(`${text}: not reachable inside .site-nav`);
+      const fully =
+        after.left >= navBox.left - 1 &&
+        after.right <= navBox.right + 1 &&
+        after.top >= navBox.top - 1 &&
+        after.bottom <= navBox.bottom + 1 &&
+        after.width > 1;
+      if (!fully) issues.push(`${text}: not fully visible without scrolling .site-nav`);
     }
     if (navBox.left < -1 || navBox.right > doc.clientWidth + 1) {
       issues.push(`.site-nav box ${Math.round(navBox.left)}–${Math.round(navBox.right)} exceeds ${doc.clientWidth}`);
