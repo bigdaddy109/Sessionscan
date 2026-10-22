@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T04:07:14Z",
+ "updated": "2026-10-22T06:07:31Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -675,7 +675,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-11"
+   "last_seen": "2026-10-22"
   },
   {
    "video_id": "2qwUGW3Fak0",
@@ -4166,11 +4166,13 @@
   {
    "video_id": "Q2NDuVhDJn4",
    "title": "GTA 6 launch trailer, but it’s GTA 5...",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Q2NDuVhDJn4",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-20",
    "views": 16823,
+   "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
   },
@@ -9836,11 +9838,13 @@
   {
    "video_id": "y9YW7ZB9pKg",
    "title": "I Recreated GTA 6’s Extended Look Like It Was 2013…",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=y9YW7ZB9pKg",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-02",
    "views": 1323,
+   "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
   },
