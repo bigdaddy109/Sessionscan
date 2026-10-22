@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T12:48:45Z",
+ "updated": "2026-10-22T14:05:09Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -113,7 +113,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-14",
-   "views": 921387,
+   "views": 922040,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-22"
@@ -282,7 +282,8 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 43,
+   "views": 184,
+   "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
   },
@@ -294,7 +295,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-15",
-   "views": 9694,
+   "views": 9718,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-22"
@@ -320,7 +321,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 5602211,
+   "views": 5604295,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-22"
@@ -367,11 +368,13 @@
   {
    "video_id": "17Z0JTcLmeM",
    "title": "GTA 5 - HALLOWEEN EVENT (Part 4) - 3X MONEY! - Event Week | Discounts & More!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=17Z0JTcLmeM",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-22",
    "views": 1342,
+   "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
   },
@@ -422,7 +425,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-21",
-   "views": 119,
+   "views": 137,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -617,7 +620,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 90801,
+   "views": 91310,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-22"
@@ -708,7 +711,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-05",
-   "views": 58112,
+   "views": 58246,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-22"
@@ -1033,7 +1036,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-10-09",
-   "views": 14529,
+   "views": 14571,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-22"
@@ -1267,7 +1270,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-21",
-   "views": 1009,
+   "views": 1033,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-22"
@@ -1449,7 +1452,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 5705595,
+   "views": 5708429,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-22"
@@ -1466,6 +1469,18 @@
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
+  },
+  {
+   "video_id": "7KK0NCq0ghg",
+   "title": "What To BUY & What To AVOID This Week In GTA Online!",
+   "channel": "HarmNone and HarmNoneLIVE",
+   "url": "https://www.youtube.com/watch?v=7KK0NCq0ghg",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-22",
+   "views": 862,
+   "first_seen": "2026-10-22",
+   "last_seen": "2026-10-22"
   },
   {
    "video_id": "7Zk_IHyhL6c",
@@ -1761,7 +1776,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 20,
+   "views": 177,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -2243,6 +2258,8 @@
    "url": "https://www.youtube.com/shorts/Bou0kQfYb7E",
    "lang": "en",
    "game": "GTA Online",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -2320,7 +2337,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-24",
-   "views": 10307,
+   "views": 10309,
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-22"
@@ -2671,7 +2688,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-30",
-   "views": 102607,
+   "views": 102624,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-22"
@@ -2827,7 +2844,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1619229,
+   "views": 1620700,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-22"
@@ -2983,7 +3000,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 22600,
+   "views": 22672,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-22"
@@ -3247,6 +3264,18 @@
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-16"
+  },
+  {
+   "video_id": "IXUplL4tPSI",
+   "title": "GTA Online How to Unlock Gray Space Interloper Outfit FASTEST & EASIEST WAY NPC GLITCH SURVIVAL JOB!",
+   "channel": "Joe Iz Gaming",
+   "url": "https://www.youtube.com/watch?v=IXUplL4tPSI",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-22",
+   "views": 148,
+   "first_seen": "2026-10-22",
+   "last_seen": "2026-10-22"
   },
   {
    "video_id": "IYbUSzBrdN0",
@@ -3763,7 +3792,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 5164,
+   "views": 6159,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -4000,7 +4029,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-16",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-22"
   },
   {
    "video_id": "O3PBFQwfgRU",
@@ -4044,11 +4073,13 @@
   {
    "video_id": "OGSS896AkUw",
    "title": "GTA Online - House Hunting (by GTA Series Videos) | Community Mission Series",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=OGSS896AkUw",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 425,
+   "views": 1426,
+   "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
   },
@@ -4430,6 +4461,17 @@
    "last_seen": "2026-10-22"
   },
   {
+   "video_id": "QYMbF7VH350",
+   "title": "Why Grand Theft Auto VI Took 8+ Years to Make",
+   "url": "https://www.youtube.com/watch?v=QYMbF7VH350",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-14",
+   "views": 654985,
+   "first_seen": "2026-10-22",
+   "last_seen": "2026-10-22"
+  },
+  {
    "video_id": "QcDmBz3UB44",
    "title": "Beating Criminal Mastermind Challenge as Level 1 in GTA 5 Online",
    "channel": "",
@@ -4541,7 +4583,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 5280,
+   "views": 5461,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -4892,7 +4934,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-20",
-   "views": 2499,
+   "views": 2502,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-22"
@@ -4931,7 +4973,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-22",
-   "views": 1631,
+   "views": 16213,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -4996,7 +5038,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 8813523,
+   "views": 8815095,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-22"
@@ -5373,7 +5415,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-03",
-   "views": 45876,
+   "views": 45881,
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-10-22"
@@ -5700,7 +5742,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 44104,
+   "views": 44154,
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-22"
@@ -6051,7 +6093,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-21",
-   "views": 5,
+   "views": 8,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-22"
@@ -6068,6 +6110,17 @@
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-15"
+  },
+  {
+   "video_id": "a-YFN3ES69M",
+   "title": "12 THINGS You NEED To Do On DAY 1 in GTA 6",
+   "url": "https://www.youtube.com/watch?v=a-YFN3ES69M",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-22",
+   "views": 0,
+   "first_seen": "2026-10-22",
+   "last_seen": "2026-10-22"
   },
   {
    "video_id": "a1ljy_ZAycQ",
@@ -6376,7 +6429,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 34,
+   "views": 104,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -6584,7 +6637,7 @@
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 4444,
+   "views": 4602,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -6701,7 +6754,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-21",
-   "views": 5696,
+   "views": 5863,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-22"
@@ -7000,7 +7053,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-10",
-   "views": 45795,
+   "views": 45973,
    "kind": "",
    "first_seen": "2026-10-11",
    "last_seen": "2026-10-22"
@@ -7039,7 +7092,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-01",
-   "views": 16562,
+   "views": 16565,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-22"
@@ -7143,7 +7196,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-05",
-   "views": 880795,
+   "views": 880802,
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-10-22"
@@ -7208,7 +7261,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 1305,
+   "views": 4214,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -7455,7 +7508,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 104,
+   "views": 453,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -7598,7 +7651,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-04",
-   "views": 70493,
+   "views": 70612,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-22"
@@ -7637,7 +7690,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1255873,
+   "views": 1259963,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-22"
@@ -7689,7 +7742,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 12275,
+   "views": 14678,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -8716,7 +8769,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 4339,
+   "views": 4561,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -8794,7 +8847,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 88144,
+   "views": 89294,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-22"
@@ -9080,7 +9133,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 60590800,
+   "views": 60727959,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-22"
@@ -9158,7 +9211,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-09",
-   "views": 55795,
+   "views": 55802,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-22"
@@ -9340,7 +9393,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-21",
-   "views": 260,
+   "views": 274,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-22"
@@ -9483,7 +9536,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-09",
-   "views": 704206,
+   "views": 704254,
    "kind": "",
    "first_seen": "2026-10-10",
    "last_seen": "2026-10-22"
@@ -9823,7 +9876,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-01",
-   "views": 18763,
+   "views": 18762,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-22"
@@ -9914,7 +9967,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-08",
-   "views": 17083,
+   "views": 17088,
    "kind": "",
    "first_seen": "2026-10-10",
    "last_seen": "2026-10-22"
@@ -10135,7 +10188,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 157591,
+   "views": 158117,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-22"
@@ -10208,11 +10261,13 @@
   {
    "video_id": "y_hijXrMkkI",
    "title": "I Went From $0 to a MANSION in GTA 5... (kinda legit)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=y_hijXrMkkI",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-22",
    "views": 8,
+   "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
   },
