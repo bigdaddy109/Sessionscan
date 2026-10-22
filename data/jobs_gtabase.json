@@ -1,7 +1,22 @@
 [
  {
-  "id": "6c34179dddb5ba9f9b5db325756a437c",
+  "id": "7e71e7d4c997cf4fdc43dbff0bd71c88",
   "rank": 1,
+  "title": "GTA Online Weekly Update (October 22-28): Fourth Week of Halloween Event, Bonuses & Discounts",
+  "title_en": "",
+  "source": "GTABase",
+  "game": "GTA Online",
+  "author": "GTABase",
+  "updated": "2026-10-22",
+  "tags": [
+   "GTA Online"
+  ],
+  "url": "https://www.gtabase.com/articles/grand-theft-auto-v/news/gta-online-weekly-update-october-22-28-fourth-week-of-halloween-event-bonuses-discounts",
+  "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
+ },
+ {
+  "id": "6c34179dddb5ba9f9b5db325756a437c",
+  "rank": 2,
   "title": "GTA Online Weekly Update (October 15-21): Third Week of Halloween Event, Bonuses & Discounts",
   "title_en": "",
   "source": "GTABase",
@@ -16,7 +31,7 @@
  },
  {
   "id": "9d48e422bc8f1e299b2c6caa869855cd",
-  "rank": 2,
+  "rank": 3,
   "title": "GTA Online Weekly Update (October 8-14): Second Week of Halloween Event, Bonuses & Discounts",
   "title_en": "",
   "source": "GTABase",
@@ -31,7 +46,7 @@
  },
  {
   "id": "8743bab82446f8451e58b30cff14feb7",
-  "rank": 3,
+  "rank": 4,
   "title": "GTA Online Weekly Update (October 1-7): Halloween in Los Santos, Bonuses & Discounts",
   "title_en": "",
   "source": "GTABase",
@@ -46,7 +61,7 @@
  },
  {
   "id": "d72115880953e8dcba4d37df92463e19",
-  "rank": 4,
+  "rank": 5,
   "title": "GTA Online Weekly Update (September 24-30): Business Rivalries Event Final Week, Bonuses & Discounts",
   "title_en": "",
   "source": "GTABase",
@@ -61,7 +76,7 @@
  },
  {
   "id": "afa5dd58d8a208199667981a33ef25b3",
-  "rank": 5,
+  "rank": 6,
   "title": "GTA Online Weekly Update (September 17-23): Business Rivalries Event 3rd Week, Bonuses & Discounts",
   "title_en": "",
   "source": "GTABase",
@@ -76,7 +91,7 @@
  },
  {
   "id": "c18144526e0a2b85d49015a9081ae756",
-  "rank": 6,
+  "rank": 7,
   "title": "GTA Online Weekly Update (September 10-16): Business Rivalries Event Continues, Bonuses & Discounts",
   "title_en": "",
   "source": "GTABase",
@@ -91,7 +106,7 @@
  },
  {
   "id": "d8d19e53074176ae908e0ec669326eb2",
-  "rank": 7,
+  "rank": 8,
   "title": "GTA Online: The Kortz Center Heist Update",
   "title_en": "",
   "source": "GTABase",
@@ -102,21 +117,6 @@
    "GTA Online"
   ],
   "url": "https://www.gtabase.com/articles/grand-theft-auto-v/title-updates/gta-online-summer-2026-dlc-update-1-73-patch-notes-features",
-  "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
- },
- {
-  "id": "a540e5977a82f4a1e3cccbd371a4b40e",
-  "rank": 8,
-  "title": "How To Make Money In GTA 6: Full Money-Making Guide",
-  "title_en": "",
-  "source": "GTABase",
-  "game": "GTA 6",
-  "author": "GTABase",
-  "updated": null,
-  "tags": [
-   "GTA 6"
-  ],
-  "url": "https://www.gtabase.com/articles/gta-6/how-to-make-money-in-gta-6-full-money-making-guide",
   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
  }
 ]
