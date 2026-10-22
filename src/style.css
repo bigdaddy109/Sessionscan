@@ -339,7 +339,10 @@ img { max-width: 100%; display: block; }
 }
 .btn-scan:hover { filter: brightness(1.08); }
 
-/* Primary path nav. Phase B home has no channel .tabs / channel-mini strip. */
+/* Primary path nav. Phase B home has no channel .tabs / channel-mini strip.
+   Wrap instead of a hidden horizontal scroll: on 375–430 the EN row was
+   514px, so GTA 6 and About (zh: 關於) sat past the fold with only a thin
+   scrollbar. Full labels stay intact; a second row is visible without scrolling. */
 .site-nav {
   width: min(var(--page-max), 100%);
   max-width: min(var(--page-max), 100%);
@@ -347,12 +350,9 @@ img { max-width: 100%; display: block; }
   margin: 0 auto;
   padding: 0 var(--page-gutter);
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 2px;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+  overflow-x: clip;
   border-bottom: 1px solid var(--border);
 }
 .site-nav-link {

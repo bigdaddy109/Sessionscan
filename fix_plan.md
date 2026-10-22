@@ -13,9 +13,10 @@
 - Faster fetch Worker：10/12～`f47df4ae`（2026-10-15 13:07 台北）前是 named-export 1101（`Incorrect type for map entry 'CRON_EVERY_2H'`）。`f47df4ae` 之後 18:00 台北那格 GitHub 回 **401 Bad credentials**（PAT 無效）；研究員正在換 token。不要在這裡 `secret put`／`wrangler deploy`。health 200 不代表 dispatch 成功。入口拆檔已合（#109，merge `9dd9f1e`）。下次若要部署，用 #109 之後的入口，並帶上 #110 的 `[observability]`，否則 Logs 會被關掉。
 - Owned YouTube WebSub：Worker `/health`＋`POST /renew` 已通；`owned-refresh` 尚無 run。CF 帳號持有人確認 secrets 後上傳一支 owned Short 驗 push→deploy。
 - Instagram header 按鈕：合併後在 https://sessionscan.net `/` 與 `/zh/` 用手機寬度驗 header 不溢位、IG 開新分頁、JSON-LD `sameAs` 含 Instagram。
-- 行動版 sticky header／site-nav：合併後在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。
+- 行動版 sticky header：合併後若再改頁首高度，在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。site-nav 六連結已改換行，不再靠橫向捲軸。
 
 已完成：
+- 手機主選單六連結不再藏在橫向捲軸後（`.site-nav` `flex-wrap: wrap`；375–430 英文 GTA 6／About、375／390 中文「關於」第一屏就看得到。測 `tests/test_mobile_tabs.mjs`：量連結前不准 `scrollIntoView`）。
 - 手機頁首 YouTube 短標不再截成 `@sess…`（`.channel-link-yt`／`.header-social` 在 compact header `flex: 0 0 auto`；≤480px 社群列換行；品牌字 ≤639px 先藏，避免 430 直向把短標擠掉。分享頁 Home／回首頁也不再被截。#114；rollback `pre-header-yt-handle-20261021`）。測 `tests/test_header_overlap.mjs`。
 - 殼頁／影片分享頁頁首與頁尾補上與首頁相同的 YouTube、Instagram、X（`headerSocialHtml`／`footerSocialHtml` 單一來源；Organization `sameAs` 含 X；#113；rollback `pre-social-links-parity-20261020`）。測 `tests/test_site_pages.mjs`、`tests/test_video_pages.mjs`、`tests/test_i18n.mjs`。
 - 首頁快照年齡跟 `generated_at`（UTC `Z`）走，顯示成台北牆鐘；`now_str()` 改走 `taipei_now()`，不再用主機本地時區（Actions 是 UTC，舊 `_last_run` 會被 `metaStampMs` 多減 8 小時，正式站把 00:04Z 標成 8h ago；#112；rollback `pre-snapshot-taipei-clock-20261019`）。測 `tests/test_home_extras.mjs`、`tests/test_pipeline.py`。
