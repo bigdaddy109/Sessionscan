@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T12:03:44Z",
+ "updated": "2026-10-22T12:48:45Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -17,11 +17,13 @@
   {
    "video_id": "-7_cNWKGNB0",
    "title": "Kortz Center Guards Are Deaf! #gta5 #gtav #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=-7_cNWKGNB0",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
    "views": 16491,
+   "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
   },
@@ -111,7 +113,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-14",
-   "views": 921230,
+   "views": 921387,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-22"
@@ -273,6 +275,18 @@
    "last_seen": "2026-10-18"
   },
   {
+   "video_id": "0kJ64TIXaHc",
+   "title": "【GTA5 OL】GTA5線上更新，萬聖節活動第四周，事務所繼續打折，短途奔波任務額外送錢，保金辦公室目標雙倍收益，絕版武器和載具等你收藏（10.22-10.29）",
+   "channel": "麦克mk",
+   "url": "https://www.youtube.com/watch?v=0kJ64TIXaHc",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-10-22",
+   "views": 43,
+   "first_seen": "2026-10-22",
+   "last_seen": "2026-10-22"
+  },
+  {
    "video_id": "0q4hFCLjXQc",
    "title": "【GTA5】ハロウィンイベント3週目！今晩の週アップデート速報 2026年10月15日～",
    "channel": "まだらのGAME-ch",
@@ -306,7 +320,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 5602609,
+   "views": 5602211,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-22"
@@ -349,6 +363,17 @@
    "kind": "short",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
+  },
+  {
+   "video_id": "17Z0JTcLmeM",
+   "title": "GTA 5 - HALLOWEEN EVENT (Part 4) - 3X MONEY! - Event Week | Discounts & More!",
+   "url": "https://www.youtube.com/watch?v=17Z0JTcLmeM",
+   "lang": "en",
+   "game": "GTA 5",
+   "date": "2026-10-22",
+   "views": 1342,
+   "first_seen": "2026-10-22",
+   "last_seen": "2026-10-22"
   },
   {
    "video_id": "1EsqOl4poLs",
@@ -475,7 +500,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-10",
-   "views": 10808,
+   "views": 10811,
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-22"
@@ -592,7 +617,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 90648,
+   "views": 90801,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-22"
@@ -683,7 +708,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-05",
-   "views": 58121,
+   "views": 58112,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-22"
@@ -1320,7 +1345,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-19",
-   "views": 39090,
+   "views": 39307,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-22"
@@ -1424,7 +1449,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 5704851,
+   "views": 5705595,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-22"
@@ -2212,6 +2237,17 @@
    "last_seen": "2026-10-21"
   },
   {
+   "video_id": "Bou0kQfYb7E",
+   "title": "Trolling cops as a fake bollard in gta #gta #gtav #gtaonline",
+   "channel": "BISON Gaming",
+   "url": "https://www.youtube.com/shorts/Bou0kQfYb7E",
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short",
+   "first_seen": "2026-10-22",
+   "last_seen": "2026-10-22"
+  },
+  {
    "video_id": "Bv5k9OqMIRM",
    "title": "Reading Comments And Discussing The GTA 6 Hacking Situation",
    "channel": "",
@@ -2791,7 +2827,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1618823,
+   "views": 1619229,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-22"
@@ -2947,7 +2983,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 22603,
+   "views": 22600,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-22"
@@ -3156,6 +3192,7 @@
    "game": "GTA 6",
    "date": "2026-10-22",
    "views": 1177,
+   "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
   },
@@ -3167,7 +3204,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 185537,
+   "views": 185643,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-22"
@@ -3726,7 +3763,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 4832,
+   "views": 5164,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -3947,7 +3984,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 4351,
+   "views": 4371,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-22"
@@ -4003,6 +4040,17 @@
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-17"
+  },
+  {
+   "video_id": "OGSS896AkUw",
+   "title": "GTA Online - House Hunting (by GTA Series Videos) | Community Mission Series",
+   "url": "https://www.youtube.com/watch?v=OGSS896AkUw",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-22",
+   "views": 425,
+   "first_seen": "2026-10-22",
+   "last_seen": "2026-10-22"
   },
   {
    "video_id": "OGmDFz5mZ5A",
@@ -4376,7 +4424,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-20",
-   "views": 16919,
+   "views": 17206,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-22"
@@ -4428,7 +4476,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 6797,
+   "views": 6800,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-22"
@@ -4493,7 +4541,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 5214,
+   "views": 5280,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -4844,7 +4892,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-20",
-   "views": 2481,
+   "views": 2499,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-22"
@@ -4878,11 +4926,13 @@
   {
    "video_id": "UGfib158nGY",
    "title": "Stealing a Car in Every GTA Game (From Grand Theft Auto to GTA 6)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=UGfib158nGY",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-22",
-   "views": 1220,
+   "views": 1631,
+   "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
   },
@@ -5728,7 +5778,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-19",
-   "views": 23321,
+   "views": 23405,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-22"
@@ -6222,7 +6272,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-19",
-   "views": 88481,
+   "views": 89842,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-22"
@@ -6321,11 +6371,13 @@
   {
    "video_id": "bTuUZBodQPw",
    "title": "【22/10/2026萬聖節活動第四週】GTA Online每週最新資訊 [4K]",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=bTuUZBodQPw",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 28,
+   "views": 34,
+   "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
   },
@@ -6532,7 +6584,7 @@
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 4403,
+   "views": 4444,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -6631,11 +6683,13 @@
   {
    "video_id": "d-0FMC6-z08",
    "title": "GTA 6 Official TV Spot (Longer Scenes)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=d-0FMC6-z08",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-22",
    "views": 8,
+   "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
   },
@@ -6647,7 +6701,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-21",
-   "views": 5653,
+   "views": 5696,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-22"
@@ -6985,7 +7039,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-01",
-   "views": 16560,
+   "views": 16562,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-22"
@@ -7149,11 +7203,13 @@
   {
    "video_id": "g_MISu_7u0s",
    "title": "GTA Online - The Chiliad Anomaly (by GTA Series Videos) | Community Mission Series",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=g_MISu_7u0s",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 860,
+   "views": 1305,
+   "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
   },
@@ -7394,11 +7450,13 @@
   {
    "video_id": "hfxwQ9SQq4o",
    "title": "AGAIN??! 💀 | GTA Online Weekly Update Info OCT 22nd - 29th",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=hfxwQ9SQq4o",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 64,
+   "views": 104,
+   "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
   },
@@ -7449,10 +7507,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 20346592,
+   "views": 21343666,
    "kind": "",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-21"
+   "last_seen": "2026-10-22"
   },
   {
    "video_id": "i0pFRruYNvA",
@@ -7540,7 +7598,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-04",
-   "views": 70488,
+   "views": 70493,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-22"
@@ -7579,7 +7637,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1254031,
+   "views": 1255873,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-22"
@@ -7631,7 +7689,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 11256,
+   "views": 12275,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -8073,7 +8131,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-08",
-   "views": 9471,
+   "views": 9474,
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-22"
@@ -8398,7 +8456,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-21",
-   "views": 12747,
+   "views": 15091,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-22"
@@ -8658,7 +8716,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 4251,
+   "views": 4339,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -8736,7 +8794,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 87776,
+   "views": 88144,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-22"
@@ -9022,7 +9080,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 60563341,
+   "views": 60590800,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-22"
@@ -9412,7 +9470,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-17",
-   "views": 9992,
+   "views": 9993,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-22"
@@ -9425,7 +9483,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-09",
-   "views": 704194,
+   "views": 704206,
    "kind": "",
    "first_seen": "2026-10-10",
    "last_seen": "2026-10-22"
@@ -9557,7 +9615,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-14",
-   "views": 14365,
+   "views": 14372,
    "kind": "",
    "first_seen": "2026-10-14",
    "last_seen": "2026-10-22"
@@ -9947,7 +10005,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-22",
-   "views": 23840,
+   "views": 27153,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
@@ -10077,7 +10135,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 157434,
+   "views": 157591,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-22"
@@ -10146,6 +10204,17 @@
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-21"
+  },
+  {
+   "video_id": "y_hijXrMkkI",
+   "title": "I Went From $0 to a MANSION in GTA 5... (kinda legit)",
+   "url": "https://www.youtube.com/watch?v=y_hijXrMkkI",
+   "lang": "en",
+   "game": "GTA 5",
+   "date": "2026-10-22",
+   "views": 8,
+   "first_seen": "2026-10-22",
+   "last_seen": "2026-10-22"
   },
   {
    "video_id": "yei8sYZadEI",
