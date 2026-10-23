@@ -2658,11 +2658,42 @@ main {
   font-size: 12px;
   color: var(--muted);
 }
+/* Newswire link beside the official trailer. minmax(0, …) so the 16:9 iframe
+   cannot force a horizontal scrollbar (Safari shrink-to-fit). */
+.biz-source-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.15fr);
+  gap: 10px 14px;
+  align-items: start;
+  min-width: 0;
+}
+.biz-trailer {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.biz-trailer iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  border: 0;
+}
 .biz-disclaimer {
   margin: 22px 0 0;
   color: var(--muted);
   font-size: 13px;
   line-height: 1.5;
+}
+@media (max-width: 640px) {
+  .biz-source-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 @media (max-width: 480px) {
   .biz-rank-item {

@@ -7,13 +7,17 @@
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { ACID_LAB_GUIDE } from "../src/acidLabGuide.js";
 import {
   BIZ_OWNED_STORAGE_KEY,
   BUSINESS_LIST_UPDATED,
   BUSINESS_RANKING,
   RANKING_CONSENSUS,
+  ROCKSTAR_GAMES_YT_AUTHOR_URL,
+  ROCKSTAR_GAMES_YT_CHANNEL_ID,
   assertNoUnsourcedFigures,
   businessTipFreezeLinkHtml,
+  businessTrailerEmbedHtml,
   businessesPageBodyHtml,
   businessesPageJsonLd,
   businessesSoloFilterHtml,
@@ -24,13 +28,23 @@ import {
   homeBusinessGuideLinkHtml,
   injectHomeBusinessGuideLink,
   isSoloFriendlyBusiness,
+  isVerifiedRockstarTrailer,
   knownBusinessIds,
   loadOwnedBusinessIds,
   saveOwnedBusinessIds,
   toggleOwnedBusinessId,
 } from "../src/businessRanking.js";
-import { SITE_PAGES, renderSitePage } from "../src/sitePages.js";
+import {
+  DRAFT_SITE_PAGES,
+  SITE_PAGES,
+  isSitePagePublished,
+  primaryNavHtml,
+  publishedSitePages,
+  renderSitePage,
+  staticSitemapUrls,
+} from "../src/sitePages.js";
 import { parseJsonLdScripts } from "../src/structuredData.js";
+import { renderSitemap, sitemapUrls } from "../src/videoPages.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -65,6 +79,9 @@ if (bodyEn.includes("page-stub-flag")) fail("EN body must not be stub");
 if (!bodyEn.includes("biz-rank-list")) fail("EN missing rank list");
 if (!bodyEn.includes(BUSINESS_LIST_UPDATED)) fail("EN missing last-updated");
 if (!bodyEn.includes("Acid Lab")) fail("EN missing Acid Lab");
+if (!bodyEn.includes("Fooligans") || bodyEn.includes("Fooliganz")) {
+  fail("Acid Lab highlight must spell Fooligans");
+}
 if (!bodyEn.includes(RANKING_CONSENSUS.url)) fail("EN missing consensus link");
 for (const item of BUSINESS_RANKING) {
   if (!bodyEn.includes(item.source.url)) fail("EN missing source url", item.id);
@@ -337,6 +354,129 @@ const shelledTip = renderSitePage(SITE_PAGES.find((p) => p.id === "businesses"),
 if (!shelledTip.includes('id="businessTipFreezeLink"') || !shelledTip.includes(`/zh/week/${tipFixture}/`)) {
   fail("renderSitePage tipWeek businesses zh");
 }
+// Why: each businesses row may embed only a video we already checked belongs to
+// @RockstarGames. A fan/IGN reupload, or the stale channel id UCmDTrq0LNgPodDOFZiSbsww,
+// must produce no iframe. The Newswire link stays either way.
+const OFFICIAL_TRAILERS = {
+  "acid-lab": "Ybq_FGtSCN8",
+  nightclub: "5FBipicBoJg",
+  agency: "aLUGHQq2aek",
+  kosatka: "tyDRtSUYTRs",
+  "auto-shop": "mP6KvFnltWc",
+  bunker: "TOTCzcYzYuc",
+  hangar: "KI1ukKxPsGc",
+  "salvage-yard": "Sp1wvWZ_2MQ",
+};
+if (ROCKSTAR_GAMES_YT_CHANNEL_ID !== "UC6VcWc1rAoWdBCM0JxrRQ3A") {
+  fail("rockstar channel id drifted", ROCKSTAR_GAMES_YT_CHANNEL_ID);
+}
+if (ROCKSTAR_GAMES_YT_AUTHOR_URL !== "https://www.youtube.com/@RockstarGames") {
+  fail("rockstar author url drifted");
+}
+if (ROCKSTAR_GAMES_YT_CHANNEL_ID === "UCmDTrq0LNgPodDOFZiSbsww") {
+  fail("stale channel id is not @RockstarGames");
+}
+const trailerCount = (html) => (html.match(/youtube-nocookie\.com\/embed\//g) || []).length;
+if (trailerCount(bodyEn) !== BUSINESS_RANKING.length) {
+  fail("EN trailer count", trailerCount(bodyEn));
+}
+if (trailerCount(bodyZh) !== BUSINESS_RANKING.length) fail("zh trailer count", trailerCount(bodyZh));
+if (/youtube\.com\/embed\//.test(bodyEn) || /youtube\.com\/embed\//.test(bodyZh)) {
+  fail("embed host must be youtube-nocookie");
+}
+for (const item of BUSINESS_RANKING) {
+  const expectedId = OFFICIAL_TRAILERS[item.id];
+  if (!expectedId) fail("missing official trailer id", item.id);
+  if (!isVerifiedRockstarTrailer(item.trailer) || item.trailer.videoId !== expectedId) {
+    fail("trailer failed rockstar check", item.id);
+  }
+  const src = `https://www.youtube-nocookie.com/embed/${expectedId}`;
+  if (!bodyEn.includes(src) || !bodyZh.includes(src)) fail("missing nocookie src", item.id);
+  if (!bodyEn.includes(item.source.url)) fail("newswire link dropped", item.id);
+  const embed = businessTrailerEmbedHtml(item, "en");
+  if (!embed.includes('loading="lazy"') || !embed.includes('title="Official Rockstar trailer:')) {
+    fail("EN iframe lazy+title", item.id);
+  }
+  const embedZh = businessTrailerEmbedHtml(item, "zh");
+  if (!embedZh.includes('title="Rockstar 官方預告：')) fail("zh iframe title", item.id);
+  const row = bodyEn.match(new RegExp(`data-biz-id="${item.id}"[\\s\\S]*?</li>`))?.[0] || "";
+  if (!row.includes("biz-source-row") || !row.includes("biz-source-link") || !row.includes(src)) {
+    fail("trailer must sit beside the Newswire link", item.id);
+  }
+}
+const stale = businessTrailerEmbedHtml(
+  {
+    trailer: {
+      videoId: "Ybq_FGtSCN8",
+      title: "wrong channel",
+      channelId: "UCmDTrq0LNgPodDOFZiSbsww",
+      authorUrl: ROCKSTAR_GAMES_YT_AUTHOR_URL,
+    },
+  },
+  "en",
+);
+if (stale) fail("stale channel id must not embed");
+const ign = businessTrailerEmbedHtml(
+  {
+    trailer: {
+      videoId: "UM5sUofywmw",
+      title: "IGN reupload",
+      channelId: "UCIGNIGNIGN",
+      authorUrl: "https://www.youtube.com/@IGN",
+    },
+  },
+  "en",
+);
+if (ign) fail("non-rockstar author must not embed");
+if (businessTrailerEmbedHtml({ id: "none" }, "en")) fail("missing trailer must render nothing");
+{
+  const css = readFileSync(resolve(root, "src/style.css"), "utf8");
+  const trailerCss = css.slice(css.indexOf(".biz-trailer {"));
+  if (!trailerCss.startsWith(".biz-trailer {") || !trailerCss.slice(0, 400).includes("aspect-ratio: 16 / 9")) {
+    fail("biz trailer must be responsive 16:9");
+  }
+  if (!trailerCss.slice(0, 500).includes("position: absolute")) {
+    fail("iframe must be absolutely positioned inside the 16:9 box");
+  }
+  if (!css.includes("@media (max-width: 640px)") || !css.includes("grid-template-columns: minmax(0, 1fr)")) {
+    fail("narrow screens must stack the trailer under the Newswire link");
+  }
+}
+
+// Why: the Acid Lab guide is reserved as an outline only. Publishing, linking,
+// or sitemap-indexing it would ship unfinished $750K copy before a source exists.
+if (ACID_LAB_GUIDE.draft !== true || ACID_LAB_GUIDE.published !== false) {
+  fail("acid lab guide must stay draft unpublished");
+}
+if (ACID_LAB_GUIDE.path !== "guides/acid-lab/") fail("acid lab guide path", ACID_LAB_GUIDE.path);
+const outlineIds = ACID_LAB_GUIDE.outline.map((step) => step.id).join(",");
+if (outlineIds !== "first-dose,mutt-upgrade,resupply,money-loop") {
+  fail("acid lab outline order", outlineIds);
+}
+const mutt = ACID_LAB_GUIDE.outline.find((step) => step.id === "mutt-upgrade");
+if (!mutt?.en.includes("$750K") || !mutt?.zh.includes("$750K")) fail("mutt upgrade outline", mutt);
+if (!ACID_LAB_GUIDE.outline[0].en.includes("6 missions")) fail("first dose outline");
+if (SITE_PAGES.some((p) => p.path === ACID_LAB_GUIDE.path || p.id === ACID_LAB_GUIDE.id)) {
+  fail("acid lab guide must not be a published SITE_PAGE");
+}
+if (!DRAFT_SITE_PAGES.includes(ACID_LAB_GUIDE)) fail("acid lab guide missing from DRAFT_SITE_PAGES");
+if (isSitePagePublished(ACID_LAB_GUIDE)) fail("isSitePagePublished must reject the draft");
+if (publishedSitePages([...SITE_PAGES, ACID_LAB_GUIDE]).some((p) => p.path === ACID_LAB_GUIDE.path)) {
+  fail("publishedSitePages must drop the draft even if concatenated");
+}
+const navHtml = primaryNavHtml("en", "businesses");
+if (navHtml.includes("acid-lab") || navHtml.includes("guides/acid-lab")) fail("nav must not link the draft");
+const staticUrls = staticSitemapUrls();
+if (staticUrls.some((url) => url.includes("acid-lab"))) fail("static sitemap leaked acid lab", staticUrls);
+const sitemapXml = renderSitemap(sitemapUrls([]));
+if (sitemapXml.includes("acid-lab")) fail("sitemap xml leaked acid lab guide");
+if (bodyEn.includes("guides/acid-lab") || bodyZh.includes("guides/acid-lab") || bodyEn.includes("$750K")) {
+  fail("published businesses page must not link the draft or print $750K");
+}
+if (html.includes("guides/acid-lab") || zhHtml.includes("guides/acid-lab")) {
+  fail("rendered shell linked the draft guide");
+}
+
 const distBizTip = resolve(root, "dist/guides/businesses/index.html");
 if (existsSync(distBizTip)) {
   const built = readFileSync(distBizTip, "utf8");
@@ -344,6 +484,28 @@ if (existsSync(distBizTip)) {
   const hasWeek = /href="\/week\/\d{4}-\d{2}-\d{2}\//.test(built);
   const empty = built.includes("is-empty");
   if (!hasWeek && !empty) fail("dist businesses tip freeze needs week href or empty state");
+  if (!built.includes("Fooligans") || built.includes("Fooliganz")) fail("dist EN Fooligans spelling");
+  if (built.includes("guides/acid-lab") || built.includes("$750K")) fail("dist EN published the acid lab draft");
+  for (const id of Object.values(OFFICIAL_TRAILERS)) {
+    if (!built.includes(`https://www.youtube-nocookie.com/embed/${id}`)) fail("dist EN missing trailer", id);
+    if (!built.includes('loading="lazy"')) fail("dist EN iframe not lazy");
+  }
+}
+const distZhBiz = resolve(root, "dist/zh/guides/businesses/index.html");
+if (existsSync(distZhBiz)) {
+  const built = readFileSync(distZhBiz, "utf8");
+  if (!built.includes("Rockstar 官方預告")) fail("dist zh trailer title");
+  if (built.includes("guides/acid-lab")) fail("dist zh linked acid lab draft");
+  for (const id of Object.values(OFFICIAL_TRAILERS)) {
+    if (!built.includes(`https://www.youtube-nocookie.com/embed/${id}`)) fail("dist zh missing trailer", id);
+  }
+}
+for (const rel of ["dist/guides/acid-lab/index.html", "dist/zh/guides/acid-lab/index.html"]) {
+  if (existsSync(resolve(root, rel))) fail("draft acid lab page was written", rel);
+}
+const distSitemap = resolve(root, "dist/sitemap.xml");
+if (existsSync(distSitemap) && readFileSync(distSitemap, "utf8").includes("acid-lab")) {
+  fail("dist sitemap indexed the acid lab guide");
 }
 
 console.log(

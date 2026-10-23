@@ -29,6 +29,7 @@ import {
   jsonLdScript,
   organizationJsonLd,
 } from "./structuredData.js";
+import { ACID_LAB_GUIDE } from "./acidLabGuide.js";
 import {
   businessesPageBodyHtml,
   businessesPageJsonLd,
@@ -105,6 +106,24 @@ export const SITE_PAGES = [
     stub: false,
   },
 ];
+
+/**
+ * Reserved shells. draft or published:false stays out of nav, dev server,
+ * dist, and sitemap until a later pass flips the flag and moves the page
+ * into SITE_PAGES.
+ */
+export const DRAFT_SITE_PAGES = [ACID_LAB_GUIDE];
+
+export function isSitePagePublished(page) {
+  if (!page?.path) return false;
+  if (page.draft === true || page.published === false) return false;
+  return true;
+}
+
+/** SITE_PAGES minus anything still marked draft / unpublished. */
+export function publishedSitePages(pages = SITE_PAGES) {
+  return pages.filter(isSitePagePublished);
+}
 
 export function esc(value) {
   return String(value ?? "")
@@ -204,7 +223,7 @@ export function navItems(lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
   return [
     { id: "home", href: localePath(ui, "/"), label: t("navThisWeek", {}, ui) },
-    ...SITE_PAGES.map((page) => ({
+    ...publishedSitePages().map((page) => ({
       id: page.id,
       href: localePath(ui, page.path),
       label: t(page.navKey, {}, ui),
@@ -461,7 +480,7 @@ export function webPageJsonLd(page, lang = "en", { name, description } = {}) {
 
 export function staticSitemapUrls() {
   const out = [];
-  for (const page of SITE_PAGES) {
+  for (const page of publishedSitePages()) {
     out.push(absoluteUrl(page.path, "en"));
     out.push(absoluteUrl(page.path, "zh"));
   }

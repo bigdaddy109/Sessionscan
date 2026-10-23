@@ -120,6 +120,7 @@ export const UI = {
     bizOwnedCopyHeading: "My businesses",
     bizOwnedClear: "Clear owned",
     bizOwnedClearAria: "Clear all owned business marks",
+    bizOfficialTrailerTitle: "Official Rockstar trailer: {title}",
     bizDisclaimer:
       "SessionScan does not invent purchase prices or $/hr. Every outbound link is Rockstar Newswire or a named secondary used for rank order. Figures you see on those pages are theirs — verify before spending.",
     pageGta6Title: "GTA 6 | SessionScan",
@@ -443,6 +444,7 @@ export const UI = {
     bizOwnedCopyHeading: "我的生意",
     bizOwnedClear: "清除持有標記",
     bizOwnedClearAria: "清除全部持有生意標記",
+    bizOfficialTrailerTitle: "Rockstar 官方預告：{title}",
     bizDisclaimer:
       "SessionScan 不編造購價或 $/hr。外連皆為 Rockstar Newswire 或具名二級排名來源。那些頁面上的數字屬對方 — 花錢前請自行核對。",
     pageGta6Title: "GTA 6｜SessionScan",

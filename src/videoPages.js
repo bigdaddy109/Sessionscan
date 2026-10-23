@@ -17,13 +17,13 @@ import {
   t,
 } from "./i18n.js";
 import {
-  SITE_PAGES,
   absoluteUrl,
   breadcrumbsNavHtml,
   footerGuidesHtml,
   footerSocialHtml,
   headerSocialHtml,
   primaryNavHtml,
+  publishedSitePages,
   relatedPagesHtml,
   staticSitemapUrls,
 } from "./sitePages.js";
@@ -230,7 +230,7 @@ function xhtmlLinks(enHref, zhHref) {
 function sitemapAlternates(loc) {
   const zhHome = `${CARD_SITE_BASE}zh/`;
   if (loc === CARD_SITE_BASE || loc === zhHome) return xhtmlLinks(CARD_SITE_BASE, zhHome);
-  for (const page of SITE_PAGES) {
+  for (const page of publishedSitePages()) {
     const en = absoluteUrl(page.path, "en");
     const zh = absoluteUrl(page.path, "zh");
     if (loc === en || loc === zh) return xhtmlLinks(en, zh);
