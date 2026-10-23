@@ -6,6 +6,8 @@
  * scrollIntoView — a hidden button that is scrolled into view is still hidden.
  * Title text must not cover either button, and the page must not grow wider
  * than the viewport (Safari shrink-to-fit).
+ * Do not inject the probe into #jobList: renderJobs replaces that HTML after
+ * site.json loads, and a fast insert loses the race on CI.
  */
 import { spawnSync } from "node:child_process";
 import { createServer } from "node:http";
@@ -141,11 +143,21 @@ const browser = await chromium.launch({
 try {
   for (const vp of VIEWPORTS) {
     const page = await browser.newPage({ viewport: { width: vp.width, height: vp.height } });
-    await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: "networkidle" });
-    await page.evaluate((html) => {
+    const dataReady = page.waitForResponse(
+      (res) => res.url().includes("/data/site.json") || res.url().includes("/data/sample.json"),
+    );
+    await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: "domcontentloaded" });
+    await dataReady;
+    // renderJobs rewrites #jobList. Wait until that pass finishes, then park
+    // the probe on #main so a later rewrite cannot delete it.
+    await page.waitForFunction(() => {
       const list = document.querySelector("#jobList");
-      if (!list) throw new Error("missing #jobList");
-      list.insertAdjacentHTML("afterbegin", html);
+      return Boolean(list && list.querySelector(".job-card, .empty-msg"));
+    });
+    await page.evaluate((html) => {
+      const main = document.querySelector("#main");
+      if (!main) throw new Error("missing #main");
+      main.insertAdjacentHTML("beforeend", html);
     }, PROBE);
 
     const report = await page.evaluate(() => {
