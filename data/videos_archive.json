@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23T14:04:25Z",
+ "updated": "2026-10-23T16:05:12Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -126,7 +126,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-14",
-   "views": 929191,
+   "views": 930408,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -295,7 +295,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 2994,
+   "views": 3085,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -334,7 +334,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 5989527,
+   "views": 6066840,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -646,7 +646,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 95938,
+   "views": 96335,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -737,7 +737,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-05",
-   "views": 59177,
+   "views": 59433,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-23"
@@ -1062,7 +1062,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-10-09",
-   "views": 14859,
+   "views": 14883,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-23"
@@ -1491,7 +1491,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 5960999,
+   "views": 5996983,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -1629,11 +1629,13 @@
   {
    "video_id": "7xMoOUC1INc",
    "title": "Getting Rich in GTA 6 Will be HARDER then EVER",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=7xMoOUC1INc",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-23",
    "views": 0,
+   "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-23"
   },
@@ -1931,7 +1933,8 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-23",
-   "views": 4710,
+   "views": 17957,
+   "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-23"
   },
@@ -1997,7 +2000,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-10",
-   "views": 2446,
+   "views": 2448,
    "kind": "",
    "first_seen": "2026-10-10",
    "last_seen": "2026-10-23"
@@ -2036,7 +2039,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-11",
-   "views": 699781,
+   "views": 706330,
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-10-23"
@@ -2940,13 +2943,13 @@
   },
   {
    "video_id": "FV93IVwJP_4",
-   "title": "GTA 6 Launch Trailer Breakdown: Everything YOU MISSED",
+   "title": "GTA 6 Launch Trailer: Everything New YOU MISSED",
    "channel": "TGG",
    "url": "https://www.youtube.com/watch?v=FV93IVwJP_4",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1637013,
+   "views": 1638407,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -3921,7 +3924,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 7958,
+   "views": 7984,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -3934,7 +3937,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-21",
-   "views": 164,
+   "views": 165,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -4246,7 +4249,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-17",
-   "views": 639362,
+   "views": 640134,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -4701,7 +4704,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-23",
-   "views": 10401,
+   "views": 12438,
    "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-23"
@@ -5234,7 +5237,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 9088017,
+   "views": 9095191,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -5494,7 +5497,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-06",
-   "views": 6008,
+   "views": 6009,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-23"
@@ -5754,7 +5757,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 3232,
+   "views": 3245,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -5771,6 +5774,17 @@
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-21"
+  },
+  {
+   "video_id": "XQV4Pl7XJwU",
+   "title": "How I Made $100 Million on a New Account in GTA Online | Part 4",
+   "url": "https://www.youtube.com/watch?v=XQV4Pl7XJwU",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-23",
+   "views": 8,
+   "first_seen": "2026-10-23",
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "XWOBrn69Tzc",
@@ -6224,7 +6238,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-23",
-   "views": 7052,
+   "views": 7305,
    "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-23"
@@ -6406,7 +6420,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-22",
-   "views": 100987,
+   "views": 127723,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -6731,7 +6745,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 327,
+   "views": 339,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -7097,7 +7111,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-21",
-   "views": 8024,
+   "views": 8159,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-23"
@@ -7162,10 +7176,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 3173550,
+   "views": 4920515,
    "kind": "",
    "first_seen": "2026-10-20",
-   "last_seen": "2026-10-20"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "dMZwO6QAkHQ",
@@ -7409,7 +7423,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-10",
-   "views": 47725,
+   "views": 48384,
    "kind": "",
    "first_seen": "2026-10-11",
    "last_seen": "2026-10-23"
@@ -7448,7 +7462,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-01",
-   "views": 16579,
+   "views": 16580,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-23"
@@ -7595,6 +7609,17 @@
    "kind": "",
    "first_seen": "2026-10-14",
    "last_seen": "2026-10-14"
+  },
+  {
+   "video_id": "gKhWn1FrTq8",
+   "title": "GTA Online - Â Miss: Rise of the Beast (by ajm_agrajag) | Community Mission Series",
+   "url": "https://www.youtube.com/watch?v=gKhWn1FrTq8",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-23",
+   "views": 748,
+   "first_seen": "2026-10-23",
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "gLxKQMMcj7Y",
@@ -8013,6 +8038,17 @@
    "last_seen": "2026-10-21"
   },
   {
+   "video_id": "iNnoY6z1wrc",
+   "title": "This is WAY Better! The BEST WAYS To Make Millions SOLO After UPDATE in GTA Online (GTA5 Fast Money)",
+   "url": "https://www.youtube.com/watch?v=iNnoY6z1wrc",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-23",
+   "views": 989,
+   "first_seen": "2026-10-23",
+   "last_seen": "2026-10-23"
+  },
+  {
    "video_id": "iPKc4VTWIK0",
    "title": "在游戏的竞速比赛中稳拿第一名的方式 #gta #gta5 #遊戲頻道",
    "channel": "",
@@ -8072,7 +8108,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1281801,
+   "views": 1282976,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -8124,7 +8160,7 @@
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-23",
-   "views": 2838,
+   "views": 2934,
    "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-23"
@@ -8150,7 +8186,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 22885,
+   "views": 23278,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -8167,6 +8203,17 @@
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-21"
+  },
+  {
+   "video_id": "jJIyR-NVClU",
+   "title": "I Become a FAKE WOOD BOLLARD and Trolled COPS in Gta #gta #gtav #gtaonline",
+   "channel": "SpiceX Warrior",
+   "url": "https://www.youtube.com/shorts/jJIyR-NVClU",
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short",
+   "first_seen": "2026-10-23",
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "jMxj36o3a-Q",
@@ -8228,7 +8275,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-13",
-   "views": 1968,
+   "views": 1970,
    "kind": "",
    "first_seen": "2026-10-13",
    "last_seen": "2026-10-23"
@@ -8553,7 +8600,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-23",
-   "views": 32,
+   "views": 136,
    "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-23"
@@ -8793,6 +8840,17 @@
    "last_seen": "2026-10-12"
   },
   {
+   "video_id": "nOoYXR_NuG8",
+   "title": "Rockstar, is This The End of GTA Online?",
+   "url": "https://www.youtube.com/watch?v=nOoYXR_NuG8",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-23",
+   "views": 173,
+   "first_seen": "2026-10-23",
+   "last_seen": "2026-10-23"
+  },
+  {
    "video_id": "nWECt2HLLK4",
    "title": "GTA 6: PC Release 2027 Reports, 2 New Radio Stations, Review Copies & More!",
    "channel": "TGG",
@@ -8956,7 +9014,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-21",
-   "views": 52208,
+   "views": 56018,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-23"
@@ -9125,7 +9183,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-23",
-   "views": 749,
+   "views": 2507,
    "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-23"
@@ -9207,6 +9265,17 @@
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-17"
+  },
+  {
+   "video_id": "psZGeGjND8M",
+   "title": "如果被gta的警察追捕时 进入喷漆改装店还能摆脱抓捕吗？ #gta#gta5  #遊戲頻道",
+   "url": "https://www.youtube.com/watch?v=psZGeGjND8M",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-10-23",
+   "views": 869,
+   "first_seen": "2026-10-23",
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "pyXXb8lJmXM",
@@ -9320,7 +9389,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 99925,
+   "views": 101735,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -9606,7 +9675,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 61814534,
+   "views": 61951479,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -9814,7 +9883,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 62494,
+   "views": 63902,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -10368,6 +10437,17 @@
    "last_seen": "2026-10-23"
   },
   {
+   "video_id": "wASECp1aVDk",
+   "title": "【全新社群差事任務】GTA Online社群差事任務製作器內容 - 生物災害爆發 [4K]",
+   "url": "https://www.youtube.com/watch?v=wASECp1aVDk",
+   "lang": "zh",
+   "game": "GTA Online",
+   "date": "2026-10-23",
+   "views": 28,
+   "first_seen": "2026-10-23",
+   "last_seen": "2026-10-23"
+  },
+  {
    "video_id": "wFHBjJOn6FI",
    "title": "I Become A Fake Fuel Pump And Trolled A GTA 5 Cops 🚔💥😂 #gta5",
    "channel": "XP Playz",
@@ -10440,7 +10520,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-22",
-   "views": 38977,
+   "views": 40169,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -10453,7 +10533,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 161,
+   "views": 173,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -10700,7 +10780,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 161379,
+   "views": 161848,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-23"
@@ -11015,7 +11095,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-22"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "zmwO_jmNkVQ",
