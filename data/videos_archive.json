@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23T04:06:26Z",
+ "updated": "2026-10-23T06:07:19Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -112,6 +112,8 @@
    "url": "https://www.youtube.com/shorts/-TxAhH45ik0",
    "lang": "en",
    "game": "GTA Online",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-23"
@@ -218,7 +220,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-22"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "0LoZ9ew4WeE",
@@ -374,7 +376,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-18",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "17Z0JTcLmeM",
@@ -764,7 +766,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-22"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "2qwUGW3Fak0",
@@ -1972,10 +1974,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-10",
-   "views": 2440,
+   "views": 2446,
    "kind": "",
    "first_seen": "2026-10-10",
-   "last_seen": "2026-10-22"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "A-ap75BU8s8",
@@ -2479,10 +2481,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-26",
-   "views": 4789,
+   "views": 4790,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-22"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "ChipKvpy5ig",
@@ -3493,10 +3495,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-03",
-   "views": 2109,
+   "views": 2122,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-21"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "Jq3n90n2hrc",
@@ -5053,7 +5055,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-20",
-   "views": 2635,
+   "views": 2653,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-23"
@@ -5404,10 +5406,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-06",
-   "views": 6006,
+   "views": 6007,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-22"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "VjDbH6WS2Ug",
@@ -5664,7 +5666,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 3207,
+   "views": 3211,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -6251,10 +6253,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-09-27",
-   "views": 2866,
+   "views": 2901,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-15"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "_tRSjjfLdVc",
@@ -8073,10 +8075,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-13",
-   "views": 1959,
+   "views": 1968,
    "kind": "",
    "first_seen": "2026-10-13",
-   "last_seen": "2026-10-22"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "k3KsbHCfmT8",
@@ -8909,6 +8911,17 @@
    "kind": "short",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-17"
+  },
+  {
+   "video_id": "pJC0kmBx7So",
+   "title": "Nobody Expected a Wild Boar to Enter the Runway During This Airbus Landing GTA 5",
+   "channel": "Gta Air Rush",
+   "url": "https://www.youtube.com/shorts/pJC0kmBx7So",
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short",
+   "first_seen": "2026-10-23",
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "pJuu8A9lWRQ",
@@ -10558,10 +10571,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-29",
-   "views": 1704,
+   "views": 1726,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-15"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "yXNJGI5DDw0",
