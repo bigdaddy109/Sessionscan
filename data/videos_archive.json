@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23T12:04:25Z",
+ "updated": "2026-10-23T12:26:01Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -126,7 +126,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-14",
-   "views": 929070,
+   "views": 929191,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -295,7 +295,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 2822,
+   "views": 2858,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -308,7 +308,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-15",
-   "views": 9751,
+   "views": 9754,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -334,7 +334,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 5972168,
+   "views": 5989527,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -646,7 +646,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 95484,
+   "views": 95564,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -737,7 +737,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-05",
-   "views": 59154,
+   "views": 59177,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-23"
@@ -1491,7 +1491,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 5942659,
+   "views": 5944653,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -1660,10 +1660,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 7128790,
+   "views": 7622346,
    "kind": "",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-22"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "89hGQ2-rirI",
@@ -2013,7 +2013,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-11",
-   "views": 694433,
+   "views": 695108,
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-10-23"
@@ -2923,7 +2923,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1635837,
+   "views": 1636021,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -3300,7 +3300,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 187280,
+   "views": 187299,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-23"
@@ -3464,11 +3464,13 @@
   {
    "video_id": "JUo8-CGqsTI",
    "title": "【GTA5】ロスサントスで大麻ビジネス！スモーク・オン・ザ・ウォーター始動",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=JUo8-CGqsTI",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-19",
    "views": 19,
+   "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-23"
   },
@@ -4000,7 +4002,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 9838616,
+   "views": 9866486,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -4221,7 +4223,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-17",
-   "views": 638576,
+   "views": 638706,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -4676,7 +4678,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-23",
-   "views": 7959,
+   "views": 8431,
    "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-23"
@@ -4689,7 +4691,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 6810,
+   "views": 6812,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -5397,6 +5399,17 @@
    "last_seen": "2026-10-16"
   },
   {
+   "video_id": "VRKTkXixzlY",
+   "title": "The BEST CONSOLE for GTA 6? | PS5 Pro Unboxing - ASMR",
+   "url": "https://www.youtube.com/watch?v=VRKTkXixzlY",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-22",
+   "views": 323,
+   "first_seen": "2026-10-23",
+   "last_seen": "2026-10-23"
+  },
+  {
    "video_id": "VTF7pOSgTWU",
    "title": "🔴4K PS5 Pro GTA 5 ONLINE LIVE STREAM GTAオンライン グラセフ 拡張版 #grandtheftauto Chill Heist Grind 243.26.9.30",
    "channel": "",
@@ -5586,7 +5599,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 3516,
+   "views": 3546,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -5716,7 +5729,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 3226,
+   "views": 3232,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -6010,6 +6023,17 @@
    "last_seen": "2026-10-17"
   },
   {
+   "video_id": "Z9z46286oGg",
+   "title": "GTA 1 To GTA 6 - The INSANE Evolution of GTA Graphics",
+   "url": "https://www.youtube.com/watch?v=Z9z46286oGg",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-22",
+   "views": 20872,
+   "first_seen": "2026-10-23",
+   "last_seen": "2026-10-23"
+  },
+  {
    "video_id": "ZFvfgzWG7wU",
    "title": "【阿杰】特斯拉最新「飛天超跑 Roadster」實測！真的能原地起飛滯空？挑戰連飛5台車、極限飛躍大飛機！｜GTA5 模組",
    "channel": "",
@@ -6025,11 +6049,13 @@
   {
    "video_id": "ZNFgSAEcbSs",
    "title": "🔴 GTA 5 ONLINE LIVE STREAM 4K PS5 Pro JP&US.Ver Car Meet GTAオンライン グラセフ Chill Grinding 253.26.10.22",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=ZNFgSAEcbSs",
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-23",
    "views": 1845,
+   "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-23"
   },
@@ -6171,7 +6197,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-23",
-   "views": 6689,
+   "views": 6745,
    "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-23"
@@ -6353,7 +6379,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-22",
-   "views": 99263,
+   "views": 100987,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -6574,7 +6600,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-19",
-   "views": 101541,
+   "views": 101651,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-23"
@@ -7044,7 +7070,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-21",
-   "views": 7836,
+   "views": 7860,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-23"
@@ -7057,7 +7083,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-23",
-   "views": 4832,
+   "views": 5405,
    "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-23"
@@ -7824,7 +7850,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 2284,
+   "views": 2301,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -8019,7 +8045,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1280495,
+   "views": 1280743,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -8097,7 +8123,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 22495,
+   "views": 22552,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -8495,11 +8521,13 @@
   {
    "video_id": "leB72a1xvww",
    "title": "【全新社群差事任務】GTA Online社群差事任務製作器內容 - 懲治外星人 [4K]",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=leB72a1xvww",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-23",
-   "views": 19,
+   "views": 26,
+   "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-23"
   },
@@ -8628,7 +8656,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 40764,
+   "views": 41040,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -8901,7 +8929,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-21",
-   "views": 51817,
+   "views": 52208,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-23"
@@ -9061,6 +9089,17 @@
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-18"
+  },
+  {
+   "video_id": "pULKSedK0ck",
+   "title": "GTA 6 Xbox版被消失？Sony買下獨家行銷權！PS5宣傳全面啟動！GTA Online Weekly Update",
+   "url": "https://www.youtube.com/watch?v=pULKSedK0ck",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-10-23",
+   "views": 173,
+   "first_seen": "2026-10-23",
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "pYHeZVyLb1A",
@@ -9252,7 +9291,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 99758,
+   "views": 99925,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -9538,7 +9577,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 61703088,
+   "views": 61723813,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -9629,7 +9668,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-09",
-   "views": 55874,
+   "views": 55875,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-23"
@@ -10372,7 +10411,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-22",
-   "views": 37606,
+   "views": 37951,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -10632,7 +10671,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 161328,
+   "views": 161379,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-23"
