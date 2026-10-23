@@ -25,7 +25,16 @@ function absoluteUrl(enPath = "", lang = "en") {
 }
 
 /** Editorial pass date for the ranked list (ISO day). */
-export const BUSINESS_LIST_UPDATED = "2026-10-12";
+export const BUSINESS_LIST_UPDATED = "2026-10-23";
+
+/**
+ * Official Rockstar Games YouTube channel (@RockstarGames).
+ * Confirmed 2026-10-23 from the channel page canonical URL and each trailer's
+ * oEmbed author_url. UCmDTrq0LNgPodDOFZiSbsww is a different channel — do not
+ * whitelist it.
+ */
+export const ROCKSTAR_GAMES_YT_CHANNEL_ID = "UC6VcWc1rAoWdBCM0JxrRQ3A";
+export const ROCKSTAR_GAMES_YT_AUTHOR_URL = "https://www.youtube.com/@RockstarGames";
 
 /**
  * Secondary ranking consensus used for order (not payout math).
@@ -52,7 +61,7 @@ export const BUSINESS_RANKING = [
     rank: 1,
     title: { en: "Acid Lab", zh: "迷幻藥實驗室" },
     highlight: {
-      en: "Solo-friendly mobile product loop after First Dose — one-vehicle sells; unlock path via Fooliganz story.",
+      en: "Solo-friendly mobile product loop after First Dose — one-vehicle sells; unlock path via Fooligans story.",
       zh: "完成 First Dose 後解鎖的行動式產銷循環，適合單人；販售通常一輛載具即可送完。",
     },
     source: {
@@ -63,6 +72,12 @@ export const BUSINESS_RANKING = [
       },
       url: "https://www.rockstargames.com/newswire/article/75258k488okk33/gta-online-los-santos-drug-wars-now-available",
       date: "2022-12-13",
+    },
+    trailer: {
+      videoId: "Ybq_FGtSCN8",
+      title: "GTA Online: Los Santos Drug Wars Now Available",
+      channelId: "UC6VcWc1rAoWdBCM0JxrRQ3A",
+      authorUrl: "https://www.youtube.com/@RockstarGames",
     },
   },
   {
@@ -82,6 +97,12 @@ export const BUSINESS_RANKING = [
       url: "https://www.rockstargames.com/newswire/article/1748koo9o1229a/GTA-Online-After-Hours-Out-Now",
       date: "2018-07-24",
     },
+    trailer: {
+      videoId: "5FBipicBoJg",
+      title: "GTA Online: After Hours",
+      channelId: "UC6VcWc1rAoWdBCM0JxrRQ3A",
+      authorUrl: "https://www.youtube.com/@RockstarGames",
+    },
   },
   {
     id: "agency",
@@ -99,6 +120,12 @@ export const BUSINESS_RANKING = [
       },
       url: "https://www.rockstargames.com/newswire/article/ak759k91592728/gta-online-the-contract-out-now",
       date: "2021-12-15",
+    },
+    trailer: {
+      videoId: "aLUGHQq2aek",
+      title: "GTA Online: The Contract – Coming December 15",
+      channelId: "UC6VcWc1rAoWdBCM0JxrRQ3A",
+      authorUrl: "https://www.youtube.com/@RockstarGames",
     },
   },
   {
@@ -118,6 +145,12 @@ export const BUSINESS_RANKING = [
       url: "https://www.rockstargames.com/newswire/article/1748koo9oo583k/out-now-the-cayo-perico-heist",
       date: "2020-12-15",
     },
+    trailer: {
+      videoId: "tyDRtSUYTRs",
+      title: "GTA Online: The Cayo Perico Heist",
+      channelId: "UC6VcWc1rAoWdBCM0JxrRQ3A",
+      authorUrl: "https://www.youtube.com/@RockstarGames",
+    },
   },
   {
     id: "auto-shop",
@@ -135,6 +168,12 @@ export const BUSINESS_RANKING = [
       },
       url: "https://www.rockstargames.com/newswire/article/25o1829o5o4993/los-santos-tuners-coming-july-20",
       date: "2021-07-13",
+    },
+    trailer: {
+      videoId: "mP6KvFnltWc",
+      title: "GTA Online: Los Santos Tuners — Out Now",
+      channelId: "UC6VcWc1rAoWdBCM0JxrRQ3A",
+      authorUrl: "https://www.youtube.com/@RockstarGames",
     },
   },
   {
@@ -154,6 +193,12 @@ export const BUSINESS_RANKING = [
       url: "https://www.rockstargames.com/newswire/article/511aoa4828o771/gunrunning-pays-dividends-in-gta-online-with-bunker-bonuses",
       date: "2025-02-27",
     },
+    trailer: {
+      videoId: "TOTCzcYzYuc",
+      title: "GTA Online: Gunrunning Trailer",
+      channelId: "UC6VcWc1rAoWdBCM0JxrRQ3A",
+      authorUrl: "https://www.youtube.com/@RockstarGames",
+    },
   },
   {
     id: "hangar",
@@ -172,6 +217,12 @@ export const BUSINESS_RANKING = [
       url: "https://www.rockstargames.com/newswire/article/ak14o8838a9a51/GTA-Online-Smuggler-s-Run-Now-Available",
       date: "2017-08-29",
     },
+    trailer: {
+      videoId: "KI1ukKxPsGc",
+      title: "GTA Online: Smuggler's Run Trailer",
+      channelId: "UC6VcWc1rAoWdBCM0JxrRQ3A",
+      authorUrl: "https://www.youtube.com/@RockstarGames",
+    },
   },
   {
     id: "salvage-yard",
@@ -189,6 +240,12 @@ export const BUSINESS_RANKING = [
       },
       url: "https://www.rockstargames.com/newswire/article/75k3149ko747ka/gta-online-the-chop-shop-now-available",
       date: "2023-12-12",
+    },
+    trailer: {
+      videoId: "Sp1wvWZ_2MQ",
+      title: "GTA Online: The Chop Shop Now Available",
+      channelId: "UC6VcWc1rAoWdBCM0JxrRQ3A",
+      authorUrl: "https://www.youtube.com/@RockstarGames",
     },
   },
 ];
@@ -611,6 +668,33 @@ export function businessesSoloFilterScript() {
 </script>`;
 }
 
+/**
+ * Official Rockstar trailer only. Anything else (fan reupload, IGN, a stale
+ * channel id) renders nothing — the Newswire link stays, no extra iframe.
+ */
+export function isVerifiedRockstarTrailer(trailer) {
+  if (!trailer || typeof trailer !== "object") return false;
+  const id = String(trailer.videoId || "");
+  if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return false;
+  if (trailer.channelId !== ROCKSTAR_GAMES_YT_CHANNEL_ID) return false;
+  const author = String(trailer.authorUrl || "").replace(/\/+$/, "").toLowerCase();
+  if (author !== ROCKSTAR_GAMES_YT_AUTHOR_URL.toLowerCase()) return false;
+  if (!String(trailer.title || "").trim()) return false;
+  return true;
+}
+
+/** youtube-nocookie embed beside the Newswire source. Empty when unverified. */
+export function businessTrailerEmbedHtml(item, lang = "en") {
+  const trailer = item?.trailer;
+  if (!isVerifiedRockstarTrailer(trailer)) return "";
+  const ui = lang === "zh" ? "zh" : "en";
+  const title = t("bizOfficialTrailerTitle", { title: trailer.title }, ui);
+  const src = `https://www.youtube-nocookie.com/embed/${trailer.videoId}`;
+  return `<div class="biz-trailer">
+        <iframe src="${esc(src)}" title="${esc(title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>`;
+}
+
 /** Ranked list + methodology + last-updated chrome for the Businesses page body. */
 export function businessesPageBodyHtml(lang = "en", { tipWeek = "" } = {}) {
   const ui = lang === "zh" ? "zh" : "en";
@@ -624,12 +708,17 @@ export function businessesPageBodyHtml(lang = "en", { tipWeek = "" } = {}) {
     const highlight = pickLocale(item.highlight, ui);
     const solo = isSoloFriendlyBusiness(item);
     const ownLabel = t("bizOwnLabel", {}, ui);
+    const trailer = businessTrailerEmbedHtml(item, ui);
+    const source = `<p class="biz-rank-source">${sourceMetaHtml(item.source, ui)}</p>`;
+    const sourceRow = trailer
+      ? `<div class="biz-source-row">${source}${trailer}</div>`
+      : source;
     return `<li class="biz-rank-item" data-biz-id="${esc(item.id)}" data-rank="${esc(String(item.rank))}" data-solo="${solo ? "1" : "0"}" data-owned="0">
       <div class="biz-rank-num" aria-hidden="true">${esc(String(item.rank))}</div>
       <div class="biz-rank-body">
         <h2 class="biz-rank-title">${esc(title)}</h2>
         <p class="biz-rank-highlight">${esc(highlight)}</p>
-        <p class="biz-rank-source">${sourceMetaHtml(item.source, ui)}</p>
+        ${sourceRow}
         <label class="biz-own-claim">
           <input type="checkbox" class="biz-own-check" data-biz-id="${esc(item.id)}" />
           <span class="biz-own-claim-text">${esc(ownLabel)}</span>

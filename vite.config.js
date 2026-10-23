@@ -3,10 +3,10 @@ import { resolve } from "node:path";
 import { defineConfig } from "vite";
 import { ensureCfWebAnalytics } from "./src/cfWebAnalytics.js";
 import {
-  SITE_PAGES,
   injectHomeShell,
   legacyHashRedirectScript,
   localePath,
+  publishedSitePages,
   renderSitePage,
 } from "./src/sitePages.js";
 import { injectHomeBusinessGuideLink } from "./src/businessRanking.js";
@@ -76,7 +76,7 @@ function rewriteZhDevRequest(req) {
 function matchSitePage(urlPath) {
   const clean = String(urlPath || "").split("?")[0].split("#")[0].replace(/\/index\.html$/, "") || "/";
   const normalized = clean.endsWith("/") || clean === "/" ? clean : `${clean}/`;
-  for (const page of SITE_PAGES) {
+  for (const page of publishedSitePages()) {
     for (const lang of ["en", "zh"]) {
       const path = localePath(lang, page.path);
       if (normalized === path || clean === path.replace(/\/$/, "")) {

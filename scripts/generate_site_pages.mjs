@@ -6,7 +6,13 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { SITE_PAGES, assetPrefix, localePath, renderSitePage } from "../src/sitePages.js";
+import {
+  DRAFT_SITE_PAGES,
+  assetPrefix,
+  localePath,
+  publishedSitePages,
+  renderSitePage,
+} from "../src/sitePages.js";
 import {
   latestArchiveWeek,
   listArchiveWeeks,
@@ -61,7 +67,7 @@ const weeks = listArchiveWeeks(hub);
 const tipWeek = latestArchiveWeek(hub)?.week || "";
 let written = 0;
 
-for (const page of SITE_PAGES) {
+for (const page of publishedSitePages()) {
   for (const lang of ["en", "zh"]) {
     const path = localePath(lang, page.path);
     const dir = resolve(dist, path.replace(/^\//, ""));
@@ -103,6 +109,22 @@ for (const week of weeks) {
 const feedDir = resolve(dist, "week");
 mkdirSync(feedDir, { recursive: true });
 writeFileSync(resolve(feedDir, "feed.xml"), renderArchiveAtomFeed(hub));
+
+// Draft shells (Acid Lab guide) stay off disk so they are not crawled or linked.
+for (const page of DRAFT_SITE_PAGES) {
+  if (page.draft !== true && page.published !== false) {
+    console.error("DRAFT_SITE_PAGES entry must stay unpublished", page.id || page.path);
+    process.exit(1);
+  }
+  for (const lang of ["en", "zh"]) {
+    const path = localePath(lang, page.path);
+    const file = resolve(dist, path.replace(/^\//, ""), "index.html");
+    if (existsSync(file)) {
+      console.error("draft page must not be written", file);
+      process.exit(1);
+    }
+  }
+}
 
 console.log(
   `generate_site_pages: ${written} pages -> dist/{,zh/}{week,week/YYYY-MM-DD,guides,gta6,about}/ (${weeks.length} freeze weeks); week/feed.xml`,

@@ -16,6 +16,7 @@
 - 行動版 sticky header：合併後若再改頁首高度，在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。site-nav 六連結已改換行，不再靠橫向捲軸。
 
 已完成：
+- Businesses 每列在既有 Newswire 連結旁嵌官方 YouTube 預告（`youtube-nocookie.com/embed`，`loading="lazy"`，16:9；只收 `@RockstarGames`／`UC6VcWc1rAoWdBCM0JxrRQ3A`，oEmbed 核過。`UCmDTrq0LNgPodDOFZiSbsww` 不是該頻道）。Acid Lab 文案 Fooliganz → Fooligans。Acid Lab 攻略大綱 `src/acidLabGuide.js` 留在 `DRAFT_SITE_PAGES`（`draft: true`、`published: false`），`publishedSitePages()` 不進 nav／dist／sitemap。rollback `pre-biz-official-trailers-20261023`。測 `tests/test_business_ranking.mjs`、`tests/test_business_trailers_layout.mjs`。
 - 手機工作卡／Short／影片卡的「複製連結」不再在 ≤420px 消失（拿掉 `.card-copy { display: none }`；≤640px 右內距 72px，兩顆 26px 鈕不會蓋住標題。375／390 可把連結貼進 LINE／Discord。#116；rollback `pre-card-copy-phone-20261023`）。測 `tests/test_card_copy_mobile.mjs`（探針掛 `#main`，等 `#jobList` 畫完再量；插進清單會被 `renderJobs` 換掉，Pages CI 會失敗並跳過 deploy。#117；rollback `pre-card-copy-test-20261023`）。
 - 手機主選單六連結不再藏在橫向捲軸後（`.site-nav` `flex-wrap: wrap`；375–430 英文 GTA 6／About、375／390 中文「關於」第一屏就看得到。#115；rollback `pre-site-nav-wrap-20261022`。測 `tests/test_mobile_tabs.mjs`：量連結前不准 `scrollIntoView`）。
 - 手機頁首 YouTube 短標不再截成 `@sess…`（`.channel-link-yt`／`.header-social` 在 compact header `flex: 0 0 auto`；≤480px 社群列換行；品牌字 ≤639px 先藏，避免 430 直向把短標擠掉。分享頁 Home／回首頁也不再被截。#114；rollback `pre-header-yt-handle-20261021`）。測 `tests/test_header_overlap.mjs`。
