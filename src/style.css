@@ -1569,8 +1569,8 @@ main {
     padding-left: 12px;
     padding-right: 12px;
   }
-  .job-card, .thread-item { padding-left: 58px; padding-right: 64px; }
-  .tweet-item { padding-right: 64px; }
+  .job-card, .thread-item { padding-left: 58px; padding-right: 72px; }
+  .tweet-item { padding-right: 72px; }
   .card-share, .card-copy { width: 26px; height: 26px; }
   .brand-text strong { font-size: 18px; letter-spacing: 0.1em; }
 }
@@ -1595,8 +1595,8 @@ main {
   .tab .ch {
     font-size: 12px;
   }
-  .card-copy { display: none; }
-  .job-card, .thread-item, .tweet-item { padding-right: 42px; }
+  /* Copy stays on screen. display:none here left 375/390 with Share to X only,
+     so a phone could not paste the card link into LINE or Discord. */
 }
 
 /* ---------- Phase B this-week home panels ---------- */
