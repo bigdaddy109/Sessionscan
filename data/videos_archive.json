@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23T06:07:19Z",
+ "updated": "2026-10-23T08:03:48Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -126,10 +126,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-14",
-   "views": 924429,
+   "views": 928167,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-22"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "-aVXA7KtGRw",
@@ -295,7 +295,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 1592,
+   "views": 2435,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -308,7 +308,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-15",
-   "views": 9738,
+   "views": 9751,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -334,7 +334,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 5732609,
+   "views": 5948069,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -516,7 +516,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-10",
-   "views": 10819,
+   "views": 10824,
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-23"
@@ -646,7 +646,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 93630,
+   "views": 94535,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -737,7 +737,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-05",
-   "views": 58508,
+   "views": 58875,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-23"
@@ -1062,7 +1062,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-10-09",
-   "views": 14689,
+   "views": 14814,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-23"
@@ -1283,7 +1283,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-03",
-   "views": 217269,
+   "views": 217749,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-23"
@@ -1374,7 +1374,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-19",
-   "views": 41462,
+   "views": 42890,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-23"
@@ -1491,7 +1491,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 5865106,
+   "views": 5915368,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -2013,7 +2013,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-11",
-   "views": 668017,
+   "views": 686395,
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-10-23"
@@ -2403,7 +2403,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-24",
-   "views": 10310,
+   "views": 10312,
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-23"
@@ -2767,7 +2767,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-09-30",
-   "views": 102681,
+   "views": 102737,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-23"
@@ -2923,7 +2923,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1627710,
+   "views": 1633716,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -3079,7 +3079,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 22828,
+   "views": 22961,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -3300,7 +3300,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 186521,
+   "views": 186897,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-23"
@@ -3577,6 +3577,17 @@
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-17"
+  },
+  {
+   "video_id": "KL8agnaAV88",
+   "title": "GTA 6 IS NOTHING LIKE GTA 5...",
+   "url": "https://www.youtube.com/watch?v=KL8agnaAV88",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-23",
+   "views": 2695,
+   "first_seen": "2026-10-23",
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "KLdTe1UL1Uk",
@@ -3872,7 +3883,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 7243,
+   "views": 7682,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -3976,10 +3987,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 9353716,
+   "views": 9832351,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-22"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "NAqTwtjUSYk",
@@ -4106,10 +4117,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 4526,
+   "views": 5031,
    "kind": "",
    "first_seen": "2026-10-20",
-   "last_seen": "2026-10-22"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "O0Mn1E2oZ48",
@@ -4197,7 +4208,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-17",
-   "views": 633505,
+   "views": 637112,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -4574,7 +4585,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-20",
-   "views": 20521,
+   "views": 23805,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-23"
@@ -4632,6 +4643,17 @@
    "last_seen": "2026-10-18"
   },
   {
+   "video_id": "Ql93lbym024",
+   "title": "Rockstar is KILLING GTA Online",
+   "url": "https://www.youtube.com/watch?v=Ql93lbym024",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-23",
+   "views": 2527,
+   "first_seen": "2026-10-23",
+   "last_seen": "2026-10-23"
+  },
+  {
    "video_id": "Qlgk-gTZI1U",
    "title": "【GTA6発売まで34日前】ハロウィンアプデ第３弾も稼げるリアルタイムアプデ情報・今夜はシビック無料で手に入れろ‼️GTAオンライン",
    "channel": "パパテラ【PAPATERA】",
@@ -4639,7 +4661,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 6807,
+   "views": 6810,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -5055,7 +5077,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-20",
-   "views": 2653,
+   "views": 2663,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-23"
@@ -5159,7 +5181,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 8820012,
+   "views": 9069261,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -5536,7 +5558,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 937,
+   "views": 3213,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -5666,7 +5688,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 3211,
+   "views": 3217,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -6103,6 +6125,17 @@
    "last_seen": "2026-10-19"
   },
   {
+   "video_id": "_43d4UpAa2Y",
+   "title": "GTA Online NEW Halloween Missions! 🎃",
+   "url": "https://www.youtube.com/watch?v=_43d4UpAa2Y",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-23",
+   "views": 4483,
+   "first_seen": "2026-10-23",
+   "last_seen": "2026-10-23"
+  },
+  {
    "video_id": "_82dwHgYnbw",
    "title": "Bonuses, Discounts, New GTA+ Month & More! GTA Online Weekly Update!",
    "channel": "Evizcerate",
@@ -6279,7 +6312,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-22",
-   "views": 44839,
+   "views": 82691,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -6500,7 +6533,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-19",
-   "views": 94917,
+   "views": 98354,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-23"
@@ -6786,7 +6819,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 18139,
+   "views": 18418,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-23"
@@ -6970,7 +7003,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-21",
-   "views": 6593,
+   "views": 7419,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-23"
@@ -7269,7 +7302,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-10",
-   "views": 46802,
+   "views": 47725,
    "kind": "",
    "first_seen": "2026-10-11",
    "last_seen": "2026-10-23"
@@ -7308,7 +7341,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-01",
-   "views": 16574,
+   "views": 16578,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-23"
@@ -7737,7 +7770,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 1649,
+   "views": 2107,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -7880,7 +7913,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-04",
-   "views": 70850,
+   "views": 71270,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-23"
@@ -7919,7 +7952,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 672,
+   "views": 11914,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -7932,7 +7965,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1272396,
+   "views": 1278299,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -7977,6 +8010,17 @@
    "last_seen": "2026-10-13"
   },
   {
+   "video_id": "ilqBONbXHqA",
+   "title": "GTA V Online Second to Last Chance Halloween Challenges LOL!!!",
+   "url": "https://www.youtube.com/watch?v=ilqBONbXHqA",
+   "lang": "en",
+   "game": "GTA 5",
+   "date": "2026-10-23",
+   "views": 2605,
+   "first_seen": "2026-10-23",
+   "last_seen": "2026-10-23"
+  },
+  {
    "video_id": "ippApyS8SlM",
    "title": "The BEST WAYS To Make MILLIONS Right Now in GTA 5 Online! Fastest Money Methods Not Glitch SOLO 2026",
    "channel": "LaazrGaming",
@@ -7997,7 +8041,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 19670,
+   "views": 21556,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -8517,7 +8561,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 18790,
+   "views": 38328,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -8790,7 +8834,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-21",
-   "views": 38508,
+   "views": 46819,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-23"
@@ -8919,6 +8963,8 @@
    "url": "https://www.youtube.com/shorts/pJC0kmBx7So",
    "lang": "en",
    "game": "GTA 5",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-23"
@@ -9139,7 +9185,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 94091,
+   "views": 97548,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-23"
@@ -9425,7 +9471,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 61187486,
+   "views": 61532895,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -9516,7 +9562,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-09",
-   "views": 55832,
+   "views": 55863,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-23"
@@ -9633,7 +9679,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 46149,
+   "views": 58087,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -9828,7 +9874,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-17",
-   "views": 10037,
+   "views": 10057,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-23"
@@ -9973,7 +10019,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-14",
-   "views": 14421,
+   "views": 14457,
    "kind": "",
    "first_seen": "2026-10-14",
    "last_seen": "2026-10-23"
@@ -10181,7 +10227,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-01",
-   "views": 18811,
+   "views": 18836,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-23"
@@ -10259,7 +10305,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-22",
-   "views": 5431,
+   "views": 34704,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
@@ -10519,7 +10565,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-09",
-   "views": 159285,
+   "views": 160712,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-23"
@@ -10851,16 +10897,16 @@
   },
   {
    "video_id": "zrXu-5U91Lk",
-   "title": "新手推薦·保釋辦公室全流程《GTA Online》頭號通緝犯⚖️ 查茲·里伯曼",
+   "title": "新手推薦｜保釋辦公室全流程｜《GTA Online》無BGM·純遊戲原聲｜頭號通緝犯⚖️ 查茲·里伯曼",
    "channel": "S41NT.L4W_3",
    "url": "https://www.youtube.com/watch?v=zrXu-5U91Lk",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 13,
+   "views": 25,
    "kind": "",
    "first_seen": "2026-10-20",
-   "last_seen": "2026-10-21"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "zyKx0C8tZfw",
@@ -10873,7 +10919,7 @@
    "views": 37,
    "kind": "",
    "first_seen": "2026-10-21",
-   "last_seen": "2026-10-22"
+   "last_seen": "2026-10-23"
   },
   {
    "video_id": "zyRi_MY8FZ4",
