@@ -1,22 +1,11 @@
 [
  {
-  "id": "irX76AMMuLI",
-  "video_id": "irX76AMMuLI",
-  "title": "🚨LIVE: 25 DAYS Until GTA VI OFFICIALLY RELEASES!",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=irX76AMMuLI",
-  "views": 837,
-  "date": "2026-10-24",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
   "id": "Y7PLft0wYGA",
   "video_id": "Y7PLft0wYGA",
   "title": "GTA Online - Final Extraction (by Seangib) | Community Mission Series",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=Y7PLft0wYGA",
-  "views": 12602,
+  "views": 12912,
   "date": "2026-10-24",
   "lang": "en",
   "game": "GTA Online"
@@ -25,9 +14,9 @@
   "id": "YOph7v5merg",
   "video_id": "YOph7v5merg",
   "title": "GTA Online Fun Friday!!! 3x Money!!!",
-  "channel": "Tylarious",
+  "channel": "",
   "url": "https://www.youtube.com/watch?v=YOph7v5merg",
-  "views": 2895,
+  "views": 2903,
   "date": "2026-10-24",
   "lang": "en",
   "game": "GTA Online"
@@ -38,7 +27,7 @@
   "title": "Best All Around Vehicles in GTA Online!",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=MnFrwtdlEQM",
-  "views": 1258,
+  "views": 1262,
   "date": "2026-10-24",
   "lang": "en",
   "game": "GTA Online"
@@ -60,7 +49,7 @@
   "title": "Grand Theft Auto 6 Combat - 10 Things I Can't Wait To Try",
   "channel": "GamingBolt",
   "url": "https://www.youtube.com/watch?v=xKV9s7wi2aI",
-  "views": 2063,
+  "views": 2364,
   "date": "2026-10-24",
   "lang": "en",
   "game": "GTA 6"
@@ -69,9 +58,9 @@
   "id": "BSIytHG3-Xo",
   "video_id": "BSIytHG3-Xo",
   "title": "Grand Theft Auto VI Launch Trailer",
-  "channel": "",
+  "channel": "XBOX",
   "url": "https://www.youtube.com/watch?v=BSIytHG3-Xo",
-  "views": 1379071,
+  "views": 1411551,
   "date": "2026-10-23",
   "lang": "en",
   "game": "GTA 6"
@@ -82,7 +71,7 @@
   "title": "GTA 6 Has INSANE Stealth Missions",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=4bWBkOiGQP0",
-  "views": 22363,
+  "views": 22682,
   "date": "2026-10-23",
   "lang": "en",
   "game": "GTA 6"
@@ -93,7 +82,7 @@
   "title": "GTA 6 is About to Be WAY More Than Just One Game...",
   "channel": "Hazard",
   "url": "https://www.youtube.com/watch?v=u_do5nKsufA",
-  "views": 47382,
+  "views": 47746,
   "date": "2026-10-23",
   "lang": "en",
   "game": "GTA 6"
@@ -104,9 +93,20 @@
   "title": "This is WAY Better! The BEST WAYS To Make Millions SOLO After UPDATE in GTA Online (GTA5 Fast Money)",
   "channel": "Hazard",
   "url": "https://www.youtube.com/watch?v=iNnoY6z1wrc",
-  "views": 25336,
+  "views": 25490,
   "date": "2026-10-23",
   "lang": "en",
   "game": "GTA Online"
+ },
+ {
+  "id": "ue2AWzIPSdc",
+  "video_id": "ue2AWzIPSdc",
+  "title": "GTA 6 IS UNLIKE ANYTHING ELSE...",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=ue2AWzIPSdc",
+  "views": 17788,
+  "date": "2026-10-23",
+  "lang": "en",
+  "game": "GTA 6"
  }
 ]
