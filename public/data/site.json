@@ -187,15 +187,37 @@
  ],
  "videos_hot_zh": [
   {
+   "id": "IDRUqPRmmkM",
+   "video_id": "IDRUqPRmmkM",
+   "title": "【阿航】GTA5 新殭屍模組 尋找避難小屋!",
+   "channel": "",
+   "url": "https://www.youtube.com/watch?v=IDRUqPRmmkM",
+   "views": 189408,
+   "date": "2026-10-09",
+   "lang": "zh",
+   "game": "GTA 5"
+  },
+  {
    "id": "y34UESrKuVU",
    "video_id": "y34UESrKuVU",
    "title": "如何在罪恶都市中偷偷闯入军事基地开走武装直升机？  #gta #gta5 #遊戲頻道",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=y34UESrKuVU",
-   "views": 164134,
+   "views": 164191,
    "date": "2026-10-09",
    "lang": "zh",
    "game": "GTA 5"
+  },
+  {
+   "id": "b9PxX-S8Tjg",
+   "video_id": "b9PxX-S8Tjg",
+   "title": "【阿航】在GTA5開 飛天特斯拉Roadster 用噴氣系統躲警察!",
+   "channel": "",
+   "url": "https://www.youtube.com/watch?v=b9PxX-S8Tjg",
+   "views": 111769,
+   "date": "2026-10-19",
+   "lang": "zh",
+   "game": "GTA Online"
   },
   {
    "id": "qixidBEWhBI",
@@ -203,7 +225,7 @@
    "title": "选择b结局导致的一系列糟糕事 #gta #gta5  #遊戲頻道",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=qixidBEWhBI",
-   "views": 109871,
+   "views": 110005,
    "date": "2026-10-17",
    "lang": "zh",
    "game": "GTA 5"
@@ -214,7 +236,7 @@
    "title": "GTA6擁有颶風天氣，地圖5代兩倍大，多結局玩法確認，神秘傳說動物，戀愛系統，超170種動物~還能打臺球！",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=ES48Lqv33w8",
-   "views": 102949,
+   "views": 102964,
    "date": "2026-09-30",
    "lang": "zh",
    "game": "GTA Online"
@@ -225,7 +247,7 @@
    "title": "Grand Theft Auto VI 發行預告片",
    "channel": "Rockstar Games 台灣",
    "url": "https://www.youtube.com/watch?v=2GKvZr-Iuh0",
-   "views": 98585,
+   "views": 98628,
    "date": "2026-10-15",
    "lang": "zh",
    "game": "GTA 6"
@@ -236,7 +258,7 @@
    "title": "洛圣都高空上的大型客机最终都会飞往哪里？ #gta #gta5  #遊戲頻道",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=p1picgJvUYg",
-   "views": 69453,
+   "views": 69748,
    "date": "2026-10-21",
    "lang": "zh",
    "game": "GTA 5"
@@ -247,7 +269,7 @@
    "title": "GTA6公布六大遊戲電臺，R星發布3張超酷遊內戲截圖！更多周邊物品發布",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=s_PrwZqutkk",
-   "views": 55974,
+   "views": 55972,
    "date": "2026-10-09",
    "lang": "zh",
    "game": "GTA Online"
@@ -258,7 +280,7 @@
    "title": "如果麦克被赶出洛圣都的期间 带他回洛圣都玩会发生什么？ #gta#gta5  #遊戲頻道 #gtav",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=7h1nM4FLm-E",
-   "views": 49761,
+   "views": 49931,
    "date": "2026-10-19",
    "lang": "zh",
    "game": "GTA 5"
@@ -269,32 +291,10 @@
    "title": "罪恶都市里的那些不为人知的海底彩蛋 #gta #gta5 #遊戲頻道 #gtavicecity",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=eiy4CIko-uU",
-   "views": 49459,
+   "views": 49508,
    "date": "2026-10-10",
    "lang": "zh",
    "game": "GTA 5"
-  },
-  {
-   "id": "6Sf1hKEQX18",
-   "video_id": "6Sf1hKEQX18",
-   "title": "【GTA6】R星真的造出了GTA6的車輛，佩嘉西超跑警車現身邁阿密，西海岸改車王出手！",
-   "channel": "",
-   "url": "https://www.youtube.com/watch?v=6Sf1hKEQX18",
-   "views": 48084,
-   "date": "2026-10-19",
-   "lang": "zh",
-   "game": "GTA 6"
-  },
-  {
-   "id": "Wk7y6XCX7P0",
-   "video_id": "Wk7y6XCX7P0",
-   "title": "GTA6：深度專訪即將發布，主角原型來自雌雄大盜，邁阿密熱火夢幻聯動，全新5張遊戲截圖公開！",
-   "channel": "",
-   "url": "https://www.youtube.com/watch?v=Wk7y6XCX7P0",
-   "views": 45938,
-   "date": "2026-10-03",
-   "lang": "zh",
-   "game": "GTA 6"
   }
  ],
  "videos_hot_en": [
@@ -304,7 +304,7 @@
    "title": "Grand Theft Auto VI Launch Trailer",
    "channel": "Rockstar Games",
    "url": "https://www.youtube.com/watch?v=rz1B4B2yBZY",
-   "views": 63539709,
+   "views": 63571244,
    "date": "2026-10-15",
    "lang": "en",
    "game": "GTA 6"
@@ -315,7 +315,18 @@
    "title": "Grand Theft Auto VI Launch Trailer",
    "channel": "Rockstar Games Australia & New Zealand",
    "url": "https://www.youtube.com/watch?v=UY4fu9bIoKY",
-   "views": 9446194,
+   "views": 9448928,
+   "date": "2026-10-15",
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "84QszForbqQ",
+   "video_id": "84QszForbqQ",
+   "title": "Trailer di lancio di Grand Theft Auto VI",
+   "channel": "Rockstar Games Italia",
+   "url": "https://www.youtube.com/watch?v=84QszForbqQ",
+   "views": 8257476,
    "date": "2026-10-15",
    "lang": "en",
    "game": "GTA 6"
@@ -326,40 +337,18 @@
    "title": "Tráiler de lanzamiento de Grand Theft Auto VI",
    "channel": "Rockstar Games América Latina",
    "url": "https://www.youtube.com/watch?v=0tRZdKQ5lHA",
-   "views": 7066897,
+   "views": 7090143,
    "date": "2026-10-15",
    "lang": "en",
    "game": "GTA 6"
   },
   {
-   "id": "dLvuOa3TaNU",
-   "video_id": "dLvuOa3TaNU",
-   "title": "Grand Theft Auto VI-launchtrailer",
-   "channel": "Rockstar Games Nederland",
-   "url": "https://www.youtube.com/watch?v=dLvuOa3TaNU",
-   "views": 5253730,
-   "date": "2026-10-15",
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "FPm1Qr2Puyk",
-   "video_id": "FPm1Qr2Puyk",
-   "title": "Grand Theft Auto VI Launch Trailer",
-   "channel": "Rockstar Games België/Belgique",
-   "url": "https://www.youtube.com/watch?v=FPm1Qr2Puyk",
-   "views": 3932788,
-   "date": "2026-10-15",
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "FV93IVwJP_4",
-   "video_id": "FV93IVwJP_4",
-   "title": "GTA 6 Launch Trailer Breakdown: Everything YOU MISSED",
-   "channel": "TGG",
-   "url": "https://www.youtube.com/watch?v=FV93IVwJP_4",
-   "views": 1651789,
+   "id": "71z9WgCVQ4s",
+   "video_id": "71z9WgCVQ4s",
+   "title": "Grand Theft Auto VI – Launch-Trailer",
+   "channel": "Rockstar Games Deutschland, Österreich & Schweiz",
+   "url": "https://www.youtube.com/watch?v=71z9WgCVQ4s",
+   "views": 6272270,
    "date": "2026-10-15",
    "lang": "en",
    "game": "GTA 6"
@@ -370,8 +359,19 @@
    "title": "Grand Theft Auto VI Launch Trailer",
    "channel": "XBOX",
    "url": "https://www.youtube.com/watch?v=BSIytHG3-Xo",
-   "views": 1646653,
+   "views": 1665448,
    "date": "2026-10-23",
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "FV93IVwJP_4",
+   "video_id": "FV93IVwJP_4",
+   "title": "GTA 6 Launch Trailer: Everything New YOU MISSED",
+   "channel": "TGG",
+   "url": "https://www.youtube.com/watch?v=FV93IVwJP_4",
+   "views": 1652017,
+   "date": "2026-10-15",
    "lang": "en",
    "game": "GTA 6"
   },
@@ -381,7 +381,7 @@
    "title": "Grand Theft Auto VI Launch Trailer",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=icy-lhqJhMQ",
-   "views": 1297990,
+   "views": 1298571,
    "date": "2026-10-15",
    "lang": "en",
    "game": "GTA 6"
@@ -392,7 +392,7 @@
    "title": "15 THINGS From GTA 5 You WON'T Be Able To Do In GTA 6",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=AEFPETdSzPU",
-   "views": 776360,
+   "views": 778004,
    "date": "2026-10-11",
    "lang": "en",
    "game": "GTA 6"
@@ -403,7 +403,7 @@
    "title": "NEW INFO: Inside the Development of GTA 6",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=OGmDFz5mZ5A",
-   "views": 646843,
+   "views": 646876,
    "date": "2026-10-17",
    "lang": "en",
    "game": "GTA 6"
@@ -416,7 +416,7 @@
    "title": "女はバカという話ｗ　(個人的ニュース速報)　【GTA5】",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=65JV3YTSwNE",
-   "views": 219146,
+   "views": 219178,
    "date": "2026-10-03",
    "lang": "ja",
    "game": "GTA 5"
@@ -427,7 +427,7 @@
    "title": "(山田と学ぶ) PHP問題とは？フランス暴動はなぜ起きたのか解説　【GTA5】",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=tFFI3jIr0Co",
-   "views": 77009,
+   "views": 77549,
    "date": "2026-10-22",
    "lang": "ja",
    "game": "GTA 5"
@@ -449,7 +449,7 @@
    "title": "【GTA5】ゴーストエクスポーズ2026年版 ～全出現場所と報酬～ 昨年との違いが全部で5つあります",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=w444qIiMfVg",
-   "views": 18947,
+   "views": 18958,
    "date": "2026-10-01",
    "lang": "ja",
    "game": "GTA 5"
@@ -482,7 +482,7 @@
    "title": "【GTA6最新情報】PC版が2027年春頃までに発売か？最新アプデ情報まとめ・GTAオンライン",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=v97AQu4jP_U",
-   "views": 14558,
+   "views": 14564,
    "date": "2026-10-14",
    "lang": "ja",
    "game": "GTA Online"
@@ -539,7 +539,7 @@
    "title": "游戏大结局后 崔佛的老妈真的有来探望过他吗？ #gta#gta5 #gtav  #遊戲頻道",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=GHjxEzNwyVw",
-   "views": 114,
+   "views": 548,
    "date": "2026-10-24",
    "lang": "zh",
    "game": "GTA 5"
@@ -550,7 +550,29 @@
    "title": "【全新社群差事任務】GTA Online社群差事任務製作器內容 - 最後的撤離 [4K]",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=ygU6G1cFMQw",
-   "views": 133,
+   "views": 149,
+   "date": "2026-10-24",
+   "lang": "zh",
+   "game": "GTA Online"
+  },
+  {
+   "id": "q0hk-JjcDIE",
+   "video_id": "q0hk-JjcDIE",
+   "title": "射擊位置若沒對準，後續發展通常不太樂觀😂｜《GTAOL》聯合儲蓄｜#S41NTL4W3  #gta #gtaonline #搞笑",
+   "channel": "",
+   "url": "https://www.youtube.com/watch?v=q0hk-JjcDIE",
+   "views": 255,
+   "date": "2026-10-24",
+   "lang": "zh",
+   "game": "GTA Online"
+  },
+  {
+   "id": "bNnfEffUncg",
+   "video_id": "bNnfEffUncg",
+   "title": "新手推薦｜保釋辦公室全流程｜《GTA Online》無BGM·純遊戲原聲｜頭號通緝犯⚖️格蕾絲·惠妮",
+   "channel": "S41NT.L4W_3",
+   "url": "https://www.youtube.com/watch?v=bNnfEffUncg",
+   "views": 7,
    "date": "2026-10-24",
    "lang": "zh",
    "game": "GTA Online"
@@ -561,10 +583,21 @@
    "title": "GTA 6 Xbox版被消失？Sony買下獨家行銷權！PS5宣傳全面啟動！GTA Online Weekly Update",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=pULKSedK0ck",
-   "views": 13539,
+   "views": 13557,
    "date": "2026-10-23",
    "lang": "zh",
    "game": "GTA 6"
+  },
+  {
+   "id": "dCS4dOgS2Nw",
+   "video_id": "dCS4dOgS2Nw",
+   "title": "【阿航】GTA5 回鍋辦公室任務 給大一新鮮人的建議",
+   "channel": "",
+   "url": "https://www.youtube.com/watch?v=dCS4dOgS2Nw",
+   "views": 32824,
+   "date": "2026-10-23",
+   "lang": "zh",
+   "game": "GTA 5"
   },
   {
    "id": "psZGeGjND8M",
@@ -572,7 +605,7 @@
    "title": "如果被gta的警察追捕时 进入喷漆改装店还能摆脱抓捕吗？ #gta#gta5  #遊戲頻道",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=psZGeGjND8M",
-   "views": 26584,
+   "views": 26757,
    "date": "2026-10-23",
    "lang": "zh",
    "game": "GTA 5"
@@ -583,7 +616,7 @@
    "title": "【全新社群差事任務】GTA Online社群差事任務製作器內容 - 生物災害爆發 [4K]",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=wASECp1aVDk",
-   "views": 331,
+   "views": 332,
    "date": "2026-10-23",
    "lang": "zh",
    "game": "GTA Online"
@@ -598,39 +631,6 @@
    "date": "2026-10-23",
    "lang": "zh",
    "game": "GTA Online"
-  },
-  {
-   "id": "irJKTWxfaEM",
-   "video_id": "irJKTWxfaEM",
-   "title": "【GTAonline】超酷惡魔面具限時領取，垃圾運營怎麼還不被優化！萬聖節活動第四周，250萬挑戰獎勵別錯過哦~！！GTA在線模式遊戲更新 #gta #gta5",
-   "channel": "飛天香雞腿",
-   "url": "https://www.youtube.com/watch?v=irJKTWxfaEM",
-   "views": 26661,
-   "date": "2026-10-22",
-   "lang": "zh",
-   "game": "GTA Online"
-  },
-  {
-   "id": "0kJ64TIXaHc",
-   "video_id": "0kJ64TIXaHc",
-   "title": "【GTA5 OL】GTA5線上更新，萬聖節活動第四周，事務所繼續打折，短途奔波任務額外送錢，保金辦公室目標雙倍收益，絕版武器和載具等你收藏（10.22-10.29）",
-   "channel": "",
-   "url": "https://www.youtube.com/watch?v=0kJ64TIXaHc",
-   "views": 3789,
-   "date": "2026-10-22",
-   "lang": "zh",
-   "game": "GTA 5"
-  },
-  {
-   "id": "wkX4FklgTu4",
-   "video_id": "wkX4FklgTu4",
-   "title": "【全新社群差事任務】GTA Online社群差事任務製作器內容 - Â Miss：野獸崛起 [4K]",
-   "channel": "",
-   "url": "https://www.youtube.com/watch?v=wkX4FklgTu4",
-   "views": 198,
-   "date": "2026-10-22",
-   "lang": "zh",
-   "game": "GTA Online"
   }
  ],
  "videos_new_en": [
@@ -640,7 +640,7 @@
    "title": "Ranking Every Arena Wars Vehicle in GTA Online",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=At9lARyKXfI",
-   "views": 382,
+   "views": 468,
    "date": "2026-10-24",
    "lang": "en",
    "game": "GTA Online"
@@ -651,7 +651,7 @@
    "title": "GTA 6 IS IN A LEAGUE OF IT'S OWN",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=4Hocg1X0TzI",
-   "views": 354,
+   "views": 570,
    "date": "2026-10-24",
    "lang": "en",
    "game": "GTA 6"
@@ -662,7 +662,7 @@
    "title": "🚨LIVE: 25 DAYS Until GTA VI OFFICIALLY RELEASES!",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=irX76AMMuLI",
-   "views": 4957,
+   "views": 5028,
    "date": "2026-10-24",
    "lang": "en",
    "game": "GTA 6"
@@ -673,7 +673,7 @@
    "title": "GTA Online - Last Ones Out | LSS (by DarkSoulBlue) | Community Mission Series",
    "channel": "GTA Series Videos",
    "url": "https://www.youtube.com/watch?v=_BEv3uk5uSo",
-   "views": 1042,
+   "views": 1244,
    "date": "2026-10-24",
    "lang": "en",
    "game": "GTA Online"
@@ -684,7 +684,7 @@
    "title": "GTA Online - Final Extraction (by Seangib) | Community Mission Series",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=Y7PLft0wYGA",
-   "views": 16230,
+   "views": 16434,
    "date": "2026-10-24",
    "lang": "en",
    "game": "GTA Online"
@@ -701,15 +701,15 @@
    "game": "GTA Online"
   },
   {
-   "id": "3gVM9caJfmw",
-   "video_id": "3gVM9caJfmw",
-   "title": "ANYTHING GOES | GTA 5 HIDE & SEEK (Multi-POV)",
+   "id": "9mxmOy2YiYs",
+   "video_id": "9mxmOy2YiYs",
+   "title": "BEST Vehicles To Buy UNDER $4M in GTA Online!",
    "channel": "",
-   "url": "https://www.youtube.com/watch?v=3gVM9caJfmw",
-   "views": 3585,
+   "url": "https://www.youtube.com/watch?v=9mxmOy2YiYs",
+   "views": 10,
    "date": "2026-10-24",
    "lang": "en",
-   "game": "GTA 5"
+   "game": "GTA Online"
   },
   {
    "id": "MnFrwtdlEQM",
@@ -717,10 +717,21 @@
    "title": "Best All Around Vehicles in GTA Online!",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=MnFrwtdlEQM",
-   "views": 1418,
+   "views": 1433,
    "date": "2026-10-24",
    "lang": "en",
    "game": "GTA Online"
+  },
+  {
+   "id": "3gVM9caJfmw",
+   "video_id": "3gVM9caJfmw",
+   "title": "ANYTHING GOES | GTA 5 HIDE & SEEK (Multi-POV)",
+   "channel": "",
+   "url": "https://www.youtube.com/watch?v=3gVM9caJfmw",
+   "views": 4342,
+   "date": "2026-10-24",
+   "lang": "en",
+   "game": "GTA 5"
   },
   {
    "id": "Nt98-qsocq4",
@@ -728,21 +739,10 @@
    "title": "When you try to play GTA Online normally in public session | Mc ABLE #shorts #meme #gtaonline",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=Nt98-qsocq4",
-   "views": 1178,
+   "views": 1219,
    "date": "2026-10-24",
    "lang": "en",
    "game": "GTA Online"
-  },
-  {
-   "id": "xKV9s7wi2aI",
-   "video_id": "xKV9s7wi2aI",
-   "title": "Grand Theft Auto 6 Combat - 10 Things I Can't Wait To Try",
-   "channel": "GamingBolt",
-   "url": "https://www.youtube.com/watch?v=xKV9s7wi2aI",
-   "views": 21376,
-   "date": "2026-10-24",
-   "lang": "en",
-   "game": "GTA 6"
   }
  ],
  "videos_new_ja": [
@@ -752,32 +752,10 @@
    "title": "GTA6ではGTA5の常識が通用しなくなる１３個の仕様変更",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=GLkdQb_0HFw",
-   "views": 8548,
+   "views": 8796,
    "date": "2026-10-24",
    "lang": "ja",
    "game": "GTA Online"
-  },
-  {
-   "id": "hxq5QAh5GN8",
-   "video_id": "hxq5QAh5GN8",
-   "title": "誰でも簡単75万ドル！今週ボーナスのショートトリップ全3種をサクッと終わらせる攻略解説！【GTA5】【ミロクノ】",
-   "channel": "ミロクノ",
-   "url": "https://www.youtube.com/watch?v=hxq5QAh5GN8",
-   "views": 412,
-   "date": "2026-10-24",
-   "lang": "ja",
-   "game": "GTA 5"
-  },
-  {
-   "id": "QwArxvj76TY",
-   "video_id": "QwArxvj76TY",
-   "title": "4人なら15分で終わる！今週のウィークリーチャレンジを爆速で終わらせる裏ワザ攻略【GTA5】【ミロクノ】",
-   "channel": "",
-   "url": "https://www.youtube.com/watch?v=QwArxvj76TY",
-   "views": 1688,
-   "date": "2026-10-23",
-   "lang": "ja",
-   "game": "GTA 5"
   },
   {
    "id": "tFFI3jIr0Co",
@@ -785,7 +763,7 @@
    "title": "(山田と学ぶ) PHP問題とは？フランス暴動はなぜ起きたのか解説　【GTA5】",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=tFFI3jIr0Co",
-   "views": 77009,
+   "views": 77549,
    "date": "2026-10-22",
    "lang": "ja",
    "game": "GTA 5"
@@ -802,37 +780,48 @@
    "game": "GTA 5"
   },
   {
-   "id": "JUo8-CGqsTI",
-   "video_id": "JUo8-CGqsTI",
-   "title": "【GTA5】ロスサントスで大麻ビジネス！スモーク・オン・ザ・ウォーター始動",
+   "id": "TjwLCmms8sE",
+   "video_id": "TjwLCmms8sE",
+   "title": "【GTA5】節約派のカーライフ「ピカドール」の巻【第28話】",
    "channel": "",
-   "url": "https://www.youtube.com/watch?v=JUo8-CGqsTI",
-   "views": 20,
-   "date": "2026-10-19",
+   "url": "https://www.youtube.com/watch?v=TjwLCmms8sE",
+   "views": 2802,
+   "date": "2026-10-20",
    "lang": "ja",
    "game": "GTA 5"
   },
   {
-   "id": "SHi9O9oUZ4w",
-   "video_id": "SHi9O9oUZ4w",
-   "title": "走る！走る！走る！休む。走る！ちょっと息抜き。盗る！盗る！オンラインでミッション！PS5【GTA5】",
+   "id": "HEGv620q0J4",
+   "video_id": "HEGv620q0J4",
+   "title": "【GTA ONLINE 】#24 マジで金がない【兼ヌル】",
    "channel": "",
-   "url": "https://www.youtube.com/watch?v=SHi9O9oUZ4w",
-   "views": 769,
+   "url": "https://www.youtube.com/watch?v=HEGv620q0J4",
+   "views": 106,
    "date": "2026-10-18",
+   "lang": "ja",
+   "game": "GTA Online"
+  },
+  {
+   "id": "XI75x1XD14E",
+   "video_id": "XI75x1XD14E",
+   "title": "【GTA5】節約派のカーライフ「フェニックス」の巻【第27話】",
+   "channel": "",
+   "url": "https://www.youtube.com/watch?v=XI75x1XD14E",
+   "views": 3318,
+   "date": "2026-10-17",
    "lang": "ja",
    "game": "GTA 5"
   },
   {
-   "id": "Vik2dvNdpso",
-   "video_id": "Vik2dvNdpso",
-   "title": "走る！走る！走る！休む。走る！ちょっと息抜き。盗る！盗る！オンラインでミッション！PS5【GTA5】",
+   "id": "A-ap75BU8s8",
+   "video_id": "A-ap75BU8s8",
+   "title": "【GTA ONLINE 】#23 早めの降臨【兼ヌル】",
    "channel": "",
-   "url": "https://www.youtube.com/watch?v=Vik2dvNdpso",
-   "views": 0,
-   "date": "2026-10-18",
+   "url": "https://www.youtube.com/watch?v=A-ap75BU8s8",
+   "views": 122,
+   "date": "2026-10-17",
    "lang": "ja",
-   "game": "GTA 5"
+   "game": "GTA Online"
   },
   {
    "id": "uIUzcZjt7-A",
@@ -846,15 +835,26 @@
    "game": "GTA Online"
   },
   {
-   "id": "1d_jM9aSdqE",
-   "video_id": "1d_jM9aSdqE",
-   "title": "今週絶対やれ！200万ドルへの道！報酬3倍の神クオリティなハロウィンスタントレース3選！【GTA5】【ミロクノ】",
+   "id": "0q4hFCLjXQc",
+   "video_id": "0q4hFCLjXQc",
+   "title": "【GTA5】ハロウィンイベント3週目！今晩の週アップデート速報 2026年10月15日～",
    "channel": "",
-   "url": "https://www.youtube.com/watch?v=1d_jM9aSdqE",
-   "views": 2551,
-   "date": "2026-10-17",
+   "url": "https://www.youtube.com/watch?v=0q4hFCLjXQc",
+   "views": 9842,
+   "date": "2026-10-15",
    "lang": "ja",
    "game": "GTA 5"
+  },
+  {
+   "id": "GhDxHDHDJ6g",
+   "video_id": "GhDxHDHDJ6g",
+   "title": "【速報】まさかの内容は◯◯⁉️GTA6の最新ローンチトレーラー大発表‼️",
+   "channel": "",
+   "url": "https://www.youtube.com/watch?v=GhDxHDHDJ6g",
+   "views": 23415,
+   "date": "2026-10-15",
+   "lang": "ja",
+   "game": "GTA Online"
   }
  ],
  "videos_shorts": [
@@ -871,11 +871,35 @@
    "kind": "short"
   },
   {
-   "id": "IgRTbEHSeU4",
-   "video_id": "IgRTbEHSeU4",
-   "title": "I Become A Fake Traffic Bollard And Trolled A GTA 5 Cops 🚨💥😂 #gta5",
-   "channel": "XP Playz",
-   "url": "https://www.youtube.com/shorts/IgRTbEHSeU4",
+   "id": "AR_X3QWTGxA",
+   "video_id": "AR_X3QWTGxA",
+   "title": "Trolling A GTA 5 Police As Fake Traffic Bollard 🚨😂 #gta5",
+   "channel": "Gaurav Gaming",
+   "url": "https://www.youtube.com/shorts/AR_X3QWTGxA",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short"
+  },
+  {
+   "id": "O0Mn1E2oZ48",
+   "video_id": "O0Mn1E2oZ48",
+   "title": "I become a fake oil pump and trolled gta cops #gta #gtav #gtaonline",
+   "channel": "BISON Gaming",
+   "url": "https://www.youtube.com/shorts/O0Mn1E2oZ48",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short"
+  },
+  {
+   "id": "uNwKDgE6Iqo",
+   "video_id": "uNwKDgE6Iqo",
+   "title": "I Become A Fake Traffic Bollard And Trolled A GTA Cops 🚨💥😂 #gta5",
+   "channel": "Gaurav Gaming",
+   "url": "https://www.youtube.com/shorts/uNwKDgE6Iqo",
    "views": null,
    "date": null,
    "lang": "en",
@@ -895,15 +919,27 @@
    "kind": "short"
   },
   {
-   "id": "ns8edZDHYCM",
-   "video_id": "ns8edZDHYCM",
-   "title": "GTA V Super Mad Lion Saves Super Cow Just in Time! 👑🦁🐶#shorts",
-   "channel": "NSD GAMERZ",
-   "url": "https://www.youtube.com/shorts/ns8edZDHYCM",
+   "id": "1WIIXYBaLkY",
+   "video_id": "1WIIXYBaLkY",
+   "title": "GOOD BYE WE WILL MIS YOU AVENGERS BROTHERS #gta5 #shorts #viral",
+   "channel": "Games Zone 007",
+   "url": "https://www.youtube.com/shorts/1WIIXYBaLkY",
    "views": null,
    "date": null,
    "lang": "en",
    "game": "GTA 5",
+   "kind": "short"
+  },
+  {
+   "id": "vbRk73x7XQo",
+   "video_id": "vbRk73x7XQo",
+   "title": "Trolling cops as a fake wood bollard in gta #gta #gtav #gtaonline",
+   "channel": "BISON Gaming",
+   "url": "https://www.youtube.com/shorts/vbRk73x7XQo",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
    "kind": "short"
   },
   {
@@ -917,67 +953,31 @@
    "lang": "en",
    "game": "GTA 5",
    "kind": "short"
-  },
-  {
-   "id": "fsf3vyki1Io",
-   "video_id": "fsf3vyki1Io",
-   "title": "I become a fake grass and trolled cops in gta #gta #gtav #gtaonline",
-   "channel": "BISON Gaming",
-   "url": "https://www.youtube.com/shorts/fsf3vyki1Io",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA Online",
-   "kind": "short"
-  },
-  {
-   "id": "oqe7MgYfnH0",
-   "video_id": "oqe7MgYfnH0",
-   "title": "Trolling as a gta cop as a fale fuel pump #gta #gtav #gtaonline",
-   "channel": "BISON Gaming",
-   "url": "https://www.youtube.com/shorts/oqe7MgYfnH0",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA Online",
-   "kind": "short"
-  },
-  {
-   "id": "F9RnRw7TsRk",
-   "video_id": "F9RnRw7TsRk",
-   "title": "Not the hot dogs 🌭💀 #gta5 #gtaonline",
-   "channel": "CertifiedMuppet",
-   "url": "https://www.youtube.com/shorts/F9RnRw7TsRk",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA Online",
-   "kind": "short"
   }
  ],
  "forum_bahamut": [
   {
-   "id": "0aa8c8c45785963c6460fe880751d3c5",
+   "id": "39cde661b2f503bbb5060a9a0ee1295b",
    "rank": 1,
+   "title": "【問題】夜總會生涯成就請問",
+   "author": "prcheng",
+   "time": "2026-10-25 00:19",
+   "replies": "4",
+   "source": "Bahamut",
+   "game": "GTA Online",
+   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117811",
+   "blurb": "外連巴哈討論串。不轉載全文。"
+  },
+  {
+   "id": "0aa8c8c45785963c6460fe880751d3c5",
+   "rank": 2,
    "title": "【心得】魯登朵夫墓園生存戰 卡點位置",
    "author": "slike5566",
-   "time": "2026-10-24 08:52",
+   "time": "2026-10-24 08:19",
    "replies": "0",
    "source": "Bahamut",
    "game": "GTA Online",
    "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117812",
-   "blurb": "外連巴哈討論串。不轉載全文。"
-  },
-  {
-   "id": "39cde661b2f503bbb5060a9a0ee1295b",
-   "rank": 2,
-   "title": "【問題】夜總會生涯成就請問",
-   "author": "prcheng",
-   "time": "2026-10-23 09:48",
-   "replies": "3",
-   "source": "Bahamut",
-   "game": "GTA Online",
-   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117811",
    "blurb": "外連巴哈討論串。不轉載全文。"
   },
   {
@@ -1086,8 +1086,20 @@
  ],
  "forum_reddit": [
   {
-   "id": "96a8ba48bb7d50ca481c4fd4fc023d0f",
+   "id": "45f408af13ad12e8d36ec30d20781922",
    "rank": 1,
+   "title": "Launching NPCs to their deaths with the Up-n-Atomizer is hilarious! Especially in this clip 😭",
+   "author": "Bio_Trends",
+   "time": "2026-10-24",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xe7d18/launching_npcs_to_their_deaths_with_the/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "96a8ba48bb7d50ca481c4fd4fc023d0f",
+   "rank": 2,
    "title": "who tf is this girl in my mansion",
    "author": "Tuizinn",
    "time": "2026-10-24",
@@ -1098,8 +1110,32 @@
    "blurb": "Outbound to Reddit. Title and date only."
   },
   {
+   "id": "ff13239674807337ac99890937212596",
+   "rank": 3,
+   "title": "Least I got to Hogwarts",
+   "author": "BALLI3_",
+   "time": "2026-10-24",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xebmq3/least_i_got_to_hogwarts/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "65d2abafccdd941709c4849442043b09",
+   "rank": 4,
+   "title": "Dont tell R*",
+   "author": "Beneficial-Pea-1741",
+   "time": "2026-10-24",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xeadgn/dont_tell_r/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
    "id": "8ad6790b79f7b82451ccb0ae3b620d40",
-   "rank": 2,
+   "rank": 5,
    "title": "Closest race I’ve ever had, despite the crashes .005s",
    "author": "Winter_Chard_255",
    "time": "2026-10-24",
@@ -1110,20 +1146,8 @@
    "blurb": "Outbound to Reddit. Title and date only."
   },
   {
-   "id": "36ea310390140a9733e72ff41bc851ee",
-   "rank": 3,
-   "title": "Man, how are you THIS bad😭",
-   "author": "No_Discipline_3178",
-   "time": "2026-10-24",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xdv11t/man_how_are_you_this_bad/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
    "id": "1a1bba778548197ee403cd2ddae83ca7",
-   "rank": 4,
+   "rank": 6,
    "title": "This weeks prize ride vehicle sure has some interesting spoiler options",
    "author": "sendit2ash",
    "time": "2026-10-24",
@@ -1134,75 +1158,51 @@
    "blurb": "Outbound to Reddit. Title and date only."
   },
   {
-   "id": "e4508986e1ff7a40b640d34f3d74924b",
-   "rank": 5,
-   "title": "Guess who's back, Cerberus?!",
-   "author": "SecretAgentE",
-   "time": "2026-10-24",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xdx2jl/guess_whos_back_cerberus/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "3bb51b1a1ccd4e09d66be885d2edf530",
-   "rank": 6,
-   "title": "I thought I was tripping. I was trying to find a new public session when this weird menu popped up. Is this normal? can anyone explain what this is? (Ps5)",
-   "author": "Swiftdiamond",
-   "time": "2026-10-24",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xe2fpy/i_thought_i_was_tripping_i_was_trying_to_find_a/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "cf49a349fb09b2b34b89082c664044f7",
+   "id": "31b0bec2015ecd5e083e96297d2d4f4f",
    "rank": 7,
-   "title": "Can't have shi in Los Santos",
-   "author": "Routine-Question988",
+   "title": "Who also tried to destroy the Cerberus or run with the export car and destroy the car",
+   "author": "Ok-Mud-601",
    "time": "2026-10-24",
    "replies": null,
    "source": "Reddit",
    "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xe1ewb/cant_have_shi_in_los_santos/",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xe93ij/who_also_tried_to_destroy_the_cerberus_or_run/",
    "blurb": "Outbound to Reddit. Title and date only."
   },
   {
-   "id": "09e7ed2c3c9026cbe263fda88557fc75",
+   "id": "9d7af62f1cd582e86599b97bb9b26bfa",
    "rank": 8,
-   "title": "What kind of fuel did Pavel put in the sub?!",
-   "author": "Cam_man_AMM_unit",
+   "title": "Mechanic: I have left your vehicle nearby....",
+   "author": "2020Shite",
    "time": "2026-10-24",
    "replies": null,
    "source": "Reddit",
    "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xdvqnx/what_kind_of_fuel_did_pavel_put_in_the_sub/",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xe7bsv/mechanic_i_have_left_your_vehicle_nearby/",
    "blurb": "Outbound to Reddit. Title and date only."
   },
   {
-   "id": "5bcbd74a8590995361a071941b7d7efa",
+   "id": "36ea310390140a9733e72ff41bc851ee",
    "rank": 9,
-   "title": "Getting drunk at the bar with random people is so much fun. 😄",
-   "author": "onderwaterbodem",
+   "title": "Man, how are you THIS bad😭",
+   "author": "No_Discipline_3178",
    "time": "2026-10-24",
    "replies": null,
    "source": "Reddit",
    "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xe5sxm/getting_drunk_at_the_bar_with_random_people_is_so/",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xdv11t/man_how_are_you_this_bad/",
    "blurb": "Outbound to Reddit. Title and date only."
   },
   {
-   "id": "f73b1f92a59aeaf6855a60619b8d3aa1",
+   "id": "e0049277bd497b05ecc743bdabcc8263",
    "rank": 10,
-   "title": "Though it was Avi Schwartzman at first. (Inside Mansion Bar)",
-   "author": "VICTOR_13_",
+   "title": "I know all eyes are on me",
+   "author": "damngoodengineer",
    "time": "2026-10-24",
    "replies": null,
    "source": "Reddit",
    "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xdyh18/though_it_was_avi_schwartzman_at_first_inside/",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xec6gy/i_know_all_eyes_are_on_me/",
    "blurb": "Outbound to Reddit. Title and date only."
   }
  ],
@@ -2207,21 +2207,21 @@
   }
  ],
  "meta": {
-  "sessionscan_slot": "2026-10-25 00:03",
-  "jobs_gtabase": "2026-10-24 19:49",
-  "jobs_ign": "2026-10-24 19:49",
-  "jobs_wiki": "2026-10-24 19:49",
-  "videos_hot_zh": "2026-10-25 00:01",
-  "videos_new_zh": "2026-10-25 00:01",
-  "videos_hot_en": "2026-10-25 00:02",
-  "videos_new_en": "2026-10-25 00:02",
-  "videos_hot_ja": "2026-10-25 00:03",
-  "videos_new_ja": "2026-10-25 00:03",
-  "forum_reddit": "2026-10-24 19:52",
-  "tweets_en": "2026-10-25 00:04",
-  "tweets": "2026-10-25 00:04",
-  "_last_run": "2026-10-25 00:04",
-  "generated_at": "2026-10-24T16:04:26Z",
+  "sessionscan_slot": "2026-10-25 00:28",
+  "jobs_gtabase": "2026-10-25 00:25",
+  "jobs_ign": "2026-10-25 00:25",
+  "jobs_wiki": "2026-10-25 00:25",
+  "videos_hot_zh": "2026-10-25 00:26",
+  "videos_new_zh": "2026-10-25 00:26",
+  "videos_hot_en": "2026-10-25 00:27",
+  "videos_new_en": "2026-10-25 00:27",
+  "videos_hot_ja": "2026-10-25 00:27",
+  "videos_new_ja": "2026-10-25 00:27",
+  "forum_reddit": "2026-10-25 00:28",
+  "tweets_en": "2026-10-25 00:28",
+  "tweets": "2026-10-25 00:28",
+  "_last_run": "2026-10-25 00:28",
+  "generated_at": "2026-10-24T16:28:36Z",
   "sample": false,
   "scraper_status": "ok",
   "label_zh": "資料快照",
@@ -2237,13 +2237,13 @@
    "GTA 4",
    "RDO"
   ],
-  "jobs": "2026-10-24 19:49",
-  "hot": "2026-10-25 00:03",
-  "new": "2026-10-25 00:03",
-  "forum": "2026-10-24 19:52",
-  "forum_bahamut": "2026-10-24 19:52",
-  "videos_shorts": "2026-10-25 00:03",
-  "tweets_zh": "2026-10-25 00:04"
+  "jobs": "2026-10-25 00:25",
+  "hot": "2026-10-25 00:27",
+  "new": "2026-10-25 00:28",
+  "forum": "2026-10-25 00:28",
+  "forum_bahamut": "2026-10-25 00:28",
+  "videos_shorts": "2026-10-25 00:28",
+  "tweets_zh": "2026-10-25 00:28"
  },
  "sessionscan_slot": {
   "status": "online",
@@ -2289,45 +2289,45 @@
    "ES48Lqv33w8": 3,
    "2GKvZr-Iuh0": 4,
    "p1picgJvUYg": 5,
-   "2jHpPgivcvY": 6,
-   "s_PrwZqutkk": 7,
+   "s_PrwZqutkk": 6,
+   "7h1nM4FLm-E": 7,
    "eiy4CIko-uU": 8,
-   "7h1nM4FLm-E": 9,
-   "6Sf1hKEQX18": 10
+   "6Sf1hKEQX18": 9,
+   "Wk7y6XCX7P0": 10
   },
   "videos_hot_en": {
    "rz1B4B2yBZY": 1,
-   "i06GMloD_qA": 2,
-   "N6f30RVHOVw": 3,
-   "UY4fu9bIoKY": 4,
-   "0tRZdKQ5lHA": 5,
-   "71z9WgCVQ4s": 6,
-   "FPm1Qr2Puyk": 7,
-   "FV93IVwJP_4": 8,
-   "BSIytHG3-Xo": 9,
-   "icy-lhqJhMQ": 10
+   "UY4fu9bIoKY": 2,
+   "0tRZdKQ5lHA": 3,
+   "dLvuOa3TaNU": 4,
+   "FPm1Qr2Puyk": 5,
+   "FV93IVwJP_4": 6,
+   "BSIytHG3-Xo": 7,
+   "icy-lhqJhMQ": 8,
+   "AEFPETdSzPU": 9,
+   "OGmDFz5mZ5A": 10
   },
   "videos_hot_ja": {
-   "GhDxHDHDJ6g": 1,
-   "w444qIiMfVg": 2,
-   "f5Na1eEq_g0": 3,
-   "4AT2qTbQFck": 4,
-   "v97AQu4jP_U": 5,
-   "1da1U2FRRbg": 6,
-   "C6Ymq6hnGkE": 7,
-   "uIUzcZjt7-A": 8,
-   "0q4hFCLjXQc": 9,
-   "mB6DIw4oG-g": 10
+   "65JV3YTSwNE": 1,
+   "tFFI3jIr0Co": 2,
+   "GhDxHDHDJ6g": 3,
+   "w444qIiMfVg": 4,
+   "f5Na1eEq_g0": 5,
+   "4AT2qTbQFck": 6,
+   "v97AQu4jP_U": 7,
+   "1da1U2FRRbg": 8,
+   "C6Ymq6hnGkE": 9,
+   "uIUzcZjt7-A": 10
   },
   "videos_shorts": {
    "3fELuSIu1lY": 1,
-   "fsf3vyki1Io": 2,
-   "jJIyR-NVClU": 3,
-   "F9RnRw7TsRk": 4,
-   "uNwKDgE6Iqo": 5,
-   "V68wBMbweKI": 6,
-   "biJ91VvpDec": 7,
-   "ZTPuh-avYrg": 8
+   "IgRTbEHSeU4": 2,
+   "QVmKXMDEjaw": 3,
+   "ns8edZDHYCM": 4,
+   "GXJj3GHUFbc": 5,
+   "fsf3vyki1Io": 6,
+   "oqe7MgYfnH0": 7,
+   "F9RnRw7TsRk": 8
   }
  }
 }
