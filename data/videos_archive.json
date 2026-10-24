@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T03:11:17Z",
+ "updated": "2026-10-24T04:08:01Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -7922,7 +7922,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-22"
+   "last_seen": "2026-10-24"
   },
   {
    "video_id": "g_MISu_7u0s",
@@ -9220,6 +9220,7 @@
    "game": "GTA 6",
    "date": "2026-10-18",
    "views": 628980,
+   "kind": "",
    "first_seen": "2026-10-24",
    "last_seen": "2026-10-24"
   },
