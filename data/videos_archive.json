@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T02:04:47Z",
+ "updated": "2026-10-24T03:11:17Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -953,11 +953,13 @@
   {
    "video_id": "3PrkYL-hXCY",
    "title": "Why GTA 6 will be ass",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=3PrkYL-hXCY",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-23",
    "views": 7487,
+   "kind": "",
    "first_seen": "2026-10-24",
    "last_seen": "2026-10-24"
   },
@@ -1224,11 +1226,13 @@
   {
    "video_id": "5O9bqaV5Tmc",
    "title": "L’énorme erreur de Rockstar qui permet de ce faire un max d’argent sur GTA Online #gta5 #jeuxvidéo",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=5O9bqaV5Tmc",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-23",
    "views": 2552,
+   "kind": "",
    "first_seen": "2026-10-24",
    "last_seen": "2026-10-24"
   },
@@ -3590,11 +3594,13 @@
   {
    "video_id": "JGIuiuN3yqY",
    "title": "新手推薦｜突襲噹噹鐘農場🐔｜《GTA Online》無BGM·純遊戲原聲｜速通全流程(非極限速通)｜文森特",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=JGIuiuN3yqY",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-18",
    "views": 85,
+   "kind": "",
    "first_seen": "2026-10-24",
    "last_seen": "2026-10-24"
   },
@@ -6125,11 +6131,13 @@
   {
    "video_id": "Y7PLft0wYGA",
    "title": "GTA Online - Final Extraction (by Seangib) | Community Mission Series",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Y7PLft0wYGA",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-24",
    "views": 506,
+   "kind": "",
    "first_seen": "2026-10-24",
    "last_seen": "2026-10-24"
   },
@@ -6864,11 +6872,13 @@
   {
    "video_id": "b-g_LIOF-HM",
    "title": "Les 3 missions les plus rares de GTA Online #gta5 #gta #jeuxvidéo #gtav #gta5online #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=b-g_LIOF-HM",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-23",
    "views": 4682,
+   "kind": "",
    "first_seen": "2026-10-24",
    "last_seen": "2026-10-24"
   },
@@ -6972,6 +6982,7 @@
    "game": "GTA Online",
    "date": "2026-10-24",
    "views": 3,
+   "kind": "",
    "first_seen": "2026-10-24",
    "last_seen": "2026-10-24"
   },
@@ -9112,11 +9123,13 @@
   {
    "video_id": "nIzxj_alJiw",
    "title": "GTA Online - Biohazard Outbreak (by lezou_playzzz) | Community Mission Series",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=nIzxj_alJiw",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-23",
    "views": 9170,
+   "kind": "",
    "first_seen": "2026-10-24",
    "last_seen": "2026-10-24"
   },
@@ -9197,6 +9210,18 @@
    "kind": "short",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-23"
+  },
+  {
+   "video_id": "nts32hr4W9g",
+   "title": "We WILL Be Emulating GTA 6...",
+   "channel": "SomeOrdinaryGamers",
+   "url": "https://www.youtube.com/watch?v=nts32hr4W9g",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-18",
+   "views": 628980,
+   "first_seen": "2026-10-24",
+   "last_seen": "2026-10-24"
   },
   {
    "video_id": "o1Wx0TNLPWo",
@@ -11291,7 +11316,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-23",
-   "last_seen": "2026-10-23"
+   "last_seen": "2026-10-24"
   },
   {
    "video_id": "yzVH0TfyyoA",
