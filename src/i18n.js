@@ -38,6 +38,7 @@ export const UI = {
     navArchive: "Archive",
     navMoney: "Money",
     navBusinesses: "Businesses",
+    navAcidLab: "Acid Lab",
     navGta6: "GTA 6",
     navAbout: "About",
     relatedPagesKicker: "Also on SessionScan",
@@ -123,6 +124,14 @@ export const UI = {
     bizOfficialTrailerTitle: "Official Rockstar trailer: {title}",
     bizDisclaimer:
       "SessionScan does not invent purchase prices or $/hr. Every outbound link is Rockstar Newswire or a named secondary used for rank order. Figures you see on those pages are theirs — verify before spending.",
+    bizAcidLabGuideLink: "Acid Lab guide ↗",
+    pageAcidLabTitle: "Acid Lab Guide: Sell for 50% More (Tested) | SessionScan",
+    pageAcidLabDesc:
+      "Quick answer: rename your product first and sell in a public lobby. In our test the same 40 units went from $62,360 to $93,510.",
+    pageAcidLabHeading: "Acid Lab Guide: Sell for 50% More (Tested)",
+    acidLabLongSoon: "Full video coming soon",
+    acidLabLongTitle: "Acid Lab full run",
+    acidLabShortWatch: "Watch the Short on YouTube ↗",
     pageGta6Title: "GTA 6 | SessionScan",
     pageGta6Desc:
       "Official Grand Theft Auto VI release date countdown and Rockstar links only — no leaks, no rumors as fact.",
@@ -364,6 +373,7 @@ export const UI = {
     navArchive: "週更封存",
     navMoney: "賺錢",
     navBusinesses: "生意",
+    navAcidLab: "迷幻藥",
     navGta6: "GTA 6",
     navAbout: "關於",
     relatedPagesKicker: "站內也看這些",
@@ -447,6 +457,14 @@ export const UI = {
     bizOfficialTrailerTitle: "Rockstar 官方預告：{title}",
     bizDisclaimer:
       "SessionScan 不編造購價或 $/hr。外連皆為 Rockstar Newswire 或具名二級排名來源。那些頁面上的數字屬對方 — 花錢前請自行核對。",
+    bizAcidLabGuideLink: "迷幻藥實驗室攻略 ↗",
+    pageAcidLabTitle: "迷幻藥實驗室攻略：多賣 50%（實測）｜SessionScan",
+    pageAcidLabDesc:
+      "快速答案：先改產品名稱，再到公開大廳販售。我們實測同一批 40 單位從 $62,360 變成 $93,510。",
+    pageAcidLabHeading: "迷幻藥實驗室攻略：多賣 50%（實測）",
+    acidLabLongSoon: "完整影片即將推出",
+    acidLabLongTitle: "迷幻藥實驗室完整流程",
+    acidLabShortWatch: "在 YouTube 看這支 Short ↗",
     pageGta6Title: "GTA 6｜SessionScan",
     pageGta6Desc: "僅官方 Grand Theft Auto VI 上市日倒數與 Rockstar 連結 — 不轉載洩漏、不以傳聞當事實。",
     pageGta6Heading: "GTA 6",

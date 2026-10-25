@@ -39,7 +39,6 @@ import {
   SITE_PAGES,
   isSitePagePublished,
   primaryNavHtml,
-  publishedSitePages,
   renderSitePage,
   staticSitemapUrls,
 } from "../src/sitePages.js";
@@ -443,38 +442,40 @@ if (businessTrailerEmbedHtml({ id: "none" }, "en")) fail("missing trailer must r
   }
 }
 
-// Why: the Acid Lab guide is reserved as an outline only. Publishing, linking,
-// or sitemap-indexing it would ship unfinished $750K copy before a source exists.
-if (ACID_LAB_GUIDE.draft !== true || ACID_LAB_GUIDE.published !== false) {
-  fail("acid lab guide must stay draft unpublished");
+// Why: /guides/acid-lab/ used to be an unpublished outline that included an
+// unsourced $750K step. The published guide must be linked from the Acid Lab
+// row and indexed, and that $750K figure must not come back without a source.
+if (ACID_LAB_GUIDE.draft === true || ACID_LAB_GUIDE.published === false) {
+  fail("acid lab guide must be published");
 }
 if (ACID_LAB_GUIDE.path !== "guides/acid-lab/") fail("acid lab guide path", ACID_LAB_GUIDE.path);
-const outlineIds = ACID_LAB_GUIDE.outline.map((step) => step.id).join(",");
-if (outlineIds !== "first-dose,mutt-upgrade,resupply,money-loop") {
-  fail("acid lab outline order", outlineIds);
+if (ACID_LAB_GUIDE.outline) fail("unsourced acid lab outline must not ship", ACID_LAB_GUIDE.outline);
+if (!SITE_PAGES.some((p) => p.path === ACID_LAB_GUIDE.path && p.id === ACID_LAB_GUIDE.id)) {
+  fail("acid lab guide must be a SITE_PAGE");
 }
-const mutt = ACID_LAB_GUIDE.outline.find((step) => step.id === "mutt-upgrade");
-if (!mutt?.en.includes("$750K") || !mutt?.zh.includes("$750K")) fail("mutt upgrade outline", mutt);
-if (!ACID_LAB_GUIDE.outline[0].en.includes("6 missions")) fail("first dose outline");
-if (SITE_PAGES.some((p) => p.path === ACID_LAB_GUIDE.path || p.id === ACID_LAB_GUIDE.id)) {
-  fail("acid lab guide must not be a published SITE_PAGE");
-}
-if (!DRAFT_SITE_PAGES.includes(ACID_LAB_GUIDE)) fail("acid lab guide missing from DRAFT_SITE_PAGES");
-if (isSitePagePublished(ACID_LAB_GUIDE)) fail("isSitePagePublished must reject the draft");
-if (publishedSitePages([...SITE_PAGES, ACID_LAB_GUIDE]).some((p) => p.path === ACID_LAB_GUIDE.path)) {
-  fail("publishedSitePages must drop the draft even if concatenated");
-}
+if (DRAFT_SITE_PAGES.includes(ACID_LAB_GUIDE)) fail("published guide must leave DRAFT_SITE_PAGES");
+if (!isSitePagePublished(ACID_LAB_GUIDE)) fail("isSitePagePublished must accept the guide");
 const navHtml = primaryNavHtml("en", "businesses");
-if (navHtml.includes("acid-lab") || navHtml.includes("guides/acid-lab")) fail("nav must not link the draft");
-const staticUrls = staticSitemapUrls();
-if (staticUrls.some((url) => url.includes("acid-lab"))) fail("static sitemap leaked acid lab", staticUrls);
-const sitemapXml = renderSitemap(sitemapUrls([]));
-if (sitemapXml.includes("acid-lab")) fail("sitemap xml leaked acid lab guide");
-if (bodyEn.includes("guides/acid-lab") || bodyZh.includes("guides/acid-lab") || bodyEn.includes("$750K")) {
-  fail("published businesses page must not link the draft or print $750K");
+if (!navHtml.includes('data-nav="acid-lab-guide"') || !navHtml.includes('href="/guides/acid-lab/"')) {
+  fail("nav must link the acid lab guide", navHtml);
 }
-if (html.includes("guides/acid-lab") || zhHtml.includes("guides/acid-lab")) {
-  fail("rendered shell linked the draft guide");
+const staticUrls = staticSitemapUrls();
+if (!staticUrls.includes("https://sessionscan.net/guides/acid-lab/")) fail("sitemap en acid lab", staticUrls);
+if (!staticUrls.includes("https://sessionscan.net/zh/guides/acid-lab/")) fail("sitemap zh acid lab", staticUrls);
+const sitemapXml = renderSitemap(sitemapUrls([]));
+if (!sitemapXml.includes("<loc>https://sessionscan.net/guides/acid-lab/</loc>")) fail("sitemap xml acid lab");
+if (!sitemapXml.includes('hreflang="zh-Hant" href="https://sessionscan.net/zh/guides/acid-lab/"')) {
+  fail("sitemap xml acid lab hreflang");
+}
+if (!bodyEn.includes('data-biz-guide="acid-lab"') || !bodyEn.includes('href="/guides/acid-lab/"')) {
+  fail("businesses EN must link the acid lab guide");
+}
+if (!bodyZh.includes('href="/zh/guides/acid-lab/"') || !bodyZh.includes("迷幻藥實驗室攻略")) {
+  fail("businesses ZH must link the acid lab guide");
+}
+if (bodyEn.includes("$750K") || bodyZh.includes("$750K")) fail("businesses page printed unsourced $750K");
+if (!html.includes('data-biz-guide="acid-lab"') || !zhHtml.includes('data-biz-guide="acid-lab"')) {
+  fail("rendered shell missing acid lab guide link");
 }
 
 const distBizTip = resolve(root, "dist/guides/businesses/index.html");
@@ -485,7 +486,10 @@ if (existsSync(distBizTip)) {
   const empty = built.includes("is-empty");
   if (!hasWeek && !empty) fail("dist businesses tip freeze needs week href or empty state");
   if (!built.includes("Fooligans") || built.includes("Fooliganz")) fail("dist EN Fooligans spelling");
-  if (built.includes("guides/acid-lab") || built.includes("$750K")) fail("dist EN published the acid lab draft");
+  if (!built.includes('data-biz-guide="acid-lab"') || !built.includes('href="/guides/acid-lab/"')) {
+    fail("dist EN businesses missing acid lab guide link");
+  }
+  if (built.includes("$750K")) fail("dist EN printed unsourced $750K");
   for (const id of Object.values(OFFICIAL_TRAILERS)) {
     if (!built.includes(`https://www.youtube-nocookie.com/embed/${id}`)) fail("dist EN missing trailer", id);
     if (!built.includes('loading="lazy"')) fail("dist EN iframe not lazy");
@@ -495,17 +499,24 @@ const distZhBiz = resolve(root, "dist/zh/guides/businesses/index.html");
 if (existsSync(distZhBiz)) {
   const built = readFileSync(distZhBiz, "utf8");
   if (!built.includes("Rockstar 官方預告")) fail("dist zh trailer title");
-  if (built.includes("guides/acid-lab")) fail("dist zh linked acid lab draft");
+  if (!built.includes('href="/zh/guides/acid-lab/"')) fail("dist zh businesses missing acid lab guide link");
   for (const id of Object.values(OFFICIAL_TRAILERS)) {
     if (!built.includes(`https://www.youtube-nocookie.com/embed/${id}`)) fail("dist zh missing trailer", id);
   }
 }
-for (const rel of ["dist/guides/acid-lab/index.html", "dist/zh/guides/acid-lab/index.html"]) {
-  if (existsSync(resolve(root, rel))) fail("draft acid lab page was written", rel);
+if (existsSync(distBizTip)) {
+  for (const rel of ["dist/guides/acid-lab/index.html", "dist/zh/guides/acid-lab/index.html"]) {
+    const builtGuide = resolve(root, rel);
+    if (!existsSync(builtGuide)) fail("published acid lab page missing", rel);
+    const guideHtml = readFileSync(builtGuide, "utf8");
+    if (!guideHtml.includes("https://www.youtube.com/embed/LL3J2wKC_Ik")) fail("dist acid lab short embed", rel);
+    if (!guideHtml.includes('loading="lazy"')) fail("dist acid lab iframe not lazy", rel);
+    if (guideHtml.includes("$750K")) fail("dist acid lab printed unsourced $750K", rel);
+  }
 }
 const distSitemap = resolve(root, "dist/sitemap.xml");
-if (existsSync(distSitemap) && readFileSync(distSitemap, "utf8").includes("acid-lab")) {
-  fail("dist sitemap indexed the acid lab guide");
+if (existsSync(distSitemap) && !readFileSync(distSitemap, "utf8").includes("https://sessionscan.net/guides/acid-lab/")) {
+  fail("dist sitemap missing the acid lab guide");
 }
 
 console.log(

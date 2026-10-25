@@ -31,7 +31,7 @@ function fail(msg, extra) {
   process.exit(1);
 }
 
-const expectedPaths = ["week/", "guides/money/", "guides/businesses/", "gta6/", "about/"];
+const expectedPaths = ["week/", "guides/money/", "guides/businesses/", "guides/acid-lab/", "gta6/", "about/"];
 for (const path of expectedPaths) {
   if (!SITE_PAGES.some((p) => p.path === path)) fail("missing SITE_PAGES path", path);
 }
@@ -44,7 +44,7 @@ if (pairedLocalePath("en", "/zh/gta6/") !== "/gta6/") fail("pair gta6 en");
 
 const nav = primaryNavHtml("en", "home");
 if (!nav.includes('href="/"') || !nav.includes('data-nav="home"')) fail("nav home link");
-for (const id of ["week", "money", "businesses", "gta6", "about"]) {
+for (const id of ["week", "money", "businesses", "acid-lab-guide", "gta6", "about"]) {
   if (!nav.includes(`data-nav="${id}"`)) fail("nav missing", id);
 }
 if (!nav.includes("/guides/money/") || !nav.includes("/about/")) fail("nav paths");

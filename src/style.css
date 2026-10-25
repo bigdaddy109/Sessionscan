@@ -2064,6 +2064,70 @@ main {
 }
 .page-body p { margin: 0; }
 .page-body a { color: var(--teal); }
+
+/* Acid Lab guide. Short is 9:16; the iframe is absolute so its 300px default
+   width cannot force a horizontal scrollbar on a 375px phone. */
+.acid-guide { min-width: 0; }
+.acid-guide h2 {
+  font-family: var(--condensed);
+  font-size: clamp(20px, 3.2vw, 26px);
+  letter-spacing: 0.04em;
+  margin: 22px 0 8px;
+  line-height: 1.25;
+}
+.acid-guide p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.acid-quick {
+  color: var(--text);
+  border-left: 3px solid var(--mint);
+  padding: 10px 12px;
+  background: rgba(61, 255, 138, 0.06);
+}
+.acid-long-soon {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border: 1px dashed var(--border-teal);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+}
+.acid-long,
+.acid-short {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  background: #000;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.acid-long { aspect-ratio: 16 / 9; margin: 0 0 16px; }
+.acid-short {
+  width: min(100%, 360px);
+  aspect-ratio: 9 / 16;
+  margin: 0 0 10px;
+}
+.acid-long iframe,
+.acid-short iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  border: 0;
+}
+.acid-short-caption { margin: 0; }
+.acid-short-caption a { color: var(--teal); }
+.biz-guide-link { margin: 0 0 10px; }
+.biz-guide-link a {
+  color: var(--mint);
+  font-family: var(--condensed);
+  letter-spacing: 0.04em;
+}
 .page-links {
   margin: 18px 0 0;
   padding: 0;

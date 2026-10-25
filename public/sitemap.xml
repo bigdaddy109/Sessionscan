@@ -49,6 +49,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sessionscan.net/guides/businesses/"/>
   </url>
   <url>
+    <loc>https://sessionscan.net/guides/acid-lab/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sessionscan.net/guides/acid-lab/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://sessionscan.net/zh/guides/acid-lab/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sessionscan.net/guides/acid-lab/"/>
+  </url>
+  <url>
+    <loc>https://sessionscan.net/zh/guides/acid-lab/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sessionscan.net/guides/acid-lab/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://sessionscan.net/zh/guides/acid-lab/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sessionscan.net/guides/acid-lab/"/>
+  </url>
+  <url>
     <loc>https://sessionscan.net/gta6/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://sessionscan.net/gta6/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://sessionscan.net/zh/gta6/"/>
