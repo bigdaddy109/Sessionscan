@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-25T02:05:20Z",
+ "updated": "2026-10-25T03:05:41Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -3160,7 +3160,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-24"
+   "last_seen": "2026-10-25"
   },
   {
    "video_id": "FEOgNxqQKyw",
@@ -3340,6 +3340,7 @@
    "game": "GTA 6",
    "date": "2026-10-25",
    "views": 3805,
+   "kind": "",
    "first_seen": "2026-10-25",
    "last_seen": "2026-10-25"
   },
@@ -7840,10 +7841,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 540,
+   "views": 11576,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-15"
+   "last_seen": "2026-10-25"
   },
   {
    "video_id": "dgU5jlucg3M",
@@ -8650,6 +8651,17 @@
    "kind": "short",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
+  },
+  {
+   "video_id": "i4FtbU7i7HQ",
+   "title": "Bro Took His Anger Out on the NPCs 😂 #gta5 #gtaonline #gta5online #gtaviral #fail",
+   "channel": "SJx Playz",
+   "url": "https://www.youtube.com/shorts/i4FtbU7i7HQ",
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short",
+   "first_seen": "2026-10-25",
+   "last_seen": "2026-10-25"
   },
   {
    "video_id": "i6LgSKZGGlg",
@@ -10604,11 +10616,13 @@
   {
    "video_id": "t35GD5YIguU",
    "title": "GTA V Platinum Trophy Grind!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=t35GD5YIguU",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-25",
    "views": 249,
+   "kind": "",
    "first_seen": "2026-10-25",
    "last_seen": "2026-10-25"
   },
