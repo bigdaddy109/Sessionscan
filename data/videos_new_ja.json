@@ -1,22 +1,22 @@
 [
  {
-  "id": "YrLN0awRJsI",
-  "video_id": "YrLN0awRJsI",
-  "title": "🔴LIVE GTA ONLINE　お金稼ぎの日常　主にソロ",
-  "channel": "インドア秘密基地（GTA動画多し）",
-  "url": "https://www.youtube.com/watch?v=YrLN0awRJsI",
-  "views": 631,
-  "date": "2026-10-25",
-  "lang": "ja",
-  "game": "GTA Online"
- },
- {
   "id": "XT5TedfMncg",
   "video_id": "XT5TedfMncg",
   "title": "遂にゲーム内の飲食店がリアル世界でオープン‼️GTA6のマーケティングが異次元🍔",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=XT5TedfMncg",
-  "views": 180,
+  "views": 1672,
+  "date": "2026-10-25",
+  "lang": "ja",
+  "game": "GTA Online"
+ },
+ {
+  "id": "YrLN0awRJsI",
+  "video_id": "YrLN0awRJsI",
+  "title": "🔴LIVE GTA ONLINE　お金稼ぎの日常　主にソロ",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=YrLN0awRJsI",
+  "views": 1428,
   "date": "2026-10-25",
   "lang": "ja",
   "game": "GTA Online"
@@ -27,7 +27,7 @@
   "title": "GTA6ではGTA5の常識が通用しなくなる１３個の仕様変更",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=GLkdQb_0HFw",
-  "views": 13236,
+  "views": 13881,
   "date": "2026-10-24",
   "lang": "ja",
   "game": "GTA Online"
@@ -38,7 +38,7 @@
   "title": "(山田と学ぶ) PHP問題とは？フランス暴動はなぜ起きたのか解説　【GTA5】",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=tFFI3jIr0Co",
-  "views": 83778,
+  "views": 84854,
   "date": "2026-10-22",
   "lang": "ja",
   "game": "GTA 5"
@@ -77,12 +77,23 @@
   "game": "GTA Online"
  },
  {
+  "id": "uIUzcZjt7-A",
+  "video_id": "uIUzcZjt7-A",
+  "title": "【GTA6発売まで32日前】現場仕事＆ワイスピカーミーティング",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=uIUzcZjt7-A",
+  "views": 10143,
+  "date": "2026-10-17",
+  "lang": "ja",
+  "game": "GTA Online"
+ },
+ {
   "id": "XI75x1XD14E",
   "video_id": "XI75x1XD14E",
   "title": "【GTA5】節約派のカーライフ「フェニックス」の巻【第27話】",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=XI75x1XD14E",
-  "views": 3338,
+  "views": 3339,
   "date": "2026-10-17",
   "lang": "ja",
   "game": "GTA 5"
@@ -94,17 +105,6 @@
   "channel": "",
   "url": "https://www.youtube.com/watch?v=A-ap75BU8s8",
   "views": 123,
-  "date": "2026-10-17",
-  "lang": "ja",
-  "game": "GTA Online"
- },
- {
-  "id": "uIUzcZjt7-A",
-  "video_id": "uIUzcZjt7-A",
-  "title": "【GTA6発売まで32日前】現場仕事＆ワイスピカーミーティング",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=uIUzcZjt7-A",
-  "views": 10135,
   "date": "2026-10-17",
   "lang": "ja",
   "game": "GTA Online"
