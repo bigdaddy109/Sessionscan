@@ -2,8 +2,8 @@
 /**
  * Why this test matters: /guides/acid-lab/ is the reserved route the owner
  * approved copy for. A second path, a paraphrased English paragraph, a
- * missing Short, or a long-form iframe while LONG_VIDEO_ID is empty would
- * ship the wrong guide.
+ * missing Short, or a long-form iframe that is not RC1hc3u9sOk (16:9, lazy)
+ * would ship the wrong guide. Empty LONG_VIDEO_ID must still fall back to the note.
  */
 import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
@@ -71,7 +71,7 @@ if (!ACID_LAB_COPY.zh.title || !ACID_LAB_COPY.zh.quick || ACID_LAB_COPY.zh.secti
 }
 if (ACID_LAB_COPY.zh.quick.includes("Quick answer")) fail("zh quick answer should be Traditional Chinese");
 
-if (LONG_VIDEO_ID !== "") fail("LONG_VIDEO_ID must stay empty until the full run exists", LONG_VIDEO_ID);
+if (LONG_VIDEO_ID !== "RC1hc3u9sOk") fail("LONG_VIDEO_ID", LONG_VIDEO_ID);
 if (ACID_LAB_SHORT_EMBED_URL !== "https://www.youtube.com/embed/LL3J2wKC_Ik") fail("short embed url");
 if (ACID_LAB_SHORT_WATCH_URL !== "https://youtube.com/shorts/LL3J2wKC_Ik") fail("short watch url");
 
@@ -88,11 +88,23 @@ if (!enBody.includes(`src="${ACID_LAB_SHORT_EMBED_URL}"`) || !enBody.includes('l
   fail("short iframe");
 }
 if (!enBody.includes('class="acid-short"') || !enBody.includes(ACID_LAB_SHORT_WATCH_URL)) fail("short block");
-if (!enBody.includes('data-acid-long="pending"') || !enBody.includes("Full video coming soon")) {
-  fail("empty LONG_VIDEO_ID must show the coming-soon note");
+if (!enBody.includes('src="https://www.youtube.com/embed/RC1hc3u9sOk"') || !enBody.includes('class="acid-long"')) {
+  fail("long-form embed missing", enBody);
 }
-if (enBody.includes('class="acid-long"')) fail("empty LONG_VIDEO_ID must not render a long iframe");
+if (!zhBody.includes('src="https://www.youtube.com/embed/RC1hc3u9sOk"')) fail("zh long-form embed");
+if (enBody.includes('data-acid-long="pending"') || enBody.includes("Full video coming soon")) {
+  fail("filled LONG_VIDEO_ID must not show the coming-soon note");
+}
+const longTags = enBody.match(/<iframe\b[^>]*>/g) || [];
+if (longTags.length !== 2 || !longTags.every((tag) => tag.includes('loading="lazy"'))) {
+  fail("short and long iframes must both be lazy", longTags);
+}
 if (!enBody.includes("LONG_VIDEO_ID:")) fail("long-form slot comment missing");
+
+const empty = acidLabLongVideoHtml("", "en");
+if (!empty.includes('data-acid-long="pending"') || !empty.includes("Full video coming soon") || empty.includes("<iframe")) {
+  fail("empty LONG_VIDEO_ID must show the note and no iframe", empty);
+}
 
 const filled = acidLabLongVideoHtml("dQw4w9WgXcQ", "en");
 if (!filled.includes('src="https://www.youtube.com/embed/dQw4w9WgXcQ"') || !filled.includes('class="acid-long"')) {
