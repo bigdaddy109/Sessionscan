@@ -5,6 +5,7 @@
  * order follows a cited secondary consensus; feature blurbs cite Rockstar Newswire.
  */
 
+import { ACID_LAB_GUIDE } from "./acidLabGuide.js";
 import { CARD_SITE_BASE } from "./cardShare.js";
 import { SITE_ORIGIN, htmlLang, localeHome, t } from "./i18n.js";
 import { jsonLdScript, organizationJsonLd } from "./structuredData.js";
@@ -709,6 +710,11 @@ export function businessesPageBodyHtml(lang = "en", { tipWeek = "" } = {}) {
     const solo = isSoloFriendlyBusiness(item);
     const ownLabel = t("bizOwnLabel", {}, ui);
     const trailer = businessTrailerEmbedHtml(item, ui);
+    const guideHref = `${ui === "zh" ? "/zh/" : "/"}${ACID_LAB_GUIDE.path}`;
+    const guideLink =
+      item.id === "acid-lab"
+        ? `<p class="biz-guide-link"><a href="${esc(guideHref)}" data-biz-guide="acid-lab">${esc(t("bizAcidLabGuideLink", {}, ui))}</a></p>`
+        : "";
     const source = `<p class="biz-rank-source">${sourceMetaHtml(item.source, ui)}</p>`;
     const sourceRow = trailer
       ? `<div class="biz-source-row">${source}${trailer}</div>`
@@ -718,6 +724,7 @@ export function businessesPageBodyHtml(lang = "en", { tipWeek = "" } = {}) {
       <div class="biz-rank-body">
         <h2 class="biz-rank-title">${esc(title)}</h2>
         <p class="biz-rank-highlight">${esc(highlight)}</p>
+        ${guideLink}
         ${sourceRow}
         <label class="biz-own-claim">
           <input type="checkbox" class="biz-own-check" data-biz-id="${esc(item.id)}" />

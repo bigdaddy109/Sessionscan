@@ -14,6 +14,7 @@ export const PAGE_OG_IMAGE_BY_ID = Object.freeze({
   "week-freeze": `${SITE_ORIGIN}/og-week.jpg`,
   money: `${SITE_ORIGIN}/og-money.jpg`,
   businesses: `${SITE_ORIGIN}/og-businesses.jpg`,
+  "acid-lab-guide": `${SITE_ORIGIN}/og-acid-lab.jpg`,
   gta6: `${SITE_ORIGIN}/og-gta6.jpg`,
   about: `${SITE_ORIGIN}/og-about.jpg`,
 });
@@ -29,6 +30,7 @@ export const PAGE_OG_IMAGE_FILES = Object.freeze([
   "og-week.jpg",
   "og-money.jpg",
   "og-businesses.jpg",
+  "og-acid-lab.jpg",
   "og-gta6.jpg",
   "og-about.jpg",
 ]);

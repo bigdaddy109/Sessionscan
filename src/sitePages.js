@@ -29,7 +29,7 @@ import {
   jsonLdScript,
   organizationJsonLd,
 } from "./structuredData.js";
-import { ACID_LAB_GUIDE } from "./acidLabGuide.js";
+import { ACID_LAB_GUIDE, renderAcidLabGuideBody } from "./acidLabGuide.js";
 import {
   businessesPageBodyHtml,
   businessesPageJsonLd,
@@ -85,6 +85,7 @@ export const SITE_PAGES = [
     bodyKey: "pageBusinessesBody",
     stub: false,
   },
+  ACID_LAB_GUIDE,
   {
     id: "gta6",
     path: "gta6/",
@@ -110,9 +111,9 @@ export const SITE_PAGES = [
 /**
  * Reserved shells. draft or published:false stays out of nav, dev server,
  * dist, and sitemap until a later pass flips the flag and moves the page
- * into SITE_PAGES.
+ * into SITE_PAGES. Acid Lab graduated into SITE_PAGES.
  */
-export const DRAFT_SITE_PAGES = [ACID_LAB_GUIDE];
+export const DRAFT_SITE_PAGES = [];
 
 export function isSitePagePublished(page) {
   if (!page?.path) return false;
@@ -499,6 +500,9 @@ function pageBodyHtml(page, ui, { tipWeek = "" } = {}) {
   if (page.id === "gta6") {
     return renderGta6PageBody(ui, { tipWeek });
   }
+  if (page.id === "acid-lab-guide") {
+    return renderAcidLabGuideBody(ui);
+  }
   const stub = page.stub
     ? `<p class="page-stub-flag" data-i18n="pageStubFlag">${esc(t("pageStubFlag", {}, ui))}</p>`
     : "";
@@ -556,7 +560,8 @@ export function renderSitePage(
   const wantsRelated =
     CROSS_LINK_PAGE_IDS.includes(crossId) ||
     crossId === "week-freeze" ||
-    crossId === "about";
+    crossId === "about" ||
+    crossId === "acid-lab-guide";
   let mainBody = bodyHtml != null ? bodyHtml : pageBodyHtml(page, ui, { tipWeek });
   if (wantsRelated) {
     if (!String(mainBody).includes('class="related-pages"')) {

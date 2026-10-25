@@ -191,13 +191,44 @@ try {
     }
   }
 
-  const context = await browser.newContext();
-  const page = await context.newPage();
-  for (const path of ["/guides/acid-lab/", "/zh/guides/acid-lab/"]) {
-    const response = await page.goto(`${origin}${path}`, { waitUntil: "domcontentloaded", timeout: 15000 });
-    if (!response || response.status() !== 404) fail(`${path} must stay unpublished`, response?.status());
+  // Why: the Acid Lab guide is a real page now. A 9:16 Short with the iframe's
+  // default 300px width used to blow past 375 and make Safari shrink the page.
+  for (const spec of [
+    { path: "/guides/acid-lab/", width: 375, height: 812 },
+    { path: "/guides/acid-lab/", width: 1280, height: 800 },
+    { path: "/zh/guides/acid-lab/", width: 375, height: 812 },
+  ]) {
+    const context = await browser.newContext({ viewport: { width: spec.width, height: spec.height } });
+    const page = await context.newPage();
+    const response = await page.goto(`${origin}${spec.path}`, { waitUntil: "domcontentloaded", timeout: 15000 });
+    if (!response || response.status() !== 200) fail(`${spec.path} must be published`, response?.status());
+    const box = await page.evaluate(() => {
+      const doc = document.documentElement;
+      const frame = document.querySelector(".acid-short iframe");
+      const soon = document.querySelector(".acid-long-soon");
+      const rect = frame ? frame.getBoundingClientRect() : null;
+      return {
+        overflow: doc.scrollWidth > doc.clientWidth + 1,
+        scrollWidth: doc.scrollWidth,
+        clientWidth: doc.clientWidth,
+        src: frame?.getAttribute("src") || "",
+        loading: frame?.getAttribute("loading") || "",
+        width: rect?.width || 0,
+        height: rect?.height || 0,
+        hasSoon: Boolean(soon),
+        longIframe: Boolean(document.querySelector(".acid-long iframe")),
+      };
+    });
+    if (box.overflow) fail(`${spec.path} ${spec.width} horizontal overflow`, box);
+    if (box.src !== "https://www.youtube.com/embed/LL3J2wKC_Ik" || box.loading !== "lazy") {
+      fail(`${spec.path} short embed`, box);
+    }
+    if (!box.hasSoon || box.longIframe) fail(`${spec.path} long video placeholder`, box);
+    const ratio = box.width / box.height;
+    if (box.width < 120 || Math.abs(ratio - 9 / 16) > 0.08) fail(`${spec.path} ${spec.width} short not 9:16`, box);
+    if (box.width > spec.width) fail(`${spec.path} short wider than viewport`, box);
+    await context.close();
   }
-  await context.close();
 } finally {
   await browser.close();
   await new Promise((resolvePromise) => server.close(resolvePromise));

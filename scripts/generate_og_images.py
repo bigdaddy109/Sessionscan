@@ -21,6 +21,7 @@ PAGES = [
     ("og-week.jpg", "WEEKLY ARCHIVE", (0, 232, 209)),
     ("og-money.jpg", "MONEY ROUTES", (255, 60, 172)),
     ("og-businesses.jpg", "BUSINESSES", (61, 255, 138)),
+    ("og-acid-lab.jpg", "ACID LAB", (0, 232, 209)),
     ("og-gta6.jpg", "GTA 6 COUNTDOWN", (255, 45, 149)),
     ("og-about.jpg", "ABOUT", (0, 232, 209)),
 ]

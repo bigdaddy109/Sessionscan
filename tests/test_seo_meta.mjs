@@ -217,6 +217,8 @@ const distChecks = [
   ["dist/guides/money/index.html", "https://sessionscan.net/guides/money/", t("pageMoneyTitle", {}, "en"), ogImageUrlForPage("money")],
   ["dist/zh/guides/money/index.html", "https://sessionscan.net/zh/guides/money/", t("pageMoneyTitle", {}, "zh"), ogImageUrlForPage("money")],
   ["dist/guides/businesses/index.html", "https://sessionscan.net/guides/businesses/", t("pageBusinessesTitle", {}, "en"), ogImageUrlForPage("businesses")],
+  ["dist/guides/acid-lab/index.html", "https://sessionscan.net/guides/acid-lab/", t("pageAcidLabTitle", {}, "en"), ogImageUrlForPage("acid-lab-guide")],
+  ["dist/zh/guides/acid-lab/index.html", "https://sessionscan.net/zh/guides/acid-lab/", t("pageAcidLabTitle", {}, "zh"), ogImageUrlForPage("acid-lab-guide")],
   ["dist/gta6/index.html", "https://sessionscan.net/gta6/", t("pageGta6Title", {}, "en"), ogImageUrlForPage("gta6")],
   ["dist/week/index.html", "https://sessionscan.net/week/", t("pageWeekTitle", {}, "en"), ogImageUrlForPage("week")],
 ];
