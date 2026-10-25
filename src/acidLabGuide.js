@@ -3,8 +3,8 @@
  * English paragraphs are the owner-approved wording — do not paraphrase them.
  * Traditional Chinese follows the same sections for the /zh/ shell.
  *
- * LONG_VIDEO_ID: paste an 11-character YouTube id when the full run is ready.
- * Empty string renders the "coming soon" note and no long-form iframe.
+ * LONG_VIDEO_ID: 11-character YouTube id for the full run. Replace this constant
+ * to swap the embed. An empty string renders the "coming soon" note and no iframe.
  */
 
 import { t } from "./i18n.js";
@@ -14,8 +14,8 @@ export const ACID_LAB_SHORT_ID = "LL3J2wKC_Ik";
 export const ACID_LAB_SHORT_EMBED_URL = "https://www.youtube.com/embed/LL3J2wKC_Ik";
 export const ACID_LAB_SHORT_WATCH_URL = "https://youtube.com/shorts/LL3J2wKC_Ik";
 
-/** @type {string} Replace this with the long-form YouTube id. Leave "" until then. */
-export const LONG_VIDEO_ID = "";
+/** Full-run YouTube id. Set to "" to hide the embed and show the coming-soon note. */
+export const LONG_VIDEO_ID = "RC1hc3u9sOk";
 
 const YT_ID = /^[A-Za-z0-9_-]{11}$/;
 

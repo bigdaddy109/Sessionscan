@@ -205,8 +205,9 @@ try {
     const box = await page.evaluate(() => {
       const doc = document.documentElement;
       const frame = document.querySelector(".acid-short iframe");
-      const soon = document.querySelector(".acid-long-soon");
+      const longFrame = document.querySelector(".acid-long iframe");
       const rect = frame ? frame.getBoundingClientRect() : null;
+      const longRect = longFrame ? longFrame.getBoundingClientRect() : null;
       return {
         overflow: doc.scrollWidth > doc.clientWidth + 1,
         scrollWidth: doc.scrollWidth,
@@ -215,18 +216,28 @@ try {
         loading: frame?.getAttribute("loading") || "",
         width: rect?.width || 0,
         height: rect?.height || 0,
-        hasSoon: Boolean(soon),
-        longIframe: Boolean(document.querySelector(".acid-long iframe")),
+        hasSoon: Boolean(document.querySelector(".acid-long-soon")),
+        longSrc: longFrame?.getAttribute("src") || "",
+        longLoading: longFrame?.getAttribute("loading") || "",
+        longWidth: longRect?.width || 0,
+        longHeight: longRect?.height || 0,
       };
     });
     if (box.overflow) fail(`${spec.path} ${spec.width} horizontal overflow`, box);
     if (box.src !== "https://www.youtube.com/embed/LL3J2wKC_Ik" || box.loading !== "lazy") {
       fail(`${spec.path} short embed`, box);
     }
-    if (!box.hasSoon || box.longIframe) fail(`${spec.path} long video placeholder`, box);
+    if (box.hasSoon || box.longSrc !== "https://www.youtube.com/embed/RC1hc3u9sOk" || box.longLoading !== "lazy") {
+      fail(`${spec.path} long video embed`, box);
+    }
     const ratio = box.width / box.height;
     if (box.width < 120 || Math.abs(ratio - 9 / 16) > 0.08) fail(`${spec.path} ${spec.width} short not 9:16`, box);
     if (box.width > spec.width) fail(`${spec.path} short wider than viewport`, box);
+    const longRatio = box.longWidth / box.longHeight;
+    if (box.longWidth < 200 || Math.abs(longRatio - 16 / 9) > 0.08) {
+      fail(`${spec.path} ${spec.width} long video not 16:9`, box);
+    }
+    if (box.longWidth > spec.width) fail(`${spec.path} long video wider than viewport`, box);
     await context.close();
   }
 } finally {
