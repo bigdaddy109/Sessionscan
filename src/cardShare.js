@@ -203,9 +203,9 @@ export function videoPageUrl(youtubeId, lang = "en") {
   return `${CARD_SITE_BASE}${path}`;
 }
 
-export function cardShareLink(item, tab) {
+export function cardShareLink(item, tab, lang = "en") {
   const yt = youtubeId(item);
-  if (yt) return videoPageUrl(yt);
+  if (yt) return videoPageUrl(yt, uiLang(lang));
   const id = cardId(item);
   return id ? cardDeepLink(tab, id) : "";
 }
@@ -318,7 +318,7 @@ export function cardActionsHtml(item, tab, lang) {
   const id = cardId(item);
   if (!id) return "";
   const copy = uiCopy(lang);
-  const link = cardShareLink(item, tab) || cardDeepLink(tab, id);
+  const link = cardShareLink(item, tab, lang) || cardDeepLink(tab, id);
   const href = xIntentHref(shareCaption(cardTitle(item), link, copy.via));
   return `<div class="card-actions">
       <a class="card-share" href="${escAttr(href)}" target="_blank" rel="noopener noreferrer" aria-label="${escAttr(copy.share)}">${SHARE_ICON}</a>

@@ -136,6 +136,25 @@ if (!actions.includes("https://sessionscan.net/v/5XBMNYmFmTs/")) fail("card acti
 if (actions.includes("#hot&amp;v=yt-5XBMNYmFmTs") || actions.includes("#hot&v=yt-5XBMNYmFmTs")) {
   fail("video card actions should not use the homepage hash");
 }
+// Why: /zh/ already renders 複製連結, but the button wrote the English
+// /v/{id}/ page into LINE and Discord. The same link is the X share target.
+// Jobs, forum threads, and posts have no locale page, so they stay hash links.
+const zhPage = `${CARD_SITE_BASE}zh/v/5XBMNYmFmTs/`;
+const zhShare = cardShareLink({ video_id: "5XBMNYmFmTs", title: "A" }, "hot", "zh");
+if (zhShare !== zhPage) fail("zh youtube share is the zh page", zhShare);
+const zhHantShare = cardShareLink({ video_id: "5XBMNYmFmTs", title: "A" }, "hot", "zh-Hant");
+if (zhHantShare !== zhPage) fail("zh-Hant share matches zh", zhHantShare);
+const forumZh = cardShareLink(
+  { url: "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117691", title: "thread" },
+  "forum",
+  "zh",
+);
+if (forumZh !== link) fail("non-video zh share stays a hash deep link", forumZh);
+const zhActions = cardActionsHtml({ video_id: "5XBMNYmFmTs", title: "A" }, "hot", "zh");
+if (!zhActions.includes(`data-copy="${zhPage}"`)) fail("zh card copy must be the zh video page", zhActions);
+if (!zhActions.includes(encodeURIComponent(zhPage))) fail("zh share-to-X must use the zh video page");
+if (zhActions.includes(`${CARD_SITE_BASE}v/5XBMNYmFmTs/`)) fail("zh actions must not copy the English video page");
+if (actions.includes(`${CARD_SITE_BASE}zh/v/`)) fail("en actions must stay on the English video page");
 
 const zh = uiCopy("zh-Hant");
 const en = uiCopy("en-US");

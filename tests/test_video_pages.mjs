@@ -191,6 +191,16 @@ if (zhBcUrls[0] !== "https://sessionscan.net/zh/" || zhBcUrls[1] !== videoPageUr
   fail("zh video BreadcrumbList absolute URLs", zhBcUrls);
 }
 if (zhVo.url !== videoPageUrl(video.video_id, "zh")) fail("zh VideoObject.url is locale page", zhVo.url);
+// Why: the copy button and Share to X read one data-copy / intent URL.
+// /zh/v/{id}/ used to paste the English page, so a Traditional Chinese
+// share opened the wrong locale in LINE and Discord.
+const enCopy = html.match(/data-copy="([^"]+)"/)?.[1] || "";
+const zhCopy = zhHtml.match(/data-copy="([^"]+)"/)?.[1] || "";
+if (enCopy !== videoPageUrl(video.video_id, "en")) fail("en video copy link", enCopy);
+if (zhCopy !== videoPageUrl(video.video_id, "zh")) fail("zh video copy link", zhCopy);
+if (!zhHtml.includes(encodeURIComponent(videoPageUrl(video.video_id, "zh")))) {
+  fail("zh video Share to X must use the zh page");
+}
 
 // Why: share pages were a dead-end after crumbs; reuse shell related/footer
 // guides so Archive/Money/Businesses stay one click away on EN and ZH videos.
