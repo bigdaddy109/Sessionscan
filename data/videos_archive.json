@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T02:04:54Z",
+ "updated": "2026-10-26T03:05:09Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -30,11 +30,13 @@
   {
    "video_id": "-ASfRIa3cKU",
    "title": "GTA 6 Details You Probably MISSED… Even If You Follow Everything",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=-ASfRIa3cKU",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-23",
    "views": 18470,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -418,11 +420,13 @@
   {
    "video_id": "11aEiltOt1M",
    "title": "The 3 GTA 6 Players in Every Friend Group",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=11aEiltOt1M",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-24",
    "views": 2010,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -1612,11 +1616,13 @@
   {
    "video_id": "6Rn0ieHbYAA",
    "title": "GTA 6 NEW Gameplay Leak, Lucia Live Concert, CyberLeek, Jason,Map Leaks Trailer, Grand Theft Auto VI",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=6Rn0ieHbYAA",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-25",
    "views": 3942,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -1653,6 +1659,8 @@
    "url": "https://www.youtube.com/shorts/6_DxeSe0q50",
    "lang": "en",
    "game": "GTA 5",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
@@ -5668,11 +5676,13 @@
   {
    "video_id": "RwgeWiFX3ZY",
    "title": "Three GTA 6 Features GTA 5 Players Will Hate",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=RwgeWiFX3ZY",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-25",
    "views": 2671,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -5978,11 +5988,13 @@
   {
    "video_id": "T_LoBbZh9kU",
    "title": "Your Friend Who Says It Looks Like GTA 5 Needs This",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=T_LoBbZh9kU",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-24",
    "views": 1962,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -6626,11 +6638,13 @@
   {
    "video_id": "Wy43jC-n2HY",
    "title": "GTA 6 Map Guide Before You Play (GTA 6 News)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Wy43jC-n2HY",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-24",
    "views": 15068,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -6938,11 +6952,13 @@
   {
    "video_id": "YEuEsUikLZE",
    "title": "GTA 6 Will Expose Which Friend Ruins Every Heist",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=YEuEsUikLZE",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-25",
    "views": 4097,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -7046,6 +7062,7 @@
    "game": "GTA 5",
    "date": "2026-10-25",
    "views": 749,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -7364,11 +7381,13 @@
   {
    "video_id": "_GUSnkD5eXg",
    "title": "GTA 6’s NPCs Can ROB YOU… (GTA 6 Gameplay News)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=_GUSnkD5eXg",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-22",
    "views": 17562,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -8599,11 +8618,13 @@
   {
    "video_id": "e_hQx3e3HAA",
    "title": "UNLOCK Chucky Outfit, NEW Halloween Car, RARE Vehicle, UFO, Devil, GTA 5 DLC 2026(GTA Online Update)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=e_hQx3e3HAA",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-25",
    "views": 1633,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -8824,6 +8845,7 @@
    "game": "GTA 6",
    "date": "2026-10-25",
    "views": 22243,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -10398,7 +10420,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "oqe7MgYfnH0",
