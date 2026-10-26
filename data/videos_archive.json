@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T18:04:15Z",
+ "updated": "2026-10-26T20:04:42Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -789,7 +789,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 102147,
+   "views": 102254,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-26"
@@ -1608,7 +1608,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-03",
-   "views": 221617,
+   "views": 221685,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-26"
@@ -1712,7 +1712,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-19",
-   "views": 52737,
+   "views": 52747,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-26"
@@ -1829,7 +1829,7 @@
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-26",
-   "views": 3117,
+   "views": 3218,
    "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
@@ -1868,7 +1868,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 6869414,
+   "views": 6903948,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-26"
@@ -1972,7 +1972,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-19",
-   "views": 62317,
+   "views": 62542,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-26"
@@ -2442,7 +2442,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-10",
-   "views": 2481,
+   "views": 2486,
    "kind": "",
    "first_seen": "2026-10-10",
    "last_seen": "2026-10-26"
@@ -2481,7 +2481,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-11",
-   "views": 935212,
+   "views": 943452,
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-10-26"
@@ -2780,7 +2780,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-23",
-   "views": 2430628,
+   "views": 2440778,
    "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-26"
@@ -3027,7 +3027,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-09-26",
-   "views": 4811,
+   "views": 4813,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-26"
@@ -3143,6 +3143,8 @@
    "url": "https://www.youtube.com/shorts/DCAF-tERzUk",
    "lang": "en",
    "game": "GTA Online",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
@@ -3434,6 +3436,17 @@
    "last_seen": "2026-10-16"
   },
   {
+   "video_id": "Ethqa94XpXU",
+   "title": "5 Ways GTA 6 Will Keep You BROKE 💸 #gta6 #shorts",
+   "url": "https://www.youtube.com/watch?v=Ethqa94XpXU",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-26",
+   "views": 1380,
+   "first_seen": "2026-10-26",
+   "last_seen": "2026-10-26"
+  },
+  {
    "video_id": "EwHrsDvjxIk",
    "title": "gta4故事结束后尼克是否有来过洛圣都？#gta #gta5",
    "channel": "",
@@ -3532,7 +3545,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 3937151,
+   "views": 3937309,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-26"
@@ -3545,7 +3558,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1679255,
+   "views": 1680682,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-26"
@@ -3618,11 +3631,13 @@
   {
    "video_id": "Fs2s0gEwpq0",
    "title": "'Eu não sou rica': atriz que interpreta Lucia em GTA 6 responde fãs",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Fs2s0gEwpq0",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-26",
    "views": 166,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -3725,7 +3740,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-24",
-   "views": 25951,
+   "views": 27336,
    "kind": "",
    "first_seen": "2026-10-24",
    "last_seen": "2026-10-26"
@@ -4037,7 +4052,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-26",
-   "views": 47,
+   "views": 51,
    "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
@@ -4570,7 +4585,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-25",
-   "views": 11069,
+   "views": 11789,
    "kind": "",
    "first_seen": "2026-10-25",
    "last_seen": "2026-10-26"
@@ -4609,7 +4624,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-25",
-   "views": 79,
+   "views": 80,
    "kind": "",
    "first_seen": "2026-10-25",
    "last_seen": "2026-10-26"
@@ -4780,7 +4795,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 9472,
+   "views": 9517,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-26"
@@ -4832,7 +4847,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-26",
-   "views": 2310,
+   "views": 3328,
    "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
@@ -4910,7 +4925,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 12109468,
+   "views": 12202675,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-26"
@@ -5040,7 +5055,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-26",
-   "views": 10304,
+   "views": 25863,
    "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
@@ -6322,11 +6337,13 @@
   {
    "video_id": "UQLAOFrcu24",
    "title": "*Updated* Easiest Ways To Get Colored Joggers In GTA 5 Online Glitch!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=UQLAOFrcu24",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-26",
-   "views": 33,
+   "views": 140,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -6364,7 +6381,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 10144792,
+   "views": 10183255,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-26"
@@ -6533,7 +6550,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-26",
-   "views": 3229,
+   "views": 3514,
    "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
@@ -6650,7 +6667,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-06",
-   "views": 6022,
+   "views": 6031,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-26"
@@ -6780,7 +6797,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-26",
-   "views": 20856,
+   "views": 22891,
    "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
@@ -7367,7 +7384,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-25",
-   "views": 2965,
+   "views": 2993,
    "kind": "",
    "first_seen": "2026-10-25",
    "last_seen": "2026-10-26"
@@ -7406,7 +7423,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-26",
-   "views": 1675,
+   "views": 2874,
    "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
@@ -8095,7 +8112,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-19",
-   "views": 121030,
+   "views": 121194,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-26"
@@ -8669,7 +8686,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 5901140,
+   "views": 5970270,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-10-26"
@@ -8859,11 +8876,13 @@
   {
    "video_id": "e9tO0DkZIMI",
    "title": "GTA5线上刷力量教程，游戏里属性的作用#gta #rockstar",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=e9tO0DkZIMI",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-26",
    "views": 335,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -9018,7 +9037,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-01",
-   "views": 16615,
+   "views": 16616,
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-26"
@@ -9785,7 +9804,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1326804,
+   "views": 1328249,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-26"
@@ -9993,7 +10012,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-13",
-   "views": 2011,
+   "views": 2021,
    "kind": "",
    "first_seen": "2026-10-13",
    "last_seen": "2026-10-26"
@@ -10071,7 +10090,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-24",
-   "views": 89,
+   "views": 101,
    "kind": "",
    "first_seen": "2026-10-24",
    "last_seen": "2026-10-26"
@@ -10409,7 +10428,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-08",
-   "views": 9507,
+   "views": 9510,
    "kind": "",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-26"
@@ -10461,7 +10480,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-26",
-   "views": 931,
+   "views": 1351,
    "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
@@ -10820,11 +10839,13 @@
   {
    "video_id": "oz_EBvFv_9I",
    "title": "GTA 6 WEEK IS COMING!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=oz_EBvFv_9I",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-26",
-   "views": 302,
+   "views": 3827,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -10849,7 +10870,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-21",
-   "views": 88125,
+   "views": 88446,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-26"
@@ -11031,7 +11052,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-23",
-   "views": 14667,
+   "views": 14762,
    "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-26"
@@ -11200,7 +11221,7 @@
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-26",
-   "views": 6009,
+   "views": 8697,
    "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
@@ -11278,7 +11299,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 124954,
+   "views": 125786,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-26"
@@ -11286,11 +11307,13 @@
   {
    "video_id": "qk2x1e8QdXo",
    "title": "2026/10/26 槍械廂型車、毒販、塗鴉、佩里克島寶箱、遇難船、吞雲吐霧大麻位置 (GTA 5 線上模式)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=qk2x1e8QdXo",
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-26",
    "views": 15,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -11596,11 +11619,13 @@
   {
    "video_id": "ry91v5-7B7k",
    "title": "5 choses à faire dès le 1er jour de sortie de GTA 6 #gta5 #gta #jeuxvidéo #gta6 #gtav #gta5online",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=ry91v5-7B7k",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-26",
-   "views": 1092,
+   "views": 2537,
+   "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
   },
@@ -11612,7 +11637,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 66599060,
+   "views": 66727649,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-26"
@@ -11703,7 +11728,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-09",
-   "views": 56075,
+   "views": 56077,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-26"
@@ -11846,7 +11871,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 95338,
+   "views": 95796,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-26"
@@ -12186,7 +12211,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-25",
-   "views": 45972,
+   "views": 46909,
    "kind": "",
    "first_seen": "2026-10-25",
    "last_seen": "2026-10-26"
@@ -12936,13 +12961,13 @@
   },
   {
    "video_id": "yShXlDqepUQ",
-   "title": "NEW Halloween Outfits, HARLEY QUINN, Devil, KILLER CAT, Papermask, GTA 5 2026 (GTA Online Update)",
+   "title": "UNLOCK Halloween Harley Quinn, NEW Devil Outfit, KILLER CAT, Papermask, GTA 5 2026,GTA Online Update",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=yShXlDqepUQ",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-26",
-   "views": 293,
+   "views": 954,
    "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
