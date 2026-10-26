@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-25T22:04:44Z",
+ "updated": "2026-10-26T00:06:59Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -129,7 +129,7 @@
    "views": 944733,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "-aVXA7KtGRw",
@@ -259,7 +259,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "0GiEzR-W-es",
@@ -363,7 +363,7 @@
    "views": 9898,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "0qCw4co8QCg",
@@ -740,7 +740,7 @@
    "views": 100798,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "2KO3p2etyyM",
@@ -1091,7 +1091,7 @@
    "views": 1857,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "3bnfTxfAW1k",
@@ -1221,7 +1221,7 @@
    "views": 15990,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "4Hocg1X0TzI",
@@ -1507,7 +1507,7 @@
    "views": 220719,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "66qX3VkqfNc",
@@ -1598,7 +1598,7 @@
    "views": 51842,
    "kind": "",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "6WRP6Pj31YE",
@@ -1819,7 +1819,7 @@
    "views": 57283,
    "kind": "",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "7i-sApe_UOg",
@@ -2088,9 +2088,11 @@
    "url": "https://www.youtube.com/shorts/8y7kQJCe7X0",
    "lang": "en",
    "game": "GTA 5",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "9BedwBdabxs",
@@ -2103,7 +2105,7 @@
    "views": 1176,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "9HcCkg1nFsM",
@@ -2287,7 +2289,7 @@
    "views": 2481,
    "kind": "",
    "first_seen": "2026-10-10",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "A-ap75BU8s8",
@@ -2326,7 +2328,7 @@
    "views": 886893,
    "kind": "",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "AFIkBJYWEaE",
@@ -2599,7 +2601,7 @@
    "views": 2262333,
    "kind": "",
    "first_seen": "2026-10-23",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "BVmcvd1sKb4",
@@ -2846,7 +2848,7 @@
    "views": 4811,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "ChipKvpy5ig",
@@ -3067,7 +3069,7 @@
    "views": 3,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "E8_Scfg-L_g",
@@ -3171,7 +3173,7 @@
    "views": 103154,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "EafXKFoX2CU",
@@ -3353,7 +3355,7 @@
    "views": 1668717,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "FZIMWayNjQ8",
@@ -3379,7 +3381,7 @@
    "views": 26,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "FfBiFOlHGmI",
@@ -3509,7 +3511,7 @@
    "views": 64658,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "GHjxEzNwyVw",
@@ -3522,7 +3524,7 @@
    "views": 21494,
    "kind": "",
    "first_seen": "2026-10-24",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "GLkdQb_0HFw",
@@ -3756,7 +3758,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-18",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "HocOOiBoYfo",
@@ -4003,7 +4005,7 @@
    "views": 3476,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "JbSv5bc-WLE",
@@ -4328,7 +4330,7 @@
    "views": 2384,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "Kfs4ffrMn5k",
@@ -4367,7 +4369,7 @@
    "views": 52,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "LCqZ1U9e3kc",
@@ -4434,7 +4436,7 @@
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "LTw1XaK7uOk",
@@ -4538,7 +4540,7 @@
    "views": 9236,
    "kind": "",
    "first_seen": "2026-10-22",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "MRznCyyzzlU",
@@ -5578,7 +5580,7 @@
    "views": 45980319,
    "kind": "",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "Rk1mrWKAvtM",
@@ -5695,7 +5697,7 @@
    "views": 177,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "SVwRhqDikNg",
@@ -5942,7 +5944,7 @@
    "views": 2841,
    "kind": "",
    "first_seen": "2026-10-20",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "U8W-sd6LyQM",
@@ -6046,7 +6048,7 @@
    "views": 9853906,
    "kind": "",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "Uc8NXCBkGk8",
@@ -6306,7 +6308,7 @@
    "views": 6022,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "Vik2dvNdpso",
@@ -6423,7 +6425,7 @@
    "views": 10869,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "WHDZBG_n8o0",
@@ -6488,7 +6490,7 @@
    "views": 161,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "Wk7y6XCX7P0",
@@ -6605,7 +6607,7 @@
    "views": 3358,
    "kind": "",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "XIMM-Y30LvY",
@@ -6971,7 +6973,7 @@
    "views": 2700,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "YyvhcD_6H5s",
@@ -7673,7 +7675,7 @@
    "views": 118720,
    "kind": "",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "bBF8_qykYJI",
@@ -7816,7 +7818,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "bd5-cvN7QX8",
@@ -7868,7 +7870,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "bx48IIOGCx8",
@@ -7907,7 +7909,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "c21j2fq22Ck",
@@ -8234,7 +8236,7 @@
    "views": 5688601,
    "kind": "",
    "first_seen": "2026-10-20",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "dMZwO6QAkHQ",
@@ -8507,7 +8509,7 @@
    "views": 50779,
    "kind": "",
    "first_seen": "2026-10-11",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "ej7Zjod-BsM",
@@ -8546,7 +8548,7 @@
    "views": 16610,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "fBq7x3eZqro",
@@ -9131,7 +9133,7 @@
    "views": 26092252,
    "kind": "",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "i0pFRruYNvA",
@@ -9300,7 +9302,7 @@
    "views": 1316764,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "iemEYrAYauY",
@@ -9495,7 +9497,7 @@
    "views": 2011,
    "kind": "",
    "first_seen": "2026-10-13",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "k3KsbHCfmT8",
@@ -9560,7 +9562,7 @@
    "views": 78,
    "kind": "",
    "first_seen": "2026-10-24",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "kRaoM8vCj1c",
@@ -9898,7 +9900,7 @@
    "views": 9507,
    "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "mKNgHzs-ELA",
@@ -10171,7 +10173,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-16",
-   "last_seen": "2026-10-24"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "nts32hr4W9g",
@@ -10301,7 +10303,7 @@
    "views": 80629,
    "kind": "",
    "first_seen": "2026-10-21",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "p2mjC-tD82s",
@@ -10470,7 +10472,7 @@
    "views": 14388,
    "kind": "",
    "first_seen": "2026-10-23",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "pYHeZVyLb1A",
@@ -10704,7 +10706,7 @@
    "views": 117900,
    "kind": "",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "qmyTPMl1jPU",
@@ -10847,7 +10849,7 @@
    "views": 8622,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "rRgiP-Tbvvw",
@@ -10990,7 +10992,7 @@
    "views": 2614,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "ruolheLOBik",
@@ -11016,7 +11018,7 @@
    "views": 65488640,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "s4XuqukBu8c",
@@ -11107,7 +11109,7 @@
    "views": 56048,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "s_a8STtdN-8",
@@ -11185,7 +11187,7 @@
    "views": 3625,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "t5ZMs07Ywms",
@@ -11250,7 +11252,7 @@
    "views": 89809,
    "kind": "",
    "first_seen": "2026-10-22",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "tJTmaPgcjPA",
@@ -11590,7 +11592,7 @@
    "views": 36209,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "uz-3NM7kURM",
@@ -11876,7 +11878,7 @@
    "views": 19113,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "wASECp1aVDk",
@@ -12253,7 +12255,7 @@
    "views": 167358,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "y42N1z7w8Ns",
@@ -12383,7 +12385,7 @@
    "views": 350,
    "kind": "",
    "first_seen": "2026-10-24",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "yjvhWljpn8M",
@@ -12513,7 +12515,7 @@
    "views": 8726,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "zHwt3PvAXGo",
@@ -12617,7 +12619,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-26"
   },
   {
    "video_id": "zmwO_jmNkVQ",
