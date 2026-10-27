@@ -8,10 +8,12 @@
 import { readFileSync, existsSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import vm from "node:vm";
 import {
   SITE_PAGES,
   footerGuidesHtml,
   injectHomeShell,
+  legacyHashRedirectScript,
   legacyHashRedirectTarget,
   localePath,
   pairedLocalePath,
@@ -61,6 +63,38 @@ if (legacyHashRedirectTarget("/", "#q=cayo") !== "") fail("#q= stays");
 if (legacyHashRedirectTarget("/", "#hot&v=yt-5XBMNYmFmTs") !== "/v/5XBMNYmFmTs/") {
   fail("yt deep link → /v/", legacyHashRedirectTarget("/", "#hot&v=yt-5XBMNYmFmTs"));
 }
+// Why: old /zh/#…&v=yt-{id} bookmarks still circulate. The helper and the
+// inline script the browser actually runs must both keep Traditional Chinese
+// on /zh/v/{id}/. A function-only fix leaves the live head script on English.
+if (legacyHashRedirectTarget("/zh/", "#hot&v=yt-5XBMNYmFmTs") !== "/zh/v/5XBMNYmFmTs/") {
+  fail("zh yt deep link → /zh/v/", legacyHashRedirectTarget("/zh/", "#hot&v=yt-5XBMNYmFmTs"));
+}
+if (legacyHashRedirectTarget("/zh", "#shorts&v=yt-5XBMNYmFmTs", "?utm=1") !== "/zh/v/5XBMNYmFmTs/?utm=1") {
+  fail("zh yt keeps search", legacyHashRedirectTarget("/zh", "#shorts&v=yt-5XBMNYmFmTs", "?utm=1"));
+}
+if (legacyHashRedirectTarget("/zh/", "#q=cayo&v=yt-5XBMNYmFmTs") !== "") {
+  fail("zh search hash stays");
+}
+function runLegacyHashScript(pathname, hash, search = "") {
+  const loc = { pathname, hash, search, replaced: "" };
+  loc.replace = (url) => {
+    loc.replaced = url;
+  };
+  const code = legacyHashRedirectScript().replace(/^<script>\s*/, "").replace(/\s*<\/script>\s*$/, "");
+  vm.runInNewContext(code, { location: loc });
+  return loc.replaced;
+}
+if (runLegacyHashScript("/zh/", "#hot&v=yt-5XBMNYmFmTs") !== "/zh/v/5XBMNYmFmTs/") {
+  fail("inline script zh yt", runLegacyHashScript("/zh/", "#hot&v=yt-5XBMNYmFmTs"));
+}
+if (runLegacyHashScript("/", "#hot&v=yt-5XBMNYmFmTs") !== "/v/5XBMNYmFmTs/") {
+  fail("inline script en yt", runLegacyHashScript("/", "#hot&v=yt-5XBMNYmFmTs"));
+}
+if (runLegacyHashScript("/zh/", "#shorts&v=yt-5XBMNYmFmTs", "?si=1") !== "/zh/v/5XBMNYmFmTs/?si=1") {
+  fail("inline script zh keeps search");
+}
+if (runLegacyHashScript("/zh/", "#q=cayo") !== "") fail("inline script keeps search hash");
+if (runLegacyHashScript("/about/", "#hot&v=yt-5XBMNYmFmTs") !== "") fail("inline script ignores non-home");
 if (legacyHashRedirectTarget("/about/", "#jobs") !== "") fail("non-home ignores hash redirect");
 
 const about = renderSitePage(
@@ -338,6 +372,16 @@ if (existsSync(distZhAbout)) {
   const built = readFileSync(distZhAbout, "utf8");
   if (!built.includes("關於 SessionScan")) fail("dist zh about heading");
   if (!built.includes('href="/zh/guides/money/"')) fail("dist zh about nav money");
+}
+// Why: the live home is the built HTML. Both locales share one head script;
+// it must branch to /zh/v/ or a Chinese bookmark still opens the English page.
+for (const home of ["dist/index.html", "dist/zh/index.html"]) {
+  const file = resolve(root, home);
+  if (!existsSync(file)) continue;
+  const built = readFileSync(file, "utf8");
+  if (!built.includes('data-legacy-hash-redirect')) fail("dist home missing hash redirect", home);
+  if (!built.includes('"/zh/v/"')) fail("dist home hash script missing zh video path", home);
+  if (built.includes('location.replace("/v/" + yt')) fail("dist home still hardcodes English video path", home);
 }
 
 console.log("test_site_pages.mjs ok", SITE_PAGES.length, "shell pages");

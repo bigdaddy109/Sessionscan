@@ -16,6 +16,7 @@
 - 行動版 sticky header：合併後若再改頁首高度，在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。site-nav 六連結已改換行，不再靠橫向捲軸。
 
 已完成：
+- 繁中首頁舊 hash `#…&v=yt-{id}` 改送到 `/zh/v/{id}/`（`legacyHashRedirectTarget` 把語系傳進 `videoPageUrl`；瀏覽器實際跑的 `legacyHashRedirectScript` 在 `/zh/` 用 `/zh/v/`。英文仍是 `/v/{id}/`。搜尋 hash `#q=` 仍留在首頁。rollback `pre-zh-hash-video-20261027`）。測 `tests/test_site_pages.mjs`（含 vm 跑 inline script，避免只改 helper、正式站 head 仍送英文）。
 - 繁中影片卡「複製連結／分享到 X」寫入 `/zh/v/{id}/`（`cardShareLink` 把 `cardActionsHtml` 已有的 lang 傳進 `videoPageUrl`；英文仍是 `/v/{id}/`。工作／論壇／貼文沒有語系頁，仍是 hash。#121；rollback `pre-zh-video-copy-20261026`）。測 `tests/test_card_share.mjs`、`tests/test_video_pages.mjs`。
 - Acid Lab 長片：`LONG_VIDEO_ID`＝`RC1hc3u9sOk`，`/guides/acid-lab/` 與 `/zh/guides/acid-lab/` 嵌 `https://www.youtube.com/embed/RC1hc3u9sOk`（16:9、`loading="lazy"`）。空字串仍只顯示即將推出。rollback `pre-acid-lab-long-video-20261025`。測 `tests/test_acid_lab_guide.mjs`、`tests/test_business_trailers_layout.mjs`。
 - Acid Lab 攻略上線既有路徑 `/guides/acid-lab/`（＋`/zh/`）：業主核定英文稿、繁中對照、Short `LL3J2wKC_Ik`（youtube.com/embed、9:16、lazy）。長片 id 見上一項。進 nav／sitemap／meta；生意頁 Acid Lab 列連過去。不再掛 `DRAFT_SITE_PAGES`，也不再印未附來源的 $750K。rollback `pre-acid-lab-guide-20261025`。#119 已合。測 `tests/test_acid_lab_guide.mjs`、`tests/test_business_ranking.mjs`、`tests/test_business_trailers_layout.mjs`。
