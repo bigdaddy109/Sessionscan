@@ -584,18 +584,6 @@
  ],
  "videos_shorts": [
   {
-   "id": "biJ91VvpDec",
-   "video_id": "biJ91VvpDec",
-   "title": "Crazy Pig Wonders Across Active Runway As Airbus Lands | Gtav",
-   "channel": "Gta Pilot Zone",
-   "url": "https://www.youtube.com/shorts/biJ91VvpDec",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA 5",
-   "kind": "short"
-  },
-  {
    "id": "yjvhWljpn8M",
    "video_id": "yjvhWljpn8M",
    "title": "GTA V - It Is My Head ! 😁 #gta5  Part-84 #gtaonline #viral #like #creative",
@@ -608,11 +596,59 @@
    "kind": "short"
   },
   {
+   "id": "biJ91VvpDec",
+   "video_id": "biJ91VvpDec",
+   "title": "Crazy Pig Wonders Across Active Runway As Airbus Lands | Gtav",
+   "channel": "Gta Pilot Zone",
+   "url": "https://www.youtube.com/shorts/biJ91VvpDec",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short"
+  },
+  {
    "id": "pJC0kmBx7So",
    "video_id": "pJC0kmBx7So",
    "title": "Nobody Expected a Wild Boar to Enter the Runway During This Airbus Landing GTA 5",
    "channel": "Gta Air Rush",
    "url": "https://www.youtube.com/shorts/pJC0kmBx7So",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short"
+  },
+  {
+   "id": "178BNjsFYnY",
+   "video_id": "178BNjsFYnY",
+   "title": "Air Worker Makes Quick Escape As Airbus Lands Near Passenger Bus | GTAV",
+   "channel": "Gta Pilot Zone",
+   "url": "https://www.youtube.com/shorts/178BNjsFYnY",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short"
+  },
+  {
+   "id": "HjlIz8f4utU",
+   "video_id": "HjlIz8f4utU",
+   "title": "Average Heist in GTA be like: #shorts #gtaonline",
+   "channel": "GTA Bite",
+   "url": "https://www.youtube.com/shorts/HjlIz8f4utU",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short"
+  },
+  {
+   "id": "0EOYLeR1pos",
+   "video_id": "0EOYLeR1pos",
+   "title": "Trolling A GTA 5 Police As a Fake Bollard 🚨💥😂 #gta5",
+   "channel": "Falgun Gaming",
+   "url": "https://www.youtube.com/shorts/0EOYLeR1pos",
    "views": null,
    "date": null,
    "lang": "en",
@@ -632,51 +668,15 @@
    "kind": "short"
   },
   {
-   "id": "178BNjsFYnY",
-   "video_id": "178BNjsFYnY",
-   "title": "Air Worker Makes Quick Escape As Airbus Lands Near Passenger Bus | GTAV",
-   "channel": "Gta Pilot Zone",
-   "url": "https://www.youtube.com/shorts/178BNjsFYnY",
+   "id": "IgRTbEHSeU4",
+   "video_id": "IgRTbEHSeU4",
+   "title": "I Become A Fake Traffic Bollard And Trolled A GTA 5 Cops 🚨💥😂 #gta5",
+   "channel": "XP Playz",
+   "url": "https://www.youtube.com/shorts/IgRTbEHSeU4",
    "views": null,
    "date": null,
    "lang": "en",
    "game": "GTA 5",
-   "kind": "short"
-  },
-  {
-   "id": "3fELuSIu1lY",
-   "video_id": "3fELuSIu1lY",
-   "title": "I become a fake bollard and trolled cops in gta #gta #gtav #gtaonline",
-   "channel": "BISON Gaming",
-   "url": "https://www.youtube.com/shorts/3fELuSIu1lY",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA Online",
-   "kind": "short"
-  },
-  {
-   "id": "Ny7DBlb2pag",
-   "video_id": "Ny7DBlb2pag",
-   "title": "🙈🙏Monkey sold the old scooter to buy Franklin a new one ❤️ #scooterlife #gta5 #gtaonline  #gtamods",
-   "channel": "Akshit GTA beast",
-   "url": "https://www.youtube.com/shorts/Ny7DBlb2pag",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA Online",
-   "kind": "short"
-  },
-  {
-   "id": "HjlIz8f4utU",
-   "video_id": "HjlIz8f4utU",
-   "title": "Average Heist in GTA be like: #shorts #gtaonline",
-   "channel": "GTA Bite",
-   "url": "https://www.youtube.com/shorts/HjlIz8f4utU",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA Online",
    "kind": "short"
   }
  ],
@@ -1928,7 +1928,7 @@
   }
  ],
  "meta": {
-  "sessionscan_slot": "2026-10-27 12:05",
+  "sessionscan_slot": "2026-10-27 14:06",
   "jobs_gtabase": "2026-10-27 11:29",
   "jobs_ign": "2026-10-27 11:30",
   "jobs_wiki": "2026-10-27 11:30",
@@ -1939,10 +1939,10 @@
   "videos_hot_ja": "2026-10-27 06:03",
   "videos_new_ja": "2026-10-27 11:34",
   "forum_reddit": "2026-10-27 11:34",
-  "tweets_en": "2026-10-27 12:06",
-  "tweets": "2026-10-27 12:06",
-  "_last_run": "2026-10-27 12:06",
-  "generated_at": "2026-10-27T04:06:14Z",
+  "tweets_en": "2026-10-27 14:06",
+  "tweets": "2026-10-27 14:06",
+  "_last_run": "2026-10-27 14:06",
+  "generated_at": "2026-10-27T06:06:57Z",
   "sample": false,
   "scraper_status": "ok",
   "label_zh": "資料快照",
@@ -1960,11 +1960,11 @@
   ],
   "jobs": "2026-10-27 11:30",
   "hot": "2026-10-27 12:02",
-  "new": "2026-10-27 12:05",
+  "new": "2026-10-27 14:06",
   "forum": "2026-10-27 11:34",
   "forum_bahamut": "2026-10-27 11:34",
-  "videos_shorts": "2026-10-27 12:05",
-  "tweets_zh": "2026-10-27 12:06"
+  "videos_shorts": "2026-10-27 14:06",
+  "tweets_zh": "2026-10-27 14:06"
  },
  "sessionscan_slot": {
   "status": "online",
@@ -2005,7 +2005,9 @@
  },
  "rank_prev": {
   "videos_hot_zh": {
-   "AFIkBJYWEaE": 1
+   "3_vTuv6Bn1o": 1,
+   "1SvLM0Yb-BU": 2,
+   "ZuCr7lmMeNA": 3
   },
   "videos_hot_en": {
    "rz1B4B2yBZY": 1,
@@ -2031,14 +2033,14 @@
    "GLkdQb_0HFw": 10
   },
   "videos_shorts": {
-   "yjvhWljpn8M": 1,
-   "biJ91VvpDec": 2,
+   "biJ91VvpDec": 1,
+   "yjvhWljpn8M": 2,
    "pJC0kmBx7So": 3,
-   "c1Qi5HGlHNI": 4,
+   "b_6RjGRhY8A": 4,
    "178BNjsFYnY": 5,
-   "b_6RjGRhY8A": 6,
+   "3fELuSIu1lY": 6,
    "Ny7DBlb2pag": 7,
-   "LVFt2tKQap0": 8
+   "HjlIz8f4utU": 8
   }
  }
 }
