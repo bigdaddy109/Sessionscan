@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27T00:07:01Z",
+ "updated": "2026-10-27T02:08:05Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -574,6 +574,17 @@
    "last_seen": "2026-10-17"
   },
   {
+   "video_id": "1Mn4yR2VRAo",
+   "title": "I Become A Fake Wood And Trolled GTA Cops 👮😂 #gta5",
+   "channel": "XP Playz",
+   "url": "https://www.youtube.com/shorts/1Mn4yR2VRAo",
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short",
+   "first_seen": "2026-10-27",
+   "last_seen": "2026-10-27"
+  },
+  {
    "video_id": "1SvLM0Yb-BU",
    "title": "為什麼GTA6發售當天，全美國會憑空蒸發10億美元？150萬人集體裝病的恐怖真相！",
    "channel": "",
@@ -996,6 +1007,8 @@
    "url": "https://www.youtube.com/shorts/2vJZ2wxuSWs",
    "lang": "en",
    "game": "GTA 6",
+   "date": "",
+   "views": null,
    "kind": "short",
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",
@@ -3308,11 +3321,13 @@
   {
    "video_id": "E8qwHUe6SLU",
    "title": "GTA 6 Rockstar Employees STALKED! Oxygen Tracked and MORE!!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=E8qwHUe6SLU",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-08",
    "views": 276,
+   "kind": "",
    "first_seen": "2026-10-27",
    "last_seen": "2026-10-27"
   },
@@ -3379,7 +3394,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-24"
+   "last_seen": "2026-10-27"
   },
   {
    "video_id": "EQnmIinOde8",
@@ -4029,7 +4044,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-18",
-   "last_seen": "2026-10-26"
+   "last_seen": "2026-10-27"
   },
   {
    "video_id": "HocOOiBoYfo",
@@ -6155,11 +6170,13 @@
   {
    "video_id": "SkOMBlmg5Ek",
    "title": "GTA 6 Collector’s Box Compared to previous Titles is Embarrassing.",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=SkOMBlmg5Ek",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-02",
    "views": 184,
+   "kind": "",
    "first_seen": "2026-10-27",
    "last_seen": "2026-10-27"
   },
@@ -8692,11 +8709,13 @@
   {
    "video_id": "cx7YX7boEek",
    "title": "A message to my GTA Online Character.",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=cx7YX7boEek",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-14",
    "views": 1306,
+   "kind": "",
    "first_seen": "2026-10-27",
    "last_seen": "2026-10-27"
   },
@@ -9166,7 +9185,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-27"
   },
   {
    "video_id": "fMXV20wsQ2M",
