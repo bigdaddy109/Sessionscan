@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27T03:35:43Z",
+ "updated": "2026-10-27T04:06:15Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -381,11 +381,13 @@
   {
    "video_id": "0lb7I0IKJQA",
    "title": "GTA 6's Level of Detail is Unmatched 🤯",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=0lb7I0IKJQA",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-21",
    "views": 170836,
+   "kind": "",
    "first_seen": "2026-10-27",
    "last_seen": "2026-10-27"
   },
@@ -605,7 +607,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-26",
-   "views": 269,
+   "views": 281,
    "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-27"
@@ -1218,10 +1220,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-25",
-   "views": 2315,
+   "views": 2371,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-26"
+   "last_seen": "2026-10-27"
   },
   {
    "video_id": "3bnfTxfAW1k",
@@ -2801,11 +2803,13 @@
   {
    "video_id": "BHrkLtSnwTo",
    "title": "GTA 6 Physics are Wilder Than You Think 👀",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=BHrkLtSnwTo",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-23",
    "views": 113338,
+   "kind": "",
    "first_seen": "2026-10-27",
    "last_seen": "2026-10-27"
   },
@@ -4777,11 +4781,13 @@
   {
    "video_id": "LRIGuYHnuAY",
    "title": "GTA 6 Beer Is Actually REAL?! 🍺  #GTA6 #GTAVI #RockstarGames",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=LRIGuYHnuAY",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-20",
    "views": 83976,
+   "kind": "",
    "first_seen": "2026-10-27",
    "last_seen": "2026-10-27"
   },
@@ -7752,6 +7758,17 @@
    "last_seen": "2026-10-19"
   },
   {
+   "video_id": "ZuCr7lmMeNA",
+   "title": "索尼全面崩潰！為了防禦《GTA6》越獄，PS5正在親手摧毀自己的帝國？",
+   "url": "https://www.youtube.com/watch?v=ZuCr7lmMeNA",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-10-27",
+   "views": 0,
+   "first_seen": "2026-10-27",
+   "last_seen": "2026-10-27"
+  },
+  {
    "video_id": "_43d4UpAa2Y",
    "title": "GTA Online NEW Halloween Missions! 🎃",
    "channel": "",
@@ -8098,6 +8115,7 @@
    "game": "GTA 6",
    "date": "2026-10-26",
    "views": 104470,
+   "kind": "",
    "first_seen": "2026-10-27",
    "last_seen": "2026-10-27"
   },
@@ -8782,11 +8800,13 @@
   {
    "video_id": "d6DPu-uktUs",
    "title": "Rockstar's Secret GTA 6 Messaging",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=d6DPu-uktUs",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-25",
    "views": 113809,
+   "kind": "",
    "first_seen": "2026-10-27",
    "last_seen": "2026-10-27"
   },
@@ -12851,11 +12871,13 @@
   {
    "video_id": "x8kEMrYYTe4",
    "title": "GTA 6 Coffee Is Real ☕️",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=x8kEMrYYTe4",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-26",
    "views": 42592,
+   "kind": "",
    "first_seen": "2026-10-27",
    "last_seen": "2026-10-27"
   },
