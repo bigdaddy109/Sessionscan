@@ -329,12 +329,13 @@ export function legacyHashRedirectTarget(pathname = "/", hash = "", search = "")
   const v = String(parsed.v || "").trim();
   const yt = v.match(YT_CARD_ID)?.[1] || "";
   if (yt) {
-    const page = videoPageUrl(yt);
+    // Same locale as the home that held the hash. English stays /v/{id}/.
+    const page = videoPageUrl(yt, isZh ? "zh" : "en");
     if (page) {
       try {
         return `${new URL(page).pathname}${search || ""}`;
       } catch {
-        return `/v/${yt}/${search || ""}`;
+        return `${isZh ? "/zh" : ""}/v/${yt}/${search || ""}`;
       }
     }
   }
@@ -376,7 +377,8 @@ export function legacyHashRedirectScript() {
     if (q) return;
     var yt = (v.match(/^yt-([A-Za-z0-9_-]{11})$/) || [])[1] || "";
     if (yt) {
-      location.replace("/v/" + yt + "/" + (location.search || ""));
+      var videoBase = (path === "/zh" || path.indexOf("/zh/") === 0) ? "/zh/v/" : "/v/";
+      location.replace(videoBase + yt + "/" + (location.search || ""));
       return;
     }
     var token = parts[0] || "";
