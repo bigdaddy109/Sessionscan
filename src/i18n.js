@@ -703,6 +703,31 @@ export const SEARCH_ALIAS_GROUPS = [
   ["shorts", "短片", "當紅"],
 ];
 
+/**
+ * Alias terms for one query word.
+ * Exact hits expand the whole group (`en` → english/英文).
+ * Substring hits require both sides to be at least 3 characters so the
+ * two-letter language tokens (`en`, `zh`, `ja`, `ko`) cannot fire inside
+ * longer words. Otherwise "Halloween", "Event", and "agency" expand to the
+ * English group: every English video/tweet matches, and the weekly job
+ * (no lang field) does not.
+ */
+export function aliasTermsFor(word) {
+  const w = String(word || "").toLowerCase();
+  if (!w) return [];
+  const tiny = w.length < 3 || /^vi\.?$/.test(w);
+  for (const group of SEARCH_ALIAS_GROUPS) {
+    const lower = group.map((t) => t.toLowerCase());
+    const hit = lower.some((t) => {
+      if (t === w) return true;
+      if (tiny || t.length < 3) return false;
+      return t.includes(w) || w.includes(t);
+    });
+    if (hit) return lower;
+  }
+  return [w];
+}
+
 export const LANG_SEARCH_ALIASES = {
   zh: ["zh", "中文", "chinese", "繁體", "繁体", "國語"],
   en: ["en", "english", "英文", "英語"],

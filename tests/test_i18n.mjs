@@ -4,6 +4,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   SEARCH_ALIAS_GROUPS,
+  aliasTermsFor,
   UI,
   applyHtmlI18n,
   detectLang,
@@ -67,6 +68,24 @@ if (!langHay("zh").includes("中文") || !langHay("zh").includes("chinese")) fai
 if (!SEARCH_ALIAS_GROUPS.some((g) => g.includes("中文") && g.includes("chinese"))) {
   fail("search aliases must match Chinese and English language words");
 }
+// Why: "en"/"ko" used to match as substrings, so Halloween, Event, agency,
+// and Kortz expanded into a language group. The weekly job then lost to
+// every English video and tweet. Exact "en" / 英文 must still expand.
+if (aliasTermsFor("halloween").join("|") !== "halloween") fail("halloween must stay literal", aliasTermsFor("halloween"));
+if (aliasTermsFor("event").includes("en") || aliasTermsFor("event").includes("english")) {
+  fail("event must not expand via en", aliasTermsFor("event"));
+}
+if (aliasTermsFor("agency").includes("english")) fail("agency must not expand via en", aliasTermsFor("agency"));
+if (aliasTermsFor("kortz").includes("korean") || aliasTermsFor("kortz").includes("ko")) {
+  fail("kortz must not expand via ko", aliasTermsFor("kortz"));
+}
+if (!aliasTermsFor("en").includes("english") || !aliasTermsFor("英文").includes("en")) {
+  fail("exact language words still expand");
+}
+if (!aliasTermsFor("gta6").includes("俠盜獵車手6") || aliasTermsFor("vi").join("|") !== "vi") {
+  fail("gta 6 aliases and bare vi unchanged");
+}
+if (!aliasTermsFor("佩里克").includes("cayo")) fail("cayo aliases still expand");
 
 const html = `<html lang="en" data-ui-lang="en">
   <title data-i18n="metaTitle">This week in GTA Online | SessionScan</title>

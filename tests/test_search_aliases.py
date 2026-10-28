@@ -52,14 +52,21 @@ def query_words(raw: str) -> list[str]:
 
 
 def alias_terms_for(word: str) -> list[str]:
+    """Mirror src/i18n.js aliasTermsFor — short tokens do not substring-match."""
     w = str(word or "").lower()
     if not w:
         return []
     tiny = len(w) < 3 or bool(re.fullmatch(r"vi\.?", w))
     for group in SEARCH_ALIAS_GROUPS:
         lower = [t.lower() for t in group]
-        hit = any(t == w or (not tiny and (t in w or w in t)) for t in lower)
-        if hit:
+        def hit(t: str) -> bool:
+            if t == w:
+                return True
+            # Same guard as i18n.js: "en" inside Halloween/Event/agency, "ko" inside Kortz.
+            if tiny or len(t) < 3:
+                return False
+            return t in w or w in t
+        if any(hit(t) for t in lower):
             return lower
     return [w]
 
@@ -265,6 +272,19 @@ class SearchAliasTests(unittest.TestCase):
             )
         self.assertEqual(alias_terms_for("vi"), ["vi"])
         self.assertNotEqual(set(alias_terms_for("vi")), set(alias_terms_for("gta 6")))
+        # Why: two-letter language aliases must not hide this week's Halloween
+        # job under every English card, or turn "Kortz" into a Korean search.
+        self.assertEqual(alias_terms_for("halloween"), ["halloween"])
+        self.assertEqual(alias_terms_for("event"), ["event"])
+        self.assertEqual(alias_terms_for("agency"), ["agency"])
+        self.assertEqual(alias_terms_for("kortz"), ["kortz"])
+        self.assertIn("english", alias_terms_for("en"))
+        self.assertIn("english", alias_terms_for("英文"))
+        halloween_job = {"title": "Fourth Week of Halloween Event, Bonuses & Discounts", "source": "GTABase"}
+        self.assertTrue(matches(halloween_job, ["title", "source"], query_words("halloween")))
+        self.assertTrue(matches(halloween_job, ["title", "source"], query_words("event")))
+        en_clip = {"title": "Random clip", "lang": "en"}
+        self.assertFalse(matches(en_clip, ["title", "lang"], query_words("halloween")))
         video_card = {"title": "Weekly GTA 6 trailer video"}
         self.assertTrue(matches(video_card, ["title"], query_words("gta6")))
         self.assertTrue(matches(video_card, ["title"], query_words("gta vi")))

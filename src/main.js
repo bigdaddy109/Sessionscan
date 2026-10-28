@@ -24,6 +24,7 @@ import {
 } from "./homeExtras.js";
 import {
   SEARCH_ALIAS_GROUPS,
+  aliasTermsFor,
   applyDomI18n,
   dataUrl,
   fmtViews as fmtViewsI18n,
@@ -707,18 +708,6 @@ function queryWords(raw) {
     if (group.some((t) => t.toLowerCase() === q)) return [q];
   }
   return q.split(/\s+/).filter(Boolean);
-}
-
-function aliasTermsFor(word) {
-  const w = String(word || "").toLowerCase();
-  if (!w) return [];
-  const tiny = w.length < 3 || /^vi\.?$/.test(w);
-  for (const group of SEARCH_ALIAS_GROUPS) {
-    const lower = group.map((t) => t.toLowerCase());
-    const hit = lower.some((t) => t === w || (!tiny && (t.includes(w) || w.includes(t))));
-    if (hit) return lower;
-  }
-  return [w];
 }
 
 function termInHay(term, hay) {
