@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-28T00:06:13Z",
+ "updated": "2026-10-28T02:08:42Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -285,7 +285,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-27"
+   "last_seen": "2026-10-28"
   },
   {
    "video_id": "0GiEzR-W-es",
@@ -1665,7 +1665,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-27",
-   "last_seen": "2026-10-27"
+   "last_seen": "2026-10-28"
   },
   {
    "video_id": "6-p4hdQSWnc",
@@ -2380,7 +2380,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-27"
+   "last_seen": "2026-10-28"
   },
   {
    "video_id": "9BedwBdabxs",
@@ -4532,11 +4532,13 @@
   {
    "video_id": "JeAdluOW3Ks",
    "title": "GTA 6 File Size is Massive 🫪",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=JeAdluOW3Ks",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-27",
    "views": 50337,
+   "kind": "",
    "first_seen": "2026-10-28",
    "last_seen": "2026-10-28"
   },
@@ -8419,6 +8421,17 @@
    "last_seen": "2026-10-25"
   },
   {
+   "video_id": "ah5b-hh7DZU",
+   "title": "Seit 1742 warten wir auf GTA 6…😭😭🫩 #gta #gta5 #gtav #gtaonline #gta6",
+   "channel": "ENZO",
+   "url": "https://www.youtube.com/shorts/ah5b-hh7DZU",
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "first_seen": "2026-10-28",
+   "last_seen": "2026-10-28"
+  },
+  {
    "video_id": "am-DB9lgNZ0",
    "title": "Grand Theft Auto 6: Launch Trailer PS5 Tech Reaction/Breakdown",
    "channel": "Digital Foundry",
@@ -8750,6 +8763,8 @@
    "url": "https://www.youtube.com/shorts/boY-gf44kfI",
    "lang": "en",
    "game": "GTA Online",
+   "date": "",
+   "views": null,
    "kind": "short",
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",
@@ -9653,7 +9668,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-11",
-   "last_seen": "2026-10-27"
+   "last_seen": "2026-10-28"
   },
   {
    "video_id": "g-rSSntLJ7k",
@@ -10691,6 +10706,7 @@
    "game": "GTA 6",
    "date": "2026-10-27",
    "views": 151578,
+   "kind": "",
    "first_seen": "2026-10-28",
    "last_seen": "2026-10-28"
   },
