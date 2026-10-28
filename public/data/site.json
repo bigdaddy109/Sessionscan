@@ -584,15 +584,15 @@
  ],
  "videos_shorts": [
   {
-   "id": "6_DxeSe0q50",
-   "video_id": "6_DxeSe0q50",
-   "title": "GTA V - It Is My Head ! 😁 #gta5  Part-15 #shorts  #viral",
-   "channel": "Fardin 3D Studio",
-   "url": "https://www.youtube.com/shorts/6_DxeSe0q50",
+   "id": "HjlIz8f4utU",
+   "video_id": "HjlIz8f4utU",
+   "title": "Average Heist in GTA be like: #shorts #gtaonline",
+   "channel": "GTA Bite",
+   "url": "https://www.youtube.com/shorts/HjlIz8f4utU",
    "views": null,
    "date": null,
    "lang": "en",
-   "game": "GTA 5",
+   "game": "GTA Online",
    "kind": "short"
   },
   {
@@ -608,15 +608,27 @@
    "kind": "short"
   },
   {
-   "id": "HjlIz8f4utU",
-   "video_id": "HjlIz8f4utU",
-   "title": "Average Heist in GTA be like: #shorts #gtaonline",
-   "channel": "GTA Bite",
-   "url": "https://www.youtube.com/shorts/HjlIz8f4utU",
+   "id": "ah5b-hh7DZU",
+   "video_id": "ah5b-hh7DZU",
+   "title": "Seit 1742 warten wir auf GTA 6…😭😭🫩 #gta #gta5 #gtav #gtaonline #gta6",
+   "channel": "ENZO",
+   "url": "https://www.youtube.com/shorts/ah5b-hh7DZU",
    "views": null,
    "date": null,
    "lang": "en",
-   "game": "GTA Online",
+   "game": "GTA 6",
+   "kind": "short"
+  },
+  {
+   "id": "pJC0kmBx7So",
+   "video_id": "pJC0kmBx7So",
+   "title": "Nobody Expected a Wild Boar to Enter the Runway During This Airbus Landing GTA 5",
+   "channel": "Gta Air Rush",
+   "url": "https://www.youtube.com/shorts/pJC0kmBx7So",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
    "kind": "short"
   },
   {
@@ -632,51 +644,39 @@
    "kind": "short"
   },
   {
-   "id": "ah5b-hh7DZU",
-   "video_id": "ah5b-hh7DZU",
-   "title": "Seit 1742 warten wir auf GTA 6…😭😭🫩 #gta #gta5 #gtav #gtaonline #gta6",
-   "channel": "ENZO",
-   "url": "https://www.youtube.com/shorts/ah5b-hh7DZU",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA 6",
-   "kind": "short"
-  },
-  {
-   "id": "5zb5tMEF9lw",
-   "video_id": "5zb5tMEF9lw",
-   "title": "GTA 6 | That One Bro 💀😂 #gta6",
-   "channel": "AMABSH",
-   "url": "https://www.youtube.com/shorts/5zb5tMEF9lw",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA 6",
-   "kind": "short"
-  },
-  {
-   "id": "qvF0Y_H0Vo4",
-   "video_id": "qvF0Y_H0Vo4",
-   "title": "GTA 6's Two Best Features #shorts #gaming #gta6",
-   "channel": "flonk_gaming",
-   "url": "https://www.youtube.com/shorts/qvF0Y_H0Vo4",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA 6",
-   "kind": "short"
-  },
-  {
-   "id": "hJ2JJF_HStE",
-   "video_id": "hJ2JJF_HStE",
-   "title": "Trevor Phillips in Real Life is Pure Chaos! 😂💀 #shorts #gta5 #gta",
-   "channel": "MrRubex",
-   "url": "https://www.youtube.com/shorts/hJ2JJF_HStE",
+   "id": "6_DxeSe0q50",
+   "video_id": "6_DxeSe0q50",
+   "title": "GTA V - It Is My Head ! 😁 #gta5  Part-15 #shorts  #viral",
+   "channel": "Fardin 3D Studio",
+   "url": "https://www.youtube.com/shorts/6_DxeSe0q50",
    "views": null,
    "date": null,
    "lang": "en",
    "game": "GTA 5",
+   "kind": "short"
+  },
+  {
+   "id": "-TxAhH45ik0",
+   "video_id": "-TxAhH45ik0",
+   "title": "🤭 #gta5 #game #gaming #gtaonline #gta5online For true fans of the GTA game, a lamp of the GTA game.",
+   "channel": "CustomLevitate",
+   "url": "https://www.youtube.com/shorts/-TxAhH45ik0",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short"
+  },
+  {
+   "id": "DW5IYZ9JqYg",
+   "video_id": "DW5IYZ9JqYg",
+   "title": "He definitely didn't see that coming 😭 #gtaonline #gta5 #gta5online #gtaviral #fail",
+   "channel": "Gtacouzi",
+   "url": "https://www.youtube.com/shorts/DW5IYZ9JqYg",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
    "kind": "short"
   }
  ],
@@ -1932,7 +1932,7 @@
   }
  ],
  "meta": {
-  "sessionscan_slot": "2026-10-28 11:52",
+  "sessionscan_slot": "2026-10-28 12:07",
   "jobs_gtabase": "2026-10-28 11:46",
   "jobs_ign": "2026-10-28 11:46",
   "jobs_wiki": "2026-10-28 11:46",
@@ -1943,10 +1943,10 @@
   "videos_hot_ja": "2026-10-28 06:03",
   "videos_new_ja": "2026-10-28 06:03",
   "forum_reddit": "2026-10-28 11:52",
-  "tweets_en": "2026-10-28 11:53",
-  "tweets": "2026-10-28 11:53",
-  "_last_run": "2026-10-28 11:53",
-  "generated_at": "2026-10-28T03:53:40Z",
+  "tweets_en": "2026-10-28 12:08",
+  "tweets": "2026-10-28 12:08",
+  "_last_run": "2026-10-28 12:08",
+  "generated_at": "2026-10-28T04:08:10Z",
   "sample": false,
   "scraper_status": "ok",
   "label_zh": "資料快照",
@@ -1964,11 +1964,11 @@
   ],
   "jobs": "2026-10-28 11:46",
   "hot": "2026-10-28 11:51",
-  "new": "2026-10-28 11:52",
+  "new": "2026-10-28 12:07",
   "forum": "2026-10-28 11:52",
   "forum_bahamut": "2026-10-28 11:52",
-  "videos_shorts": "2026-10-28 11:52",
-  "tweets_zh": "2026-10-28 11:53"
+  "videos_shorts": "2026-10-28 12:07",
+  "tweets_zh": "2026-10-28 12:08"
  },
  "sessionscan_slot": {
   "status": "online",
@@ -2014,14 +2014,7 @@
    "1SvLM0Yb-BU": 3
   },
   "videos_hot_en": {
-   "0lb7I0IKJQA": 1,
-   "aNVNs4bVqlo": 2,
-   "kmNMlUIdUM4": 3,
-   "d6DPu-uktUs": 4,
-   "BHrkLtSnwTo": 5,
-   "LRIGuYHnuAY": 6,
-   "x8kEMrYYTe4": 7,
-   "JeAdluOW3Ks": 8
+   "3JUboYgqIxc": 1
   },
   "videos_hot_ja": {
    "65JV3YTSwNE": 1,
@@ -2036,14 +2029,14 @@
    "1da1U2FRRbg": 10
   },
   "videos_shorts": {
-   "HjlIz8f4utU": 1,
-   "5zb5tMEF9lw": 2,
-   "fsf3vyki1Io": 3,
-   "biJ91VvpDec": 4,
-   "8y7kQJCe7X0": 5,
-   "ah5b-hh7DZU": 6,
-   "b_6RjGRhY8A": 7,
-   "0EOYLeR1pos": 8
+   "6_DxeSe0q50": 1,
+   "biJ91VvpDec": 2,
+   "HjlIz8f4utU": 3,
+   "b_6RjGRhY8A": 4,
+   "ah5b-hh7DZU": 5,
+   "5zb5tMEF9lw": 6,
+   "qvF0Y_H0Vo4": 7,
+   "hJ2JJF_HStE": 8
   }
  }
 }
