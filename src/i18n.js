@@ -690,6 +690,9 @@ export const SEARCH_ALIAS_GROUPS = [
     "佩裡科島",
     "佩裡科",
   ],
+  // Traditional / simplified names for the English word in weekly titles.
+  // Kept out of the english/en group so the query does not match every English card.
+  ["halloween", "萬聖節", "万圣节", "萬聖夜", "万圣夜"],
   ["gta 6", "gta6", "gta vi", "gta vi.", "俠盜獵車手6", "俠盜獵車手 vi"],
   ["weekly", "本週獎勵", "每週"],
   ["ceo", "總裁", "辦公室"],
@@ -710,7 +713,8 @@ export const SEARCH_ALIAS_GROUPS = [
  * two-letter language tokens (`en`, `zh`, `ja`, `ko`) cannot fire inside
  * longer words. Otherwise "Halloween", "Event", and "agency" expand to the
  * English group: every English video/tweet matches, and the weekly job
- * (no lang field) does not.
+ * (no lang field) does not. "萬聖節" is its own group with "halloween",
+ * so that Chinese query hits those titles and still skips other English cards.
  */
 export function aliasTermsFor(word) {
   const w = String(word || "").toLowerCase();

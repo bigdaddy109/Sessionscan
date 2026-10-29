@@ -71,7 +71,22 @@ if (!SEARCH_ALIAS_GROUPS.some((g) => g.includes("中文") && g.includes("chinese
 // Why: "en"/"ko" used to match as substrings, so Halloween, Event, agency,
 // and Kortz expanded into a language group. The weekly job then lost to
 // every English video and tweet. Exact "en" / 英文 must still expand.
-if (aliasTermsFor("halloween").join("|") !== "halloween") fail("halloween must stay literal", aliasTermsFor("halloween"));
+// 萬聖節 is a separate group: weekly cards are titled in English ("Halloween"),
+// so a Traditional Chinese query has to expand to that word without also
+// expanding to every English video and tweet.
+const halloweenTerms = aliasTermsFor("halloween");
+if (halloweenTerms.includes("en") || halloweenTerms.includes("english") || halloweenTerms.includes("英文")) {
+  fail("halloween must not expand into the English language group", halloweenTerms);
+}
+if (!halloweenTerms.includes("萬聖節") || !aliasTermsFor("萬聖節").includes("halloween")) {
+  fail("萬聖節 must alias to halloween", aliasTermsFor("萬聖節"));
+}
+if (!aliasTermsFor("万圣节").includes("halloween") || !aliasTermsFor("萬聖夜").includes("halloween")) {
+  fail("other Halloween spellings must alias to halloween");
+}
+if (aliasTermsFor("萬聖節").some((t) => t === "en" || t === "english" || t === "英文")) {
+  fail("萬聖節 must not expand into English", aliasTermsFor("萬聖節"));
+}
 if (aliasTermsFor("event").includes("en") || aliasTermsFor("event").includes("english")) {
   fail("event must not expand via en", aliasTermsFor("event"));
 }

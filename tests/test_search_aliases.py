@@ -15,6 +15,7 @@ def load_hub() -> dict:
     path = HUB_JSON if HUB_JSON.is_file() else SAMPLE_JSON
     return json.loads(path.read_text(encoding="utf-8"))
 
+# Mirror of SEARCH_ALIAS_GROUPS in src/i18n.js (the runtime source).
 SEARCH_ALIAS_GROUPS = [
     [
         "cayo perico",
@@ -27,6 +28,7 @@ SEARCH_ALIAS_GROUPS = [
         "佩裡科島",
         "佩裡科",
     ],
+    ["halloween", "萬聖節", "万圣节", "萬聖夜", "万圣夜"],
     ["gta 6", "gta6", "gta vi", "gta vi.", "俠盜獵車手6", "俠盜獵車手 vi"],
     ["weekly", "本週獎勵", "每週"],
     ["ceo", "總裁", "辦公室"],
@@ -274,7 +276,17 @@ class SearchAliasTests(unittest.TestCase):
         self.assertNotEqual(set(alias_terms_for("vi")), set(alias_terms_for("gta 6")))
         # Why: two-letter language aliases must not hide this week's Halloween
         # job under every English card, or turn "Kortz" into a Korean search.
-        self.assertEqual(alias_terms_for("halloween"), ["halloween"])
+        # 萬聖節 still has to find those English titles. It is its own group,
+        # so a random English clip (lang=en, no Halloween in the title) stays out.
+        halloween_terms = alias_terms_for("halloween")
+        self.assertIn("萬聖節", halloween_terms)
+        self.assertNotIn("en", halloween_terms)
+        self.assertNotIn("english", halloween_terms)
+        self.assertNotIn("英文", halloween_terms)
+        self.assertIn("halloween", alias_terms_for("萬聖節"))
+        self.assertIn("halloween", alias_terms_for("万圣节"))
+        self.assertIn("halloween", alias_terms_for("萬聖夜"))
+        self.assertNotIn("english", alias_terms_for("萬聖節"))
         self.assertEqual(alias_terms_for("event"), ["event"])
         self.assertEqual(alias_terms_for("agency"), ["agency"])
         self.assertEqual(alias_terms_for("kortz"), ["kortz"])
@@ -282,9 +294,12 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("english", alias_terms_for("英文"))
         halloween_job = {"title": "Fourth Week of Halloween Event, Bonuses & Discounts", "source": "GTABase"}
         self.assertTrue(matches(halloween_job, ["title", "source"], query_words("halloween")))
+        self.assertTrue(matches(halloween_job, ["title", "source"], query_words("萬聖節")))
+        self.assertTrue(matches(halloween_job, ["title", "source"], query_words("万圣节")))
         self.assertTrue(matches(halloween_job, ["title", "source"], query_words("event")))
         en_clip = {"title": "Random clip", "lang": "en"}
         self.assertFalse(matches(en_clip, ["title", "lang"], query_words("halloween")))
+        self.assertFalse(matches(en_clip, ["title", "lang"], query_words("萬聖節")))
         video_card = {"title": "Weekly GTA 6 trailer video"}
         self.assertTrue(matches(video_card, ["title"], query_words("gta6")))
         self.assertTrue(matches(video_card, ["title"], query_words("gta vi")))
