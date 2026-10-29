@@ -644,7 +644,209 @@ def scrape_gtabase():
                 merged.append(it)
         except Exception as exc:
             log.error("gtabase %s: %s", url, exc)
-    return rank_job_items(merged)
+    ranked = rank_job_items(merged)
+    previous = load_json("jobs_gtabase.json", [])
+    return attach_gtabase_weekly_events(ranked, lambda url: http_get(url).text, previous)
+
+
+# How many newest weekly articles to open per scrape. Older rows keep yesterday's events.
+WEEKLY_EVENT_FETCH_MAX = 2
+WEEKLY_ARTICLE_RE = re.compile(r"weekly[- ]updates?", re.I)
+EVENT_CAP = 24
+
+
+def _flat_text(node):
+    if node is None:
+        return ""
+    return re.sub(r"\s+", " ", node.get_text(" ", strip=True)).strip()
+
+
+def _add_event(events, seen, line):
+    line = re.sub(r"\s+", " ", line or "").strip(" -–—")
+    if len(line) < 3:
+        return
+    if len(line) > 180:
+        line = line[:177].rstrip() + "…"
+    key = line.casefold()
+    if key in seen:
+        return
+    seen.add(key)
+    events.append(line)
+
+
+def _heading_blocks(heading):
+    """Elements after a heading until the next h2/h3."""
+    blocks = []
+    node = heading.next_sibling
+    while node is not None:
+        name = getattr(node, "name", None)
+        if name in ("h2", "h3"):
+            break
+        if name:
+            blocks.append(node)
+        node = node.next_sibling
+    return blocks
+
+
+def _multiplier_label(item):
+    """Read GTABase .bonus-multiplier chips. Does not invent a rate the page didn't print."""
+    best = 0
+    has_rp = False
+    has_cash = False
+    for chip in item.select(".bonus-multiplier"):
+        classes = " ".join(chip.get("class") or [])
+        match = re.search(r"(\d+)\s*x", _flat_text(chip), re.I)
+        if not match:
+            continue
+        best = max(best, int(match.group(1)))
+        if re.search(r"\brp\b", classes):
+            has_rp = True
+        if re.search(r"\bcash\b", classes):
+            has_cash = True
+    if not best:
+        return ""
+    if has_rp and has_cash:
+        return f"{best}X GTA$ & RP"
+    if has_cash:
+        return f"{best}X GTA$"
+    if has_rp:
+        return f"{best}X RP"
+    return f"{best}X"
+
+
+def parse_gtabase_article_events(html):
+    """Title-level lines from a GTABase weekly article.
+
+    Subheadings (2X/3X activities, podium / showroom, salvage) — not the price table
+    and not the article body. Home bullets and the money card both read this list.
+    """
+    if not html:
+        return []
+    soup = BeautifulSoup(html, "html.parser")
+    root = soup.select_one("article") or soup
+    events = []
+    seen = set()
+
+    for entry in root.select("li.field-entry.gta5-bonuses"):
+        for item in entry.select("li.gta-bonuses"):
+            name_el = item.select_one("h3")
+            name = _flat_text(name_el)
+            label = _multiplier_label(item)
+            if name and label:
+                _add_event(events, seen, f"{label} — {name}")
+
+    discount_names = []
+    for entry in root.select("li.field-entry.gta5-discounts"):
+        for item in entry.select("li.gta-bonuses"):
+            name = _flat_text(item.select_one("h3"))
+            if name and name not in discount_names:
+                discount_names.append(name)
+    if discount_names:
+        shown = ", ".join(discount_names[:4])
+        extra = f" +{len(discount_names) - 4}" if len(discount_names) > 4 else ""
+        _add_event(events, seen, f"In-Game Discounts — {shown}{extra}")
+
+    showroom_extra = 0
+    for entry in root.select("li.field-entry.showrooms-test-rides"):
+        for item in entry.select("li.gta-bonuses"):
+            kind = _flat_text(item.select_one(".item-type"))
+            name = _flat_text(item.select_one("h3"))
+            if not name:
+                continue
+            if re.search(r"podium|prize\s*ride|showroom", kind, re.I):
+                _add_event(events, seen, f"{kind} — {name}" if kind else name)
+                continue
+            if showroom_extra >= 4:
+                continue
+            showroom_extra += 1
+            _add_event(events, seen, f"{kind} — {name}" if kind else name)
+
+    for h2 in root.find_all("h2"):
+        if not re.search(r"weekly challenge", _flat_text(h2), re.I):
+            continue
+        for block in _heading_blocks(h2):
+            if block.name != "p":
+                continue
+            text = _flat_text(block)
+            if text:
+                _add_event(events, seen, f"Weekly Challenge — {text}")
+                break
+        break
+
+    def section_lines(heading_re):
+        for h3 in root.find_all("h3"):
+            heading = _flat_text(h3)
+            if not heading or not heading_re.search(heading):
+                continue
+            for block in _heading_blocks(h3):
+                if block.name != "ul":
+                    continue
+                for li in block.find_all("li", recursive=False):
+                    text = _flat_text(li)
+                    if text:
+                        _add_event(events, seen, f"{heading} — {text}")
+                break
+
+    # Salvage / Cayo / gun-van before the long "Also Bonuses" creator list, or the cap drops them.
+    section_lines(re.compile(r"salvage|cayo|perico|gun van|kortz|premium race", re.I))
+
+    also_added = 0
+    for h3 in root.find_all("h3"):
+        heading = _flat_text(h3)
+        if not heading or not re.search(r"also bonuses", heading, re.I):
+            continue
+        current = ""
+        for block in _heading_blocks(h3):
+            strong = block.find("strong") if hasattr(block, "find") else None
+            if strong:
+                label = _flat_text(strong)
+                if re.search(r"\d+\s*x", label, re.I):
+                    current = label
+            if block.name != "ul":
+                continue
+            for li in block.find_all("li", recursive=False):
+                if also_added >= 8:
+                    break
+                text = _flat_text(li)
+                if not text or re.search(r"\bby\b", text, re.I):
+                    continue
+                before = len(events)
+                _add_event(events, seen, f"{current} — {text}" if current else text)
+                if len(events) > before:
+                    also_added += 1
+
+    return events[:EVENT_CAP]
+
+
+def attach_gtabase_weekly_events(items, fetch_html, previous=None):
+    """Open the newest weekly articles and store subheading events on those cards.
+
+    Fetch failures keep yesterday's events for the same URL. Non-weekly cards are unchanged.
+    """
+    prev_by_url = {}
+    for old in previous or []:
+        if isinstance(old, dict) and old.get("url") and old.get("events"):
+            prev_by_url[norm_url(old["url"])] = list(old["events"])
+    fetched = 0
+    for it in items or []:
+        blob = f"{it.get('title') or ''} {it.get('url') or ''}"
+        if not WEEKLY_ARTICLE_RE.search(blob):
+            continue
+        url = it.get("url") or ""
+        key = norm_url(url)
+        events = []
+        if fetched < WEEKLY_EVENT_FETCH_MAX and fetch_html and url:
+            fetched += 1
+            try:
+                events = parse_gtabase_article_events(fetch_html(url))
+            except Exception as exc:
+                log.warning("gtabase events %s: %s", url, exc)
+                events = []
+        if events:
+            it["events"] = events
+        elif key in prev_by_url:
+            it["events"] = prev_by_url[key]
+    return items
 
 
 def parse_ign_rss(xml_text):

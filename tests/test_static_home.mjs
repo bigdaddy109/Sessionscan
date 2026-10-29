@@ -41,6 +41,31 @@ const zh = renderStaticHomeJobList(hub, { now, lang: "zh" });
 if (!zh.includes("分享到 X")) fail("zh share label");
 if (!zh.includes("複製連結")) fail("zh copy label");
 
+// Why: the money card used to be a title link or an empty list. Subheading events
+// belong on the card, including Thursday when only last week's weekly exists.
+{
+  const thursday = new Date("2026-10-29T04:00:00Z");
+  const eventHub = {
+    jobs_gtabase: [
+      {
+        title: "GTA Online Weekly Update (October 22-28): Fourth Week of Halloween Event, Bonuses & Discounts",
+        url: "https://www.gtabase.com/example-oct-22",
+        updated: "2026-10-22",
+        source: "GTABase",
+        events: ["3X GTA$ & RP — Slasher", "Podium Vehicle — Comet S2"],
+      },
+    ],
+  };
+  const picked = selectHomeJobs(eventHub, thursday);
+  if (picked.length !== 1) fail("Thursday home must keep last week's weekly card", picked);
+  const card = renderStaticHomeJobList(eventHub, { now: thursday, lang: "zh" });
+  if (!card.includes('class="job-events"') || !card.includes("3X GTA$ &amp; RP — Slasher")) {
+    fail("money card must list events", card);
+  }
+  if (!card.includes("Podium Vehicle — Comet S2")) fail("money card missing showroom event", card);
+  if (card.includes("外連公開頁")) fail("event card must not fall back to the generic blurb", card);
+}
+
 const shell = `<section class="view" id="view-jobs"><div class="job-list" id="jobList"></div></section>`;
 const stamped = injectJobListHtml(shell, en);
 if (!stamped.includes("data-static-job")) fail("injectJobListHtml failed");

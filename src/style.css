@@ -1111,6 +1111,15 @@ main {
   color: var(--mint);
 }
 .blurb { margin-top: 6px; color: var(--muted); font-size: 13px; }
+.job-events {
+  margin: 8px 0 0;
+  padding: 0 0 0 1.15em;
+  color: var(--text);
+  font-size: 13.5px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.job-events li { margin: 3px 0; }
 
 /* ---------- videos ---------- */
 .video-grid {

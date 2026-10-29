@@ -4,8 +4,11 @@ import { youtubeId } from "./cardShare.js";
 import { pickOfficialWeekly, snapshotNow } from "./homeExtras.js";
 import { localeHome, t } from "./i18n.js";
 import {
+  isJobInWeek,
   isOwnedShortThisWeek,
   isThisWeekJob,
+  isWeeklyUpdateCard,
+  previousRockstarWeekStart,
   rockstarWeekStart,
   toIsoDate,
 } from "./thisWeek.js";
@@ -209,7 +212,8 @@ export const WEEK_BULLET_CATEGORIES = [
   {
     id: "podium",
     labelKey: "weekBulletPodium",
-    re: /podium|prize\s*ride|展台|獎勵載具|幸運輪|lucky\s*wheel|podium\s*vehicle/i,
+    // "Showrooms & Test Rides" is the GTABase subheading for the podium / prize-ride block.
+    re: /podium|prize\s*ride|showroom|展台|展廳|獎勵載具|幸運輪|lucky\s*wheel|podium\s*vehicle/i,
   },
   {
     id: "salvage_cayo",
@@ -356,7 +360,7 @@ export function staticWeekBulletsInnerHtml(data, { lang = "en", now = null } = {
   if (!data || typeof data !== "object") return "";
   const ui = lang === "zh" ? "zh" : "en";
   const ref = now instanceof Date ? now : snapshotNow(data.meta || {}) || new Date();
-  const bullets = buildWeekBullets(data, ref, ui);
+  const bullets = buildWeekBullets(data, ref, ui, { carryPreviousWeek: true });
   return weekBulletItemsHtml(bullets, { claimable: true, lang: ui });
 }
 
@@ -369,7 +373,7 @@ export function injectStaticWeekBullets(html, { data = null, lang = "en", now = 
   let out = String(html || "");
   const ui = lang === "zh" ? "zh" : "en";
   const ref = now instanceof Date ? now : snapshotNow(data.meta || {}) || new Date();
-  const bullets = buildWeekBullets(data, ref, ui);
+  const bullets = buildWeekBullets(data, ref, ui, { carryPreviousWeek: true });
   const weekKey = claimedStorageKey(ref);
   const items = weekBulletItemsHtml(bullets, { claimable: true, lang: ui });
   const progress = formatClaimedProgress(0, bullets.length, ui);
@@ -400,8 +404,27 @@ function signalBlob(item) {
   return `${item?.title || ""} ${item?.title_en || ""} ${item?.text || ""} ${item?.blurb || ""}`;
 }
 
+/** Title-level event lines stored on a job (no prices, no article body). */
+export function jobEventTitles(item) {
+  const raw = item?.events;
+  if (!Array.isArray(raw)) return [];
+  const out = [];
+  const seen = new Set();
+  for (const ev of raw) {
+    const title = String(typeof ev === "string" ? ev : ev?.title || "")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (!title) continue;
+    const key = title.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(title);
+  }
+  return out;
+}
+
 /** Titles we may mine for one-liners (outbound only — no guide copy). */
-export function weekSignalItems(data, now = new Date()) {
+export function weekSignalItems(data, now = new Date(), { carryPreviousWeek = false } = {}) {
   const out = [];
   const seen = new Set();
   const push = (item, kind) => {
@@ -421,14 +444,37 @@ export function weekSignalItems(data, now = new Date()) {
     });
   };
 
-  // Only the weekly that belongs to `now`'s Rockstar week — keeps archive freezes honest.
-  const weekly = pickOfficialWeekly(data || {});
-  if (weekly && isThisWeekJob(weekly, now)) push(weekly, "official");
-
-  for (const key of ["jobs_gtabase", "jobs_ign", "jobs_wiki"]) {
-    for (const job of data?.[key] || []) {
-      if (isThisWeekJob(job, now)) push(job, "job");
+  const pushWithEvents = (item, kind) => {
+    push(item, kind);
+    const url = String(item?.url || "").trim();
+    const source = String(item?.source || item?.channel || "").trim();
+    const updated = String(item?.updated || item?.date || "").trim();
+    for (const title of jobEventTitles(item)) {
+      push({ title, url, source, updated }, "event");
     }
+  };
+
+  const pools = ["jobs_gtabase", "jobs_ign", "jobs_wiki"].flatMap((key) => data?.[key] || []);
+  const currentJobs = pools.filter((job) => isThisWeekJob(job, now));
+  // Home only: Thursday before the new post still has last week's article.
+  // Archive freezes pass carryPreviousWeek false so an empty week stays empty.
+  const carried =
+    !currentJobs.length && carryPreviousWeek
+      ? pools.filter(
+          (job) => isJobInWeek(job, previousRockstarWeekStart(now)) && isWeeklyUpdateCard(job),
+        )
+      : [];
+  const activeJobs = currentJobs.length ? currentJobs : carried;
+
+  const weekly = pickOfficialWeekly(data || {});
+  if (weekly && activeJobs.some((job) => job === weekly || (job.url && job.url === weekly.url))) {
+    pushWithEvents(weekly, "official");
+  } else if (weekly && isThisWeekJob(weekly, now)) {
+    pushWithEvents(weekly, "official");
+  }
+
+  for (const job of activeJobs) {
+    pushWithEvents(job, "job");
   }
 
   const short = data?.sessionscan_slot?.short;
@@ -462,9 +508,19 @@ function oneLineFromTitle(title, lang) {
   return line;
 }
 
-export function buildWeekBullets(data, now = new Date(), lang = "en") {
+function rewardFromSignal(hit, lang) {
+  // Event lines already are the subheading. Don't strip at ":" or "Robbery: Virtue" collapses.
+  if (hit?.kind === "event") {
+    let line = String(hit.title || "").replace(/\s+/g, " ").trim();
+    if (line.length > 140) line = `${line.slice(0, 137).trim()}…`;
+    return line;
+  }
+  return oneLineFromTitle(hit?.title, lang);
+}
+
+export function buildWeekBullets(data, now = new Date(), lang = "en", { carryPreviousWeek = false } = {}) {
   const ui = lang === "zh" ? "zh" : "en";
-  const signals = weekSignalItems(data, now);
+  const signals = weekSignalItems(data, now, { carryPreviousWeek });
   // Prefer this week's own outbound URL — never fall back to a newer week's article.
   const weekOfficial =
     signals.find((s) => s.kind === "official" && s.url) ||
@@ -478,7 +534,7 @@ export function buildWeekBullets(data, now = new Date(), lang = "en") {
       return {
         id: cat.id,
         label: t(cat.labelKey, {}, ui),
-        reward: oneLineFromTitle(hit.title, ui),
+        reward: rewardFromSignal(hit, ui),
         how: t("weekBulletHowSource", {}, ui),
         url: hit.url || fallbackUrl,
         pending: false,

@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { HOT_STALE_HINT, isHotSnapshotStale } from "../src/bahaTime.js";
-import { isOwnedShortThisWeek, isThisWeekJob, thisWeekJobs, withDisplayRanks } from "../src/thisWeek.js";
+import { homeMoneyJobs, isOwnedShortThisWeek, isThisWeekJob, thisWeekJobs, withDisplayRanks } from "../src/thisWeek.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const hub = JSON.parse(readFileSync(resolve(root, "tests/fixtures/hub.json"), "utf8"));
@@ -62,6 +62,20 @@ if (!isThisWeekJob(thisWeekTitle, thursday) || !isThisWeekJob(thisWeekUpdated, t
 const thursdayShown = thisWeekJobs([...jobs, lastWeek, lastWeekAge], thursday);
 if (thursdayShown.length) {
   console.error("Thursday default must be empty when only last week exists:\n", thursdayShown);
+  process.exit(1);
+}
+// Why: thisWeekJobs stays strict (no 8-day backdoor), but the home money card
+// still lists the previous week's weekly-update when this week has no article yet.
+const ageCard = { ...lastWeekAge, url: "https://example.com/age" };
+const weeklyCard = { ...lastWeek, url: "https://example.com/weekly" };
+const carried = homeMoneyJobs([ageCard, weeklyCard], thursday);
+if (carried.length !== 1 || carried[0].url !== weeklyCard.url) {
+  console.error("home money card must carry only the previous weekly update", carried);
+  process.exit(1);
+}
+const mixed = homeMoneyJobs([ageCard, weeklyCard, thisWeekUpdated], thursday);
+if (mixed.length !== 1 || mixed[0] !== thisWeekUpdated) {
+  console.error("a real this-week card must replace the carry", mixed);
   process.exit(1);
 }
 const thursdayKeep = thisWeekJobs([lastWeek, lastWeekAge, thisWeekTitle, thisWeekUpdated], thursday);

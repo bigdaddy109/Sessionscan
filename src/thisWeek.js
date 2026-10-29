@@ -129,6 +129,39 @@ export function thisWeekJobs(list, now = new Date(), max = THIS_WEEK_MAX) {
   return (list || []).filter((it) => isThisWeekJob(it, now)).slice(0, max);
 }
 
+/** Previous Rockstar Thursday (UTC date), the week whose bonuses are still the latest post. */
+export function previousRockstarWeekStart(now = new Date()) {
+  const start = rockstarWeekStart(now);
+  const prev = new Date(start.getTime());
+  prev.setUTCDate(prev.getUTCDate() - 7);
+  return prev;
+}
+
+/**
+ * Weekly-update cards only — not an arbitrary job that happens to share a date.
+ * Used when this Rockstar week has no article yet (Thursday, before the new post).
+ */
+export function isWeeklyUpdateCard(item) {
+  const blob = `${item?.title || ""} ${item?.title_en || ""}`;
+  return /weekly(?:\s+updates?)?|每週更新|每周更新|bonuses?\s*(?:&|and)\s*discounts|獎勵與折扣/i.test(blob);
+}
+
+/**
+ * Home money list. This Rockstar week's jobs when any exist.
+ * When the new weekly is not in the snapshot yet, keep the previous week's
+ * single weekly-update card so Thursday morning is not an empty list.
+ * Does not reopen the old ≤8-day age backdoor for non-weekly cards.
+ */
+export function homeMoneyJobs(list, now = new Date(), max = THIS_WEEK_MAX) {
+  const current = thisWeekJobs(list, now, max);
+  if (current.length) return current;
+  const prev = previousRockstarWeekStart(now);
+  const carried = (list || [])
+    .filter((it) => it?.title && it?.url && isJobInWeek(it, prev) && isWeeklyUpdateCard(it))
+    .sort((a, b) => String(b.updated || "").localeCompare(String(a.updated || "")));
+  return carried.slice(0, 1);
+}
+
 /** Number the currently visible job cards 1, 2, … regardless of source rank. */
 export function withDisplayRanks(list) {
   return (list || []).map((item, i) => ({ ...item, rank: i + 1 }));
