@@ -1,55 +1,68 @@
 [
  {
-  "id": "e39880cef95cb5d09b62316143974bce",
-  "rank": 1,
-  "title": "【情報】給不放棄拼生存戰（週挑戰）者：墳場生存戰卡點",
-  "author": "prcheng",
-  "time": "2026-10-28 21:49",
-  "replies": "0",
-  "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117819",
-  "blurb": "外連巴哈討論串。不轉載全文。"
- },
- {
-  "id": "b22aa9df9097f9ff4768515b7984bbd9",
-  "rank": 2,
-  "title": "【情報】《GTA6》容量大小210G ! 媒體評測已陸續發出",
-  "author": "PapayaApple",
-  "time": "2026-10-28 08:50",
-  "replies": "14",
-  "source": "Bahamut",
-  "game": "GTA 6",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117818",
-  "blurb": "外連巴哈討論串。不轉載全文。"
- },
- {
   "id": "b66877dc957faf004c61b270fbc319f1",
-  "rank": 3,
+  "rank": 1,
   "title": "【問題】這遊戲有真正被動收入嗎",
   "author": "sec20159",
-  "time": "2026-10-27 20:43",
-  "replies": "18",
+  "time": "2026-10-29 08:14",
+  "replies": "21",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117817",
   "blurb": "外連巴哈討論串。不轉載全文。"
  },
  {
-  "id": "68f925f3de44341cfe2fbbe6206e3b2f",
+  "id": "e39880cef95cb5d09b62316143974bce",
+  "rank": 2,
+  "title": "【情報】給不放棄拼生存戰（週挑戰）者：墳場生存戰卡點",
+  "author": "prcheng",
+  "time": "2026-10-29 08:14",
+  "replies": "3",
+  "source": "Bahamut",
+  "game": "GTA Online",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117819",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "b8729082a6baf850a8441e0ef86b49c0",
+  "rank": 3,
+  "title": "【情報】GTA ONLINE 活動 (10/29~11/4,萬聖節活動最後一週,不死完成10波生存戰,獲得\"嗜血殺人狂小丑套裝\"和 25 萬 GTA 遊戲幣)",
+  "author": "ken33890458",
+  "time": "2026-10-29 07:14",
+  "replies": "0",
+  "source": "Bahamut",
+  "game": "GTA Online",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117820",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "b22aa9df9097f9ff4768515b7984bbd9",
   "rank": 4,
+  "title": "【情報】《GTA6》容量大小210G ! 媒體評測已陸續發出",
+  "author": "PapayaApple",
+  "time": "2026-10-29 07:14",
+  "replies": "18",
+  "source": "Bahamut",
+  "game": "GTA 6",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117818",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "68f925f3de44341cfe2fbbe6206e3b2f",
+  "rank": 5,
   "title": "【閒聊】佩里克島有暗中nerf?",
   "author": "prcheng",
-  "time": "2026-10-26 01:11",
+  "time": "10-26 01:11",
   "replies": "26",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117815",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "f1fd153e1fa9aa5ebb4cc0f4656415d8",
-  "rank": 5,
+  "rank": 6,
   "title": "【閒聊】有沒有人要搶賭場",
   "author": "kirito5196",
   "time": "10-25 18:37",
@@ -62,7 +75,7 @@
  },
  {
   "id": "0aa8c8c45785963c6460fe880751d3c5",
-  "rank": 6,
+  "rank": 7,
   "title": "【心得】魯登朵夫墓園生存戰 卡點位置",
   "author": "slike5566",
   "time": "10-25 12:39",
@@ -75,7 +88,7 @@
  },
  {
   "id": "3bb93c7ad51cd2410ebb46f693fc08fb",
-  "rank": 7,
+  "rank": 8,
   "title": "【問題】手機上網消星如何使用？",
   "author": "prcheng",
   "time": "10-25 12:37",
@@ -88,7 +101,7 @@
  },
  {
   "id": "74832656d86adebcf86b77eb14f1ec8b",
-  "rank": 8,
+  "rank": 9,
   "title": "【閒聊】《GTA6》女主Lucia臉模？首次直播",
   "author": "PapayaApple",
   "time": "10-25 10:19",
@@ -101,7 +114,7 @@
  },
  {
   "id": "39cde661b2f503bbb5060a9a0ee1295b",
-  "rank": 9,
+  "rank": 10,
   "title": "【問題】夜總會生涯成就請問",
   "author": "prcheng",
   "time": "10-25 00:18",
@@ -109,19 +122,6 @@
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117811",
-  "blurb": "外連巴哈討論串。不轉載全文。",
-  "time_relative": true
- },
- {
-  "id": "7dd483944b78babff1f34beb988cf67d",
-  "rank": 10,
-  "title": "【情報】GTA ONLINE 活動 (10/22~10/28,萬聖節活動第4週,完成全部3個短暫旅程,獲得50萬及免費面具,新社群任務)",
-  "author": "ken33890458",
-  "time": "10-23 06:55",
-  "replies": "4",
-  "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117810",
   "blurb": "外連巴哈討論串。不轉載全文。",
   "time_relative": true
  }

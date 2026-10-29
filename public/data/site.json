@@ -1,8 +1,23 @@
 {
  "jobs_gtabase": [
   {
-   "id": "7e71e7d4c997cf4fdc43dbff0bd71c88",
+   "id": "27411ca16ec16c725897ad3e2eca21ae",
    "rank": 1,
+   "title": "GTA Online Weekly Update (October 29- November 4): Final Week of Halloween Event, Bonuses & Discounts",
+   "title_en": "",
+   "source": "GTABase",
+   "game": "GTA Online",
+   "author": "GTABase",
+   "updated": "2026-10-29",
+   "tags": [
+    "GTA Online"
+   ],
+   "url": "https://www.gtabase.com/articles/grand-theft-auto-v/news/gta-online-weekly-update-october-29-november-4-final-week-of-halloween-event-bonuses-discounts",
+   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
+  },
+  {
+   "id": "7e71e7d4c997cf4fdc43dbff0bd71c88",
+   "rank": 2,
    "title": "GTA Online Weekly Update (October 22-28): Fourth Week of Halloween Event, Bonuses & Discounts",
    "title_en": "",
    "source": "GTABase",
@@ -17,7 +32,7 @@
   },
   {
    "id": "6c34179dddb5ba9f9b5db325756a437c",
-   "rank": 2,
+   "rank": 3,
    "title": "GTA Online Weekly Update (October 15-21): Third Week of Halloween Event, Bonuses & Discounts",
    "title_en": "",
    "source": "GTABase",
@@ -32,7 +47,7 @@
   },
   {
    "id": "9d48e422bc8f1e299b2c6caa869855cd",
-   "rank": 3,
+   "rank": 4,
    "title": "GTA Online Weekly Update (October 8-14): Second Week of Halloween Event, Bonuses & Discounts",
    "title_en": "",
    "source": "GTABase",
@@ -47,7 +62,7 @@
   },
   {
    "id": "8743bab82446f8451e58b30cff14feb7",
-   "rank": 4,
+   "rank": 5,
    "title": "GTA Online Weekly Update (October 1-7): Halloween in Los Santos, Bonuses & Discounts",
    "title_en": "",
    "source": "GTABase",
@@ -62,7 +77,7 @@
   },
   {
    "id": "d72115880953e8dcba4d37df92463e19",
-   "rank": 5,
+   "rank": 6,
    "title": "GTA Online Weekly Update (September 24-30): Business Rivalries Event Final Week, Bonuses & Discounts",
    "title_en": "",
    "source": "GTABase",
@@ -77,7 +92,7 @@
   },
   {
    "id": "afa5dd58d8a208199667981a33ef25b3",
-   "rank": 6,
+   "rank": 7,
    "title": "GTA Online Weekly Update (September 17-23): Business Rivalries Event 3rd Week, Bonuses & Discounts",
    "title_en": "",
    "source": "GTABase",
@@ -92,7 +107,7 @@
   },
   {
    "id": "d8d19e53074176ae908e0ec669326eb2",
-   "rank": 7,
+   "rank": 8,
    "title": "GTA Online: The Kortz Center Heist Update",
    "title_en": "",
    "source": "GTABase",
@@ -103,21 +118,6 @@
     "GTA Online"
    ],
    "url": "https://www.gtabase.com/articles/grand-theft-auto-v/title-updates/gta-online-summer-2026-dlc-update-1-73-patch-notes-features",
-   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
-  },
-  {
-   "id": "a540e5977a82f4a1e3cccbd371a4b40e",
-   "rank": 8,
-   "title": "How To Make Money In GTA 6: Full Money-Making Guide",
-   "title_en": "",
-   "source": "GTABase",
-   "game": "GTA 6",
-   "author": "GTABase",
-   "updated": null,
-   "tags": [
-    "GTA 6"
-   ],
-   "url": "https://www.gtabase.com/articles/gta-6/how-to-make-money-in-gta-6-full-money-making-guide",
    "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
   }
  ],
@@ -783,18 +783,6 @@
    "kind": "short"
   },
   {
-   "id": "yjvhWljpn8M",
-   "video_id": "yjvhWljpn8M",
-   "title": "GTA V - It Is My Head ! 😁 #gta5  Part-84 #gtaonline #viral #like #creative",
-   "channel": "Fardin 3D Zone",
-   "url": "https://www.youtube.com/shorts/yjvhWljpn8M",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA Online",
-   "kind": "short"
-  },
-  {
    "id": "1_7hdlsww-8",
    "video_id": "1_7hdlsww-8",
    "title": "Free Fire vs GTA v 😱 funny moments 🤣 #gta5 #shorts #funny #gaming",
@@ -807,15 +795,15 @@
    "kind": "short"
   },
   {
-   "id": "qvF0Y_H0Vo4",
-   "video_id": "qvF0Y_H0Vo4",
-   "title": "GTA 6's Two Best Features #shorts #gaming #gta6",
-   "channel": "flonk_gaming",
-   "url": "https://www.youtube.com/shorts/qvF0Y_H0Vo4",
+   "id": "0EOYLeR1pos",
+   "video_id": "0EOYLeR1pos",
+   "title": "Trolling A GTA 5 Police As a Fake Bollard 🚨💥😂 #gta5",
+   "channel": "Falgun Gaming",
+   "url": "https://www.youtube.com/shorts/0EOYLeR1pos",
    "views": null,
    "date": null,
    "lang": "en",
-   "game": "GTA 6",
+   "game": "GTA 5",
    "kind": "short"
   },
   {
@@ -824,6 +812,30 @@
    "title": "GTA V knocks tn the Door to find their parents #gta #funny",
    "channel": "TenX Animation",
    "url": "https://www.youtube.com/shorts/A6u2y0bTjFI",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short"
+  },
+  {
+   "id": "yjvhWljpn8M",
+   "video_id": "yjvhWljpn8M",
+   "title": "GTA V - It Is My Head ! 😁 #gta5  Part-84 #gtaonline #viral #like #creative",
+   "channel": "Fardin 3D Zone",
+   "url": "https://www.youtube.com/shorts/yjvhWljpn8M",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short"
+  },
+  {
+   "id": "1Mn4yR2VRAo",
+   "video_id": "1Mn4yR2VRAo",
+   "title": "I Become A Fake Wood And Trolled GTA Cops 👮😂 #gta5",
+   "channel": "XP Playz",
+   "url": "https://www.youtube.com/shorts/1Mn4yR2VRAo",
    "views": null,
    "date": null,
    "lang": "en",
@@ -843,82 +855,83 @@
    "kind": "short"
   },
   {
-   "id": "jjjTa9FI-jI",
-   "video_id": "jjjTa9FI-jI",
-   "title": "GTA V  Spider-Man Saved Lion King Just in Time! 👑🦁🐶#shorts",
-   "channel": "NSD GAMERZ",
-   "url": "https://www.youtube.com/shorts/jjjTa9FI-jI",
+   "id": "hJ2JJF_HStE",
+   "video_id": "hJ2JJF_HStE",
+   "title": "Trevor Phillips in Real Life is Pure Chaos! 😂💀 #shorts #gta5 #gta",
+   "channel": "MrRubex",
+   "url": "https://www.youtube.com/shorts/hJ2JJF_HStE",
    "views": null,
    "date": null,
    "lang": "en",
    "game": "GTA 5",
    "kind": "short"
-  },
-  {
-   "id": "0mMpqHXZFS0",
-   "video_id": "0mMpqHXZFS0",
-   "title": "FALLING ON A OPEN CAR DOOR IN GTA GAMES! #gta #gta5 #gtasanandreas #gtav #gta6 #gaming #shorts",
-   "channel": "Quill x Gaming",
-   "url": "https://www.youtube.com/shorts/0mMpqHXZFS0",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA 6",
-   "kind": "short"
   }
  ],
  "forum_bahamut": [
   {
-   "id": "e39880cef95cb5d09b62316143974bce",
-   "rank": 1,
-   "title": "【情報】給不放棄拼生存戰（週挑戰）者：墳場生存戰卡點",
-   "author": "prcheng",
-   "time": "2026-10-28 21:49",
-   "replies": "0",
-   "source": "Bahamut",
-   "game": "GTA Online",
-   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117819",
-   "blurb": "外連巴哈討論串。不轉載全文。"
-  },
-  {
-   "id": "b22aa9df9097f9ff4768515b7984bbd9",
-   "rank": 2,
-   "title": "【情報】《GTA6》容量大小210G ! 媒體評測已陸續發出",
-   "author": "PapayaApple",
-   "time": "2026-10-28 08:50",
-   "replies": "14",
-   "source": "Bahamut",
-   "game": "GTA 6",
-   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117818",
-   "blurb": "外連巴哈討論串。不轉載全文。"
-  },
-  {
    "id": "b66877dc957faf004c61b270fbc319f1",
-   "rank": 3,
+   "rank": 1,
    "title": "【問題】這遊戲有真正被動收入嗎",
    "author": "sec20159",
-   "time": "2026-10-27 20:43",
-   "replies": "18",
+   "time": "2026-10-29 08:14",
+   "replies": "21",
    "source": "Bahamut",
    "game": "GTA Online",
    "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117817",
    "blurb": "外連巴哈討論串。不轉載全文。"
   },
   {
-   "id": "68f925f3de44341cfe2fbbe6206e3b2f",
+   "id": "e39880cef95cb5d09b62316143974bce",
+   "rank": 2,
+   "title": "【情報】給不放棄拼生存戰（週挑戰）者：墳場生存戰卡點",
+   "author": "prcheng",
+   "time": "2026-10-29 08:14",
+   "replies": "3",
+   "source": "Bahamut",
+   "game": "GTA Online",
+   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117819",
+   "blurb": "外連巴哈討論串。不轉載全文。"
+  },
+  {
+   "id": "b8729082a6baf850a8441e0ef86b49c0",
+   "rank": 3,
+   "title": "【情報】GTA ONLINE 活動 (10/29~11/4,萬聖節活動最後一週,不死完成10波生存戰,獲得\"嗜血殺人狂小丑套裝\"和 25 萬 GTA 遊戲幣)",
+   "author": "ken33890458",
+   "time": "2026-10-29 07:14",
+   "replies": "0",
+   "source": "Bahamut",
+   "game": "GTA Online",
+   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117820",
+   "blurb": "外連巴哈討論串。不轉載全文。"
+  },
+  {
+   "id": "b22aa9df9097f9ff4768515b7984bbd9",
    "rank": 4,
+   "title": "【情報】《GTA6》容量大小210G ! 媒體評測已陸續發出",
+   "author": "PapayaApple",
+   "time": "2026-10-29 07:14",
+   "replies": "18",
+   "source": "Bahamut",
+   "game": "GTA 6",
+   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117818",
+   "blurb": "外連巴哈討論串。不轉載全文。"
+  },
+  {
+   "id": "68f925f3de44341cfe2fbbe6206e3b2f",
+   "rank": 5,
    "title": "【閒聊】佩里克島有暗中nerf?",
    "author": "prcheng",
-   "time": "2026-10-26 01:11",
+   "time": "10-26 01:11",
    "replies": "26",
    "source": "Bahamut",
    "game": "GTA Online",
    "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117815",
-   "blurb": "外連巴哈討論串。不轉載全文。"
+   "blurb": "外連巴哈討論串。不轉載全文。",
+   "time_relative": true
   },
   {
    "id": "f1fd153e1fa9aa5ebb4cc0f4656415d8",
-   "rank": 5,
+   "rank": 6,
    "title": "【閒聊】有沒有人要搶賭場",
    "author": "kirito5196",
    "time": "10-25 18:37",
@@ -931,7 +944,7 @@
   },
   {
    "id": "0aa8c8c45785963c6460fe880751d3c5",
-   "rank": 6,
+   "rank": 7,
    "title": "【心得】魯登朵夫墓園生存戰 卡點位置",
    "author": "slike5566",
    "time": "10-25 12:39",
@@ -944,7 +957,7 @@
   },
   {
    "id": "3bb93c7ad51cd2410ebb46f693fc08fb",
-   "rank": 7,
+   "rank": 8,
    "title": "【問題】手機上網消星如何使用？",
    "author": "prcheng",
    "time": "10-25 12:37",
@@ -957,7 +970,7 @@
   },
   {
    "id": "74832656d86adebcf86b77eb14f1ec8b",
-   "rank": 8,
+   "rank": 9,
    "title": "【閒聊】《GTA6》女主Lucia臉模？首次直播",
    "author": "PapayaApple",
    "time": "10-25 10:19",
@@ -970,7 +983,7 @@
   },
   {
    "id": "39cde661b2f503bbb5060a9a0ee1295b",
-   "rank": 9,
+   "rank": 10,
    "title": "【問題】夜總會生涯成就請問",
    "author": "prcheng",
    "time": "10-25 00:18",
@@ -980,25 +993,120 @@
    "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117811",
    "blurb": "外連巴哈討論串。不轉載全文。",
    "time_relative": true
-  },
-  {
-   "id": "7dd483944b78babff1f34beb988cf67d",
-   "rank": 10,
-   "title": "【情報】GTA ONLINE 活動 (10/22~10/28,萬聖節活動第4週,完成全部3個短暫旅程,獲得50萬及免費面具,新社群任務)",
-   "author": "ken33890458",
-   "time": "10-23 06:55",
-   "replies": "4",
-   "source": "Bahamut",
-   "game": "GTA Online",
-   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117810",
-   "blurb": "外連巴哈討論串。不轉載全文。",
-   "time_relative": true
   }
  ],
  "forum_reddit": [
   {
-   "id": "7c1ee55c7190229b069b0bbe76647355",
+   "id": "64818a6dff3bccd35dacafd9818dc6fb",
    "rank": 1,
+   "title": "I'm not mad, just disappointed...",
+   "author": "Tywepo",
+   "time": "2026-10-29",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xi5lhh/im_not_mad_just_disappointed/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "8f3c958cf3dcd87b68026d2d42a62593",
+   "rank": 2,
+   "title": "When you run Piracy Prevention but no-one attacks your Yacht",
+   "author": "Illustrious_Donkey61",
+   "time": "2026-10-29",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xi87zn/when_you_run_piracy_prevention_but_noone_attacks/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "7dfe2e2e4b8f20889b5eea52ef9b0697",
+   "rank": 3,
+   "title": "Why does my Facility admin assistant/secretary keep a loaded mini gun by his desk?",
+   "author": "Still_Independent_90",
+   "time": "2026-10-29",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xi9xvw/why_does_my_facility_admin_assistantsecretary/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "bd2269dd45cb46109e6e4bfc0e4d23f5",
+   "rank": 4,
+   "title": "It’s the end of the world, folks…",
+   "author": "manicmaniac11",
+   "time": "2026-10-29",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xi6cyl/its_the_end_of_the_world_folks/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "753a7e8815323afb3e00bd2425a1fa21",
+   "rank": 5,
+   "title": "This Poor Guy 😭🤣💀",
+   "author": "BelleMomomiya",
+   "time": "2026-10-29",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xi5g9w/this_poor_guy/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "eb46418ec3aabffc230adc84ce60805b",
+   "rank": 6,
+   "title": "Non-violent intimidation 101",
+   "author": "BandoBranjo",
+   "time": "2026-10-28",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xhz6n1/nonviolent_intimidation_101/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "4c5e24f88ba47048c9480dfdbde4409a",
+   "rank": 7,
+   "title": "Weekly Bonuses and Discounts - October 29th to November 5th (Not live until ~5am ET on October 29th)",
+   "author": "PapaXan",
+   "time": "2026-10-28",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xhyl0o/weekly_bonuses_and_discounts_october_29th_to/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "9d6a4518fda5ed171d3f2f1a31dcd2fd",
+   "rank": 8,
+   "title": "The rusty Herbie deserved a special place on my Podium (modern supercars are banned at my home)",
+   "author": "RickWulfk",
+   "time": "2026-10-28",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xi2tou/the_rusty_herbie_deserved_a_special_place_on_my/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "8617ba98a28bfc441b05ee7286543a4f",
+   "rank": 9,
+   "title": "Accidental stunt",
+   "author": "Aleksi_lol",
+   "time": "2026-10-28",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xi4ah3/accidental_stunt/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "7c1ee55c7190229b069b0bbe76647355",
+   "rank": 10,
    "title": "These gangs/factions shouldn't exist in the current online's timeline",
    "author": "zorgareddit",
    "time": "2026-10-28",
@@ -1006,114 +1114,6 @@
    "source": "Reddit",
    "game": "GTA Online",
    "url": "https://www.reddit.com/r/gtaonline/comments/1xheeoo/these_gangsfactions_shouldnt_exist_in_the_current/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "2990f708e8d302db1889ad8f77bd72b3",
-   "rank": 2,
-   "title": "Never again I’ll try cinematic driving",
-   "author": "Ztillaking",
-   "time": "2026-10-28",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xhf6jz/never_again_ill_try_cinematic_driving/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "5d5f247574ec2a9bde967c57a28171df",
-   "rank": 3,
-   "title": "I literally just joined the lobby 😭",
-   "author": "ClanDomino43",
-   "time": "2026-10-28",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xhi9fz/i_literally_just_joined_the_lobby/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "39ce48bb048bafca4b445e2b1d53fd8b",
-   "rank": 4,
-   "title": "Craziest Race 🤣",
-   "author": "BelleMomomiya",
-   "time": "2026-10-28",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xhd43k/craziest_race/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "609c23bc0185aa78f28f9c0de9ece3ce",
-   "rank": 5,
-   "title": "Guess that’s what I get for cheating in the race.",
-   "author": "AlexSqualor",
-   "time": "2026-10-28",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xhcp82/guess_thats_what_i_get_for_cheating_in_the_race/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "b897605b0f5c73d8f1540cd1c73a3a05",
-   "rank": 6,
-   "title": "Welp........",
-   "author": "Apprehensive_Art7301",
-   "time": "2026-10-28",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xhdvde/welp/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "329ea027df839d8b900a88620f6014bb",
-   "rank": 7,
-   "title": "Chilling in the \"warzone\" lol",
-   "author": "BeyondCraft",
-   "time": "2026-10-28",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xho3e9/chilling_in_the_warzone_lol/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "56a298ea2512f039de8cb4417e899fab",
-   "rank": 8,
-   "title": "simply land in a pool as requested :)",
-   "author": "Civil-Ad-1977",
-   "time": "2026-10-28",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xhiu4p/simply_land_in_a_pool_as_requested/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "1ef395e00b863316d4e8bf3e523bc59f",
-   "rank": 9,
-   "title": "the beauty of los santos",
-   "author": "DieGalanPR",
-   "time": "2026-10-28",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xhgy8h/the_beauty_of_los_santos/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "a21c76caf3cdbd358422cb6a0578096a",
-   "rank": 10,
-   "title": "Didn't see this poor innocent lawnmower (may or may not have been on my phone)",
-   "author": "LOKANDDE",
-   "time": "2026-10-28",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xhf78w/didnt_see_this_poor_innocent_lawnmower_may_or_may/",
    "blurb": "Outbound to Reddit. Title and date only."
   }
  ],
@@ -2118,21 +2118,21 @@
   }
  ],
  "meta": {
-  "sessionscan_slot": "2026-10-29 12:06",
-  "jobs_gtabase": "2026-10-28 21:47",
-  "jobs_ign": "2026-10-28 21:47",
-  "jobs_wiki": "2026-10-28 21:47",
+  "sessionscan_slot": "2026-10-29 12:14",
+  "jobs_gtabase": "2026-10-29 12:08",
+  "jobs_ign": "2026-10-29 12:08",
+  "jobs_wiki": "2026-10-29 12:08",
   "videos_hot_zh": "2026-10-29 08:02",
   "videos_new_zh": "2026-10-29 08:02",
   "videos_hot_en": "2026-10-29 10:05",
   "videos_new_en": "2026-10-29 10:05",
   "videos_hot_ja": "2026-10-29 06:03",
   "videos_new_ja": "2026-10-29 06:03",
-  "forum_reddit": "2026-10-28 21:50",
-  "tweets_en": "2026-10-29 12:07",
-  "tweets": "2026-10-29 12:07",
-  "_last_run": "2026-10-29 12:07",
-  "generated_at": "2026-10-29T04:07:56Z",
+  "forum_reddit": "2026-10-29 12:14",
+  "tweets_en": "2026-10-29 12:15",
+  "tweets": "2026-10-29 12:15",
+  "_last_run": "2026-10-29 12:15",
+  "generated_at": "2026-10-29T04:15:46Z",
   "sample": false,
   "scraper_status": "ok",
   "label_zh": "資料快照",
@@ -2148,13 +2148,13 @@
    "GTA 4",
    "RDO"
   ],
-  "jobs": "2026-10-28 21:47",
+  "jobs": "2026-10-29 12:08",
   "hot": "2026-10-29 10:05",
-  "new": "2026-10-29 12:06",
-  "forum": "2026-10-28 21:50",
-  "forum_bahamut": "2026-10-28 21:50",
-  "videos_shorts": "2026-10-29 12:06",
-  "tweets_zh": "2026-10-29 12:07"
+  "new": "2026-10-29 12:14",
+  "forum": "2026-10-29 12:14",
+  "forum_bahamut": "2026-10-29 12:14",
+  "videos_shorts": "2026-10-29 12:14",
+  "tweets_zh": "2026-10-29 12:15"
  },
  "sessionscan_slot": {
   "status": "online",
@@ -2229,13 +2229,13 @@
   },
   "videos_shorts": {
    "HjlIz8f4utU": 1,
-   "0EOYLeR1pos": 2,
-   "8y7kQJCe7X0": 3,
-   "1_7hdlsww-8": 4,
-   "1fvnFyY_yG4": 5,
-   "XXTpOkOqq1A": 6,
-   "qvF0Y_H0Vo4": 7,
-   "A6u2y0bTjFI": 8
+   "yjvhWljpn8M": 2,
+   "1_7hdlsww-8": 3,
+   "qvF0Y_H0Vo4": 4,
+   "A6u2y0bTjFI": 5,
+   "b_6RjGRhY8A": 6,
+   "jjjTa9FI-jI": 7,
+   "0mMpqHXZFS0": 8
   }
  }
 }

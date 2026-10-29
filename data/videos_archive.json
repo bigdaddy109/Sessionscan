@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T04:07:56Z",
+ "updated": "2026-10-29T04:15:47Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -450,6 +450,8 @@
    "url": "https://www.youtube.com/shorts/0mMpqHXZFS0",
    "lang": "en",
    "game": "GTA 6",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-10-29",
    "last_seen": "2026-10-29"
@@ -673,7 +675,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-27",
-   "last_seen": "2026-10-27"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "1SvLM0Yb-BU",
@@ -10528,7 +10530,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "hOFcYqDBv6E",
