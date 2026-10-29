@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T00:06:14Z",
+ "updated": "2026-10-29T02:06:32Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -561,6 +561,17 @@
    "last_seen": "2026-10-22"
   },
   {
+   "video_id": "1AVO9VCQzVU",
+   "title": "GTA Online All NEW Ghosts Locations [Halloween 2026 Collectibles Guide]",
+   "url": "https://www.youtube.com/watch?v=1AVO9VCQzVU",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-01",
+   "views": 93462,
+   "first_seen": "2026-10-29",
+   "last_seen": "2026-10-29"
+  },
+  {
    "video_id": "1EsqOl4poLs",
    "title": "🔴LIVE - GTA ONLINE WEEKLY UPDATE LIVE!",
    "channel": "",
@@ -779,7 +790,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-28",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "1gxGAo8CpEA",
@@ -1943,11 +1954,13 @@
   {
    "video_id": "6cunpVzf0fc",
    "title": "GTA 5 Enhanced with DLSS 5 Real Life Traffic Looks INSANE! | RTX 5090 4K Ultra Settings Ray Tracing",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=6cunpVzf0fc",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-18",
    "views": 44386,
+   "kind": "",
    "first_seen": "2026-10-29",
    "last_seen": "2026-10-29"
   },
@@ -1963,6 +1976,17 @@
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-24"
+  },
+  {
+   "video_id": "6hZ9RsA5PXY",
+   "title": "Grand Theft Auto VI Launch Trailer",
+   "url": "https://www.youtube.com/watch?v=6hZ9RsA5PXY",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-15",
+   "views": 125103,
+   "first_seen": "2026-10-29",
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "6jHq4CMBbDk",
@@ -2362,10 +2386,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-24",
-   "views": 2797,
+   "views": 23607,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "8RhhElCe8k4",
@@ -2508,7 +2532,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "9BedwBdabxs",
@@ -2910,10 +2934,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-08",
-   "views": 3879,
+   "views": 26483,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-09"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "AsVldRzWKZA",
@@ -3261,10 +3285,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-28",
-   "views": 1192,
+   "views": 4688,
    "kind": "",
    "first_seen": "2026-10-28",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "C66unqQls6I",
@@ -3339,10 +3363,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-09-30",
-   "views": 96508,
+   "views": 101090,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "CHwrq9hYmVA",
@@ -4686,11 +4710,13 @@
   {
    "video_id": "IitX4eSHb-k",
    "title": "GTA 5 Enhanced with DLSS 5 + PATH TRACING Looks INSANE! | RTX 5090 4K Gameplay",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=IitX4eSHb-k",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-15",
    "views": 49948,
+   "kind": "",
    "first_seen": "2026-10-29",
    "last_seen": "2026-10-29"
   },
@@ -4745,6 +4771,17 @@
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-27"
+  },
+  {
+   "video_id": "J55KiSYwz9k",
+   "title": "BEST WAYS to Make MILLIONS Now in GTA Online! (Get MILLIONS Quick)",
+   "url": "https://www.youtube.com/watch?v=J55KiSYwz9k",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-02",
+   "views": 34834,
+   "first_seen": "2026-10-29",
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "JGIuiuN3yqY",
@@ -5848,10 +5885,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 18010,
+   "views": 43744,
    "kind": "",
    "first_seen": "2026-10-22",
-   "last_seen": "2026-10-23"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "OGmDFz5mZ5A",
@@ -7829,7 +7866,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "XXxrW1MBuZE",
@@ -7969,10 +8006,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-24",
-   "views": 19183,
+   "views": 25606,
    "kind": "",
    "first_seen": "2026-10-24",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "YANU9zNpCSA",
@@ -8450,10 +8487,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-24",
-   "views": 16994,
+   "views": 35701,
    "kind": "",
    "first_seen": "2026-10-24",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "_BjhJcH-nHk",
@@ -9877,6 +9914,18 @@
    "last_seen": "2026-10-20"
   },
   {
+   "video_id": "eZvgv1r4OcE",
+   "title": "THE BEST Ways to Make MILLIONS NOW in GTA Online! (Make MILLIONS Fast)",
+   "channel": "Fresh Gaming",
+   "url": "https://www.youtube.com/watch?v=eZvgv1r4OcE",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-23",
+   "views": 23480,
+   "first_seen": "2026-10-29",
+   "last_seen": "2026-10-29"
+  },
+  {
    "video_id": "e_0BPt19wbQ",
    "title": "GTA 6 Art Is Now In Los Angeles - GTA 6 News #gta6 #gtavi #gtaonline",
    "channel": "",
@@ -10078,6 +10127,8 @@
    "url": "https://www.youtube.com/shorts/fjPPuenzAx4",
    "lang": "en",
    "game": "GTA 6",
+   "date": "",
+   "views": null,
    "kind": "short",
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",
@@ -10183,10 +10234,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-23",
-   "views": 12290,
+   "views": 20949,
    "kind": "",
    "first_seen": "2026-10-23",
-   "last_seen": "2026-10-24"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "gLxKQMMcj7Y",
@@ -10248,10 +10299,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 17666,
+   "views": 37981,
    "kind": "",
    "first_seen": "2026-10-22",
-   "last_seen": "2026-10-23"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "gbCn_J8ai9I",
@@ -10586,10 +10637,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-28",
-   "views": 183,
+   "views": 968,
    "kind": "",
    "first_seen": "2026-10-28",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "hxq5QAh5GN8",
@@ -10794,10 +10845,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-22",
-   "views": 11914,
+   "views": 25528,
    "kind": "",
    "first_seen": "2026-10-22",
-   "last_seen": "2026-10-23"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "icy-lhqJhMQ",
@@ -11678,10 +11729,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-23",
-   "views": 9170,
+   "views": 30964,
    "kind": "",
    "first_seen": "2026-10-24",
-   "last_seen": "2026-10-24"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "nOoYXR_NuG8",
@@ -14355,11 +14406,13 @@
   {
    "video_id": "yaZrnlU6-tY",
    "title": "GTA 5 Enhanced Real Life Traffic DLSS 5 Graphics Mod | RTX 5090 4K Ultra Settings Gameplay",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=yaZrnlU6-tY",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-25",
    "views": 50339,
+   "kind": "",
    "first_seen": "2026-10-29",
    "last_seen": "2026-10-29"
   },
