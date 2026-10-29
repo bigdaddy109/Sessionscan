@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-28T22:04:42Z",
+ "updated": "2026-10-29T00:06:14Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -324,7 +324,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "0GiEzR-W-es",
@@ -425,10 +425,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 4028,
+   "views": 5135,
    "kind": "",
    "first_seen": "2026-10-22",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "0lb7I0IKJQA",
@@ -672,10 +672,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-01",
-   "views": 79577,
+   "views": 88293,
    "kind": "",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "1WIIXYBaLkY",
@@ -714,7 +714,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "1d_jM9aSdqE",
@@ -1444,7 +1444,7 @@
    "views": 16631,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "4Hocg1X0TzI",
@@ -1808,7 +1808,7 @@
    "views": 223169,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "66qX3VkqfNc",
@@ -1938,7 +1938,18 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-26",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
+  },
+  {
+   "video_id": "6cunpVzf0fc",
+   "title": "GTA 5 Enhanced with DLSS 5 Real Life Traffic Looks INSANE! | RTX 5090 4K Ultra Settings Ray Tracing",
+   "url": "https://www.youtube.com/watch?v=6cunpVzf0fc",
+   "lang": "en",
+   "game": "GTA 5",
+   "date": "2026-10-18",
+   "views": 44386,
+   "first_seen": "2026-10-29",
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "6hSJJnkYZiI",
@@ -2364,10 +2375,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-15",
-   "views": 28520,
+   "views": 33224,
    "kind": "",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "8SnvpJnehUY",
@@ -2398,11 +2409,13 @@
   {
    "video_id": "8XKKw64ILoo",
    "title": "O REAL TAMANHO de GTA 6",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=8XKKw64ILoo",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-28",
    "views": 47572,
+   "kind": "",
    "first_seen": "2026-10-28",
    "last_seen": "2026-10-28"
   },
@@ -2414,10 +2427,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-04",
-   "views": 5371,
+   "views": 5416,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-24"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "8n3VGbjqf64",
@@ -2718,7 +2731,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-27",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "AC6bnGnp63Q",
@@ -2768,6 +2781,7 @@
    "game": "GTA Online",
    "date": "2026-10-28",
    "views": 4643,
+   "kind": "",
    "first_seen": "2026-10-28",
    "last_seen": "2026-10-28"
   },
@@ -3884,10 +3898,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-02",
-   "views": 61239,
+   "views": 66873,
    "kind": "",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "F8p39BLXbdg",
@@ -4186,7 +4200,7 @@
    "views": 18627,
    "kind": "",
    "first_seen": "2026-10-24",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "GQ0FCIUHFHc",
@@ -4225,7 +4239,7 @@
    "views": 24076,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "GngdDIlOtVc",
@@ -4339,10 +4353,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-05",
-   "views": 23909,
+   "views": 24024,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-27"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "H8gWBKL0s24",
@@ -4381,7 +4395,7 @@
    "views": 108,
    "kind": "",
    "first_seen": "2026-10-18",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "HKF7mjFuo6o",
@@ -4459,7 +4473,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-18",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "HocOOiBoYfo",
@@ -4503,11 +4517,13 @@
   {
    "video_id": "I97Z-jtKrdA",
    "title": "Halloween Takeover of Los Santos | GTA 5 RP Live with @parthnimbalkarofficial",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=I97Z-jtKrdA",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-28",
    "views": 9577,
+   "kind": "",
    "first_seen": "2026-10-28",
    "last_seen": "2026-10-28"
   },
@@ -4652,7 +4668,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "IigHvJvDYYw",
@@ -4666,6 +4682,17 @@
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-22"
+  },
+  {
+   "video_id": "IitX4eSHb-k",
+   "title": "GTA 5 Enhanced with DLSS 5 + PATH TRACING Looks INSANE! | RTX 5090 4K Gameplay",
+   "url": "https://www.youtube.com/watch?v=IitX4eSHb-k",
+   "lang": "en",
+   "game": "GTA 5",
+   "date": "2026-10-15",
+   "views": 49948,
+   "first_seen": "2026-10-29",
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "Io2AzN8K_rg",
@@ -5195,10 +5222,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-25",
-   "views": 148,
+   "views": 169,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "LCqZ1U9e3kc",
@@ -5314,10 +5341,10 @@
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-10",
-   "views": 40504,
+   "views": 47431,
    "kind": "",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "Ls9fXk2da4w",
@@ -5335,11 +5362,13 @@
   {
    "video_id": "LxlynBc7KBA",
    "title": "INDIAN Reference Found in GTA 6 😱",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=LxlynBc7KBA",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-28",
    "views": 81193,
+   "kind": "",
    "first_seen": "2026-10-28",
    "last_seen": "2026-10-28"
   },
@@ -5419,7 +5448,7 @@
    "views": 9949,
    "kind": "",
    "first_seen": "2026-10-22",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "MRznCyyzzlU",
@@ -5840,11 +5869,13 @@
   {
    "video_id": "OMiHhpoyQnE",
    "title": "NPCs no PORTA-MALAS do GTA 6 ?",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=OMiHhpoyQnE",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-28",
    "views": 26964,
+   "kind": "",
    "first_seen": "2026-10-28",
    "last_seen": "2026-10-28"
   },
@@ -6990,7 +7021,7 @@
    "views": 2952,
    "kind": "",
    "first_seen": "2026-10-20",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "U8W-sd6LyQM",
@@ -7632,11 +7663,13 @@
   {
    "video_id": "WmVbPD4vGZE",
    "title": "GTA 6 File Size FOUND 😱",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=WmVbPD4vGZE",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-28",
    "views": 42549,
+   "kind": "",
    "first_seen": "2026-10-28",
    "last_seen": "2026-10-28"
   },
@@ -7713,10 +7746,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 8863,
+   "views": 14210,
    "kind": "",
    "first_seen": "2026-10-16",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "XI75x1XD14E",
@@ -7729,7 +7762,7 @@
    "views": 3417,
    "kind": "",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "XIMM-Y30LvY",
@@ -7768,7 +7801,7 @@
    "views": 16738,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "XWOBrn69Tzc",
@@ -8134,7 +8167,7 @@
    "views": 3170,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "YyvhcD_6H5s",
@@ -9044,7 +9077,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "bd5-cvN7QX8",
@@ -9604,10 +9637,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-15",
-   "views": 5041,
+   "views": 5319,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-22"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "djfAlO4jCDU",
@@ -9932,7 +9965,7 @@
    "views": 16641,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "fBq7x3eZqro",
@@ -10037,6 +10070,19 @@
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-21"
+  },
+  {
+   "video_id": "fjPPuenzAx4",
+   "title": "GTA 6 Costs $80. Is Ultimate Worth $20 More?",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/fjPPuenzAx4",
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "owned": true,
+   "channel_url": "https://www.youtube.com/@sessionscan",
+   "first_seen": "2026-10-29",
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "fna60nSYHJU",
@@ -10541,6 +10587,7 @@
    "game": "GTA Online",
    "date": "2026-10-28",
    "views": 183,
+   "kind": "",
    "first_seen": "2026-10-28",
    "last_seen": "2026-10-28"
   },
@@ -11046,10 +11093,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-24",
-   "views": 101,
+   "views": 244,
    "kind": "",
    "first_seen": "2026-10-24",
-   "last_seen": "2026-10-26"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "kNaPy73G-Qg",
@@ -11319,10 +11366,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-01",
-   "views": 66003,
+   "views": 69551,
    "kind": "",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "laKmzNyP9NQ",
@@ -11644,10 +11691,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-23",
-   "views": 6093,
+   "views": 13182,
    "kind": "",
    "first_seen": "2026-10-23",
-   "last_seen": "2026-10-24"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "nWECt2HLLK4",
@@ -11839,10 +11886,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-27",
-   "views": 2307,
+   "views": 3693,
    "kind": "",
    "first_seen": "2026-10-27",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "ofgPZp3-WEg",
@@ -12232,7 +12279,7 @@
    "views": 2411,
    "kind": "",
    "first_seen": "2026-10-27",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "pyXXb8lJmXM",
@@ -12492,7 +12539,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "qwqSPb-V-Mo",
@@ -12931,10 +12978,10 @@
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-01",
-   "views": 107340,
+   "views": 115225,
    "kind": "",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "svKTqzcAsBk",
@@ -13025,7 +13072,7 @@
    "views": 105614,
    "kind": "",
    "first_seen": "2026-10-22",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "tGf3SKyK1TQ",
@@ -13204,10 +13251,10 @@
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-03",
-   "views": 38040,
+   "views": 41364,
    "kind": "",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-19"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "u0DKhdcJs8k",
@@ -13259,7 +13306,7 @@
    "views": 10250,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "uNwKDgE6Iqo",
@@ -13482,7 +13529,7 @@
    "views": 14832,
    "kind": "",
    "first_seen": "2026-10-14",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "v9EgFdRUVc4",
@@ -13729,7 +13776,7 @@
    "views": 19315,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "wASECp1aVDk",
@@ -14155,10 +14202,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-20",
-   "views": 1339,
+   "views": 26826,
    "kind": "",
    "first_seen": "2026-10-20",
-   "last_seen": "2026-10-21"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "y34UESrKuVU",
@@ -14181,10 +14228,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-08",
-   "views": 7097,
+   "views": 7112,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-24"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "y4Y2bUKcwbI",
@@ -14304,6 +14351,17 @@
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
+  },
+  {
+   "video_id": "yaZrnlU6-tY",
+   "title": "GTA 5 Enhanced Real Life Traffic DLSS 5 Graphics Mod | RTX 5090 4K Ultra Settings Gameplay",
+   "url": "https://www.youtube.com/watch?v=yaZrnlU6-tY",
+   "lang": "en",
+   "game": "GTA 5",
+   "date": "2026-10-25",
+   "views": 50339,
+   "first_seen": "2026-10-29",
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "yei8sYZadEI",
@@ -14495,10 +14553,10 @@
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-21",
-   "views": 338,
+   "views": 39640,
    "kind": "",
    "first_seen": "2026-10-21",
-   "last_seen": "2026-10-21"
+   "last_seen": "2026-10-29"
   },
   {
    "video_id": "zIx_3uLIXHw",
