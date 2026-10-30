@@ -391,4 +391,46 @@ if (/Halloween Event/i.test(nxMulti.reward) && !/3X/i.test(nxMulti.reward)) {
   }
 }
 
+// Why: the weekly post title is only "Bonuses & Discounts". Multiplier and showroom
+// live in article subheadings (`events`). Home may use last week's article on Thursday
+// before the new post; archive freezes must not copy that article into an empty week.
+{
+  const thursday = new Date("2026-10-29T04:00:00Z");
+  const weekly = {
+    title: "GTA Online Weekly Update (October 22-28): Fourth Week of Halloween Event, Bonuses & Discounts",
+    url: "https://www.gtabase.com/example-oct-22",
+    updated: "2026-10-22",
+    source: "GTABase",
+    events: [
+      "3X GTA$ & RP — Slasher",
+      "Podium Vehicle — Comet S2",
+      "GUN VAN Primary Discounts — Free : The Shocker",
+      "Salvage Yard Robberies — The Duggan Robbery: Virtue (Top Tier)",
+    ],
+  };
+  const hub = { jobs_gtabase: [weekly], sessionscan_slot: { short: null } };
+  const strict = buildWeekBullets(hub, thursday, "en");
+  const strictMulti = strict.find((b) => b.id === "multipliers");
+  const strictPodium = strict.find((b) => b.id === "podium");
+  if (!strictMulti?.pending || !strictPodium?.pending) {
+    fail("archive-style bullets must not carry last week", { strictMulti, strictPodium });
+  }
+  const home = buildWeekBullets(hub, thursday, "zh", { carryPreviousWeek: true });
+  const multi = home.find((b) => b.id === "multipliers");
+  const podium = home.find((b) => b.id === "podium");
+  const free = home.find((b) => b.id === "free");
+  const salvage = home.find((b) => b.id === "salvage_cayo");
+  if (!multi || multi.pending || !/3X GTA\$ & RP — Slasher/.test(multi.reward)) {
+    fail("subheading must fill multipliers", multi);
+  }
+  if (!podium || podium.pending || !/Podium Vehicle — Comet S2/.test(podium.reward)) {
+    fail("showroom subheading must fill podium", podium);
+  }
+  if (!free || free.pending || !/Free : The Shocker/.test(free.reward)) fail("free event", free);
+  if (!salvage || salvage.pending || !/Salvage Yard Robberies/.test(salvage.reward)) {
+    fail("salvage event must keep the colon clause", salvage);
+  }
+  if (multi.url !== weekly.url) fail("event bullet keeps the article url", multi);
+}
+
 console.log("test_this_week_home.mjs ok");

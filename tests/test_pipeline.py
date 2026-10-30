@@ -28,6 +28,8 @@ from scraper import (  # noqa: E402
     parse_ign_weekly_wiki,
     parse_baha_rows,
     is_truncated_tweet,
+    attach_gtabase_weekly_events,
+    parse_gtabase_article_events,
     parse_gtabase_listing,
     parse_ign_game_page,
     parse_ign_rss,
@@ -280,6 +282,86 @@ class ParserTests(unittest.TestCase):
         self.assertTrue(any("Weekly Update" in t for t in titles))
         self.assertFalse(any("Extended Look" in t for t in titles))
         self.assertFalse(any("IV" in t or "GTA 4" in t for t in titles))
+
+    def test_gtabase_article_events_are_subheadings_not_prices(self):
+        # Why: weekly post titles say "Bonuses & Discounts" and leave the 2X and
+        # showroom cells empty. The article's own subheadings are the events.
+        html = """
+        <article>
+          <ul>
+            <li class="field-entry gta5-bonuses">
+              <ul>
+                <li class="gta-bonuses">
+                  <h3>Slasher</h3>
+                  <div class="bonus-multiplier rp">3x</div>
+                  <div class="bonus-multiplier cash">3x</div>
+                </li>
+              </ul>
+            </li>
+            <li class="field-entry gta5-discounts">
+              <ul>
+                <li class="gta-bonuses"><h3>Hawick Agency</h3><s>$2,830,000</s><div>-40%</div></li>
+              </ul>
+            </li>
+            <li class="field-entry showrooms-test-rides">
+              <ul>
+                <li class="gta-bonuses">
+                  <div class="item-type"><span class="podium-vehicle">Podium Vehicle</span></div>
+                  <h3>Comet S2</h3>
+                </li>
+                <li class="gta-bonuses">
+                  <div class="item-type"><span>LS Car Meet Prize Ride</span></div>
+                  <h3>Itali Classic</h3>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h3>Salvage Yard Robberies</h3>
+          <ul><li>The Duggan Robbery: Virtue (Top Tier)</li></ul>
+          <h3>GUN VAN Primary Discounts</h3>
+          <ul><li>Free : The Shocker</li></ul>
+          <h3>Also Bonuses on</h3>
+          <p><strong>2X GTA$ &amp; RP</strong></p>
+          <ul><li>UFO Business Battles</li></ul>
+        </article>
+        """
+        events = parse_gtabase_article_events(html)
+        self.assertIn("3X GTA$ & RP — Slasher", events)
+        self.assertIn("Podium Vehicle — Comet S2", events)
+        self.assertIn("LS Car Meet Prize Ride — Itali Classic", events)
+        self.assertTrue(any(e.startswith("Salvage Yard Robberies — The Duggan") for e in events))
+        self.assertTrue(any("Free : The Shocker" in e for e in events))
+        self.assertTrue(any(e.startswith("2X GTA$ & RP — UFO") for e in events))
+        self.assertTrue(any("Hawick Agency" in e for e in events))
+        joined = "\n".join(events)
+        self.assertNotIn("$2,830,000", joined)
+        self.assertNotIn("-40%", joined)
+
+    def test_attach_weekly_events_keeps_yesterday_when_fetch_fails(self):
+        items = [
+            {"title": "GTA Online Weekly Update (October 22-28)", "url": "https://www.gtabase.com/a"},
+            {"title": "GTA Online Weekly Update (October 15-21)", "url": "https://www.gtabase.com/b"},
+            {"title": "GTA Online Weekly Update (October 8-14)", "url": "https://www.gtabase.com/c"},
+            {"title": "The Cayo Perico Heist", "url": "https://www.gtabase.com/heist"},
+        ]
+        previous = [
+            {"url": "https://www.gtabase.com/b", "events": ["2X GTA$ & RP — Dispatch Work"]},
+            {"url": "https://www.gtabase.com/c", "events": ["Podium Vehicle — Old Car"]},
+        ]
+
+        def fetch(url):
+            if url.endswith("/a"):
+                return "<article><h3>Showrooms</h3><p>Podium Vehicle Comet</p></article>"
+            raise OSError("offline")
+
+        # The empty article still counts as a fetch. Yesterday fills the miss.
+        # A hand-built snippet with the real bonus chip is covered above; here the
+        # first page has no chips so events stay empty and must not wipe /b.
+        out = attach_gtabase_weekly_events(items, fetch, previous)
+        self.assertNotIn("events", out[0])
+        self.assertEqual(out[1]["events"], ["2X GTA$ & RP — Dispatch Work"])
+        self.assertEqual(out[2]["events"], ["Podium Vehicle — Old Car"])
+        self.assertNotIn("events", out[3])
 
     def test_ign_game_page_strips_card_chrome(self):
         html = """

@@ -1,4 +1,4 @@
-import { THIS_WEEK_MAX, isOwnedShortThisWeek, isThisWeekJob, withDisplayRanks } from "./thisWeek.js";
+import { homeMoneyJobs, isOwnedShortThisWeek, isThisWeekJob, withDisplayRanks } from "./thisWeek.js";
 import { filterOtherShorts } from "./shortsFilter.js";
 import { bahaAbsTime, isRelativeForumTime, parseSnapshotNow } from "./bahaTime.js";
 import {
@@ -10,6 +10,7 @@ import {
   parseHash,
   uiCopy,
 } from "./cardShare.js";
+import { jobEventsHtml } from "./staticHomeJobs.js";
 import { youtubeFacadePlaySrc } from "./structuredData.js";
 import {
   gta6ScheduleBannerHtml,
@@ -110,6 +111,7 @@ function shareLang() {
 }
 
 function jobCard(item) {
+  const events = jobEventsHtml(item);
   return `
     <article class="job-card" ${cardAttrs(item)}>
       ${cardActionsHtml(item, "jobs", shareLang())}
@@ -121,7 +123,7 @@ function jobCard(item) {
         <span class="tag">${esc(item.game)}</span>
         ${item.updated ? `<span>⏱ ${esc(item.updated)}</span>` : ""}
       </div>
-      ${item.blurb ? `<p class="blurb">${esc(item.blurb)}</p>` : ""}
+      ${events || (item.blurb ? `<p class="blurb">${esc(item.blurb)}</p>` : "")}
     </article>`;
 }
 
@@ -362,7 +364,8 @@ function renderJobs() {
   }
   const key = `jobs_${state.jobsSource}`;
   const raw = state.data[key] || [];
-  const list = state.showOlderJobs ? raw : raw.filter((it) => isThisWeekJob(it)).slice(0, THIS_WEEK_MAX);
+  const now = snapshotNow(state.data?.meta || {}) || new Date();
+  const list = state.showOlderJobs ? raw : homeMoneyJobs(raw, now);
   $("#jobHint").textContent = t(SOURCE_HINT_KEYS[state.jobsSource] || "") || "";
   if (list.length) {
     // Progressive enhancement: keep build-time #jobList when it already matches
@@ -438,7 +441,7 @@ function renderWeekBullets() {
   const host = $("#weekBulletList");
   if (!host) return;
   const now = snapshotNow(state.data?.meta || {});
-  const bullets = buildWeekBullets(state.data || {}, now, uiLang());
+  const bullets = buildWeekBullets(state.data || {}, now, uiLang(), { carryPreviousWeek: true });
   const weekKey = claimedStorageKey(now);
   const claimed = loadClaimedIds(weekKey);
   host.dataset.claimedKey = weekKey;
@@ -456,7 +459,7 @@ function bindWeekTipCopy() {
   btn.dataset.copyBound = "1";
   btn.addEventListener("click", () => {
     const now = snapshotNow(state.data?.meta || {});
-    const bullets = buildWeekBullets(state.data || {}, now, uiLang());
+    const bullets = buildWeekBullets(state.data || {}, now, uiLang(), { carryPreviousWeek: true });
     const text = formatWeekTipPlainText(bullets, { lang: uiLang() });
     const label = t("weekTipCopy");
     const copied = t("weekTipCopied");
@@ -490,7 +493,7 @@ function bindWeekBulletClaims() {
     const row = input.closest(".week-bullet");
     if (row) row.classList.toggle("is-claimed", Boolean(input.checked));
     const now = snapshotNow(state.data?.meta || {});
-    const bullets = buildWeekBullets(state.data || {}, now, uiLang());
+    const bullets = buildWeekBullets(state.data || {}, now, uiLang(), { carryPreviousWeek: true });
     updateWeekClaimProgress(bullets, claimed);
   });
   const clearBtn = $("#weekClaimClear");
@@ -602,7 +605,8 @@ function scrollMainIntoView() {
 
 function jobVisibleByDefault(item, jobsSource) {
   const raw = state.data?.[`jobs_${jobsSource}`] || [];
-  const visible = raw.filter((it) => isThisWeekJob(it)).slice(0, THIS_WEEK_MAX);
+  const now = snapshotNow(state.data?.meta || {}) || new Date();
+  const visible = homeMoneyJobs(raw, now);
   const id = cardId(item);
   return Boolean(id && visible.some((it) => cardId(it) === id));
 }

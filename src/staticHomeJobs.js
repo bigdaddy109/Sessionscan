@@ -4,8 +4,9 @@
  * Vite transformIndexHtml and scripts/inject_static_jobs.mjs so / and /zh/
  * ship the same progressive-enhancement markup JS filters hydrate on top of.
  */
-import { isThisWeekJob, THIS_WEEK_MAX, withDisplayRanks } from "./thisWeek.js";
 import { cardActionsHtml, cardAttrs } from "./cardShare.js";
+import { homeMoneyJobs, THIS_WEEK_MAX, withDisplayRanks } from "./thisWeek.js";
+import { jobEventTitles } from "./thisWeekHome.js";
 
 export const DEFAULT_HOME_JOBS_KEY = "jobs_gtabase";
 
@@ -20,7 +21,18 @@ function esc(value) {
 /** Default home-tab jobs (same filter as main.js renderJobs with jobsSource=gtabase). */
 export function selectHomeJobs(data, now = new Date(), max = THIS_WEEK_MAX) {
   const raw = data?.[DEFAULT_HOME_JOBS_KEY] || [];
-  return raw.filter((item) => item?.title && item?.url && isThisWeekJob(item, now)).slice(0, max);
+  return homeMoneyJobs(
+    raw.filter((item) => item?.title && item?.url),
+    now,
+    max,
+  );
+}
+
+/** Event lines on the money card. Titles only — the generic outbound blurb stays when this is empty. */
+export function jobEventsHtml(job) {
+  const events = jobEventTitles(job);
+  if (!events.length) return "";
+  return `<ul class="job-events">${events.map((ev) => `<li>${esc(ev)}</li>`).join("")}</ul>`;
 }
 
 export function staticJobCardHtml(job, lang = "en") {
@@ -30,6 +42,7 @@ export function staticJobCardHtml(job, lang = "en") {
       <div class="rank">${esc(job.rank)}</div>
       <h3><a href="${esc(job.url)}" target="_blank" rel="noopener noreferrer">${esc(job.title)}</a></h3>
       <div class="card-meta"><span class="tag">${esc(job.source || "")}</span>${date}</div>
+      ${jobEventsHtml(job)}
     </article>`;
 }
 
