@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30T00:07:34Z",
+ "updated": "2026-10-30T02:07:21Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -688,7 +688,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-27",
-   "last_seen": "2026-10-29"
+   "last_seen": "2026-10-30"
   },
   {
    "video_id": "1SvLM0Yb-BU",
@@ -753,7 +753,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-29"
+   "last_seen": "2026-10-30"
   },
   {
    "video_id": "1d_jM9aSdqE",
@@ -818,7 +818,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-28",
-   "last_seen": "2026-10-29"
+   "last_seen": "2026-10-30"
   },
   {
    "video_id": "1gxGAo8CpEA",
@@ -932,10 +932,10 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 105356,
+   "views": 105392,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-29"
+   "last_seen": "2026-10-30"
   },
   {
    "video_id": "2KO3p2etyyM",
@@ -2812,6 +2812,19 @@
    "kind": "",
    "first_seen": "2026-10-24",
    "last_seen": "2026-10-24"
+  },
+  {
+   "video_id": "9tCiGjqNMus",
+   "title": "GTA 6 Disc Is Just a Code — Preload Nov 12",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/9tCiGjqNMus",
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "owned": true,
+   "channel_url": "https://www.youtube.com/@sessionscan",
+   "first_seen": "2026-10-30",
+   "last_seen": "2026-10-30"
   },
   {
    "video_id": "9uAvHFBzlck",
@@ -8635,6 +8648,8 @@
    "url": "https://www.youtube.com/shorts/Z6YSyFqetnE",
    "lang": "en",
    "game": "GTA Online",
+   "date": "",
+   "views": null,
    "kind": "short",
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",
@@ -15307,7 +15322,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-30"
   },
   {
    "video_id": "zmwO_jmNkVQ",
