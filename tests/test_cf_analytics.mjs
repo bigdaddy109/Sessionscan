@@ -54,7 +54,7 @@ const vite = readFileSync(resolve(root, "vite.config.js"), "utf8");
 if (!vite.includes("ensureCfWebAnalytics") || !vite.includes("cfWebAnalytics.js")) {
   fail("vite build plugin must use src/cfWebAnalytics.js (single source)");
 }
-if (vite.includes("a2ed116dcca9428aae207121d25629e5") && !vite.includes("cfWebAnalytics")) {
+if (vite.includes("052857ab26394650992918ef9cfad883") && !vite.includes("cfWebAnalytics")) {
   fail("token must not be duplicated outside the shared module");
 }
 
