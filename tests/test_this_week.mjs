@@ -112,13 +112,18 @@ if (HOT_STALE_HINT !== "熱門影片來源這輪未更新，仍顯示上次成�
   process.exit(1);
 }
 
-// 2. Owned Short week expiry: last week's dated/title-week short is not this week's slot.
+// 2. Owned Short week expiry: upload date only — title event dates must not hide it.
 const expiredShort = {
   video_id: "OldShort001",
   title: "6X Drift + Transform This Weekend | GTA Online",
   date: "2026-08-20",
 };
-const expiredByTitle = {
+const titleFutureEvent = {
+  video_id: "D0v5fRo5krw",
+  title: "The GTA 6 Bonus That Disappears Nov 20",
+  date: null,
+};
+const titleOldRangeNoUpload = {
   video_id: "OldShort002",
   title: "GTA Online Weekly Short (August 20-26)",
 };
@@ -132,8 +137,16 @@ const weekendOnly = {
   video_id: "WeekendOnly1",
   title: "6X Drift + Transform This Weekend | GTA Online",
 };
-if (isOwnedShortThisWeek(expiredShort, now) || isOwnedShortThisWeek(expiredByTitle, now)) {
-  console.error("expired owned short still treated as this week");
+if (isOwnedShortThisWeek(expiredShort, now)) {
+  console.error("last-week upload date must not stay featured");
+  process.exit(1);
+}
+if (!isOwnedShortThisWeek(titleFutureEvent, now)) {
+  console.error("title event date (Nov 20) must not hide owned short without upload date");
+  process.exit(1);
+}
+if (!isOwnedShortThisWeek(titleOldRangeNoUpload, now)) {
+  console.error("title week range without upload date must be left as-is");
   process.exit(1);
 }
 if (!isOwnedShortThisWeek(currentShort, now)) {
