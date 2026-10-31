@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30T22:04:32Z",
+ "updated": "2026-10-31T00:06:24Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -350,7 +350,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "0GiEzR-W-es",
@@ -1587,7 +1587,7 @@
    "views": 16988,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "4ENliLzwgZw",
@@ -1597,10 +1597,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-30",
-   "views": 113373,
+   "views": 117402,
    "kind": "",
    "first_seen": "2026-10-30",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "4Hocg1X0TzI",
@@ -2016,7 +2016,7 @@
    "views": 224330,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "66qX3VkqfNc",
@@ -2117,10 +2117,10 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-19",
-   "views": 54124,
+   "views": 54177,
    "kind": "",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "6WRP6Pj31YE",
@@ -2442,10 +2442,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-19",
-   "views": 68772,
+   "views": 68809,
    "kind": "",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "7i-sApe_UOg",
@@ -2468,10 +2468,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-27",
-   "views": 22984,
+   "views": 28340,
    "kind": "",
    "first_seen": "2026-10-27",
-   "last_seen": "2026-10-29"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "7rtM39Y9Ymw",
@@ -3226,10 +3226,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-30",
-   "views": 6988,
+   "views": 8461,
    "kind": "",
    "first_seen": "2026-10-30",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "AcGyr1kcM9I",
@@ -3668,10 +3668,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-29",
-   "views": 366,
+   "views": 406,
    "kind": "",
    "first_seen": "2026-10-29",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "C5fdEn50sFo",
@@ -3947,6 +3947,19 @@
    "last_seen": "2026-10-08"
   },
   {
+   "video_id": "D0v5fRo5krw",
+   "title": "The GTA 6 Bonus That Disappears Nov 20",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/D0v5fRo5krw",
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "owned": true,
+   "channel_url": "https://www.youtube.com/@sessionscan",
+   "first_seen": "2026-10-31",
+   "last_seen": "2026-10-31"
+  },
+  {
    "video_id": "D4-QOFrxU3E",
    "title": "GTA Online Money and Peyote!",
    "channel": "Tylarious",
@@ -3996,7 +4009,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-30",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "DKs4bhega9A",
@@ -4019,10 +4032,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-29",
-   "views": 13419,
+   "views": 13463,
    "kind": "",
    "first_seen": "2026-10-29",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "DQGMKlLV5ro",
@@ -4789,7 +4802,7 @@
    "views": 7779,
    "kind": "",
    "first_seen": "2026-10-29",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "GLkdQb_0HFw",
@@ -4802,7 +4815,7 @@
    "views": 19301,
    "kind": "",
    "first_seen": "2026-10-24",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "GOQvH5TPUzw",
@@ -4859,11 +4872,13 @@
   {
    "video_id": "Gcq34ARcaQw",
    "title": "GTA 6 Gameplay: Jason Free Roam in Mount Kalaga - 8 Minutes Open World Gameplay Trailer (Concept)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Gcq34ARcaQw",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-30",
    "views": 38,
+   "kind": "",
    "first_seen": "2026-10-30",
    "last_seen": "2026-10-30"
   },
@@ -4878,7 +4893,7 @@
    "views": 24255,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "GngdDIlOtVc",
@@ -5320,7 +5335,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "IigHvJvDYYw",
@@ -6154,7 +6169,7 @@
    "views": 10161,
    "kind": "",
    "first_seen": "2026-10-22",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "MRznCyyzzlU",
@@ -6229,10 +6244,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-26",
-   "views": 26278,
+   "views": 33434,
    "kind": "",
    "first_seen": "2026-10-26",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "MslqrGfVln0",
@@ -7133,16 +7148,16 @@
   },
   {
    "video_id": "QcDmBz3UB44",
-   "title": "Beating Criminal Mastermind Challenge as Level 1 in GTA 5 Online",
+   "title": "Criminal Mastermind Challenge as LEVEL 1s in GTA 5 Online",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=QcDmBz3UB44",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-11",
-   "views": 21459,
+   "views": 39455,
    "kind": "",
    "first_seen": "2026-10-20",
-   "last_seen": "2026-10-20"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "QeNztVAeQlo",
@@ -8205,10 +8220,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-29",
-   "views": 19800,
+   "views": 19832,
    "kind": "",
    "first_seen": "2026-10-29",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "VIy7sF5CvLw",
@@ -8218,10 +8233,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-26",
-   "views": 241,
+   "views": 253,
    "kind": "",
    "first_seen": "2026-10-26",
-   "last_seen": "2026-10-29"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "VOLUTOadR_g",
@@ -8312,7 +8327,7 @@
    "views": 24874,
    "kind": "",
    "first_seen": "2026-10-29",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "VbjNDsuLeao",
@@ -8543,10 +8558,10 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-03",
-   "views": 46192,
+   "views": 46224,
    "kind": "",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "WlMQukl1QwI",
@@ -8715,7 +8730,7 @@
    "views": 25090,
    "kind": "",
    "first_seen": "2026-10-29",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "XQV4Pl7XJwU",
@@ -8741,7 +8756,7 @@
    "views": 17346,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "XWOBrn69Tzc",
@@ -9039,10 +9054,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-27",
-   "views": 242,
+   "views": 253,
    "kind": "",
    "first_seen": "2026-10-27",
-   "last_seen": "2026-10-29"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "YZMa8ZuOhnY",
@@ -9052,10 +9067,10 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 45182,
+   "views": 45289,
    "kind": "",
    "first_seen": "2026-10-16",
-   "last_seen": "2026-10-29"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "YbHiLK3Obls",
@@ -9120,7 +9135,7 @@
    "views": 3252,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "YyvhcD_6H5s",
@@ -11024,7 +11039,7 @@
    "views": 16664,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "fBq7x3eZqro",
@@ -11195,7 +11210,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-11",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "g-rSSntLJ7k",
@@ -11795,7 +11810,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "i6LgSKZGGlg",
@@ -11844,10 +11859,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-14",
-   "views": 49826,
+   "views": 50254,
    "kind": "",
    "first_seen": "2026-10-14",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "iNnoY6z1wrc",
@@ -12770,7 +12785,7 @@
    "views": 12683,
    "kind": "",
    "first_seen": "2026-10-29",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "mb_TbQLZS0Y",
@@ -13212,7 +13227,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-24",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "ovfuz3AlrVs",
@@ -13261,10 +13276,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-21",
-   "views": 100919,
+   "views": 100934,
    "kind": "",
    "first_seen": "2026-10-21",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "p2mjC-tD82s",
@@ -13589,7 +13604,7 @@
    "views": 2748,
    "kind": "",
    "first_seen": "2026-10-27",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "pyXXb8lJmXM",
@@ -13807,10 +13822,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 155638,
+   "views": 155992,
    "kind": "",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "qk2x1e8QdXo",
@@ -14278,7 +14293,7 @@
    "views": 56207,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "s_a8STtdN-8",
@@ -14447,7 +14462,7 @@
    "views": 109909,
    "kind": "",
    "first_seen": "2026-10-22",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "tGf3SKyK1TQ",
@@ -14849,10 +14864,10 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-25",
-   "views": 68909,
+   "views": 68950,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "uz-3NM7kURM",
@@ -15177,7 +15192,7 @@
    "views": 19486,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "wASECp1aVDk",
@@ -15304,10 +15319,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-28",
-   "views": 8250,
+   "views": 9977,
    "kind": "",
    "first_seen": "2026-10-28",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "wiLsqX8shks",
@@ -15894,7 +15909,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "ynlJjBAAT1o",
@@ -16141,7 +16156,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "zmwO_jmNkVQ",
