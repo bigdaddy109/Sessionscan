@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T00:06:24Z",
+ "updated": "2026-10-31T02:07:10Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -425,10 +425,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-08",
-   "views": 421949,
+   "views": 423735,
    "kind": "",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-10-24"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "0fzkN0PaCVU",
@@ -727,7 +727,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-27",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "1SvLM0Yb-BU",
@@ -857,7 +857,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-28",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "1gxGAo8CpEA",
@@ -1053,6 +1053,17 @@
    "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
+  },
+  {
+   "video_id": "2c17dTuyPTg",
+   "title": "How To Say Goodbye To GTA 5 🥲",
+   "url": "https://www.youtube.com/watch?v=2c17dTuyPTg",
+   "lang": "en",
+   "game": "GTA 5",
+   "date": "2026-10-30",
+   "views": 1280,
+   "first_seen": "2026-10-31",
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "2c1ifi4UfBY",
@@ -1493,10 +1504,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-02",
-   "views": 116023,
+   "views": 124874,
    "kind": "",
    "first_seen": "2026-10-18",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "3mfOiXuV7WE",
@@ -1519,10 +1530,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 79163,
+   "views": 92286,
    "kind": "",
    "first_seen": "2026-10-18",
-   "last_seen": "2026-10-18"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "44T4vp9ak7c",
@@ -1653,6 +1664,17 @@
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
+  },
+  {
+   "video_id": "4uzcHgsE-xM",
+   "title": "GTA 6 - BIGGEST REVEAL YET!",
+   "url": "https://www.youtube.com/watch?v=4uzcHgsE-xM",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-29",
+   "views": 791143,
+   "first_seen": "2026-10-31",
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "4vR3qgYtD9Q",
@@ -1870,10 +1892,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-28",
-   "views": 3173,
+   "views": 7618,
    "kind": "",
    "first_seen": "2026-10-28",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "5mghTCRyrLA",
@@ -1909,10 +1931,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-28",
-   "views": 1141,
+   "views": 2204,
    "kind": "",
    "first_seen": "2026-10-28",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "5snJdVRkWO0",
@@ -3466,6 +3488,17 @@
    "last_seen": "2026-10-26"
   },
   {
+   "video_id": "BFjltF4YokY",
+   "title": "GTA 6 NEW GAMEPLAY REVEALED!",
+   "url": "https://www.youtube.com/watch?v=BFjltF4YokY",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-29",
+   "views": 35509,
+   "first_seen": "2026-10-31",
+   "last_seen": "2026-10-31"
+  },
+  {
    "video_id": "BHCxuqZjZJA",
    "title": "Rockstar Just REVEALED Jason’s DARK Past in GTA 6",
    "channel": "",
@@ -3953,6 +3986,8 @@
    "url": "https://www.youtube.com/shorts/D0v5fRo5krw",
    "lang": "en",
    "game": "GTA 6",
+   "date": "",
+   "views": null,
    "kind": "short",
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",
@@ -5140,7 +5175,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-18",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "HocOOiBoYfo",
@@ -8784,7 +8819,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "XXxrW1MBuZE",
@@ -8872,10 +8907,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-24",
-   "views": 115709,
+   "views": 190437,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-25"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "XwMmTUqu1UU",
@@ -10165,6 +10200,17 @@
    "kind": "short",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-30"
+  },
+  {
+   "video_id": "bnq1X8duA58",
+   "title": "How to remove Halloween filter in GTA Online | Mc ABLE #shorts #gta5  #gtaonline",
+   "url": "https://www.youtube.com/watch?v=bnq1X8duA58",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-30",
+   "views": 224,
+   "first_seen": "2026-10-31",
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "boY-gf44kfI",
@@ -12457,10 +12503,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-30",
-   "views": 1468,
+   "views": 1615,
    "kind": "",
    "first_seen": "2026-10-30",
-   "last_seen": "2026-10-30"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "lGZuQLUKrqQ",
@@ -12795,10 +12841,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-26",
-   "views": 1351,
+   "views": 4820,
    "kind": "",
    "first_seen": "2026-10-26",
-   "last_seen": "2026-10-26"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "md9XDmZWoYU",
@@ -14186,10 +14232,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-28",
-   "views": 240,
+   "views": 3144,
    "kind": "",
    "first_seen": "2026-10-28",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "s4XuqukBu8c",
@@ -14203,6 +14249,17 @@
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-22"
+  },
+  {
+   "video_id": "s9kuIheSFmo",
+   "title": "Every NEW GTA 6 Detail You MISSED This Week! (GTA 6 News)",
+   "url": "https://www.youtube.com/watch?v=s9kuIheSFmo",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-29",
+   "views": 1386,
+   "first_seen": "2026-10-31",
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "sA8xeEn_Fi4",
@@ -15117,6 +15174,17 @@
    "last_seen": "2026-10-17"
   },
   {
+   "video_id": "vonJD9sT2DI",
+   "title": "All 200 Jack O' Lantern Locations in GTA 5 Online | All Pumpkins gta online | Mc ABLE #gtaonline",
+   "url": "https://www.youtube.com/watch?v=vonJD9sT2DI",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-02",
+   "views": 7387,
+   "first_seen": "2026-10-31",
+   "last_seen": "2026-10-31"
+  },
+  {
    "video_id": "vqJW5iIWaMs",
    "title": "THIS PRINTS MILLIONS! BEST WAYS To Make Millions SOLO After UPDATE in GTA Online! (GTA5 Fast Money)",
    "channel": "Hazard",
@@ -15219,6 +15287,17 @@
    "kind": "",
    "first_seen": "2026-10-29",
    "last_seen": "2026-10-30"
+  },
+  {
+   "video_id": "wE8xTNg62ng",
+   "title": "GTA 6 - ALL NEW VEHICLES EXPLAINED!",
+   "url": "https://www.youtube.com/watch?v=wE8xTNg62ng",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-10-22",
+   "views": 434239,
+   "first_seen": "2026-10-31",
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "wFHBjJOn6FI",
@@ -16143,7 +16222,7 @@
    "views": 0,
    "kind": "",
    "first_seen": "2026-10-27",
-   "last_seen": "2026-10-28"
+   "last_seen": "2026-10-31"
   },
   {
    "video_id": "zmUwVkBxkSQ",
