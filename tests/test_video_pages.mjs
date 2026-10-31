@@ -74,17 +74,52 @@ if (html.includes('property="og:image" content="https://sessionscan.net/og.jpg"'
 }
 if (!html.includes(videoPageDescription(video).slice(0, 12))) fail("description should mention channel/date");
 
-const sitemap = renderSitemap(sitemapUrls(fromSample));
+// Why: the live sitemap was ~2,280 URLs because every archived share page (and its zh twin)
+// was listed. Keep home, shell/guide pages, and recent popular videos. Old or quiet videos
+// stay as pages but drop out of the sitemap.
+const sitemapNow = new Date("2026-10-29T12:00:00Z");
+const popularId = "PopVideo01x";
+const quietId = "QuietVid001";
+const ownedId = "OwnedShort1";
+const sitemapVideos = [
+  ...fromSample,
+  { video_id: popularId, title: "Recent popular", date: "2026-10-20", views: 250000 },
+  { video_id: quietId, title: "Recent but quiet", date: "2026-10-20", views: 500 },
+  { video_id: ownedId, title: "Owned short", date: "", views: 12, owned: true },
+];
+const sitemap = renderSitemap(
+  sitemapUrls(sitemapVideos, { weeks: ["2026-08-27"], now: sitemapNow }),
+);
 if (!sitemap.includes("<loc>https://sessionscan.net/</loc>")) fail("sitemap homepage");
 if (!sitemap.includes("<loc>https://sessionscan.net/zh/</loc>")) fail("sitemap zh homepage");
 if (!sitemap.includes('hreflang="zh-Hant"')) fail("sitemap hreflang");
-if (!sitemap.includes("<loc>https://sessionscan.net/v/5XBMNYmFmTs/</loc>")) fail("sitemap video url");
-if (!sitemap.includes("<loc>https://sessionscan.net/zh/v/5XBMNYmFmTs/</loc>")) fail("sitemap zh video url");
+if (!sitemap.includes(`<loc>https://sessionscan.net/v/${popularId}/</loc>`)) fail("sitemap recent popular");
+if (!sitemap.includes(`<loc>https://sessionscan.net/zh/v/${popularId}/</loc>`)) fail("sitemap zh recent popular");
+if (sitemap.includes("5XBMNYmFmTs")) fail("old sample video must leave the sitemap");
+if (sitemap.includes(quietId)) fail("recent low-view video must leave the sitemap");
+if (!sitemap.includes(`<loc>https://sessionscan.net/v/${ownedId}/</loc>`)) fail("owned page stays listed");
+if (sitemap.includes("/week/2026-08-27/")) fail("dated freeze pages are sitemap long tail");
+if (!sitemap.includes("<loc>https://sessionscan.net/week/</loc>")) fail("week index stays");
 if (!sitemap.includes("<loc>https://sessionscan.net/about/</loc>")) fail("sitemap about");
 if (!sitemap.includes("<loc>https://sessionscan.net/zh/guides/money/</loc>")) fail("sitemap zh money");
+if (!sitemap.includes("<loc>https://sessionscan.net/guides/acid-lab/</loc>")) fail("sitemap acid lab");
 if (sitemap.includes("dQw4w9WgXcQ")) fail("sample sitemap should not invent archive ids");
-if (!sitemap.includes(`hreflang="zh-Hant" href="${videoPageUrl("5XBMNYmFmTs", "zh")}"`)) {
+if (!sitemap.includes(`hreflang="zh-Hant" href="${videoPageUrl(popularId, "zh")}"`)) {
   fail("sitemap video hreflang zh-Hant");
+}
+{
+  const many = [];
+  for (let i = 0; i < 41; i += 1) {
+    many.push({
+      video_id: `a${String(i).padStart(10, "0")}`,
+      date: "2026-10-10",
+      views: 100000 + i,
+    });
+  }
+  const capped = sitemapUrls(many, { now: sitemapNow });
+  const videoLocs = capped.filter((u) => u.includes("/v/"));
+  if (videoLocs.length !== 80) fail("sitemap popular cap is 40 videos × 2 locales", videoLocs.length);
+  if (capped.some((u) => u.includes("/v/a0000000000/"))) fail("lowest-view video must fall off the cap");
 }
 
 const empty = renderVideoPage({ title: "no id" });
