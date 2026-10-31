@@ -422,8 +422,9 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("本週尚無新 Short", i18n)
         self.assertIn("No new Short this week", i18n)
         self.assertIn("i.ytimg.com/vi/", js)
-        owned = js.split("function sessionScanSlot", 1)[1].split("function jaNote", 1)[0]
-        others = js.split("function videoCard", 1)[1].split("function sessionScanSlot", 1)[0]
+        # Owned helpers (library cards + slot) may embed; generic videoCard must not.
+        owned = js.split("function ownedChannelLink", 1)[1].split("function forumSnapshotNow", 1)[0]
+        others = js.split("function videoCard", 1)[1].split("function ownedChannelLink", 1)[0]
         self.assertIn("youtube-nocookie.com/embed/", owned)
         self.assertNotIn("youtube-nocookie.com/embed/", others)
         self.assertIn("i.ytimg.com/vi/", others)
@@ -764,7 +765,7 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("youtube-nocookie.com/embed/", js)
         self.assertNotIn(
             "youtube-nocookie.com/embed/",
-            js.split("function videoCard", 1)[1].split("function sessionScanSlot", 1)[0],
+            js.split("function videoCard", 1)[1].split("function ownedChannelLink", 1)[0],
         )
         self.assertIn("extract_rank_prev", build)
         self.assertIn("rank_prev", extras + build)
