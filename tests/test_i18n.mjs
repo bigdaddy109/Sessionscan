@@ -31,8 +31,8 @@ function fail(msg, extra) {
 
 if (t("siteName", {}, "en") !== "SessionScan GTA") fail("en site name");
 if (t("siteName", {}, "zh") !== "SessionScan GTA｜夜掃描") fail("zh site name");
-if (t("metaTitle", {}, "en") !== "This week in GTA Online | SessionScan") fail("en meta title");
-if (t("metaTitle", {}, "zh") !== "本週 GTA Online｜SessionScan") fail("zh meta title");
+if (t("metaTitle", {}, "en") !== "GTA 6 hub + this week in GTA Online | SessionScan") fail("en meta title");
+if (t("metaTitle", {}, "zh") !== "GTA 6 情報＋本週 GTA Online｜SessionScan") fail("zh meta title");
 if (t("channelFull", {}, "en") !== "Subscribe on YouTube") fail("en subscribe label");
 if (t("channelFull", {}, "zh") !== "訂閱 YouTube") fail("zh subscribe label");
 if (!t("channelAria", {}, "en").includes("@sessionscan")) fail("en subscribe aria keeps handle");
@@ -103,7 +103,7 @@ if (!aliasTermsFor("gta6").includes("俠盜獵車手6") || aliasTermsFor("vi").j
 if (!aliasTermsFor("佩里克").includes("cayo")) fail("cayo aliases still expand");
 
 const html = `<html lang="en" data-ui-lang="en">
-  <title data-i18n="metaTitle">This week in GTA Online | SessionScan</title>
+  <title data-i18n="metaTitle">GTA 6 hub + this week in GTA Online | SessionScan</title>
   <a data-i18n="tabJobs">This week's money & jobs</a>
   <link rel="canonical" href="https://sessionscan.net/" />
   <meta property="og:url" content="https://sessionscan.net/" />

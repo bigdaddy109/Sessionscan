@@ -6,8 +6,15 @@
     "note_zh": "公開來源標題彙整，不是即時爬蟲。",
     "note_en": "Public outbound titles only — not a live scrape.",
     "_last_run": "2026-08-20 00:00",
-    "scope": ["GTA 5", "GTA Online", "GTA 6"],
-    "excluded": ["GTA 4", "RDO"]
+    "scope": [
+      "GTA 5",
+      "GTA Online",
+      "GTA 6"
+    ],
+    "excluded": [
+      "GTA 4",
+      "RDO"
+    ]
   },
   "jobs_gtabase": [
     {
@@ -103,7 +110,25 @@
       "title": "SessionScan fixture Short",
       "channel": "SessionScan",
       "url": "https://www.youtube.com/shorts/SsFixture01"
-    }
+    },
+    "library": [
+      {
+        "video_id": "SsFixture01",
+        "title": "SessionScan fixture Short",
+        "channel": "SessionScan",
+        "url": "https://www.youtube.com/shorts/SsFixture01",
+        "kind": "short",
+        "owned": true
+      },
+      {
+        "video_id": "SsLongFix01",
+        "title": "SessionScan fixture long video",
+        "channel": "SessionScan",
+        "url": "https://www.youtube.com/watch?v=SsLongFix01",
+        "kind": "video",
+        "owned": true
+      }
+    ]
   },
   "forum_bahamut": [
     {
