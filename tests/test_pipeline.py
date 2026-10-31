@@ -472,10 +472,12 @@ class ShortsTests(unittest.TestCase):
         self.assertEqual(slot["short"]["url"], "https://www.youtube.com/shorts/5ZNYHSFIBRc")
         self.assertNotEqual(slot["status"], "offline")
         self.assertIsNone(empty_owned_slot()["short"])
+        self.assertEqual(empty_owned_slot()["library"], [])
+        self.assertTrue(any(x["video_id"] == "5ZNYHSFIBRc" for x in slot["library"]))
 
     def test_owned_atom_rss_prefers_shorts_for_websub(self):
-        # Why: WebSub delivers this Atom shape; the owned slot must stay Short-only
-        # and must never invent an id that was not in the feed.
+        # Why: WebSub delivers this Atom shape; featured short stays Short-first,
+        # library keeps Shorts + long videos; never invent an id not in the feed.
         xml = (ROOT / "tests/fixtures/owned_atom.xml").read_text(encoding="utf-8")
         entries = parse_owned_atom(xml)
         self.assertEqual(OWNED_CHANNEL_ID, "UCfpCdZdtCdCFNXuEW9xvZcQ")
@@ -487,6 +489,11 @@ class ShortsTests(unittest.TestCase):
         self.assertEqual(slot["short"]["video_id"], "ShortOwn01a")
         self.assertEqual(slot["short"]["url"], "https://www.youtube.com/shorts/ShortOwn01a")
         self.assertIn("Halloween", slot["short"]["title"])
+        lib_ids = [x["video_id"] for x in slot["library"]]
+        self.assertIn("ShortOwn01a", lib_ids)
+        self.assertIn("WatchLong01", lib_ids)
+        long = next(x for x in slot["library"] if x["video_id"] == "WatchLong01")
+        self.assertEqual(long["kind"], "video")
 
     def test_other_shorts_exclude_owned_gta4_and_longform(self):
         html = (ROOT / "tests/fixtures/shorts_trend.html").read_text(encoding="utf-8")

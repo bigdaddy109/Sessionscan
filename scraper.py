@@ -1437,20 +1437,62 @@ def empty_owned_slot():
         "status": "online",
         "channel_url": OWNED_CHANNEL_URL,
         "channel_handle": "@sessionscan",
-        "title_zh": "SessionScan Short",
-        "title_en": "SessionScan Short",
-        "note_zh": "本週尚無 Short。頻道仍在。",
-        "note_en": "No Short this week. Channel is still up.",
+        "title_zh": "SessionScan 頻道",
+        "title_en": "SessionScan channel",
+        "note_zh": "列出 @sessionscan 全部 Shorts 與長片。頻道仍在。",
+        "note_en": "All @sessionscan Shorts and long videos. Channel is still up.",
         "short": None,
+        "library": [],
     }
 
 
-def owned_slot_with_short(item):
+def owned_slot_with_short(item, library=None):
     slot = empty_owned_slot()
-    slot["note_zh"] = "自有每週 Short。其餘為他人當紅 Short。"
-    slot["note_en"] = "Owned weekly Short. Other cells are other creators’ trending Shorts."
+    slot["note_zh"] = "自有 Shorts／長片。其餘為他人當紅 Short。"
+    slot["note_en"] = "Owned Shorts and long videos. Other cells are other creators’ trending Shorts."
     slot["short"] = item
+    lib = list(library or [])
+    if item and item.get("video_id"):
+        vids = {x.get("video_id") for x in lib}
+        if item["video_id"] not in vids:
+            lib = [item] + lib
+    slot["library"] = lib
     return slot
+
+
+def owned_long_item(vid, title, date=None):
+    return {
+        "id": vid,
+        "video_id": vid,
+        "title": title,
+        "channel": "SessionScan",
+        "url": f"https://www.youtube.com/watch?v={vid}",
+        "views": None,
+        "date": date,
+        "lang": "en",
+        "game": detect_game(title) or "GTA Online",
+        "kind": "video",
+        "owned": True,
+    }
+
+
+def merge_owned_library(prev_library, fresh):
+    """Keep prior owned rows; fresher scrape wins on title/date/kind. Never invent IDs."""
+    by_id = {}
+    for raw in list(prev_library or []) + list(fresh or []):
+        if not isinstance(raw, dict):
+            continue
+        vid = (raw.get("video_id") or raw.get("id") or "").strip()
+        if not re.fullmatch(r"[A-Za-z0-9_-]{11}", vid):
+            continue
+        item = dict(raw)
+        item["video_id"] = vid
+        item["id"] = vid
+        item["owned"] = True
+        by_id[vid] = item
+    def sort_key(it):
+        return (it.get("date") or "", it.get("video_id") or "")
+    return sorted(by_id.values(), key=sort_key, reverse=True)
 
 
 def parse_owned_atom(xml_text):
@@ -1506,26 +1548,59 @@ def scrape_owned_from_rss(xml_text=None):
     except Exception as exc:
         log.error("owned atom parse: %s", exc)
         return None, False
+    library = []
+    featured = None
     for entry in entries:
-        if not entry.get("is_short"):
-            continue
         title = (entry.get("title") or "").strip()
         if not title:
             continue
-        item = short_item(
-            entry["video_id"],
-            title,
-            "SessionScan",
-            "en",
-            detect_game(title) or "GTA Online",
-            date=entry.get("date"),
-        )
-        return owned_slot_with_short(item), True
+        if entry.get("is_short"):
+            item = short_item(
+                entry["video_id"],
+                title,
+                "SessionScan",
+                "en",
+                detect_game(title) or "GTA Online",
+                date=entry.get("date"),
+            )
+            item["owned"] = True
+            library.append(item)
+            if featured is None:
+                featured = item
+        else:
+            library.append(owned_long_item(entry["video_id"], title, date=entry.get("date")))
+    if featured or library:
+        return owned_slot_with_short(featured, library), True
     return empty_owned_slot(), fetched_ok
 
 
-def scrape_owned_short(html=None):
-    """Latest Short listed on @sessionscan/shorts. Never mint an ID."""
+def scrape_owned_videos_page(html=None):
+    """Long-form watch IDs on @sessionscan/videos. Never mint an ID."""
+    fetched_ok = True
+    if html is None:
+        try:
+            html = yt_page_html(f"{OWNED_CHANNEL_URL}/videos")
+        except Exception as exc:
+            log.error("owned videos page: %s", exc)
+            return [], False
+    ids = list(dict.fromkeys(re.findall(r'"videoId":"([A-Za-z0-9_-]{11})"', html or "")))
+    out = []
+    for vid in ids:
+        meta = yt_oembed(vid)
+        if not meta:
+            continue
+        if not is_sessionscan_author(meta):
+            log.warning("skip %s: oEmbed author is not SessionScan", vid)
+            continue
+        title = (meta.get("title") or "").strip()
+        if not title:
+            continue
+        out.append(owned_long_item(vid, title))
+    return out, fetched_ok
+
+
+def scrape_owned_short(html=None, videos_html=None):
+    """All Shorts on @sessionscan/shorts (+ long videos). Never mint an ID."""
     fetched_ok = True
     if html is None:
         try:
@@ -1534,8 +1609,8 @@ def scrape_owned_short(html=None):
             log.error("owned shorts page: %s", exc)
             return None, False
     ids = shorts_ids_from_html(html)
-    if not ids:
-        return empty_owned_slot(), fetched_ok
+    library = []
+    featured = None
     for vid in ids:
         meta = yt_oembed(vid)
         if not meta:
@@ -1547,7 +1622,22 @@ def scrape_owned_short(html=None):
         if not title:
             continue
         item = short_item(vid, title, "SessionScan", "en", detect_game(title) or "GTA Online")
-        return owned_slot_with_short(item), True
+        item["owned"] = True
+        library.append(item)
+        if featured is None:
+            featured = item
+    # Live refresh (no fixtures) also pulls /videos. Fixture-only callers pass html
+    # and leave videos_html as None so tests stay offline.
+    if html is None and videos_html is None:
+        longs, ok_long = scrape_owned_videos_page(None)
+        fetched_ok = fetched_ok and ok_long
+    elif videos_html is not None:
+        longs, _ok_long = scrape_owned_videos_page(videos_html)
+    else:
+        longs = []
+    library.extend(longs)
+    if featured or library:
+        return owned_slot_with_short(featured, library), True
     return empty_owned_slot(), fetched_ok
 
 
@@ -1555,7 +1645,7 @@ def update_owned_slot():
     """Lightweight owned-slot refresh (WebSub / workflow_dispatch). RSS first, HTML fallback."""
     prev = load_json("sessionscan_slot.json", {})
     slot, fetched_ok = scrape_owned_from_rss()
-    if not fetched_ok or not (slot and slot.get("short")):
+    if not fetched_ok or not (slot and (slot.get("short") or slot.get("library"))):
         slot2, ok2 = scrape_owned_short()
         if ok2:
             slot, fetched_ok = slot2, ok2
@@ -1565,11 +1655,17 @@ def update_owned_slot():
                 save_json("sessionscan_slot.json", empty_owned_slot())
                 set_meta("sessionscan_slot")
             return False
+    if slot is None:
+        slot = empty_owned_slot()
+    slot["library"] = merge_owned_library(prev.get("library"), slot.get("library") or [])
+    if not slot.get("short") and slot["library"]:
+        slot["short"] = next((x for x in slot["library"] if x.get("kind") == "short"), slot["library"][0])
     save_json("sessionscan_slot.json", slot)
     set_meta("sessionscan_slot")
     log.info(
-        "owned slot: %s",
+        "owned slot: %s library=%s",
         (slot.get("short") or {}).get("video_id") or "(empty)",
+        len(slot.get("library") or []),
     )
     return True
 

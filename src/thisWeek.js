@@ -168,14 +168,13 @@ export function withDisplayRanks(list) {
 }
 
 /**
- * Owned Short slot 1: featured only while its date / title week is still inside
- * the CH-00 / jobs window. No date and no parseable week words (e.g. “This Weekend”
- * alone) → leave as-is. Never invent a video_id.
+ * Owned Short “this week” gate: upload date only.
+ * Title text often names future event days (“…Disappears Nov 20”); those must NOT
+ * hide the Short. No upload date → leave as-is. Never invent a video_id.
  */
 export function isOwnedShortThisWeek(short, now = new Date()) {
   if (!short) return false;
-  const title = `${short.title || ""} ${short.title_en || ""}`;
-  const item = { title, title_en: short.title_en || "", updated: short.date || "" };
-  if (!jobDates(item, now).length) return true;
+  if (!short.date) return true;
+  const item = { title: "", title_en: "", updated: short.date };
   return isThisWeekJob(item, now);
 }

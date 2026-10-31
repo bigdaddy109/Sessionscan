@@ -187,39 +187,74 @@ function expiredOwnedSlot(channel, short) {
     </article>`;
 }
 
-function sessionScanSlot(slot) {
+function ownedLibraryItems(slot) {
   const channel = slot?.channel_url || "https://www.youtube.com/@sessionscan";
-  const short = slot?.short;
-  const id = short?.video_id || "";
-  if (/^[A-Za-z0-9_-]{11}$/.test(id)) {
-    if (!isOwnedShortThisWeek(short)) {
-      return expiredOwnedSlot(channel, short);
-    }
-    const embed = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`;
-    const thumb = `https://i.ytimg.com/vi/${encodeURIComponent(id)}/mqdefault.jpg`;
-    const lang = langLabel(short.lang) || t("langLabelEn");
-    return `
-    <article class="video-card owned-short" ${cardAttrs(short)}>
-      <div class="rank" aria-hidden="true">1</div>
-      <button type="button" class="thumb-link embed-wrap" data-play="${esc(id)}" data-embed="${esc(embed)}" aria-label="${esc(t("playAria", { title: short.title || "SessionScan Short" }))}">
+  const seen = new Set();
+  const out = [];
+  const push = (raw) => {
+    if (!raw) return;
+    const id = String(raw.video_id || raw.id || "").trim();
+    if (!/^[A-Za-z0-9_-]{11}$/.test(id) || seen.has(id)) return;
+    seen.add(id);
+    out.push({
+      ...raw,
+      video_id: id,
+      owned: true,
+      channel: raw.channel || "SessionScan",
+      channel_url: raw.channel_url || channel,
+      url:
+        raw.url ||
+        (raw.kind === "video"
+          ? `https://www.youtube.com/watch?v=${id}`
+          : `https://www.youtube.com/shorts/${id}`),
+      kind: raw.kind || "short",
+    });
+  };
+  for (const item of slot?.library || []) push(item);
+  push(slot?.short);
+  return out;
+}
+
+function ownedLibraryCard(item, rank, channel) {
+  const id = item.video_id;
+  const embed = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`;
+  const thumb = `https://i.ytimg.com/vi/${encodeURIComponent(id)}/mqdefault.jpg`;
+  const lang = langLabel(item.lang) || t("langLabelEn");
+  const kindTag = item.kind === "video" ? t("ownedLongTag") : t("ownedShortTag");
+  return `
+    <article class="video-card owned-short" ${cardAttrs(item)}>
+      <div class="rank" aria-hidden="true">${rank}</div>
+      <button type="button" class="thumb-link embed-wrap" data-play="${esc(id)}" data-embed="${esc(embed)}" aria-label="${esc(t("playAria", { title: item.title || "SessionScan" }))}">
         <img class="thumb" src="${thumb}" alt="" loading="lazy" />
         <div class="play" aria-hidden="true"><span></span></div>
       </button>
       <div class="video-info">
         <div class="video-info-top">
-          <p class="video-card-title">${esc(short.title || "SessionScan Short")}</p>
-          ${cardActionsHtml(short, "new", shareLang())}
+          <p class="video-card-title">${esc(item.title || "SessionScan")}</p>
+          ${cardActionsHtml(item, "new", shareLang())}
         </div>
         <div class="card-meta">
           ${sampleBadge()}
           <span class="tag">SessionScan</span>
+          <span class="tag">${esc(kindTag)}</span>
           <span class="tag">${lang}</span>
-          <span>SessionScan</span>
-          ${short.date ? `<span>${esc(short.date)}</span>` : ""}
+          ${item.date ? `<span>${esc(item.date)}</span>` : ""}
         </div>
-        ${ownedChannelLink(channel)}
+        ${rank === 1 ? ownedChannelLink(channel) : ""}
       </div>
     </article>`;
+}
+
+function sessionScanSlot(slot) {
+  const channel = slot?.channel_url || "https://www.youtube.com/@sessionscan";
+  const library = ownedLibraryItems(slot);
+  if (library.length) {
+    const cards = library.map((item, i) => ownedLibraryCard(item, i + 1, channel)).join("");
+    return `<div class="owned-library">${cards}</div>`;
+  }
+  const short = slot?.short;
+  if (short && /^[A-Za-z0-9_-]{11}$/.test(short.video_id || "") && !isOwnedShortThisWeek(short)) {
+    return expiredOwnedSlot(channel, short);
   }
   return `
     <article class="slot-card owned-short empty" data-card>
@@ -403,16 +438,15 @@ function renderWeekCountdown() {
 function renderWeekShort() {
   const host = $("#weekShortBody");
   if (!host) return;
-  const now = snapshotNow(state.data?.meta || {});
-  const short = pickHomeShort(state.data || {}, now);
-  if (!short) {
-    host.innerHTML = `<p class="week-short-empty">${esc(t("weekShortEmpty"))}</p>${sessionScanSlot(state.data?.sessionscan_slot)}`;
+  const slot = state.data?.sessionscan_slot || {};
+  const library = ownedLibraryItems(slot);
+  if (!library.length) {
+    host.innerHTML = `<p class="week-short-empty">${esc(t("weekShortEmpty"))}</p>${sessionScanSlot(slot)}`;
     return;
   }
   host.innerHTML = sessionScanSlot({
-    ...(state.data?.sessionscan_slot || {}),
-    short,
-    channel_url: state.data?.sessionscan_slot?.channel_url || "https://www.youtube.com/@sessionscan",
+    ...slot,
+    channel_url: slot.channel_url || "https://www.youtube.com/@sessionscan",
   });
 }
 

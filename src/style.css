@@ -1657,6 +1657,16 @@ main {
 .week-short .video-card {
   max-width: 520px;
 }
+.week-short .owned-library {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+  max-width: none;
+}
+.week-short .owned-library .owned-short,
+.week-short .owned-library .video-card {
+  max-width: none;
+}
 .week-social-links {
   display: flex;
   flex-wrap: wrap;
