@@ -84,5 +84,5 @@ const sitemapPath = resolve(dist, "sitemap.xml");
 writeFileSync(sitemapPath, renderSitemap(sitemapUrls(videos, { weeks })));
 
 console.log(
-  `generate_video_pages: ${written} EN + ${writtenZh} ZH pages -> dist/v/*/ + dist/zh/v/*/index.html; sitemap written (${weeks.length} archive weeks)`,
+  `generate_video_pages: ${written} EN + ${writtenZh} ZH pages -> dist/v/*/ + dist/zh/v/*/index.html; sitemap lists home, guides, and recent popular videos (${weeks.length} freeze weeks stay as pages, not sitemap URLs)`,
 );

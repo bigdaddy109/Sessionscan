@@ -33,8 +33,6 @@ import {
   jsonLdScript,
   videoObjectJsonLd,
 } from "./structuredData.js";
-import { archiveSitemapUrls } from "./weekArchive.js";
-
 export const VIDEO_LIST_KEYS = [
   "videos_hot_zh",
   "videos_hot_en",
@@ -261,9 +259,56 @@ export function renderSitemap(urls) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${body}\n</urlset>\n`;
 }
 
-export function sitemapUrls(videos, { weeks } = {}) {
+/** Recent window for sitemap videos. Older share pages stay on disk; they are the long tail. */
+export const SITEMAP_RECENT_DAYS = 28;
+/** Views floor for "popular". Below this, a recent video is not listed. */
+export const SITEMAP_POPULAR_MIN_VIEWS = 100000;
+/** Cap after the views floor, highest views first. */
+export const SITEMAP_POPULAR_CAP = 40;
+
+function videoUtcDay(video) {
+  const match = String(video?.date || "").match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!match) return null;
+  return Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+}
+
+/**
+ * Home sitemap videos: recent and popular, plus owned pages that are undated or still in the window.
+ * Share pages for the rest of the archive are still built; they are just not submitted.
+ */
+export function sitemapVideos(videos, now = new Date()) {
+  const ref = now instanceof Date ? now : new Date(now);
+  const today = Date.UTC(ref.getUTCFullYear(), ref.getUTCMonth(), ref.getUTCDate());
+  const popular = [];
+  const owned = [];
+  for (const video of videos || []) {
+    if (!video?.video_id) continue;
+    const day = videoUtcDay(video);
+    const age = day == null ? null : Math.round((today - day) / 86400000);
+    const recent = age != null && age >= 0 && age <= SITEMAP_RECENT_DAYS;
+    if (video.owned && (day == null || recent)) owned.push(video);
+    const views = Number(video.views);
+    if (!recent || !Number.isFinite(views) || views < SITEMAP_POPULAR_MIN_VIEWS) continue;
+    popular.push(video);
+  }
+  popular.sort(
+    (a, b) =>
+      (Number(b.views) || 0) - (Number(a.views) || 0) ||
+      String(b.date || "").localeCompare(String(a.date || "")) ||
+      String(a.video_id).localeCompare(String(b.video_id)),
+  );
+  const picked = new Map();
+  for (const video of popular.slice(0, SITEMAP_POPULAR_CAP)) picked.set(video.video_id, video);
+  for (const video of owned) {
+    if (!picked.has(video.video_id)) picked.set(video.video_id, video);
+  }
+  return [...picked.values()];
+}
+
+export function sitemapUrls(videos, { now } = {}) {
+  // Dated /week/YYYY-MM-DD/ freezes are not listed. /week/ stays via staticSitemapUrls.
   const videoLocs = [];
-  for (const v of videos || []) {
+  for (const v of sitemapVideos(videos, now)) {
     const en = videoPageUrl(v.video_id, "en");
     const zh = videoPageUrl(v.video_id, "zh");
     if (en) videoLocs.push(en);
@@ -273,7 +318,6 @@ export function sitemapUrls(videos, { weeks } = {}) {
     CARD_SITE_BASE,
     `${CARD_SITE_BASE}zh/`,
     ...staticSitemapUrls(),
-    ...archiveSitemapUrls(weeks || []),
     ...videoLocs,
   ];
 }
