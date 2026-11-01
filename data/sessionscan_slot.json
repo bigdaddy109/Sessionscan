@@ -7,11 +7,11 @@
  "note_zh": "自有 Shorts／長片。其餘為他人當紅 Short。",
  "note_en": "Owned Shorts and long videos. Other cells are other creators’ trending Shorts.",
  "short": {
-  "id": "D0v5fRo5krw",
-  "video_id": "D0v5fRo5krw",
-  "title": "The GTA 6 Bonus That Disappears Nov 20",
+  "id": "6GugKNWi2UA",
+  "video_id": "6GugKNWi2UA",
+  "title": "GTA 6 Has TWO Soundtracks — Don't Mix Them Up",
   "channel": "SessionScan",
-  "url": "https://www.youtube.com/shorts/D0v5fRo5krw",
+  "url": "https://www.youtube.com/shorts/6GugKNWi2UA",
   "views": null,
   "date": null,
   "lang": "en",
@@ -20,6 +20,45 @@
   "owned": true
  },
  "library": [
+  {
+   "id": "6GugKNWi2UA",
+   "video_id": "6GugKNWi2UA",
+   "title": "GTA 6 Has TWO Soundtracks — Don't Mix Them Up",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/6GugKNWi2UA",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "owned": true
+  },
+  {
+   "id": "ubebt_BuZh8",
+   "video_id": "ubebt_BuZh8",
+   "title": "6-Star Wanted Level Is BACK in GTA 6",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/ubebt_BuZh8",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "owned": true
+  },
+  {
+   "id": "DDWbii7jCWA",
+   "video_id": "DDWbii7jCWA",
+   "title": "Welcome to the Troupe Pays $18,000 – First Dose 1 | GTA Online",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/DDWbii7jCWA",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short",
+   "owned": true
+  },
   {
    "id": "D0v5fRo5krw",
    "video_id": "D0v5fRo5krw",
