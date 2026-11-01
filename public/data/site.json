@@ -801,6 +801,18 @@
  ],
  "videos_shorts": [
   {
+   "id": "biJ91VvpDec",
+   "video_id": "biJ91VvpDec",
+   "title": "Crazy Pig Wonders Across Active Runway As Airbus Lands | Gtav",
+   "channel": "Gta Pilot Zone",
+   "url": "https://www.youtube.com/shorts/biJ91VvpDec",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short"
+  },
+  {
    "id": "HjlIz8f4utU",
    "video_id": "HjlIz8f4utU",
    "title": "Average Heist in GTA be like: #shorts #gtaonline",
@@ -813,11 +825,35 @@
    "kind": "short"
   },
   {
-   "id": "biJ91VvpDec",
-   "video_id": "biJ91VvpDec",
-   "title": "Crazy Pig Wonders Across Active Runway As Airbus Lands | Gtav",
-   "channel": "Gta Pilot Zone",
-   "url": "https://www.youtube.com/shorts/biJ91VvpDec",
+   "id": "i6xhSxnm9FM",
+   "video_id": "i6xhSxnm9FM",
+   "title": "I Become A Fake Grass And Trolled GTA Cops 🚨💥😂 #gta5",
+   "channel": "XP Playz",
+   "url": "https://www.youtube.com/shorts/i6xhSxnm9FM",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short"
+  },
+  {
+   "id": "1Mn4yR2VRAo",
+   "video_id": "1Mn4yR2VRAo",
+   "title": "I Become A Fake Wood And Trolled GTA Cops 👮😂 #gta5",
+   "channel": "XP Playz",
+   "url": "https://www.youtube.com/shorts/1Mn4yR2VRAo",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short"
+  },
+  {
+   "id": "0EOYLeR1pos",
+   "video_id": "0EOYLeR1pos",
+   "title": "Trolling A GTA 5 Police As a Fake Bollard 🚨💥😂 #gta5",
+   "channel": "Falgun Gaming",
+   "url": "https://www.youtube.com/shorts/0EOYLeR1pos",
    "views": null,
    "date": null,
    "lang": "en",
@@ -837,11 +873,11 @@
    "kind": "short"
   },
   {
-   "id": "i6xhSxnm9FM",
-   "video_id": "i6xhSxnm9FM",
-   "title": "I Become A Fake Grass And Trolled GTA Cops 🚨💥😂 #gta5",
-   "channel": "XP Playz",
-   "url": "https://www.youtube.com/shorts/i6xhSxnm9FM",
+   "id": "pJC0kmBx7So",
+   "video_id": "pJC0kmBx7So",
+   "title": "Nobody Expected a Wild Boar to Enter the Runway During This Airbus Landing GTA 5",
+   "channel": "Gta Air Rush",
+   "url": "https://www.youtube.com/shorts/pJC0kmBx7So",
    "views": null,
    "date": null,
    "lang": "en",
@@ -849,51 +885,15 @@
    "kind": "short"
   },
   {
-   "id": "wHB9e3FEhpk",
-   "video_id": "wHB9e3FEhpk",
-   "title": "I become a fake bollard and trolled COP in GTA #gta #gtav #gtaonline",
-   "channel": "BISON Gaming",
-   "url": "https://www.youtube.com/shorts/wHB9e3FEhpk",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA Online",
-   "kind": "short"
-  },
-  {
-   "id": "1_7hdlsww-8",
-   "video_id": "1_7hdlsww-8",
-   "title": "Free Fire vs GTA v 😱 funny moments 🤣 #gta5 #shorts #funny #gaming",
-   "channel": "Kiran",
-   "url": "https://www.youtube.com/shorts/1_7hdlsww-8",
+   "id": "6_DxeSe0q50",
+   "video_id": "6_DxeSe0q50",
+   "title": "GTA V - It Is My Head ! 😁 #gta5  Part-15 #shorts  #viral",
+   "channel": "Fardin 3D Studio",
+   "url": "https://www.youtube.com/shorts/6_DxeSe0q50",
    "views": null,
    "date": null,
    "lang": "en",
    "game": "GTA 5",
-   "kind": "short"
-  },
-  {
-   "id": "XXTpOkOqq1A",
-   "video_id": "XXTpOkOqq1A",
-   "title": "Trolling A GTA 5 Cops As A Fake Wooden Fence 🚨💥😂 #gta5",
-   "channel": "Gaurav Gaming",
-   "url": "https://www.youtube.com/shorts/XXTpOkOqq1A",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA 5",
-   "kind": "short"
-  },
-  {
-   "id": "DGSwwIhgvM4",
-   "video_id": "DGSwwIhgvM4",
-   "title": "He Can’t Trust Anyone Anymore 😂  #gtaonline #gta5online #gta5 #gtaviral #fail",
-   "channel": "SJx Playz",
-   "url": "https://www.youtube.com/shorts/DGSwwIhgvM4",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA Online",
    "kind": "short"
   }
  ],
@@ -2130,7 +2130,7 @@
   }
  ],
  "meta": {
-  "sessionscan_slot": "2026-11-01 10:06",
+  "sessionscan_slot": "2026-11-01 12:06",
   "jobs_gtabase": "2026-10-31 21:15",
   "jobs_ign": "2026-10-31 21:15",
   "jobs_wiki": "2026-10-31 21:15",
@@ -2141,10 +2141,10 @@
   "videos_hot_ja": "2026-11-01 06:02",
   "videos_new_ja": "2026-11-01 06:02",
   "forum_reddit": "2026-10-31 21:18",
-  "tweets_en": "2026-11-01 10:07",
-  "tweets": "2026-11-01 10:07",
-  "_last_run": "2026-11-01 10:07",
-  "generated_at": "2026-11-01T02:07:54Z",
+  "tweets_en": "2026-11-01 12:06",
+  "tweets": "2026-11-01 12:06",
+  "_last_run": "2026-11-01 12:06",
+  "generated_at": "2026-11-01T04:06:49Z",
   "sample": false,
   "scraper_status": "ok",
   "label_zh": "資料快照",
@@ -2162,11 +2162,11 @@
   ],
   "jobs": "2026-10-31 21:15",
   "hot": "2026-11-01 08:04",
-  "new": "2026-11-01 10:06",
+  "new": "2026-11-01 12:06",
   "forum": "2026-10-31 21:18",
   "forum_bahamut": "2026-10-31 21:18",
-  "videos_shorts": "2026-11-01 10:06",
-  "tweets_zh": "2026-11-01 10:07"
+  "videos_shorts": "2026-11-01 12:06",
+  "tweets_zh": "2026-11-01 12:06"
  },
  "sessionscan_slot": {
   "status": "online",
@@ -2607,13 +2607,13 @@
   },
   "videos_shorts": {
    "HjlIz8f4utU": 1,
-   "IgRTbEHSeU4": 2,
-   "6_DxeSe0q50": 3,
+   "biJ91VvpDec": 2,
+   "IgRTbEHSeU4": 3,
    "i6xhSxnm9FM": 4,
-   "XXTpOkOqq1A": 5,
-   "wHB9e3FEhpk": 6,
-   "1_7hdlsww-8": 7,
-   "0EOYLeR1pos": 8
+   "wHB9e3FEhpk": 5,
+   "1_7hdlsww-8": 6,
+   "XXTpOkOqq1A": 7,
+   "DGSwwIhgvM4": 8
   }
  }
 }
