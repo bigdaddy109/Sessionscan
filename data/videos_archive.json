@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T00:05:25Z",
+ "updated": "2026-11-01T02:07:54Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -2168,6 +2168,8 @@
    "url": "https://www.youtube.com/shorts/6GugKNWi2UA",
    "lang": "en",
    "game": "GTA 6",
+   "date": "",
+   "views": null,
    "kind": "short",
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",
@@ -2463,11 +2465,13 @@
   {
    "video_id": "7J_LGcK5z-Q",
    "title": "Make EASY MILLIONS with PAYPHONES & BAIL OFFICE | GTA Online",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=7J_LGcK5z-Q",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-08",
    "views": 19481,
+   "kind": "",
    "first_seen": "2026-11-01",
    "last_seen": "2026-11-01"
   },
@@ -2903,11 +2907,13 @@
   {
    "video_id": "8z07yNwx6yo",
    "title": "3X MONEY & EASY MILLIONS | GTA Online",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=8z07yNwx6yo",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-14",
    "views": 19140,
+   "kind": "",
    "first_seen": "2026-11-01",
    "last_seen": "2026-11-01"
   },
@@ -4176,7 +4182,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-30",
-   "last_seen": "2026-10-31"
+   "last_seen": "2026-11-01"
   },
   {
    "video_id": "DKs4bhega9A",
@@ -5624,11 +5630,13 @@
   {
    "video_id": "J-yCTmRa2pA",
    "title": "3X MONEY & 2,000,000 BONUS | GTA Online Weekly update",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=J-yCTmRa2pA",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-28",
    "views": 12703,
+   "kind": "",
    "first_seen": "2026-11-01",
    "last_seen": "2026-11-01"
   },
@@ -10615,7 +10623,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-10-31"
+   "last_seen": "2026-11-01"
   },
   {
    "video_id": "bnAMrSf2jJc",
@@ -11391,11 +11399,13 @@
   {
    "video_id": "eJEq3SzQpm4",
    "title": "3X MONEY & HUGE BONUS | GTA Online",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=eJEq3SzQpm4",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-07",
    "views": 19180,
+   "kind": "",
    "first_seen": "2026-11-01",
    "last_seen": "2026-11-01"
   },
@@ -13174,11 +13184,13 @@
   {
    "video_id": "le1m-Z6vucc",
    "title": "GTA Onlines WORST DLC...and the LAST",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=le1m-Z6vucc",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-12",
    "views": 18942,
+   "kind": "",
    "first_seen": "2026-11-01",
    "last_seen": "2026-11-01"
   },
@@ -14992,11 +15004,13 @@
   {
    "video_id": "smsyEnqyzng",
    "title": "STOP DOING HEISTS! $1,100,000 IN 40 MINUTES | GTA Online",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=smsyEnqyzng",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-04",
    "views": 21517,
+   "kind": "",
    "first_seen": "2026-11-01",
    "last_seen": "2026-11-01"
   },
