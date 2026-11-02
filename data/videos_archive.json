@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02T04:04:57Z",
+ "updated": "2026-11-02T04:13:06Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -503,7 +503,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-15",
-   "views": 10043,
+   "views": 10044,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-11-02"
@@ -1701,7 +1701,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-10-09",
-   "views": 17471,
+   "views": 17537,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-11-02"
@@ -3652,11 +3652,13 @@
   {
    "video_id": "B2ONBw1Xxnc",
    "title": "GTA Online: Casino Story Missions | Full Gameplay (PS5 Pro 4K 60FPS)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=B2ONBw1Xxnc",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-19",
    "views": 909,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -4263,11 +4265,13 @@
   {
    "video_id": "D1X1s-uxETQ",
    "title": "Halloween Weather is BACK in GTA Online...😅🎃",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=D1X1s-uxETQ",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-30",
    "views": 3075,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -4716,11 +4720,13 @@
   {
    "video_id": "EnMfAUOhLB0",
    "title": "GTA Online: The Doomsday Heist Act III - The Doomsday Scenario | Full Gameplay (PS5 Pro 4K 60FPS)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=EnMfAUOhLB0",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-05",
    "views": 914,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -4953,7 +4959,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-01",
-   "views": 3776,
+   "views": 3893,
    "kind": "",
    "first_seen": "2026-10-31",
    "last_seen": "2026-11-02"
@@ -5135,7 +5141,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-29",
-   "views": 8929,
+   "views": 8962,
    "kind": "",
    "first_seen": "2026-10-29",
    "last_seen": "2026-11-02"
@@ -6684,7 +6690,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 10270,
+   "views": 10275,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-11-02"
@@ -8046,11 +8052,13 @@
   {
    "video_id": "ReaFvJehncg",
    "title": "GTA 6 Marketing is on another level right now..🤣💩",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=ReaFvJehncg",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-29",
    "views": 2181,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -10869,11 +10877,13 @@
   {
    "video_id": "bLoolaLFZro",
    "title": "The Truth About GTA 6 Locked at 30 FPS🤔",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=bLoolaLFZro",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-31",
    "views": 971,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -11833,11 +11843,13 @@
   {
    "video_id": "eSIY0mMVmao",
    "title": "Last Halloween Update?! GTA Online Weekly Update!🎃",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=eSIY0mMVmao",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-29",
    "views": 1513,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -12013,11 +12025,13 @@
   {
    "video_id": "fRuwiy5nfPY",
    "title": "Don't Miss These Things BEFORE October 29th GTA Online!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=fRuwiy5nfPY",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-26",
    "views": 1767,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -12468,11 +12482,13 @@
   {
    "video_id": "h6vUcH3IK3E",
    "title": "Last Halloween Update? GTA Online Weekly Update!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=h6vUcH3IK3E",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-29",
    "views": 474,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -12840,7 +12856,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-11-01"
+   "last_seen": "2026-11-02"
   },
   {
    "video_id": "i6LgSKZGGlg",
@@ -13838,10 +13854,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-08",
-   "views": 9570,
+   "views": 9571,
    "kind": "",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-11-01"
+   "last_seen": "2026-11-02"
   },
   {
    "video_id": "mKNgHzs-ELA",
@@ -15289,11 +15305,13 @@
   {
    "video_id": "rYISAfDJgms",
    "title": "The Truth About GTA 6 LOCKED at 30 FPS...",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=rYISAfDJgms",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-31",
    "views": 3132,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -16373,10 +16391,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-03",
-   "views": 3216,
+   "views": 3222,
    "kind": "",
    "first_seen": "2026-10-07",
-   "last_seen": "2026-11-01"
+   "last_seen": "2026-11-02"
   },
   {
    "video_id": "vRsfurnvHbw",
@@ -17488,11 +17506,13 @@
   {
    "video_id": "zNJ08BLkrV8",
    "title": "GTA Online: The Cayo Perico Heist | Full Gameplay (PS5 Pro 4K 60FPS)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=zNJ08BLkrV8",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-16",
    "views": 1121,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
