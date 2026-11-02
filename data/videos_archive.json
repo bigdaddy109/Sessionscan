@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02T00:06:25Z",
+ "updated": "2026-11-02T02:09:14Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -4299,7 +4299,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-30",
-   "last_seen": "2026-11-01"
+   "last_seen": "2026-11-02"
   },
   {
    "video_id": "DKs4bhega9A",
@@ -4585,7 +4585,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-11-01"
+   "last_seen": "2026-11-02"
   },
   {
    "video_id": "EQnmIinOde8",
@@ -7846,6 +7846,8 @@
    "url": "https://www.youtube.com/shorts/Qv0Pt32mHvA",
    "lang": "en",
    "game": "GTA 6",
+   "date": "",
+   "views": null,
    "kind": "short",
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",
@@ -8388,11 +8390,13 @@
   {
    "video_id": "TGUIGXIhsjI",
    "title": "GTA ONLINE WEEKLY UPDATE - HALLOWEN EVENT - FREE MILLIONS - BONUSES & MORE!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=TGUIGXIhsjI",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-28",
    "views": 48144,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -8867,11 +8871,13 @@
   {
    "video_id": "VEIJZMXzRPI",
    "title": "GTA 6 is Turning Miami into Vice City!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=VEIJZMXzRPI",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-25",
    "views": 21839,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -9073,11 +9079,13 @@
   {
    "video_id": "W0BpyHoq9eQ",
    "title": "NEW GTA 6 Map Update! Enterable Buildings, Map Size & More!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=W0BpyHoq9eQ",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-19",
    "views": 164497,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -10024,11 +10032,13 @@
   {
    "video_id": "ZgXzegmWMEM",
    "title": "GTA 6 Huge News Update: Everything You Missed",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=ZgXzegmWMEM",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-09",
    "views": 116784,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -12452,6 +12462,7 @@
    "game": "GTA 6",
    "date": "2026-11-01",
    "views": 85412,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -13656,11 +13667,13 @@
   {
    "video_id": "lkyTFpdI2KQ",
    "title": "GTA ONLINE WEEKLY UPDATE - HALLOWEN EVENT - FREE MILLIONS - BONUSES & MORE!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=lkyTFpdI2KQ",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-21",
    "views": 57454,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -14668,11 +14681,13 @@
   {
    "video_id": "ptmqvzSY8Bk",
    "title": "What you should buy before next GTA Online Weekly update!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=ptmqvzSY8Bk",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-27",
    "views": 22690,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -15342,11 +15357,13 @@
   {
    "video_id": "s7nVd0KMs-0",
    "title": "Easy GTA 5 SOLO Survival Strategy!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=s7nVd0KMs-0",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-22",
    "views": 40854,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -16850,11 +16867,13 @@
   {
    "video_id": "xpdyfZHqEPs",
    "title": "🔴LIVE - GTA ONLINE WEEKLY UPDATE LIVE!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=xpdyfZHqEPs",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-28",
    "views": 13452,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
@@ -17513,11 +17532,13 @@
   {
    "video_id": "zsrbOhJFY8c",
    "title": "GTA 6's origin story is way stranger than you think!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=zsrbOhJFY8c",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-23",
    "views": 46677,
+   "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
   },
