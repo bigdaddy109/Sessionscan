@@ -8,6 +8,9 @@
  * prove document.scrollWidth or painted header boxes; we measure them.
  * The compact YouTube handle must stay fully readable: shrinking it painted
  * "@sess…" and let IG/X cover the language switch on 375–430px phones.
+ * The home hero HUD is position:absolute. On a 375–400px English home the
+ * scan line wraps and paints through the eyebrow; measure that they do not
+ * intersect and that the line stays one row at the widths we ship.
  */
 import { spawnSync } from "node:child_process";
 import { createServer } from "node:http";
@@ -256,6 +259,52 @@ function reportOverlaps(label, measured) {
   return errors;
 }
 
+async function measureHeroScanline(page) {
+  return page.evaluate(() => {
+    const hud = document.querySelector(".hero-hud");
+    const eye = document.querySelector(".hero-copy .eyebrow");
+    if (!hud || !eye) return null;
+    const box = (el) => {
+      const r = el.getBoundingClientRect();
+      return { top: r.top, bottom: r.bottom, left: r.left, right: r.right, height: r.height };
+    };
+    const eyeBox = box(eye);
+    const hit = (a, b) =>
+      a.left < b.right - 0.5 && a.right > b.left + 0.5 && a.top < b.bottom - 0.5 && a.bottom > b.top + 0.5;
+    const spans = [...hud.children].map((el) => {
+      const info = box(el);
+      return {
+        text: (el.textContent || "").trim().slice(0, 48),
+        height: info.height,
+        overlaps: hit(info, eyeBox),
+        clipped: el.scrollWidth > el.clientWidth + 1,
+      };
+    });
+    return {
+      overlaps: spans.filter((s) => s.overlaps).map((s) => s.text),
+      wrapped: spans.some((s) => s.height > 24),
+      clipped: spans.filter((s) => s.clipped).map((s) => s.text),
+    };
+  });
+}
+
+function reportHeroScanline(label, measured) {
+  if (!measured) return [];
+  const errors = [];
+  if (measured.overlaps.length) {
+    errors.push(`${label}: hero HUD overlaps eyebrow (${measured.overlaps.join(" | ")})`);
+  }
+  if (measured.wrapped) {
+    errors.push(`${label}: hero HUD scan line wrapped onto a second row`);
+  }
+  // 375+ must show the full decorative line. Narrower widths may ellipsize.
+  const width = Number(String(label).match(/(\d+)x/)?.[1] || 0);
+  if (width >= 375 && measured.clipped.length) {
+    errors.push(`${label}: hero HUD ellipsized (${measured.clipped.join(" | ")})`);
+  }
+  return errors;
+}
+
 function reportOverflow(label, measured) {
   const errors = [];
   if (measured.scroll > measured.client + 1) {
@@ -294,6 +343,7 @@ async function checkPage(page, pageInfo, width, height, errors, { overflow, scro
   await ready(page);
   const header = await measureHeader(page);
   errors.push(...reportOverlaps(`${base} top`, header));
+  errors.push(...reportHeroScanline(`${base} top`, await measureHeroScanline(page)));
   if (overflow) {
     errors.push(...reportOverflow(`${base} top`, await measureOverflow(page)));
   }

@@ -16,6 +16,7 @@
 - 行動版 sticky header：合併後若再改頁首高度，在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。site-nav 六連結已改換行，不再靠橫向捲軸。
 
 已完成：
+- 手機英文首頁 HUD 掃描列不再折行蓋住 eyebrow（≤420px 單行、`letter-spacing: 0.04em`；375 以上不截字）。rollback `pre-hero-scanline-20261103`。測 `tests/test_header_overlap.mjs`。
 - Sitemap 從全檔分享頁（約 2,280 URL）收成首頁、殼頁／攻略，以及近 28 天觀看數 ≥ 100,000 的前 40 支（另加 owned）。凍結週 URL 與長尾影片頁仍生成，但不進 sitemap。rollback `pre-home-week-events-20261029`（與首頁 PR 同一個 main 起點）。測 `tests/test_video_pages.mjs`。
 - 首頁「本週先做這些」改吃 GTABase 週更文子標題（`events`：倍數、展台／Podium、免費、廢車場），本週還沒有新文章時賺錢卡沿用上一 Rockstar 週的那張週更並列出事件，不再是空白或只有外連。`thisWeekJobs` 與凍結頁仍不把上一週算進當週。rollback `pre-home-week-events-20261029`。測 `tests/test_this_week_home.mjs`、`tests/test_static_home.mjs`、`tests/test_pipeline.py`。
 - 搜尋別名不再讓兩個字母的語系詞（`en`／`zh`／`ja`／`ko`）嵌進較長的字裡。`Halloween`、`Event`、`agency` 以前會整組展開成英文，本週工作卡（沒有 lang）被每一支英文影片／貼文蓋過；`Kortz` 會被當成韓文。精確的 `en`／`英文` 仍展開。單一來源 `aliasTermsFor`（`src/i18n.js`）。#123；rollback `pre-search-en-alias-20261028`。測 `tests/test_i18n.mjs`、`tests/test_search_aliases.py`。
