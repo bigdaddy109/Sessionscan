@@ -1604,6 +1604,30 @@ main {
   .tab .ch {
     font-size: 12px;
   }
+  /* The English HUD line ("CH-07 · NIGHT SCAN · VICE DUSK") is absolutely
+     positioned. At 0.14em tracking it wraps onto the eyebrow on 375–400px
+     and paints "DUSK" through "NIGHT SCAN // WET ASPHALT". Keep one row;
+     ellipsize only if the row is still short of the clock (≤344px). */
+  .hero-hud {
+    top: 10px;
+    letter-spacing: 0.04em;
+    flex-wrap: nowrap;
+    min-width: 0;
+  }
+  .hero-hud > span {
+    white-space: nowrap;
+  }
+  .hero-hud > span:first-child,
+  .hero-hud > span:last-child {
+    flex: 0 0 auto;
+  }
+  .hero-hud > span:nth-child(2) {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .hero-copy { margin-top: 34px; }
   /* Copy stays on screen. display:none here left 375/390 with Share to X only,
      so a phone could not paste the card link into LINE or Discord. */
 }
