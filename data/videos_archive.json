@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-03T14:04:43Z",
+ "updated": "2026-11-03T14:53:42Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -516,7 +516,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-15",
-   "views": 10065,
+   "views": 10067,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-11-03"
@@ -555,7 +555,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 11833068,
+   "views": 11833398,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-11-03"
@@ -1049,9 +1049,20 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 109951,
+   "views": 109999,
    "kind": "",
    "first_seen": "2026-10-15",
+   "last_seen": "2026-11-03"
+  },
+  {
+   "video_id": "2GiFa3N00cs",
+   "title": "GTA5 online [社群競速]黑暗之旅  The Dark Ride by OHV-METAL-HEAD",
+   "url": "https://www.youtube.com/watch?v=2GiFa3N00cs",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-11-03",
+   "views": 2,
+   "first_seen": "2026-11-03",
    "last_seen": "2026-11-03"
   },
   {
@@ -1727,7 +1738,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-30",
-   "views": 381816,
+   "views": 385086,
    "kind": "",
    "first_seen": "2026-10-30",
    "last_seen": "2026-11-03"
@@ -1740,7 +1751,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-01",
-   "views": 15479,
+   "views": 15550,
    "kind": "",
    "first_seen": "2026-11-01",
    "last_seen": "2026-11-03"
@@ -2039,7 +2050,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-02",
-   "views": 39205,
+   "views": 40125,
    "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-03"
@@ -2515,6 +2526,17 @@
    "last_seen": "2026-10-21"
   },
   {
+   "video_id": "6spIbi2gDSE",
+   "title": "GTA5 online [社群競速]喪屍鎮巡迴賽  Zombie Town Circuit  by AdmiralAubrey",
+   "url": "https://www.youtube.com/watch?v=6spIbi2gDSE",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-11-03",
+   "views": 6,
+   "first_seen": "2026-11-03",
+   "last_seen": "2026-11-03"
+  },
+  {
    "video_id": "6tw4H9q7dk0",
    "title": "GTA Online: How to Get PINK & GREEN JOGGERS + HELMETS! (Bookmark Job)",
    "channel": "DogManX",
@@ -2600,7 +2622,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 7691851,
+   "views": 7692391,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-11-03"
@@ -2730,7 +2752,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-19",
-   "views": 75551,
+   "views": 75675,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-11-03"
@@ -2890,6 +2912,17 @@
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-29"
+  },
+  {
+   "video_id": "8HE8OG3xzJs",
+   "title": "GTA5 online  [社群競速]城市5  The City 5 by NOBl__NOBITA",
+   "url": "https://www.youtube.com/watch?v=8HE8OG3xzJs",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-11-03",
+   "views": 8,
+   "first_seen": "2026-11-03",
+   "last_seen": "2026-11-03"
   },
   {
    "video_id": "8HfHUUB8To8",
@@ -3527,7 +3560,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-11",
-   "views": 1593925,
+   "views": 1595131,
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-11-03"
@@ -3657,7 +3690,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-30",
-   "views": 71948,
+   "views": 72558,
    "kind": "",
    "first_seen": "2026-10-30",
    "last_seen": "2026-11-03"
@@ -5089,7 +5122,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 3951006,
+   "views": 3951062,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-11-03"
@@ -5323,7 +5356,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-29",
-   "views": 2248025,
+   "views": 2249558,
    "kind": "",
    "first_seen": "2026-10-29",
    "last_seen": "2026-11-03"
@@ -5349,7 +5382,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-29",
-   "views": 9361,
+   "views": 9404,
    "kind": "",
    "first_seen": "2026-10-29",
    "last_seen": "2026-11-03"
@@ -6714,7 +6747,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-03",
-   "views": 1560,
+   "views": 1667,
    "kind": "",
    "first_seen": "2026-11-03",
    "last_seen": "2026-11-03"
@@ -6727,7 +6760,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-31",
-   "views": 3846,
+   "views": 3995,
    "kind": "",
    "first_seen": "2026-10-31",
    "last_seen": "2026-11-03"
@@ -7238,7 +7271,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-02",
-   "views": 19536,
+   "views": 19829,
    "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-03"
@@ -7251,7 +7284,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 13968980,
+   "views": 13970085,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-11-03"
@@ -7645,6 +7678,18 @@
    "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-10-24"
+  },
+  {
+   "video_id": "OYM22DPYPl0",
+   "title": "GTA 6 Gameplay: Jason Free Roam in Vice City, Leonida & More - 8 Minutes Open World Gameplay Concept",
+   "channel": "Gar Studio",
+   "url": "https://www.youtube.com/watch?v=OYM22DPYPl0",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-02",
+   "views": 51776,
+   "first_seen": "2026-11-03",
+   "last_seen": "2026-11-03"
   },
   {
    "video_id": "Oc8ev8x5h7s",
@@ -8204,6 +8249,17 @@
    "kind": "short",
    "first_seen": "2026-10-08",
    "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "Qeuc08Vl2YE",
+   "title": "GTA5 online [社群競速]  [GtaR]斯芬克斯-ter [GtaR] Sphinx-ter by GTA_RRRacing",
+   "url": "https://www.youtube.com/watch?v=Qeuc08Vl2YE",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-11-03",
+   "views": 8,
+   "first_seen": "2026-11-03",
+   "last_seen": "2026-11-03"
   },
   {
    "video_id": "QfLszG9hxw0",
@@ -9138,7 +9194,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 11095746,
+   "views": 11095902,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-11-03"
@@ -9560,6 +9616,17 @@
    "last_seen": "2026-10-19"
   },
   {
+   "video_id": "VstEkeVqcLE",
+   "title": "GTA5 online [社群競速]面對萬聖節#5",
+   "url": "https://www.youtube.com/watch?v=VstEkeVqcLE",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-11-03",
+   "views": 2,
+   "first_seen": "2026-11-03",
+   "last_seen": "2026-11-03"
+  },
+  {
    "video_id": "VxHSsBhJQh8",
    "title": "Should You Worry About Nudity in GTA VI? | Viper Rambles #42",
    "channel": "",
@@ -9724,6 +9791,7 @@
    "game": "GTA 6",
    "date": "2026-11-03",
    "views": 4938,
+   "kind": "",
    "first_seen": "2026-11-03",
    "last_seen": "2026-11-03"
   },
@@ -9956,7 +10024,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-28",
-   "views": 37781,
+   "views": 38199,
    "kind": "",
    "first_seen": "2026-10-29",
    "last_seen": "2026-11-03"
@@ -10140,7 +10208,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-29",
-   "views": 132779,
+   "views": 133306,
    "kind": "",
    "first_seen": "2026-10-29",
    "last_seen": "2026-11-03"
@@ -10675,7 +10743,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-02",
-   "views": 213021,
+   "views": 224828,
    "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-03"
@@ -10792,7 +10860,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-03",
-   "views": 2128,
+   "views": 2323,
    "kind": "",
    "first_seen": "2026-11-03",
    "last_seen": "2026-11-03"
@@ -11188,6 +11256,17 @@
    "last_seen": "2026-10-28"
   },
   {
+   "video_id": "ahdFMocWKI0",
+   "title": "What you should buy before next GTA Online Weekly update! GTA+ also ends!",
+   "url": "https://www.youtube.com/watch?v=ahdFMocWKI0",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-11-03",
+   "views": 1059,
+   "first_seen": "2026-11-03",
+   "last_seen": "2026-11-03"
+  },
+  {
    "video_id": "am-DB9lgNZ0",
    "title": "Grand Theft Auto 6: Launch Trailer PS5 Tech Reaction/Breakdown",
    "channel": "Digital Foundry",
@@ -11338,7 +11417,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-19",
-   "views": 134068,
+   "views": 134127,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-11-03"
@@ -12057,7 +12136,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 6814556,
+   "views": 6814673,
    "kind": "",
    "first_seen": "2026-10-20",
    "last_seen": "2026-11-03"
@@ -13167,7 +13246,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-11-02"
+   "last_seen": "2026-11-03"
   },
   {
    "video_id": "hOFcYqDBv6E",
@@ -13287,6 +13366,17 @@
    "last_seen": "2026-10-14"
   },
   {
+   "video_id": "hjGsUu9WHiE",
+   "title": "GTA5 online [社群競速]#鬼來塢#",
+   "url": "https://www.youtube.com/watch?v=hjGsUu9WHiE",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-11-03",
+   "views": 5,
+   "first_seen": "2026-11-03",
+   "last_seen": "2026-11-03"
+  },
+  {
    "video_id": "hkNxkatKro8",
    "title": "ようやく200万回収できるぞぉおおおお！オンラインでミッション！【GTA5】",
    "channel": "",
@@ -13315,11 +13405,13 @@
   {
    "video_id": "hqJTNzRkVms",
    "title": "GTA 6 in 3 Weeks - Everything You Need To Know Before You Play!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=hqJTNzRkVms",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-30",
    "views": 1197740,
+   "kind": "",
    "first_seen": "2026-11-03",
    "last_seen": "2026-11-03"
   },
@@ -13671,7 +13763,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1452263,
+   "views": 1452824,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-11-03"
@@ -13814,7 +13906,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-02",
-   "views": 1908,
+   "views": 2015,
    "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-03"
@@ -14802,7 +14894,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-11-03",
-   "views": 199,
+   "views": 554,
    "kind": "",
    "first_seen": "2026-11-03",
    "last_seen": "2026-11-03"
@@ -14992,11 +15084,13 @@
   {
    "video_id": "o7Ewat1iCic",
    "title": "Thank You, GTA 5.",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=o7Ewat1iCic",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-11-03",
-   "views": 2426,
+   "views": 4585,
+   "kind": "",
    "first_seen": "2026-11-03",
    "last_seen": "2026-11-03"
   },
@@ -15190,7 +15284,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-21",
-   "views": 104093,
+   "views": 104084,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-11-03"
@@ -15567,7 +15661,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-27",
-   "views": 2989,
+   "views": 3001,
    "kind": "",
    "first_seen": "2026-10-27",
    "last_seen": "2026-11-03"
@@ -15666,11 +15760,13 @@
   {
    "video_id": "qBG6tw0lvco",
    "title": "【GTA5實況】想不到天氣還是變天了！GTA Online",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=qBG6tw0lvco",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-03",
-   "views": 136,
+   "views": 275,
+   "kind": "",
    "first_seen": "2026-11-03",
    "last_seen": "2026-11-03"
   },
@@ -15753,6 +15849,17 @@
    "last_seen": "2026-10-22"
   },
   {
+   "video_id": "qUonDMTw48w",
+   "title": "GTA5 online [社群競速]SEE空中神殿  SEE Sky Shrine by Mattya_tokiwai33",
+   "url": "https://www.youtube.com/watch?v=qUonDMTw48w",
+   "lang": "zh",
+   "game": "GTA 5",
+   "date": "2026-11-03",
+   "views": 7,
+   "first_seen": "2026-11-03",
+   "last_seen": "2026-11-03"
+  },
+  {
    "video_id": "qVTJlGyKGTk",
    "title": "The ONLY Weapons You Need in GTA Online 2026",
    "channel": "",
@@ -15825,7 +15932,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-17",
-   "views": 181168,
+   "views": 181961,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-11-03"
@@ -16254,7 +16361,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 72467659,
+   "views": 72486377,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-11-03"
@@ -17049,7 +17156,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-25",
-   "views": 71516,
+   "views": 71609,
    "kind": "",
    "first_seen": "2026-10-25",
    "last_seen": "2026-11-03"
@@ -17647,7 +17754,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-03",
-   "views": 3106,
+   "views": 4041,
    "kind": "",
    "first_seen": "2026-11-03",
    "last_seen": "2026-11-03"
@@ -17842,7 +17949,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-01",
-   "views": 62724,
+   "views": 63595,
    "kind": "",
    "first_seen": "2026-11-01",
    "last_seen": "2026-11-03"
@@ -18052,7 +18159,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-02",
-   "views": 55082,
+   "views": 66323,
    "kind": "",
    "first_seen": "2026-11-03",
    "last_seen": "2026-11-03"
@@ -18351,7 +18458,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-03",
-   "views": 15562,
+   "views": 16711,
    "kind": "",
    "first_seen": "2026-11-03",
    "last_seen": "2026-11-03"
@@ -18416,7 +18523,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-02",
-   "views": 32861,
+   "views": 33815,
    "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-03"
