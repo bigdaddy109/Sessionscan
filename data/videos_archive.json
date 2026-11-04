@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04T04:07:42Z",
+ "updated": "2026-11-04T04:46:16Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -13121,11 +13121,13 @@
   {
    "video_id": "gRvphaY1hBA",
    "title": "R星GTA6新作步行也能听歌！超细海报新闻解析解读！",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=gRvphaY1hBA",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-10",
    "views": 2476,
+   "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
   },
@@ -13753,7 +13755,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-11-03"
+   "last_seen": "2026-11-04"
   },
   {
    "video_id": "i6LgSKZGGlg",
@@ -18251,6 +18253,8 @@
    "url": "https://www.youtube.com/shorts/xjcVTVreGX4",
    "lang": "en",
    "game": "GTA 6",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
