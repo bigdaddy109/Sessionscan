@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04T02:05:54Z",
+ "updated": "2026-11-04T04:07:42Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -12999,7 +12999,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-11",
-   "last_seen": "2026-11-03"
+   "last_seen": "2026-11-04"
   },
   {
    "video_id": "g-rSSntLJ7k",
@@ -13117,6 +13117,17 @@
    "kind": "",
    "first_seen": "2026-10-27",
    "last_seen": "2026-10-27"
+  },
+  {
+   "video_id": "gRvphaY1hBA",
+   "title": "R星GTA6新作步行也能听歌！超细海报新闻解析解读！",
+   "url": "https://www.youtube.com/watch?v=gRvphaY1hBA",
+   "lang": "zh",
+   "game": "GTA Online",
+   "date": "2026-10-10",
+   "views": 2476,
+   "first_seen": "2026-11-04",
+   "last_seen": "2026-11-04"
   },
   {
    "video_id": "gVGGhBkuwzw",
@@ -13415,7 +13426,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-11-03"
+   "last_seen": "2026-11-04"
   },
   {
    "video_id": "hOFcYqDBv6E",
@@ -18234,6 +18245,17 @@
    "last_seen": "2026-10-26"
   },
   {
+   "video_id": "xjcVTVreGX4",
+   "title": "Chop is following Franklin behavior 😅",
+   "channel": "GTA 6 Patrol",
+   "url": "https://www.youtube.com/shorts/xjcVTVreGX4",
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "first_seen": "2026-11-04",
+   "last_seen": "2026-11-04"
+  },
+  {
    "video_id": "xkf0_UJc0co",
    "title": "🥇【GTA5直播】公寓搶劫最高榮耀「犯罪首腦」🥇 豪取1200萬大成功   #gta #gta5 #gtaonline",
    "channel": "",
@@ -18836,11 +18858,13 @@
   {
    "video_id": "zLiUIumDxuE",
    "title": "注意 !GTA6預載提前啦，R星公布遊戲大小212G！還有實力版地圖封面海報獲取，全新截圖解!！",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=zLiUIumDxuE",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-04",
    "views": 634,
+   "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
   },
