@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04T12:03:48Z",
+ "updated": "2026-11-04T14:04:45Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -519,7 +519,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-29",
-   "last_seen": "2026-11-02"
+   "last_seen": "2026-11-04"
   },
   {
    "video_id": "0q4hFCLjXQc",
@@ -568,7 +568,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 11849530,
+   "views": 11849886,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-11-04"
@@ -815,7 +815,7 @@
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-11-04",
-   "views": 3418,
+   "views": 3747,
    "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
@@ -909,7 +909,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-28",
-   "last_seen": "2026-11-01"
+   "last_seen": "2026-11-04"
   },
   {
    "video_id": "1gxGAo8CpEA",
@@ -1075,7 +1075,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 111104,
+   "views": 111200,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-11-04"
@@ -1475,11 +1475,13 @@
   {
    "video_id": "3MLCfZE8KZM",
    "title": "【GTA6】ミッション約140本・やることが多すぎる…100時間でも足りない【ゆっくり解説】",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=3MLCfZE8KZM",
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-03",
-   "views": 12423,
+   "views": 12629,
+   "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
   },
@@ -1764,7 +1766,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-10-09",
-   "views": 18260,
+   "views": 18314,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-11-04"
@@ -1777,7 +1779,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-30",
-   "views": 416596,
+   "views": 418483,
    "kind": "",
    "first_seen": "2026-10-30",
    "last_seen": "2026-11-04"
@@ -1790,7 +1792,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-01",
-   "views": 16334,
+   "views": 16408,
    "kind": "",
    "first_seen": "2026-11-01",
    "last_seen": "2026-11-04"
@@ -1820,6 +1822,18 @@
    "kind": "",
    "first_seen": "2026-10-30",
    "last_seen": "2026-10-30"
+  },
+  {
+   "video_id": "4bIFH_DFHlI",
+   "title": "【GTA5實況】最後的萬聖節生存戰！GTA Online",
+   "channel": "Yu",
+   "url": "https://www.youtube.com/watch?v=4bIFH_DFHlI",
+   "lang": "zh",
+   "game": "GTA Online",
+   "date": "2026-11-04",
+   "views": 48,
+   "first_seen": "2026-11-04",
+   "last_seen": "2026-11-04"
   },
   {
    "video_id": "4bWBkOiGQP0",
@@ -1881,7 +1895,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-29",
-   "views": 1271371,
+   "views": 1273516,
    "kind": "",
    "first_seen": "2026-10-31",
    "last_seen": "2026-11-04"
@@ -2806,7 +2820,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-19",
-   "views": 77174,
+   "views": 77393,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-11-04"
@@ -3243,11 +3257,13 @@
   {
    "video_id": "91x1i4AF3rU",
    "title": "I Thought It Was A Cutscene #gta5 #gtav #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=91x1i4AF3rU",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-04",
-   "views": 3087,
+   "views": 8359,
+   "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
   },
@@ -3653,7 +3669,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-11",
-   "views": 1624668,
+   "views": 1626207,
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-11-04"
@@ -3783,7 +3799,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-30",
-   "views": 81624,
+   "views": 82382,
    "kind": "",
    "first_seen": "2026-10-30",
    "last_seen": "2026-11-04"
@@ -4625,11 +4641,13 @@
   {
    "video_id": "DF2Nryko3M4",
    "title": "《GTA6》賣100美元背後，R星為什麼決定徹底背叛億萬忠實玩家？",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=DF2Nryko3M4",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-04",
-   "views": 189,
+   "views": 508,
+   "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
   },
@@ -5239,7 +5257,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 3952326,
+   "views": 3952683,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-11-04"
@@ -5473,7 +5491,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-29",
-   "views": 2273160,
+   "views": 2274333,
    "kind": "",
    "first_seen": "2026-10-29",
    "last_seen": "2026-11-04"
@@ -5512,7 +5530,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-24",
-   "views": 20154,
+   "views": 20174,
    "kind": "",
    "first_seen": "2026-10-24",
    "last_seen": "2026-11-04"
@@ -5936,11 +5954,13 @@
   {
    "video_id": "Hpvq-Nx0DXY",
    "title": "GTA6の規制内容が決定…でも日本版の中身は一言も公表されてない件",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Hpvq-Nx0DXY",
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-20",
-   "views": 13906,
+   "views": 13941,
+   "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
   },
@@ -5973,11 +5993,13 @@
   {
    "video_id": "I5ZS6FQ6FwY",
    "title": "🚨LIVE: GTA VI RELEASES IN 2 WEEKS! (HOME STRETCH BABY!)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=I5ZS6FQ6FwY",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-04",
    "views": 1415,
+   "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
   },
@@ -6790,11 +6812,13 @@
   {
    "video_id": "KVq4VhDK2WY",
    "title": "how to get prison bus in gta 5 | Secret bus Location In GTA 5 story mode #shorts #gta5 #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=KVq4VhDK2WY",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-04",
    "views": 147,
+   "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
   },
@@ -6923,7 +6947,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-03",
-   "views": 2675,
+   "views": 2731,
    "kind": "",
    "first_seen": "2026-11-03",
    "last_seen": "2026-11-04"
@@ -6939,6 +6963,17 @@
    "views": 4146,
    "kind": "",
    "first_seen": "2026-10-31",
+   "last_seen": "2026-11-04"
+  },
+  {
+   "video_id": "L3oUi0wNG44",
+   "title": "GTA 5 Facts and Glitches You Don't Know #104 (From Speedrunners)",
+   "url": "https://www.youtube.com/watch?v=L3oUi0wNG44",
+   "lang": "en",
+   "game": "GTA 5",
+   "date": "2026-11-04",
+   "views": 14058,
+   "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
   },
   {
@@ -7273,11 +7308,13 @@
   {
    "video_id": "MMnx_HQERFo",
    "title": "【GTA6】新映像+スクショ12枚が公開！隠れたディテールと新エリアを徹底解説！【ゆっくり解説】",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=MMnx_HQERFo",
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-10-31",
    "views": 7521,
+   "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
   },
@@ -7497,10 +7534,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 13973933,
+   "views": 13986453,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-11-03"
+   "last_seen": "2026-11-04"
   },
   {
    "video_id": "N9h44aV9RGo",
@@ -8825,10 +8862,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 64185325,
+   "views": 64246369,
    "kind": "",
    "first_seen": "2026-10-19",
-   "last_seen": "2026-11-03"
+   "last_seen": "2026-11-04"
   },
   {
    "video_id": "Rk1mrWKAvtM",
@@ -9189,7 +9226,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-04",
-   "views": 20519,
+   "views": 32516,
    "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
@@ -9496,11 +9533,13 @@
   {
    "video_id": "UVogW3k0Y8Y",
    "title": "【GTA6】マップは前作の約2倍！都市は約11倍…中身の濃さが桁違いだった【ゆっくり解説】",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=UVogW3k0Y8Y",
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-02",
-   "views": 13666,
+   "views": 13701,
+   "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
   },
@@ -9863,7 +9902,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-10-29",
-   "views": 45541,
+   "views": 45664,
    "kind": "",
    "first_seen": "2026-10-29",
    "last_seen": "2026-11-04"
@@ -10370,7 +10409,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-10-28",
-   "views": 39160,
+   "views": 39149,
    "kind": "",
    "first_seen": "2026-10-29",
    "last_seen": "2026-11-04"
@@ -10554,7 +10593,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-29",
-   "views": 138264,
+   "views": 138801,
    "kind": "",
    "first_seen": "2026-10-29",
    "last_seen": "2026-11-04"
@@ -11179,6 +11218,8 @@
    "url": "https://www.youtube.com/shorts/_AElXtyMvRM",
    "lang": "en",
    "game": "GTA Online",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
@@ -11438,7 +11479,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-04",
-   "views": 57688,
+   "views": 66502,
    "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
@@ -11451,7 +11492,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-22",
-   "views": 1015175,
+   "views": 1017217,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-11-04"
@@ -12036,7 +12077,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-03",
-   "views": 13129,
+   "views": 15968,
    "kind": "",
    "first_seen": "2026-11-03",
    "last_seen": "2026-11-04"
@@ -13714,11 +13755,13 @@
   {
    "video_id": "h_zkCypK11g",
    "title": "【阿航】GTA5 終於變成千萬富翁! 買一台保時捷911吧!! 模擬人生 EP12 | FiveM伺服器 胖海熊RPG",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=h_zkCypK11g",
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-04",
    "views": 3113,
+   "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
   },
@@ -13838,6 +13881,17 @@
    "kind": "",
    "first_seen": "2026-10-24",
    "last_seen": "2026-10-24"
+  },
+  {
+   "video_id": "hpIxSd905TU",
+   "title": "GTA 6 Is 212GB… Time to Delete Everything! | TUESDAY NEWSDAY",
+   "url": "https://www.youtube.com/watch?v=hpIxSd905TU",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-04",
+   "views": 7389,
+   "first_seen": "2026-11-04",
+   "last_seen": "2026-11-04"
   },
   {
    "video_id": "hqJTNzRkVms",
@@ -14200,7 +14254,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1468289,
+   "views": 1469597,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-11-04"
@@ -14681,7 +14735,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-04",
-   "views": 62625,
+   "views": 71068,
    "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
@@ -14746,7 +14800,8 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-04",
-   "views": 106,
+   "views": 272,
+   "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
   },
@@ -14853,6 +14908,17 @@
    "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
+  },
+  {
+   "video_id": "lSkz_-7Eyqo",
+   "title": "【GTA6】 事前ダウンロード開始日前倒しとレオナイダMAP配布について",
+   "url": "https://www.youtube.com/watch?v=lSkz_-7Eyqo",
+   "lang": "ja",
+   "game": "GTA 6",
+   "date": "2026-11-04",
+   "views": 541,
+   "first_seen": "2026-11-04",
+   "last_seen": "2026-11-04"
   },
   {
    "video_id": "lUNJC_uHlvc",
@@ -15382,7 +15448,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-11-03",
-   "views": 2497,
+   "views": 2577,
    "kind": "",
    "first_seen": "2026-11-03",
    "last_seen": "2026-11-04"
@@ -15696,7 +15762,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-04",
-   "views": 13752,
+   "views": 15328,
    "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
@@ -15813,7 +15879,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-21",
-   "views": 104393,
+   "views": 104424,
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-11-04"
@@ -16588,11 +16654,13 @@
   {
    "video_id": "r0S2tfHjdHg",
    "title": "【GTA6】容量210GBの理由が判明！マップ2倍・NPC動作10倍…中身を全部見る【ゆっくり解説】",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=r0S2tfHjdHg",
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-01",
-   "views": 3999,
+   "views": 4012,
+   "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
   },
@@ -16916,7 +16984,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 72909662,
+   "views": 72940261,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-11-04"
@@ -17072,7 +17140,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-09",
-   "views": 56385,
+   "views": 56391,
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-11-04"
@@ -17345,7 +17413,8 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-04",
-   "views": 1369,
+   "views": 2045,
+   "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
   },
@@ -17422,7 +17491,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-04",
-   "views": 18044,
+   "views": 38141,
    "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
@@ -17762,7 +17831,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-25",
-   "views": 72599,
+   "views": 72706,
    "kind": "",
    "first_seen": "2026-10-25",
    "last_seen": "2026-11-04"
@@ -17918,7 +17987,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-04",
-   "views": 2229,
+   "views": 2506,
    "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
@@ -18178,7 +18247,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-02",
-   "views": 57149,
+   "views": 59820,
    "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-04"
@@ -18399,7 +18468,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-03",
-   "views": 8844,
+   "views": 9297,
    "kind": "",
    "first_seen": "2026-11-03",
    "last_seen": "2026-11-04"
@@ -18594,7 +18663,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-01",
-   "views": 75157,
+   "views": 77426,
    "kind": "",
    "first_seen": "2026-11-01",
    "last_seen": "2026-11-04"
@@ -19181,7 +19250,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-02",
-   "views": 44228,
+   "views": 44651,
    "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-04"
@@ -19246,7 +19315,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-04",
-   "views": 47509,
+   "views": 55262,
    "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-04"
@@ -19428,7 +19497,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-01",
-   "views": 2929,
+   "views": 2937,
    "kind": "",
    "first_seen": "2026-11-01",
    "last_seen": "2026-11-04"
