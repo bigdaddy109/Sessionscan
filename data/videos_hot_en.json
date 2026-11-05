@@ -1,22 +1,11 @@
 [
  {
-  "id": "71z9WgCVQ4s",
-  "video_id": "71z9WgCVQ4s",
-  "title": "Grand Theft Auto VI – Launch-Trailer",
-  "channel": "Rockstar Games Deutschland, Österreich & Schweiz",
-  "url": "https://www.youtube.com/watch?v=71z9WgCVQ4s",
-  "views": 7711969,
-  "date": "2026-10-15",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
   "id": "4uzcHgsE-xM",
   "video_id": "4uzcHgsE-xM",
   "title": "GTA 6 - BIGGEST REVEAL YET!",
-  "channel": "T5G",
+  "channel": "",
   "url": "https://www.youtube.com/watch?v=4uzcHgsE-xM",
-  "views": 1285149,
+  "views": 1289134,
   "date": "2026-10-29",
   "lang": "en",
   "game": "GTA 6"
@@ -27,7 +16,7 @@
   "title": "GTA 6 - ALL NEW VEHICLES EXPLAINED!",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=wE8xTNg62ng",
-  "views": 525083,
+  "views": 528476,
   "date": "2026-10-22",
   "lang": "en",
   "game": "GTA 6"
@@ -38,19 +27,8 @@
   "title": "GTA 6 - BIGGEST ANNOUNCEMENT YET!",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=0eAOyE4hnbs",
-  "views": 424039,
+  "views": 424045,
   "date": "2026-10-08",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "Zsicj_pzIFA",
-  "video_id": "Zsicj_pzIFA",
-  "title": "GTA 6's Safehouse System FULLY Explained...",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=Zsicj_pzIFA",
-  "views": 390298,
-  "date": "2026-11-02",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -60,53 +38,31 @@
   "title": "GTA 6 - ALL NEW INFO FROM THIS WEEK!",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=XwKrqI2Tp5U",
-  "views": 192438,
+  "views": 192474,
   "date": "2026-10-24",
   "lang": "en",
   "game": "GTA 6"
  },
  {
-  "id": "fdskdLlrTkQ",
-  "video_id": "fdskdLlrTkQ",
-  "title": "I Became a MODDER GRIEFER in GTA Online",
+  "id": "3weIdG6TThI",
+  "video_id": "3weIdG6TThI",
+  "title": "GTA 6 LAUNCH TRAILER - 50 THINGS YOU MISSED!",
   "channel": "",
-  "url": "https://www.youtube.com/watch?v=fdskdLlrTkQ",
-  "views": 143813,
-  "date": "2026-10-10",
-  "lang": "en",
-  "game": "GTA Online"
- },
- {
-  "id": "KQj-a5XX7uk",
-  "video_id": "KQj-a5XX7uk",
-  "title": "GTA 6 Just Got a MASSIVE Wave of New Updates...",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=KQj-a5XX7uk",
-  "views": 138316,
-  "date": "2026-11-03",
+  "url": "https://www.youtube.com/watch?v=3weIdG6TThI",
+  "views": 93312,
+  "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
  },
  {
-  "id": "uZz6NXng_HQ",
-  "video_id": "uZz6NXng_HQ",
-  "title": "GTA 6 is Taking Away 10 Things Players Took for GRANTED...",
+  "id": "BFjltF4YokY",
+  "video_id": "BFjltF4YokY",
+  "title": "GTA 6 NEW GAMEPLAY REVEALED!",
   "channel": "",
-  "url": "https://www.youtube.com/watch?v=uZz6NXng_HQ",
-  "views": 121133,
-  "date": "2026-10-31",
+  "url": "https://www.youtube.com/watch?v=BFjltF4YokY",
+  "views": 54659,
+  "date": "2026-10-29",
   "lang": "en",
   "game": "GTA 6"
- },
- {
-  "id": "V5PFYKusLfA",
-  "video_id": "V5PFYKusLfA",
-  "title": "The BEST & The WORST Helicopter In GTA Online!",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=V5PFYKusLfA",
-  "views": 101705,
-  "date": "2026-10-30",
-  "lang": "en",
-  "game": "GTA Online"
  }
 ]
