@@ -5,18 +5,7 @@
   "title": "Grand Theft Auto VI Launch Trailer",
   "channel": "Rockstar Games",
   "url": "https://www.youtube.com/watch?v=rz1B4B2yBZY",
-  "views": 73340365,
-  "date": "2026-10-15",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "N6f30RVHOVw",
-  "video_id": "N6f30RVHOVw",
-  "title": "Grand Theft Auto VI - Tráiler de lanzamiento",
-  "channel": "Rockstar Games España",
-  "url": "https://www.youtube.com/watch?v=N6f30RVHOVw",
-  "views": 14001780,
+  "views": 73373942,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
@@ -27,7 +16,7 @@
   "title": "Tráiler de lanzamiento de Grand Theft Auto VI",
   "channel": "Rockstar Games América Latina",
   "url": "https://www.youtube.com/watch?v=0tRZdKQ5lHA",
-  "views": 11865528,
+  "views": 11865934,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
@@ -38,7 +27,7 @@
   "title": "Grand Theft Auto VI – Launch-Trailer",
   "channel": "Rockstar Games Deutschland, Österreich & Schweiz",
   "url": "https://www.youtube.com/watch?v=71z9WgCVQ4s",
-  "views": 7715041,
+  "views": 7716189,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
@@ -49,7 +38,18 @@
   "title": "Grand Theft Auto VI-launchtrailer",
   "channel": "Rockstar Games Nederland",
   "url": "https://www.youtube.com/watch?v=dLvuOa3TaNU",
-  "views": 6816320,
+  "views": 6816423,
+  "date": "2026-10-15",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "FPm1Qr2Puyk",
+  "video_id": "FPm1Qr2Puyk",
+  "title": "Grand Theft Auto VI Launch Trailer",
+  "channel": "Rockstar Games België/Belgique",
+  "url": "https://www.youtube.com/watch?v=FPm1Qr2Puyk",
+  "views": 3953951,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
@@ -60,7 +60,7 @@
   "title": "15 THINGS From GTA 5 You WON'T Be Able To Do In GTA 6",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=AEFPETdSzPU",
-  "views": 1647419,
+  "views": 1649097,
   "date": "2026-10-11",
   "lang": "en",
   "game": "GTA 6"
@@ -71,30 +71,8 @@
   "title": "Grand Theft Auto VI Launch Trailer",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=icy-lhqJhMQ",
-  "views": 1485575,
+  "views": 1486907,
   "date": "2026-10-15",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "4uzcHgsE-xM",
-  "video_id": "4uzcHgsE-xM",
-  "title": "GTA 6 - BIGGEST REVEAL YET!",
-  "channel": "T5G",
-  "url": "https://www.youtube.com/watch?v=4uzcHgsE-xM",
-  "views": 1294952,
-  "date": "2026-10-29",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "ZUPsRg7i4Bg",
-  "video_id": "ZUPsRg7i4Bg",
-  "title": "20 Flaws GTA 6 Is Trying To Fix",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=ZUPsRg7i4Bg",
-  "views": 1130939,
-  "date": "2026-11-03",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -104,8 +82,30 @@
   "title": "12 THINGS You NEED To Do On DAY 1 in GTA 6",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=a-YFN3ES69M",
-  "views": 1045100,
+  "views": 1047601,
   "date": "2026-10-22",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "_Y3ioycfWzc",
+  "video_id": "_Y3ioycfWzc",
+  "title": "BREAKING: GTA 6 Pre-Load Beginning EARLY & FREE MAP FOR EVERYONE!",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=_Y3ioycfWzc",
+  "views": 923051,
+  "date": "2026-11-03",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "kLhrEwTTmqc",
+  "video_id": "kLhrEwTTmqc",
+  "title": "Rockstar Transformed Miami into Real Life GTA 6 Vice City",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=kLhrEwTTmqc",
+  "views": 754351,
+  "date": "2026-10-31",
   "lang": "en",
   "game": "GTA 6"
  }
