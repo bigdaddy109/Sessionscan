@@ -17,6 +17,75 @@ export const GTA6_OFFICIAL_URL = "https://www.rockstargames.com/VI";
 
 export const GTA6_NEWSWIRE_URL = "https://www.rockstargames.com/newswire";
 
+/** Traditional Chinese VI hub. /VI/zh-TW sets Rockstar's locale cookie, then serves /VI. */
+export const GTA6_VI_ZH_URL = "https://www.rockstargames.com/VI/zh-TW";
+
+export const GTA6_PS_FEATURES_URL = "https://www.playstation.com/GTAVIfeatures/";
+
+export const GTA6_LEONIDA_URL = "https://www.rockstargames.com/VI/only-in-leonida";
+
+/** Newswire article whose title is the preload date. Body is a JS shell; the VI page states the date. */
+export const GTA6_PRELOAD_URL =
+  "https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10";
+
+export const GTA6_PRELOAD_ZH_URL =
+  "https://www.rockstargames.com/tw/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10";
+
+export const GTA6_LAUNCH_TRAILER_URL =
+  "https://www.rockstargames.com/newswire/article/517572321a549a/watch-the-grand-theft-auto-vi-launch-trailer";
+
+export const GTA6_JUSTICE_URL =
+  "https://www.rockstargames.com/newswire/article/39ak8a12395591/grand-theft-auto-vi-original-score-by-justice";
+
+export function gta6ViPageUrl(lang = "en") {
+  return lang === "zh" ? GTA6_VI_ZH_URL : GTA6_OFFICIAL_URL;
+}
+
+export function gta6PreloadUrl(lang = "en") {
+  return lang === "zh" ? GTA6_PRELOAD_ZH_URL : GTA6_PRELOAD_URL;
+}
+
+/**
+ * Official GTA VI films on rockstargames.com/VI, newest first.
+ * youtubeId is set only when that page's player links a YouTube watch URL.
+ * Launch Trailer, Trailer 2, and Trailer 1 have links.youtube unset there —
+ * outbound official URL, no poster, no iframe. Do not invent an id.
+ */
+export const GTA6_FILMS = [
+  {
+    id: "launch-trailer",
+    youtubeId: "",
+    titleKey: "pageGta6FilmLaunchTitle",
+    whenKey: "pageGta6FilmLaunchWhen",
+    linkKey: "pageGta6FilmLaunchLink",
+    href: () => GTA6_LAUNCH_TRAILER_URL,
+  },
+  {
+    id: "extended-look",
+    youtubeId: "tJbzMqJGH4k",
+    titleKey: "pageGta6FilmExtendedTitle",
+    whenKey: "pageGta6FilmExtendedWhen",
+    noteKey: "pageGta6FilmExtendedNote",
+    href: () => GTA6_OFFICIAL_TRAILER_WATCH_URL,
+  },
+  {
+    id: "trailer-2",
+    youtubeId: "",
+    titleKey: "pageGta6FilmTrailer2Title",
+    whenKey: "pageGta6FilmTrailer2When",
+    linkKey: "homeGta6ViLink",
+    href: (lang) => gta6ViPageUrl(lang),
+  },
+  {
+    id: "trailer-1",
+    youtubeId: "",
+    titleKey: "pageGta6FilmTrailer1Title",
+    whenKey: "pageGta6FilmTrailer1When",
+    linkKey: "homeGta6ViLink",
+    href: (lang) => gta6ViPageUrl(lang),
+  },
+];
+
 /**
  * Official Rockstar YouTube id hosted on rockstargames.com/VI
  * (“Grand Theft Auto VI: An Extended Look” — Rockstar Games channel).
@@ -153,19 +222,20 @@ export function gta6CountdownScript() {
 </script>`;
 }
 
+function outbound(href, label, { i18nKey = "" } = {}) {
+  const key = i18nKey ? ` data-i18n="${esc(i18nKey)}"` : "";
+  return `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer"${key}>${esc(label)}</a>`;
+}
+
 /**
- * Official trailer poster + play control — opens YouTube in a new tab.
+ * Poster + play control for the one film whose YouTube id is on rockstargames.com/VI.
  * No youtube-nocookie iframe (age-restricted embeds fail for many visitors).
  */
 export function gta6OfficialTrailerHtml(lang = "en") {
   const ui = lang === "zh" ? "zh" : "en";
-  const title = t("pageGta6TrailerTitle", {}, ui);
+  const title = t("pageGta6FilmExtendedTitle", {}, ui);
   const playAria = t("playAria", { title }, ui);
-  return `<section class="gta6-trailer" id="gta6OfficialTrailer" aria-labelledby="gta6-trailer-heading">
-        <div class="week-panel-kicker">
-          <strong id="gta6-trailer-heading">${esc(t("pageGta6TrailerKicker", {}, ui))}</strong>
-          <span>${esc(t("pageGta6TrailerTag", {}, ui))}</span>
-        </div>
+  return `<div class="gta6-trailer" id="gta6OfficialTrailer">
         <div class="gta6-trailer-frame">
           <a
             class="gta6-trailer-poster"
@@ -190,10 +260,113 @@ export function gta6OfficialTrailerHtml(lang = "en") {
           </a>
         </div>
         <p class="gta6-trailer-source">
-          <a href="${esc(GTA6_OFFICIAL_TRAILER_WATCH_URL)}" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6TrailerWatch", {}, ui))}</a>
+          <a href="${esc(GTA6_OFFICIAL_TRAILER_WATCH_URL)}" target="_blank" rel="noopener noreferrer" data-i18n="pageGta6TrailerWatch">${esc(t("pageGta6TrailerWatch", {}, ui))}</a>
           <span aria-hidden="true"> · </span>
-          <a href="${esc(GTA6_OFFICIAL_URL)}" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6TrailerVia", {}, ui))}</a>
+          <a href="${esc(gta6ViPageUrl(ui))}" target="_blank" rel="noopener noreferrer" data-i18n="pageGta6TrailerVia">${esc(t("pageGta6TrailerVia", {}, ui))}</a>
         </p>
+      </div>`;
+}
+
+function gta6CountdownBlock(ui, now, { source = true } = {}) {
+  const target = gta6ReleaseAt();
+  const parts = countdownParts(target, now);
+  const display =
+    parts.totalMs > 0
+      ? formatGta6Countdown(parts)
+      : t("pageGta6CountdownLive", {}, ui);
+  const sourceHtml = source
+    ? `<p class="gta6-countdown-source">${outbound(
+        gta6ViPageUrl(ui),
+        t("pageGta6SourceNote", { date: GTA6_RELEASE_ISO_DATE }, ui),
+      )}</p>`
+    : "";
+  return `<div class="gta6-countdown" role="group" aria-labelledby="gta6-countdown-heading">
+        <div class="week-panel-kicker">
+          <strong id="gta6-countdown-heading" data-i18n="pageGta6CountdownKicker">${esc(t("pageGta6CountdownKicker", {}, ui))}</strong>
+          <span data-i18n="pageGta6CountdownTag">${esc(t("pageGta6CountdownTag", {}, ui))}</span>
+        </div>
+        <p
+          class="week-countdown-display"
+          id="gta6CountdownDisplay"
+          data-target="${esc(target.toISOString())}"
+          data-live="${esc(t("pageGta6CountdownLive", {}, ui))}"
+        >${esc(display)}</p>
+        ${sourceHtml}
+      </div>`;
+}
+
+function gta6FilmItemHtml(film, ui) {
+  const title = t(film.titleKey, {}, ui);
+  const when = t(film.whenKey, {}, ui);
+  const verifiedPoster = film.youtubeId === GTA6_OFFICIAL_TRAILER_YOUTUBE_ID;
+  const media = verifiedPoster
+    ? gta6OfficialTrailerHtml(ui)
+    : `<p class="gta6-film-link">${outbound(film.href(ui), t(film.linkKey, {}, ui), { i18nKey: film.linkKey })}</p>`;
+  const note = film.noteKey
+    ? `<p class="gta6-film-note" data-i18n="${esc(film.noteKey)}">${esc(t(film.noteKey, {}, ui))}</p>`
+    : "";
+  return `<li class="gta6-film" id="gta6-film-${esc(film.id)}">
+        <h3 data-i18n="${esc(film.titleKey)}">${esc(title)}</h3>
+        <p class="gta6-film-when" data-i18n="${esc(film.whenKey)}">${esc(when)}</p>
+        ${media}
+        ${note}
+      </li>`;
+}
+
+export function gta6FilmsHtml(lang = "en") {
+  const ui = lang === "zh" ? "zh" : "en";
+  const items = GTA6_FILMS.map((film) => gta6FilmItemHtml(film, ui)).join("");
+  return `<section class="gta6-section" id="gta6Films" aria-labelledby="gta6-films-heading">
+        <h2 id="gta6-films-heading" data-i18n="pageGta6FilmsHeading">${esc(t("pageGta6FilmsHeading", {}, ui))}</h2>
+        <ol class="gta6-film-list">${items}</ol>
+      </section>`;
+}
+
+function gta6EditionHtml(ui, { titleKey, bodyKey, kickerKey = "" }) {
+  const kicker = kickerKey
+    ? `<p class="gta6-edition-kicker" data-i18n="${esc(kickerKey)}">${esc(t(kickerKey, {}, ui))}</p>`
+    : "";
+  return `<article class="gta6-edition">
+        <h3 data-i18n="${esc(titleKey)}">${esc(t(titleKey, {}, ui))}</h3>
+        ${kicker}
+        <p data-i18n="${esc(bodyKey)}">${esc(t(bodyKey, {}, ui))}</p>
+        <p class="gta6-edition-link">${outbound(gta6ViPageUrl(ui), t("homeGta6ViLink", {}, ui), { i18nKey: "homeGta6ViLink" })}</p>
+      </article>`;
+}
+
+function gta6EditionsHtml(ui) {
+  return `<section class="gta6-section" id="gta6Editions" aria-labelledby="gta6-editions-heading">
+        <h2 id="gta6-editions-heading" data-i18n="pageGta6EditionsHeading">${esc(t("pageGta6EditionsHeading", {}, ui))}</h2>
+        ${gta6EditionHtml(ui, {
+          titleKey: "pageGta6EditionUltimateTitle",
+          bodyKey: "pageGta6EditionUltimateBody",
+        })}
+        ${gta6EditionHtml(ui, {
+          titleKey: "pageGta6EditionVintageTitle",
+          kickerKey: "pageGta6EditionVintageKicker",
+          bodyKey: "pageGta6EditionVintageBody",
+        })}
+      </section>`;
+}
+
+function gta6NewswireHtml(ui) {
+  const items = [
+    { href: gta6PreloadUrl(ui), titleKey: "pageGta6NewsPreload", dateKey: "pageGta6NewsPreloadDate" },
+    { href: GTA6_JUSTICE_URL, titleKey: "pageGta6NewsJustice", dateKey: "pageGta6NewsJusticeDate" },
+    { href: GTA6_LAUNCH_TRAILER_URL, titleKey: "pageGta6NewsLaunch", dateKey: "pageGta6NewsLaunchDate" },
+  ];
+  const lis = items
+    .map(
+      (item) => `<li>${outbound(item.href, t(item.titleKey, {}, ui), { i18nKey: item.titleKey })} <span class="gta6-news-date" data-i18n="${esc(item.dateKey)}">${esc(t(item.dateKey, {}, ui))}</span></li>`,
+    )
+    .join("");
+  return `<section class="gta6-section" id="gta6Newswire" aria-labelledby="gta6-newswire-heading">
+        <h2 id="gta6-newswire-heading" data-i18n="pageGta6NewswireHeading">${esc(t("pageGta6NewswireHeading", {}, ui))}</h2>
+        <ul class="page-links gta6-news-list">${lis}</ul>
+        <ul class="page-links">
+          <li>${outbound(gta6ViPageUrl(ui), t("pageGta6Official", {}, ui), { i18nKey: "pageGta6Official" })}</li>
+          <li>${outbound(GTA6_NEWSWIRE_URL, t("pageGta6Newswire", {}, ui), { i18nKey: "pageGta6Newswire" })}</li>
+        </ul>
       </section>`;
 }
 
@@ -221,36 +394,79 @@ export function renderGta6PageBody(lang = "en", opts = {}) {
   // Backward-compat: older callers passed `now` as the 2nd argument.
   const tipWeek = opts instanceof Date ? "" : opts?.tipWeek || "";
   const now = opts instanceof Date ? opts : opts?.now instanceof Date ? opts.now : new Date();
-  const target = gta6ReleaseAt();
-  const parts = countdownParts(target, now);
-  const display =
-    parts.totalMs > 0
-      ? formatGta6Countdown(parts)
-      : t("pageGta6CountdownLive", {}, ui);
+  const vi = gta6ViPageUrl(ui);
   return `<h1 data-i18n="pageGta6Heading">${esc(t("pageGta6Heading", {}, ui))}</h1>
       <div class="page-body" data-i18n-html="pageGta6Body">${t("pageGta6Body", {}, ui)}</div>
-      <section class="gta6-countdown" aria-labelledby="gta6-countdown-heading">
-        <div class="week-panel-kicker">
-          <strong id="gta6-countdown-heading">${esc(t("pageGta6CountdownKicker", {}, ui))}</strong>
-          <span>${esc(t("pageGta6CountdownTag", {}, ui))}</span>
-        </div>
-        <p
-          class="week-countdown-display"
-          id="gta6CountdownDisplay"
-          data-target="${esc(target.toISOString())}"
-          data-live="${esc(t("pageGta6CountdownLive", {}, ui))}"
-        >${esc(display)}</p>
-        <p class="gta6-countdown-source">
-          <a href="${esc(GTA6_OFFICIAL_URL)}" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6SourceNote", { date: GTA6_RELEASE_ISO_DATE }, ui))}</a>
-        </p>
+      <section class="gta6-section" id="gta6Release" aria-labelledby="gta6-release-heading">
+        <h2 id="gta6-release-heading" data-i18n="pageGta6ReleaseHeading">${esc(t("pageGta6ReleaseHeading", {}, ui))}</h2>
+        <p class="gta6-coming" data-i18n="homeGta6Coming">${esc(t("homeGta6Coming", {}, ui))}</p>
+        ${gta6CountdownBlock(ui, now, { source: false })}
+        <p data-i18n="homeGta6Platforms">${esc(t("homeGta6Platforms", {}, ui))}</p>
+        <p>${outbound(GTA6_PS_FEATURES_URL, t("pageGta6PsBenefits", {}, ui), { i18nKey: "pageGta6PsBenefits" })}</p>
+        <p class="gta6-countdown-source">${outbound(vi, t("pageGta6SourceNote", { date: GTA6_RELEASE_ISO_DATE }, ui))}</p>
       </section>
-      ${gta6OfficialTrailerHtml(ui)}
-      <ul class="page-links">
-        <li><a href="${esc(GTA6_OFFICIAL_URL)}" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6Official", {}, ui))}</a></li>
-        <li><a href="${esc(GTA6_NEWSWIRE_URL)}" target="_blank" rel="noopener noreferrer">${esc(t("pageGta6Newswire", {}, ui))}</a></li>
-      </ul>
+      <section class="gta6-section" id="gta6Preload" aria-labelledby="gta6-preload-heading">
+        <h2 id="gta6-preload-heading" data-i18n="pageGta6PreloadHeading">${esc(t("pageGta6PreloadHeading", {}, ui))}</h2>
+        <p data-i18n="homeGta6Preload">${esc(t("homeGta6Preload", {}, ui))}</p>
+        <p>${outbound(gta6PreloadUrl(ui), t("homeGta6PreloadLink", {}, ui), { i18nKey: "homeGta6PreloadLink" })}</p>
+      </section>
+      ${gta6FilmsHtml(ui)}
+      ${gta6EditionsHtml(ui)}
+      <section class="gta6-section" id="gta6Leonida" aria-labelledby="gta6-leonida-heading">
+        <h2 id="gta6-leonida-heading" data-i18n="pageGta6LeonidaHeading">${esc(t("pageGta6LeonidaHeading", {}, ui))}</h2>
+        <h3 data-i18n="pageGta6LeonidaTitle">${esc(t("pageGta6LeonidaTitle", {}, ui))}</h3>
+        <p data-i18n="pageGta6LeonidaBody">${esc(t("pageGta6LeonidaBody", {}, ui))}</p>
+        <p>${outbound(GTA6_LEONIDA_URL, t("pageGta6LeonidaLink", {}, ui), { i18nKey: "pageGta6LeonidaLink" })}</p>
+      </section>
+      ${gta6NewswireHtml(ui)}
       <p class="gta6-home-link"><a href="${esc(ui === "zh" ? "/zh/" : "/")}">${esc(t("gta6HomeLink", {}, ui))}</a></p>
       ${gta6TipFreezeLinkHtml(tipWeek, ui)}`;
+}
+
+/**
+ * Home official-status block. Sits above the weekly tools.
+ * Newest film is the Launch Trailer: official link, no poster (no YouTube id).
+ */
+export function homeGta6StatusHtml(lang = "en", now = new Date()) {
+  const ui = lang === "zh" ? "zh" : "en";
+  const openHref = ui === "zh" ? "/zh/gta6/" : "/gta6/";
+  return `<section class="home-gta6-status" id="homeGta6Status" aria-labelledby="home-gta6-status-heading">
+      <div class="week-panel-kicker">
+        <strong id="home-gta6-status-heading" data-i18n="homeGta6StatusKicker">${esc(t("homeGta6StatusKicker", {}, ui))}</strong>
+        <span data-i18n="homeGta6StatusTag">${esc(t("homeGta6StatusTag", {}, ui))}</span>
+      </div>
+      <p class="gta6-coming" data-i18n="homeGta6Coming">${esc(t("homeGta6Coming", {}, ui))}</p>
+      ${gta6CountdownBlock(ui, now, { source: false })}
+      <p data-i18n="homeGta6Preload">${esc(t("homeGta6Preload", {}, ui))}</p>
+      <p>${outbound(gta6PreloadUrl(ui), t("homeGta6PreloadLink", {}, ui), { i18nKey: "homeGta6PreloadLink" })}</p>
+      <p data-i18n="homeGta6Platforms">${esc(t("homeGta6Platforms", {}, ui))}</p>
+      <p>${outbound(gta6ViPageUrl(ui), t("homeGta6ViLink", {}, ui), { i18nKey: "homeGta6ViLink" })}</p>
+      <p data-i18n="homeGta6NewestFilm">${esc(t("homeGta6NewestFilm", {}, ui))}</p>
+      <p>${outbound(GTA6_LAUNCH_TRAILER_URL, t("pageGta6FilmLaunchLink", {}, ui), { i18nKey: "pageGta6FilmLaunchLink" })}</p>
+      <p class="home-gta6-open"><a href="${esc(openHref)}" data-i18n="homeGta6Open">${esc(t("homeGta6Open", {}, ui))}</a></p>
+    </section>`;
+}
+
+/**
+ * Replace #homeGta6Status and drop the old countdown CTA so the date is not said twice.
+ */
+export function injectHomeGta6Status(html, { lang = "en", now = new Date() } = {}) {
+  let out = String(html || "");
+  const ui = lang === "zh" ? "zh" : "en";
+  const body = homeGta6StatusHtml(ui, now);
+  if (/id="homeGta6Status"/.test(out)) {
+    out = out.replace(/<section class="home-gta6-status"[^>]*>[\s\S]*?<\/section>/, body);
+  } else if (/id="officialBanner"/.test(out)) {
+    out = out.replace(
+      /(<aside class="official-banner"[^>]*id="officialBanner")/,
+      `${body}\n    $1`,
+    );
+  }
+  out = out.replace(/<p class="home-gta6-link"[^>]*id="homeGta6Link"[\s\S]*?<\/p>\s*/g, "");
+  if (out.includes('id="gta6CountdownDisplay"') && !out.includes('getElementById("gta6CountdownDisplay")')) {
+    out = out.replace(/<script type="module"/, `${gta6CountdownScript()}\n    <script type="module"`);
+  }
+  return out;
 }
 
 /** Home → `/gta6/` discovery link (reciprocal of gta6HomeLink). */
@@ -261,26 +477,13 @@ export function homeGta6LinkHtml(lang = "en") {
 }
 
 /**
- * Inject home GTA 6 discovery under #weekCountdown.
- * Single source with gta6 page path — never invents a path.
+ * The home countdown no longer repeats a GTA 6 date link.
+ * The status block above the weekly tools is the path to /gta6/.
+ * Freeze pages keep their own CTA (freezeGta6LinkHtml).
  */
-export function injectHomeGta6Link(html, { lang = "en" } = {}) {
-  let out = String(html || "");
-  const ui = lang === "zh" ? "zh" : "en";
-  const body = homeGta6LinkHtml(ui);
-  if (/id="homeGta6Link"/.test(out)) {
-    out = out.replace(/<p class="home-gta6-link"[^>]*>[\s\S]*?<\/p>/, body);
-  } else if (/id="weekCountdown"/.test(out)) {
-    out = out.replace(
-      /(<\/aside>\s*)(?=<section class="week-short")/,
-      `$1    ${body}\n    `,
-    );
-    if (!/id="homeGta6Link"/.test(out)) {
-      out = out.replace(
-        /(<aside class="week-countdown"[^>]*>[\s\S]*?<\/aside>)/,
-        `$1\n    ${body}`,
-      );
-    }
-  }
-  return out;
+export function injectHomeGta6Link(html) {
+  return String(html || "").replace(
+    /<p class="home-gta6-link"[^>]*id="homeGta6Link"[\s\S]*?<\/p>\s*/g,
+    "",
+  );
 }

@@ -155,13 +155,13 @@ class SearchAliasTests(unittest.TestCase):
         i18n = (ROOT / "src" / "i18n.js").read_text(encoding="utf-8")
         self.assertIn('lang="en"', html)
         self.assertIn('data-ui-lang="en"', html)
-        self.assertIn("<title data-i18n=\"metaTitle\">GTA 6 hub + this week in GTA Online | SessionScan</title>", html)
+        self.assertIn("<title data-i18n=\"metaTitle\">GTA 6 · November 19, 2026 + this week in GTA Online | SessionScan</title>", html)
         self.assertIn(
-            'property="og:title" data-i18n-content="metaTitle" content="GTA 6 hub + this week in GTA Online | SessionScan"',
+            'property="og:title" data-i18n-content="metaTitle" content="GTA 6 · November 19, 2026 + this week in GTA Online | SessionScan"',
             html,
         )
         self.assertIn(
-            'name="twitter:title" data-i18n-content="metaTitle" content="GTA 6 hub + this week in GTA Online | SessionScan"',
+            'name="twitter:title" data-i18n-content="metaTitle" content="GTA 6 · November 19, 2026 + this week in GTA Online | SessionScan"',
             html,
         )
         self.assertIn('name="twitter:site" content="@SessionScanGTA"', html)
@@ -169,13 +169,13 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("GTA HUB", html)
         self.assertNotIn("GTA HUB · 夜掃描", html)
         self.assertIn("GTA 6 primary · GTA 5 / Online secondary hub, unrelated to other apps of the same name", html)
-        self.assertIn("GTA 6 hub first", html)
-        self.assertIn("titles and outbound links only", html)
+        self.assertIn("Official Grand Theft Auto VI status", html)
+        self.assertIn("Titles and outbound links only", html)
         self.assertIn('hreflang="zh-Hant"', html)
         self.assertIn('hreflang="x-default"', html)
         self.assertIn("https://sessionscan.net/zh/", html)
         self.assertIn("SessionScan GTA｜夜掃描", i18n)
-        self.assertIn("GTA 6 情報＋本週 GTA Online｜SessionScan", i18n)
+        self.assertIn("GTA 6 · 2026 年 11 月 19 日＋本週 GTA Online｜SessionScan", i18n)
         self.assertIn("只掛標題外連，不轉載", i18n)
         self.assertNotIn("範例資料，非即時掃描", html)
         self.assertNotIn("domain TBD", html)
@@ -500,7 +500,7 @@ class SearchAliasTests(unittest.TestCase):
         subprocess.check_call(["npm", "run", "build"], cwd=ROOT, stdout=subprocess.DEVNULL)
         built = (ROOT / "dist" / "index.html").read_text(encoding="utf-8")
         self.assertEqual((ROOT / "dist" / "CNAME").read_text(encoding="utf-8").strip(), "sessionscan.net")
-        self.assertIn("<title data-i18n=\"metaTitle\">GTA 6 hub + this week in GTA Online | SessionScan</title>", built)
+        self.assertIn("<title data-i18n=\"metaTitle\">GTA 6 · November 19, 2026 + this week in GTA Online | SessionScan</title>", built)
         # Progressive enhancement: snapshot age is stamped at build time (not LOADING flash).
         self.assertIn('id="dataBanner"', built)
         self.assertIn("SNAPSHOT", built)
@@ -510,7 +510,7 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("Snapshot:", built)
         zh_built = (ROOT / "dist" / "zh" / "index.html").read_text(encoding="utf-8")
         self.assertIn('lang="zh-Hant"', zh_built)
-        self.assertIn("GTA 6 情報＋本週 GTA Online｜SessionScan", zh_built)
+        self.assertIn("GTA 6 · 2026 年 11 月 19 日＋本週 GTA Online｜SessionScan", zh_built)
         self.assertIn("SessionScan GTA｜夜掃描", zh_built)  # siteName in JSON-LD
         self.assertIn("本週賺錢與工作", zh_built)
         self.assertIn("訂閱 YouTube", zh_built)
@@ -679,12 +679,11 @@ class SearchAliasTests(unittest.TestCase):
         head = html.split("<body", 1)[0]
         header = html.split("<header", 1)[1].split("</header>", 1)[0]
         footer = html.split("<footer", 1)[1].split("</footer>", 1)[0]
-        self.assertIn(">GTA 6 hub + this week in GTA Online | SessionScan</title>", head)
-        self.assertIn('content="GTA 6 hub + this week in GTA Online | SessionScan"', head)
+        self.assertIn(">GTA 6 · November 19, 2026 + this week in GTA Online | SessionScan</title>", head)
+        self.assertIn('content="GTA 6 · November 19, 2026 + this week in GTA Online | SessionScan"', head)
         desc = (
-            "GTA 6 hub first — plus this week's GTA Online bonuses, money & jobs, and SessionScan Shorts & long videos. "
-            "GTA 5 / Online secondary; titles and outbound links only. "
-            "Unrelated to other apps of the same name."
+            "Official Grand Theft Auto VI status, then this week's GTA Online bonuses, money and jobs, "
+            "and SessionScan Shorts and long videos. Titles and outbound links only."
         )
         self.assertIn(f'name="description" data-i18n-content="metaDesc" content="{desc}"', head)
         self.assertIn(f'property="og:description" data-i18n-content="metaDesc" content="{desc}"', head)
@@ -725,8 +724,9 @@ class SearchAliasTests(unittest.TestCase):
         self.assertIn("No ads", footer)
         self.assertIn('class="first-screen"', html)
         self.assertIn(".first-screen .hero { order: 1; }", css)
-        self.assertIn(".first-screen .official-banner { order: 2; }", css)
-        self.assertIn(".first-screen .sample-banner { order: 3; }", css)
+        self.assertIn(".first-screen .home-gta6-status { order: 2; }", css)
+        self.assertIn(".first-screen .official-banner { order: 3; }", css)
+        self.assertIn(".first-screen .sample-banner { order: 4; }", css)
         # Mobile keeps hero first (banner-above-hero reorder caused ~0.53 Lighthouse CLS).
         self.assertIn(".first-screen .hero { order: 1; flex: 0 0 auto; }", css)
         self.assertIn("min-height: calc(100dvh - 8rem)", css)

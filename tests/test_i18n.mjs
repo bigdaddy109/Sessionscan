@@ -31,8 +31,8 @@ function fail(msg, extra) {
 
 if (t("siteName", {}, "en") !== "SessionScan GTA") fail("en site name");
 if (t("siteName", {}, "zh") !== "SessionScan GTA｜夜掃描") fail("zh site name");
-if (t("metaTitle", {}, "en") !== "GTA 6 hub + this week in GTA Online | SessionScan") fail("en meta title");
-if (t("metaTitle", {}, "zh") !== "GTA 6 情報＋本週 GTA Online｜SessionScan") fail("zh meta title");
+if (t("metaTitle", {}, "en") !== "GTA 6 · November 19, 2026 + this week in GTA Online | SessionScan") fail("en meta title");
+if (t("metaTitle", {}, "zh") !== "GTA 6 · 2026 年 11 月 19 日＋本週 GTA Online｜SessionScan") fail("zh meta title");
 if (t("channelFull", {}, "en") !== "Subscribe on YouTube") fail("en subscribe label");
 if (t("channelFull", {}, "zh") !== "訂閱 YouTube") fail("zh subscribe label");
 if (!t("channelAria", {}, "en").includes("@sessionscan")) fail("en subscribe aria keeps handle");
