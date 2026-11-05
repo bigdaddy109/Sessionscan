@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T00:05:54Z",
+ "updated": "2026-11-05T02:08:46Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -2588,6 +2588,7 @@
    "game": "GTA Online",
    "date": "2026-11-04",
    "views": 5922,
+   "kind": "",
    "first_seen": "2026-11-05",
    "last_seen": "2026-11-05"
   },
@@ -4740,7 +4741,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-30",
-   "last_seen": "2026-11-04"
+   "last_seen": "2026-11-05"
   },
   {
    "video_id": "DKs4bhega9A",
@@ -5087,6 +5088,8 @@
    "url": "https://www.youtube.com/shorts/EVsY5vbclxw",
    "lang": "en",
    "game": "GTA 5",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-11-05",
    "last_seen": "2026-11-05"
@@ -5258,7 +5261,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-29",
-   "last_seen": "2026-11-04"
+   "last_seen": "2026-11-05"
   },
   {
    "video_id": "F19DnSTYwoY",
@@ -9758,6 +9761,8 @@
    "url": "https://www.youtube.com/shorts/UWE-piKTTf4",
    "lang": "en",
    "game": "GTA Online",
+   "date": "",
+   "views": null,
    "kind": "short",
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",
@@ -13480,11 +13485,13 @@
   {
    "video_id": "fdskdLlrTkQ",
    "title": "I Became a MODDER GRIEFER in GTA Online",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=fdskdLlrTkQ",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-10",
    "views": 143813,
+   "kind": "",
    "first_seen": "2026-11-05",
    "last_seen": "2026-11-05"
   },
@@ -13995,7 +14002,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-11-04"
+   "last_seen": "2026-11-05"
   },
   {
    "video_id": "hOFcYqDBv6E",
@@ -14374,7 +14381,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-31",
-   "last_seen": "2026-11-04"
+   "last_seen": "2026-11-05"
   },
   {
    "video_id": "iCEr1bmEQvA",
@@ -15796,11 +15803,13 @@
   {
    "video_id": "nRUqopke3EE",
    "title": "GTA 5 UPDATE | HEISTS 2x$$$, PANTHER STATUE & MORE!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=nRUqopke3EE",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-11-04",
    "views": 4408,
+   "kind": "",
    "first_seen": "2026-11-05",
    "last_seen": "2026-11-05"
   },
