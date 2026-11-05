@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T04:59:13Z",
+ "updated": "2026-11-05T06:07:21Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -9089,7 +9089,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-11-03",
-   "last_seen": "2026-11-04"
+   "last_seen": "2026-11-05"
   },
   {
    "video_id": "RtDTGF-_Zq8",
@@ -14789,11 +14789,13 @@
   {
    "video_id": "jWgHaxXfMs4",
    "title": "GTA 6 Doesn’t Need to Be Perfect #gta6",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=jWgHaxXfMs4",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-03",
    "views": 1844,
+   "kind": "",
    "first_seen": "2026-11-05",
    "last_seen": "2026-11-05"
   },
