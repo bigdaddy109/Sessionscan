@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06T00:06:03Z",
+ "updated": "2026-11-06T02:07:56Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -935,7 +935,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-28",
-   "last_seen": "2026-11-05"
+   "last_seen": "2026-11-06"
   },
   {
    "video_id": "1gxGAo8CpEA",
@@ -10946,6 +10946,8 @@
    "url": "https://www.youtube.com/shorts/X2o1nfFdWfk",
    "lang": "en",
    "game": "GTA 6",
+   "date": "",
+   "views": null,
    "kind": "short",
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",
@@ -12688,11 +12690,13 @@
   {
    "video_id": "bOt8lGoyvYw",
    "title": "gta 5 online peyote plant locations | All 76 Peyote plant locations | Mc ABLE #gta5 #gtaonline",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=bOt8lGoyvYw",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-07",
    "views": 2412,
+   "kind": "",
    "first_seen": "2026-11-06",
    "last_seen": "2026-11-06"
   },
@@ -14494,7 +14498,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-11-05"
+   "last_seen": "2026-11-06"
   },
   {
    "video_id": "hOFcYqDBv6E",
@@ -20536,7 +20540,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-11-05"
+   "last_seen": "2026-11-06"
   },
   {
    "video_id": "zmwO_jmNkVQ",
