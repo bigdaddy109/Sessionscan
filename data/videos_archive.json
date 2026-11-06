@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06T04:05:48Z",
+ "updated": "2026-11-06T04:59:34Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -1187,11 +1187,13 @@
   {
    "video_id": "2WE2k4JjF8E",
    "title": "買GTA6反而能省三萬？外網理財博主的男人數學火了 輪胎剎車、鯊魚卡、庫存裡的遊戲全算進去了。你買GTA6是怎麼跟家裡報帳的？ #gta #gta6 #俠盜獵車手6 #遊戲破壁計劃",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=2WE2k4JjF8E",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-04",
    "views": 121,
+   "kind": "",
    "first_seen": "2026-11-06",
    "last_seen": "2026-11-06"
   },
@@ -4391,11 +4393,13 @@
   {
    "video_id": "BodmQm0ROco",
    "title": "GTA6突發39張新圖：搶的還是GTA5那家銀行 你還在這39張新圖裡放大看到了什麼？ #gta6 #俠盜獵車手6 #gta #遊戲破壁計劃",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=BodmQm0ROco",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-05",
    "views": 15,
+   "kind": "",
    "first_seen": "2026-11-06",
    "last_seen": "2026-11-06"
   },
@@ -10786,6 +10790,8 @@
    "url": "https://www.youtube.com/shorts/WYGWhR1c-Fg",
    "lang": "en",
    "game": "GTA 6",
+   "date": "",
+   "views": null,
    "kind": "short",
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",

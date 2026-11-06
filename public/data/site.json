@@ -203,12 +203,12 @@
   {
    "id": "94c4a53b2928b7660438801a1e6c16c7",
    "rank": 1,
-   "title": "GTA Online Weekly Updates (October 29, 2026): Halloween Celebrations Conclude, Día de Muertos Freebies, and More",
+   "title": "GTA Online Weekly Updates (November 5, 2026): Heist Bonuses, Grotti Veleno GT, and More",
    "title_en": "",
    "source": "IGN",
    "game": "GTA Online",
    "author": "IGN",
-   "updated": "2026-10-29",
+   "updated": "2026-11-05",
    "tags": [
     "GTA Online"
    ],
@@ -233,8 +233,23 @@
    "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
   },
   {
-   "id": "c02a153a0aacf88eee34b118f6cea844",
+   "id": "f493a280a6fa1eb5a36c59e998073da6",
    "rank": 2,
+   "title": "GTA Online: The Diamond Casino Heist",
+   "title_en": "",
+   "source": "GTA Wiki",
+   "game": "GTA Online",
+   "author": "GTA Wiki",
+   "updated": "2026-07-22",
+   "tags": [
+    "GTA Online"
+   ],
+   "url": "https://gta.wiki/w/GTA_Online:_The_Diamond_Casino_Heist",
+   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
+  },
+  {
+   "id": "c02a153a0aacf88eee34b118f6cea844",
+   "rank": 3,
    "title": "GTA Online: The Cayo Perico Heist",
    "title_en": "",
    "source": "GTA Wiki",
@@ -618,18 +633,6 @@
    "kind": "short"
   },
   {
-   "id": "hJ2JJF_HStE",
-   "video_id": "hJ2JJF_HStE",
-   "title": "Trevor Phillips in Real Life is Pure Chaos! 😂💀 #shorts #gta5 #gta",
-   "channel": "MrRubex",
-   "url": "https://www.youtube.com/shorts/hJ2JJF_HStE",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA 5",
-   "kind": "short"
-  },
-  {
    "id": "i4FtbU7i7HQ",
    "video_id": "i4FtbU7i7HQ",
    "title": "Bro Took His Anger Out on the NPCs 😂 #gta5 #gtaonline #gta5online #gtaviral #fail",
@@ -639,18 +642,6 @@
    "date": null,
    "lang": "en",
    "game": "GTA Online",
-   "kind": "short"
-  },
-  {
-   "id": "0EOYLeR1pos",
-   "video_id": "0EOYLeR1pos",
-   "title": "Trolling A GTA 5 Police As a Fake Bollard 🚨💥😂 #gta5",
-   "channel": "Falgun Gaming",
-   "url": "https://www.youtube.com/shorts/0EOYLeR1pos",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA 5",
    "kind": "short"
   },
   {
@@ -664,15 +655,63 @@
    "lang": "en",
    "game": "GTA Online",
    "kind": "short"
+  },
+  {
+   "id": "vbRk73x7XQo",
+   "video_id": "vbRk73x7XQo",
+   "title": "Trolling cops as a fake wood bollard in gta #gta #gtav #gtaonline",
+   "channel": "BISON Gaming",
+   "url": "https://www.youtube.com/shorts/vbRk73x7XQo",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short"
+  },
+  {
+   "id": "hJ2JJF_HStE",
+   "video_id": "hJ2JJF_HStE",
+   "title": "Trevor Phillips in Real Life is Pure Chaos! 😂💀 #shorts #gta5 #gta",
+   "channel": "MrRubex",
+   "url": "https://www.youtube.com/shorts/hJ2JJF_HStE",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short"
   }
  ],
  "forum_bahamut": [
   {
-   "id": "1b116c68d4d65ba6d9daa14c88bd4047",
+   "id": "1208919f7f211a0bf59fa13cedc6e856",
    "rank": 1,
+   "title": "【討論】GTA6正式確認，遊戲容量高達212GB",
+   "author": "sos17244",
+   "time": "2026-11-06 11:58",
+   "replies": "4",
+   "source": "Bahamut",
+   "game": "GTA Online",
+   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117831",
+   "blurb": "外連巴哈討論串。不轉載全文。"
+  },
+  {
+   "id": "d20c212a424d38e806a51f9a50e6ca35",
+   "rank": 2,
+   "title": "【閒聊】《GTA6》 官網更新大量新圖片",
+   "author": "PapayaApple",
+   "time": "2026-11-06 07:58",
+   "replies": "3",
+   "source": "Bahamut",
+   "game": "GTA 6",
+   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117836",
+   "blurb": "外連巴哈討論串。不轉載全文。"
+  },
+  {
+   "id": "1b116c68d4d65ba6d9daa14c88bd4047",
+   "rank": 3,
    "title": "【閒聊】【GTA Online 本週更新】搶劫活動週！美洲豹雕像重磅回歸＋搶劫全系列首次完成 2 倍！資產全面六折！",
    "author": "gta5weekly",
-   "time": "2026-11-05 21:10",
+   "time": "2026-11-05 20:47",
    "replies": "0",
    "source": "Bahamut",
    "game": "GTA Online",
@@ -681,10 +720,10 @@
   },
   {
    "id": "81fe6fb0a6f39e5fd6388a432e942d3c",
-   "rank": 2,
+   "rank": 4,
    "title": "【情報】GTA ONLINE 活動 (11/5~11/10,搶劫活動週,美洲豹雕像回歸,本週首通公寓搶劫,末搶,賭搶,知路任務2倍)",
    "author": "ken33890458",
-   "time": "2026-11-05 19:10",
+   "time": "2026-11-05 18:41",
    "replies": "17",
    "source": "Bahamut",
    "game": "GTA Online",
@@ -693,10 +732,10 @@
   },
   {
    "id": "c35664d17194c77fc146e861bb6cac48",
-   "rank": 3,
+   "rank": 5,
    "title": "【問題】新手搶完金毛了 接下來要做啥?",
    "author": "a060110",
-   "time": "2026-11-05 15:10",
+   "time": "2026-11-05 14:11",
    "replies": "24",
    "source": "Bahamut",
    "game": "GTA Online",
@@ -705,7 +744,7 @@
   },
   {
    "id": "3be269d076ef6518cafbf0f1076213a1",
-   "rank": 4,
+   "rank": 6,
    "title": "【問題】PS5 Pro可以支援4K 60FPS嗎",
    "author": "ga429148",
    "time": "2026-11-04 17:42",
@@ -716,44 +755,34 @@
    "blurb": "外連巴哈討論串。不轉載全文。"
   },
   {
-   "id": "1208919f7f211a0bf59fa13cedc6e856",
-   "rank": 5,
-   "title": "【討論】GTA6正式確認，遊戲容量高達212GB",
-   "author": "sos17244",
-   "time": "2026-11-04 13:36",
-   "replies": "3",
-   "source": "Bahamut",
-   "game": "GTA Online",
-   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117831",
-   "blurb": "外連巴哈討論串。不轉載全文。"
-  },
-  {
    "id": "8f3082eaf64f7837a4f913d626efea37",
-   "rank": 6,
+   "rank": 7,
    "title": "【問題】關於GTA6預購的問題",
    "author": "springrain",
-   "time": "2026-11-03 17:31",
+   "time": "11-03 17:31",
    "replies": "4",
    "source": "Bahamut",
    "game": "GTA Online",
    "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117827",
-   "blurb": "外連巴哈討論串。不轉載全文。"
+   "blurb": "外連巴哈討論串。不轉載全文。",
+   "time_relative": true
   },
   {
    "id": "b8729082a6baf850a8441e0ef86b49c0",
-   "rank": 7,
+   "rank": 8,
    "title": "【情報】GTA ONLINE 活動 (10/29~11/4,萬聖節活動最後一週,不死完成10波生存戰,獲得\"嗜血殺人狂小丑套裝\"和 25 萬 GTA 遊戲幣)",
    "author": "ken33890458",
-   "time": "2026-11-03 05:04",
+   "time": "11-03 05:04",
    "replies": "3",
    "source": "Bahamut",
    "game": "GTA Online",
    "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117820",
-   "blurb": "外連巴哈討論串。不轉載全文。"
+   "blurb": "外連巴哈討論串。不轉載全文。",
+   "time_relative": true
   },
   {
    "id": "fe3d85d9a0cf62921aa904f0b4779c79",
-   "rank": 8,
+   "rank": 9,
    "title": "【情報】最近有TWICH與GTA V聯名活動",
    "author": "prcheng",
    "time": "10-31 10:23",
@@ -766,7 +795,7 @@
   },
   {
    "id": "46f7e88f16b954b9103fbb72c9f24485",
-   "rank": 9,
+   "rank": 10,
    "title": "【閒聊】R星夠意思,我少完成一週挑戰還是拿到獎勵:解週挑戰生存戰推薦",
    "author": "prcheng",
    "time": "10-30 16:07",
@@ -776,25 +805,120 @@
    "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117825",
    "blurb": "外連巴哈討論串。不轉載全文。",
    "time_relative": true
-  },
-  {
-   "id": "9e1bc9a68283ffc381428422815d237c",
-   "rank": 10,
-   "title": "【情報】《GTA 5》三大主角演員寄語《GTA 6》接班人：聽 Rockstar 的話，更要真心珍惜粉絲！",
-   "author": "jacket6719",
-   "time": "10-30 16:00",
-   "replies": "2",
-   "source": "Bahamut",
-   "game": "GTA 6",
-   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117824",
-   "blurb": "外連巴哈討論串。不轉載全文。",
-   "time_relative": true
   }
  ],
  "forum_reddit": [
   {
-   "id": "1f2da3df0f5b92ea28144c8e60b54ec4",
+   "id": "81e4c8cc48536b350c1b643048458495",
    "rank": 1,
+   "title": "Moments that make you clench your entire anatomy. 🙀",
+   "author": "Former_Estimate_8437",
+   "time": "2026-11-06",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xoye9n/moments_that_make_you_clench_your_entire_anatomy/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "2372ee88fa290cca511d32b588b84b22",
+   "rank": 2,
+   "title": "My new hate for a mission and plane found",
+   "author": "Beanieweenees2",
+   "time": "2026-11-06",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xp3c59/my_new_hate_for_a_mission_and_plane_found/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "7e5e130c4ebd0fbb027af52f00f91e91",
+   "rank": 3,
+   "title": "One Last Ride",
+   "author": "RedBaronJumps",
+   "time": "2026-11-06",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xp3xm6/one_last_ride/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "4f045201845300801abb710778bc480d",
+   "rank": 4,
+   "title": "Weekly Update Videos November 5 - November 11",
+   "author": "Emergency-Fortune-21",
+   "time": "2026-11-06",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xp2tmj/weekly_update_videos_november_5_november_11/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "01490ea261f0de2ece7880ab955201ff",
+   "rank": 5,
+   "title": "Need some help with this weeks bonuses on heist",
+   "author": "Mandingaso",
+   "time": "2026-11-06",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xozbgk/need_some_help_with_this_weeks_bonuses_on_heist/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "b42f66657475f03325bbb538fba3ad8b",
+   "rank": 6,
+   "title": "Stuck joining empty lobbies and can’t play with friends. Anyone know a fix?",
+   "author": "Doggi_the_dog",
+   "time": "2026-11-06",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xp3h32/stuck_joining_empty_lobbies_and_cant_play_with/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "78dfcf463aaf62c405fe3af9e427c8f2",
+   "rank": 7,
+   "title": "Got hit with the Mexican martial arts",
+   "author": "skenguino",
+   "time": "2026-11-05",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xor4fb/got_hit_with_the_mexican_martial_arts/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "13116a2bd93c69f2bad73cfeac14bdb5",
+   "rank": 8,
+   "title": "Since when was there an overhead truss here??",
+   "author": "White_Plastic_Cup",
+   "time": "2026-11-05",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xouf2q/since_when_was_there_an_overhead_truss_here/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "f488d57882aca8735833fb4734ee4683",
+   "rank": 9,
+   "title": "Coin flip I’ve never seen",
+   "author": "MistakenConsumer",
+   "time": "2026-11-05",
+   "replies": null,
+   "source": "Reddit",
+   "game": "GTA Online",
+   "url": "https://www.reddit.com/r/gtaonline/comments/1xos8y5/coin_flip_ive_never_seen/",
+   "blurb": "Outbound to Reddit. Title and date only."
+  },
+  {
+   "id": "1f2da3df0f5b92ea28144c8e60b54ec4",
+   "rank": 10,
    "title": "Time trial done in a free Elegy RH8",
    "author": "Aleksi_lol",
    "time": "2026-11-05",
@@ -802,114 +926,6 @@
    "source": "Reddit",
    "game": "GTA Online",
    "url": "https://www.reddit.com/r/gtaonline/comments/1xofrox/time_trial_done_in_a_free_elegy_rh8/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "5be1f72f8a9724262e184b93e97069b1",
-   "rank": 2,
-   "title": "Vinewood Car Club Vehicles of the Month & Free Vehicle(Grotti Itali RSX): November-December 2026",
-   "author": "EarthPuma120",
-   "time": "2026-11-05",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xoewp8/vinewood_car_club_vehicles_of_the_month_free/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "ffa481c2c87f929e9bf9aceb8e3cd682",
-   "rank": 3,
-   "title": "Didn’t realize that I had a panther statue from the last time, ran heist in time for tomorrow.",
-   "author": "Dsg1695",
-   "time": "2026-11-05",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xob6vk/didnt_realize_that_i_had_a_panther_statue_from/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "11e8d8bae543a1b3ec3df95cfdbec02e",
-   "rank": 4,
-   "title": "Still kinda regret buying this",
-   "author": "Altruistic_Buy8618",
-   "time": "2026-11-05",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xo4d26/still_kinda_regret_buying_this/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "0570acbf11bd7115ecf28039f2398cdc",
-   "rank": 5,
-   "title": "New Overlay is worse to join players now.",
-   "author": "Mr_Funreal",
-   "time": "2026-11-05",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xohixe/new_overlay_is_worse_to_join_players_now/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "0c36ab8c7c2b33870225c67ef82e766d",
-   "rank": 6,
-   "title": "What y’all think of this build?",
-   "author": "LookStreet8933",
-   "time": "2026-11-05",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xo8gkb/what_yall_think_of_this_build/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "800478ef6e6bd3a1b2a76244e2736727",
-   "rank": 7,
-   "title": "Bike tricks with good ol fashioned GTA logic",
-   "author": "Sunieta25",
-   "time": "2026-11-05",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xohist/bike_tricks_with_good_ol_fashioned_gta_logic/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "7f6ce75bce170d1ed92b04017c44bf2f",
-   "rank": 8,
-   "title": "Probably My Favorite Wholesome Moment In A Public Lobby",
-   "author": "NapalmGlazed",
-   "time": "2026-11-05",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xo5x70/probably_my_favorite_wholesome_moment_in_a_public/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "6e5f4ecd203155ab56d2736196be24d7",
-   "rank": 9,
-   "title": "This was way to easy",
-   "author": "DieselTech00",
-   "time": "2026-11-05",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xo541b/this_was_way_to_easy/",
-   "blurb": "Outbound to Reddit. Title and date only."
-  },
-  {
-   "id": "d8c90cdd39633157d7937d3314e876e5",
-   "rank": 10,
-   "title": "Back to back",
-   "author": "ForeignPlayer6185",
-   "time": "2026-11-05",
-   "replies": null,
-   "source": "Reddit",
-   "game": "GTA Online",
-   "url": "https://www.reddit.com/r/gtaonline/comments/1xokr65/back_to_back/",
    "blurb": "Outbound to Reddit. Title and date only."
   }
  ],
@@ -941,6 +957,18 @@
  ],
  "tweets_en": [
   {
+   "id": "98fb0db93e345bdc181c365b041f1022",
+   "tid": "2118527002646835706",
+   "url": "https://x.com/luciacaminosss/status/2118527002646835706",
+   "author": "luciacaminosss",
+   "author_name": "Lu Caminos",
+   "text": "Oficialmente se cumple 1 año desde que Rockstar Games retraso GTA 6 al 19 de noviembre..\n\nYo era de los que estaba en el barco que GTA 6 saldria en mayo, pero cuando rockstar lanzó el comunicado, me quede en plan \"tiene que ser una broma\"\n\nPero ya estamos a 2 semanas del juego.. y en menos de 3 dias de la pre-descarga..\n\nSeñores, la espera ya casi ha terminado.. 🥹",
+   "date": "2026-11-06",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
    "id": "d7e4120263005808be22a3fd2ed50277",
    "tid": "2118357919229964343",
    "url": "https://x.com/RockstarGames/status/2118357919229964343",
@@ -948,7 +976,7 @@
    "author_name": "Rockstar Games",
    "text": "Grand Theft Auto VI is now officially only two weeks away. \n\nToday, enjoy a stunning look at Vice City and beyond with a collection of new screenshots on the official site: https://t.co/nX2McNaJNE\n\nSee you in Leonida on November 19. https://t.co/JXkHN8r20Y",
    "date": "2026-11-05",
-   "likes": 154259,
+   "likes": 155289,
    "lang": "en",
    "game": "GTA 6"
   },
@@ -960,7 +988,7 @@
    "author_name": "Rockstar Games",
    "text": "Take down the Kortz Center and more high-value targets in this week’s GTA Online Heist Event.\n\nSteal the Panther Statue from Cayo Perico, get 2X GTA$ on all Original Heists and 25% off the Grotti Veleno supercar, and more: https://t.co/DzrK6OsMkA https://t.co/B1VY2Snt4N",
    "date": "2026-11-05",
-   "likes": 5941,
+   "likes": 5958,
    "lang": "en",
    "game": "GTA Online"
   },
@@ -1529,11 +1557,11 @@
    "game": "GTA Online"
   },
   {
-   "id": "9e0e04cbcda598b0164d5d3ae411ca60",
+   "id": "c7967d86c840ca852d2011cd2cce8b45",
    "tid": "2118400925589025250",
-   "url": "https://x.com/flashcrave_/status/2118400925589025250",
-   "author": "flashcrave_",
-   "author_name": "Flash Crave",
+   "url": "https://x.com/anarchycrave/status/2118400925589025250",
+   "author": "anarchycrave",
+   "author_name": "Anarchy Crave",
    "text": "Rockstar Games will reportedly require a constant, high-speed internet connection to play the 'GTA 6' single-player story mode.\n\nInternal leaks reveal the game implements an aggressive, un-skippable \"Always-On\" DRM system that automatically kicks players to the main menu if connection drops for more than 5 seconds.",
    "date": "2026-11-05",
    "likes": null,
@@ -1559,6 +1587,54 @@
    "author": "blacksmokeui",
    "author_name": "Cameron",
    "text": "@itzKronuzz Let me give you little flashback 13 years ago gta 5 came out September 17th 2013 two weeks later GTA Online came out October 1st 2013 - the online mode was so bug glitches - GTA 6 online will come but soon just wait",
+   "date": "2026-11-05",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "2da80ce3fd3021cba0bb4b57cb140aed",
+   "tid": "2118490749847433384",
+   "url": "https://x.com/gta6florenza/status/2118490749847433384",
+   "author": "gta6florenza",
+   "author_name": "GTA 6 F*",
+   "text": "Primeira visão do clube de strip em GTA 6 (oficiais).\n#gta #gta6 #luciagta6 #JasonDuval  #gtavi",
+   "date": "2026-11-05",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA 6"
+  },
+  {
+   "id": "968f45ff973d320f77e13998b1dd4d63",
+   "tid": "2118455019842212013",
+   "url": "https://x.com/m4rz0v3lli/status/2118455019842212013",
+   "author": "m4rz0v3lli",
+   "author_name": ".",
+   "text": "Random but the only parts of GTA Online I actually enjoyed were heists and custom races/playslists, I never really got the appeal of just chilling in free mode",
+   "date": "2026-11-05",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA Online"
+  },
+  {
+   "id": "03f4693e021880023200b56a46fa9326",
+   "tid": "2118473751646085475",
+   "url": "https://x.com/senhorleitor20/status/2118473751646085475",
+   "author": "senhorleitor20",
+   "author_name": "Arthur",
+   "text": "@itzKronuzz What a stupid question. Gta was never strong online, the franchise grew on the basis of the single player. Only children know gta through gta online.",
+   "date": "2026-11-05",
+   "likes": null,
+   "lang": "en",
+   "game": "GTA Online"
+  },
+  {
+   "id": "3d879919d8ffa9f5b073bcdd5e450585",
+   "tid": "2118399033274241296",
+   "url": "https://x.com/theredvoyager/status/2118399033274241296",
+   "author": "theredvoyager",
+   "author_name": "TheRedVoyager",
+   "text": "@jenuflexion I don't expect or really want GTA VI to do well because of the negative impact that will have on AAA gaming budgets and future projects, but it does suck that such an important gaming studio has been stuck between a rock and a hard place for over a decade",
    "date": "2026-11-05",
    "likes": null,
    "lang": "en",
@@ -1839,84 +1915,24 @@
    "likes": null,
    "lang": "en",
    "game": "GTA Online"
-  },
-  {
-   "id": "a7c5d2d637f0a3b37bbc17370d7867e1",
-   "tid": "2117997130430263388",
-   "url": "https://x.com/zetutlee/status/2117997130430263388",
-   "author": "zetutlee",
-   "author_name": "A random guy",
-   "text": "@eduuu20RM @NotiPlay_ @ElinDeleon5 Lo de que GTAV este a 97 jamás lo entendí",
-   "date": "2026-11-04",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 5"
-  },
-  {
-   "id": "f74c6d9f26449f0b6cd07714f9d4f7c6",
-   "tid": "2118013641094049907",
-   "url": "https://x.com/blackboxps/status/2118013641094049907",
-   "author": "blackboxps",
-   "author_name": "BlackBox",
-   "text": "Rockstar Games will release The Weeknd's music for GTA VI tomorrow.\n\nVia: The Weeknd Instagram Story\n\n#rockstargames #GTAVI #theweeknd",
-   "date": "2026-11-04",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "384102ed63db973f4ccbab84e952d25b",
-   "tid": "2118013513436475729",
-   "url": "https://x.com/heyitsbunty/status/2118013513436475729",
-   "author": "heyitsbunty",
-   "author_name": "Bunty",
-   "text": "@iGrandTheftAuto If CircoLoco gets its own GTA VI radio station, those late-night drives through Vice City are going to be something special. The artwork already nails the atmosphere.",
-   "date": "2026-11-04",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "8a051d4e633cc83fc4a4ef0ae8e4cca3",
-   "tid": "2117993195707445265",
-   "url": "https://x.com/gremio_sombras/status/2117993195707445265",
-   "author": "gremio_sombras",
-   "author_name": "Gremio de las Sombras",
-   "text": "¡ROCKSTAR REGALA EL MAPA DE GTA 6 EN FORMATO DIGITAL Y FÍSICO! \n\nRockstar Games ha confirmado que el mapa de Leonida estará disponible gratuitamente en formato digital a partir del 19 de noviembre, para que cualquiera pueda descargarlo e imprimirlo.\n\nAdemás, poco después del lanzamiento llegará una versión física de doble cara a la Rockstar Store. Costará 0,99 dólares, aunque también podrás conseguirla gratis al realizar cualquier compra en la tienda.\n\n¡La tradición de los mapas de GTA continúa, aunque esta vez habrá que conseguirlo por separado!",
-   "date": "2026-11-04",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
-  },
-  {
-   "id": "7e3433b694f363a49a901c4c02d88896",
-   "tid": "2118033946101329973",
-   "url": "https://x.com/gtabase/status/2118033946101329973",
-   "author": "gtabase",
-   "author_name": "GTABase.com",
-   "text": "🚨 GTA 6 is closing in on becoming the most pre-ordered game of all time!\n\nAccording to Sensor Tower, Rockstar's upcoming blockbuster has already secured 7.7 million pre-orders, generating an estimated $751 million in revenue.\n\nCyberpunk 2077's record of 8 million is now within reach 👀\nhttps://www.gtabase.com/articles/gta-6/gta-6-set-to-break-all-time-pre-order-record-before-november-19-launch",
-   "date": "2026-11-04",
-   "likes": null,
-   "lang": "en",
-   "game": "GTA 6"
   }
  ],
  "meta": {
-  "sessionscan_slot": "2026-11-06 12:05",
-  "jobs_gtabase": "2026-11-05 23:07",
-  "jobs_ign": "2026-11-05 23:08",
-  "jobs_wiki": "2026-11-05 23:08",
+  "sessionscan_slot": "2026-11-06 12:58",
+  "jobs_gtabase": "2026-11-06 12:52",
+  "jobs_ign": "2026-11-06 12:53",
+  "jobs_wiki": "2026-11-06 12:53",
   "videos_hot_zh": "2026-11-06 12:01",
   "videos_new_zh": "2026-11-06 12:01",
   "videos_hot_en": "2026-11-06 08:03",
   "videos_new_en": "2026-11-06 08:03",
   "videos_hot_ja": "2026-11-06 06:03",
   "videos_new_ja": "2026-11-06 06:03",
-  "forum_reddit": "2026-11-05 23:10",
-  "tweets_en": "2026-11-06 12:05",
-  "tweets": "2026-11-06 12:05",
-  "_last_run": "2026-11-06 12:05",
-  "generated_at": "2026-11-06T04:05:48Z",
+  "forum_reddit": "2026-11-06 12:58",
+  "tweets_en": "2026-11-06 12:59",
+  "tweets": "2026-11-06 12:59",
+  "_last_run": "2026-11-06 12:59",
+  "generated_at": "2026-11-06T04:59:33Z",
   "sample": false,
   "scraper_status": "ok",
   "label_zh": "資料快照",
@@ -1932,13 +1948,13 @@
    "GTA 4",
    "RDO"
   ],
-  "jobs": "2026-11-05 23:08",
+  "jobs": "2026-11-06 12:53",
   "hot": "2026-11-06 12:01",
-  "new": "2026-11-06 12:05",
-  "forum": "2026-11-05 23:10",
-  "forum_bahamut": "2026-11-05 23:10",
-  "videos_shorts": "2026-11-06 12:05",
-  "tweets_zh": "2026-11-06 12:05"
+  "new": "2026-11-06 12:58",
+  "forum": "2026-11-06 12:58",
+  "forum_bahamut": "2026-11-06 12:58",
+  "videos_shorts": "2026-11-06 12:58",
+  "tweets_zh": "2026-11-06 12:59"
  },
  "sessionscan_slot": {
   "status": "online",
@@ -2515,16 +2531,10 @@
  },
  "rank_prev": {
   "videos_hot_zh": {
-   "4ENliLzwgZw": 1,
-   "zLiUIumDxuE": 2,
-   "uxf82AlK720": 3,
-   "s_PrwZqutkk": 4,
-   "6Sf1hKEQX18": 5,
-   "YZMa8ZuOhnY": 6,
-   "irJKTWxfaEM": 7,
-   "eEu0t64x8o8": 8,
-   "VCfTXADgSkA": 9,
-   "p4X7lNnDf6A": 10
+   "7tKnceG2Kac": 1,
+   "2WE2k4JjF8E": 2,
+   "q5JBKBGxwvc": 3,
+   "BodmQm0ROco": 4
   },
   "videos_hot_en": {
    "mb_TbQLZS0Y": 1,
@@ -2542,13 +2552,13 @@
    "tFFI3jIr0Co": 1
   },
   "videos_shorts": {
-   "HjlIz8f4utU": 1,
-   "5OB5182nRA4": 2,
+   "5OB5182nRA4": 1,
+   "HjlIz8f4utU": 2,
    "fsf3vyki1Io": 3,
    "1_7hdlsww-8": 4,
-   "zmUwVkBxkSQ": 5,
-   "hJ2JJF_HStE": 6,
-   "i4FtbU7i7HQ": 7,
+   "hJ2JJF_HStE": 5,
+   "i4FtbU7i7HQ": 6,
+   "0EOYLeR1pos": 7,
    "1fvnFyY_yG4": 8
   }
  }
