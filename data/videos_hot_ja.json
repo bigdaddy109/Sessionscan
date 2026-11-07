@@ -1,25 +1,25 @@
 [
  {
-  "id": "tFFI3jIr0Co",
-  "video_id": "tFFI3jIr0Co",
-  "title": "(山田と学ぶ) PHP問題とは？フランス暴動はなぜ起きたのか解説　【GTA5】",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=tFFI3jIr0Co",
-  "views": 115544,
-  "date": "2026-10-22",
-  "lang": "ja",
-  "game": "GTA 5"
- },
- {
   "id": "SvGejWxRXiA",
   "video_id": "SvGejWxRXiA",
   "title": "【GTA6情報】遂に無料でGTA6マップが手に入る＋事前ダウンロードが４８時間早まりました",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=SvGejWxRXiA",
-  "views": 115339,
+  "views": 116984,
   "date": "2026-11-04",
   "lang": "ja",
   "game": "GTA Online"
+ },
+ {
+  "id": "tFFI3jIr0Co",
+  "video_id": "tFFI3jIr0Co",
+  "title": "(山田と学ぶ) PHP問題とは？フランス暴動はなぜ起きたのか解説　【GTA5】",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=tFFI3jIr0Co",
+  "views": 115606,
+  "date": "2026-10-22",
+  "lang": "ja",
+  "game": "GTA 5"
  },
  {
   "id": "zAjiRCB54p4",
@@ -27,7 +27,7 @@
   "title": "【GTA6事前準備まとめ】発売前に5つの確認やっておくべき事・GTA6初心者講座",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=zAjiRCB54p4",
-  "views": 53162,
+  "views": 53528,
   "date": "2026-11-02",
   "lang": "ja",
   "game": "GTA Online"
@@ -38,7 +38,7 @@
   "title": "【GTA6】新たな７つの新情報＆GTAオンライン最新アプデ情報まとめ",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=VZBmeoeitUk",
-  "views": 46773,
+  "views": 46787,
   "date": "2026-10-29",
   "lang": "ja",
   "game": "GTA 6"
@@ -49,7 +49,7 @@
   "title": "【容量判明】GTA6は210GB‼️事前準備は⁉️最新GTAオンラインアプデリーク情報まとめ",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=XLU4vSx3ptk",
-  "views": 39915,
+  "views": 39932,
   "date": "2026-10-28",
   "lang": "ja",
   "game": "GTA Online"
@@ -60,8 +60,19 @@
   "title": "【GTA6情報】最新アプデ情報はなんとほぼ全ての強盗初回２倍とパンサー像出現・GTAオンライン",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=G79ETrNNt8M",
-  "views": 22144,
+  "views": 22208,
   "date": "2026-11-04",
+  "lang": "ja",
+  "game": "GTA Online"
+ },
+ {
+  "id": "E2-dWGEXojU",
+  "video_id": "E2-dWGEXojU",
+  "title": "【GTA6情報】日本版規制ありの可能性と最新のマイアミ（バイスシティー）ヒートアップが凄い🔥",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=E2-dWGEXojU",
+  "views": 20541,
+  "date": "2026-11-07",
   "lang": "ja",
   "game": "GTA Online"
  },
@@ -71,7 +82,7 @@
   "title": "【GTA5/GTA6】まだらが気になっている2点のこと。GTAVIパッケージ版のアップグレードはクレジットカードが必要か？GTA5の冬の大型アップデートは？",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=4AT2qTbQFck",
-  "views": 19204,
+  "views": 19264,
   "date": "2026-10-09",
   "lang": "ja",
   "game": "GTA 6"
@@ -82,21 +93,10 @@
   "title": "【GTA6】 事前ダウンロード開始日前倒しとレオナイダMAP配布について",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=lSkz_-7Eyqo",
-  "views": 18788,
+  "views": 19162,
   "date": "2026-11-04",
   "lang": "ja",
   "game": "GTA 6"
- },
- {
-  "id": "4HTLbblhM0A",
-  "video_id": "4HTLbblhM0A",
-  "title": "【リアルGTA6情報まとめ】マイアミ全体が既にバイスシティー化が凄すぎる‼️短期間限定でGTAオンライン高級車無料情報",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=4HTLbblhM0A",
-  "views": 17503,
-  "date": "2026-11-01",
-  "lang": "ja",
-  "game": "GTA Online"
  },
  {
   "id": "xZIKs2ieLVI",
@@ -104,7 +104,7 @@
   "title": "【GTA6情報】速報‼️言われないと見逃しちゃう100以上の発見が公式から39枚のローンチギャラリーから判明‼️",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=xZIKs2ieLVI",
-  "views": 16934,
+  "views": 17673,
   "date": "2026-11-05",
   "lang": "ja",
   "game": "GTA Online"
