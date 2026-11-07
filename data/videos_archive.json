@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T04:05:20Z",
+ "updated": "2026-11-07T04:32:19Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -784,11 +784,13 @@
   {
    "video_id": "1JfbWcfNtKs",
    "title": "GTA  Online Survival -*Up hill - creator A_Stargazer_XO",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=1JfbWcfNtKs",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-04",
    "views": 120,
+   "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07"
   },
@@ -1564,11 +1566,13 @@
   {
    "video_id": "3BRXVmmuMw4",
    "title": "GTA  Online Survival #City Hall - creator - A_Stargazer_XO",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=3BRXVmmuMw4",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-06",
    "views": 103,
+   "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07"
   },
@@ -2168,7 +2172,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-18",
-   "last_seen": "2026-11-06"
+   "last_seen": "2026-11-07"
   },
   {
    "video_id": "5OVz4-emqwo",
@@ -3869,11 +3873,13 @@
   {
    "video_id": "9zfFrdN1PbI",
    "title": "GTA  Online Survival - HoT in The City 2 [Pro]. - creator ANGLIKANE",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=9zfFrdN1PbI",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-27",
    "views": 158,
+   "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07"
   },
@@ -5184,11 +5190,13 @@
   {
    "video_id": "DZ1OwxOds34",
    "title": "GTA  Online Survival - Night Terrors - creator - Badwolfbabex",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=DZ1OwxOds34",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-25",
    "views": 169,
+   "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07"
   },
@@ -6534,11 +6542,13 @@
   {
    "video_id": "HdmBoIIGwJQ",
    "title": "GTA  Online Survival - The Last Laugh - Creator - Badwolfbabex",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=HdmBoIIGwJQ",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-02",
    "views": 185,
+   "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07"
   },
@@ -8460,11 +8470,13 @@
   {
    "video_id": "NJMEv7qSMIg",
    "title": "GTA  Online Survival - Gears Of War",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=NJMEv7qSMIg",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-31",
    "views": 195,
+   "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07"
   },
@@ -8497,11 +8509,13 @@
   {
    "video_id": "NOQk2IFTv6Y",
    "title": "🏁 LS Car Meet Challenge - Top 5 Just 2 Day 🔥 Karin Previon 🏆 | GTA V Online |",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=NOQk2IFTv6Y",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-30",
    "views": 166,
+   "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07"
   },
@@ -8664,11 +8678,13 @@
   {
    "video_id": "O-bsaTF18po",
    "title": "GTA  Online Survival - Alamo Sea",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=O-bsaTF18po",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-02",
    "views": 191,
+   "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07"
   },
@@ -10432,11 +10448,13 @@
   {
    "video_id": "Thh0yP1Po4s",
    "title": "GTA  Online Survival - Prison7",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Thh0yP1Po4s",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-04",
    "views": 137,
+   "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07"
   },
@@ -14723,11 +14741,13 @@
   {
    "video_id": "gFLHawYEJPo",
    "title": "GTA V Online Survival - #Mr. And Mrs. Khan - creator A_Stargazer_XO",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=gFLHawYEJPo",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-30",
    "views": 175,
+   "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07"
   },
@@ -14766,6 +14786,7 @@
    "game": "GTA Online",
    "date": "2026-11-06",
    "views": 1095,
+   "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07"
   },
@@ -16997,11 +17018,13 @@
   {
    "video_id": "n9VN3oumT34",
    "title": "GTA  Online Survival - Luxury Cars Robbery",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=n9VN3oumT34",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-27",
    "views": 391,
+   "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07"
   },
@@ -18026,11 +18049,13 @@
   {
    "video_id": "qBgisRFaNRI",
    "title": "GTA  Online Survival - SParkle + Boom - Creator - Badwolfbabex",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=qBgisRFaNRI",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-05",
    "views": 194,
+   "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07"
   },
@@ -20582,7 +20607,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-11-04",
-   "last_seen": "2026-11-05"
+   "last_seen": "2026-11-07"
   },
   {
    "video_id": "xkf0_UJc0co",
