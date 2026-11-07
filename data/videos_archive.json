@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T00:07:25Z",
+ "updated": "2026-11-07T02:08:01Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -4059,6 +4059,8 @@
    "url": "https://www.youtube.com/shorts/AWp_OtwZ7tM",
    "lang": "en",
    "game": "GTA Online",
+   "date": "",
+   "views": null,
    "kind": "short",
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",
@@ -19773,7 +19775,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-24",
-   "last_seen": "2026-11-06"
+   "last_seen": "2026-11-07"
   },
   {
    "video_id": "vb_SL-tl9UM",
