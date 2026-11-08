@@ -7,11 +7,11 @@
  "note_zh": "自有 Shorts／長片。其餘為他人當紅 Short。",
  "note_en": "Owned Shorts and long videos. Other cells are other creators’ trending Shorts.",
  "short": {
-  "id": "Tq11gSyPIhA",
-  "video_id": "Tq11gSyPIhA",
-  "title": "GTA 6 Has an Entire Studio Just for NPCs",
+  "id": "Vi3ejZFYRoM",
+  "video_id": "Vi3ejZFYRoM",
+  "title": "Cara Delevingne Is Taking 2 Weeks Off for GTA 6",
   "channel": "SessionScan",
-  "url": "https://www.youtube.com/shorts/Tq11gSyPIhA",
+  "url": "https://www.youtube.com/shorts/Vi3ejZFYRoM",
   "views": null,
   "date": null,
   "lang": "en",
@@ -20,6 +20,32 @@
   "owned": true
  },
  "library": [
+  {
+   "id": "Vi3ejZFYRoM",
+   "video_id": "Vi3ejZFYRoM",
+   "title": "Cara Delevingne Is Taking 2 Weeks Off for GTA 6",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/Vi3ejZFYRoM",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "owned": true
+  },
+  {
+   "id": "r1iUuEyAoAQ",
+   "video_id": "r1iUuEyAoAQ",
+   "title": "GTA 6 Reportedly Has 55 Trophies",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/r1iUuEyAoAQ",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "owned": true
+  },
   {
    "id": "Tq11gSyPIhA",
    "video_id": "Tq11gSyPIhA",
