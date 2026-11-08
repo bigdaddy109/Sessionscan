@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T04:06:55Z",
+ "updated": "2026-11-08T04:15:21Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -1808,7 +1808,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-29",
-   "last_seen": "2026-11-07"
+   "last_seen": "2026-11-08"
   },
   {
    "video_id": "3bnfTxfAW1k",
@@ -2510,7 +2510,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-27",
-   "last_seen": "2026-11-05"
+   "last_seen": "2026-11-08"
   },
   {
    "video_id": "6-p4hdQSWnc",
@@ -5452,11 +5452,13 @@
   {
    "video_id": "DsRNsUS8s8E",
    "title": "GTA6還沒發售，已經把全世界刷成了紫色 11月19號發售前，你那座城市掛上GTA6了嗎？ #gta6 #俠盜獵車手6 #gta #遊戲破壁計劃",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=DsRNsUS8s8E",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-07",
    "views": 322,
+   "kind": "",
    "first_seen": "2026-11-08",
    "last_seen": "2026-11-08"
   },
@@ -8205,16 +8207,18 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-26",
-   "last_seen": "2026-11-07"
+   "last_seen": "2026-11-08"
   },
   {
    "video_id": "LVYKiCoRcxs",
    "title": "GTA6實體版首曝！PS5 Pro優化確認 雙面海報、復古禮包、終極版內容和解鎖方式，一次講清。 #gta6 #俠盜獵車手6 #gta #遊戲破壁計劃",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=LVYKiCoRcxs",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-08",
    "views": 586,
+   "kind": "",
    "first_seen": "2026-11-08",
    "last_seen": "2026-11-08"
   },
