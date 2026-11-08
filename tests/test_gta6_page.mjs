@@ -8,7 +8,12 @@ import { readFileSync, existsSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
+  GTA6_FILMS,
+  GTA6_LAUNCH_TRAILER_URL,
   GTA6_NEWSWIRE_URL,
+  GTA6_PRELOAD_URL,
+  GTA6_PRELOAD_ZH_URL,
+  GTA6_VI_ZH_URL,
   GTA6_OFFICIAL_TRAILER_POSTER_FALLBACK_URL,
   GTA6_OFFICIAL_TRAILER_POSTER_URL,
   GTA6_OFFICIAL_TRAILER_WATCH_URL,
@@ -20,9 +25,13 @@ import {
   gta6OfficialTrailerHtml,
   gta6PageJsonLd,
   gta6ReleaseAt,
+  gta6PreloadUrl,
   gta6TipFreezeLinkHtml,
+  gta6ViPageUrl,
   homeGta6LinkHtml,
+  homeGta6StatusHtml,
   injectHomeGta6Link,
+  injectHomeGta6Status,
   renderGta6PageBody,
 } from "../src/gta6Page.js";
 import { countdownParts } from "../src/thisWeekHome.js";
@@ -120,22 +129,64 @@ if (!trailerEn.includes('target="_blank"')) fail("trailer must open new tab");
 if (/iframe|youtube-nocookie/i.test(trailerEn)) {
   fail("trailer must not load a third-party iframe", trailerEn.slice(0, 400));
 }
-if (!trailerEn.includes("Official look")) fail("trailer en kicker");
 if (!trailerEn.includes("Watch on YouTube")) fail("trailer en watch link");
 if (!trailerEn.includes(GTA6_OFFICIAL_URL)) fail("trailer must cite Rockstar VI");
 if (!trailerEn.includes("Play:")) fail("trailer play aria missing");
 const trailerZh = gta6OfficialTrailerHtml("zh");
-if (!trailerZh.includes("官方預告") || !trailerZh.includes("在 YouTube 觀看")) {
+if (!trailerZh.includes("加長版預覽") || !trailerZh.includes("在 YouTube 觀看")) {
   fail("trailer zh copy", trailerZh.slice(0, 300));
 }
+if (!trailerZh.includes(GTA6_VI_ZH_URL)) fail("zh trailer via must cite zh-TW VI page");
 if (!trailerZh.includes("播放：") || /iframe|youtube-nocookie/i.test(trailerZh)) {
   fail("zh trailer must be poster link, not iframe");
 }
 if (!body.includes('id="gta6OfficialTrailer"') || !body.includes(GTA6_OFFICIAL_TRAILER_POSTER_URL)) {
   fail("EN body missing official trailer poster");
 }
-if (!zhBody.includes('id="gta6OfficialTrailer"') || !zhBody.includes("官方預告")) {
+if (!zhBody.includes('id="gta6OfficialTrailer"') || !zhBody.includes("加長版預覽")) {
   fail("zh body missing official trailer");
+}
+
+// Why: Rockstar's VI player lists four films. Only An Extended Look has a
+// YouTube id. The others must stay outbound links — a guessed id would be a poster for the wrong film.
+if (GTA6_FILMS.map((film) => film.id).join(",") !== "launch-trailer,extended-look,trailer-2,trailer-1") {
+  fail("film order must be newest first", GTA6_FILMS.map((film) => film.id));
+}
+const withYoutube = GTA6_FILMS.filter((film) => film.youtubeId);
+if (withYoutube.length !== 1 || withYoutube[0].youtubeId !== GTA6_OFFICIAL_TRAILER_YOUTUBE_ID) {
+  fail("only the verified Extended Look id may have a poster", withYoutube);
+}
+const launchAt = body.indexOf('id="gta6-film-launch-trailer"');
+const extendedAt = body.indexOf('id="gta6-film-extended-look"');
+const trailer2At = body.indexOf('id="gta6-film-trailer-2"');
+const trailer1At = body.indexOf('id="gta6-film-trailer-1"');
+if (!(launchAt >= 0 && launchAt < extendedAt && extendedAt < trailer2At && trailer2At < trailer1At)) {
+  fail("films must list Launch Trailer, Extended Look, Trailer 2, Trailer 1", { launchAt, extendedAt, trailer2At, trailer1At });
+}
+if (!body.includes("Pre-load begins November 10.")) fail("preload sentence missing");
+if (!body.includes(GTA6_PRELOAD_URL)) fail("preload article link missing");
+if (!body.includes(GTA6_LAUNCH_TRAILER_URL)) fail("launch trailer newswire link missing");
+if (!body.includes("Ultimate Edition") || !body.includes("Vintage Vice City Pack")) {
+  fail("editions missing");
+}
+const editions = body.slice(body.indexOf('id="gta6Editions"'), body.indexOf('id="gta6Leonida"'));
+if (editions.includes("ultimate-edition") || /\$\d/.test(editions)) {
+  fail("editions must link only to the VI page and omit prices", editions.slice(0, 400));
+}
+if (!editions.includes(GTA6_OFFICIAL_URL)) fail("edition links must cite the VI page");
+const launchFilm = body.slice(launchAt, extendedAt);
+if (/iframe|i\.ytimg\.com|youtube-nocookie/i.test(launchFilm)) {
+  fail("Launch Trailer has no YouTube id — no poster or iframe", launchFilm.slice(0, 300));
+}
+if ((body.match(/i\.ytimg\.com\/vi\/tJbzMqJGH4k\/maxresdefault\.jpg/g) || []).length !== 1) {
+  fail("exactly one Extended Look poster");
+}
+if (!zhBody.includes(GTA6_PRELOAD_ZH_URL)) fail("zh preload must use the Traditional Chinese newswire URL");
+if (!zhBody.includes("於 11 月 10 日開放預先下載")) fail("zh preload sentence missing");
+if (!zhBody.includes("發行預告片")) fail("zh launch trailer title missing");
+if (!zhBody.includes(GTA6_VI_ZH_URL)) fail("zh page must link the zh-TW VI hub");
+if (gta6PreloadUrl("en") !== GTA6_PRELOAD_URL || gta6ViPageUrl("zh") !== GTA6_VI_ZH_URL) {
+  fail("locale official URLs drifted");
 }
 
 const ld = gta6PageJsonLd("en");
@@ -224,47 +275,78 @@ if (existsSync(distZh)) {
   }
 }
 
-// Why: players near the weekly countdown need a durable CTA to the official
-// GTA 6 page (not the conditional banner schedule line); path must stay locale-correct.
+// Why: /gta6/ still sends players back to this week's money cards.
 if (!body.includes("gta6-home-link") || !body.includes('href="/"')) {
   fail("EN body missing gta6HomeLink");
 }
 if (!zhBody.includes('href="/zh/"') || !zhBody.includes("首頁本週")) {
   fail("zh body missing gta6HomeLink");
 }
+// Freeze pages still use this copy. Home no longer repeats it under the weekly countdown.
 const homeEn = homeGta6LinkHtml("en");
 if (!homeEn.includes('id="homeGta6Link"') || !homeEn.includes('href="/gta6/"')) {
-  fail("home gta6 link en", homeEn);
+  fail("freeze-style gta6 link en", homeEn);
 }
-if (!homeEn.includes("GTA 6 official countdown")) fail("home gta6 en copy");
+if (!homeEn.includes("GTA 6 official countdown")) fail("freeze-style gta6 en copy");
 const homeZh = homeGta6LinkHtml("zh");
 if (!homeZh.includes('href="/zh/gta6/"') || !homeZh.includes("官方上市日倒數")) {
-  fail("home gta6 link zh", homeZh);
+  fail("freeze-style gta6 link zh", homeZh);
 }
-const shell = `<aside class="week-countdown" id="weekCountdown"><p>—</p></aside>
-    <section class="week-short" id="weekShort"></section>`;
-const injected = injectHomeGta6Link(shell, { lang: "en" });
-if (!injected.includes('id="homeGta6Link"') || !injected.includes('href="/gta6/"')) {
-  fail("injectHomeGta6Link under weekCountdown", injected);
+
+// Why: the official status sits above weekly tools and is the only home date line.
+// The old countdown CTA would say November 19 again.
+const homeShell = `<section class="hero" id="hero"></section>
+    <section class="home-gta6-status" id="homeGta6Status"></section>
+    <aside class="official-banner" id="officialBanner"></aside>
+    <p class="home-gta6-link" id="homeGta6Link"><a href="/gta6/">GTA 6 official countdown ↗</a></p>`;
+const homeStatus = injectHomeGta6Status(homeShell, { lang: "en", now });
+if (!homeStatus.includes('id="homeGta6Status"') || !homeStatus.includes("Coming November 19, 2026.")) {
+  fail("home status en", homeStatus.slice(0, 500));
 }
-const zhInjected = injectHomeGta6Link(
-  `<p class="home-gta6-link" id="homeGta6Link"><a href="/gta6/">x</a></p>`,
-  { lang: "zh" },
-);
-if (!zhInjected.includes('href="/zh/gta6/"')) fail("inject replaces zh href", zhInjected);
+if (!homeStatus.includes(GTA6_PRELOAD_URL) || !homeStatus.includes(GTA6_LAUNCH_TRAILER_URL)) {
+  fail("home status missing official links");
+}
+if (/iframe|i\.ytimg\.com|youtube-nocookie/i.test(homeStatus)) {
+  fail("home status must not embed a film poster");
+}
+if (homeStatus.includes('id="homeGta6Link"') || homeStatus.includes("GTA 6 date announced")) {
+  fail("home must not repeat the GTA 6 date under the weekly banner");
+}
+const statusAt = homeStatus.indexOf('id="homeGta6Status"');
+const bannerAt = homeStatus.indexOf('id="officialBanner"');
+if (!(statusAt >= 0 && statusAt < bannerAt)) fail("status block must precede the weekly banner");
+if (!homeStatus.includes('href="/gta6/"')) fail("home status must open /gta6/");
+const stripped = injectHomeGta6Link(homeShell);
+if (stripped.includes('id="homeGta6Link"')) fail("injectHomeGta6Link must drop the old countdown CTA");
+const zhStatus = homeGta6StatusHtml("zh", now);
+if (!zhStatus.includes('href="/zh/gta6/"') || !zhStatus.includes(GTA6_PRELOAD_ZH_URL)) {
+  fail("zh home status", zhStatus.slice(0, 400));
+}
+if (!zhStatus.includes("敬請期待 2026 年 11 月 19 日") || !zhStatus.includes("發行預告片")) {
+  fail("zh home status copy");
+}
 
 const distHome = resolve(root, "dist/index.html");
 const distZhHome = resolve(root, "dist/zh/index.html");
 if (existsSync(distHome)) {
   const home = readFileSync(distHome, "utf8");
-  if (!home.includes('id="homeGta6Link"') || !home.includes('href="/gta6/"')) {
-    fail("dist home missing gta6 link");
+  if (!home.includes('id="homeGta6Status"') || !home.includes('href="/gta6/"')) {
+    fail("dist home missing gta6 status");
   }
+  if (home.includes('id="homeGta6Link"') || home.includes("GTA 6 date announced")) {
+    fail("dist home still repeats the GTA 6 date line");
+  }
+  const homeStatusAt = home.indexOf('id="homeGta6Status"');
+  const homeBannerAt = home.indexOf('id="officialBanner"');
+  if (!(homeStatusAt >= 0 && homeStatusAt < homeBannerAt)) fail("dist home status order");
 }
 if (existsSync(distZhHome)) {
   const zhHome = readFileSync(distZhHome, "utf8");
   if (!zhHome.includes('href="/zh/gta6/"') || !zhHome.includes("官方上市日倒數")) {
-    fail("dist zh home missing gta6 link");
+    fail("dist zh home missing gta6 status");
+  }
+  if (!zhHome.includes("於 11 月 10 日開放預先下載") || zhHome.includes('id="homeGta6Link"')) {
+    fail("dist zh home preload or leftover countdown link");
   }
 }
 

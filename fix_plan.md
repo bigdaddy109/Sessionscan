@@ -16,6 +16,7 @@
 - 行動版 sticky header：合併後若再改頁首高度，在 https://sessionscan.net 用 iPhone／iPad 實機或錄影再驗一次（部署站 verify）。site-nav 六連結已改換行，不再靠橫向捲軸。
 
 已完成：
+- 首頁（EN＋`/zh/`）在本週工具上方加 GTA 6 官方狀態；`/gta6/` 與 `/zh/gta6/` 列上市、預載、四支官方影片、版本、雷歐奈達、精選 Newswire。預載日留著，因為 VI 頁正文寫了 November 10／11 月 10 日（Newswire 內文是前端殼，沒讀到本文）。只有加長版預覽有 YouTube 海報（`tJbzMqJGH4k`）。CH-00 不再重複 GTA 6 日期。rollback `pre-gta6-content-20261105`。測 `tests/test_gta6_page.mjs`。
 - 手機英文首頁 HUD 掃描列不再折行蓋住 eyebrow（≤420px 單行、`letter-spacing: 0.04em`；375 以上不截字）。rollback `pre-hero-scanline-20261103`。測 `tests/test_header_overlap.mjs`。
 - Sitemap 從全檔分享頁（約 2,280 URL）收成首頁、殼頁／攻略，以及近 28 天觀看數 ≥ 100,000 的前 40 支（另加 owned）。凍結週 URL 與長尾影片頁仍生成，但不進 sitemap。rollback `pre-home-week-events-20261029`（與首頁 PR 同一個 main 起點）。測 `tests/test_video_pages.mjs`。
 - 首頁「本週先做這些」改吃 GTABase 週更文子標題（`events`：倍數、展台／Podium、免費、廢車場），本週還沒有新文章時賺錢卡沿用上一 Rockstar 週的那張週更並列出事件，不再是空白或只有外連。`thisWeekJobs` 與凍結頁仍不把上一週算進當週。rollback `pre-home-week-events-20261029`。測 `tests/test_this_week_home.mjs`、`tests/test_static_home.mjs`、`tests/test_pipeline.py`。
