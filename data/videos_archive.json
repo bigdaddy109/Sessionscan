@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T00:05:28Z",
+ "updated": "2026-11-09T02:06:12Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -477,10 +477,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-29",
-   "views": 20737,
+   "views": 21003,
    "kind": "",
    "first_seen": "2026-11-03",
-   "last_seen": "2026-11-03"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "0GiEzR-W-es",
@@ -1039,7 +1039,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-28",
-   "last_seen": "2026-11-08"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "1gFAuc5CpaY",
@@ -1170,6 +1170,17 @@
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-17"
+  },
+  {
+   "video_id": "2-j8TSqcRWM",
+   "title": "Trevor Is the WORST Passenger in GTA 5 💀✈️",
+   "url": "https://www.youtube.com/watch?v=2-j8TSqcRWM",
+   "lang": "en",
+   "game": "GTA 5",
+   "date": "2026-11-06",
+   "views": 251,
+   "first_seen": "2026-11-09",
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "2-oKfmdPsZM",
@@ -2886,10 +2897,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-02",
-   "views": 140,
+   "views": 520,
    "kind": "",
    "first_seen": "2026-11-02",
-   "last_seen": "2026-11-02"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "6_DxeSe0q50",
@@ -5359,11 +5370,13 @@
   {
    "video_id": "Cqr4rhpgo7g",
    "title": "GTA Online Continuing ALL Heists on PS5 and Phantom Blade Zero",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Cqr4rhpgo7g",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-08",
    "views": 8463,
+   "kind": "",
    "first_seen": "2026-11-09",
    "last_seen": "2026-11-09"
   },
@@ -5949,10 +5962,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-28",
-   "views": 15873,
+   "views": 16031,
    "kind": "",
    "first_seen": "2026-11-03",
-   "last_seen": "2026-11-03"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "EafXKFoX2CU",
@@ -7031,7 +7044,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-18",
-   "last_seen": "2026-11-08"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "HocOOiBoYfo",
@@ -7071,6 +7084,17 @@
    "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-05"
+  },
+  {
+   "video_id": "HvyCS_ZMXrI",
+   "title": "Starting GTA Online in 2026? Avoid THIS Mistake 💀",
+   "url": "https://www.youtube.com/watch?v=HvyCS_ZMXrI",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-28",
+   "views": 1042,
+   "first_seen": "2026-11-09",
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "I0wZq2mJLyE",
@@ -7144,6 +7168,8 @@
    "url": "https://www.youtube.com/shorts/I9ykztHX1ZA",
    "lang": "en",
    "game": "GTA Online",
+   "date": "",
+   "views": null,
    "kind": "short",
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",
@@ -7738,11 +7764,13 @@
   {
    "video_id": "Jus-EkLVevA",
    "title": "GTA Online Playing All The Heists Again and Phantom Blade Zero",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Jus-EkLVevA",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-06",
    "views": 9366,
+   "kind": "",
    "first_seen": "2026-11-09",
    "last_seen": "2026-11-09"
   },
@@ -8824,10 +8852,10 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-10-18",
-   "views": 22907,
+   "views": 23165,
    "kind": "",
    "first_seen": "2026-11-03",
-   "last_seen": "2026-11-03"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "MslqrGfVln0",
@@ -9893,7 +9921,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-11-08",
-   "last_seen": "2026-11-08"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "QDdf1nIF9uw",
@@ -10433,11 +10461,13 @@
   {
    "video_id": "R_Xwp2Dwi5A",
    "title": "GTA 6 NEW Info! 55 Achievements, Car Screenshots, and More!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=R_Xwp2Dwi5A",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-08",
    "views": 1216,
+   "kind": "",
    "first_seen": "2026-11-09",
    "last_seen": "2026-11-09"
   },
@@ -10843,6 +10873,17 @@
    "kind": "",
    "first_seen": "2026-10-27",
    "last_seen": "2026-11-03"
+  },
+  {
+   "video_id": "SprVt79KfWg",
+   "title": "Trevor Takes on a MASSIVE Cargo Plane! | GTA V Walkthrough EP 17",
+   "url": "https://www.youtube.com/watch?v=SprVt79KfWg",
+   "lang": "en",
+   "game": "GTA 5",
+   "date": "2026-11-04",
+   "views": 37,
+   "first_seen": "2026-11-09",
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "SuSj6SH0rtg",
@@ -11363,10 +11404,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-10",
-   "views": 20585,
+   "views": 21319,
    "kind": "",
    "first_seen": "2026-11-03",
-   "last_seen": "2026-11-03"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "Un_JaOaiwEk",
@@ -12697,10 +12738,10 @@
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-10-25",
-   "views": 36559,
+   "views": 38204,
    "kind": "",
    "first_seen": "2026-11-03",
-   "last_seen": "2026-11-03"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "YOph7v5merg",
@@ -13999,10 +14040,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-13",
-   "views": 13929,
+   "views": 13957,
    "kind": "",
    "first_seen": "2026-11-03",
-   "last_seen": "2026-11-03"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "bLeg9NroQdc",
@@ -14313,10 +14354,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-16",
-   "views": 100803,
+   "views": 101344,
    "kind": "",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-11-03"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "bznYMeCvJiA",
@@ -14586,10 +14627,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-07",
-   "views": 11699,
+   "views": 11727,
    "kind": "",
    "first_seen": "2026-11-07",
-   "last_seen": "2026-11-08"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "csDydZ91Ylw",
@@ -15594,7 +15635,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-11",
-   "last_seen": "2026-11-08"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "g-rSSntLJ7k",
@@ -16620,10 +16661,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-29",
-   "views": 15849,
+   "views": 16184,
    "kind": "",
    "first_seen": "2026-11-03",
-   "last_seen": "2026-11-03"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "iWwCDImefBM",
@@ -20205,6 +20246,17 @@
    "last_seen": "2026-10-16"
   },
   {
+   "video_id": "t2_LFQscADw",
+   "title": "The BIGGEST GTA Online Beginner Mistake 💸",
+   "url": "https://www.youtube.com/watch?v=t2_LFQscADw",
+   "lang": "en",
+   "game": "GTA Online",
+   "date": "2026-10-30",
+   "views": 351,
+   "first_seen": "2026-11-09",
+   "last_seen": "2026-11-09"
+  },
+  {
    "video_id": "t35GD5YIguU",
    "title": "GTA V Platinum Trophy Grind! (Part 4)",
    "channel": "",
@@ -20576,10 +20628,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-11",
-   "views": 76354,
+   "views": 76401,
    "kind": "",
    "first_seen": "2026-10-11",
-   "last_seen": "2026-11-03"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "txjzaBwpZUE",
@@ -21000,6 +21052,17 @@
    "last_seen": "2026-10-19"
   },
   {
+   "video_id": "vFDPfcnBSlk",
+   "title": "EARLY PRE-LOADS, NEW Screenshot & More! | GTA 6 News",
+   "url": "https://www.youtube.com/watch?v=vFDPfcnBSlk",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-03",
+   "views": 11930,
+   "first_seen": "2026-11-09",
+   "last_seen": "2026-11-09"
+  },
+  {
    "video_id": "vG-dDfZSkwY",
    "title": "GTA 6 NEEDS TO HAVE THESE 5 THINGS!",
    "channel": "",
@@ -21332,10 +21395,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 27983,
+   "views": 28225,
    "kind": "",
    "first_seen": "2026-11-03",
-   "last_seen": "2026-11-03"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "wA5cCF5t6pI",
@@ -21592,10 +21655,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-03",
-   "views": 10796,
+   "views": 13173,
    "kind": "",
    "first_seen": "2026-11-03",
-   "last_seen": "2026-11-05"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "ww8-lNt2Cpw",
@@ -21842,7 +21905,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-11-08"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "xgaPQaDijH4",
@@ -22354,6 +22417,17 @@
    "last_seen": "2026-10-20"
   },
   {
+   "video_id": "ypMoCogLhWI",
+   "title": "THIS LOOKS INCREDIBLE! (40 NEW GTA 6 Screenshots Breakdown)",
+   "url": "https://www.youtube.com/watch?v=ypMoCogLhWI",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-05",
+   "views": 12280,
+   "first_seen": "2026-11-09",
+   "last_seen": "2026-11-09"
+  },
+  {
    "video_id": "ypldehvLtPk",
    "title": "🤭 #gta5 #game #gaming #gtaonline #gta5online For true fans of the GTA game, a lamp of the GTA game.",
    "channel": "CustomLevitate",
@@ -22741,7 +22815,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-11-08"
+   "last_seen": "2026-11-09"
   },
   {
    "video_id": "zmwO_jmNkVQ",
