@@ -1,17 +1,5 @@
 [
  {
-  "id": "f509e4b3aea488b73ebd6358be40076d",
-  "tid": "2119792290600239401",
-  "url": "https://x.com/RockstarGames/status/2119792290600239401",
-  "author": "RockstarGames",
-  "author_name": "Rockstar Games",
-  "text": "Grand Theft Auto VI: The Festival, a special live event on November 21 at Mana Wynwood in Miami to celebrate the launch of GTAVI, featuring a star-studded lineup of artists from the game and the official soundtrack.\n\nMore info: https://t.co/XRlfYFOk0H https://t.co/fQyOU7I4gU",
-  "date": "2026-11-09",
-  "likes": 5909,
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
   "id": "5ca28588aeed41b2f33e09eef0f47b24",
   "tid": "2119792500617494877",
   "url": "https://x.com/RockstarGames/status/2119792500617494877",
@@ -20,6 +8,18 @@
   "text": "Sign up for the pre-sale ticket lottery at https://t.co/PlMKmiTBVb and set up your https://t.co/qP4kX93l4n account by the 4 p.m. ET deadline on Tuesday, November 10 for a chance at tickets this Wednesday at 12 p.m. ET.",
   "date": "2026-11-09",
   "likes": 506,
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "ff72e907ca79f05ce53aed7b8067302f",
+  "tid": "2119792290600239401",
+  "url": "https://x.com/rockstargames/status/2119792290600239401",
+  "author": "rockstargames",
+  "author_name": "Rockstar Games",
+  "text": "Grand Theft Auto VI: The Festival, a special live event on November 21 at Mana Wynwood in Miami to celebrate the launch of GTAVI, featuring a star-studded lineup of artists from the game and the official soundtrack.\n\nMore info: https://rsg.ms/gtavi-thefestival",
+  "date": "2026-11-09",
+  "likes": null,
   "lang": "en",
   "game": "GTA 6"
  },
@@ -306,6 +306,78 @@
   "author": "notforyouin",
   "author_name": "Not For You",
   "text": "Imagine Rockstar Games pulling the biggest prank on us. 💀\n\nWe finish preloading GTA 6, launch the game, and suddenly we’re able to play it.\n\nThen Rockstar drops a post:\n\n\"The preload was just a prank. Go play the fucking game\"",
+  "date": "2026-11-09",
+  "likes": null,
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "71508f96b8b6725c207704e057907f7c",
+  "tid": "2119766800824938836",
+  "url": "https://x.com/sourcevi/status/2119766800824938836",
+  "author": "sourcevi",
+  "author_name": "GTA 6 News & Updates",
+  "text": "🚨 GTA 6 LAUNCH: AN IMPORTANT MESSAGE.\n\nWith Grand Theft Auto VI just 10 days away, we want to address something important regarding our coverage of the game before and after official release.\n\nTo everyone following us for GTA 6 news and updates, please take a moment to read our statement below. 🌴",
+  "date": "2026-11-09",
+  "likes": null,
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "fe6eea85ad58692f3dd9713667a03e40",
+  "tid": "2119792640707145767",
+  "url": "https://x.com/gtasix_/status/2119792640707145767",
+  "author": "gtasix_",
+  "author_name": "GTA 6 Updates",
+  "text": "Rockstar Games and PlayStation have officially announced GTA 6: The Festival, taking place November 21 at Mana Wynwood in Miami.\n\nThe event will celebrate the launch of GTA 6 with performances from Travis Scott, Cardi B, Justice, Metro Boomin, Don Toliver, Kodak Black, and more.",
+  "date": "2026-11-09",
+  "likes": null,
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "7cde2d38b0e1d959e2dab86c8f52ecc1",
+  "tid": "2119791434735784418",
+  "url": "https://x.com/constantgta/status/2119791434735784418",
+  "author": "constantgta",
+  "author_name": "GTA 6 Intel",
+  "text": "🚨BREAKING: Rockstar just moved the finish line closer!\n\nGTA 6 pre-load was supposed to start November 12. It starts tonight instead.\n\nPS5 goes region by region at midnight local time. New Zealand went first and the bar is already moving: 209.8 GB.\n\nXbox players can download from 7 PM ET (midnight GMT), worldwide, all at the same time.\n\nAfter 13 years of waiting, GTA 6 is finally almost here.",
+  "date": "2026-11-09",
+  "likes": null,
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "5bbea53dba4aade15ff63a70b734931e",
+  "tid": "2119791049308585989",
+  "url": "https://x.com/rubikgamer_/status/2119791049308585989",
+  "author": "rubikgamer_",
+  "author_name": "Ronen Taplashvili",
+  "text": "GTA 6 offers pre-download of five extra packs that are linked to GTA V and GTA+.\n\nIt seems that with the gradual release of GTA Online 2, you will be able to receive various bonuses for the previous installment and GTA+. There are also hints that the story mode and multiplayer can be downloaded separately.",
+  "date": "2026-11-09",
+  "likes": null,
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "0ea2a34df201c7cbf6c594f0e2bb00bc",
+  "tid": "2119778188121591820",
+  "url": "https://x.com/milesaihzm/status/2119778188121591820",
+  "author": "milesaihzm",
+  "author_name": "Miles",
+  "text": "@TexFunz2 It’s going to have removed gambling. With the recent new gambling laws the two countries the gambling will be removed from the game.(this is seen with gta online)",
+  "date": "2026-11-09",
+  "likes": null,
+  "lang": "en",
+  "game": "GTA Online"
+ },
+ {
+  "id": "1e837266277f912bc6b0ccb980f4856e",
+  "tid": "2119813945192231395",
+  "url": "https://x.com/gtasixinfo/status/2119813945192231395",
+  "author": "gtasixinfo",
+  "author_name": "GTA 6 Info",
+  "text": "Rockstar Games is planning a massive 10-foot GTA 6 “VI” sculpture in Miami Beach.\n\nNew documents reveal the installation will weigh around 8 tons, with the Kaseya Center also listed as a possible second location.\n\n[Via @iGrandTheftAuto]",
   "date": "2026-11-09",
   "likes": null,
   "lang": "en",
@@ -886,77 +958,5 @@
   "likes": null,
   "lang": "en",
   "game": "GTA Online"
- },
- {
-  "id": "d53eb82537f05360174ddbed7c93c2a4",
-  "tid": "2119117783455941044",
-  "url": "https://x.com/davngta/status/2119117783455941044",
-  "author": "davngta",
-  "author_name": "Davin",
-  "text": "Are people not clear about GTA ONLINE cause GTA VI is seperate and GTA ONLINE is seperate and it will be accessible to all people having GTA Online now 😭😭😭😭\n#GTAVI",
-  "date": "2026-11-07",
-  "likes": null,
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "31b6e36a96bafcac0f537e122b42ca05",
-  "tid": "2119128728639058166",
-  "url": "https://x.com/davngta/status/2119128728639058166",
-  "author": "davngta",
-  "author_name": "Davin",
-  "text": "@DESHAWNTEDAILEY Yes GTA ONLINE is sold separately already",
-  "date": "2026-11-07",
-  "likes": null,
-  "lang": "en",
-  "game": "GTA Online"
- },
- {
-  "id": "8fee6b0d9fa2fc40d933ec3b0f208d06",
-  "tid": "2119075572181803177",
-  "url": "https://x.com/ceyertz/status/2119075572181803177",
-  "author": "ceyertz",
-  "author_name": "Kay",
-  "text": "@videotech It’s strange how the back of the Box doesn’t say “GTA Online” or “Online coming soon” like GTA V Or Read Dead 2",
-  "date": "2026-11-07",
-  "likes": null,
-  "lang": "en",
-  "game": "GTA Online"
- },
- {
-  "id": "01164969dc4f3a2417b84ac075790c51",
-  "tid": "2119155198438392202",
-  "url": "https://x.com/pluskillyridols/status/2119155198438392202",
-  "author": "pluskillyridols",
-  "author_name": "Jaco",
-  "text": "@vgkid415 that's actually not far from Gta V's back cover",
-  "date": "2026-11-07",
-  "likes": null,
-  "lang": "en",
-  "game": "GTA 5"
- },
- {
-  "id": "937047f8a3bd661d93fb7c781dec43a4",
-  "tid": "2119204123572572255",
-  "url": "https://x.com/mg06_designs/status/2119204123572572255",
-  "author": "mg06_designs",
-  "author_name": "Micah Gingerich Designs",
-  "text": "No way we got fake brands in Nascar before GTA VI\n\nWhat if we got @RockstarGames to promote GTA VI with some in fake game brands at Homestead along with the Goodyear blimp\n\nCarset with @JarrettLDesigns\n\n@RossChastain @CBellRacing @Blaney @NoahGragson @J_Allgaier @dennyhamlin",
-  "date": "2026-11-07",
-  "likes": null,
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "87c55690b7cbd17e902be3c1c7f3bf7b",
-  "tid": "2119201441613234327",
-  "url": "https://x.com/gtasixinfo/status/2119201441613234327",
-  "author": "gtasixinfo",
-  "author_name": "GTA 6 Info",
-  "text": "GTA 6 is getting extended news coverage on NBC 6 Miami.\n\nThe segment counts down to the game’s release while looking back at the history of the GTA series.",
-  "date": "2026-11-07",
-  "likes": null,
-  "lang": "en",
-  "game": "GTA 6"
  }
 ]
