@@ -1,10 +1,46 @@
 [
  {
-  "id": "dd152b4a6fbc1538c83116d61260eff1",
+  "id": "f773d5fd1c4bf479216b291e59dbcaa9",
   "rank": 1,
+  "title": "【情報】《GTA6》預載預告片，R星官宣確定幀率為30FPS",
+  "author": "PapayaApple",
+  "time": "2026-11-10 22:26",
+  "replies": "0",
+  "source": "Bahamut",
+  "game": "GTA 6",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117850",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "cacded4c141002557c9a72d127757121",
+  "rank": 2,
+  "title": "【閒聊】《GTA 6》倫敦Selfridges百貨開賣罪惡城市系列，最貴棒球外套近11萬台幣!!",
+  "author": "PapayaApple",
+  "time": "2026-11-10 20:26",
+  "replies": "0",
+  "source": "Bahamut",
+  "game": "GTA 6",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117848",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "b22aa9df9097f9ff4768515b7984bbd9",
+  "rank": 3,
+  "title": "【情報】《GTA6》容量大小210G ! 媒體評測已陸續發出",
+  "author": "PapayaApple",
+  "time": "2026-11-10 14:26",
+  "replies": "26",
+  "source": "Bahamut",
+  "game": "GTA 6",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117818",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "dd152b4a6fbc1538c83116d61260eff1",
+  "rank": 4,
   "title": "【閒聊】GTA6 PS版本已可下載",
   "author": "chliuu",
-  "time": "2026-11-10 13:34",
+  "time": "2026-11-10 14:26",
   "replies": "30",
   "source": "Bahamut",
   "game": "GTA 6",
@@ -13,11 +49,11 @@
  },
  {
   "id": "4e96be377a26bd58714b90473623edba",
-  "rank": 2,
+  "rank": 5,
   "title": "【其他】徵長期配合夥伴",
   "author": "qooak47",
   "time": "2026-11-09 15:26",
-  "replies": "2",
+  "replies": "5",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117846",
@@ -25,7 +61,7 @@
  },
  {
   "id": "52f8a191f739d411d04d0a96d3e2e776",
-  "rank": 3,
+  "rank": 6,
   "title": "【問題】求助：按跑步鈕就錄影，拿武器就自動瘋狂開槍",
   "author": "prcheng",
   "time": "2026-11-09 00:03",
@@ -37,7 +73,7 @@
  },
  {
   "id": "db3ea548c3ebd2748c1bb19b66afb258",
-  "rank": 4,
+  "rank": 7,
   "title": "【問題】夜總會貨物消失",
   "author": "Cooperbob",
   "time": "2026-11-08 14:51",
@@ -49,7 +85,7 @@
  },
  {
   "id": "8f3082eaf64f7837a4f913d626efea37",
-  "rank": 5,
+  "rank": 8,
   "title": "【問題】關於GTA6預購的問題",
   "author": "springrain",
   "time": "2026-11-08 12:41",
@@ -61,7 +97,7 @@
  },
  {
   "id": "39d78d5bddb68c0be69cd6fc5fcd3c5c",
-  "rank": 6,
+  "rank": 9,
   "title": "【問題】無法引發鑽石賭場搶劫，米羅公園沒列斯特",
   "author": "prcheng",
   "time": "2026-11-08 10:50",
@@ -73,52 +109,14 @@
  },
  {
   "id": "441710cc4ad1ee1a45f463f4647fb8a5",
-  "rank": 7,
+  "rank": 10,
   "title": "【情報】GTA6盒裝版將內附A3雙面海報！？",
   "author": "dedicaended",
   "time": "2026-11-08 10:12",
-  "replies": "7",
+  "replies": "9",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117842",
   "blurb": "外連巴哈討論串。不轉載全文。"
- },
- {
-  "id": "42992912b8a6868253fbeee442ff7250",
-  "rank": 8,
-  "title": "【問題】怎麼樣用錢滾錢最快",
-  "author": "a060110",
-  "time": "2026-11-08 08:05",
-  "replies": "7",
-  "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117841",
-  "blurb": "外連巴哈討論串。不轉載全文。"
- },
- {
-  "id": "5636dc64439df4ac95bc5a21ffa1f58f",
-  "rank": 9,
-  "title": "【問題】Alt+F4後按確認，出現這個畫面而不是直接跳出遊戲",
-  "author": "prcheng",
-  "time": "11-07 20:02",
-  "replies": "4",
-  "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117840",
-  "blurb": "外連巴哈討論串。不轉載全文。",
-  "time_relative": true
- },
- {
-  "id": "c35664d17194c77fc146e861bb6cac48",
-  "rank": 10,
-  "title": "【問題】新手搶完金毛了 接下來要做啥?",
-  "author": "a060110",
-  "time": "11-07 11:07",
-  "replies": "29",
-  "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117834",
-  "blurb": "外連巴哈討論串。不轉載全文。",
-  "time_relative": true
  }
 ]
