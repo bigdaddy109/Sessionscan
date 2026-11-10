@@ -1,44 +1,11 @@
 [
  {
-  "id": "YtW3kdT-cXc",
-  "video_id": "YtW3kdT-cXc",
-  "title": "What's Mr. Faber's First Name? #gta5 #gtav #gtaonline",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=YtW3kdT-cXc",
-  "views": 3195,
-  "date": "2026-11-10",
-  "lang": "en",
-  "game": "GTA Online"
- },
- {
-  "id": "UMG1xnjy_Os",
-  "video_id": "UMG1xnjy_Os",
-  "title": "Jimmy's Nasty Comments About His Mother #gta5 #gtav #gtaonline",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=UMG1xnjy_Os",
-  "views": 10834,
-  "date": "2026-11-10",
-  "lang": "en",
-  "game": "GTA Online"
- },
- {
-  "id": "FEBjZUtbErA",
-  "video_id": "FEBjZUtbErA",
-  "title": "People Will Struggle With GTA 6's Achievements...",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=FEBjZUtbErA",
-  "views": 58504,
-  "date": "2026-11-10",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
   "id": "OMBvc4oyx4Y",
   "video_id": "OMBvc4oyx4Y",
   "title": "The GTA 6 Fuel System Has Another Useful Feature",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=OMBvc4oyx4Y",
-  "views": 2076,
+  "views": 22382,
   "date": "2026-11-10",
   "lang": "en",
   "game": "GTA 6"
@@ -49,7 +16,7 @@
   "title": "GTA 6: Game Files DATAMINED, 40 FPS & GTA 6 Online Hints...",
   "channel": "TGG",
   "url": "https://www.youtube.com/watch?v=kqGKEVdC5k4",
-  "views": 471385,
+  "views": 622451,
   "date": "2026-11-10",
   "lang": "en",
   "game": "GTA 6"
@@ -60,7 +27,7 @@
   "title": "GTA 6 Has WAY More To Do Than We Thought",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=33rEOjFwmkI",
-  "views": 11907,
+  "views": 14193,
   "date": "2026-11-10",
   "lang": "en",
   "game": "GTA 6"
@@ -71,21 +38,10 @@
   "title": "GTA Online - Take2 Earnings Call + Heist Night!!!!",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=RuQjRnWAcyU",
-  "views": 4402,
+  "views": 4454,
   "date": "2026-11-10",
   "lang": "en",
   "game": "GTA Online"
- },
- {
-  "id": "wHXzktP5J44",
-  "video_id": "wHXzktP5J44",
-  "title": "Installing GTA 6 FOR THE FIRST TIME!",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=wHXzktP5J44",
-  "views": 1341,
-  "date": "2026-11-10",
-  "lang": "en",
-  "game": "GTA 6"
  },
  {
   "id": "dBCssvBNzIQ",
@@ -93,10 +49,32 @@
   "title": "The Internet Turned The Wait For GTA 6 Into Entertainment",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=dBCssvBNzIQ",
-  "views": 345,
+  "views": 373,
   "date": "2026-11-10",
   "lang": "en",
   "game": "GTA 6"
+ },
+ {
+  "id": "wHXzktP5J44",
+  "video_id": "wHXzktP5J44",
+  "title": "Installing GTA 6 FOR THE FIRST TIME!",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=wHXzktP5J44",
+  "views": 1398,
+  "date": "2026-11-10",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "JWym7NzSAGQ",
+  "video_id": "JWym7NzSAGQ",
+  "title": "GTA Online DOOMSDAY HEISTS FINAL PLAYTHROUGH!",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=JWym7NzSAGQ",
+  "views": 10407,
+  "date": "2026-11-10",
+  "lang": "en",
+  "game": "GTA Online"
  },
  {
   "id": "sfwdz1oZy6M",
@@ -104,9 +82,31 @@
   "title": "GTA 6 MIGHT Get a 40 FPS Mode...",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=sfwdz1oZy6M",
-  "views": 13181,
+  "views": 15733,
   "date": "2026-11-10",
   "lang": "en",
   "game": "GTA 6"
+ },
+ {
+  "id": "l-f4S7Jlajw",
+  "video_id": "l-f4S7Jlajw",
+  "title": "GTA 6 Online Will Be Different in One Key-Way",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=l-f4S7Jlajw",
+  "views": 4,
+  "date": "2026-11-10",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "QpXzrsNgclk",
+  "video_id": "QpXzrsNgclk",
+  "title": "GTA 5 but Trevor tries to be Super Mario... #gta #gta5 #gtav",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=QpXzrsNgclk",
+  "views": 16436,
+  "date": "2026-11-09",
+  "lang": "en",
+  "game": "GTA 5"
  }
 ]
