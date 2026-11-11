@@ -1,11 +1,23 @@
 [
  {
-  "id": "f773d5fd1c4bf479216b291e59dbcaa9",
+  "id": "c2d18c90f60742e6c1f40dc7609bbfd2",
   "rank": 1,
+  "title": "【問題】柯茲血虧中心問題請教",
+  "author": "prcheng",
+  "time": "2026-11-11 11:52",
+  "replies": "1",
+  "source": "Bahamut",
+  "game": "GTA Online",
+  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117852",
+  "blurb": "外連巴哈討論串。不轉載全文。"
+ },
+ {
+  "id": "f773d5fd1c4bf479216b291e59dbcaa9",
+  "rank": 2,
   "title": "【情報】《GTA6》預載預告片，R星官宣確定幀率為30FPS",
   "author": "PapayaApple",
-  "time": "2026-11-10 22:26",
-  "replies": "0",
+  "time": "2026-11-10 22:24",
+  "replies": "18",
   "source": "Bahamut",
   "game": "GTA 6",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117850",
@@ -13,11 +25,11 @@
  },
  {
   "id": "cacded4c141002557c9a72d127757121",
-  "rank": 2,
+  "rank": 3,
   "title": "【閒聊】《GTA 6》倫敦Selfridges百貨開賣罪惡城市系列，最貴棒球外套近11萬台幣!!",
   "author": "PapayaApple",
-  "time": "2026-11-10 20:26",
-  "replies": "0",
+  "time": "2026-11-10 19:59",
+  "replies": "1",
   "source": "Bahamut",
   "game": "GTA 6",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117848",
@@ -25,11 +37,11 @@
  },
  {
   "id": "b22aa9df9097f9ff4768515b7984bbd9",
-  "rank": 3,
+  "rank": 4,
   "title": "【情報】《GTA6》容量大小210G ! 媒體評測已陸續發出",
   "author": "PapayaApple",
-  "time": "2026-11-10 14:26",
-  "replies": "26",
+  "time": "2026-11-10 13:59",
+  "replies": "29",
   "source": "Bahamut",
   "game": "GTA 6",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117818",
@@ -37,26 +49,14 @@
  },
  {
   "id": "dd152b4a6fbc1538c83116d61260eff1",
-  "rank": 4,
+  "rank": 5,
   "title": "【閒聊】GTA6 PS版本已可下載",
   "author": "chliuu",
-  "time": "2026-11-10 14:26",
-  "replies": "30",
+  "time": "2026-11-10 13:34",
+  "replies": "31",
   "source": "Bahamut",
   "game": "GTA 6",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117847",
-  "blurb": "外連巴哈討論串。不轉載全文。"
- },
- {
-  "id": "4e96be377a26bd58714b90473623edba",
-  "rank": 5,
-  "title": "【其他】徵長期配合夥伴",
-  "author": "qooak47",
-  "time": "2026-11-09 15:26",
-  "replies": "5",
-  "source": "Bahamut",
-  "game": "GTA Online",
-  "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117846",
   "blurb": "外連巴哈討論串。不轉載全文。"
  },
  {
@@ -76,47 +76,51 @@
   "rank": 7,
   "title": "【問題】夜總會貨物消失",
   "author": "Cooperbob",
-  "time": "2026-11-08 14:51",
+  "time": "11-08 14:51",
   "replies": "14",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117349",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "8f3082eaf64f7837a4f913d626efea37",
   "rank": 8,
   "title": "【問題】關於GTA6預購的問題",
   "author": "springrain",
-  "time": "2026-11-08 12:41",
+  "time": "11-08 12:41",
   "replies": "5",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117827",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "39d78d5bddb68c0be69cd6fc5fcd3c5c",
   "rank": 9,
   "title": "【問題】無法引發鑽石賭場搶劫，米羅公園沒列斯特",
   "author": "prcheng",
-  "time": "2026-11-08 10:50",
+  "time": "11-08 10:50",
   "replies": "2",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117843",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  },
  {
   "id": "441710cc4ad1ee1a45f463f4647fb8a5",
   "rank": 10,
   "title": "【情報】GTA6盒裝版將內附A3雙面海報！？",
   "author": "dedicaended",
-  "time": "2026-11-08 10:12",
+  "time": "11-08 10:12",
   "replies": "9",
   "source": "Bahamut",
   "game": "GTA Online",
   "url": "https://forum.gamer.com.tw/C.php?bsn=4737&snA=117842",
-  "blurb": "外連巴哈討論串。不轉載全文。"
+  "blurb": "外連巴哈討論串。不轉載全文。",
+  "time_relative": true
  }
 ]
