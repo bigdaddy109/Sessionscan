@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11T04:33:25Z",
+ "updated": "2026-11-11T06:08:27Z",
  "videos": [
   {
    "video_id": "-4tb-sWX68k",
@@ -177,6 +177,8 @@
    "url": "https://www.youtube.com/shorts/-U7iYWgqng0",
    "lang": "en",
    "game": "GTA Online",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
@@ -634,7 +636,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-29",
-   "last_seen": "2026-11-09"
+   "last_seen": "2026-11-11"
   },
   {
    "video_id": "0q4hFCLjXQc",
@@ -5461,11 +5463,13 @@
   {
    "video_id": "CMVcglFqQO8",
    "title": "GTA 6: 30 FPS CONFIRMED - New Trailer, PS5 Pro Settings, Xbox One Cloud & Remote Play!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=CMVcglFqQO8",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
    "views": 12159,
+   "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
   },
@@ -5807,7 +5811,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-30",
-   "last_seen": "2026-11-10"
+   "last_seen": "2026-11-11"
   },
   {
    "video_id": "DKs4bhega9A",
@@ -6596,6 +6600,8 @@
    "url": "https://www.youtube.com/shorts/FOMA9UMu5gA",
    "lang": "en",
    "game": "GTA Online",
+   "date": "",
+   "views": null,
    "kind": "short",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
@@ -6733,11 +6739,13 @@
   {
    "video_id": "FhnlzoAWE_U",
    "title": "GTA 6: Official Music Festival ANNOUNCED & Preload Now Live",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=FhnlzoAWE_U",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-09",
    "views": 18473,
+   "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
   },
@@ -10650,11 +10658,13 @@
   {
    "video_id": "QNRVqcAxH1I",
    "title": "GTA 6: New Trailer BREAKDOWN & A Mystery In The New Artwork",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=QNRVqcAxH1I",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
    "views": 6868,
+   "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
   },
@@ -12391,7 +12401,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-16",
-   "last_seen": "2026-11-01"
+   "last_seen": "2026-11-11"
   },
   {
    "video_id": "VBC45GdC3tk",
@@ -12474,11 +12484,13 @@
   {
    "video_id": "VP3FwWILV5s",
    "title": "GTA 6: Physical Box REVEALED & 3 New Screenshots Shown on the Back",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=VP3FwWILV5s",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-07",
    "views": 48545,
+   "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
   },
@@ -13351,11 +13363,13 @@
   {
    "video_id": "Xgtj4oQm1BY",
    "title": "GTA 6 Pre-Load Trailer, PS5 Pro Details & More! (Breakdown)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Xgtj4oQm1BY",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
    "views": 9981,
+   "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
   },
@@ -14536,11 +14550,13 @@
   {
    "video_id": "a03v2v95U3E",
    "title": "GTA 6: Real Life Grotti Cheetah Is FOR SALE & It Costs £1 Million",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=a03v2v95U3E",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-09",
    "views": 8255,
+   "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
   },
@@ -15270,7 +15286,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-09",
-   "last_seen": "2026-11-09"
+   "last_seen": "2026-11-11"
   },
   {
    "video_id": "biJ91VvpDec",
@@ -18422,6 +18438,7 @@
    "game": "GTA 5",
    "date": "2026-11-11",
    "views": 0,
+   "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
   },
@@ -20551,11 +20568,13 @@
   {
    "video_id": "q15tte0UyPc",
    "title": "GTA 6 Has GONE GOLD - Pre-Orders, $1.5B Budget, PC, GTA Online & MORE!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=q15tte0UyPc",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
    "views": 24485,
+   "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
   },
@@ -21786,11 +21805,13 @@
   {
    "video_id": "syTX7jByHnY",
    "title": "GTA 6 NEW Merch Is INSANE - £2,500 Jacket, Burger Shot Uniform, Manatees & MORE!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=syTX7jByHnY",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-08",
    "views": 8948,
+   "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
   },
@@ -22851,7 +22872,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-24",
-   "last_seen": "2026-11-10"
+   "last_seen": "2026-11-11"
   },
   {
    "video_id": "vb_SL-tl9UM",
@@ -23766,11 +23787,13 @@
   {
    "video_id": "y2T_IS3mCaQ",
    "title": "GTA 6: NEW Screenshots Released & Real-Life West Coast Customs Cars Revealed",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=y2T_IS3mCaQ",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-06",
    "views": 50940,
+   "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
   },
