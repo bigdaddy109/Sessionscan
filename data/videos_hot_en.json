@@ -3,9 +3,9 @@
   "id": "rz1B4B2yBZY",
   "video_id": "rz1B4B2yBZY",
   "title": "Grand Theft Auto VI Launch Trailer",
-  "channel": "",
+  "channel": "Rockstar Games",
   "url": "https://www.youtube.com/watch?v=rz1B4B2yBZY",
-  "views": 77202210,
+  "views": 77314377,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
@@ -16,7 +16,7 @@
   "title": "Grand Theft Auto VI Launch Trailer",
   "channel": "Rockstar Games UK & Ireland",
   "url": "https://www.youtube.com/watch?v=RiR77AI4uQ8",
-  "views": 65490559,
+  "views": 65521580,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
@@ -27,7 +27,7 @@
   "title": "Grand Theft Auto VI Launch Trailer",
   "channel": "Rockstar Games Australia & New Zealand",
   "url": "https://www.youtube.com/watch?v=UY4fu9bIoKY",
-  "views": 11151741,
+  "views": 11152826,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
@@ -38,7 +38,7 @@
   "title": "Grand Theft Auto VI: Pre-Load Now",
   "channel": "Rockstar Games",
   "url": "https://www.youtube.com/watch?v=_yl5ELcmugI",
-  "views": 8506277,
+  "views": 8902595,
   "date": "2026-11-10",
   "lang": "en",
   "game": "GTA 6"
@@ -49,7 +49,7 @@
   "title": "Grand Theft Auto VI - Features Trailer | PS5 Games",
   "channel": "PlayStation",
   "url": "https://www.youtube.com/watch?v=8L0CzL2V72c",
-  "views": 4604437,
+  "views": 4837814,
   "date": "2026-11-10",
   "lang": "en",
   "game": "GTA 6"
@@ -60,30 +60,8 @@
   "title": "Grand Theft Auto VI Launch Trailer",
   "channel": "Rockstar Games België/Belgique",
   "url": "https://www.youtube.com/watch?v=FPm1Qr2Puyk",
-  "views": 3965733,
+  "views": 3966114,
   "date": "2026-10-15",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "hqJTNzRkVms",
-  "video_id": "hqJTNzRkVms",
-  "title": "GTA 6 in 3 Weeks - Everything You Need To Know Before You Play!",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=hqJTNzRkVms",
-  "views": 3131791,
-  "date": "2026-10-30",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "BSIytHG3-Xo",
-  "video_id": "BSIytHG3-Xo",
-  "title": "Grand Theft Auto VI Launch Trailer",
-  "channel": "XBOX",
-  "url": "https://www.youtube.com/watch?v=BSIytHG3-Xo",
-  "views": 2788904,
-  "date": "2026-10-23",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -93,7 +71,7 @@
   "title": "Grand Theft Auto VI Launch Trailer",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=icy-lhqJhMQ",
-  "views": 1705487,
+  "views": 1713727,
   "date": "2026-10-15",
   "lang": "en",
   "game": "GTA 6"
@@ -104,8 +82,30 @@
   "title": "GTA 6 - THE FINAL REVEAL!",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=1gFAuc5CpaY",
-  "views": 1665320,
+  "views": 1683396,
   "date": "2026-11-05",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "kqGKEVdC5k4",
+  "video_id": "kqGKEVdC5k4",
+  "title": "GTA 6: Game Files DATAMINED & GTA 6 Online Hints...",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=kqGKEVdC5k4",
+  "views": 1382035,
+  "date": "2026-11-10",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "4uzcHgsE-xM",
+  "video_id": "4uzcHgsE-xM",
+  "title": "GTA 6 - BIGGEST REVEAL YET!",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=4uzcHgsE-xM",
+  "views": 1343656,
+  "date": "2026-10-29",
   "lang": "en",
   "game": "GTA 6"
  }
