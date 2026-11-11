@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11T18:03:40Z",
+ "updated": "2026-11-11T20:04:41Z",
  "videos": [
   {
    "video_id": "-2WDkE81g6I",
@@ -69,11 +69,13 @@
   {
    "video_id": "-JbWeUNcB7I",
    "title": "GTA 6's Phone Apps FULLY Explained...",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=-JbWeUNcB7I",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-11",
-   "views": 5985,
+   "views": 8600,
+   "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
   },
@@ -1125,7 +1127,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-05",
-   "views": 1651833,
+   "views": 1665320,
    "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-11"
@@ -1346,7 +1348,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 118264,
+   "views": 118346,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-11-11"
@@ -1476,7 +1478,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-08",
-   "views": 36768,
+   "views": 37041,
    "kind": "",
    "first_seen": "2026-11-08",
    "last_seen": "2026-11-11"
@@ -1554,7 +1556,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-11",
-   "views": 594710,
+   "views": 698954,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
@@ -2258,7 +2260,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-30",
-   "views": 520248,
+   "views": 522517,
    "kind": "",
    "first_seen": "2026-10-30",
    "last_seen": "2026-11-11"
@@ -2310,7 +2312,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-09",
-   "views": 65101,
+   "views": 69210,
    "kind": "",
    "first_seen": "2026-11-09",
    "last_seen": "2026-11-11"
@@ -3012,7 +3014,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-11",
-   "views": 117802,
+   "views": 138459,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
@@ -3861,7 +3863,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 4362864,
+   "views": 4604437,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-11"
@@ -4186,7 +4188,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-11",
-   "views": 65254,
+   "views": 96788,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
@@ -4829,7 +4831,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-10-30",
-   "views": 119743,
+   "views": 120146,
    "kind": "",
    "first_seen": "2026-10-30",
    "last_seen": "2026-11-11"
@@ -5219,7 +5221,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-23",
-   "views": 2786809,
+   "views": 2788904,
    "kind": "",
    "first_seen": "2026-10-23",
    "last_seen": "2026-11-11"
@@ -6755,7 +6757,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 3965432,
+   "views": 3965733,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-11-11"
@@ -7314,7 +7316,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-10",
-   "views": 11000,
+   "views": 11549,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-11"
@@ -8018,7 +8020,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-10",
-   "views": 32310,
+   "views": 33121,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-11"
@@ -8434,7 +8436,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 27058,
+   "views": 29476,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-11"
@@ -10544,7 +10546,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-11",
-   "views": 10050,
+   "views": 10942,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
@@ -10832,6 +10834,17 @@
    "date": "2026-11-10",
    "views": 6868,
    "kind": "",
+   "first_seen": "2026-11-11",
+   "last_seen": "2026-11-11"
+  },
+  {
+   "video_id": "QOT3PggBFv8",
+   "title": "Xbox One Owners Are Screaming Right Now #gta6 #gtavi #gtaonline - GTA 6 News",
+   "url": "https://www.youtube.com/watch?v=QOT3PggBFv8",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-11",
+   "views": 1601,
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
   },
@@ -11339,7 +11352,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-10",
-   "views": 2412,
+   "views": 2692,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
@@ -11378,7 +11391,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 65449316,
+   "views": 65490559,
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-11-11"
@@ -11586,7 +11599,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-11",
-   "views": 4130,
+   "views": 9737,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
@@ -11989,7 +12002,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-11",
-   "views": 6543,
+   "views": 14852,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
@@ -12292,7 +12305,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-11",
-   "views": 45456,
+   "views": 51193,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
@@ -12346,7 +12359,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 11149790,
+   "views": 11151741,
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-11-11"
@@ -13076,7 +13089,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-09",
-   "views": 44923,
+   "views": 44953,
    "kind": "",
    "first_seen": "2026-11-09",
    "last_seen": "2026-11-11"
@@ -13338,7 +13351,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-10",
-   "views": 81003,
+   "views": 81840,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-11"
@@ -13810,7 +13823,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 11080,
+   "views": 11290,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-11"
@@ -14306,7 +14319,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-11",
-   "views": 4610,
+   "views": 5843,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
@@ -14685,7 +14698,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-10",
-   "views": 82316,
+   "views": 87460,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-11"
@@ -14750,7 +14763,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 8129612,
+   "views": 8506277,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-11"
@@ -16203,6 +16216,17 @@
    "last_seen": "2026-11-03"
   },
   {
+   "video_id": "dfW1ye4pRGs",
+   "title": "Rockstar was asked about GTA 6 Online 2 👀",
+   "url": "https://www.youtube.com/watch?v=dfW1ye4pRGs",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-11",
+   "views": 14252,
+   "first_seen": "2026-11-11",
+   "last_seen": "2026-11-11"
+  },
+  {
    "video_id": "dgU5jlucg3M",
    "title": "PC玩家不用等太久？《GTA 6》傳PC版即將登場！-電玩宅速配20261014",
    "channel": "",
@@ -16535,7 +16559,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-11",
-   "views": 964,
+   "views": 1780,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
@@ -17785,10 +17809,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-30",
-   "views": 3010590,
+   "views": 3131791,
    "kind": "",
    "first_seen": "2026-11-03",
-   "last_seen": "2026-11-10"
+   "last_seen": "2026-11-11"
   },
   {
    "video_id": "hrz0bZaXNTI",
@@ -18151,7 +18175,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1699323,
+   "views": 1705487,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-11-11"
@@ -18346,7 +18370,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-07",
-   "views": 111180,
+   "views": 112128,
    "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-11"
@@ -18684,7 +18708,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-11",
-   "views": 41221,
+   "views": 44377,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
@@ -19399,7 +19423,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-01",
-   "views": 56653,
+   "views": 56721,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-11"
@@ -19932,7 +19956,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-11",
-   "views": 1306,
+   "views": 1960,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
@@ -21784,7 +21808,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 77134136,
+   "views": 77202210,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-11-11"
@@ -21935,11 +21959,13 @@
   {
    "video_id": "sPH9V3D-nno",
    "title": "This GTA 6 Update Is AWESOME - Playing EARLY On PS5/Xbox, Rockstar Breaks A World Record & MORE!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=sPH9V3D-nno",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-11",
    "views": 6845,
+   "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
   },
@@ -22291,7 +22317,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 116747,
+   "views": 116793,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-11-11"
@@ -22878,7 +22904,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-25",
-   "views": 80776,
+   "views": 80900,
    "kind": "",
    "first_seen": "2026-10-25",
    "last_seen": "2026-11-11"
@@ -23270,7 +23296,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-09",
-   "views": 45775,
+   "views": 45822,
    "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-11"
@@ -23426,7 +23452,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-02",
-   "views": 120008,
+   "views": 120016,
    "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-11"
@@ -23712,7 +23738,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-11",
-   "views": 5285,
+   "views": 5695,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
@@ -24780,7 +24806,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-04",
-   "views": 111708,
+   "views": 111715,
    "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-11"
