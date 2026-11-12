@@ -1,7 +1,48 @@
 [
  {
-  "id": "7320c736e102c824f6cbf3be784f253f",
+  "id": "a90b596e25e575b1297f88800872d4cb",
   "rank": 1,
+  "title": "GTA Online Weekly Update (November 12 - December 2): Contact Missions Event, Bonuses & Discounts",
+  "title_en": "",
+  "source": "GTABase",
+  "game": "GTA Online",
+  "author": "GTABase",
+  "updated": "2026-11-12",
+  "tags": [
+   "GTA Online"
+  ],
+  "url": "https://www.gtabase.com/articles/grand-theft-auto-v/news/gta-online-weekly-update-november-12-december-2-contact-missions-event-bonuses-discounts",
+  "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。",
+  "events": [
+   "4X GTA$ & RP — Freemode Challenges",
+   "3X GTA$ & RP — Stunt Races",
+   "3X GTA$ & RP — Community Series Jobs",
+   "2X GTA$ & RP — KnoWay Out",
+   "2X GTA$ & RP — Client Jobs",
+   "2X GTA$ & RP — New Listings",
+   "2X GTA$ & RP — Ron's Missions",
+   "2X GTA$ & RP — Lamar's Missions",
+   "2X GTA$ & RP — Gerald's Missions",
+   "2X GTA$ & RP — Lamar's Lowriders",
+   "2X GTA$ & RP — Lester's Missions",
+   "2X GTA$ & RP — Mobile Operations",
+   "2X GTA$ & RP — Project Overthrow",
+   "2X GTA$ & RP — Madrazo Dispatch Services",
+   "2X GTA$ & RP — Gerald's Last Play",
+   "2X GTA$ & RP — Simeon's Premium Deluxe Repo Work",
+   "2X GTA$ & RP — Sumo (Remix)",
+   "2X GTA$ & RP — The Brute Force File",
+   "In-Game Discounts — Castigator, Hotring Sabre, Impaler LX, Tahoma Coupe +6",
+   "Podium Vehicle — Everon",
+   "LS Car Meet Prize Ride — Powersurge",
+   "Premium Deluxe Motorsport — Hotring Sabre",
+   "Premium Deluxe Motorsport — Vivanite",
+   "Premium Deluxe Motorsport — Tailgater S"
+  ]
+ },
+ {
+  "id": "7320c736e102c824f6cbf3be784f253f",
+  "rank": 2,
   "title": "GTA Online Weekly Update (November 5 - 11): Heist Event Week, Bonuses & Discounts",
   "title_en": "",
   "source": "GTABase",
@@ -42,7 +83,7 @@
  },
  {
   "id": "27411ca16ec16c725897ad3e2eca21ae",
-  "rank": 2,
+  "rank": 3,
   "title": "GTA Online Weekly Update (October 29- November 4): Final Week of Halloween Event, Bonuses & Discounts",
   "title_en": "",
   "source": "GTABase",
@@ -83,7 +124,7 @@
  },
  {
   "id": "7e71e7d4c997cf4fdc43dbff0bd71c88",
-  "rank": 3,
+  "rank": 4,
   "title": "GTA Online Weekly Update (October 22-28): Fourth Week of Halloween Event, Bonuses & Discounts",
   "title_en": "",
   "source": "GTABase",
@@ -124,7 +165,7 @@
  },
  {
   "id": "6c34179dddb5ba9f9b5db325756a437c",
-  "rank": 4,
+  "rank": 5,
   "title": "GTA Online Weekly Update (October 15-21): Third Week of Halloween Event, Bonuses & Discounts",
   "title_en": "",
   "source": "GTABase",
@@ -139,7 +180,7 @@
  },
  {
   "id": "9d48e422bc8f1e299b2c6caa869855cd",
-  "rank": 5,
+  "rank": 6,
   "title": "GTA Online Weekly Update (October 8-14): Second Week of Halloween Event, Bonuses & Discounts",
   "title_en": "",
   "source": "GTABase",
@@ -154,7 +195,7 @@
  },
  {
   "id": "8743bab82446f8451e58b30cff14feb7",
-  "rank": 6,
+  "rank": 7,
   "title": "GTA Online Weekly Update (October 1-7): Halloween in Los Santos, Bonuses & Discounts",
   "title_en": "",
   "source": "GTABase",
@@ -169,7 +210,7 @@
  },
  {
   "id": "d72115880953e8dcba4d37df92463e19",
-  "rank": 7,
+  "rank": 8,
   "title": "GTA Online Weekly Update (September 24-30): Business Rivalries Event Final Week, Bonuses & Discounts",
   "title_en": "",
   "source": "GTABase",
@@ -180,21 +221,6 @@
    "GTA Online"
   ],
   "url": "https://www.gtabase.com/articles/grand-theft-auto-v/news/gta-online-weekly-update-september-24-30-business-rivalries-event-final-week-bonuses-discounts",
-  "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
- },
- {
-  "id": "d8d19e53074176ae908e0ec669326eb2",
-  "rank": 8,
-  "title": "GTA Online: The Kortz Center Heist Update",
-  "title_en": "",
-  "source": "GTABase",
-  "game": "GTA Online",
-  "author": "GTABase",
-  "updated": null,
-  "tags": [
-   "GTA Online"
-  ],
-  "url": "https://www.gtabase.com/articles/grand-theft-auto-v/title-updates/gta-online-summer-2026-dlc-update-1-73-patch-notes-features",
   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
  }
 ]

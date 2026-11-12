@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T04:05:36Z",
+ "updated": "2026-11-12T05:38:52Z",
  "videos": [
   {
    "video_id": "-2WDkE81g6I",
@@ -411,6 +411,8 @@
    "url": "https://www.youtube.com/shorts/0-CJAZBsjMs",
    "lang": "en",
    "game": "GTA 6",
+   "date": "",
+   "views": null,
    "kind": "short",
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",
@@ -5026,10 +5028,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 650760,
+   "views": 1293360,
    "kind": "",
    "first_seen": "2026-11-10",
-   "last_seen": "2026-11-11"
+   "last_seen": "2026-11-12"
   },
   {
    "video_id": "AvhUCZiCDYM",
@@ -7358,7 +7360,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-14",
-   "last_seen": "2026-11-11"
+   "last_seen": "2026-11-12"
   },
   {
    "video_id": "H0dQtwlxiJg",
@@ -12056,10 +12058,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 428518,
+   "views": 812891,
    "kind": "",
    "first_seen": "2026-11-10",
-   "last_seen": "2026-11-11"
+   "last_seen": "2026-11-12"
   },
   {
    "video_id": "TIqzBjaOQF4",
@@ -14882,7 +14884,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 9199258,
+   "views": 9505397,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-12"
@@ -18335,7 +18337,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1719968,
+   "views": 1728443,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-11-12"
@@ -21074,7 +21076,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-23",
-   "last_seen": "2026-11-08"
+   "last_seen": "2026-11-12"
   },
   {
    "video_id": "pzbTW-U8PPg",
@@ -21659,6 +21661,7 @@
    "game": "GTA 6",
    "date": "2026-11-11",
    "views": 58497,
+   "kind": "",
    "first_seen": "2026-11-12",
    "last_seen": "2026-11-12"
   },
@@ -22008,7 +22011,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 77376388,
+   "views": 77469808,
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-11-12"
@@ -23460,7 +23463,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-24",
-   "last_seen": "2026-11-11"
+   "last_seen": "2026-11-12"
   },
   {
    "video_id": "vb_SL-tl9UM",
