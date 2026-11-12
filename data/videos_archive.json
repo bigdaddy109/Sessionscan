@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T02:05:06Z",
+ "updated": "2026-11-12T04:05:36Z",
  "videos": [
   {
    "video_id": "-2WDkE81g6I",
@@ -403,6 +403,19 @@
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
+  },
+  {
+   "video_id": "0-CJAZBsjMs",
+   "title": "Same Miami Street, Shown Twice. Spot the GTA 6 Side",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/0-CJAZBsjMs",
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "owned": true,
+   "channel_url": "https://www.youtube.com/@sessionscan",
+   "first_seen": "2026-11-12",
+   "last_seen": "2026-11-12"
   },
   {
    "video_id": "0-fGYW6XTjk",
@@ -2325,7 +2338,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-09",
-   "views": 71071,
+   "views": 72062,
    "kind": "",
    "first_seen": "2026-11-09",
    "last_seen": "2026-11-12"
@@ -6700,11 +6713,13 @@
   {
    "video_id": "F9MzGUwyemo",
    "title": "NEW GTA Online Weekly Update Before GTA 6 Releases! (4X MONEY, LAST UPDATE IN GTA 5? & DISCOUNTS)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=F9MzGUwyemo",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-11",
    "views": 773,
+   "kind": "",
    "first_seen": "2026-11-12",
    "last_seen": "2026-11-12"
   },
@@ -7642,7 +7657,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-18",
-   "last_seen": "2026-11-11"
+   "last_seen": "2026-11-12"
   },
   {
    "video_id": "HocOOiBoYfo",
@@ -7995,7 +8010,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-11-11"
+   "last_seen": "2026-11-12"
   },
   {
    "video_id": "IigHvJvDYYw",
@@ -10779,6 +10794,7 @@
    "game": "GTA 5",
    "date": "2026-11-12",
    "views": 487,
+   "kind": "",
    "first_seen": "2026-11-12",
    "last_seen": "2026-11-12"
   },
@@ -12738,7 +12754,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-16",
-   "last_seen": "2026-11-11"
+   "last_seen": "2026-11-12"
   },
   {
    "video_id": "VBC45GdC3tk",
@@ -21635,6 +21651,18 @@
    "last_seen": "2026-11-10"
   },
   {
+   "video_id": "rR9fy9xHak4",
+   "title": "GTA6 Exposed PlayStation's Biggest Scam",
+   "channel": "OhNoItsAlexx",
+   "url": "https://www.youtube.com/watch?v=rR9fy9xHak4",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-11",
+   "views": 58497,
+   "first_seen": "2026-11-12",
+   "last_seen": "2026-11-12"
+  },
+  {
    "video_id": "rRba9rmTt2E",
    "title": "「YeHsu 耶酥」GTA5｜不打自招：不打自招之阿不思想睡覺 10/30",
    "channel": "",
@@ -23705,7 +23733,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-11-11"
+   "last_seen": "2026-11-12"
   },
   {
    "video_id": "wHXzktP5J44",
@@ -24173,7 +24201,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-11-09"
+   "last_seen": "2026-11-12"
   },
   {
    "video_id": "xgaPQaDijH4",
