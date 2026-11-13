@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T22:04:27Z",
+ "updated": "2026-11-13T00:04:45Z",
  "videos": [
   {
    "video_id": "-2WDkE81g6I",
@@ -534,7 +534,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "0ESdX4DfBlQ",
@@ -895,10 +895,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-11",
-   "views": 20431,
+   "views": 20539,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "1IN2Bhr97Kg",
@@ -1194,10 +1194,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-12",
-   "views": 20927,
+   "views": 21016,
    "kind": "",
    "first_seen": "2026-11-09",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "1roTfetiDPQ",
@@ -1402,10 +1402,10 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 120014,
+   "views": 120081,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "2GiFa3N00cs",
@@ -1545,10 +1545,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-08",
-   "views": 39081,
+   "views": 39185,
    "kind": "",
    "first_seen": "2026-11-08",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "2bve6ejbTWY",
@@ -1989,10 +1989,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 14282136,
+   "views": 14289699,
    "kind": "",
    "first_seen": "2026-10-16",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "3MLCfZE8KZM",
@@ -2244,11 +2244,13 @@
   {
    "video_id": "3o3Ivmthn_8",
    "title": "LAST GTA Online Weekly Update Before GTA 6 Drops with Viewers! (6 Days Until GTA 6)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=3o3Ivmthn_8",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-12",
    "views": 68,
+   "kind": "",
    "first_seen": "2026-11-12",
    "last_seen": "2026-11-12"
   },
@@ -2338,10 +2340,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-30",
-   "views": 539815,
+   "views": 540258,
    "kind": "",
    "first_seen": "2026-10-30",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "4HTLbblhM0A",
@@ -2390,10 +2392,10 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-09",
-   "views": 89710,
+   "views": 90060,
    "kind": "",
    "first_seen": "2026-11-09",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "4WSQ0nUy0Cw",
@@ -3791,6 +3793,17 @@
    "last_seen": "2026-10-14"
   },
   {
+   "video_id": "7s0H46Kc8aw",
+   "title": "GTA 6 in 1 WEEK - The Complete Guide Before You Play",
+   "url": "https://www.youtube.com/watch?v=7s0H46Kc8aw",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-12",
+   "views": 7293,
+   "first_seen": "2026-11-13",
+   "last_seen": "2026-11-13"
+  },
+  {
    "video_id": "7tKnceG2Kac",
    "title": "R星老闆親口確認：GTA6純手工打造，還爆了延期內幕 全行業都在用AI做遊戲，你覺得GTA6之後還會有純手工的3A嗎？ #gta #gta6 #俠盜獵車手6 #遊戲破壁計劃",
    "channel": "",
@@ -4402,6 +4415,17 @@
    "last_seen": "2026-10-17"
   },
   {
+   "video_id": "9NNvVcrx178",
+   "title": "GTA6衛報探班：跑起來瓶裡的酒都在晃，細節超硬核 一個熱狗一瓶啤酒都做成這樣，週六全文出來我們逐段拆 #gta6 #俠盜獵車手6 #gta #遊戲破壁計劃",
+   "url": "https://www.youtube.com/watch?v=9NNvVcrx178",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-12",
+   "views": 36,
+   "first_seen": "2026-11-13",
+   "last_seen": "2026-11-13"
+  },
+  {
    "video_id": "9O94j2lgtWI",
    "title": "25 MINUTES of GTA 6 GAMEPLAY LEAKED... Dong Physics Are REAL",
    "channel": "",
@@ -4972,10 +4996,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-12",
-   "views": 324131,
+   "views": 328185,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "AWp_OtwZ7tM",
@@ -5042,7 +5066,7 @@
    "views": 123124,
    "kind": "",
    "first_seen": "2026-10-30",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "AcGyr1kcM9I",
@@ -5156,10 +5180,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-12",
-   "views": 51280,
+   "views": 96161,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "AsVldRzWKZA",
@@ -5208,10 +5232,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 1468109,
+   "views": 1517406,
    "kind": "",
    "first_seen": "2026-11-10",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "AvhUCZiCDYM",
@@ -5247,10 +5271,10 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-12",
-   "views": 6,
+   "views": 20,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "Azb5Bu9eHW4",
@@ -5524,6 +5548,17 @@
    "kind": "",
    "first_seen": "2026-10-16",
    "last_seen": "2026-10-16"
+  },
+  {
+   "video_id": "BZEPfmQKygs",
+   "title": "GTA 6 Is Already Changing The World!",
+   "url": "https://www.youtube.com/watch?v=BZEPfmQKygs",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-12",
+   "views": 3822,
+   "first_seen": "2026-11-13",
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "BZtk7Qbh3Sg",
@@ -6383,7 +6418,7 @@
    "views": 47178,
    "kind": "",
    "first_seen": "2026-11-07",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "E2dEh4Hvtpc",
@@ -6796,10 +6831,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-12",
-   "views": 3425,
+   "views": 3427,
    "kind": "",
    "first_seen": "2026-11-09",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "Ethqa94XpXU",
@@ -7017,10 +7052,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 3968379,
+   "views": 3968701,
    "kind": "",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "FR-fR-xnCCI",
@@ -7465,6 +7500,17 @@
    "last_seen": "2026-11-03"
   },
   {
+   "video_id": "Gglpv7OK8mg",
+   "title": "GTA6預載把歐洲網絡幹爆了！晚高峯比歐冠半決賽還猛 遊戲還有6天才能玩，你家寬帶扛住預載了嗎？ #gta6 #俠盜獵車手6 #gta #遊戲破壁計劃",
+   "url": "https://www.youtube.com/watch?v=Gglpv7OK8mg",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-12",
+   "views": 17,
+   "first_seen": "2026-11-13",
+   "last_seen": "2026-11-13"
+  },
+  {
    "video_id": "GhDxHDHDJ6g",
    "title": "【速報】まさかの内容は◯◯⁉️GTA6の最新ローンチトレーラー大発表‼️",
    "channel": "",
@@ -7592,7 +7638,7 @@
    "views": 12256,
    "kind": "",
    "first_seen": "2026-11-10",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "H6qQ_0CF9lg",
@@ -7865,7 +7911,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-18",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "HocOOiBoYfo",
@@ -8332,10 +8378,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-10",
-   "views": 36179,
+   "views": 36256,
    "kind": "",
    "first_seen": "2026-11-10",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "J-yCTmRa2pA",
@@ -8605,10 +8651,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-12",
-   "views": 224308,
+   "views": 232098,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "JeAdluOW3Ks",
@@ -9181,6 +9227,17 @@
    "kind": "short",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-11"
+  },
+  {
+   "video_id": "Ko82EaWuNv8",
+   "title": "GTA6，人類最後一款純手工3A，連Bug都是手搓的 60多萬段動畫一段段有人盯，以後的3A還會有人這麼做嗎？ #gta6 #俠盜獵車手6 #gta #遊戲破壁計劃",
+   "url": "https://www.youtube.com/watch?v=Ko82EaWuNv8",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-12",
+   "views": 31,
+   "first_seen": "2026-11-13",
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "KodRyeuuX7k",
@@ -9847,7 +9904,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-29",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "M_p8k_xj91E",
@@ -10078,10 +10135,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 14218638,
+   "views": 14229564,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "N9h44aV9RGo",
@@ -11079,10 +11136,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-11-12",
-   "views": 9949,
+   "views": 10138,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "Q8ZIdGbirbM",
@@ -11261,10 +11318,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-12",
-   "views": 1088435,
+   "views": 1142957,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "QRxF-bWNRoo",
@@ -11430,10 +11487,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-12",
-   "views": 352986,
+   "views": 537543,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "Ql4Voe6FatQ",
@@ -11575,10 +11632,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-12",
-   "views": 1783,
+   "views": 2064,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "Qw-UQE_gQwQ",
@@ -11830,11 +11887,13 @@
   {
    "video_id": "RiK_yCje4fM",
    "title": "线上最后一周狂欢 全部联系人任务双倍 自由模式事件4倍R星为了让你玩6 活动特意弄得很一般 GTAOL 11.12-11.19 线上更新周报",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=RiK_yCje4fM",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-11",
    "views": 132,
+   "kind": "",
    "first_seen": "2026-11-12",
    "last_seen": "2026-11-12"
   },
@@ -11885,10 +11944,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-12",
-   "views": 34167,
+   "views": 34504,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "RnvOBcHgupU",
@@ -12067,10 +12126,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-11",
-   "views": 97442,
+   "views": 98734,
    "kind": "",
    "first_seen": "2026-11-11",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "SFmGGZ1bT7w",
@@ -12853,10 +12912,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 11158122,
+   "views": 11159332,
    "kind": "",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "U_iOqddmzvk",
@@ -13414,10 +13473,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-12",
-   "views": 50431,
+   "views": 78481,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "VxHSsBhJQh8",
@@ -13609,10 +13668,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-09",
-   "views": 45582,
+   "views": 45615,
    "kind": "",
    "first_seen": "2026-11-09",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "WHDZBG_n8o0",
@@ -13897,10 +13956,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-10",
-   "views": 87840,
+   "views": 87960,
    "kind": "",
    "first_seen": "2026-11-10",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "X-_940wmR9o",
@@ -14372,7 +14431,7 @@
    "views": 13425,
    "kind": "",
    "first_seen": "2026-11-10",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "YKrJHiB7L_4",
@@ -14826,10 +14885,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-12",
-   "views": 172758,
+   "views": 201696,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "ZkwEkaH8lE8",
@@ -15283,10 +15342,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-10",
-   "views": 96972,
+   "views": 97049,
    "kind": "",
    "first_seen": "2026-11-10",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "_sbCPENWdXQ",
@@ -15348,10 +15407,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 10924006,
+   "views": 11048424,
    "kind": "",
    "first_seen": "2026-11-10",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "_zETGrtBXrM",
@@ -15413,10 +15472,10 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-12",
-   "views": 19,
+   "views": 29,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "a1ljy_ZAycQ",
@@ -15811,15 +15870,15 @@
   {
    "video_id": "b0gKArxeVqw",
    "title": "FINALLY Unboxing GTA 6..",
-   "channel": "",
+   "channel": "Hollow",
    "url": "https://www.youtube.com/watch?v=b0gKArxeVqw",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-12",
-   "views": 159754,
+   "views": 213692,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "b1oEDIwnf8o",
@@ -16406,7 +16465,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-11-09",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "cNgv80FvSUQ",
@@ -16681,7 +16740,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-11-11",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "d6DPu-uktUs",
@@ -16873,10 +16932,10 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-12",
-   "views": 56423,
+   "views": 58816,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "deCBa-lEBG4",
@@ -17723,7 +17782,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-11",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "g-rSSntLJ7k",
@@ -18674,7 +18733,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "i6LgSKZGGlg",
@@ -18879,10 +18938,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 1783996,
+   "views": 1791292,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "iemEYrAYauY",
@@ -19100,10 +19159,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-07",
-   "views": 117686,
+   "views": 117821,
    "kind": "",
    "first_seen": "2026-11-07",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "jJIyR-NVClU",
@@ -19453,10 +19512,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-11",
-   "views": 52355,
+   "views": 52546,
    "kind": "",
    "first_seen": "2026-11-11",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "kRaoM8vCj1c",
@@ -20184,7 +20243,7 @@
    "views": 0,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "m-jFzhpPlbY",
@@ -20207,10 +20266,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-01",
-   "views": 56957,
+   "views": 56974,
    "kind": "",
    "first_seen": "2026-11-10",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "mB6DIw4oG-g",
@@ -20898,10 +20957,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-05",
-   "views": 1707528,
+   "views": 1782403,
    "kind": "",
    "first_seen": "2026-11-05",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "o7Ewat1iCic",
@@ -22205,7 +22264,7 @@
    "views": 1781,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "r6Ku4TMw5AU",
@@ -22241,10 +22300,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-12",
-   "views": 2349,
+   "views": 2353,
    "kind": "",
    "first_seen": "2026-11-10",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "rCc5fMEBNZA",
@@ -22297,6 +22356,19 @@
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-10"
+  },
+  {
+   "video_id": "rOc56Cl1-GE",
+   "title": "GTA 6 Reviews Land 1 Day Before Launch?",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/rOc56Cl1-GE",
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "owned": true,
+   "channel_url": "https://www.youtube.com/@sessionscan",
+   "first_seen": "2026-11-13",
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "rR9fy9xHak4",
@@ -22657,10 +22729,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-15",
-   "views": 77978731,
+   "views": 78053925,
    "kind": "",
    "first_seen": "2026-10-15",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "s0UtblGDUMk",
@@ -22865,10 +22937,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 1494438,
+   "views": 1612966,
    "kind": "",
    "first_seen": "2026-11-10",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "sXEdJv1oXQw",
@@ -23192,10 +23264,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 117024,
+   "views": 117038,
    "kind": "",
    "first_seen": "2026-10-22",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "tGf3SKyK1TQ",
@@ -23335,10 +23407,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-12",
-   "views": 26185,
+   "views": 29303,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "tY4qnig3MlI",
@@ -24241,7 +24313,7 @@
    "views": 46341,
    "kind": "",
    "first_seen": "2026-11-07",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "vonJD9sT2DI",
@@ -24394,10 +24466,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-02",
-   "views": 121807,
+   "views": 121891,
    "kind": "",
    "first_seen": "2026-11-02",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "wASECp1aVDk",
@@ -24415,11 +24487,13 @@
   {
    "video_id": "wBL-nZHvPo0",
    "title": "GTA6实体版已发布 盒子里地图都没有 并且盒子模具极其敷衍 光盘位置有预留但并没有光盘 太难崩了",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=wBL-nZHvPo0",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-12",
    "views": 46,
+   "kind": "",
    "first_seen": "2026-11-12",
    "last_seen": "2026-11-12"
   },
@@ -24829,11 +24903,13 @@
   {
    "video_id": "xH5zNvn-y0o",
    "title": "GTA6又出新实机了 画面强到爆炸 已经分不清游戏和现实了 GTA6最新泄露实机逐帧解析",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=xH5zNvn-y0o",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-12",
    "views": 26,
+   "kind": "",
    "first_seen": "2026-11-12",
    "last_seen": "2026-11-12"
   },
@@ -24962,10 +25038,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-01",
-   "views": 160410,
+   "views": 160412,
    "kind": "",
    "first_seen": "2026-11-01",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "xffzLCDqHnE",
@@ -25263,10 +25339,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-12",
-   "views": 202,
+   "views": 211,
    "kind": "",
    "first_seen": "2026-11-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "yFm-QXlqhYg",
@@ -25822,10 +25898,10 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-04",
-   "views": 112415,
+   "views": 112470,
    "kind": "",
    "first_seen": "2026-11-04",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "zN-R7OVoBt8",
@@ -26020,7 +26096,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-12",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "zmwO_jmNkVQ",
