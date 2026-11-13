@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13T00:04:45Z",
+ "updated": "2026-11-13T02:08:30Z",
  "videos": [
   {
    "video_id": "-2WDkE81g6I",
@@ -3795,11 +3795,13 @@
   {
    "video_id": "7s0H46Kc8aw",
    "title": "GTA 6 in 1 WEEK - The Complete Guide Before You Play",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=7s0H46Kc8aw",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-12",
    "views": 7293,
+   "kind": "",
    "first_seen": "2026-11-13",
    "last_seen": "2026-11-13"
   },
@@ -4178,7 +4180,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-11-04",
-   "last_seen": "2026-11-04"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "8a2pLbrH4Dg",
@@ -4417,11 +4419,13 @@
   {
    "video_id": "9NNvVcrx178",
    "title": "GTA6衛報探班：跑起來瓶裡的酒都在晃，細節超硬核 一個熱狗一瓶啤酒都做成這樣，週六全文出來我們逐段拆 #gta6 #俠盜獵車手6 #gta #遊戲破壁計劃",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=9NNvVcrx178",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-12",
    "views": 36,
+   "kind": "",
    "first_seen": "2026-11-13",
    "last_seen": "2026-11-13"
   },
@@ -4830,7 +4834,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-27",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "ABYtETi9-kk",
@@ -5552,11 +5556,13 @@
   {
    "video_id": "BZEPfmQKygs",
    "title": "GTA 6 Is Already Changing The World!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=BZEPfmQKygs",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-12",
    "views": 3822,
+   "kind": "",
    "first_seen": "2026-11-13",
    "last_seen": "2026-11-13"
   },
@@ -7502,11 +7508,13 @@
   {
    "video_id": "Gglpv7OK8mg",
    "title": "GTA6預載把歐洲網絡幹爆了！晚高峯比歐冠半決賽還猛 遊戲還有6天才能玩，你家寬帶扛住預載了嗎？ #gta6 #俠盜獵車手6 #gta #遊戲破壁計劃",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Gglpv7OK8mg",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-12",
    "views": 17,
+   "kind": "",
    "first_seen": "2026-11-13",
    "last_seen": "2026-11-13"
   },
@@ -9231,11 +9239,13 @@
   {
    "video_id": "Ko82EaWuNv8",
    "title": "GTA6，人類最後一款純手工3A，連Bug都是手搓的 60多萬段動畫一段段有人盯，以後的3A還會有人這麼做嗎？ #gta6 #俠盜獵車手6 #gta #遊戲破壁計劃",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Ko82EaWuNv8",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-12",
    "views": 31,
+   "kind": "",
    "first_seen": "2026-11-13",
    "last_seen": "2026-11-13"
   },
@@ -12507,6 +12517,17 @@
    "kind": "",
    "first_seen": "2026-10-25",
    "last_seen": "2026-10-25"
+  },
+  {
+   "video_id": "TMEfYIUkw1c",
+   "title": "STEVE OGG IS LITERALLY TREVOR 🥶💀 #gta #gtaonly #grandtheftauto #gaming",
+   "channel": "Cobra SG YT 553",
+   "url": "https://www.youtube.com/shorts/TMEfYIUkw1c",
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short",
+   "first_seen": "2026-11-13",
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "TPRXCBu5oqs",
@@ -18354,7 +18375,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-11-12"
+   "last_seen": "2026-11-13"
   },
   {
    "video_id": "hOFcYqDBv6E",
@@ -22364,6 +22385,8 @@
    "url": "https://www.youtube.com/shorts/rOc56Cl1-GE",
    "lang": "en",
    "game": "GTA 6",
+   "date": "",
+   "views": null,
    "kind": "short",
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",
