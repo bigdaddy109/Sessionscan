@@ -1,22 +1,11 @@
 [
  {
-  "id": "tFFI3jIr0Co",
-  "video_id": "tFFI3jIr0Co",
-  "title": "(個人的ニュース速報)　PHP問題とは？フランス暴動はなぜ起きたのか解説　【GTA5】",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=tFFI3jIr0Co",
-  "views": 117096,
-  "date": "2026-10-22",
-  "lang": "ja",
-  "game": "GTA 5"
- },
- {
   "id": "WyoqiwNy2Zw",
   "video_id": "WyoqiwNy2Zw",
   "title": "【GTA6最新情報】ダウンロード開始で判明した10個の新情報と今後のGTAオンラインや次回作情報も",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=WyoqiwNy2Zw",
-  "views": 88867,
+  "views": 88945,
   "date": "2026-11-10",
   "lang": "ja",
   "game": "GTA Online"
@@ -27,7 +16,7 @@
   "title": "【GTA6の最新情報】まさかリバティーシティーも⁉️今海外で話題になっている３つのことについて",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=kOEj1UoGdBI",
-  "views": 52996,
+  "views": 53011,
   "date": "2026-11-11",
   "lang": "ja",
   "game": "GTA Online"
@@ -66,24 +55,24 @@
   "game": "GTA Online"
  },
  {
-  "id": "2YxbX8lFx5E",
-  "video_id": "2YxbX8lFx5E",
-  "title": "【初心者講座】GTA6発売されたら最初にやるべき事完全まとめ",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=2YxbX8lFx5E",
-  "views": 39649,
-  "date": "2026-11-08",
-  "lang": "ja",
-  "game": "GTA Online"
- },
- {
   "id": "tU-r-Ct1IUg",
   "video_id": "tU-r-Ct1IUg",
   "title": "【GTA6最新情報】マップ遂に公開か⁉️最新GTAオンラインクイックアプデ情報まとめ",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=tU-r-Ct1IUg",
-  "views": 39026,
+  "views": 40296,
   "date": "2026-11-12",
+  "lang": "ja",
+  "game": "GTA Online"
+ },
+ {
+  "id": "2YxbX8lFx5E",
+  "video_id": "2YxbX8lFx5E",
+  "title": "【初心者講座】GTA6発売されたら最初にやるべき事完全まとめ",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=2YxbX8lFx5E",
+  "views": 39843,
+  "date": "2026-11-08",
   "lang": "ja",
   "game": "GTA Online"
  },
@@ -93,7 +82,7 @@
   "title": "【GTA6速報】公式から新たに30秒の新映像公開‼️PS5Proとの違いや30FPSについて",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=Iyuvgsp6XUo",
-  "views": 36605,
+  "views": 36687,
   "date": "2026-11-10",
   "lang": "ja",
   "game": "GTA Online"
@@ -104,9 +93,20 @@
   "title": "【GTA6】 事前ダウンロード開始日前倒しとレオナイダMAP配布について",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=lSkz_-7Eyqo",
-  "views": 24005,
+  "views": 24056,
   "date": "2026-11-04",
   "lang": "ja",
   "game": "GTA 6"
+ },
+ {
+  "id": "1nRtFrpFV4E",
+  "video_id": "1nRtFrpFV4E",
+  "title": "【GTA6発売直前の最終】今夜マップ公開あるのか⁉️GTAオンラインアップデート情報",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=1nRtFrpFV4E",
+  "views": 21291,
+  "date": "2026-11-12",
+  "lang": "ja",
+  "game": "GTA Online"
  }
 ]
