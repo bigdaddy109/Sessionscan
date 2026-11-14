@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T04:07:08Z",
+ "updated": "2026-11-14T04:51:16Z",
  "videos": [
   {
    "video_id": "-2WDkE81g6I",
@@ -5879,6 +5879,19 @@
    "kind": "short",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
+  },
+  {
+   "video_id": "BrIat9IkCUw",
+   "title": "GTA 6 Hurricane Name Reportedly Found in a Real Florida Bar",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/BrIat9IkCUw",
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "owned": true,
+   "channel_url": "https://www.youtube.com/@sessionscan",
+   "first_seen": "2026-11-14",
+   "last_seen": "2026-11-14"
   },
   {
    "video_id": "BrgAJdE5ez4",
@@ -12492,7 +12505,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-11-03",
-   "last_seen": "2026-11-13"
+   "last_seen": "2026-11-14"
   },
   {
    "video_id": "RtDTGF-_Zq8",
@@ -19135,7 +19148,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-11-13"
+   "last_seen": "2026-11-14"
   },
   {
    "video_id": "hOFcYqDBv6E",
@@ -24505,7 +24518,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-17",
-   "last_seen": "2026-11-13"
+   "last_seen": "2026-11-14"
   },
   {
    "video_id": "ttqMsX8A5cc",
