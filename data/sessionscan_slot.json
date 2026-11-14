@@ -7,11 +7,11 @@
  "note_zh": "自有 Shorts／長片。其餘為他人當紅 Short。",
  "note_en": "Owned Shorts and long videos. Other cells are other creators’ trending Shorts.",
  "short": {
-  "id": "6nmWnyMTjAo",
-  "video_id": "6nmWnyMTjAo",
-  "title": "GTA 6 Launch Livestream: When It Starts for You",
+  "id": "YUCdl4av75k",
+  "video_id": "YUCdl4av75k",
+  "title": "Want GTA 6 Early? Move Your Xbox to New Zealand",
   "channel": "SessionScan",
-  "url": "https://www.youtube.com/shorts/6nmWnyMTjAo",
+  "url": "https://www.youtube.com/shorts/YUCdl4av75k",
   "views": null,
   "date": null,
   "lang": "en",
@@ -20,6 +20,19 @@
   "owned": true
  },
  "library": [
+  {
+   "id": "YUCdl4av75k",
+   "video_id": "YUCdl4av75k",
+   "title": "Want GTA 6 Early? Move Your Xbox to New Zealand",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/YUCdl4av75k",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "owned": true
+  },
   {
    "id": "6nmWnyMTjAo",
    "video_id": "6nmWnyMTjAo",
@@ -628,19 +641,6 @@
    "date": null,
    "lang": "en",
    "game": "GTA 6",
-   "kind": "short",
-   "owned": true
-  },
-  {
-   "id": "y4Y2bUKcwbI",
-   "video_id": "y4Y2bUKcwbI",
-   "title": "First Dose 4: The Acid Trip Mission Pays $20K | GTA Online",
-   "channel": "SessionScan",
-   "url": "https://www.youtube.com/shorts/y4Y2bUKcwbI",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA Online",
    "kind": "short",
    "owned": true
   }
