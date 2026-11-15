@@ -963,18 +963,6 @@
  ],
  "videos_shorts": [
   {
-   "id": "HjlIz8f4utU",
-   "video_id": "HjlIz8f4utU",
-   "title": "Average Heist in GTA be like: #shorts #gtaonline",
-   "channel": "GTA Bite",
-   "url": "https://www.youtube.com/shorts/HjlIz8f4utU",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA Online",
-   "kind": "short"
-  },
-  {
    "id": "0EOYLeR1pos",
    "video_id": "0EOYLeR1pos",
    "title": "Trolling A GTA 5 Police As a Fake Bollard 🚨💥😂 #gta5",
@@ -984,6 +972,18 @@
    "date": null,
    "lang": "en",
    "game": "GTA 5",
+   "kind": "short"
+  },
+  {
+   "id": "HjlIz8f4utU",
+   "video_id": "HjlIz8f4utU",
+   "title": "Average Heist in GTA be like: #shorts #gtaonline",
+   "channel": "GTA Bite",
+   "url": "https://www.youtube.com/shorts/HjlIz8f4utU",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA Online",
    "kind": "short"
   },
   {
@@ -999,11 +999,23 @@
    "kind": "short"
   },
   {
-   "id": "vbRk73x7XQo",
-   "video_id": "vbRk73x7XQo",
-   "title": "Trolling cops as a fake wood bollard in gta #gta #gtav #gtaonline",
-   "channel": "BISON Gaming",
-   "url": "https://www.youtube.com/shorts/vbRk73x7XQo",
+   "id": "djfAlO4jCDU",
+   "video_id": "djfAlO4jCDU",
+   "title": "Trolling GTA 5 Cops As A Fake Grass 🚨💥😂 #gta5",
+   "channel": "Falgun Gaming",
+   "url": "https://www.youtube.com/shorts/djfAlO4jCDU",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 5",
+   "kind": "short"
+  },
+  {
+   "id": "i4FtbU7i7HQ",
+   "video_id": "i4FtbU7i7HQ",
+   "title": "Bro Took His Anger Out on the NPCs 😂 #gta5 #gtaonline #gta5online #gtaviral #fail",
+   "channel": "SJx Playz",
+   "url": "https://www.youtube.com/shorts/i4FtbU7i7HQ",
    "views": null,
    "date": null,
    "lang": "en",
@@ -1023,23 +1035,11 @@
    "kind": "short"
   },
   {
-   "id": "djfAlO4jCDU",
-   "video_id": "djfAlO4jCDU",
-   "title": "Trolling GTA 5 Cops As A Fake Grass 🚨💥😂 #gta5",
-   "channel": "Falgun Gaming",
-   "url": "https://www.youtube.com/shorts/djfAlO4jCDU",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA 5",
-   "kind": "short"
-  },
-  {
-   "id": "cKHNdOY-0Ko",
-   "video_id": "cKHNdOY-0Ko",
-   "title": "I become a fake barricade and trolled COP in GTA #gta #gtav #gtaonline",
-   "channel": "GOD WARRIOR GAMING",
-   "url": "https://www.youtube.com/shorts/cKHNdOY-0Ko",
+   "id": "wHB9e3FEhpk",
+   "video_id": "wHB9e3FEhpk",
+   "title": "I become a fake bollard and trolled COP in GTA #gta #gtav #gtaonline",
+   "channel": "BISON Gaming",
+   "url": "https://www.youtube.com/shorts/wHB9e3FEhpk",
    "views": null,
    "date": null,
    "lang": "en",
@@ -1047,11 +1047,11 @@
    "kind": "short"
   },
   {
-   "id": "i4FtbU7i7HQ",
-   "video_id": "i4FtbU7i7HQ",
-   "title": "Bro Took His Anger Out on the NPCs 😂 #gta5 #gtaonline #gta5online #gtaviral #fail",
+   "id": "DGSwwIhgvM4",
+   "video_id": "DGSwwIhgvM4",
+   "title": "He Can’t Trust Anyone Anymore 😂  #gtaonline #gta5online #gta5 #gtaviral #fail",
    "channel": "SJx Playz",
-   "url": "https://www.youtube.com/shorts/i4FtbU7i7HQ",
+   "url": "https://www.youtube.com/shorts/DGSwwIhgvM4",
    "views": null,
    "date": null,
    "lang": "en",
@@ -2292,7 +2292,7 @@
   }
  ],
  "meta": {
-  "sessionscan_slot": "2026-11-15 08:06",
+  "sessionscan_slot": "2026-11-15 10:07",
   "jobs_gtabase": "2026-11-14 21:55",
   "jobs_ign": "2026-11-14 21:55",
   "jobs_wiki": "2026-11-14 21:55",
@@ -2303,10 +2303,10 @@
   "videos_hot_ja": "2026-11-15 04:03",
   "videos_new_ja": "2026-11-15 04:03",
   "forum_reddit": "2026-11-14 21:57",
-  "tweets_en": "2026-11-15 08:07",
-  "tweets": "2026-11-15 08:07",
-  "_last_run": "2026-11-15 08:07",
-  "generated_at": "2026-11-15T00:07:55Z",
+  "tweets_en": "2026-11-15 10:07",
+  "tweets": "2026-11-15 10:07",
+  "_last_run": "2026-11-15 10:07",
+  "generated_at": "2026-11-15T02:07:48Z",
   "sample": false,
   "scraper_status": "ok",
   "label_zh": "資料快照",
@@ -2324,11 +2324,11 @@
   ],
   "jobs": "2026-11-14 21:55",
   "hot": "2026-11-15 04:03",
-  "new": "2026-11-15 08:06",
+  "new": "2026-11-15 10:07",
   "forum": "2026-11-14 21:57",
   "forum_bahamut": "2026-11-14 21:57",
-  "videos_shorts": "2026-11-15 08:06",
-  "tweets_zh": "2026-11-15 08:07"
+  "videos_shorts": "2026-11-15 10:07",
+  "tweets_zh": "2026-11-15 10:07"
  },
  "sessionscan_slot": {
   "status": "online",
@@ -3034,12 +3034,12 @@
   "videos_shorts": {
    "HjlIz8f4utU": 1,
    "0EOYLeR1pos": 2,
-   "A6u2y0bTjFI": 3,
-   "EVsY5vbclxw": 4,
-   "vbRk73x7XQo": 5,
-   "fsf3vyki1Io": 6,
-   "i4FtbU7i7HQ": 7,
-   "zmUwVkBxkSQ": 8
+   "fsf3vyki1Io": 3,
+   "vbRk73x7XQo": 4,
+   "pyyU8_wRQCE": 5,
+   "djfAlO4jCDU": 6,
+   "cKHNdOY-0Ko": 7,
+   "i4FtbU7i7HQ": 8
   }
  }
 }
