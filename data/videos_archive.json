@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T14:04:07Z",
+ "updated": "2026-11-16T16:03:40Z",
  "videos": [
   {
    "video_id": "-2WDkE81g6I",
@@ -277,11 +277,13 @@
   {
    "video_id": "-apNEjuAsZ8",
    "title": "游戏中那些正常游玩很难发现的隐藏细节 #gta #gta5 #遊戲頻道 #gtav",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=-apNEjuAsZ8",
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-16",
    "views": 11,
+   "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16"
   },
@@ -940,6 +942,17 @@
    "last_seen": "2026-10-29"
   },
   {
+   "video_id": "1CRfxO6zE70",
+   "title": "【GTA6発売までに】バイスシティーを探検🌴2日後に発売するGTA6と同じ街",
+   "url": "https://www.youtube.com/watch?v=1CRfxO6zE70",
+   "lang": "ja",
+   "game": "GTA Online",
+   "date": "2026-11-16",
+   "views": 0,
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-16"
+  },
+  {
    "video_id": "1EsqOl4poLs",
    "title": "🔴LIVE - GTA ONLINE WEEKLY UPDATE LIVE!",
    "channel": "",
@@ -1246,7 +1259,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-16",
-   "views": 6077,
+   "views": 10144,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16"
@@ -2613,7 +2626,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-10-30",
-   "views": 605809,
+   "views": 608092,
    "kind": "",
    "first_seen": "2026-10-30",
    "last_seen": "2026-11-16"
@@ -2665,7 +2678,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-09",
-   "views": 152709,
+   "views": 154141,
    "kind": "",
    "first_seen": "2026-11-09",
    "last_seen": "2026-11-16"
@@ -2964,7 +2977,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-16",
-   "views": 1985,
+   "views": 2911,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16"
@@ -3167,11 +3180,13 @@
   {
    "video_id": "5ZtWT5BrWVM",
    "title": "手機不能玩GTA6？那就在巔峰極速當警察抓阿航，觀眾竟然幫他擋警車！",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=5ZtWT5BrWVM",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-16",
    "views": 3443,
+   "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16"
   },
@@ -5450,12 +5465,12 @@
   {
    "video_id": "A9fifS608C8",
    "title": "GTA 6: 25 Things You NEED TO KNOW",
-   "channel": "",
+   "channel": "gameranx",
    "url": "https://www.youtube.com/watch?v=A9fifS608C8",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-14",
-   "views": 2086596,
+   "views": 2147028,
    "kind": "",
    "first_seen": "2026-11-15",
    "last_seen": "2026-11-16"
@@ -5480,6 +5495,8 @@
    "url": "https://www.youtube.com/shorts/AB2KsPeWJwc",
    "lang": "en",
    "game": "GTA 6",
+   "date": "",
+   "views": null,
    "kind": "short",
    "owned": true,
    "channel_url": "https://www.youtube.com/@sessionscan",
@@ -5912,7 +5929,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 1829405,
+   "views": 1835438,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-16"
@@ -6460,7 +6477,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-14",
-   "views": 36577,
+   "views": 36707,
    "kind": "",
    "first_seen": "2026-11-14",
    "last_seen": "2026-11-16"
@@ -7020,11 +7037,11 @@
    "url": "https://www.youtube.com/watch?v=DWqggMxXPcM",
    "lang": "en",
    "game": "GTA 5",
-   "date": "2026-11-14",
-   "views": 0,
+   "date": "2026-11-16",
+   "views": 316099,
    "kind": "",
    "first_seen": "2026-11-14",
-   "last_seen": "2026-11-15"
+   "last_seen": "2026-11-16"
   },
   {
    "video_id": "DXnq1hf4m24",
@@ -7827,7 +7844,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 1333164,
+   "views": 1333686,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-16"
@@ -7957,7 +7974,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-16",
-   "views": 1274,
+   "views": 1324,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16"
@@ -8737,7 +8754,7 @@
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-16",
-   "views": 10708,
+   "views": 10819,
    "kind": "",
    "first_seen": "2026-11-15",
    "last_seen": "2026-11-16"
@@ -9363,7 +9380,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-10",
-   "views": 38942,
+   "views": 39392,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-16"
@@ -9493,7 +9510,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-15",
-   "views": 84744,
+   "views": 119383,
    "kind": "",
    "first_seen": "2026-11-15",
    "last_seen": "2026-11-16"
@@ -13100,7 +13117,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 139890,
+   "views": 143599,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-16"
@@ -13581,7 +13598,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-11",
-   "views": 151116,
+   "views": 151756,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-16"
@@ -13986,7 +14003,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 3876960,
+   "views": 3951438,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-16"
@@ -13999,7 +14016,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-13",
-   "views": 54742,
+   "views": 54908,
    "kind": "",
    "first_seen": "2026-11-13",
    "last_seen": "2026-11-16"
@@ -14077,7 +14094,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-14",
-   "views": 44488,
+   "views": 44901,
    "kind": "",
    "first_seen": "2026-11-14",
    "last_seen": "2026-11-16"
@@ -14228,11 +14245,13 @@
   {
    "video_id": "TmoHUgciS5Y",
    "title": "索尼徹底失算！微軟用一招「釜底抽薪」，悄悄偷走了GTA6？",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=TmoHUgciS5Y",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-16",
-   "views": 112,
+   "views": 594,
+   "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16"
   },
@@ -14666,7 +14685,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-14",
-   "views": 9022,
+   "views": 9082,
    "kind": "",
    "first_seen": "2026-11-14",
    "last_seen": "2026-11-16"
@@ -14761,6 +14780,17 @@
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-21"
+  },
+  {
+   "video_id": "V0d78TY4ocY",
+   "title": "こここ、これが運営？！【GTA5】",
+   "url": "https://www.youtube.com/watch?v=V0d78TY4ocY",
+   "lang": "ja",
+   "game": "GTA 5",
+   "date": "2026-11-16",
+   "views": 8334,
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-16"
   },
   {
    "video_id": "V2VER-Scn7w",
@@ -14960,11 +14990,13 @@
   {
    "video_id": "VY2gZb7Mi_4",
    "title": "GTA6上市倒數 全美估1/5上班族請假破關! GTA6牽動龐大經濟效益 實況主搶流量.廣告收益 外送平台看好訂單爆發｜非凡財經新聞｜20261116",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=VY2gZb7Mi_4",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-16",
    "views": 3989,
+   "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16"
   },
@@ -15283,6 +15315,18 @@
    "last_seen": "2026-10-26"
   },
   {
+   "video_id": "WF7UE0vwbXc",
+   "title": "GTA5今までありがとう！！最後にPK",
+   "channel": "プレイヤーキル大好きプレイヤー",
+   "url": "https://www.youtube.com/watch?v=WF7UE0vwbXc",
+   "lang": "ja",
+   "game": "GTA Online",
+   "date": "2026-11-16",
+   "views": 90186,
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-16"
+  },
+  {
    "video_id": "WFvZJ4gHpW4",
    "title": "【阿航】GTA5 新殭屍模組 發現廢棄營地 找到彥祖當同伴?! EP3",
    "channel": "",
@@ -15346,6 +15390,17 @@
    "kind": "",
    "first_seen": "2026-11-12",
    "last_seen": "2026-11-12"
+  },
+  {
+   "video_id": "WKYWxdr2Sfg",
+   "title": "GTA 6 – How Long to Beat? Story Missions & 100% Completion",
+   "url": "https://www.youtube.com/watch?v=WKYWxdr2Sfg",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-16",
+   "views": 733,
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-16"
   },
   {
    "video_id": "WN7PDP9uBME",
@@ -15604,7 +15659,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-10",
-   "views": 93363,
+   "views": 93602,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-16"
@@ -16338,7 +16393,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-15",
-   "views": 112780,
+   "views": 114946,
    "kind": "",
    "first_seen": "2026-11-15",
    "last_seen": "2026-11-16"
@@ -16613,7 +16668,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-03",
-   "views": 2224717,
+   "views": 2230224,
    "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-16"
@@ -17239,7 +17294,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-10",
-   "views": 108734,
+   "views": 109424,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-16"
@@ -17304,7 +17359,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 14574455,
+   "views": 14664729,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-16"
@@ -17343,7 +17398,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-10-22",
-   "views": 1380386,
+   "views": 1382406,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-11-16"
@@ -17499,7 +17554,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-14",
-   "views": 2489,
+   "views": 2506,
    "kind": "",
    "first_seen": "2026-11-08",
    "last_seen": "2026-11-16"
@@ -18520,7 +18575,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-11-09",
-   "last_seen": "2026-11-15"
+   "last_seen": "2026-11-16"
   },
   {
    "video_id": "cNgv80FvSUQ",
@@ -19039,7 +19094,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-12",
-   "views": 89768,
+   "views": 91209,
    "kind": "",
    "first_seen": "2026-11-12",
    "last_seen": "2026-11-16"
@@ -19242,11 +19297,13 @@
   {
    "video_id": "e3fYFHPHrOs",
    "title": "GTA 6 Has A LOT Of Activites",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=e3fYFHPHrOs",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-16",
-   "views": 353,
+   "views": 816,
+   "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16"
   },
@@ -19786,11 +19843,13 @@
   {
    "video_id": "fN0m5HqFBZM",
    "title": "GTA6  香雞腿會直播的哦！！",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=fN0m5HqFBZM",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-16",
-   "views": 36,
+   "views": 4996,
+   "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16"
   },
@@ -19977,6 +20036,17 @@
    "kind": "",
    "first_seen": "2026-10-28",
    "last_seen": "2026-10-28"
+  },
+  {
+   "video_id": "fpu9NtwmpQQ",
+   "title": "チー牛ギャング【GTA5】",
+   "url": "https://www.youtube.com/watch?v=fpu9NtwmpQQ",
+   "lang": "ja",
+   "game": "GTA 5",
+   "date": "2026-11-15",
+   "views": 20967,
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-16"
   },
   {
    "video_id": "fsf3vyki1Io",
@@ -20181,10 +20251,10 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-25",
-   "views": 149204,
+   "views": 390758,
    "kind": "",
    "first_seen": "2026-10-25",
-   "last_seen": "2026-10-27"
+   "last_seen": "2026-11-16"
   },
   {
    "video_id": "gWuFqf2Py9Q",
@@ -20358,11 +20428,13 @@
   {
    "video_id": "gx6OcnILaOk",
    "title": "My Last GTA Online Video…",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=gx6OcnILaOk",
    "lang": "en",
    "game": "GTA Online",
    "date": "2026-11-16",
-   "views": 1,
+   "views": 42,
+   "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16"
   },
@@ -20374,7 +20446,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-16",
-   "views": 2488,
+   "views": 2512,
    "kind": "",
    "first_seen": "2026-11-15",
    "last_seen": "2026-11-16"
@@ -21489,11 +21561,13 @@
   {
    "video_id": "j8F2Lr2F63k",
    "title": "【Kim阿金】再見了GTA5！全體粉絲一起同聚！",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=j8F2Lr2F63k",
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-16",
    "views": 0,
+   "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16"
   },
@@ -21715,7 +21789,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-16",
-   "views": 1433,
+   "views": 4218,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16"
@@ -21897,7 +21971,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-11",
-   "views": 53988,
+   "views": 54128,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-16"
@@ -22625,10 +22699,10 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-09",
-   "views": 67113,
+   "views": 68729,
    "kind": "",
    "first_seen": "2026-11-09",
-   "last_seen": "2026-11-15"
+   "last_seen": "2026-11-16"
   },
   {
    "video_id": "lwf8shn_WGM",
@@ -22677,7 +22751,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-14",
-   "views": 54371,
+   "views": 54502,
    "kind": "",
    "first_seen": "2026-11-12",
    "last_seen": "2026-11-16"
@@ -23210,7 +23284,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-16",
-   "views": 1273,
+   "views": 1306,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16"
@@ -23227,6 +23301,17 @@
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-11-03"
+  },
+  {
+   "video_id": "nWiTojcTUNI",
+   "title": "NFS MOST WANTED | GTA 5 ManHunt",
+   "url": "https://www.youtube.com/watch?v=nWiTojcTUNI",
+   "lang": "en",
+   "game": "GTA 5",
+   "date": "2026-11-16",
+   "views": 5551,
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-16"
   },
   {
    "video_id": "nYQR_ambePk",
@@ -23459,7 +23544,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-05",
-   "views": 3453439,
+   "views": 3472533,
    "kind": "",
    "first_seen": "2026-11-05",
    "last_seen": "2026-11-16"
@@ -23654,7 +23739,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-15",
-   "views": 37622,
+   "views": 37795,
    "kind": "",
    "first_seen": "2026-11-15",
    "last_seen": "2026-11-16"
@@ -23760,7 +23845,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-15",
-   "views": 2559,
+   "views": 9391,
    "kind": "",
    "first_seen": "2026-11-15",
    "last_seen": "2026-11-16"
@@ -24169,6 +24254,17 @@
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-19"
+  },
+  {
+   "video_id": "pZtfuSQw7sY",
+   "title": "GTA 6 New Zealand Trick: Play 18 Hours Early?",
+   "url": "https://www.youtube.com/watch?v=pZtfuSQw7sY",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-16",
+   "views": 79,
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-16"
   },
   {
    "video_id": "p_tP5FO1Cnc",
@@ -25057,6 +25153,18 @@
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-18"
+  },
+  {
+   "video_id": "rSC8vh-l-R8",
+   "title": "It's GTA6 Release Week!",
+   "channel": "NickRTFM",
+   "url": "https://www.youtube.com/watch?v=rSC8vh-l-R8",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-16",
+   "views": 11939,
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-16"
   },
   {
    "video_id": "rTFyqIuh2LM",
@@ -26095,7 +26203,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-12",
-   "views": 46229,
+   "views": 46355,
    "kind": "",
    "first_seen": "2026-11-12",
    "last_seen": "2026-11-16"
@@ -26309,6 +26417,17 @@
    "last_seen": "2026-11-12"
   },
   {
+   "video_id": "twzKztMrN0I",
+   "title": "たかがゲームで盗撮とは？【GTA5】",
+   "url": "https://www.youtube.com/watch?v=twzKztMrN0I",
+   "lang": "ja",
+   "game": "GTA 5",
+   "date": "2026-11-14",
+   "views": 10320,
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-16"
+  },
+  {
    "video_id": "txjzaBwpZUE",
    "title": "ALL *LIMITED TIME* HALLOWEEN CONTENT IN GTA 5 ONLINE! Halloween 2026 DLC UPDATE! Ghost Event & MORE!",
    "channel": "",
@@ -26517,6 +26636,17 @@
    "kind": "",
    "first_seen": "2026-10-17",
    "last_seen": "2026-10-17"
+  },
+  {
+   "video_id": "ucSRdb9izXM",
+   "title": "【GTA5實況】GTA6剩3天！GTA Online",
+   "url": "https://www.youtube.com/watch?v=ucSRdb9izXM",
+   "lang": "zh",
+   "game": "GTA Online",
+   "date": "2026-11-16",
+   "views": 366,
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-16"
   },
   {
    "video_id": "udKOLP5Rswg",
@@ -27091,7 +27221,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-09",
-   "views": 47171,
+   "views": 47215,
    "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-16"
@@ -27338,7 +27468,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-15",
-   "views": 1938710,
+   "views": 2023501,
    "kind": "",
    "first_seen": "2026-11-15",
    "last_seen": "2026-11-16"
@@ -28419,7 +28549,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 14376750,
+   "views": 14950829,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-16"
@@ -28822,7 +28952,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-04",
-   "views": 113827,
+   "views": 113905,
    "kind": "",
    "first_seen": "2026-11-04",
    "last_seen": "2026-11-16"
@@ -28921,11 +29051,13 @@
   {
    "video_id": "zSZwFsLEtN0",
    "title": "Things Escalated FAST in GTA V! 🔥 #gta5 #shorts #viral",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=zSZwFsLEtN0",
    "lang": "en",
    "game": "GTA 5",
    "date": "2026-11-16",
-   "views": 178,
+   "views": 663,
+   "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16"
   },
