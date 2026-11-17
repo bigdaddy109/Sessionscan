@@ -1,22 +1,11 @@
 [
  {
-  "id": "8Q3BxRLC2Sk",
-  "video_id": "8Q3BxRLC2Sk",
-  "title": "最後のGTA5",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=8Q3BxRLC2Sk",
-  "views": 149893,
-  "date": "2026-11-16",
-  "lang": "ja",
-  "game": "GTA 5"
- },
- {
   "id": "WF7UE0vwbXc",
   "video_id": "WF7UE0vwbXc",
   "title": "GTA5今までありがとう！！最後にPK",
   "channel": "プレイヤーキル大好きプレイヤー",
   "url": "https://www.youtube.com/watch?v=WF7UE0vwbXc",
-  "views": 176587,
+  "views": 177827,
   "date": "2026-11-16",
   "lang": "ja",
   "game": "GTA Online"
@@ -27,10 +16,21 @@
   "title": "こここ、これが運営？！【GTA5】",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=V0d78TY4ocY",
-  "views": 14197,
+  "views": 14297,
   "date": "2026-11-16",
   "lang": "ja",
   "game": "GTA 5"
+ },
+ {
+  "id": "nUHJDZsTlF4",
+  "video_id": "nUHJDZsTlF4",
+  "title": "【配信アーカイブ】GTA ONLINE　お金稼ぎの日常　主にソロ、スローペース",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=nUHJDZsTlF4",
+  "views": 1431,
+  "date": "2026-11-16",
+  "lang": "ja",
+  "game": "GTA Online"
  },
  {
   "id": "oy8em4BSSGg",
@@ -38,7 +38,7 @@
   "title": "【GTA6発売までに】バイスシティーを探検🌴2日後に発売するGTA6と同じ街",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=oy8em4BSSGg",
-  "views": 17711,
+  "views": 17744,
   "date": "2026-11-16",
   "lang": "ja",
   "game": "GTA Online"
@@ -55,34 +55,12 @@
   "game": "GTA Online"
  },
  {
-  "id": "nUHJDZsTlF4",
-  "video_id": "nUHJDZsTlF4",
-  "title": "【配信アーカイブ】GTA ONLINE　お金稼ぎの日常　主にソロ、スローペース",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=nUHJDZsTlF4",
-  "views": 1431,
-  "date": "2026-11-16",
-  "lang": "ja",
-  "game": "GTA Online"
- },
- {
-  "id": "gCqzGfyzvnc",
-  "video_id": "gCqzGfyzvnc",
-  "title": "【笑えるGTA5の規制まとめ】GTA5検証",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=gCqzGfyzvnc",
-  "views": 72927,
-  "date": "2026-11-15",
-  "lang": "ja",
-  "game": "GTA Online"
- },
- {
   "id": "fpu9NtwmpQQ",
   "video_id": "fpu9NtwmpQQ",
   "title": "チー牛ギャング【GTA5】",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=fpu9NtwmpQQ",
-  "views": 25400,
+  "views": 25478,
   "date": "2026-11-15",
   "lang": "ja",
   "game": "GTA 5"
@@ -108,5 +86,27 @@
   "date": "2026-11-14",
   "lang": "ja",
   "game": "GTA 5"
+ },
+ {
+  "id": "0VaXgNFp8Lk",
+  "video_id": "0VaXgNFp8Lk",
+  "title": "【GTA5】節約派のカーライフ「デューンローダー」の巻【第35回】",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=0VaXgNFp8Lk",
+  "views": 1300,
+  "date": "2026-11-14",
+  "lang": "ja",
+  "game": "GTA 5"
+ },
+ {
+  "id": "UsAl_R4Qp8M",
+  "video_id": "UsAl_R4Qp8M",
+  "title": "GTA6の日本語版はどういった規制が入っている？GTA5から予想する",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=UsAl_R4Qp8M",
+  "views": 9354,
+  "date": "2026-11-14",
+  "lang": "ja",
+  "game": "GTA Online"
  }
 ]
