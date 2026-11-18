@@ -7,11 +7,11 @@
  "note_zh": "自有 Shorts／長片。其餘為他人當紅 Short。",
  "note_en": "Owned Shorts and long videos. Other cells are other creators’ trending Shorts.",
  "short": {
-  "id": "W8x-EneLYJE",
-  "video_id": "W8x-EneLYJE",
-  "title": "GTA 6 Has Photo Mode on Day One — Here's How to Open It",
+  "id": "XrJvT_hrALs",
+  "video_id": "XrJvT_hrALs",
+  "title": "GTA 6's House Isn't Just a Spawn Point — Fridge, Stash, and a Working TV",
   "channel": "SessionScan",
-  "url": "https://www.youtube.com/shorts/W8x-EneLYJE",
+  "url": "https://www.youtube.com/shorts/XrJvT_hrALs",
   "views": null,
   "date": null,
   "lang": "en",
@@ -20,6 +20,19 @@
   "owned": true
  },
  "library": [
+  {
+   "id": "XrJvT_hrALs",
+   "video_id": "XrJvT_hrALs",
+   "title": "GTA 6's House Isn't Just a Spawn Point — Fridge, Stash, and a Working TV",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/XrJvT_hrALs",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "owned": true
+  },
   {
    "id": "W8x-EneLYJE",
    "video_id": "W8x-EneLYJE",
@@ -624,19 +637,6 @@
    "title": "Visit Real Vice City Before GTA 6 Launches",
    "channel": "SessionScan",
    "url": "https://www.youtube.com/shorts/qeXuLmzYyow",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA 6",
-   "kind": "short",
-   "owned": true
-  },
-  {
-   "id": "6GugKNWi2UA",
-   "video_id": "6GugKNWi2UA",
-   "title": "GTA 6 Has TWO Soundtracks — Don't Mix Them Up",
-   "channel": "SessionScan",
-   "url": "https://www.youtube.com/shorts/6GugKNWi2UA",
    "views": null,
    "date": null,
    "lang": "en",
