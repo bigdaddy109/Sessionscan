@@ -1,17 +1,5 @@
 [
  {
-  "id": "b4a41960687f7d3bb6dfbafa762cfe4d",
-  "tid": "2123068976045453338",
-  "url": "https://x.com/RockstarGames/status/2123068976045453338",
-  "author": "RockstarGames",
-  "author_name": "Rockstar Games",
-  "text": "SET TIMES FOR GRAND THEFT AUTO VI: THE FESTIVAL \n\nDoors open at 4:00 p.m. and The Store at Mana Wynwood will be stocked with special GTAVI gear: https://t.co/XRlfYFOk0H \n\nAs a thank you to Miami, all proceeds from ticket sales will go to local Miami charities. https://t.co/NAa8KO7JwN",
-  "date": "2026-11-18",
-  "likes": 12975,
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
   "id": "5796471d542494cb087ab23bc4aca8b6",
   "tid": "2123069155775541350",
   "url": "https://x.com/RockstarGames/status/2123069155775541350",
@@ -20,6 +8,18 @@
   "text": "Charities include: The Miami Foundation, Miami Bethany Community Services, Inc.; Hermanos de la Calle; Live Healthy Little Havana; Martin Luther King Economic Development Corporation; Coconut Grove Crisis Food Pantry Inc.; Dade County Association of Fire Fighters Charities, Inc.;",
   "date": "2026-11-18",
   "likes": 2471,
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "da60d5f437208613f6ca7c42208e5a81",
+  "tid": "2123068976045453338",
+  "url": "https://x.com/rockstargames/status/2123068976045453338",
+  "author": "rockstargames",
+  "author_name": "Rockstar Games",
+  "text": "SET TIMES FOR GRAND THEFT AUTO VI: THE FESTIVAL \n\nDoors open at 4:00 p.m. and The Store at Mana Wynwood will be stocked with special GTAVI gear: https://rsg.ms/gtavi-thefestival \n\nAs a thank you to Miami, all proceeds from ticket sales will go to local Miami charities.",
+  "date": "2026-11-18",
+  "likes": null,
   "lang": "en",
   "game": "GTA 6"
  },
