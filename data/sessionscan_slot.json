@@ -7,11 +7,11 @@
  "note_zh": "自有 Shorts／長片。其餘為他人當紅 Short。",
  "note_en": "Owned Shorts and long videos. Other cells are other creators’ trending Shorts.",
  "short": {
-  "id": "fAOVEZEXhx0",
-  "video_id": "fAOVEZEXhx0",
-  "title": "I Played GTA 6 Early at the New Zealand Unlock",
+  "id": "W8x-EneLYJE",
+  "video_id": "W8x-EneLYJE",
+  "title": "GTA 6 Has Photo Mode on Day One — Here's How to Open It",
   "channel": "SessionScan",
-  "url": "https://www.youtube.com/shorts/fAOVEZEXhx0",
+  "url": "https://www.youtube.com/shorts/W8x-EneLYJE",
   "views": null,
   "date": null,
   "lang": "en",
@@ -20,6 +20,19 @@
   "owned": true
  },
  "library": [
+  {
+   "id": "W8x-EneLYJE",
+   "video_id": "W8x-EneLYJE",
+   "title": "GTA 6 Has Photo Mode on Day One — Here's How to Open It",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/W8x-EneLYJE",
+   "views": null,
+   "date": null,
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "owned": true
+  },
   {
    "id": "fAOVEZEXhx0",
    "video_id": "fAOVEZEXhx0",
@@ -624,19 +637,6 @@
    "title": "GTA 6 Has TWO Soundtracks — Don't Mix Them Up",
    "channel": "SessionScan",
    "url": "https://www.youtube.com/shorts/6GugKNWi2UA",
-   "views": null,
-   "date": null,
-   "lang": "en",
-   "game": "GTA 6",
-   "kind": "short",
-   "owned": true
-  },
-  {
-   "id": "ubebt_BuZh8",
-   "video_id": "ubebt_BuZh8",
-   "title": "6-Star Wanted Level Is BACK in GTA 6",
-   "channel": "SessionScan",
-   "url": "https://www.youtube.com/shorts/ubebt_BuZh8",
    "views": null,
    "date": null,
    "lang": "en",
