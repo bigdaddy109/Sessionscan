@@ -194,23 +194,8 @@
   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
  },
  {
-  "id": "8743bab82446f8451e58b30cff14feb7",
-  "rank": 7,
-  "title": "GTA Online Weekly Update (October 1-7): Halloween in Los Santos, Bonuses & Discounts",
-  "title_en": "",
-  "source": "GTABase",
-  "game": "GTA Online",
-  "author": "GTABase",
-  "updated": "2026-10-01",
-  "tags": [
-   "GTA Online"
-  ],
-  "url": "https://www.gtabase.com/articles/grand-theft-auto-v/news/gta-online-weekly-update-october-1-7-halloween-in-los-santos-bonuses-discounts",
-  "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
- },
- {
   "id": "d8d19e53074176ae908e0ec669326eb2",
-  "rank": 8,
+  "rank": 7,
   "title": "GTA Online: The Kortz Center Heist Update",
   "title_en": "",
   "source": "GTABase",
@@ -221,6 +206,21 @@
    "GTA Online"
   ],
   "url": "https://www.gtabase.com/articles/grand-theft-auto-v/title-updates/gta-online-summer-2026-dlc-update-1-73-patch-notes-features",
+  "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
+ },
+ {
+  "id": "349a652fceb15f256febf0d32ab66695",
+  "rank": 8,
+  "title": "GTA 6 Heists Explained: Every Big Score Confirmed So Far",
+  "title_en": "",
+  "source": "GTABase",
+  "game": "GTA 6",
+  "author": "GTABase",
+  "updated": null,
+  "tags": [
+   "GTA 6"
+  ],
+  "url": "https://www.gtabase.com/articles/gta-6/gta-6-heists-explained-every-big-score-confirmed-so-far",
   "blurb": "外連公開頁。本站只列標題與日期，不轉載全文。"
  }
 ]
