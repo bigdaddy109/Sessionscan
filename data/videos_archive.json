@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19T08:03:11Z",
+ "updated": "2026-11-19T10:03:41Z",
  "videos": [
   {
    "video_id": "-2WDkE81g6I",
@@ -78,6 +78,17 @@
    "kind": "",
    "first_seen": "2026-10-26",
    "last_seen": "2026-10-26"
+  },
+  {
+   "video_id": "-D_wt4GXmNw",
+   "title": "GTA 6 Gameplay Walkthrough Part 3 FULL GAME [4K PS5 PRO] - No Commentary",
+   "url": "https://www.youtube.com/watch?v=-D_wt4GXmNw",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-19",
+   "views": 2474,
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19"
   },
   {
    "video_id": "-J2vkN6OMME",
@@ -178,7 +189,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-17",
-   "views": 211268,
+   "views": 214858,
    "kind": "",
    "first_seen": "2026-11-17",
    "last_seen": "2026-11-19"
@@ -1040,7 +1051,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-18",
-   "views": 184748,
+   "views": 185263,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-19"
@@ -2794,11 +2805,13 @@
   {
    "video_id": "451yeB6mndY",
    "title": "GTA 6 Gameplay Walkthrough Part 5 - LUCIA IS OUT OF PRISON",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=451yeB6mndY",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
    "views": 23461,
+   "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
   },
@@ -2948,11 +2961,13 @@
   {
    "video_id": "4P7hTzf_BbU",
    "title": "GTA 6 – I Stole a Plane From the Airport and Fighter Jets Chased Me!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=4P7hTzf_BbU",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 897,
+   "views": 5281,
+   "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
   },
@@ -2964,7 +2979,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-09",
-   "views": 182590,
+   "views": 182809,
    "kind": "",
    "first_seen": "2026-11-09",
    "last_seen": "2026-11-19"
@@ -3185,7 +3200,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 150296,
+   "views": 150660,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-19"
@@ -3722,6 +3737,17 @@
    "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-18"
+  },
+  {
+   "video_id": "5tdj53ioJ-c",
+   "title": "PLAYING GTA 6 FOR THE FIRST TIME (PART 2)",
+   "url": "https://www.youtube.com/watch?v=5tdj53ioJ-c",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-19",
+   "views": 0,
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19"
   },
   {
    "video_id": "5tfiBFXSa28",
@@ -4281,7 +4307,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 47216,
+   "views": 48134,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -5102,7 +5128,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-11-16",
-   "views": 398311,
+   "views": 402287,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-19"
@@ -5622,7 +5648,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 104619,
+   "views": 143806,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -6081,7 +6107,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-14",
-   "views": 3259214,
+   "views": 3313244,
    "kind": "",
    "first_seen": "2026-11-15",
    "last_seen": "2026-11-19"
@@ -7896,7 +7922,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 4903,
+   "views": 7674,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -8620,12 +8646,14 @@
   },
   {
    "video_id": "F9iT17Lia4M",
-   "title": "【直播精華】GTAVI 遇到沼澤野人？！",
+   "title": "【直播精華】GTAVI 遇到沼澤野人？！ #gtavi #gta6",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=F9iT17Lia4M",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 320,
+   "views": 1991,
+   "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
   },
@@ -9445,7 +9473,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 3868311,
+   "views": 4838545,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -9588,7 +9616,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 4269,
+   "views": 6365,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -9930,6 +9958,17 @@
    "kind": "",
    "first_seen": "2026-11-09",
    "last_seen": "2026-11-09"
+  },
+  {
+   "video_id": "HzINZo6pFo8",
+   "title": "【GTA6】是這樣修車的？｜俠盜獵車手VI｜Grand Theft Auto VI｜PFY玩給你看",
+   "url": "https://www.youtube.com/watch?v=HzINZo6pFo8",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-19",
+   "views": 301,
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19"
   },
   {
    "video_id": "I0wZq2mJLyE",
@@ -10435,7 +10474,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 101451,
+   "views": 103227,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-19"
@@ -13273,7 +13312,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 15343,
+   "views": 21431,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -13507,7 +13546,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 11022,
+   "views": 14508,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -14627,7 +14666,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 3822,
+   "views": 6940,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -15199,7 +15238,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-11",
-   "views": 170877,
+   "views": 171379,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-19"
@@ -15695,7 +15734,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 15887129,
+   "views": 16138106,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-19"
@@ -16009,7 +16048,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 141871,
+   "views": 191339,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -16686,11 +16725,13 @@
   {
    "video_id": "VLjurczcArg",
    "title": "【阿航直播】GTA6 繼續開拚! Grand Theft Auto VI Day2",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=VLjurczcArg",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 4569,
+   "views": 44223,
+   "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
   },
@@ -16832,7 +16873,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 11455714,
+   "views": 11552838,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-19"
@@ -17200,7 +17241,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-16",
-   "views": 365569,
+   "views": 368924,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-19"
@@ -17851,11 +17892,13 @@
   {
    "video_id": "XZZmKMVvol4",
    "title": "GTA 6 Gameplay Walkthrough Part 4 - BIG FOOT (Island Dreams & Meet Cal)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=XZZmKMVvol4",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
    "views": 27196,
+   "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
   },
@@ -18116,7 +18159,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 2805270,
+   "views": 4058572,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -18129,7 +18172,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 18703,
+   "views": 20807,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -18378,7 +18421,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-15",
-   "views": 147509,
+   "views": 149535,
    "kind": "",
    "first_seen": "2026-11-15",
    "last_seen": "2026-11-19"
@@ -18579,6 +18622,17 @@
    "kind": "",
    "first_seen": "2026-10-19",
    "last_seen": "2026-10-30"
+  },
+  {
+   "video_id": "ZIPMQrdl1J0",
+   "title": "GTA6 俠盜獵車手6 | YT也太純真! 看來要多遮一點! 繼續馬拉松! #1.5 - 莎皮塞維爾",
+   "url": "https://www.youtube.com/watch?v=ZIPMQrdl1J0",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-19",
+   "views": 140743,
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19"
   },
   {
    "video_id": "ZIzdpJHbH1I",
@@ -19422,7 +19476,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 18588502,
+   "views": 18661994,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-19"
@@ -20612,7 +20666,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-23",
-   "last_seen": "2026-11-18"
+   "last_seen": "2026-11-19"
   },
   {
    "video_id": "c-NC-9nGPyU",
@@ -21592,6 +21646,17 @@
    "last_seen": "2026-11-14"
   },
   {
+   "video_id": "e-LIKNugH8g",
+   "title": "Grand Theft Auto 6 - Part 4 - Lucia Comes Home From Prison",
+   "url": "https://www.youtube.com/watch?v=e-LIKNugH8g",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-19",
+   "views": 93005,
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19"
+  },
+  {
    "video_id": "e12kReTh3YE",
    "title": "NEVER ROB THIS GUY 3 DAYS IN GTA 5 😨 #shorts #gta5",
    "channel": "WBX",
@@ -21746,6 +21811,17 @@
    "kind": "",
    "first_seen": "2026-10-07",
    "last_seen": "2026-10-18"
+  },
+  {
+   "video_id": "eC0Uenr6-kg",
+   "title": "GTA 6 Gameplay Walkthrough Part 2 FULL GAME [4K PS5 PRO] - No Commentary",
+   "url": "https://www.youtube.com/watch?v=eC0Uenr6-kg",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-19",
+   "views": 108947,
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19"
   },
   {
    "video_id": "eE16OSpB5V0",
@@ -22171,7 +22247,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 1364,
+   "views": 1867,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -23397,7 +23473,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 638569,
+   "views": 646090,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-19"
@@ -23880,7 +23956,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 205686,
+   "views": 211573,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-19"
@@ -24283,7 +24359,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-07",
-   "views": 145631,
+   "views": 145892,
    "kind": "",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-19"
@@ -26131,7 +26207,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-18",
-   "views": 272853,
+   "views": 274306,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-19"
@@ -26148,6 +26224,17 @@
    "kind": "",
    "first_seen": "2026-11-05",
    "last_seen": "2026-11-05"
+  },
+  {
+   "video_id": "nSj4NqgTjjM",
+   "title": "GTA 6 Gameplay (AI-Generated) #gta6",
+   "channel": "AMABSH",
+   "url": "https://www.youtube.com/shorts/nSj4NqgTjjM",
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19"
   },
   {
    "video_id": "nUHJDZsTlF4",
@@ -26458,7 +26545,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-05",
-   "views": 4044037,
+   "views": 4064420,
    "kind": "",
    "first_seen": "2026-11-05",
    "last_seen": "2026-11-19"
@@ -26570,11 +26657,13 @@
   {
    "video_id": "oIDltxLF1ws",
    "title": "【GTA6初心者講座②】遊び方は無限大‼️進化したNPCと超自由なフリーモードで車を使って楽しむ方法まとめ",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=oIDltxLF1ws",
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 271,
+   "views": 2585,
+   "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
   },
@@ -27123,7 +27212,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 6386,
+   "views": 10531,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -27220,6 +27309,19 @@
    "last_seen": "2026-10-18"
   },
   {
+   "video_id": "pRrnKNuLxCc",
+   "title": "A Plane Just Went Down in GTA 6 | $1,280",
+   "channel": "SessionScan",
+   "url": "https://www.youtube.com/shorts/pRrnKNuLxCc",
+   "lang": "en",
+   "game": "GTA 6",
+   "kind": "short",
+   "owned": true,
+   "channel_url": "https://www.youtube.com/@sessionscan",
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19"
+  },
+  {
    "video_id": "pULKSedK0ck",
    "title": "GTA 6 Xbox版被消失？Sony買下獨家行銷權！PS5宣傳全面啟動！GTA Online Weekly Update",
    "channel": "",
@@ -27279,7 +27381,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 2177,
+   "views": 2842,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -27383,7 +27485,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 52626,
+   "views": 89641,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -28843,7 +28945,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 7822719,
+   "views": 7822777,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-19"
@@ -29222,7 +29324,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 119240,
+   "views": 119370,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-11-19"
@@ -30281,7 +30383,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-18",
-   "views": 192535,
+   "views": 210066,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-19"
@@ -30400,7 +30502,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 9839,
+   "views": 18392,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -30491,7 +30593,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 3241036,
+   "views": 3991507,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -31284,7 +31386,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-17",
-   "views": 97268,
+   "views": 97386,
    "kind": "",
    "first_seen": "2026-11-17",
    "last_seen": "2026-11-19"
@@ -31362,7 +31464,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 9084530,
+   "views": 9114196,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-19"
@@ -31479,7 +31581,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-01",
-   "views": 174658,
+   "views": 174738,
    "kind": "",
    "first_seen": "2026-11-01",
    "last_seen": "2026-11-19"
@@ -31704,6 +31806,17 @@
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-11"
+  },
+  {
+   "video_id": "y2ibFY51D-4",
+   "title": "GTA6 俠盜獵車手6 | 這代很極緻! 欲罷不能繼續拚! #2 - 莎皮塞維爾 #ps5pro",
+   "url": "https://www.youtube.com/watch?v=y2ibFY51D-4",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-19",
+   "views": 4693,
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19"
   },
   {
    "video_id": "y34UESrKuVU",
@@ -32269,11 +32382,13 @@
   {
    "video_id": "yqJ7O9b_F_c",
    "title": "GTA 6 + DLSS 5 Looks Almost TOO REAL to Be a Game! [4K 60FPS HDR]",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=yqJ7O9b_F_c",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 6884,
+   "views": 16145,
+   "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
   },
@@ -32454,7 +32569,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-17",
-   "views": 131679,
+   "views": 132989,
    "kind": "",
    "first_seen": "2026-11-17",
    "last_seen": "2026-11-19"
