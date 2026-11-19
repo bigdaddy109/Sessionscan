@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19T16:03:23Z",
+ "updated": "2026-11-19T16:18:30Z",
  "videos": [
   {
    "video_id": "-2WDkE81g6I",
@@ -191,7 +191,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-17",
-   "views": 223275,
+   "views": 223564,
    "kind": "",
    "first_seen": "2026-11-17",
    "last_seen": "2026-11-19"
@@ -1066,7 +1066,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-18",
-   "views": 187072,
+   "views": 187123,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-19"
@@ -1222,7 +1222,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 127,
+   "views": 270,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -1443,10 +1443,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-05",
-   "views": 1893643,
+   "views": 1958849,
    "kind": "",
    "first_seen": "2026-11-07",
-   "last_seen": "2026-11-16"
+   "last_seen": "2026-11-19"
   },
   {
    "video_id": "1gxGAo8CpEA",
@@ -1666,7 +1666,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 5903,
+   "views": 6598,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -2443,11 +2443,13 @@
   {
    "video_id": "3FbHbWWNH-c",
    "title": "GTA 6 (Grand Theft Auto 6) - Official Global Launch Trailer",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=3FbHbWWNH-c",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
    "views": 23917,
+   "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
   },
@@ -2857,12 +2859,12 @@
   {
    "video_id": "45FqURpMNCs",
    "title": "GTA 6 - CHAPTER 2! Playing GTA 6 for the First Time",
-   "channel": "",
+   "channel": "TGG",
    "url": "https://www.youtube.com/watch?v=45FqURpMNCs",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 836140,
+   "views": 916318,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -3239,7 +3241,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 151202,
+   "views": 151536,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-19"
@@ -4006,7 +4008,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 1856920,
+   "views": 2335297,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -5182,7 +5184,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-11-16",
-   "views": 410360,
+   "views": 415393,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-19"
@@ -5702,7 +5704,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 244948,
+   "views": 291152,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -6161,7 +6163,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-14",
-   "views": 3313244,
+   "views": 3357630,
    "kind": "",
    "first_seen": "2026-11-15",
    "last_seen": "2026-11-19"
@@ -7989,7 +7991,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 15652,
+   "views": 15809,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -8175,6 +8177,17 @@
    "kind": "",
    "first_seen": "2026-11-13",
    "last_seen": "2026-11-13"
+  },
+  {
+   "video_id": "EAjNn69ueSg",
+   "title": "GTA 6 - FINISHING CHAPTER 2 TODAY! Playing GTA 6 for the First Time",
+   "url": "https://www.youtube.com/watch?v=EAjNn69ueSg",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-19",
+   "views": 2,
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19"
   },
   {
    "video_id": "EBQXL562R3k",
@@ -10569,7 +10582,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 110412,
+   "views": 110601,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-19"
@@ -10738,7 +10751,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-15",
-   "views": 257905,
+   "views": 257978,
    "kind": "",
    "first_seen": "2026-11-15",
    "last_seen": "2026-11-19"
@@ -11024,7 +11037,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 35900,
+   "views": 88885,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -11837,16 +11850,16 @@
   },
   {
    "video_id": "LEXP66z1pyg",
-   "title": "GTA 6 in 4 DAYS - EVERYTHING YOU NEED TO KNOW!",
+   "title": "GTA 6 - EVERYTHING YOU NEED TO KNOW!",
    "channel": "",
    "url": "https://www.youtube.com/watch?v=LEXP66z1pyg",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-14",
-   "views": 1370744,
+   "views": 2433819,
    "kind": "",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16"
+   "last_seen": "2026-11-19"
   },
   {
    "video_id": "LGDtV1LGNCw",
@@ -13654,7 +13667,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 20526,
+   "views": 20605,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -13762,6 +13775,17 @@
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "PH6WdBYOzSI",
+   "title": "🔴 GTA 6 Has Me Hooked! (LIVE Gameplay)",
+   "url": "https://www.youtube.com/watch?v=PH6WdBYOzSI",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-19",
+   "views": 330474,
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19"
   },
   {
    "video_id": "PITw4Ahwinc",
@@ -14728,6 +14752,17 @@
    "last_seen": "2026-10-24"
   },
   {
+   "video_id": "R0GdEkPZSvM",
+   "title": "GTA 6 - CHAPTER 2 CONTINUES! Playing GTA 6 for the First Time",
+   "url": "https://www.youtube.com/watch?v=R0GdEkPZSvM",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-19",
+   "views": 685323,
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19"
+  },
+  {
    "video_id": "R2HArCPupiQ",
    "title": "I become a fake bricks and trolled COP in GTA #gta #gtav #gtaonline",
    "channel": "GOD WARRIOR GAMING",
@@ -14774,7 +14809,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 14673,
+   "views": 14812,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -14826,7 +14861,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 210411,
+   "views": 210711,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-19"
@@ -15138,7 +15173,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-16",
-   "views": 2184691,
+   "views": 2193914,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-19"
@@ -15359,7 +15394,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-11",
-   "views": 172672,
+   "views": 172720,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-19"
@@ -15785,11 +15820,13 @@
   {
    "video_id": "T95WGWkx7P0",
    "title": "Grand Theft Auto VI Now Available",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=T95WGWkx7P0",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
    "views": 96630,
+   "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
   },
@@ -16069,11 +16106,13 @@
   {
    "video_id": "TaEeSDBBJa4",
    "title": "【阿航】GTA6第二天就惹到特警？！還差點被NPC仙人跳...？竟然能無痛升級60FPS！？",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=TaEeSDBBJa4",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 5358,
+   "views": 5647,
+   "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
   },
@@ -16191,7 +16230,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 309137,
+   "views": 380135,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -16873,7 +16912,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 95452,
+   "views": 95612,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -16925,7 +16964,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 3256050,
+   "views": 3257534,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -17135,7 +17174,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 2514,
+   "views": 2644,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -17425,7 +17464,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-16",
-   "views": 379314,
+   "views": 379672,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-19"
@@ -18618,7 +18657,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-15",
-   "views": 156647,
+   "views": 156951,
    "kind": "",
    "first_seen": "2026-11-15",
    "last_seen": "2026-11-19"
@@ -18797,11 +18836,13 @@
   {
    "video_id": "Z9ovJjmXnpI",
    "title": "【阿航】GTA6惹到特警會怎樣？",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Z9ovJjmXnpI",
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 1380,
+   "views": 1956,
+   "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
   },
@@ -20156,7 +20197,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 194914,
+   "views": 198300,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -20886,7 +20927,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 139088,
+   "views": 151161,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -23682,11 +23723,13 @@
   {
    "video_id": "hQAHI7aD1Dk",
    "title": "🔴 GTA 6 LIVE GAMEPLAY 60 FPS - WORLD PREMIERE PART 1 - PS5 PRO",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=hQAHI7aD1Dk",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 2909838,
+   "views": 2911311,
+   "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
   },
@@ -23763,7 +23806,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 664413,
+   "views": 664994,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-19"
@@ -23834,6 +23877,17 @@
    "last_seen": "2026-11-03"
   },
   {
+   "video_id": "hjJdDeBZ71E",
+   "title": "GTA VI Mission 4: Just A Scratch Walkthrough (4K PS5 Pro)",
+   "url": "https://www.youtube.com/watch?v=hjJdDeBZ71E",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-19",
+   "views": 7,
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19"
+  },
+  {
    "video_id": "hkNxkatKro8",
    "title": "ようやく200万回収できるぞぉおおおお！オンラインでミッション！【GTA5】",
    "channel": "",
@@ -23854,7 +23908,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 11705,
+   "views": 197511,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -24246,7 +24300,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 233546,
+   "views": 234160,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-19"
@@ -24800,13 +24854,26 @@
    "last_seen": "2026-11-10"
   },
   {
+   "video_id": "jZJIiOJcja8",
+   "title": "🔴 GTA 6 JUST KEEPS GETTING BETTER! (LIVE Gameplay)",
+   "url": "https://www.youtube.com/watch?v=jZJIiOJcja8",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-19",
+   "views": 0,
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19"
+  },
+  {
    "video_id": "jZka1Ay1-gI",
    "title": "GTA 6’s First Two Hours Teach You Everything You Need to Know About The Next 100",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=jZka1Ay1-gI",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
    "views": 8528,
+   "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
   },
@@ -26079,7 +26146,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 953,
+   "views": 1007,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -26265,6 +26332,17 @@
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-23"
+  },
+  {
+   "video_id": "mn_OC3TTZ2w",
+   "title": "Grand Theft Auto VI US LAUNCH STREAM! (First Ever Play Through of GTA 6 Story Mode)",
+   "url": "https://www.youtube.com/watch?v=mn_OC3TTZ2w",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-19",
+   "views": 103012,
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19"
   },
   {
    "video_id": "moM9_MTO1pk",
@@ -26521,7 +26599,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-18",
-   "views": 278947,
+   "views": 279093,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-19"
@@ -26861,7 +26939,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-05",
-   "views": 4132784,
+   "views": 4135364,
    "kind": "",
    "first_seen": "2026-11-05",
    "last_seen": "2026-11-19"
@@ -27103,11 +27181,13 @@
   {
    "video_id": "oh3QgbAY4-U",
    "title": "【GTA6攻略】知らないと損！序盤に絶対やるべき15選/おすすめ設定/金策/手配度の消し方/取り返しのつかない要素【初心者必見】",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=oh3QgbAY4-U",
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 18672,
+   "views": 20019,
+   "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
   },
@@ -27207,11 +27287,13 @@
   {
    "video_id": "onModfSiiWQ",
    "title": "【Stanley】11/18  GTA6  通宵台  !ExitLag",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=onModfSiiWQ",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-18",
    "views": 192750,
+   "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
   },
@@ -27825,7 +27907,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 148922,
+   "views": 185747,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -28986,7 +29068,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 6129,
+   "views": 6235,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -29677,7 +29759,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 119475,
+   "views": 119520,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-11-19"
@@ -30236,7 +30318,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 8224,
+   "views": 8623,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -30762,7 +30844,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-18",
-   "views": 268192,
+   "views": 270216,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-19"
@@ -30881,7 +30963,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 41268,
+   "views": 41615,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
@@ -31583,7 +31665,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-11",
-   "views": 2493051,
+   "views": 2510945,
    "kind": "",
    "first_seen": "2026-11-12",
    "last_seen": "2026-11-19"
@@ -31843,7 +31925,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 9190651,
+   "views": 9192855,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-19"
@@ -32278,6 +32360,17 @@
    "kind": "",
    "first_seen": "2026-11-17",
    "last_seen": "2026-11-18"
+  },
+  {
+   "video_id": "y8za9fCVk4w",
+   "title": "GTA 6: Finishing Chapter 1 - Part 4",
+   "url": "https://www.youtube.com/watch?v=y8za9fCVk4w",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-19",
+   "views": 103559,
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19"
   },
   {
    "video_id": "y9SH1uK_onA",
@@ -32950,7 +33043,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-17",
-   "views": 138456,
+   "views": 138720,
    "kind": "",
    "first_seen": "2026-11-17",
    "last_seen": "2026-11-19"
