@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T02:04:16Z",
+ "updated": "2026-11-20T04:03:38Z",
  "videos": [
   {
    "video_id": "-2WDkE81g6I",
@@ -191,7 +191,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-17",
-   "views": 228663,
+   "views": 229456,
    "kind": "",
    "first_seen": "2026-11-17",
    "last_seen": "2026-11-20"
@@ -1092,7 +1092,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-18",
-   "views": 188122,
+   "views": 188221,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-20"
@@ -3852,7 +3852,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 3799737,
+   "views": 4163238,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-20"
@@ -3885,12 +3885,14 @@
   },
   {
    "video_id": "5vxsKlNd-bY",
-   "title": "Meeting LUCIA For The First Time in GTA 6 (EP. 2)",
+   "title": "LUCIA MOVED IN in GTA 6.. (EP. 2)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=5vxsKlNd-bY",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 198872,
+   "views": 237137,
+   "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-20"
   },
@@ -4079,12 +4081,12 @@
   {
    "video_id": "6E2cBXFCDyQ",
    "title": "GTA 6 - Stealing a Jet From the Military Base",
-   "channel": "",
+   "channel": "TmarTn2",
    "url": "https://www.youtube.com/watch?v=6E2cBXFCDyQ",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 3872283,
+   "views": 4536366,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-20"
@@ -5260,7 +5262,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-11-16",
-   "views": 422683,
+   "views": 423963,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-20"
@@ -5780,7 +5782,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 339580,
+   "views": 347484,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-20"
@@ -7800,11 +7802,13 @@
   {
    "video_id": "CwveFq2HA50",
    "title": "Can you date Mandy in GTA 6? Asking for a friend. #gta6 #mandy #dating #gaming #ign",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=CwveFq2HA50",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-20",
    "views": 116,
+   "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-20"
   },
@@ -8091,7 +8095,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 18157,
+   "views": 18473,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-20"
@@ -9169,11 +9173,13 @@
   {
    "video_id": "Fia-o8_7iEw",
    "title": "GTA 6 - Niko Bellic Returns (4K ULTRA HD)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=Fia-o8_7iEw",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 4052,
+   "views": 80977,
+   "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-20"
   },
@@ -9705,7 +9711,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 6378134,
+   "views": 6407900,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-20"
@@ -10708,7 +10714,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 113011,
+   "views": 113668,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-20"
@@ -10877,7 +10883,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-15",
-   "views": 259191,
+   "views": 259328,
    "kind": "",
    "first_seen": "2026-11-15",
    "last_seen": "2026-11-20"
@@ -11206,6 +11212,17 @@
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-10-22"
+  },
+  {
+   "video_id": "JsAHf8cmves",
+   "title": "GTA6高級典藏盒開箱！The Goodtime State Vice City Collection Unboxing",
+   "url": "https://www.youtube.com/watch?v=JsAHf8cmves",
+   "lang": "zh",
+   "game": "GTA Online",
+   "date": "2026-11-20",
+   "views": 179,
+   "first_seen": "2026-11-20",
+   "last_seen": "2026-11-20"
   },
   {
    "video_id": "JuErTIEA0Bs",
@@ -13559,10 +13576,10 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 37824,
+   "views": 41413,
    "kind": "",
    "first_seen": "2026-11-19",
-   "last_seen": "2026-11-19"
+   "last_seen": "2026-11-20"
   },
   {
    "video_id": "OToFvfQorVs",
@@ -14308,11 +14325,13 @@
   {
    "video_id": "QA5LbRVMPmI",
    "title": "Kai Cenat Meets Mandy For The FIrst TIme On GTA VI 💀",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=QA5LbRVMPmI",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 894,
+   "views": 8936,
+   "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-20"
   },
@@ -15028,7 +15047,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 217871,
+   "views": 219055,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-20"
@@ -15145,7 +15164,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 3314346,
+   "views": 3491747,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-20"
@@ -15574,7 +15593,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-11",
-   "views": 173764,
+   "views": 173920,
    "kind": "",
    "first_seen": "2026-11-11",
    "last_seen": "2026-11-20"
@@ -15716,11 +15735,11 @@
    "url": "https://www.youtube.com/watch?v=Saegte-2eoo",
    "lang": "ja",
    "game": "GTA Online",
-   "date": "2026-11-18",
-   "views": 246,
+   "date": "2026-11-19",
+   "views": 47420,
    "kind": "",
    "first_seen": "2026-11-18",
-   "last_seen": "2026-11-19"
+   "last_seen": "2026-11-20"
   },
   {
    "video_id": "SbCIxjHUzhA",
@@ -16083,7 +16102,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 17133969,
+   "views": 17164079,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-20"
@@ -16291,7 +16310,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 67132,
+   "views": 75344,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-20"
@@ -16410,7 +16429,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 481548,
+   "views": 497062,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-20"
@@ -17092,7 +17111,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 99192,
+   "views": 99617,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-20"
@@ -17248,7 +17267,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 11991659,
+   "views": 12012622,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-20"
@@ -17644,7 +17663,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-16",
-   "views": 384682,
+   "views": 385255,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-20"
@@ -19021,7 +19040,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 26359,
+   "views": 35617,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-20"
@@ -19077,6 +19096,17 @@
    "kind": "",
    "first_seen": "2026-11-12",
    "last_seen": "2026-11-12"
+  },
+  {
+   "video_id": "ZJPvHVuhIyg",
+   "title": "俠盜獵車手6 劇情攻略 (3) 島之夢、風生水起、採買雜貨、購買花、購買項鍊給露西亞、修整儀容、取得露西亞的衣服、歸家",
+   "url": "https://www.youtube.com/watch?v=ZJPvHVuhIyg",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-20",
+   "views": 268,
+   "first_seen": "2026-11-20",
+   "last_seen": "2026-11-20"
   },
   {
    "video_id": "ZNFgSAEcbSs",
@@ -19907,7 +19937,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 19259028,
+   "views": 19313473,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-20"
@@ -20372,12 +20402,12 @@
   {
    "video_id": "aqlEe0LPsPw",
    "title": "第一次玩到細節如此誇張的遊戲！Grand Theft Auto VI《俠盜獵車手6》【PS5 PRO 4K】",
-   "channel": "",
+   "channel": "Laowu老吳",
    "url": "https://www.youtube.com/watch?v=aqlEe0LPsPw",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 246707,
+   "views": 252831,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-20"
@@ -20632,11 +20662,13 @@
   {
    "video_id": "bDDMVxCjMyI",
    "title": "GTA 6 - Stealing Paul Walker's Eclipse & Circuit Racing (Fast & Furious)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=bDDMVxCjMyI",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 12365,
+   "views": 40334,
+   "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-20"
   },
@@ -21118,7 +21150,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 221179,
+   "views": 222910,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-20"
@@ -21512,6 +21544,17 @@
    "kind": "",
    "first_seen": "2026-10-09",
    "last_seen": "2026-10-09"
+  },
+  {
+   "video_id": "cq5s0sTM6Pk",
+   "title": "We asked GTA 6 fans in Miami what they're most looking forward to in the game! #gta6 #miami #ign",
+   "url": "https://www.youtube.com/watch?v=cq5s0sTM6Pk",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-20",
+   "views": 1056,
+   "first_seen": "2026-11-20",
+   "last_seen": "2026-11-20"
   },
   {
    "video_id": "crRIjTMAOME",
@@ -22675,11 +22718,13 @@
   {
    "video_id": "euRS0iLbmks",
    "title": "I Found GTA 6 In Real Life!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=euRS0iLbmks",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 27914,
+   "views": 77457,
+   "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-20"
   },
@@ -23141,6 +23186,17 @@
    "kind": "",
    "first_seen": "2026-10-12",
    "last_seen": "2026-10-29"
+  },
+  {
+   "video_id": "g0o1zfmKzuo",
+   "title": "【GTA6初心者講座③】12個のスマホの機能と進行度22%でミスったら取り返しつかない重要なお知らせ",
+   "url": "https://www.youtube.com/watch?v=g0o1zfmKzuo",
+   "lang": "ja",
+   "game": "GTA Online",
+   "date": "2026-11-20",
+   "views": 1784,
+   "first_seen": "2026-11-20",
+   "last_seen": "2026-11-20"
   },
   {
    "video_id": "g0ooyuUOn-U",
@@ -24008,7 +24064,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 676674,
+   "views": 678016,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-20"
@@ -24504,7 +24560,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 243893,
+   "views": 245154,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-20"
@@ -24902,11 +24958,13 @@
   {
    "video_id": "j9DEVPCHvig",
    "title": "【GTA6】被野人襲擊！｜PFY玩給你看",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=j9DEVPCHvig",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 314,
+   "views": 970,
+   "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-20"
   },
@@ -26798,6 +26856,17 @@
    "last_seen": "2026-11-12"
   },
   {
+   "video_id": "nIeUCowO3-A",
+   "title": "【GTA6隠れレア車両】ワイスピの三菱エクリプスがガレージに眠っている・入手できるのか？",
+   "url": "https://www.youtube.com/watch?v=nIeUCowO3-A",
+   "lang": "ja",
+   "game": "GTA Online",
+   "date": "2026-11-19",
+   "views": 10380,
+   "first_seen": "2026-11-20",
+   "last_seen": "2026-11-20"
+  },
+  {
    "video_id": "nIzxj_alJiw",
    "title": "GTA Online - Biohazard Outbreak (by lezou_playzzz) | Community Mission Series",
    "channel": "",
@@ -26831,7 +26900,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-18",
-   "views": 281552,
+   "views": 281362,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-20"
@@ -27171,7 +27240,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-05",
-   "views": 4236060,
+   "views": 4248452,
    "kind": "",
    "first_seen": "2026-11-05",
    "last_seen": "2026-11-20"
@@ -28035,10 +28104,10 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 5404,
+   "views": 5893,
    "kind": "",
    "first_seen": "2026-11-19",
-   "last_seen": "2026-11-19"
+   "last_seen": "2026-11-20"
   },
   {
    "video_id": "pYHeZVyLb1A",
@@ -28119,6 +28188,17 @@
    "last_seen": "2026-10-08"
   },
   {
+   "video_id": "pkUvAiVYciQ",
+   "title": "GTA6 俠盜獵車手6 | 休息完畢! 繼續衝刺! 吃飽就開! #3 連作夢都再玩XD! - 莎皮塞維爾",
+   "url": "https://www.youtube.com/watch?v=pkUvAiVYciQ",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-20",
+   "views": 0,
+   "first_seen": "2026-11-20",
+   "last_seen": "2026-11-20"
+  },
+  {
    "video_id": "pkx38eF47J8",
    "title": "[GTA5]你還記得13年前的洛聖都嗎？這次真的要說再見了  #shorts #gta #gta5 #gtav",
    "channel": "",
@@ -28139,7 +28219,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 245135,
+   "views": 254385,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-20"
@@ -28565,11 +28645,13 @@
   {
    "video_id": "qbhJRtgCx30",
    "title": "GTA 6: How to Change Clothes, Customize Outfits, and Store Clothes in Your Car",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=qbhJRtgCx30",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-20",
    "views": 508,
+   "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-20"
   },
@@ -28981,11 +29063,13 @@
   {
    "video_id": "rQLEb0W7REo",
    "title": "GTA 6 Walkthrough Gameplay Part 1 - INTRO (GRAND THEFT AUTO 6)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=rQLEb0W7REo",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-18",
    "views": 7060372,
+   "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-20"
   },
@@ -29634,7 +29718,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 7837645,
+   "views": 7838436,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-20"
@@ -29707,11 +29791,13 @@
   {
    "video_id": "sbm1v8R9cHU",
    "title": "The headphones in GTA 6 have an actual in-game use! #gta6",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=sbm1v8R9cHU",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-20",
    "views": 6304,
+   "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-20"
   },
@@ -30037,7 +30123,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-10-22",
-   "views": 119671,
+   "views": 119730,
    "kind": "",
    "first_seen": "2026-10-22",
    "last_seen": "2026-11-20"
@@ -30474,11 +30560,13 @@
   {
    "video_id": "tu5KBkyjH8E",
    "title": "GTA6で近所の車に乗る方法#shorts",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=tu5KBkyjH8E",
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-19",
    "views": 325174,
+   "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-20"
   },
@@ -30585,6 +30673,17 @@
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-18"
+  },
+  {
+   "video_id": "u4XEbAYiDaI",
+   "title": "GTA 6 - Jimmy De Santa Returns (4K ULTRA HD)",
+   "url": "https://www.youtube.com/watch?v=u4XEbAYiDaI",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-20",
+   "views": 3692,
+   "first_seen": "2026-11-20",
+   "last_seen": "2026-11-20"
   },
   {
    "video_id": "u5sJaD38uTg",
@@ -31146,7 +31245,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-18",
-   "views": 284642,
+   "views": 287801,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-20"
@@ -31265,7 +31364,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 49038,
+   "views": 50343,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-20"
@@ -31765,6 +31864,18 @@
    "last_seen": "2026-11-10"
   },
   {
+   "video_id": "wJGPyAgcE2w",
+   "title": "《GTA 6》開局必做10件事！第一章別急著刷錢，錯過這些就來不及了！",
+   "channel": "游戏攻略解说",
+   "url": "https://www.youtube.com/watch?v=wJGPyAgcE2w",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-20",
+   "views": 358,
+   "first_seen": "2026-11-20",
+   "last_seen": "2026-11-20"
+  },
+  {
    "video_id": "wK66fYEULg4",
    "title": "Buried Stashes Locations for November 4 #gta5 #buried stashes #shorts",
    "channel": "",
@@ -32105,11 +32216,13 @@
   {
    "video_id": "x5AgQTAobR8",
    "title": "🔥【GTA6 實況】挑戰12小時不斷氣！1點到凌晨1點不關台，老高帶你肝爆罪惡城主線！(晚餐2小時回播昨日精華) (PS5/雙平台直播)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=x5AgQTAobR8",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-20",
    "views": 7401,
+   "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-20"
   },
@@ -32151,6 +32264,17 @@
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-19"
+  },
+  {
+   "video_id": "xA-B917WKY0",
+   "title": "GTA 6 – Jason and Lucia ROBBING Stores and Police Escape!",
+   "url": "https://www.youtube.com/watch?v=xA-B917WKY0",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-20",
+   "views": 519,
+   "first_seen": "2026-11-20",
+   "last_seen": "2026-11-20"
   },
   {
    "video_id": "xAVEGj969SY",
@@ -32238,7 +32362,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 9260443,
+   "views": 9266213,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-20"
@@ -32355,7 +32479,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-01",
-   "views": 175454,
+   "views": 175503,
    "kind": "",
    "first_seen": "2026-11-01",
    "last_seen": "2026-11-20"
@@ -32890,7 +33014,8 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 101986,
+   "views": 390954,
+   "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-20"
   },
@@ -33370,7 +33495,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-17",
-   "views": 142040,
+   "views": 142800,
    "kind": "",
    "first_seen": "2026-11-17",
    "last_seen": "2026-11-20"
