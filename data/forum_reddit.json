@@ -48,20 +48,8 @@
   "blurb": "Outbound to Reddit. Title and date only."
  },
  {
-  "id": "45507eb0cedb38d62d9ad26bddb29d4d",
-  "rank": 5,
-  "title": "Weekly Bonuses and Discounts - 9/15 to 9/22 - Reddit",
-  "author": "r/gtaonline",
-  "time": "2026-11-20",
-  "replies": null,
-  "source": "Reddit",
-  "game": "GTA Online",
-  "url": "https://www.reddit.com/r/gtaonline/comments/xesdbj/weekly_bonuses_and_discounts_915_to_922/",
-  "blurb": "Outbound to Reddit. Title and date only."
- },
- {
   "id": "2759d75796ec5923183bc0f8c1267e9c",
-  "rank": 6,
+  "rank": 5,
   "title": "Weekly Bonuses and Discounts - 6/9 to 6/16 : r/gtaonline - Reddit",
   "author": "r/gtaonline",
   "time": "2026-11-20",
@@ -73,7 +61,7 @@
  },
  {
   "id": "4d6184d2b78369d47b8085a29f686a76",
-  "rank": 7,
+  "rank": 6,
   "title": "Weekly Bonuses and Discounts - 1/6 to 1/12 : r/gtaonline - Reddit",
   "author": "r/gtaonline",
   "time": "2026-11-20",
@@ -81,6 +69,18 @@
   "source": "Reddit",
   "game": "GTA Online",
   "url": "https://www.reddit.com/r/gtaonline/comments/rxbuto/weekly_bonuses_and_discounts_16_to_112/",
+  "blurb": "Outbound to Reddit. Title and date only."
+ },
+ {
+  "id": "45507eb0cedb38d62d9ad26bddb29d4d",
+  "rank": 7,
+  "title": "Weekly Bonuses and Discounts - 9/15 to 9/22 - Reddit",
+  "author": "r/gtaonline",
+  "time": "2026-11-20",
+  "replies": null,
+  "source": "Reddit",
+  "game": "GTA Online",
+  "url": "https://www.reddit.com/r/gtaonline/comments/xesdbj/weekly_bonuses_and_discounts_915_to_922/",
   "blurb": "Outbound to Reddit. Title and date only."
  }
 ]
