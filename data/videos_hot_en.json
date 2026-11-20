@@ -1,33 +1,11 @@
 [
  {
-  "id": "qSyo5d-dVzA",
-  "video_id": "qSyo5d-dVzA",
-  "title": "🔴PLAYING GTA 6 EARLY ACCESS GAMEPLAY GET IN HERE!",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=qSyo5d-dVzA",
-  "views": 65743280,
-  "date": "2026-11-19",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "hwSg39yIBGU",
-  "video_id": "hwSg39yIBGU",
-  "title": "🔴PLAYING GTA 6 RIGHT NOW GET IN HERE!",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=hwSg39yIBGU",
-  "views": 33619355,
-  "date": "2026-11-20",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
   "id": "_yl5ELcmugI",
   "video_id": "_yl5ELcmugI",
   "title": "Grand Theft Auto VI: Out Now",
   "channel": "Rockstar Games",
   "url": "https://www.youtube.com/watch?v=_yl5ELcmugI",
-  "views": 19604069,
+  "views": 19669246,
   "date": "2026-11-10",
   "lang": "en",
   "game": "GTA 6"
@@ -38,8 +16,19 @@
   "title": "Grand Theft Auto VI: Pre-Load Now",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=TIPlpDAsfWo",
-  "views": 17379583,
+  "views": 17440368,
   "date": "2026-11-10",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "VZqAPdUvqnQ",
+  "video_id": "VZqAPdUvqnQ",
+  "title": "PLAYING GTA 6 FOR THE FIRST TIME (PART 1)",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=VZqAPdUvqnQ",
+  "views": 12107643,
+  "date": "2026-11-19",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -49,7 +38,18 @@
   "title": "GTA 6 LAUNCH STREAM! Playing GTA 6 for the First Time",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=xMXp80Cntxw",
-  "views": 9293294,
+  "views": 9298340,
+  "date": "2026-11-18",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "YDNs_sPEcJc",
+  "video_id": "YDNs_sPEcJc",
+  "title": "GTA 6 Gameplay Walkthrough Part 1 FULL GAME [4K PS5 PRO] - No Commentary",
+  "channel": "MKIceAndFire",
+  "url": "https://www.youtube.com/watch?v=YDNs_sPEcJc",
+  "views": 9252047,
   "date": "2026-11-18",
   "lang": "en",
   "game": "GTA 6"
@@ -60,7 +60,7 @@
   "title": "Grand Theft Auto VI: Pré-carregue agora",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=sXCiA142w8Y",
-  "views": 7835844,
+  "views": 7836027,
   "date": "2026-11-10",
   "lang": "en",
   "game": "GTA 6"
@@ -71,19 +71,30 @@
   "title": "GTA 6 - Stealing a Jet From the Military Base",
   "channel": "TmarTn2",
   "url": "https://www.youtube.com/watch?v=6E2cBXFCDyQ",
-  "views": 6643012,
+  "views": 7101196,
   "date": "2026-11-18",
   "lang": "en",
   "game": "GTA 6"
  },
  {
-  "id": "vVVIWEGciKk",
-  "video_id": "vVVIWEGciKk",
-  "title": "GTA 6 - Before You Buy",
+  "id": "H-4PyJlhI9g",
+  "video_id": "H-4PyJlhI9g",
+  "title": "PLAYING GTA 6 FOR THE FIRST TIME (PART 2)",
   "channel": "",
-  "url": "https://www.youtube.com/watch?v=vVVIWEGciKk",
-  "views": 5626156,
-  "date": "2026-11-18",
+  "url": "https://www.youtube.com/watch?v=H-4PyJlhI9g",
+  "views": 6463102,
+  "date": "2026-11-19",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "5tdj53ioJ-c",
+  "video_id": "5tdj53ioJ-c",
+  "title": "PLAYING GTA 6 FOR THE FIRST TIME (PART 3)",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=5tdj53ioJ-c",
+  "views": 4368822,
+  "date": "2026-11-20",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -93,19 +104,8 @@
   "title": "15 CRAZY Features In GTA 6 That Were NOT In GTA 5",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=o4nNjj44d4M",
-  "views": 4333874,
+  "views": 4347878,
   "date": "2026-11-05",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "RVpApoEkOao",
-  "video_id": "RVpApoEkOao",
-  "title": "Grand Theft Auto 6 - Part 1 - The Beginning",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=RVpApoEkOao",
-  "views": 3921851,
-  "date": "2026-11-18",
   "lang": "en",
   "game": "GTA 6"
  }
