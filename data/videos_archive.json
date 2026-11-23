@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T08:02:49Z",
+ "updated": "2026-11-23T10:03:35Z",
  "videos": [
   {
    "video_id": "-2WDkE81g6I",
@@ -676,7 +676,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-20",
-   "views": 424103,
+   "views": 428090,
    "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-23"
@@ -797,6 +797,17 @@
    "kind": "",
    "first_seen": "2026-11-21",
    "last_seen": "2026-11-22"
+  },
+  {
+   "video_id": "0KI9R1OTj7I",
+   "title": "全新特斯拉FSD V15 GTA6现实版 实时渲染 游戏画面 增强现实",
+   "url": "https://www.youtube.com/watch?v=0KI9R1OTj7I",
+   "lang": "zh",
+   "game": "GTA Online",
+   "date": "2026-11-23",
+   "views": 0,
+   "first_seen": "2026-11-23",
+   "last_seen": "2026-11-23"
   },
   {
    "video_id": "0LoZ9ew4WeE",
@@ -1438,11 +1449,13 @@
   {
    "video_id": "1Rxg5HXDIps",
    "title": "【GTA6初心者講座】これがグラセフ‼️無限お金稼ぎまとめ・第1章・第2章・第3章編",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=1Rxg5HXDIps",
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-23",
-   "views": 243,
+   "views": 2989,
+   "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-23"
   },
@@ -2615,7 +2628,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-23",
-   "views": 2642,
+   "views": 4010,
    "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-23"
@@ -2979,7 +2992,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-22",
-   "views": 30894,
+   "views": 31126,
    "kind": "",
    "first_seen": "2026-11-21",
    "last_seen": "2026-11-23"
@@ -3048,6 +3061,17 @@
    "kind": "short",
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07"
+  },
+  {
+   "video_id": "3YQPO0uU3Pg",
+   "title": "GTA 6 – Lucia’s Armored Truck Heist Turns Into a Highway Police Shootout! (Full Mission)",
+   "url": "https://www.youtube.com/watch?v=3YQPO0uU3Pg",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-23",
+   "views": 786,
+   "first_seen": "2026-11-23",
+   "last_seen": "2026-11-23"
   },
   {
    "video_id": "3YjlUN5V9iU",
@@ -3343,7 +3367,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-22",
-   "views": 450878,
+   "views": 479325,
    "kind": "",
    "first_seen": "2026-11-22",
    "last_seen": "2026-11-23"
@@ -4824,11 +4848,13 @@
   {
    "video_id": "6P2NKCnJsv8",
    "title": "【GTA6】入手できる最強戦車がやばい、謎解き手順解説、レジェンダリー武器2種も獲得可能",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=6P2NKCnJsv8",
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-23",
-   "views": 985,
+   "views": 4521,
+   "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-23"
   },
@@ -6170,7 +6196,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-11-16",
-   "views": 485581,
+   "views": 487535,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-23"
@@ -6770,7 +6796,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 649378,
+   "views": 655493,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-23"
@@ -7569,7 +7595,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-21",
-   "views": 853740,
+   "views": 877492,
    "kind": "",
    "first_seen": "2026-11-21",
    "last_seen": "2026-11-23"
@@ -9332,7 +9358,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-23",
-   "views": 1095,
+   "views": 1160,
    "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-23"
@@ -9893,7 +9919,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-23",
-   "views": 2108,
+   "views": 2960,
    "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-23"
@@ -12292,7 +12318,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-08",
-   "last_seen": "2026-11-22"
+   "last_seen": "2026-11-23"
   },
   {
    "video_id": "IigHvJvDYYw",
@@ -13803,6 +13829,17 @@
    "last_seen": "2026-11-09"
   },
   {
+   "video_id": "L6fxmqPI660",
+   "title": "GTA 6 Alligator Attack: Never Get This Close 🐊 #shorts",
+   "url": "https://www.youtube.com/watch?v=L6fxmqPI660",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-23",
+   "views": 340,
+   "first_seen": "2026-11-23",
+   "last_seen": "2026-11-23"
+  },
+  {
    "video_id": "L6jVvanYs_4",
    "title": "Grand Theft Auto VI: precarga ya",
    "channel": "",
@@ -15161,11 +15198,13 @@
   {
    "video_id": "NZ_CWzxZJ1o",
    "title": "🔴 FINISHING CHAPTER 4! 🔴 GTA 6 First Time Playthrough (Part 8)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=NZ_CWzxZJ1o",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-23",
    "views": 0,
+   "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-23"
   },
@@ -15198,11 +15237,13 @@
   {
    "video_id": "NixKoHGHxko",
    "title": "GTA 6 - Part 18 - Jason's Impossible Test",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=NixKoHGHxko",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-23",
-   "views": 27850,
+   "views": 43178,
+   "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-23"
   },
@@ -15578,7 +15619,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 23853558,
+   "views": 23965268,
    "kind": "",
    "first_seen": "2026-11-21",
    "last_seen": "2026-11-23"
@@ -16425,7 +16466,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-21",
-   "views": 427998,
+   "views": 435427,
    "kind": "",
    "first_seen": "2026-11-21",
    "last_seen": "2026-11-23"
@@ -16646,7 +16687,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 207008,
+   "views": 207169,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-23"
@@ -16789,7 +16830,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 41198694,
+   "views": 42608563,
    "kind": "",
    "first_seen": "2026-11-21",
    "last_seen": "2026-11-23"
@@ -17376,7 +17417,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-22",
-   "views": 42404,
+   "views": 44874,
    "kind": "",
    "first_seen": "2026-11-22",
    "last_seen": "2026-11-23"
@@ -17675,7 +17716,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-21",
-   "views": 21174384,
+   "views": 22460296,
    "kind": "",
    "first_seen": "2026-11-22",
    "last_seen": "2026-11-23"
@@ -17688,7 +17729,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-22",
-   "views": 221543,
+   "views": 235639,
    "kind": "",
    "first_seen": "2026-11-22",
    "last_seen": "2026-11-23"
@@ -18455,7 +18496,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-23",
-   "views": 8557,
+   "views": 11577,
    "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-23"
@@ -18574,7 +18615,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-22",
-   "views": 78257,
+   "views": 81580,
    "kind": "",
    "first_seen": "2026-11-22",
    "last_seen": "2026-11-23"
@@ -18626,7 +18667,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 18604943,
+   "views": 18622236,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-23"
@@ -18847,7 +18888,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 199592,
+   "views": 200398,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-23"
@@ -18985,6 +19026,17 @@
    "last_seen": "2026-11-18"
   },
   {
+   "video_id": "TwOopkiQ_Tc",
+   "title": "I Become A Fake Paddle And Trolled A GTA 5 Military👮💥😂 #gta #gtav #gtaonline",
+   "channel": "SpiceX Warrior",
+   "url": "https://www.youtube.com/shorts/TwOopkiQ_Tc",
+   "lang": "en",
+   "game": "GTA Online",
+   "kind": "short",
+   "first_seen": "2026-11-23",
+   "last_seen": "2026-11-23"
+  },
+  {
    "video_id": "TwPEwtI_ZkI",
    "title": "I Found the REAL Bar From the GTA 6 Trailer (Easter Eggs You Missed!)",
    "channel": "",
@@ -19018,7 +19070,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 1075816,
+   "views": 1090225,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-23"
@@ -19752,7 +19804,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-23",
-   "views": 28204,
+   "views": 37490,
    "kind": "",
    "first_seen": "2026-11-22",
    "last_seen": "2026-11-23"
@@ -20354,7 +20406,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-22",
-   "views": 81164,
+   "views": 87085,
    "kind": "",
    "first_seen": "2026-11-22",
    "last_seen": "2026-11-23"
@@ -20460,7 +20512,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-16",
-   "views": 422097,
+   "views": 422778,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-23"
@@ -21127,7 +21179,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-21",
-   "views": 12547297,
+   "views": 13150212,
    "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-23"
@@ -21939,7 +21991,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-23",
-   "views": 3510,
+   "views": 4345,
    "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-23"
@@ -22762,7 +22814,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-23",
-   "views": 55184,
+   "views": 81435,
    "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-23"
@@ -23087,7 +23139,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 20806583,
+   "views": 20818308,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-23"
@@ -23622,7 +23674,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 440420,
+   "views": 442745,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-23"
@@ -24378,7 +24430,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-22",
-   "views": 11739802,
+   "views": 12623120,
    "kind": "",
    "first_seen": "2026-11-22",
    "last_seen": "2026-11-23"
@@ -24469,7 +24521,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 242833,
+   "views": 242961,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-23"
@@ -25641,7 +25693,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 498958,
+   "views": 506448,
    "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-23"
@@ -26018,7 +26070,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 194053,
+   "views": 194259,
    "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-23"
@@ -26919,7 +26971,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-23",
-   "views": 116814,
+   "views": 189110,
    "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-23"
@@ -27946,7 +27998,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-18",
-   "views": 707938,
+   "views": 708436,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-23"
@@ -28167,7 +28219,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 37882090,
+   "views": 37951739,
    "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-23"
@@ -28953,6 +29005,17 @@
    "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-20"
+  },
+  {
+   "video_id": "j9a8-WrqzNM",
+   "title": "GTA6 俠盜獵車手6 | 短短幾天有如數月! 今天該結局了吧!? #8 暴雷禁止! - 莎皮塞維爾",
+   "url": "https://www.youtube.com/watch?v=j9a8-WrqzNM",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-23",
+   "views": 2618,
+   "first_seen": "2026-11-23",
+   "last_seen": "2026-11-23"
   },
   {
    "video_id": "j9yfyXRYIjs",
@@ -30751,6 +30814,17 @@
    "last_seen": "2026-11-17"
   },
   {
+   "video_id": "mTfsyuXvRRk",
+   "title": "特斯拉辅助驾驶FSD V15 | 增强现实 实时生成 Reality View GTA6",
+   "url": "https://www.youtube.com/watch?v=mTfsyuXvRRk",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-23",
+   "views": 0,
+   "first_seen": "2026-11-23",
+   "last_seen": "2026-11-23"
+  },
+  {
    "video_id": "mVWak4B5Kls",
    "title": "今夜はGTA6最新情報またはGTAオンラインアプデで何か起きる⁉️",
    "channel": "パパテラ【PAPATERA】",
@@ -31226,7 +31300,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-18",
-   "views": 300861,
+   "views": 301320,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-23"
@@ -31878,7 +31952,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 372666,
+   "views": 376100,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-23"
@@ -32677,7 +32751,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 566102,
+   "views": 571775,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-23"
@@ -33082,7 +33156,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 69463580,
+   "views": 69701144,
    "kind": "",
    "first_seen": "2026-11-17",
    "last_seen": "2026-11-23"
@@ -34013,6 +34087,17 @@
    "last_seen": "2026-11-21"
   },
   {
+   "video_id": "rv_u4ooT7F8",
+   "title": "《GTA VI》#13 新朋友 (第2章開始) | PS5 Pro 4K (阿俊+Eli一齊玩)",
+   "url": "https://www.youtube.com/watch?v=rv_u4ooT7F8",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-23",
+   "views": 3016,
+   "first_seen": "2026-11-23",
+   "last_seen": "2026-11-23"
+  },
+  {
    "video_id": "rvai36PfNns",
    "title": "【4K直播】GTA VI Live #01 - 洛聖都最後觀光團_20261119",
    "channel": "",
@@ -34572,6 +34657,17 @@
    "last_seen": "2026-11-03"
   },
   {
+   "video_id": "smbp0bBaAZs",
+   "title": "俠盜獵車手6 劇情攻略 (11) 牛拍射蘋果、午後歡艷、老兵打獵、有害材料",
+   "url": "https://www.youtube.com/watch?v=smbp0bBaAZs",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-23",
+   "views": 57,
+   "first_seen": "2026-11-23",
+   "last_seen": "2026-11-23"
+  },
+  {
    "video_id": "smsyEnqyzng",
    "title": "STOP DOING HEISTS! $1,100,000 IN 40 MINUTES | GTA Online",
    "channel": "",
@@ -35062,7 +35158,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-23",
-   "views": 1528,
+   "views": 2166,
    "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-23"
@@ -35595,7 +35691,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-23",
-   "views": 192,
+   "views": 520,
    "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-23"
@@ -36222,11 +36318,13 @@
   {
    "video_id": "vSbEcQ5ea28",
    "title": "Luxury Cars Location in GTA 6!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=vSbEcQ5ea28",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-23",
    "views": 9,
+   "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-23"
   },
@@ -37076,6 +37174,17 @@
    "last_seen": "2026-10-19"
   },
   {
+   "video_id": "x2I1Hw1IgVw",
+   "title": "GTA 6 – Michael's Son JIMMY DE SANTA Returns After 13 Years! (GTA 5 Cameo)",
+   "url": "https://www.youtube.com/watch?v=x2I1Hw1IgVw",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-23",
+   "views": 35,
+   "first_seen": "2026-11-23",
+   "last_seen": "2026-11-23"
+  },
+  {
    "video_id": "x3dhVTdvjQA",
    "title": "GTA Online: Street Dealers, Gun Van & Shipwreck Locations (November 6th 2026) - Ultimate Guide!",
    "channel": "",
@@ -37499,10 +37608,10 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 162325,
+   "views": 177804,
    "kind": "",
    "first_seen": "2026-11-21",
-   "last_seen": "2026-11-22"
+   "last_seen": "2026-11-23"
   },
   {
    "video_id": "xlrZNAOTFIE",
@@ -38255,7 +38364,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 58920486,
+   "views": 60997374,
    "kind": "",
    "first_seen": "2026-11-21",
    "last_seen": "2026-11-23"
@@ -38768,6 +38877,17 @@
    "last_seen": "2026-11-07"
   },
   {
+   "video_id": "zQe7yhH6N-s",
+   "title": "GTA 6: TOP 50 WTF & FUNNY MOMENTS!",
+   "url": "https://www.youtube.com/watch?v=zQe7yhH6N-s",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-23",
+   "views": 128,
+   "first_seen": "2026-11-23",
+   "last_seen": "2026-11-23"
+  },
+  {
    "video_id": "zSZwFsLEtN0",
    "title": "Things Escalated FAST in GTA V! 🔥 #gta5 #shorts #viral",
    "channel": "",
@@ -38978,6 +39098,17 @@
    "last_seen": "2026-11-19"
   },
   {
+   "video_id": "zqd2-8SvbEw",
+   "title": "《GTA VI》#14 首次打劫 | PS5 Pro 4K (阿俊+Eli一齊玩)",
+   "url": "https://www.youtube.com/watch?v=zqd2-8SvbEw",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-23",
+   "views": 1059,
+   "first_seen": "2026-11-23",
+   "last_seen": "2026-11-23"
+  },
+  {
    "video_id": "zr40i-_pzZU",
    "title": "GTA6 新手上手教學！這些圖示代表的意思是什麼？一次看懂｜《俠盜獵車手6》Grand Theft Auto VI",
    "channel": "",
@@ -39028,6 +39159,18 @@
    "kind": "",
    "first_seen": "2026-11-02",
    "last_seen": "2026-11-02"
+  },
+  {
+   "video_id": "zxRvryQjKAs",
+   "title": "《GTA6》《俠盜獵車手6》快速刷錢完整攻略！30秒約賺7200美元，不用反覆開車就能持續刷物資！",
+   "channel": "游戏攻略解说",
+   "url": "https://www.youtube.com/watch?v=zxRvryQjKAs",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-23",
+   "views": 21,
+   "first_seen": "2026-11-23",
+   "last_seen": "2026-11-23"
   },
   {
    "video_id": "zyKx0C8tZfw",
