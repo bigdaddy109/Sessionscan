@@ -1,34 +1,12 @@
 [
  {
-  "id": "ymCHX_Dcc-U",
-  "video_id": "ymCHX_Dcc-U",
-  "title": "I Survived 100 Hours In GTA 6",
-  "channel": "MrBeast Gaming",
-  "url": "https://www.youtube.com/watch?v=ymCHX_Dcc-U",
-  "views": 61786473,
-  "date": "2026-11-19",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "QQV-0OUGxGs",
-  "video_id": "QQV-0OUGxGs",
-  "title": "Whatever You Steal in GTA 6, You Keep!",
+  "id": "yaNIPn7mtyE",
+  "video_id": "yaNIPn7mtyE",
+  "title": "Grand Theft Auto VI: Pre-Load Now",
   "channel": "",
-  "url": "https://www.youtube.com/watch?v=QQV-0OUGxGs",
-  "views": 43174476,
-  "date": "2026-11-20",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "Ra6sNe8s2Hc",
-  "video_id": "Ra6sNe8s2Hc",
-  "title": "If You Steal a Car in GTA 6, I’ll Pay For It!",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=Ra6sNe8s2Hc",
-  "views": 22953353,
-  "date": "2026-11-21",
+  "url": "https://www.youtube.com/watch?v=yaNIPn7mtyE",
+  "views": 21301629,
+  "date": "2026-11-10",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -38,7 +16,7 @@
   "title": "Grand Theft Auto VI: Out Now",
   "channel": "Rockstar Games",
   "url": "https://www.youtube.com/watch?v=_yl5ELcmugI",
-  "views": 20833841,
+  "views": 20849213,
   "date": "2026-11-10",
   "lang": "en",
   "game": "GTA 6"
@@ -49,30 +27,8 @@
   "title": "Grand Theft Auto VI: Pre-Load Now",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=TIPlpDAsfWo",
-  "views": 18645827,
+  "views": 18667382,
   "date": "2026-11-10",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "XUTsngATFUk",
-  "video_id": "XUTsngATFUk",
-  "title": "$1 v $1,000,000 Car In GTA 6",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=XUTsngATFUk",
-  "views": 13391197,
-  "date": "2026-11-21",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "bpHpXic_LOQ",
-  "video_id": "bpHpXic_LOQ",
-  "title": "Walking Across The Entire Map In GTA 6!",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=bpHpXic_LOQ",
-  "views": 12889175,
-  "date": "2026-11-22",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -82,7 +38,7 @@
   "title": "GTA 6 Gameplay Walkthrough Part 1 FULL GAME [4K PS5 PRO] - No Commentary",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=YDNs_sPEcJc",
-  "views": 12143971,
+  "views": 12170044,
   "date": "2026-11-18",
   "lang": "en",
   "game": "GTA 6"
@@ -93,7 +49,7 @@
   "title": "Grand Theft Auto VI Now Available",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=T95WGWkx7P0",
-  "views": 10920619,
+  "views": 11045199,
   "date": "2026-11-19",
   "lang": "en",
   "game": "GTA 6"
@@ -104,8 +60,52 @@
   "title": "GTA 6 LAUNCH STREAM! Playing GTA 6 for the First Time",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=xMXp80Cntxw",
-  "views": 9336998,
+  "views": 9338552,
   "date": "2026-11-18",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "H-4PyJlhI9g",
+  "video_id": "H-4PyJlhI9g",
+  "title": "🌴PLAYING GTA 6 FOR THE FIRST TIME🌴 (DAY 1)",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=H-4PyJlhI9g",
+  "views": 6684214,
+  "date": "2026-11-19",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "5tdj53ioJ-c",
+  "video_id": "5tdj53ioJ-c",
+  "title": "🌴PLAYING GTA 6 FOR THE FIRST TIME🌴 (DAY 2)",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=5tdj53ioJ-c",
+  "views": 4607963,
+  "date": "2026-11-20",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "o4nNjj44d4M",
+  "video_id": "o4nNjj44d4M",
+  "title": "15 CRAZY Features In GTA 6 That Were NOT In GTA 5",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=o4nNjj44d4M",
+  "views": 4576552,
+  "date": "2026-11-05",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "dSDUAAr-w_g",
+  "video_id": "dSDUAAr-w_g",
+  "title": "BEATING GTA 6 *FINALE*",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=dSDUAAr-w_g",
+  "views": 3057253,
+  "date": "2026-11-21",
   "lang": "en",
   "game": "GTA 6"
  }
