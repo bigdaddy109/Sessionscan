@@ -1,11 +1,22 @@
 [
  {
+  "id": "yaNIPn7mtyE",
+  "video_id": "yaNIPn7mtyE",
+  "title": "Grand Theft Auto VI: Out Now",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=yaNIPn7mtyE",
+  "views": 21302262,
+  "date": "2026-11-10",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
   "id": "_yl5ELcmugI",
   "video_id": "_yl5ELcmugI",
   "title": "Grand Theft Auto VI: Out Now",
-  "channel": "Rockstar Games",
+  "channel": "",
   "url": "https://www.youtube.com/watch?v=_yl5ELcmugI",
-  "views": 20901567,
+  "views": 20913686,
   "date": "2026-11-10",
   "lang": "en",
   "game": "GTA 6"
@@ -16,8 +27,19 @@
   "title": "Grand Theft Auto VI: Pre-Load Now",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=TIPlpDAsfWo",
-  "views": 18740056,
+  "views": 18757666,
   "date": "2026-11-10",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "YDNs_sPEcJc",
+  "video_id": "YDNs_sPEcJc",
+  "title": "GTA 6 Gameplay Walkthrough Part 1 FULL GAME [4K PS5 PRO] - No Commentary",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=YDNs_sPEcJc",
+  "views": 12266818,
+  "date": "2026-11-18",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -27,7 +49,7 @@
   "title": "Grand Theft Auto VI Now Available",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=T95WGWkx7P0",
-  "views": 11489271,
+  "views": 11590825,
   "date": "2026-11-19",
   "lang": "en",
   "game": "GTA 6"
@@ -38,7 +60,7 @@
   "title": "GTA 6 LAUNCH STREAM! Playing GTA 6 for the First Time",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=xMXp80Cntxw",
-  "views": 9343003,
+  "views": 9343906,
   "date": "2026-11-18",
   "lang": "en",
   "game": "GTA 6"
@@ -49,7 +71,7 @@
   "title": "🌴PLAYING GTA 6 FOR THE FIRST TIME🌴 (DAY 1)",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=H-4PyJlhI9g",
-  "views": 6696279,
+  "views": 6699239,
   "date": "2026-11-19",
   "lang": "en",
   "game": "GTA 6"
@@ -60,19 +82,8 @@
   "title": "🌴PLAYING GTA 6 FOR THE FIRST TIME🌴 (DAY 2)",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=5tdj53ioJ-c",
-  "views": 4619053,
+  "views": 4621562,
   "date": "2026-11-20",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "o4nNjj44d4M",
-  "video_id": "o4nNjj44d4M",
-  "title": "15 CRAZY Features In GTA 6 That Were NOT In GTA 5",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=o4nNjj44d4M",
-  "views": 4582022,
-  "date": "2026-11-05",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -82,30 +93,19 @@
   "title": "GTA 6 WTF and Funny Moments! #2",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=dUYIMa2ifWM",
-  "views": 4576333,
+  "views": 4594352,
   "date": "2026-11-19",
   "lang": "en",
   "game": "GTA 6"
  },
  {
-  "id": "GMZzFJsf844",
-  "video_id": "GMZzFJsf844",
-  "title": "GTA 6 WTF and Funny Moments! #3",
-  "channel": "Zynxize",
-  "url": "https://www.youtube.com/watch?v=GMZzFJsf844",
-  "views": 3813742,
-  "date": "2026-11-20",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "RKHyVcR0aZc",
-  "video_id": "RKHyVcR0aZc",
-  "title": "The PERFECT Heist in GTA 6 (No Cops, No Alarms)",
+  "id": "o4nNjj44d4M",
+  "video_id": "o4nNjj44d4M",
+  "title": "15 CRAZY Features In GTA 6 That Were NOT In GTA 5",
   "channel": "",
-  "url": "https://www.youtube.com/watch?v=RKHyVcR0aZc",
-  "views": 3114485,
-  "date": "2026-11-20",
+  "url": "https://www.youtube.com/watch?v=o4nNjj44d4M",
+  "views": 4583132,
+  "date": "2026-11-05",
   "lang": "en",
   "game": "GTA 6"
  }
