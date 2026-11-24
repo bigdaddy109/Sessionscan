@@ -1,44 +1,11 @@
 [
  {
-  "id": "_yl5ELcmugI",
-  "video_id": "_yl5ELcmugI",
-  "title": "Grand Theft Auto VI: Out Now",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=_yl5ELcmugI",
-  "views": 21036576,
-  "date": "2026-11-10",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "TIPlpDAsfWo",
-  "video_id": "TIPlpDAsfWo",
-  "title": "Grand Theft Auto VI: Pre-Load Now",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=TIPlpDAsfWo",
-  "views": 18879302,
-  "date": "2026-11-10",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "T95WGWkx7P0",
-  "video_id": "T95WGWkx7P0",
-  "title": "Grand Theft Auto VI Now Available",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=T95WGWkx7P0",
-  "views": 12344849,
-  "date": "2026-11-19",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
   "id": "xMXp80Cntxw",
   "video_id": "xMXp80Cntxw",
   "title": "GTA 6 LAUNCH STREAM! Playing GTA 6 for the First Time",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=xMXp80Cntxw",
-  "views": 9351763,
+  "views": 9352899,
   "date": "2026-11-18",
   "lang": "en",
   "game": "GTA 6"
@@ -47,21 +14,21 @@
   "id": "vVVIWEGciKk",
   "video_id": "vVVIWEGciKk",
   "title": "GTA 6 - Before You Buy",
-  "channel": "gameranx",
+  "channel": "",
   "url": "https://www.youtube.com/watch?v=vVVIWEGciKk",
-  "views": 6376321,
+  "views": 6381560,
   "date": "2026-11-18",
   "lang": "en",
   "game": "GTA 6"
  },
  {
-  "id": "5tdj53ioJ-c",
-  "video_id": "5tdj53ioJ-c",
-  "title": "🌴PLAYING GTA 6 FOR THE FIRST TIME🌴 (DAY 2)",
+  "id": "uZGnqBLC60Y",
+  "video_id": "uZGnqBLC60Y",
+  "title": "IT'S FINALLY HERE | Grand Theft Auto 6 - Part 1",
   "channel": "",
-  "url": "https://www.youtube.com/watch?v=5tdj53ioJ-c",
-  "views": 4649427,
-  "date": "2026-11-20",
+  "url": "https://www.youtube.com/watch?v=uZGnqBLC60Y",
+  "views": 5127412,
+  "date": "2026-11-18",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -71,7 +38,7 @@
   "title": "15 CRAZY Features In GTA 6 That Were NOT In GTA 5",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=o4nNjj44d4M",
-  "views": 4592566,
+  "views": 4593232,
   "date": "2026-11-05",
   "lang": "en",
   "game": "GTA 6"
@@ -82,7 +49,7 @@
   "title": "GTA 6: 25 Things You NEED TO KNOW",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=A9fifS608C8",
-  "views": 3633561,
+  "views": 3634946,
   "date": "2026-11-14",
   "lang": "en",
   "game": "GTA 6"
@@ -93,7 +60,7 @@
   "title": "The PERFECT Heist in GTA 6 (No Cops, No Alarms)",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=RKHyVcR0aZc",
-  "views": 3357587,
+  "views": 3374932,
   "date": "2026-11-20",
   "lang": "en",
   "game": "GTA 6"
@@ -104,8 +71,41 @@
   "title": "GTA 6: 10 Things The Game DOESN'T TELL YOU",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=1yBSK22csvI",
-  "views": 3116709,
+  "views": 3127010,
   "date": "2026-11-19",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "r3oAEokOT5w",
+  "video_id": "r3oAEokOT5w",
+  "title": "15 Early Game Mistakes NOBODY Warned Me About (GTA 6)",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=r3oAEokOT5w",
+  "views": 2664690,
+  "date": "2026-11-20",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "Uu_WYzmKISg",
+  "video_id": "Uu_WYzmKISg",
+  "title": "Don't Ruin Your First GTA 6 Playthrough #gta6 #gta",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=Uu_WYzmKISg",
+  "views": 2623794,
+  "date": "2026-11-15",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "rDJVx4dw848",
+  "video_id": "rDJVx4dw848",
+  "title": "GTA 6: 20 MISTAKES YOU SHOULDN'T MAKE",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=rDJVx4dw848",
+  "views": 2280456,
+  "date": "2026-11-20",
   "lang": "en",
   "game": "GTA 6"
  }
