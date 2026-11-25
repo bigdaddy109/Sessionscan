@@ -1,44 +1,11 @@
 [
  {
-  "id": "ymCHX_Dcc-U",
-  "video_id": "ymCHX_Dcc-U",
-  "title": "I Survived 100 Hours In GTA 6",
-  "channel": "MrBeast Gaming",
-  "url": "https://www.youtube.com/watch?v=ymCHX_Dcc-U",
-  "views": 71573644,
-  "date": "2026-11-19",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "QQV-0OUGxGs",
-  "video_id": "QQV-0OUGxGs",
-  "title": "Whatever You Steal in GTA 6, You Keep!",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=QQV-0OUGxGs",
-  "views": 53390527,
-  "date": "2026-11-20",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "Ra6sNe8s2Hc",
-  "video_id": "Ra6sNe8s2Hc",
-  "title": "If You Steal a Car in GTA 6, I’ll Pay For It!",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=Ra6sNe8s2Hc",
-  "views": 31484833,
-  "date": "2026-11-21",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
   "id": "_yl5ELcmugI",
   "video_id": "_yl5ELcmugI",
   "title": "Grand Theft Auto VI: Out Now",
   "channel": "Rockstar Games",
   "url": "https://www.youtube.com/watch?v=_yl5ELcmugI",
-  "views": 21175207,
+  "views": 21186020,
   "date": "2026-11-10",
   "lang": "en",
   "game": "GTA 6"
@@ -49,30 +16,8 @@
   "title": "Grand Theft Auto VI: Pre-Load Now",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=TIPlpDAsfWo",
-  "views": 19048387,
+  "views": 19060394,
   "date": "2026-11-10",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "bpHpXic_LOQ",
-  "video_id": "bpHpXic_LOQ",
-  "title": "Walking Across The Entire Map In GTA 6!",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=bpHpXic_LOQ",
-  "views": 18218829,
-  "date": "2026-11-22",
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "XUTsngATFUk",
-  "video_id": "XUTsngATFUk",
-  "title": "$1 v $1,000,000 Car In GTA 6",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=XUTsngATFUk",
-  "views": 17588251,
-  "date": "2026-11-21",
   "lang": "en",
   "game": "GTA 6"
  },
@@ -82,7 +27,7 @@
   "title": "Grand Theft Auto VI Now Available",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=T95WGWkx7P0",
-  "views": 13293764,
+  "views": 13363415,
   "date": "2026-11-19",
   "lang": "en",
   "game": "GTA 6"
@@ -93,19 +38,74 @@
   "title": "GTA 6 LAUNCH STREAM! Playing GTA 6 for the First Time",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=xMXp80Cntxw",
-  "views": 9361091,
+  "views": 9361797,
   "date": "2026-11-18",
   "lang": "en",
   "game": "GTA 6"
  },
  {
-  "id": "sXCiA142w8Y",
-  "video_id": "sXCiA142w8Y",
-  "title": "Grand Theft Auto VI: Pré-carregue agora",
+  "id": "o4nNjj44d4M",
+  "video_id": "o4nNjj44d4M",
+  "title": "15 CRAZY Features In GTA 6 That Were NOT In GTA 5",
   "channel": "",
-  "url": "https://www.youtube.com/watch?v=sXCiA142w8Y",
-  "views": 7837042,
+  "url": "https://www.youtube.com/watch?v=o4nNjj44d4M",
+  "views": 4599030,
+  "date": "2026-11-05",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "r3oAEokOT5w",
+  "video_id": "r3oAEokOT5w",
+  "title": "15 Early Game Mistakes NOBODY Warned Me About (GTA 6)",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=r3oAEokOT5w",
+  "views": 2700981,
+  "date": "2026-11-20",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "AvBcfBrBl60",
+  "video_id": "AvBcfBrBl60",
+  "title": "Grand Theft Auto VI: The Festival",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=AvBcfBrBl60",
+  "views": 2487128,
   "date": "2026-11-10",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "h32xa5IZ6YI",
+  "video_id": "h32xa5IZ6YI",
+  "title": "Grand Theft Auto VI: Jetzt vorab herunterladen",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=h32xa5IZ6YI",
+  "views": 1369927,
+  "date": "2026-11-10",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "_KQAnd0mSMI",
+  "video_id": "_KQAnd0mSMI",
+  "title": "Grand Theft Auto VI: Pre-Load Now",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=_KQAnd0mSMI",
+  "views": 1297434,
+  "date": "2026-11-10",
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "45FqURpMNCs",
+  "video_id": "45FqURpMNCs",
+  "title": "GTA 6 - CHAPTER 2! Playing GTA 6 for the First Time",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=45FqURpMNCs",
+  "views": 1053342,
+  "date": "2026-11-19",
   "lang": "en",
   "game": "GTA 6"
  }
