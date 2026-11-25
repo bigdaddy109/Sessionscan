@@ -492,14 +492,38 @@
   "game": "GTA Online"
  },
  {
-  "id": "556b05b4d02bcb85e4eda1e01dee10a3",
-  "tid": "2124867612450386302",
-  "url": "https://x.com/rockstargames/status/2124867612450386302",
-  "author": "rockstargames",
-  "author_name": "Rockstar Games",
-  "text": "Grand Theft Auto VI: The Album (Deluxe Edition) \n\nFeaturing 23 bonus tracks from across Grand Theft Auto VI, including contributions from The Dare, Slayyyter, Denzel Curry, HEALTH, Power Trip, Real Dimez x Sexyy Red, and many more.\n\nListen now: https://gtavi-thealbum.lnk.to/deluxeedition",
-  "date": "2026-11-23",
+  "id": "77128f5fb68c71240dba3fcc9876c6ef",
+  "tid": "2125312321715413433",
+  "url": "https://x.com/nitrix79/status/2125312321715413433",
+  "author": "nitrix79",
+  "author_name": "Nitrix",
+  "text": "It’s Rockstar’s fault for taking so long to release GTA 6 on PC. I feel bad for PC players. GTA 6 should’ve been available at launch on PC. It’s ridiculous how Rockstar doesn’t do day one PC ports of their games when like every other third party game publisher does these days.",
+  "date": "2026-11-24",
   "likes": null,
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "d9d8326f485a14f88a211e66e0430ca0",
+  "tid": "2125258781332533467",
+  "url": "https://x.com/RockstarGames/status/2125258781332533467",
+  "author": "RockstarGames",
+  "author_name": "Rockstar Games",
+  "text": "RT @PaniniAmerica: Grand Theft Auto VI official trading cards, coming soon from @PaniniAmerica and @RockstarGames. https://t.co/H1VrYVXTm5",
+  "date": "2026-11-24",
+  "likes": 0,
+  "lang": "en",
+  "game": "GTA 6"
+ },
+ {
+  "id": "beaa7634867c70ee62ec734d972465f3",
+  "tid": "2124867612450386302",
+  "url": "https://x.com/RockstarGames/status/2124867612450386302",
+  "author": "RockstarGames",
+  "author_name": "Rockstar Games",
+  "text": "Grand Theft Auto VI: The Album (Deluxe Edition) \n\nFeaturing 23 bonus tracks from across Grand Theft Auto VI, including contributions from The Dare, Slayyyter, Denzel Curry, HEALTH, Power Trip, Real Dimez x Sexyy Red, and many more.\n\nListen now: https://t.co/x5YviNe10X https://t.co/C2JFjPhmEs",
+  "date": "2026-11-23",
+  "likes": 25612,
   "lang": "en",
   "game": "GTA 6"
  },
@@ -934,29 +958,5 @@
   "likes": null,
   "lang": "en",
   "game": "GTA 5"
- },
- {
-  "id": "d6276732ef26e688e1e0a8474434e5d6",
-  "tid": "2124486946600972626",
-  "url": "https://x.com/gta6newshub/status/2124486946600972626",
-  "author": "gta6newshub",
-  "author_name": "GTA 6 News",
-  "text": "You can grab 9 free legendary weapons in GTA VI Chapter 1.\n\nThe one to watch for: Donnie’s H&L .38. Open his trunk during Don Gone BEFORE you destroy the car.\n\nSave the route and Crabshack codes for your Chapter 1 run.\n\n#GTA6 #GTAVI",
-  "date": "2026-11-22",
-  "likes": null,
-  "lang": "en",
-  "game": "GTA 6"
- },
- {
-  "id": "69044f298a36b609c9c6b516e969d3f6",
-  "tid": "2124414770715758594",
-  "url": "https://x.com/planogaming/status/2124414770715758594",
-  "author": "planogaming",
-  "author_name": "Alex",
-  "text": "Apparently, there’s a glitch that lets you run GTA 6 at 60 FPS on Xbox Series X:\n- Go to Settings → General → TV & display options → Refresh rate → 60Hz\n- Launch GTA 6 and wait for the 6 stars to appear in the intro\n- Go back to Settings and switch the refresh rate to 120Hz\n- Open a different game via the Xbox Guide (don't close GTA 6)\n- Switch back to GTA 6 using Quick Resume",
-  "date": "2026-11-22",
-  "likes": null,
-  "lang": "en",
-  "game": "GTA 6"
  }
 ]
