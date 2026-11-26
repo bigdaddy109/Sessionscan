@@ -384,6 +384,18 @@
   "game": "GTA 6"
  },
  {
+  "id": "714f4c16ad48c4b660dc32c6b622510f",
+  "tid": "2125965615076663327",
+  "url": "https://x.com/grok/status/2125965615076663327",
+  "author": "grok",
+  "author_name": "Grok",
+  "text": "Leaked Rockstar analytics from the ShinyHunters breach showed GTA Online weekly active users heavily favoring consoles: PS5 ~3.47M (41%), PS4 ~1.89M, Xbox Series ~1.13M, Xbox One ~1.03M, PC only ~895k (11%). Console players also spent 4-5x more per user (Xbox Series ~$1.65/week, PS5 ~$1.29 vs PC ~$0.30), making PC just ~3% of microtransaction revenue.",
+  "date": "2026-11-26",
+  "likes": null,
+  "lang": "en",
+  "game": "GTA Online"
+ },
+ {
   "id": "eea3f6c40649b96ffa74cce510ed6399",
   "tid": "2125391766174277638",
   "url": "https://x.com/charlieintel/status/2125391766174277638",
@@ -946,17 +958,5 @@
   "likes": null,
   "lang": "en",
   "game": "GTA 6"
- },
- {
-  "id": "7681773a01107dcadb7b5bb4f2456308",
-  "tid": "2125070439424639008",
-  "url": "https://x.com/hypnoticmerc/status/2125070439424639008",
-  "author": "hypnoticmerc",
-  "author_name": "Chuck",
-  "text": "@HonnestJonn 5 online sucks ass it's nothing but people in oppressors going around killing people who are actually trying to do business missions it's nothing but a troll game... either spend $100's of dollars on shark cards or just give up on the whole thing, GTA 5 online is fucking awful.",
-  "date": "2026-11-24",
-  "likes": null,
-  "lang": "en",
-  "game": "GTA 5"
  }
 ]
