@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T08:02:53Z",
+ "updated": "2026-11-27T10:03:51Z",
  "videos": [
   {
    "video_id": "-2WDkE81g6I",
@@ -420,11 +420,13 @@
   {
    "video_id": "-eCGXfhpXeE",
    "title": "The GTA 6 UFO Mystery Is SOLVED",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=-eCGXfhpXeE",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-27",
    "views": 485,
+   "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
   },
@@ -620,7 +622,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-22",
-   "views": 243352,
+   "views": 244687,
    "kind": "",
    "first_seen": "2026-11-22",
    "last_seen": "2026-11-27"
@@ -778,7 +780,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-20",
-   "views": 495926,
+   "views": 496908,
    "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-27"
@@ -1844,7 +1846,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-26",
-   "views": 17801,
+   "views": 17946,
    "kind": "",
    "first_seen": "2026-11-26",
    "last_seen": "2026-11-27"
@@ -2015,7 +2017,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-27",
-   "views": 361,
+   "views": 400,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
@@ -2106,7 +2108,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-27",
-   "views": 6033,
+   "views": 6465,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
@@ -3291,7 +3293,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-27",
-   "views": 7541,
+   "views": 11210,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
@@ -3785,7 +3787,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-22",
-   "views": 787174,
+   "views": 790296,
    "kind": "",
    "first_seen": "2026-11-22",
    "last_seen": "2026-11-27"
@@ -4913,11 +4915,13 @@
   {
    "video_id": "5iZlIqH5UfI",
    "title": "《GTA VI》#24 高純度 (第3章開始) | PS5 Pro 4K (阿俊+Eli一齊玩)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=5iZlIqH5UfI",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-27",
-   "views": 197,
+   "views": 1600,
+   "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
   },
@@ -6482,7 +6486,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-27",
-   "views": 2601,
+   "views": 3409,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
@@ -6976,7 +6980,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-11-16",
-   "views": 520241,
+   "views": 520609,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-27"
@@ -7628,7 +7632,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 778737,
+   "views": 779580,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-27"
@@ -8305,11 +8309,13 @@
   {
    "video_id": "ACEuNSSYN7E",
    "title": "【現時点で最強】GTA6で最速のスーパーカーを無料で完全解除してもらう方法",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=ACEuNSSYN7E",
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-27",
-   "views": 182,
+   "views": 1453,
+   "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
   },
@@ -8529,7 +8535,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-21",
-   "views": 1446931,
+   "views": 1454064,
    "kind": "",
    "first_seen": "2026-11-21",
    "last_seen": "2026-11-27"
@@ -8897,7 +8903,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 2564662,
+   "views": 2567546,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-27"
@@ -9148,6 +9154,17 @@
    "kind": "",
    "first_seen": "2026-10-18",
    "last_seen": "2026-10-19"
+  },
+  {
+   "video_id": "BHYiPJDhxXI",
+   "title": "What Happens if you Reach N Marker in GTA 6 😱 #gta6 #gtavi #Nmarker",
+   "url": "https://www.youtube.com/watch?v=BHYiPJDhxXI",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-27",
+   "views": 1069,
+   "first_seen": "2026-11-27",
+   "last_seen": "2026-11-27"
   },
   {
    "video_id": "BHgJt1jW_LY",
@@ -11113,7 +11130,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-27",
-   "views": 763,
+   "views": 1081,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
@@ -11572,6 +11589,17 @@
    "kind": "",
    "first_seen": "2026-11-22",
    "last_seen": "2026-11-22"
+  },
+  {
+   "video_id": "EuR3k0f401U",
+   "title": "#20【GTA6メインミッション攻略】グランド・セフト・オート6【クロスタウン・トラフィック/信用調査】",
+   "url": "https://www.youtube.com/watch?v=EuR3k0f401U",
+   "lang": "ja",
+   "game": "GTA Online",
+   "date": "2026-11-27",
+   "views": 559,
+   "first_seen": "2026-11-27",
+   "last_seen": "2026-11-27"
   },
   {
    "video_id": "EwHrsDvjxIk",
@@ -12168,7 +12196,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-27",
-   "views": 2321,
+   "views": 2595,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
@@ -13838,6 +13866,18 @@
    "kind": "",
    "first_seen": "2026-11-25",
    "last_seen": "2026-11-25"
+  },
+  {
+   "video_id": "IQZ7nDLWfWc",
+   "title": "Why GTA 6 is bad.",
+   "channel": "AndyPants Gaming",
+   "url": "https://www.youtube.com/watch?v=IQZ7nDLWfWc",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-20",
+   "views": 1291713,
+   "first_seen": "2026-11-27",
+   "last_seen": "2026-11-27"
   },
   {
    "video_id": "IRdqWftdrB8",
@@ -18097,11 +18137,13 @@
   {
    "video_id": "OhT_1_ac-dU",
    "title": "🔥【俠盜獵車手6 GTA6】最速達成最完美結局！必知3大條件＋最終關鍵選擇，千萬別選錯！🔥｜全收集｜簡易流程攻略｜白金攻略｜Grand Theft Auto 6",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=OhT_1_ac-dU",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-27",
    "views": 110,
+   "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
   },
@@ -18243,7 +18285,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-27",
-   "views": 8837,
+   "views": 10489,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
@@ -18765,7 +18807,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-27",
-   "views": 4775,
+   "views": 6242,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
@@ -18804,7 +18846,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-21",
-   "views": 570376,
+   "views": 572541,
    "kind": "",
    "first_seen": "2026-11-21",
    "last_seen": "2026-11-27"
@@ -20054,7 +20096,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-23",
-   "views": 1151642,
+   "views": 1159290,
    "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-27"
@@ -21083,7 +21125,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 15092047,
+   "views": 15146114,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-27"
@@ -21174,7 +21216,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 19313646,
+   "views": 19320734,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-27"
@@ -21644,7 +21686,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 1370665,
+   "views": 1373649,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-27"
@@ -21657,7 +21699,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-26",
-   "views": 10736,
+   "views": 11123,
    "kind": "",
    "first_seen": "2026-11-26",
    "last_seen": "2026-11-27"
@@ -22040,7 +22082,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-26",
-   "views": 185053,
+   "views": 222696,
    "kind": "",
    "first_seen": "2026-11-26",
    "last_seen": "2026-11-27"
@@ -23104,13 +23146,13 @@
   },
   {
    "video_id": "W5L459RZG6w",
-   "title": "GTA 6: How to Get a Free ROCKET LAUNCHER, GRENADE LAUNCHER & Other Legendary Weapons Early!",
+   "title": "GTA 6: How to Get SECRET Legendary Weapons Early! (RPG, Grenade Launcher, Snipers & Gold Guns)",
    "channel": "TGG",
    "url": "https://www.youtube.com/watch?v=W5L459RZG6w",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-27",
-   "views": 3804,
+   "views": 10080,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
@@ -23733,11 +23775,13 @@
   {
    "video_id": "X2BDYmd9EPs",
    "title": "【阿金】新手菜鳥！第一次搶珠寶店！《GTA6》",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=X2BDYmd9EPs",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-27",
-   "views": 0,
+   "views": 2477,
+   "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
   },
@@ -24050,7 +24094,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-26",
-   "views": 10511,
+   "views": 10799,
    "kind": "",
    "first_seen": "2026-11-26",
    "last_seen": "2026-11-27"
@@ -26283,7 +26327,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 21434155,
+   "views": 21441059,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-27"
@@ -26896,7 +26940,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 502005,
+   "views": 502741,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-27"
@@ -27798,7 +27842,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-11-20",
-   "last_seen": "2026-11-20"
+   "last_seen": "2026-11-27"
   },
   {
    "video_id": "bvHe4OL5GaA",
@@ -29201,7 +29245,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 596332,
+   "views": 597441,
    "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-27"
@@ -29872,11 +29916,13 @@
   {
    "video_id": "ecuRMUzpIpg",
    "title": "【阿金】GTA6就是要這樣子玩！《GTA6》",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=ecuRMUzpIpg",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-27",
-   "views": 2191,
+   "views": 3300,
+   "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
   },
@@ -30070,7 +30116,7 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-26",
-   "views": 5697,
+   "views": 5801,
    "kind": "",
    "first_seen": "2026-11-26",
    "last_seen": "2026-11-27"
@@ -30228,7 +30274,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-20",
-   "views": 218418,
+   "views": 218427,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-27"
@@ -31348,10 +31394,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 1369927,
+   "views": 1370396,
    "kind": "",
    "first_seen": "2026-11-10",
-   "last_seen": "2026-11-25"
+   "last_seen": "2026-11-27"
   },
   {
    "video_id": "h3bvxCzgGp4",
@@ -31729,6 +31775,17 @@
    "kind": "",
    "first_seen": "2026-11-21",
    "last_seen": "2026-11-21"
+  },
+  {
+   "video_id": "hYegIqf6Yu8",
+   "title": "How to Unlock the Tommy Vercetti Outfit & Travel to OG Vice City in GTA 6! (Easter Egg Guide)",
+   "url": "https://www.youtube.com/watch?v=hYegIqf6Yu8",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-27",
+   "views": 3449,
+   "first_seen": "2026-11-27",
+   "last_seen": "2026-11-27"
   },
   {
    "video_id": "h_zkCypK11g",
@@ -33276,7 +33333,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 440329,
+   "views": 441826,
    "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-27"
@@ -33672,6 +33729,17 @@
    "last_seen": "2026-10-18"
   },
   {
+   "video_id": "kLUI_mZLJ5Q",
+   "title": "【阿航】GTA6 被阿婆搶劫!? 看我教訓她 Grand Theft Auto VI 實況精華",
+   "url": "https://www.youtube.com/watch?v=kLUI_mZLJ5Q",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-27",
+   "views": 1047,
+   "first_seen": "2026-11-27",
+   "last_seen": "2026-11-27"
+  },
+  {
    "video_id": "kLg9PipFORA",
    "title": "The WORST Organizations for Beginners in Grand RP (GTA 5 RP)",
    "channel": "",
@@ -33744,7 +33812,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-27",
-   "views": 28895,
+   "views": 29621,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
@@ -34355,7 +34423,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-22",
-   "views": 844039,
+   "views": 849819,
    "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-27"
@@ -36060,7 +36128,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-05",
-   "views": 4605051,
+   "views": 4605178,
    "kind": "",
    "first_seen": "2026-11-05",
    "last_seen": "2026-11-27"
@@ -36915,6 +36983,17 @@
    "last_seen": "2026-10-17"
   },
   {
+   "video_id": "pDPz4GjUIk8",
+   "title": "NEW【GTA6】またまた進化！壊れすぎマネーグリッチ・ブツ99個入手できる方法で100万ドル入手/EASY UNLIMITED MONEY GLITCH",
+   "url": "https://www.youtube.com/watch?v=pDPz4GjUIk8",
+   "lang": "ja",
+   "game": "GTA 6",
+   "date": "2026-11-26",
+   "views": 29347,
+   "first_seen": "2026-11-27",
+   "last_seen": "2026-11-27"
+  },
+  {
    "video_id": "pDZhLMseK9o",
    "title": "GTA6載具改裝系統真的離譜，超細節！改裝與第一臺車與手感測評 --威皮勁牛",
    "channel": "",
@@ -37236,7 +37315,7 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-13",
-   "views": 218028,
+   "views": 218584,
    "kind": "",
    "first_seen": "2026-11-13",
    "last_seen": "2026-11-27"
@@ -37314,7 +37393,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 671537,
+   "views": 672748,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-27"
@@ -37732,7 +37811,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-26",
-   "views": 15368,
+   "views": 15999,
    "kind": "",
    "first_seen": "2026-11-26",
    "last_seen": "2026-11-27"
@@ -38174,7 +38253,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 2741943,
+   "views": 2743244,
    "kind": "",
    "first_seen": "2026-11-24",
    "last_seen": "2026-11-27"
@@ -38691,11 +38770,13 @@
   {
    "video_id": "rhC5FDB_UsE",
    "title": "🔥【俠盜獵車手6 GTA6】掃描10個馬桶竟然送布加迪！最強隱藏超跑取得攻略！完整位置＋秘密基地＋車輛登記！🔥｜全收集｜簡易流程攻略｜白金攻略｜Grand Theft Auto 6",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=rhC5FDB_UsE",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-27",
    "views": 519,
+   "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
   },
@@ -39110,7 +39191,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 312588,
+   "views": 312988,
    "kind": "",
    "first_seen": "2026-11-22",
    "last_seen": "2026-11-27"
@@ -40477,7 +40558,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-24",
-   "views": 243921,
+   "views": 246849,
    "kind": "",
    "first_seen": "2026-11-26",
    "last_seen": "2026-11-27"
@@ -40652,6 +40733,17 @@
    "last_seen": "2026-10-25"
   },
   {
+   "video_id": "uObAnlU0MgI",
+   "title": "DON'T Finish Chapter 1 in GTA 6 Until You Do THIS!",
+   "url": "https://www.youtube.com/watch?v=uObAnlU0MgI",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-21",
+   "views": 1058736,
+   "first_seen": "2026-11-27",
+   "last_seen": "2026-11-27"
+  },
+  {
    "video_id": "uSacg_o-JII",
    "title": "【GTA6】衛報專訪全文：R星砸十億美金，只為了讓你狠不下心開槍！進了罪惡城你還下得去手嗎？",
    "channel": "",
@@ -40663,6 +40755,18 @@
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-18"
+  },
+  {
+   "video_id": "uTIqztw6g04",
+   "title": "GTA 6 - CHAPTER 4!",
+   "channel": "TGG",
+   "url": "https://www.youtube.com/watch?v=uTIqztw6g04",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-27",
+   "views": 9265,
+   "first_seen": "2026-11-27",
+   "last_seen": "2026-11-27"
   },
   {
    "video_id": "uUg5Agm8BNk",
@@ -41557,6 +41661,17 @@
    "last_seen": "2026-10-11"
   },
   {
+   "video_id": "vqTztOAOO1E",
+   "title": "GTA 6’s Central Hospital Rampage in Vice City Had “NO RUSSIAN” Vibes! | GTA 6 PS5 Pro Gameplay",
+   "url": "https://www.youtube.com/watch?v=vqTztOAOO1E",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-27",
+   "views": 484,
+   "first_seen": "2026-11-27",
+   "last_seen": "2026-11-27"
+  },
+  {
    "video_id": "vqjG_GilP5E",
    "title": "GTA 6: Tips & Tricks I Wish I Knew on Day 1",
    "channel": "",
@@ -41603,7 +41718,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-27",
-   "views": 2758,
+   "views": 3499,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
@@ -42305,7 +42420,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-21",
-   "views": 353425,
+   "views": 354333,
    "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-27"
@@ -43503,10 +43618,10 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 21317935,
+   "views": 21321835,
    "kind": "",
    "first_seen": "2026-11-10",
-   "last_seen": "2026-11-26"
+   "last_seen": "2026-11-27"
   },
   {
    "video_id": "yaZrnlU6-tY",
@@ -44391,6 +44506,17 @@
    "kind": "",
    "first_seen": "2026-10-11",
    "last_seen": "2026-10-12"
+  },
+  {
+   "video_id": "zjd8o8I2oEQ",
+   "title": "【阿金直播】GTA6人生第10天！高畫質4K直播！！！",
+   "url": "https://www.youtube.com/watch?v=zjd8o8I2oEQ",
+   "lang": "zh",
+   "game": "GTA Online",
+   "date": "2026-11-27",
+   "views": 234,
+   "first_seen": "2026-11-27",
+   "last_seen": "2026-11-27"
   },
   {
    "video_id": "zk25alcF7pI",
