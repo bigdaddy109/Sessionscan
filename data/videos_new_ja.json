@@ -5,7 +5,7 @@
   "title": "カヤックで色々検証しながら、大暴れする動画　【GTA6】",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=GFsWQ_ee5rM",
-  "views": 143958,
+  "views": 151040,
   "date": "2026-11-27",
   "lang": "ja",
   "game": "GTA 6"
@@ -16,7 +16,7 @@
   "title": "【GTA6】お金を無限複製できる方法がやばすぎる！即効で150万ドルずつ稼げる修正不可避技",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=bB73SOVsX4A",
-  "views": 12266,
+  "views": 24458,
   "date": "2026-11-27",
   "lang": "ja",
   "game": "GTA 6"
@@ -27,7 +27,7 @@
   "title": "NEW【GTA6】止まらない進化！10分で100万ドル！マネーバッググリッチ無限複製/EASY UNLIMITED MONEY GLITCH",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=hT9osv7TFw0",
-  "views": 1161,
+  "views": 2695,
   "date": "2026-11-27",
   "lang": "ja",
   "game": "GTA 6"
@@ -38,54 +38,10 @@
   "title": "【GTA6】話題の無限マネーグリッチが更に壊れてる件について検証/NEW EASY UNLIMITED MONEY GLITCH",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=OYI7Whn02PM",
-  "views": 6623,
+  "views": 7030,
   "date": "2026-11-27",
   "lang": "ja",
   "game": "GTA 6"
- },
- {
-  "id": "cl2lk64nY_Q",
-  "video_id": "cl2lk64nY_Q",
-  "title": "【GTA6遂に発売‼️】第3章バイスシティーで遂にクローンキーを手に入れる‼️世界で最も注目の予約で3500万本を突破中のGrandTheftAuto6 【ネタバレ注意】",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=cl2lk64nY_Q",
-  "views": 15783,
-  "date": "2026-11-27",
-  "lang": "ja",
-  "game": "GTA Online"
- },
- {
-  "id": "MitFU5QdijA",
-  "video_id": "MitFU5QdijA",
-  "title": "【GTA6進行不可能バグ情報】最新アップデート情報まとめ",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=MitFU5QdijA",
-  "views": 7455,
-  "date": "2026-11-27",
-  "lang": "ja",
-  "game": "GTA Online"
- },
- {
-  "id": "ACEuNSSYN7E",
-  "video_id": "ACEuNSSYN7E",
-  "title": "【現時点で最強】GTA6で最速のスーパーカーを無料で完全解除してもらう方法",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=ACEuNSSYN7E",
-  "views": 7990,
-  "date": "2026-11-27",
-  "lang": "ja",
-  "game": "GTA Online"
- },
- {
-  "id": "PplkY-SpZ7c",
-  "video_id": "PplkY-SpZ7c",
-  "title": "【高級車＆限定武器】GTA6で無料でメルセデスやロケランとスナイパーが簡単に貰える方法",
-  "channel": "",
-  "url": "https://www.youtube.com/watch?v=PplkY-SpZ7c",
-  "views": 10002,
-  "date": "2026-11-27",
-  "lang": "ja",
-  "game": "GTA Online"
  },
  {
   "id": "zYAxzgjL9hE",
@@ -99,12 +55,56 @@
   "game": "GTA 6"
  },
  {
+  "id": "cl2lk64nY_Q",
+  "video_id": "cl2lk64nY_Q",
+  "title": "【GTA6遂に発売‼️】第3章バイスシティーで遂にクローンキーを手に入れる‼️世界で最も注目の予約で3500万本を突破中のGrandTheftAuto6 【ネタバレ注意】",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=cl2lk64nY_Q",
+  "views": 16071,
+  "date": "2026-11-27",
+  "lang": "ja",
+  "game": "GTA Online"
+ },
+ {
+  "id": "MitFU5QdijA",
+  "video_id": "MitFU5QdijA",
+  "title": "【GTA6進行不可能バグ情報】最新アップデート情報まとめ",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=MitFU5QdijA",
+  "views": 8249,
+  "date": "2026-11-27",
+  "lang": "ja",
+  "game": "GTA Online"
+ },
+ {
+  "id": "ACEuNSSYN7E",
+  "video_id": "ACEuNSSYN7E",
+  "title": "【現時点で最強】GTA6で最速のスーパーカーを無料で完全解除してもらう方法",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=ACEuNSSYN7E",
+  "views": 8260,
+  "date": "2026-11-27",
+  "lang": "ja",
+  "game": "GTA Online"
+ },
+ {
+  "id": "PplkY-SpZ7c",
+  "video_id": "PplkY-SpZ7c",
+  "title": "【高級車＆限定武器】GTA6で無料でメルセデスやロケランとスナイパーが簡単に貰える方法",
+  "channel": "",
+  "url": "https://www.youtube.com/watch?v=PplkY-SpZ7c",
+  "views": 10219,
+  "date": "2026-11-27",
+  "lang": "ja",
+  "game": "GTA Online"
+ },
+ {
   "id": "bhBtpgW8gmY",
   "video_id": "bhBtpgW8gmY",
   "title": "ジェイソンが不倫してたら、ルシアはどんな反応をするのか検証　【GTA6】",
   "channel": "",
   "url": "https://www.youtube.com/watch?v=bhBtpgW8gmY",
-  "views": 287894,
+  "views": 289180,
   "date": "2026-11-26",
   "lang": "ja",
   "game": "GTA 6"
