@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T02:03:26Z",
+ "updated": "2026-11-28T04:03:35Z",
  "videos": [
   {
    "video_id": "-2WDkE81g6I",
@@ -100,10 +100,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-26",
-   "views": 101342,
+   "views": 109702,
    "kind": "",
    "first_seen": "2026-11-26",
-   "last_seen": "2026-11-27"
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "-D_wt4GXmNw",
@@ -1160,7 +1160,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-29",
-   "last_seen": "2026-11-27"
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "0nt66ygOnFw",
@@ -1794,10 +1794,10 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-25",
-   "views": 7945,
+   "views": 11393,
    "kind": "",
    "first_seen": "2026-11-25",
-   "last_seen": "2026-11-26"
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "1YrrTctJEZQ",
@@ -1941,6 +1941,17 @@
    "kind": "short",
    "first_seen": "2026-10-28",
    "last_seen": "2026-11-25"
+  },
+  {
+   "video_id": "1gBp2MsZmc0",
+   "title": "PS5 Grand Theft Auto VI 俠盜獵車手 6 Gameplay (No Commentary) 20261127",
+   "url": "https://www.youtube.com/watch?v=1gBp2MsZmc0",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-28",
+   "views": 6,
+   "first_seen": "2026-11-28",
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "1gFAuc5CpaY",
@@ -2323,12 +2334,14 @@
   },
   {
    "video_id": "243X1-2c0BY",
-   "title": "Making MILLIONS in Grand Theft Auto VI Chapter 4 STREAM! (First GTA 6 Play Through)",
+   "title": "Grand Theft Auto VI Chapter 4 STREAM! (First GTA 6 Play Through)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=243X1-2c0BY",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-28",
-   "views": 93,
+   "views": 398,
+   "kind": "",
    "first_seen": "2026-11-28",
    "last_seen": "2026-11-28"
   },
@@ -3863,7 +3876,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-22",
-   "views": 812274,
+   "views": 816439,
    "kind": "",
    "first_seen": "2026-11-22",
    "last_seen": "2026-11-28"
@@ -4074,7 +4087,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-11-27",
-   "last_seen": "2026-11-27"
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "4M2mHET0hmY",
@@ -5217,7 +5230,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-26",
-   "views": 316859,
+   "views": 336666,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-28"
@@ -5483,6 +5496,17 @@
    "kind": "",
    "first_seen": "2026-11-08",
    "last_seen": "2026-11-08"
+  },
+  {
+   "video_id": "6IkSHsHJF2I",
+   "title": "PS5 Grand Theft Auto VI 俠盜獵車手 6 Gameplay (No Commentary) 20261127",
+   "url": "https://www.youtube.com/watch?v=6IkSHsHJF2I",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-28",
+   "views": 1,
+   "first_seen": "2026-11-28",
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "6JDmuPZW0yw",
@@ -7108,7 +7132,7 @@
    "lang": "ja",
    "game": "GTA 5",
    "date": "2026-11-16",
-   "views": 523530,
+   "views": 523860,
    "kind": "",
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-28"
@@ -7633,7 +7657,7 @@
    "views": null,
    "kind": "short",
    "first_seen": "2026-10-31",
-   "last_seen": "2026-11-27"
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "9N5ztHZpK6g",
@@ -7773,7 +7797,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 786252,
+   "views": 787133,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-28"
@@ -8702,7 +8726,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-21",
-   "views": 1504122,
+   "views": 1512681,
    "kind": "",
    "first_seen": "2026-11-21",
    "last_seen": "2026-11-28"
@@ -9070,7 +9094,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 2595492,
+   "views": 2597880,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-28"
@@ -12640,7 +12664,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-22",
-   "views": 273676,
+   "views": 274268,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-28"
@@ -12731,7 +12755,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-27",
-   "views": 160960,
+   "views": 172833,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-28"
@@ -13056,10 +13080,10 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-25",
-   "views": 324145,
+   "views": 334753,
    "kind": "",
    "first_seen": "2026-11-25",
-   "last_seen": "2026-11-27"
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "Gfl8tFghzZ8",
@@ -13569,6 +13593,17 @@
    "last_seen": "2026-10-21"
   },
   {
+   "video_id": "HWAJhBt4PP4",
+   "title": "PS5 Grand Theft Auto VI 俠盜獵車手 6 Gameplay (No Commentary) 20261127",
+   "url": "https://www.youtube.com/watch?v=HWAJhBt4PP4",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-28",
+   "views": 4,
+   "first_seen": "2026-11-28",
+   "last_seen": "2026-11-28"
+  },
+  {
    "video_id": "HWGs6vY_JOQ",
    "title": "🔴 LIVE! - LAST GTA 6 STREAM before PIRATE TOKEN 10 DAY MARATHON!",
    "channel": "Typical Gamer",
@@ -13654,7 +13689,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-25",
-   "views": 2838378,
+   "views": 2887467,
    "kind": "",
    "first_seen": "2026-11-25",
    "last_seen": "2026-11-28"
@@ -13710,6 +13745,17 @@
    "kind": "",
    "first_seen": "2026-11-26",
    "last_seen": "2026-11-26"
+  },
+  {
+   "video_id": "HewVa-KveT4",
+   "title": "These Secret Unlocks Are A Game Changer In GTA 6... (Grand Theft Auto 6 Tips And Tricks)",
+   "url": "https://www.youtube.com/watch?v=HewVa-KveT4",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-28",
+   "views": 341,
+   "first_seen": "2026-11-28",
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "Hf4DJsrTBCc",
@@ -14366,11 +14412,13 @@
   {
    "video_id": "IZVmZyzJ2sQ",
    "title": "GTA 6 Has a HUGE Problem…",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=IZVmZyzJ2sQ",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-28",
-   "views": 1269,
+   "views": 4238,
+   "kind": "",
    "first_seen": "2026-11-28",
    "last_seen": "2026-11-28"
   },
@@ -15467,6 +15515,17 @@
    "last_seen": "2026-11-13"
   },
   {
+   "video_id": "K8ZHsBzHb08",
+   "title": "PS5 Grand Theft Auto VI 俠盜獵車手 6 Gameplay (No Commentary) 20261127",
+   "url": "https://www.youtube.com/watch?v=K8ZHsBzHb08",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-28",
+   "views": 3,
+   "first_seen": "2026-11-28",
+   "last_seen": "2026-11-28"
+  },
+  {
    "video_id": "K8mWZvCQlmw",
    "title": "GTA 6's NEW Trailer FINALLY Reveals What Rockstar Has Been Hiding...",
    "channel": "Hazard",
@@ -16332,7 +16391,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-21",
-   "views": 2929109,
+   "views": 2931100,
    "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-28"
@@ -18403,7 +18462,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-27",
-   "views": 7364,
+   "views": 7585,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-28"
@@ -19302,7 +19361,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-21",
-   "views": 587716,
+   "views": 589198,
    "kind": "",
    "first_seen": "2026-11-21",
    "last_seen": "2026-11-28"
@@ -21620,7 +21679,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 15610866,
+   "views": 15657525,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-28"
@@ -21711,7 +21770,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 19388033,
+   "views": 19393930,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-28"
@@ -21771,11 +21830,13 @@
   {
    "video_id": "TOhoGUcRzyg",
    "title": "GTA 6 How To Rob M7's Junkyard And Get The Golden AK, Unique Car Full Stealth Guide",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=TOhoGUcRzyg",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-28",
-   "views": 978,
+   "views": 3385,
+   "kind": "",
    "first_seen": "2026-11-28",
    "last_seen": "2026-11-28"
   },
@@ -21921,6 +21982,17 @@
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-15"
+  },
+  {
+   "video_id": "T_40nP_W1RY",
+   "title": "PS5 Grand Theft Auto VI 俠盜獵車手 6 Gameplay (No Commentary) 20261128",
+   "url": "https://www.youtube.com/watch?v=T_40nP_W1RY",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-28",
+   "views": 0,
+   "first_seen": "2026-11-28",
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "T_LoBbZh9kU",
@@ -22205,7 +22277,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 1398293,
+   "views": 1402940,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-28"
@@ -22360,11 +22432,13 @@
   {
    "video_id": "UJ0qj-1QkkA",
    "title": "《GTA6》《俠盜獵車手6》15輛稀有黃金載具完整收集攻略！隱藏彩蛋、黃金遊艇、取得位置全公開!",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=UJ0qj-1QkkA",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-28",
-   "views": 9,
+   "views": 98,
+   "kind": "",
    "first_seen": "2026-11-28",
    "last_seen": "2026-11-28"
   },
@@ -22876,6 +22950,17 @@
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-27"
+  },
+  {
+   "video_id": "UykCfVAfMLY",
+   "title": "PS5 Grand Theft Auto VI 俠盜獵車手 6 Gameplay (No Commentary) 20261127",
+   "url": "https://www.youtube.com/watch?v=UykCfVAfMLY",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-28",
+   "views": 5,
+   "first_seen": "2026-11-28",
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "UysUmb-eYT0",
@@ -26974,7 +27059,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-10",
-   "views": 21517197,
+   "views": 21525323,
    "kind": "",
    "first_seen": "2026-11-10",
    "last_seen": "2026-11-28"
@@ -27587,7 +27672,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 508047,
+   "views": 508375,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-28"
@@ -27873,7 +27958,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-27",
-   "views": 37482,
+   "views": 49207,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-28"
@@ -28367,7 +28452,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-26",
-   "views": 289180,
+   "views": 293973,
    "kind": "",
    "first_seen": "2026-11-26",
    "last_seen": "2026-11-28"
@@ -29627,11 +29712,13 @@
   {
    "video_id": "dLyjeiq1cAc",
    "title": "Reading Comments And Continuing The Story- Grand Theft Auto VI Part 8",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=dLyjeiq1cAc",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-28",
-   "views": 1753,
+   "views": 7075,
+   "kind": "",
    "first_seen": "2026-11-28",
    "last_seen": "2026-11-28"
   },
@@ -29695,9 +29782,20 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-21",
-   "views": 3241781,
+   "views": 3248310,
    "kind": "",
    "first_seen": "2026-11-21",
+   "last_seen": "2026-11-28"
+  },
+  {
+   "video_id": "dSDZfPuRGbY",
+   "title": "PS5 Grand Theft Auto VI 俠盜獵車手 6 Gameplay (No Commentary) 20261128",
+   "url": "https://www.youtube.com/watch?v=dSDZfPuRGbY",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-28",
+   "views": 1,
+   "first_seen": "2026-11-28",
    "last_seen": "2026-11-28"
   },
   {
@@ -30997,7 +31095,7 @@
    "lang": "zh",
    "game": "GTA Online",
    "date": "2026-11-20",
-   "views": 218441,
+   "views": 218442,
    "kind": "",
    "first_seen": "2026-11-18",
    "last_seen": "2026-11-28"
@@ -31428,10 +31526,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-27",
-   "views": 4721,
+   "views": 12539,
    "kind": "",
    "first_seen": "2026-11-27",
-   "last_seen": "2026-11-27"
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "fyT21-s4VZQ",
@@ -32546,7 +32644,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-27",
-   "views": 5106,
+   "views": 7800,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-28"
@@ -33458,7 +33556,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-27",
-   "views": 5247,
+   "views": 9763,
    "kind": "",
    "first_seen": "2026-11-28",
    "last_seen": "2026-11-28"
@@ -34097,10 +34195,10 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 218224,
+   "views": 218698,
    "kind": "",
    "first_seen": "2026-11-20",
-   "last_seen": "2026-11-27"
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "jdaixJMV7L8",
@@ -34136,7 +34234,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 448396,
+   "views": 449125,
    "kind": "",
    "first_seen": "2026-11-20",
    "last_seen": "2026-11-28"
@@ -35072,10 +35170,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-20",
-   "views": 365957,
+   "views": 452670,
    "kind": "",
    "first_seen": "2026-11-20",
-   "last_seen": "2026-11-22"
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "l6RnZ4Fb2mc",
@@ -35228,7 +35326,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-22",
-   "views": 907776,
+   "views": 916363,
    "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-28"
@@ -36222,6 +36320,17 @@
    "last_seen": "2026-10-22"
   },
   {
+   "video_id": "mvvxht_mJi8",
+   "title": "俠盜獵車手6 劇情攻略 (22) 商場鼠竄、雙生火焰、複製鑰匙，爽賺銀子、不飆則死",
+   "url": "https://www.youtube.com/watch?v=mvvxht_mJi8",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-28",
+   "views": 191,
+   "first_seen": "2026-11-28",
+   "last_seen": "2026-11-28"
+  },
+  {
    "video_id": "mwkPYESdeps",
    "title": "Is It Too Late to Start a GTA 6 Channel?",
    "channel": "",
@@ -36545,6 +36654,17 @@
    "kind": "",
    "first_seen": "2026-10-21",
    "last_seen": "2026-11-03"
+  },
+  {
+   "video_id": "nWEfoMnWTVM",
+   "title": "PS5 Grand Theft Auto VI 俠盜獵車手 6 Gameplay (No Commentary) 20261128",
+   "url": "https://www.youtube.com/watch?v=nWEfoMnWTVM",
+   "lang": "zh",
+   "game": "GTA 6",
+   "date": "2026-11-28",
+   "views": 3,
+   "first_seen": "2026-11-28",
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "nWiTojcTUNI",
@@ -36946,7 +37066,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-05",
-   "views": 4606172,
+   "views": 4606273,
    "kind": "",
    "first_seen": "2026-11-05",
    "last_seen": "2026-11-28"
@@ -37128,7 +37248,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-21",
-   "views": 1892325,
+   "views": 1898644,
    "kind": "",
    "first_seen": "2026-11-21",
    "last_seen": "2026-11-28"
@@ -37808,7 +37928,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-26",
-   "views": 46210,
+   "views": 46915,
    "kind": "",
    "first_seen": "2026-11-27",
    "last_seen": "2026-11-28"
@@ -38135,10 +38255,10 @@
    "lang": "zh",
    "game": "GTA 5",
    "date": "2026-11-13",
-   "views": 222499,
+   "views": 225648,
    "kind": "",
    "first_seen": "2026-11-13",
-   "last_seen": "2026-11-27"
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "paoCTUuUX5Y",
@@ -38213,7 +38333,7 @@
    "lang": "ja",
    "game": "GTA 6",
    "date": "2026-11-19",
-   "views": 682456,
+   "views": 683814,
    "kind": "",
    "first_seen": "2026-11-19",
    "last_seen": "2026-11-28"
@@ -38230,6 +38350,17 @@
    "kind": "",
    "first_seen": "2026-10-15",
    "last_seen": "2026-10-16"
+  },
+  {
+   "video_id": "pozUFVUCahs",
+   "title": "*NEW* BEST GTA 6 UNLIMITED MONEY GLITCH: $1,000,000 IN MINUTES!!",
+   "url": "https://www.youtube.com/watch?v=pozUFVUCahs",
+   "lang": "en",
+   "game": "GTA 6",
+   "date": "2026-11-28",
+   "views": 1891,
+   "first_seen": "2026-11-28",
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "ppfjlklttBw",
@@ -39073,7 +39204,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 2752663,
+   "views": 2753794,
    "kind": "",
    "first_seen": "2026-11-24",
    "last_seen": "2026-11-28"
@@ -40011,7 +40142,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-20",
-   "views": 320277,
+   "views": 321222,
    "kind": "",
    "first_seen": "2026-11-22",
    "last_seen": "2026-11-28"
@@ -41261,10 +41392,10 @@
    "lang": "ja",
    "game": "GTA Online",
    "date": "2026-11-19",
-   "views": 1237358,
+   "views": 1242868,
    "kind": "",
    "first_seen": "2026-11-20",
-   "last_seen": "2026-11-27"
+   "last_seen": "2026-11-28"
   },
   {
    "video_id": "tw9HG23qz3c",
@@ -41378,7 +41509,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-24",
-   "views": 272615,
+   "views": 276312,
    "kind": "",
    "first_seen": "2026-11-26",
    "last_seen": "2026-11-28"
@@ -43271,7 +43402,7 @@
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-21",
-   "views": 361925,
+   "views": 362993,
    "kind": "",
    "first_seen": "2026-11-23",
    "last_seen": "2026-11-28"
@@ -44098,11 +44229,13 @@
   {
    "video_id": "y3LiKWiNUJ0",
    "title": "This GTA 6 Loot Spot Makes You ULTRA RICH (Free Weapon)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=y3LiKWiNUJ0",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-28",
-   "views": 762,
+   "views": 1310,
+   "kind": "",
    "first_seen": "2026-11-28",
    "last_seen": "2026-11-28"
   },
@@ -44267,11 +44400,13 @@
   {
    "video_id": "yGmkW8i34XI",
    "title": "《俠盜獵車手 6》全破後 9 個優缺點老實說",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=yGmkW8i34XI",
    "lang": "zh",
    "game": "GTA 6",
    "date": "2026-11-28",
    "views": 1276,
+   "kind": "",
    "first_seen": "2026-11-28",
    "last_seen": "2026-11-28"
   },
@@ -44395,11 +44530,13 @@
   {
    "video_id": "ySxb8wmIruA",
    "title": "GTA 6: Easiest Way to Make Money in Chapter 3! ($100,000+)",
+   "channel": "",
    "url": "https://www.youtube.com/watch?v=ySxb8wmIruA",
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-28",
-   "views": 33,
+   "views": 119,
+   "kind": "",
    "first_seen": "2026-11-28",
    "last_seen": "2026-11-28"
   },
@@ -45451,7 +45588,7 @@
    "lang": "en",
    "game": "GTA 6",
    "date": "2026-11-28",
-   "views": 25,
+   "views": 45,
    "kind": "",
    "first_seen": "2026-10-27",
    "last_seen": "2026-11-28"
